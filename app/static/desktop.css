@@ -1,0 +1,20 @@
+html.desktop-host.desktop-collapsed { background:transparent!important; }
+body.desktop-host { background: transparent; }
+body.desktop-host .desktop-tools { position:fixed;top:8px;right:8px;z-index:1000;display:flex;align-items:center;gap:4px;padding:4px;border-radius:12px;background:rgba(31,31,40,.86);color:#fff;box-shadow:0 3px 14px #0002; }
+body.desktop-host .desktop-tools button { -webkit-app-region:no-drag;border:0;border-radius:8px;padding:7px 8px;background:transparent;color:#fff;cursor:pointer;font:12px/1.2 system-ui; }
+body.desktop-host .desktop-tools button:hover,body.desktop-host .desktop-tools button:focus-visible { background:#ffffff26;outline:2px solid transparent; }
+body.desktop-host .desktop-tools button:disabled { opacity:.4;cursor:not-allowed; }
+body.desktop-host .desktop-drag { -webkit-app-region:drag;cursor:grab;padding:4px 8px;user-select:none; }
+body.desktop-host [data-desktop-action=quit] { color:#ffc1c9; }
+body.desktop-host .desktop-tools [hidden] { display:none!important; }
+body.desktop-host .chat-collapse { display:none!important; }
+body.desktop-host:not(.desktop-collapsed) { padding-top:48px; }
+body.desktop-collapsed { overflow:hidden!important;background:transparent!important;min-width:0!important;min-height:0!important; }
+body.desktop-collapsed .rail,body.desktop-collapsed .workspace { display:none!important; }
+body.desktop-collapsed .shell { display:block!important;min-height:0!important;height:100vh!important;width:100%!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important; }
+body.desktop-collapsed .portrait { display:flex!important;align-items:center;justify-content:flex-end;position:relative!important;width:100%!important;height:100vh!important;min-height:0!important;padding:52px 12px 6px!important;background:transparent!important;border:0!important;border-radius:0!important;overflow:hidden!important; }
+body.desktop-collapsed .portrait::before,body.desktop-collapsed .portrait::after,body.desktop-collapsed .portrait-top,body.desktop-collapsed .portrait-bottom,body.desktop-collapsed .halo,body.desktop-collapsed .spark { display:none!important; }
+body.desktop-collapsed .illustration { width:100%!important;height:100%!important;max-height:none!important;position:relative!important;margin:0!important;display:flex!important;align-items:flex-end!important;justify-content:center!important; }
+body.desktop-collapsed .illustration img { width:100%!important;height:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center bottom!important;filter:drop-shadow(0 3px 4px #0002); }
+body.desktop-collapsed #toast { bottom:12px;max-width:calc(100vw - 20px);font-size:12px; }
+@media(prefers-reduced-motion:reduce){body.desktop-host *{animation:none!important;transition:none!important;}}

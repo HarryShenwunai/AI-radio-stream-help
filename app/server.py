@@ -1,6 +1,9 @@
 """小岚 · 单用户本地陪伴应用。Python 3.10+，HTTP/SQLite 仅使用标准库。"""
 from __future__ import annotations
 import argparse
+import base64
+from contextvars import ContextVar
+from collections import OrderedDict
 import contextlib
 import datetime as dt
 import hashlib
@@ -31,14 +34,14 @@ VOICE_DIR = Path(os.environ.get('COMPANION_VOICES', str(ROOT / 'voices')))
 QUALITY_MODEL = MODEL_DIR / 'qwen3-4b-instruct-2507-q4_k_m.gguf'
 LIGHT_MODEL = MODEL_DIR / 'qwen2.5-1.5b-instruct-q4_k_m.gguf'
 MODEL = QUALITY_MODEL if QUALITY_MODEL.exists() or not LIGHT_MODEL.exists() else LIGHT_MODEL
-VERSION = '0.3.0-dev1'
+VERSION = '0.4.0-dev1'
 DEFAULT = {
-    'name':'小岚', 'user_name':'你', 'personality':'温柔但有自己的主见，偶尔俏皮，喜欢自然简短的聊天。',
+    'name':'陪伴角色', 'user_name':'你', 'personality':'温柔但有自己的主见，偶尔俏皮，喜欢自然简短的聊天。',
     'engine':'local', 'api_base':'https://api.deepseek.com/v1', 'api_model':'deepseek-chat',
     'quiet_start':23, 'quiet_end':8, 'proactive':False, 'study':False,
     'voice':True, 'voice_rate':1.0,
     'memory_mode':'relevant', 'conversation_mode':'daily',
-    'character_notes':'偏爱轻快民谣，电影更喜欢带幽默的生活题材；喜欢有分寸的玩笑，不太喜欢刻意煽情。这些是设定偏好，不是现实经历。',
+    'character_notes':'',
 }
 MODEL_LOCK = threading.Lock()
 DB_LOCK = threading.RLock()
@@ -58,6 +61,8 @@ ACTIVE = {}
 # Network ingress must never receive this private scope or the browser cookie.
 sys.path.insert(0, str(ROOT.parent / 'src'))
 from companion_runtime.lifecycle import Scope, GenerationRegistry, GenerationCapacityError
+from companion_runtime.characters import CharacterStore, CharacterError, validate_name
+from companion_runtime.assets import AssetStore, AssetError
 PRIVATE_SCOPE = Scope('private', 'local-private')
 GENERATIONS = GenerationRegistry(max_entries=256, retention_seconds=600)
 
@@ -72,48 +77,336 @@ class AppError(Exception):
 
 def now(): return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
 
+PROFILE_CONTEXT = ContextVar('companion_profile', default=None)
+CATALOG_LOCK = threading.RLock()
+CHARACTER_MUTATION_LOCK = threading.RLock()
+CATALOGS = OrderedDict()
+
+
+def catalog():
+    key = str(DATA.resolve())
+    with CATALOG_LOCK:
+        store = CATALOGS.get(key)
+        if store is None:
+            store = CharacterStore(DATA)
+            store.bootstrap()
+            CATALOGS[key] = store
+            while len(CATALOGS) > 8:
+                CATALOGS.popitem(last=False)
+        return store
+
+
+def profile_id():
+    pinned = PROFILE_CONTEXT.get()
+    if pinned is not None and pinned[0] == str(DATA.resolve()):
+        return pinned[1]
+    return catalog().active()['id']
+
+
+@contextlib.contextmanager
+def profile_context(character_id=None):
+    """Pin all SQL in a request/job to one identity, including delayed work."""
+    target = character_id or profile_id()
+    catalog().get(target)
+    token = PROFILE_CONTEXT.set((str(DATA.resolve()), target))
+    try:
+        yield target
+    finally:
+        PROFILE_CONTEXT.reset(token)
+
+
+def private_scope():
+    profile = catalog().get(profile_id())
+    return Scope('private', profile['id'] + ':' + (profile.get('avatar_revision') or 'default'))
+
+
+def media_stamp():
+    profile = catalog().get(profile_id())
+    return profile['id'], profile.get('avatar_revision')
+
+
+def require_active_profile(expected=None):
+    current = profile_id()
+    if catalog().active()['id'] != current or (expected is not None and expected != current):
+        raise AppError('角色已切换，请刷新后重试。', 409)
+    return current
+
+
 @contextlib.contextmanager
 def db():
     with DB_LOCK:
-        conn=sqlite3.connect(DATA/'companion.db',timeout=10)
-        conn.row_factory=sqlite3.Row
+        path = catalog().db_path(profile_id())
+        conn = sqlite3.connect(path, timeout=10)
+        conn.row_factory = sqlite3.Row
         try:
             yield conn
             conn.commit()
         except Exception:
-            conn.rollback(); raise
-        finally: conn.close()
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
+
+
+def init_profile(character_id, inherited=None):
+    with profile_context(character_id):
+        profile = catalog().get(character_id)
+        defaults = {**DEFAULT, 'name': profile['name']}
+        if inherited:
+            for key in ('engine', 'api_base', 'api_model', 'voice', 'voice_rate', 'quiet_start', 'quiet_end'):
+                if key in inherited:
+                    defaults[key] = inherited[key]
+        with db() as c:
+            c.executescript("""
+            CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS messages(id INTEGER PRIMARY KEY AUTOINCREMENT,role TEXT NOT NULL,text TEXT NOT NULL,created TEXT NOT NULL,request_id TEXT,kind TEXT DEFAULT 'chat');
+            CREATE INDEX IF NOT EXISTS msg_request ON messages(request_id);
+            CREATE TABLE IF NOT EXISTS memories(id INTEGER PRIMARY KEY AUTOINCREMENT,text TEXT NOT NULL,created TEXT NOT NULL,source TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS tasks(id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,due REAL NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created TEXT NOT NULL,kind TEXT NOT NULL DEFAULT 'reminder');
+            CREATE TABLE IF NOT EXISTS audit(id INTEGER PRIMARY KEY AUTOINCREMENT,event TEXT NOT NULL,detail TEXT NOT NULL,created TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS forgotten(digest TEXT PRIMARY KEY,created TEXT NOT NULL);
+            """)
+            for key, value in defaults.items():
+                c.execute('INSERT OR IGNORE INTO settings VALUES(?,?)', (key, json.dumps(value, ensure_ascii=False)))
+            raw_name = json.loads(c.execute("SELECT value FROM settings WHERE key='name'").fetchone()[0])
+            try:
+                name = validate_name(raw_name)
+            except CharacterError:
+                name = profile['name']
+                c.execute('INSERT OR REPLACE INTO settings VALUES(?,?)', ('name', json.dumps(name, ensure_ascii=False)))
+                c.execute('INSERT INTO audit(event,detail,created) VALUES(?,?,?)', ('legacy_name_normalized', 'original retained in legacy database', now()))
+            if not c.execute('SELECT 1 FROM messages LIMIT 1').fetchone():
+                greeting = f'你好，我是{name}。想聊什么，都可以慢慢说。'
+                c.execute('INSERT INTO messages(role,text,created,kind) VALUES(?,?,?,?)', ('assistant', greeting, now(), 'welcome'))
+        with contextlib.suppress(OSError):
+            os.chmod(catalog().db_path(character_id), 0o600)
+        with DB_LOCK:
+            if not (DATA / 'connection.json').exists():
+                write_connection(settings())
+        # Preserve legacy/custom names instead of silently replacing them.
+        catalog().rename(character_id, settings()['name'])
+
 
 def init():
-    DATA.mkdir(parents=True,exist_ok=True)
-    with db() as c:
-        c.executescript('''
-        CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS messages(id INTEGER PRIMARY KEY AUTOINCREMENT,role TEXT NOT NULL,text TEXT NOT NULL,created TEXT NOT NULL,request_id TEXT,kind TEXT DEFAULT 'chat');
-        CREATE INDEX IF NOT EXISTS msg_request ON messages(request_id);
-        CREATE TABLE IF NOT EXISTS memories(id INTEGER PRIMARY KEY AUTOINCREMENT,text TEXT NOT NULL,created TEXT NOT NULL,source TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS tasks(id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,due REAL NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created TEXT NOT NULL,kind TEXT NOT NULL DEFAULT 'reminder');
-        CREATE TABLE IF NOT EXISTS audit(id INTEGER PRIMARY KEY AUTOINCREMENT,event TEXT NOT NULL,detail TEXT NOT NULL,created TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS forgotten(digest TEXT PRIMARY KEY,created TEXT NOT NULL);
-        ''')
-        for k,v in DEFAULT.items():c.execute('INSERT OR IGNORE INTO settings VALUES(?,?)',(k,json.dumps(v,ensure_ascii=False)))
-        if not c.execute('SELECT 1 FROM messages LIMIT 1').fetchone():
-            c.execute('INSERT INTO messages(role,text,created,kind) VALUES(?,?,?,?)',('assistant','嗨，我是小岚。你可以跟我说说今天的事，也可以慢慢告诉我，你喜欢怎样相处。',now(),'welcome'))
-    with contextlib.suppress(OSError):os.chmod(DATA/'companion.db',0o600)
+    DATA.mkdir(parents=True, exist_ok=True)
+    profile = catalog().bootstrap()
+    init_profile(profile['id'])
+
+
+def asset_store(character_id=None):
+    target = character_id or profile_id()
+    catalog().get(target)
+    return AssetStore(catalog().db_path(target).parent / 'assets')
+
+
+def asset_for_client(character_id, manifest):
+    value = json.loads(json.dumps(manifest))
+    for item in list(value.get('states', {}).values()) + [value.get('thumbnail', {})]:
+        if item.get('resource'):
+            item['url'] = '/api/assets/' + value['id'] + '/' + item['resource'] + '?character_id=' + character_id
+    return value
+
+
+def profile_for_client(profile, appearance=False):
+    value = dict(profile)
+    value['appearance_id'] = profile.get('avatar_revision')
+    if appearance:
+        value['appearance'] = None
+        if value['appearance_id']:
+            try:
+                value['appearance'] = asset_for_client(value['id'], asset_store(value['id']).get(value['appearance_id']))
+            except AssetError:
+                value['appearance_error'] = '外观文件已丢失，可重新导入或恢复默认。'
+    return value
+
+
+def characters_state():
+    return {'characters': [profile_for_client(p) for p in catalog().list(include_archived=True)],
+            'active_character_id': profile_id(),
+            'active_character': profile_for_client(catalog().get(profile_id()), appearance=True)}
+
+
+def invalidate_current_media():
+    with ACTIVE_LOCK:
+        current = GENERATIONS.current(private_scope())
+        if current is not None:
+            GENERATIONS.cancel(current.scope, generation_id=current.id, request_id=current.request_id)
+        for event in ACTIVE.values():
+            event.set()
+
+
+@contextlib.contextmanager
+def character_change():
+    """Serialize mutations; cancel first, then drain a cooperative generation."""
+    with CHARACTER_MUTATION_LOCK:
+        invalidate_current_media()
+        if not MODEL_LOCK.acquire(timeout=5):
+            raise AppError('上一轮仍在停止，请稍后重试。', 409)
+        try:
+            with DISPATCH_LOCK:
+                yield
+        finally:
+            MODEL_LOCK.release()
+
+
+def select_character(character_id):
+    catalog().get(character_id)
+    with character_change():
+        previous = profile_id()
+        if previous != character_id:
+            with profile_context(previous):
+                with db() as c:
+                    c.execute("UPDATE tasks SET status='paused' WHERE status='pending'")
+        selected = catalog().select(character_id)
+        init_profile(selected['id'])
+    with profile_context(selected['id']):
+        return state()
+
+
+def character_request(action, data):
+    if action == 'create':
+        name = validate_name(data.get('name', ''))
+        with character_change():
+            inherited = settings()
+            created = catalog().create(name)
+            try:
+                init_profile(created['id'], inherited=inherited)
+            except Exception:
+                catalog().delete(created['id'])
+                raise
+            with db() as c:
+                c.execute("UPDATE tasks SET status='paused' WHERE status='pending'")
+            catalog().select(created['id'])
+        with profile_context(created['id']):
+            return state()
+    target = data.get('id')
+    if action == 'select':
+        return select_character(target)
+    if action in {'archive', 'delete'}:
+        catalog().get(target)
+        with character_change():
+            if target == catalog().active()['id']:
+                other = next((p for p in catalog().list() if not p['archived'] and p['id'] != target), None)
+                if other is None:
+                    raise AppError('请至少保留一个可用角色。', 409)
+                with profile_context(target):
+                    with db() as c:
+                        c.execute("UPDATE tasks SET status='paused' WHERE status='pending'")
+                catalog().select(other['id'])
+                init_profile(other['id'])
+            else:
+                with profile_context(target):
+                    with db() as c:
+                        c.execute("UPDATE tasks SET status='paused' WHERE status='pending'")
+            result = getattr(catalog(), action)(target)
+        with profile_context(catalog().active()['id']):
+            return {**state(), 'operation': result}
+    if action == 'restore':
+        with CHARACTER_MUTATION_LOCK:
+            catalog().restore(target)
+        with profile_context(catalog().active()['id']):
+            return state()
+    raise AppError('角色操作不存在。', 404)
+
+
+def appearance_request(action, data):
+    target = data.get('character_id', profile_id())
+    profile = catalog().get(target)
+    if profile['archived']:
+        raise AppError('请先恢复这个角色。', 409)
+    if action == 'import':
+        raw = data.get('states')
+        if not isinstance(raw, dict) or not 1 <= len(raw) <= 4:
+            raise AppError('请选择待机图，可另选说话或眨眼图片。')
+        states, filenames = {}, {}
+        for key, item in raw.items():
+            if not isinstance(item, dict) or not isinstance(item.get('data_base64'), str):
+                raise AppError('图片上传格式不正确。')
+            encoded = item['data_base64']
+            if len(encoded) > 5_592_408:
+                raise AppError('单张图片不能超过4MiB。', 413)
+            try:
+                states[key] = base64.b64decode(encoded, validate=True)
+            except (ValueError, TypeError):
+                raise AppError('图片内容无法解码。')
+            filenames[key] = item.get('filename', key + '.png')
+        with CHARACTER_MUTATION_LOCK:
+            catalog().get(target)
+            store = asset_store(target)
+            if len(store.list_assets()) >= 30:
+                raise AppError('这个角色已保存30个外观，请先删除不用的修订。', 409)
+            manifest = store.import_png_states(states, filenames)
+        return {'asset': asset_for_client(target, manifest)}
+    if action == 'activate':
+        asset_id = data.get('asset_id')
+        if asset_id is not None:
+            asset_store(target).get(asset_id)
+        with character_change():
+            catalog().set_appearance(target, asset_id)
+        with profile_context(catalog().active()['id']):
+            return state()
+    if action == 'delete':
+        asset_id = data.get('asset_id')
+        with CHARACTER_MUTATION_LOCK:
+            asset_store(target).get(asset_id)
+            if catalog().get(target).get('avatar_revision') == asset_id:
+                raise AppError('请先切换外观，再删除当前修订。', 409)
+            return asset_store(target).delete(asset_id)
+    raise AppError('外观操作不存在。', 404)
+
 
 def audit(event,detail=''):
     with db() as c:c.execute('INSERT INTO audit(event,detail,created) VALUES(?,?,?)',(event,str(detail)[:180],now()))
 
+CONNECTION_FIELDS = ('engine', 'api_base', 'api_model')
+
+
+def connection_settings(fallback):
+    path = DATA / 'connection.json'
+    if not path.exists():
+        return {key: fallback[key] for key in CONNECTION_FIELDS}
+    try:
+        value = json.loads(path.read_text())
+        if not isinstance(value, dict) or any(not isinstance(value.get(key), str) for key in CONNECTION_FIELDS):
+            raise ValueError('invalid connection record')
+        return {key: value[key] for key in CONNECTION_FIELDS}
+    except (ValueError, OSError):
+        raise AppError('模型连接配置损坏，请恢复连接配置或检查备份。', 503)
+
+
+def write_connection(value):
+    record = {key: value[key] for key in CONNECTION_FIELDS}
+    record['credential_sha256'] = hashlib.sha256(secret_key().encode()).hexdigest()
+    target = DATA / 'connection.json'
+    temporary = DATA / ('.connection-' + secrets.token_hex(8) + '.tmp')
+    try:
+        with temporary.open('x', encoding='utf-8') as stream:
+            os.chmod(temporary, 0o600)
+            stream.write(json.dumps(record, ensure_ascii=False))
+        os.replace(temporary, target)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def settings():
-    with db() as c:return {r['key']:json.loads(r['value']) for r in c.execute('SELECT * FROM settings')}
+    with DB_LOCK:
+        with db() as c:
+            value = {r['key']: json.loads(r['value']) for r in c.execute('SELECT * FROM settings')}
+        value.update(connection_settings(value))
+        return value
 
 def secret_key():
     path=DATA/'api-key'
     return path.read_text().strip() if path.exists() else ''
 
 def set_settings(payload):
+    with DB_LOCK:
+        return _set_settings(payload)
+
+def _set_settings(payload):
     fields={'name','user_name','personality','engine','api_base','api_model','quiet_start','quiet_end','proactive','study','voice','voice_rate','memory_mode','conversation_mode','character_notes'}
     s=settings()
+    previous_connection = {key: s[key] for key in CONNECTION_FIELDS}
     for k in fields:
         if k not in payload:continue
         v=payload[k]
@@ -122,6 +415,7 @@ def set_settings(payload):
             v=v.strip()
             if len(v)>(1200 if k in {'personality','character_notes'} else 300):raise AppError('设置内容过长。')
             if k in {'name','api_model'} and not v:raise AppError('名字和模型名不能为空。')
+            if k == 'name':v = validate_name(v)
         if k=='engine' and v not in {'local','api'}:raise AppError('请选择本地模型或 API。')
         if k=='memory_mode' and v not in {'relevant','off'}:raise AppError('请选择按需记忆或只聊当下。')
         if k=='conversation_mode' and v not in {'daily','listen','playful'}:raise AppError('相处方式不正确。')
@@ -134,6 +428,10 @@ def set_settings(payload):
     if s['engine']=='api':validate_base(s['api_base'])
     if 'api_key' in payload and (not isinstance(payload['api_key'],str) or len(payload['api_key'])>4096):
         raise AppError('密钥格式不正确。')
+    old_origin = urllib.parse.urlsplit(previous_connection['api_base']).netloc
+    new_origin = urllib.parse.urlsplit(s['api_base']).netloc
+    if old_origin != new_origin and secret_key() and not payload.get('api_key','').strip() and not payload.get('clear_api_key'):
+        raise AppError('更换模型服务地址时，请填写新密钥或清除旧密钥。')
     with db() as c:
         for k in fields:c.execute('INSERT OR REPLACE INTO settings VALUES(?,?)',(k,json.dumps(s[k],ensure_ascii=False)))
         if payload.get('study') is False:
@@ -145,6 +443,8 @@ def set_settings(payload):
             path.write_text(v.strip());os.chmod(path,0o600)
     if payload.get('clear_api_key'):
         (DATA/'api-key').unlink(missing_ok=True)
+    write_connection(s)
+    catalog().rename(profile_id(), s['name'])
     audit('settings_changed',','.join(sorted(fields & payload.keys())))
 
 def validate_base(base):
@@ -272,7 +572,16 @@ class NoCrossHostRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(request,fp,code,msg,headers,newurl)
 
 def remote_tokens(s,messages,cancel,max_tokens=240):
-    base=validate_base(s['api_base']);key=secret_key()
+    with DB_LOCK:
+        current_connection = connection_settings(s)
+        if any(s[key] != current_connection[key] for key in CONNECTION_FIELDS):
+            raise AppError('模型连接已更新，请重新回答。', 409)
+        base=validate_base(s['api_base']);key=secret_key()
+        path = DATA / 'connection.json'
+        if path.exists():
+            expected = json.loads(path.read_text()).get('credential_sha256')
+            if expected != hashlib.sha256(key.encode()).hexdigest():
+                raise AppError('模型连接与密钥记录不一致，请在设置中重新保存连接。', 503)
     if not key and urllib.parse.urlsplit(base).hostname not in {'localhost','127.0.0.1','::1'}:
         raise AppError('请先在设置里填写模型 API 密钥。密钥只保存在本机。',503)
     body=json.dumps({'model':s['api_model'],'messages':messages,'max_tokens':max_tokens,'temperature':.75,'stream':True}).encode()
@@ -365,6 +674,8 @@ def validate_private_scope(payload):
     for key, expected in (('channel', 'private'), ('source', 'web'), ('session_id', 'local-private')):
         if key in payload and payload[key] != expected:
             raise AppError('此入口只接受本机私人会话。', 403)
+    if 'expected_character_id' in payload:
+        require_active_profile(payload['expected_character_id'])
     if any(key in payload for key in ('role', 'owner', 'permissions', 'scope')):
         raise AppError('不能通过消息声明身份或权限。', 403)
 
@@ -378,7 +689,7 @@ def cancel_chat(payload):
     if gid is not None and (not isinstance(gid, str) or not 1 <= len(gid) <= 160):
         raise AppError('生成标识格式不正确。')
     with ACTIVE_LOCK:
-        status = GENERATIONS.cancel(PRIVATE_SCOPE, request_id=rid, generation_id=gid)
+        status = GENERATIONS.cancel(private_scope(), request_id=rid, generation_id=gid)
     # This acknowledges invalidation, not interruption of an uncooperative provider.
     return {'ok': True, 'stopping': status == 'accepted', 'cancel_status': status}
 
@@ -386,13 +697,15 @@ def cancel_chat(payload):
 def speech_for_payload(payload):
     """Bind auto speech to the completed reply; check late results before delivery."""
     validate_private_scope(payload)
+    require_active_profile()
+    started_stamp = media_stamp()
     handle = None
     message_id = payload.get('message_id')
     gid, rid = payload.get('generation_id'), payload.get('request_id')
     if gid is not None or rid is not None:
         if message_id is not None or not isinstance(gid, str) or not isinstance(rid, str):
             raise AppError('语音需要成对的生成与请求标识。')
-        handle = GENERATIONS.resolve(PRIVATE_SCOPE, generation_id=gid, request_id=rid)
+        handle = GENERATIONS.resolve(private_scope(), generation_id=gid, request_id=rid)
         if handle is None:
             raise AppError('这轮声音已停止或过期。', 409)
         with db() as c:
@@ -416,6 +729,9 @@ def speech_for_payload(payload):
     if handle is not None and not GENERATIONS.is_current(handle):
         raise AppError('这轮声音已停止或过期。', 409)
     audio = synthesize(text)
+    require_active_profile()
+    if media_stamp() != started_stamp:
+        raise AppError('外观已经切换，旧声音已丢弃。', 409)
     if handle is not None and not GENERATIONS.is_current(handle):
         audit('audio_discarded', 'generation invalidated during synthesis')
         raise AppError('这轮声音已停止，迟到音频已丢弃。', 409)
@@ -437,6 +753,7 @@ def chat(payload,on_delta=None,on_meta=None,on_status=None):
     handle = None
     completed = False
     try:
+        require_active_profile()
         existing = None
         cached = None
         with db() as c:
@@ -470,24 +787,24 @@ def chat(payload,on_delta=None,on_meta=None,on_status=None):
         # No invalid/colliding request may invalidate current media.
         try:
             with ACTIVE_LOCK:
-                handle = GENERATIONS.begin(PRIVATE_SCOPE, rid)
+                handle = GENERATIONS.begin(private_scope(), rid)
                 cancel = handle.cancel_event
                 ACTIVE[rid] = cancel
         except GenerationCapacityError:
             raise AppError('生成状态已满，请稍后重试。', 503)
         if cached:
             if on_meta:
-                on_meta({'user': user, 'request_id': rid, 'generation_id': handle.generation_id})
+                on_meta({'user': user, 'request_id': rid, 'character_id': profile_id(), 'generation_id': handle.generation_id})
             with ACTIVE_LOCK:
                 check_cancel(cancel)
                 completed = GENERATIONS.complete(handle)
-            return {'message': dict(cached), 'cached': True, 'generation_id': handle.generation_id, 'request_id': rid}
+            return {'message': dict(cached), 'cached': True, 'character_id': profile_id(), 'generation_id': handle.generation_id, 'request_id': rid}
         if retry_id is None and not existing:
             with db() as c:
                 cur = c.execute('INSERT INTO messages(role,text,created,request_id) VALUES(?,?,?,?)', ('user', text, now(), rid))
                 user = dict(c.execute('SELECT * FROM messages WHERE id=?', (cur.lastrowid,)).fetchone())
         s=settings();messages=build_prompt(s,user['id'])
-        if on_meta:on_meta({'user':user,'request_id':rid,'generation_id':handle.generation_id})
+        if on_meta:on_meta({'user':user,'request_id':rid,'character_id':profile_id(),'generation_id':handle.generation_id})
         check_cancel(cancel)
         if text.startswith(('记住：','记住:')):
             fact=text[3:].strip()
@@ -506,14 +823,14 @@ def chat(payload,on_delta=None,on_meta=None,on_status=None):
                 cur=c.execute('INSERT INTO messages(role,text,created,request_id) VALUES(?,?,?,?)',('assistant',answer,now(),rid))
                 row=dict(c.execute('SELECT * FROM messages WHERE id=?',(cur.lastrowid,)).fetchone())
             completed = GENERATIONS.complete(handle)
-        return {'message':row,'generation_id':handle.generation_id,'request_id':rid}
+        return {'message':row,'character_id':profile_id(),'generation_id':handle.generation_id,'request_id':rid}
     except Cancelled:
         audit('generation_cancelled','user stopped; partial answer not saved')
-        return {'cancelled':True,'generation_id':handle.generation_id if handle else None,'request_id':rid}
+        return {'cancelled':True,'character_id':profile_id(),'generation_id':handle.generation_id if handle else None,'request_id':rid}
     finally:
         with ACTIVE_LOCK:
             if handle is not None and not completed:
-                GENERATIONS.cancel(PRIVATE_SCOPE, generation_id=handle.generation_id, request_id=rid)
+                GENERATIONS.cancel(private_scope(), generation_id=handle.generation_id, request_id=rid)
             ACTIVE.pop(rid,None)
         MODEL_LOCK.release()
 
@@ -566,6 +883,11 @@ def change_task(payload,action):
     audit('task_'+action,f'task={task_id};user initiated')
 
 def scheduler_tick(stamp=None):
+    with DISPATCH_LOCK:
+        with profile_context(catalog().active()['id']):
+            return _scheduler_tick(stamp)
+
+def _scheduler_tick(stamp=None):
     stamp=stamp or time.time();s=settings()
     with DISPATCH_LOCK:
         with db() as c:
@@ -632,6 +954,9 @@ def synthesize(text):
 def restore(payload):
     backup=payload.get('backup')
     if not isinstance(backup,dict):raise AppError('不是有效的备份文件。')
+    incoming_profile = backup.get('settings', {})
+    if isinstance(incoming_profile, dict) and 'name' in incoming_profile:
+        validate_name(incoming_profile['name'])
     ms=backup.get('messages',[]);facts=backup.get('memories',[]);tasks=backup.get('tasks',[])
     if not all(isinstance(x,list) for x in [ms,facts,tasks]) or len(ms)>160 or len(facts)>60 or len(tasks)>60:
         raise AppError('备份结构或大小不正确。')
@@ -658,11 +983,16 @@ def restore(payload):
                 if isinstance(profile,dict):
                     for k in ['name','user_name','personality','character_notes']:
                         if isinstance(profile.get(k),str) and 0<len(profile[k])<=1200:c.execute('INSERT OR REPLACE INTO settings VALUES(?,?)',(k,json.dumps(profile[k],ensure_ascii=False)))
+        catalog().rename(profile_id(), settings()['name'])
         audit('backup_restored',f'chat_skipped={bool(denied)}')
         return {'ok':True,'chat_skipped':bool(denied)}
     finally:MODEL_LOCK.release()
 
 def state():
+    with profile_context():
+        return _state()
+
+def _state():
     s=settings()
     with db() as c:
         result={
@@ -678,6 +1008,8 @@ def state():
                    'local_voice_available':(VOICE_DIR/'kokoro-v1.0.onnx').exists() and (VOICE_DIR/'voices-v1.0.bin').exists() and bool(importlib.util.find_spec('kokoro_onnx')),
                    'model_busy':MODEL_LOCK.locked(),'active_request_id':active_id,'timezone':str(dt.datetime.now().astimezone().tzinfo),
                    'wechat_available':False})
+    result.update(characters_state())
+    require_active_profile()
     return result
 
 class Handler(BaseHTTPRequestHandler):
@@ -694,7 +1026,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('X-Content-Type-Options','nosniff')
         self.send_header('X-Frame-Options','DENY')
         self.send_header('Referrer-Policy','no-referrer')
-        self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'")
+        self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'")
         if cookie:self.send_header('Set-Cookie',f'companion={AUTH}; HttpOnly; SameSite=Strict; Path=/')
         self.end_headers();self.wfile.write(body)
     def allowed_host(self):
@@ -726,21 +1058,55 @@ class Handler(BaseHTTPRequestHandler):
             audit('stream_error','internal failure; partial not saved')
             with contextlib.suppress(Cancelled):emit('error',{'error':'回复中断，消息已保留，可以重新回答。','status':500})
     def do_GET(self):
+        try:
+            with profile_context():
+                return self._get()
+        except (AppError, CharacterError, AssetError) as e:
+            self.reply(e.status, {'error': str(e)})
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
+    def _get(self):
         if not self.allowed_host():return self.reply(403,{'error':'此应用只允许本机访问。'})
         path=urllib.parse.urlsplit(self.path).path
         if path.startswith('/api/'):
             if not self.authenticated():return self.reply(401,{'error':'请先打开应用首页。'})
             if path=='/api/state':return self.reply(200,state())
+            if path=='/api/characters':return self.reply(200,characters_state())
+            if path=='/api/characters/assets':
+                query=urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
+                target=query.get('character_id',[profile_id()])[0]
+                with CHARACTER_MUTATION_LOCK:
+                    assets=[asset_for_client(target,a) for a in asset_store(target).list_assets()]
+                return self.reply(200,{'assets':assets})
+            if path.startswith('/api/assets/'):
+                parts=path.split('/')
+                if len(parts)!=5:raise AppError('资源不存在。',404)
+                query=urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
+                target=query.get('character_id',[profile_id()])[0]
+                with CHARACTER_MUTATION_LOCK:
+                    resource=asset_store(target).resolve(parts[3],parts[4])
+                    body=resource.read_bytes()
+                return self.reply(200,body,'image/png')
             if path=='/api/export':
-                data=state();data.pop('has_api_key',None)
+                data=state();data.pop('has_api_key',None);data.pop('characters',None)
                 self.reply(200,data);audit('data_exported','user initiated');return
             return self.reply(404,{'error':'接口不存在。'})
         if path=='/':path='/index.html'
-        if path not in {'/index.html','/app.js','/style.css','/avatar.svg'}:return self.reply(404,b'Not found','text/plain')
+        if path not in {'/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css'}:return self.reply(404,b'Not found','text/plain')
         file=STATIC/path.lstrip('/')
         if not file.is_file():return self.reply(404,b'Not found','text/plain')
         self.reply(200,file.read_bytes(),mimetypes.guess_type(str(file))[0] or 'application/octet-stream',cookie=path=='/index.html')
     def do_POST(self):
+        try:
+            with profile_context():
+                return self._post()
+        except (AppError, CharacterError, AssetError) as e:
+            self.reply(e.status, {'error': str(e)})
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
+    def _post(self):
         if not self.allowed_host() or not self.authenticated():return self.reply(403,{'error':'访问未授权。'})
         origin=self.headers.get('Origin')
         if origin and origin not in {f'http://127.0.0.1:{self.server.server_port}',f'http://localhost:{self.server.server_port}'}:
@@ -748,13 +1114,18 @@ class Handler(BaseHTTPRequestHandler):
         if self.headers.get('X-Companion')!='local-app':return self.reply(403,{'error':'缺少本机请求标识。'})
         try:
             size=int(self.headers.get('Content-Length','0'))
-            max_size=1_000_000 if urllib.parse.urlsplit(self.path).path=='/api/restore' else 20000
+            request_path=urllib.parse.urlsplit(self.path).path
+            max_size=12*1024*1024 if request_path=='/api/characters/assets/import' else (1_000_000 if request_path=='/api/restore' else 20000)
             if size<0 or size>max_size:raise AppError('请求过大。',413)
             data=json.loads(self.rfile.read(size) or b'{}')
             if not isinstance(data,dict):raise AppError('请求格式不正确。')
             path=urllib.parse.urlsplit(self.path).path
             validate_private_scope(data)
-            if path=='/api/speech':
+            if path.startswith('/api/characters/assets/'):
+                result=appearance_request(path.rsplit('/',1)[-1],data)
+            elif path.startswith('/api/characters/'):
+                result=character_request(path.rsplit('/',1)[-1],data)
+            elif path=='/api/speech':
                 return self.reply(200,speech_for_payload(data),'audio/wav')
             elif path=='/api/chat/stream':return self.stream_chat(data)
             elif path=='/api/chat/stop':result=cancel_chat(data)
@@ -803,7 +1174,7 @@ class Handler(BaseHTTPRequestHandler):
                 result={'ok':True}
             else:raise AppError('接口不存在。',404)
             self.reply(200,result)
-        except AppError as e:self.reply(e.status,{'error':str(e)})
+        except (AppError,CharacterError,AssetError) as e:self.reply(e.status,{'error':str(e)})
         except (ValueError,KeyError,TypeError,json.JSONDecodeError):self.reply(400,{'error':'输入格式不正确。'})
         except (BrokenPipeError,ConnectionResetError):pass
         except Exception:
@@ -811,7 +1182,7 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(500,{'error':'处理失败，数据已保留。请重试或查看运行终端。'})
 
 def main():
-    parser=argparse.ArgumentParser(description='小岚 · 本地虚拟女友')
+    parser=argparse.ArgumentParser(description='本地二次元陪伴应用')
     parser.add_argument('--port',type=int,default=8765)
     parser.add_argument('--no-browser',action='store_true')
     args=parser.parse_args()
@@ -819,7 +1190,7 @@ def main():
     server=ThreadingHTTPServer(('127.0.0.1',args.port),Handler)
     threading.Thread(target=scheduler_loop,daemon=True).start()
     url=f'http://127.0.0.1:{server.server_port}'
-    print(f'小岚 {VERSION} 已启动：{url}',flush=True)
+    print(f'本地陪伴 {VERSION} 已启动：{url}',flush=True)
     print('仅本机访问。关闭终端或按 Ctrl+C 停止；聊天和记忆保存在 data/。',flush=True)
     if not args.no_browser:
         import webbrowser

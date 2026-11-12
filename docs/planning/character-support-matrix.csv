@@ -1,0 +1,6 @@
+﻿tier,candidate_format,runtime_version,export_target,fixture_source,fixture_sha256,licence_check,load_result,status
+C0,transparent PNG,TBD,TBD,,,NOT_CHECKED,NOT_RUN,PLANNED
+C1,PNG states and app-generated mapping,TBD,TBD,,,NOT_CHECKED,NOT_RUN,PLANNED
+C2,Live2D runtime package,TBD,TBD,,,NOT_CHECKED,NOT_RUN,PLANNED
+C3,Live2D custom parameters and optional assets,TBD,TBD,,,NOT_CHECKED,NOT_RUN,PLANNED
+C4,VRM or other future renderer,TBD,TBD,,,NOT_CHECKED,NOT_RUN,DEFERRED

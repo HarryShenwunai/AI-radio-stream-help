@@ -16,7 +16,7 @@ started = time.monotonic()
 result = unittest.TextTestRunner(verbosity=2).run(suite)
 report = {
     'observed_at': dt.datetime.now(dt.timezone.utc).isoformat(),
-    'scope': 'local regression, isolated HTTP fixtures and protocol/unit checks',
+    'scope': 'local regression, character catalog/assets, isolated HTTP and protocol checks',
     'tests_run': result.testsRun,
     'failures': [{'test': str(t), 'traceback': tb} for t, tb in result.failures],
     'errors': [{'test': str(t), 'traceback': tb} for t, tb in result.errors],
@@ -26,5 +26,5 @@ report = {
     'upstream_or_platform_tests_executed': 0,
     'does_not_verify': ['Zerolan deployment', 'real live room', 'user hardware', 'AR or MC execution', 'long-term character quality'],
 }
-(ROOT / 'review' / 'phase1-tests.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+(ROOT / 'review' / 'character-regression.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 sys.exit(0 if result.wasSuccessful() else 1)

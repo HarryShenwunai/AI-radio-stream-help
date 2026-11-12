@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-12",
+  "scope": "real Chrome, HTTP, SQLite and PNG decoder; synthetic PNG/tone and fake LLM/TTS",
+  "status": "passed",
+  "checks": {
+    "csp_allows_local_blob_image_preview": "passed",
+    "real_file_upload_preview_without_activation": "passed",
+    "confirmed_activation_uses_decoded_uploaded_png": "passed",
+    "second_revision_and_user_rollback": "passed",
+    "new_identity_isolated_and_name_is_plain_text": "passed",
+    "switch_back_preserves_own_draft_chat_memory_and_appearance": "passed",
+    "selection_and_appearance_persist_on_reload": "passed",
+    "cancel_preview_discards_only_candidate": "passed",
+    "invalid_png_does_not_change_current_character": "passed",
+    "real_htmlaudio_drives_talk_state_and_stop_restores_idle": "passed",
+    "two_browser_views_have_single_audio_owner": "passed",
+    "switch_identity_stops_audio_and_old_mouth_state": "passed",
+    "layout_1440_390_360": "passed",
+    "character_stage_collapses_and_expands_without_identity_change": "passed",
+    "javascript_runtime": "passed"
+  },
+  "product_connections": 0,
+  "not_tested": [
+    "Live2D",
+    "native desktop host/window controls",
+    "microphone",
+    "real voice/model quality",
+    "target-user hardware/p95",
+    "default autoplay restriction"
+  ],
+  "autoplay": "test launch allows autoplay for deterministic HTMLAudio lifecycle checks",
+  "javascript_errors": []
+}

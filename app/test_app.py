@@ -1,4 +1,5 @@
 import importlib.util
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -75,7 +76,8 @@ class CompanionTests(unittest.TestCase):
         app.set_settings({'api_key':'fixture-secret-do-not-leak'})
         import json,stat
         self.assertNotIn('fixture-secret-do-not-leak',json.dumps(app.state()))
-        self.assertEqual(stat.S_IMODE((app.DATA/'api-key').stat().st_mode),0o600)
+        self.assertEqual((app.DATA/'api-key').read_text(),'fixture-secret-do-not-leak')
+        if os.name=='posix':self.assertEqual(stat.S_IMODE((app.DATA/'api-key').stat().st_mode),0o600)
     def test_prompt_separates_fiction_and_user_facts(self):
         app.add_memory('我喜欢花茶');self.user('我喜欢什么花茶？');prompt=app.build_prompt(app.settings())[0]['content']
         self.assertIn('不要编造共同经历',prompt);self.assertIn('用户喜欢花茶',prompt)

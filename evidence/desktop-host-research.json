@@ -1,0 +1,109 @@
+{
+  "access_date": "2026-11-12",
+  "timezone": "Europe/London",
+  "decision_context": "User selected desktop companionship and anime theme; application UI remains unchanged pending research decisions",
+  "scope": "official documentation only; no installation, runtime tests, recordings, account access, publishing or UI changes",
+  "sources": [
+    {
+      "id": "E1",
+      "url": "https://www.electronjs.org/docs/latest/api/browser-window",
+      "access": "readable official text",
+      "verified_scope": "BrowserWindow APIs: topmost/mouse-ignore/focus/workspaces; platform notes; read-only"
+    },
+    {
+      "id": "E2",
+      "url": "https://www.electronjs.org/docs/latest/tutorial/custom-window-styles",
+      "access": "readable official text",
+      "verified_scope": "Transparency and frameless windows; limitations; no runtime verification"
+    },
+    {
+      "id": "E3",
+      "url": "https://www.electronjs.org/docs/latest/tutorial/custom-window-interactions",
+      "access": "readable official text",
+      "verified_scope": "Explicit click-through and drag/no-drag regions"
+    },
+    {
+      "id": "E4",
+      "url": "https://www.electronjs.org/docs/latest/tutorial/process-model",
+      "access": "readable official text",
+      "verified_scope": "Main/renderer lifecycle; not a measured resource budget"
+    },
+    {
+      "id": "E5",
+      "url": "https://www.electronjs.org/docs/latest/tutorial/security",
+      "access": "readable official text",
+      "verified_scope": "Privilege separation and untrusted content guidance"
+    },
+    {
+      "id": "T1",
+      "url": "https://v2.tauri.app/reference/config/",
+      "access": "readable official text",
+      "verified_scope": "Window configuration and platform-specific options"
+    },
+    {
+      "id": "T2",
+      "url": "https://v2.tauri.app/reference/javascript/api/namespacewindow/",
+      "access": "readable official text",
+      "verified_scope": "Window APIs and explicit permissions; macOS/Windows limitations"
+    },
+    {
+      "id": "T3",
+      "url": "https://v2.tauri.app/release/tauri/v2.12.1/",
+      "access": "readable official text",
+      "verified_scope": "2026-09-30 release removes macos-private-api requirement for transparency/fullscreen"
+    },
+    {
+      "id": "T4",
+      "url": "https://v2.tauri.app/reference/webview-versions/",
+      "access": "readable official text",
+      "verified_scope": "Windows WebView2 vs macOS WKWebView vs Linux WebKitGTK"
+    },
+    {
+      "id": "T5",
+      "url": "https://v2.tauri.app/develop/sidecar/",
+      "access": "readable official text",
+      "verified_scope": "External binary packaging and scoped execution; Python reuse candidate"
+    }
+  ],
+  "version_correction": {
+    "source": "T3",
+    "release": "tauri 2.12.1",
+    "published_date": "2026-09-30",
+    "claim": "macOS transparency/fullscreen no longer requires macos-private-api feature flag; older/translated docs may differ",
+    "project_version_selected": false
+  },
+  "verified_distinctions": [
+    "Transparency does not imply mouse pass-through",
+    "Mouse ignore does not imply keyboard unfocus",
+    "Topmost does not establish exclusive-fullscreen game overlay support",
+    "skipTaskbar is not macOS Dock hiding",
+    "Host window fullscreen is not overlay on another app fullscreen",
+    "A framework API does not establish working cross-platform combination",
+    "System WebView does not establish zero memory/graphics overhead"
+  ],
+  "candidate_routes": [
+    "Electron with supervised existing Python backend and constrained window APIs",
+    "Tauri v2 with scoped commands/sidecar and existing Python backend"
+  ],
+  "selection": "not selected; requires target OS, render compatibility and paired resource/window tests",
+  "runtime_tests_executed": 0,
+  "ui_files_changed": false,
+  "estimates_provided": false,
+  "unknowns": [
+    "Target OS/device/display environment",
+    "Selected host versions",
+    "Character assets/license and renderer",
+    "Full-screen application behavior",
+    "Audio ownership across windows",
+    "Background resource and energy measurements",
+    "Signing/distribution constraints"
+  ],
+  "proposed_measurements": [
+    "Full process-tree RSS and CPU/GPU delta",
+    "Frame time p50/p95 and actual FPS",
+    "Hidden/idle animation wakeups and energy trend",
+    "Mouse pass-through and focus error counts",
+    "Mixed-DPI and disconnect position recovery",
+    "Audio-to-lip stop offset and stale-generation reactivation counts"
+  ]
+}

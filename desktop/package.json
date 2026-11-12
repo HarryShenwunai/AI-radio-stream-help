@@ -1,0 +1,15 @@
+{
+  "name": "companion-desktop-runtime",
+  "version": "0.4.0-dev1",
+  "private": true,
+  "description": "Local desktop host for user-imported companion characters",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.cjs",
+    "build:linux": "node build-linux.cjs",
+    "build:windows": "node build-windows.cjs"
+  },
+  "devDependencies": { "electron": "45.3.1" },
+  "license": "GPL-3.0"
+}

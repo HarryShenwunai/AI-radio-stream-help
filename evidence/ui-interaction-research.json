@@ -1,0 +1,174 @@
+{
+  "access_date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "official text and static-source research only; no UI changes, visual inspection, account sessions or runtime tests",
+  "missing_user_local_reference": "/workspace/AI-radio-stream-help/docs/research/ui-references-2026.html",
+  "sources": [
+    {
+      "id": "E1",
+      "url": "https://ui.elevenlabs.io/docs/components",
+      "access_result": "blocked_403",
+      "verified_scope": "Component page unavailable; not a visual review"
+    },
+    {
+      "id": "E2",
+      "url": "https://ui.elevenlabs.io/docs/components/voice-button",
+      "access_result": "blocked_403",
+      "verified_scope": "Subpage unavailable"
+    },
+    {
+      "id": "E3",
+      "url": "https://ui.elevenlabs.io/docs/components/orb",
+      "access_result": "blocked_403",
+      "verified_scope": "Subpage unavailable"
+    },
+    {
+      "id": "E4",
+      "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/README.md",
+      "access_result": "read_official_source",
+      "verified_scope": "React/shadcn component library; MIT per README"
+    },
+    {
+      "id": "L1",
+      "url": "https://docs.livekit.io/frontends/agents-ui/media-controls/",
+      "access_result": "read_official_document",
+      "verified_scope": "Input controls, disconnect and autoplay user gesture are separate"
+    },
+    {
+      "id": "L2",
+      "url": "https://docs.livekit.io/frontends/build/agent-state/",
+      "access_result": "read_official_document",
+      "verified_scope": "Connection/input/processing/output/terminal states and capability getters"
+    },
+    {
+      "id": "L3",
+      "url": "https://docs.livekit.io/frontends/agents-ui/chat/",
+      "access_result": "read_official_document",
+      "verified_scope": "Speech transcriptions and typed chat in session transcript"
+    },
+    {
+      "id": "L4",
+      "url": "https://docs.livekit.io/frontends/agents-ui/audio-visualizer/prebuilt/",
+      "access_result": "read_official_document",
+      "verified_scope": "Audio+state visualizers; demo uses microphone; not activated"
+    },
+    {
+      "id": "M1",
+      "url": "https://design.google/library/expressive-material-design-google-research",
+      "access_result": "read_official_document",
+      "verified_scope": "Hierarchy and contextual familiarity; article study numbers not extrapolated"
+    },
+    {
+      "id": "A1",
+      "url": "https://developer.apple.com/documentation/technologyoverviews/liquid-glass",
+      "access_result": "js_only_shell",
+      "verified_scope": "Official markdown alternate read"
+    },
+    {
+      "id": "A2",
+      "url": "https://developer.apple.com/documentation/technologyoverviews/liquid-glass.md",
+      "access_result": "read_official_markdown",
+      "verified_scope": "Native Apple platform material overview"
+    },
+    {
+      "id": "A3",
+      "url": "https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass.md",
+      "access_result": "read_official_markdown",
+      "verified_scope": "Control/navigation layer, restrained use, reduced transparency/motion testing"
+    },
+    {
+      "id": "A4",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility.md",
+      "access_result": "read_official_markdown",
+      "verified_scope": "Non-color cues, alternative text/media and adaptable presentation"
+    },
+    {
+      "id": "W1",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+      "access_result": "read_official_document",
+      "verified_scope": "Keyboard functional equivalence"
+    },
+    {
+      "id": "W2",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      "access_result": "read_official_document",
+      "verified_scope": "Nonessential interaction motion can be disabled; informative explanation, not project certification"
+    },
+    {
+      "id": "W3",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "access_result": "read_official_document",
+      "verified_scope": "Web CSS-pixel target criterion and exceptions; distinct from native pt"
+    }
+  ],
+  "official_source_repository": {
+    "repository": "elevenlabs/ui",
+    "ref": "3a28ebab197f8cfa599934f52db12ad1396e54f4",
+    "files": [
+      {
+        "path": "README.md",
+        "blob_sha": "e3ad968fb9d4bad8c525854835c93bd133f5dc9a",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/README.md"
+      },
+      {
+        "path": "apps/www/content/docs/components/voice-button.mdx",
+        "blob_sha": "2a8a1538c12dc92484d7e13ef36d15dc61f9f44c",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/content/docs/components/voice-button.mdx"
+      },
+      {
+        "path": "apps/www/content/docs/components/orb.mdx",
+        "blob_sha": "cca8b3367cf7defbee1640d44449ff604a5b7522",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/content/docs/components/orb.mdx"
+      },
+      {
+        "path": "apps/www/content/docs/components/transcript-viewer.mdx",
+        "blob_sha": "7c0d74507aac11dcd0a06c9311d47980c6b76eeb",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/content/docs/components/transcript-viewer.mdx"
+      },
+      {
+        "path": "apps/www/registry/elevenlabs-ui/ui/voice-button.tsx",
+        "blob_sha": "c6f95e2b14d265ea233565095fecbc8d82dc36b2",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/registry/elevenlabs-ui/ui/voice-button.tsx"
+      },
+      {
+        "path": "apps/www/registry/elevenlabs-ui/ui/orb.tsx",
+        "blob_sha": "3928760466399d0d9278259fb7dbf2f687b7d4c0",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/registry/elevenlabs-ui/ui/orb.tsx"
+      },
+      {
+        "path": "apps/www/registry/elevenlabs-ui/ui/live-waveform.tsx",
+        "blob_sha": "dd12c173741362404c347b64e22f3bfd05e9fbcc",
+        "url": "https://github.com/elevenlabs/ui/blob/3a28ebab197f8cfa599934f52db12ad1396e54f4/apps/www/registry/elevenlabs-ui/ui/live-waveform.tsx"
+      }
+    ]
+  },
+  "unknowns": [
+    "Target OS/device and resource budget",
+    "Exact desktop layout and behavior parameters",
+    "Authorized character assets and renderer",
+    "Actual microphone/transcription/barge-in and a11y behavior",
+    "Idle/background GPU and energy use"
+  ],
+  "runtime_tests_executed": 0,
+  "ui_files_changed": false,
+  "professional_or_conformance_certification": false,
+  "decision_update": {
+    "date": "2026-11-12",
+    "selected_direction": "desktop companionship",
+    "theme": "anime",
+    "known_context": "background presence while studying or gaming",
+    "ui_implementation_authorized_this_round": false,
+    "live2d_status": "candidate, not final character asset"
+  },
+  "historical_inferences_before_user_selection": [
+    "Test all three structures using identical assets/content/latency before deciding a default",
+    "Role stage is conditional on foreground visual/voice preference; text-heavy mobile use could favor communications first",
+    "Reuse control semantics without treating the component library as an approved architecture migration",
+    "Measure visual overhead separately from model cost on the same device"
+  ],
+  "inferences": [
+    "Continue desktop-specific host and interaction research rather than reopening the three-way direction decision",
+    "Use shared backend/media lifetime for desktop character and expanded conversation",
+    "Live2D is a rendering candidate; no final art or motion parameters selected"
+  ]
+}

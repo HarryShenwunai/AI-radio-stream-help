@@ -1,0 +1,161 @@
+name: Windows portable build
+
+on:
+  push:
+    branches: [feat/phase1-runtime]
+  workflow_dispatch:
+    inputs:
+      include_models:
+        description: Download verified model assets, test real inference and produce the offline package
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-portable-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+  PYTHONUNBUFFERED: '1'
+  CMAKE_BUILD_PARALLEL_LEVEL: '2'
+  CMAKE_ARGS: -DGGML_CUDA=OFF -DGGML_NATIVE=OFF
+
+jobs:
+  runtime:
+    name: Compile and test Windows x64 runtime
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            app/requirements-core.txt
+            app/requirements.txt
+            requirements-dev.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+      - name: Install build and test dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r app/requirements-core.txt -r app/requirements.txt -r requirements-dev.txt pyinstaller==6.22.3 psutil==7.0.0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm ci --prefix desktop
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Run Python and JavaScript regression tests
+        shell: pwsh
+        run: |
+          python scripts/check.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node tests/test_character_ui.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node tests/test_voice_ui.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node desktop/test/window-policy.test.cjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Compile Python backend
+        run: python scripts/build_backend_windows.py
+      - name: Test the compiled backend with isolated synthetic data
+        run: python scripts/native_character_check.py
+      - name: Assemble Electron portable runtime
+        run: node desktop/build-windows.cjs --backend=.build/native/companion-backend --output=.build/desktop/character-windows-x64
+      - name: Exercise the real portable executable
+        run: python desktop/test/windows_smoke.py
+      - name: Upload model-free runtime checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: character-windows-x64-runtime
+          path: .build/desktop/character-windows-x64/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Preserve runtime test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-runtime-test-evidence
+          path: |
+            review/character-regression.json
+            review/character-native-check.json
+            desktop/test-results/windows-*
+            .build/pyinstaller-windows/**/warn-*.txt
+          if-no-files-found: warn
+          retention-days: 7
+
+  offline:
+    name: Add verified models and test offline inference
+    needs: runtime
+    if: ${{ github.event_name == 'push' || inputs.include_models }}
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+      - name: Retrieve the tested runtime
+        uses: actions/download-artifact@v4
+        with:
+          name: character-windows-x64-runtime
+          path: .build/desktop/character-windows-x64
+      - name: Install smoke-test dependency
+        run: python -m pip install -r app/requirements-core.txt
+      - name: Download existing pinned model assets and verify SHA256
+        run: python app/download_models.py
+      - name: Add verified model assets to the portable backend
+        shell: pwsh
+        run: |
+          $target = '.build/desktop/character-windows-x64/resources/backend'
+          Copy-Item -Path app/models -Destination "$target/models" -Recurse
+          Copy-Item -Path app/voices -Destination "$target/voices" -Recurse
+      - name: Test actual local text generation, speech and cancellation
+        # Electron is intentionally not running while the model occupies memory.
+        run: python scripts/native_character_check.py --binary .build/desktop/character-windows-x64/resources/backend/companion-backend.exe --with-model
+      - name: Record package hashes and machine-checkable scope
+        shell: pwsh
+        run: |
+          $target = '.build/desktop/character-windows-x64'
+          Get-ChildItem $target -File -Recurse | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+            "$hash  $($_.FullName.Substring((Resolve-Path $target).Path.Length + 1))"
+          } | Set-Content -Encoding utf8 "$target/SHA256SUMS.txt"
+          @{
+            source_commit = '${{ github.sha }}'
+            platform = 'Windows x64'
+            models_included = $true
+            runtime_job = 'compiled backend and real Electron smoke tested separately'
+            offline_job = 'real model/TTS/cancellation check; no simultaneous Electron performance acceptance'
+            code_signed = $false
+          } | ConvertTo-Json | Set-Content -Encoding utf8 "$target/BUILD-INFO.json"
+      - name: Upload the complete offline portable package
+        uses: actions/upload-artifact@v4
+        with:
+          name: character-windows-x64-offline
+          path: .build/desktop/character-windows-x64/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+      - name: Preserve actual offline test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-offline-test-evidence
+          path: review/character-native-check.json
+          if-no-files-found: warn
+          retention-days: 7

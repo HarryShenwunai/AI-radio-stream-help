@@ -1,0 +1,215 @@
+{
+  "review_id": "SELF-SERVICE-CHARACTERS-REVIEW-001",
+  "date": "2026-11-12",
+  "timezone": "Europe/London",
+  "reviewer": "separate AI agent /root/character_acceptance_review; not professional legal review or standards certification",
+  "scope": "plan, estimate arithmetic, scope/dependencies, traceability, source/runtime handoff, permission and recovery review",
+  "decision": "No unresolved blocking document inconsistency in reviewed scope after corrections; implementation/release/asset-license acceptance remains pending",
+  "reviewed_sources": {
+    "docs/planning/self-service-characters-plan.md": "e1e4bb0ad1f43f5d5bda443cbcba106f0d518cf9e7d2d70ce59d2e02550c927a",
+    "review/character-import-test-specs.json": "254b2f4bda5a0e99ded61c57216d3ca1ac54443560965c485133651bcbd6e701",
+    "docs/planning/artist-quote-template.csv": "7129e479430bea253507e58fce8f2650105364e288fbf987ff806828b43ae98b"
+  },
+  "checks": [
+    {
+      "id": "MATH-A",
+      "result": "passed_document_check",
+      "detail": "U0–U6 low/high sums and reserve-inclusive total independently recomputed."
+    },
+    {
+      "id": "MATH-PNG",
+      "result": "passed_document_check",
+      "detail": "PNG milestone excludes U4 and uses its stated reserve; not a second full budget."
+    },
+    {
+      "id": "MATH-B",
+      "result": "passed_document_check",
+      "detail": "B excludes U3, retains remaining dependencies and reserve."
+    },
+    {
+      "id": "MATH-HOURS",
+      "result": "passed_document_check",
+      "detail": "A hours consistent with declared eight-hour person-day."
+    },
+    {
+      "id": "TEST-STATE",
+      "result": "passed_document_check",
+      "detail": "28 specifications, no fabricated executions or prepared fixtures."
+    },
+    {
+      "id": "TRACEABILITY",
+      "result": "passed_document_check",
+      "detail": "CI-01..CI-28 exist. CR table manual range union covers all 28; duplicate mappings are appropriate."
+    },
+    {
+      "id": "ROUTE-SCOPE",
+      "result": "passed_document_check",
+      "detail": "A full target and B first-release tradeoff distinguished; PNG milestone not declared full dynamic delivery."
+    },
+    {
+      "id": "OS-SCOPE",
+      "result": "passed_document_check",
+      "detail": "One selected OS included; additional platforms explicitly outside the estimate."
+    },
+    {
+      "id": "MILESTONE",
+      "result": "passed_document_check",
+      "detail": "Seven-day window is prioritized/conditional actions, not complete delivery."
+    },
+    {
+      "id": "NONADDITIVE",
+      "result": "passed_document_check",
+      "detail": "Old 18–33 plan overlaps identified; U6 and PNG milestone not blindly added."
+    },
+    {
+      "id": "THRESHOLD-GATE",
+      "result": "passed_document_check",
+      "detail": "TBD resource/latency values have a defined freeze point before acceptance."
+    },
+    {
+      "id": "ASSET-IDENTITY",
+      "result": "passed_document_check",
+      "detail": "Appearance revision and persona/relationship identity are separately planned."
+    },
+    {
+      "id": "SOURCE-RUNTIME",
+      "result": "passed_document_check",
+      "detail": "Editable production sources and deployed runtime assets distinguished; no PNG/PSD auto-rig promise."
+    },
+    {
+      "id": "FAILURE-RECOVERY",
+      "result": "passed_document_check",
+      "detail": "Import staging, resource limits, prior-version retention and database rollback included."
+    },
+    {
+      "id": "PERMISSION",
+      "result": "passed_document_check",
+      "detail": "No plan-to-purchase/contact/deploy authority presumed."
+    },
+    {
+      "id": "LICENSE",
+      "result": "passed_document_check",
+      "detail": "Specific expandable/AI primary sources included; applicability and contractual fees not declared approved."
+    },
+    {
+      "id": "HALF-BENCHMARK",
+      "result": "passed_document_check",
+      "detail": "At least two independent structures per published format path, one held out; no 2+1 ambiguity."
+    },
+    {
+      "id": "BUDGET-RATIO",
+      "result": "passed_document_check",
+      "detail": "Work and quote ratios separated; no fictitious universal artist/programmer split."
+    },
+    {
+      "id": "LOCAL-LINKS",
+      "result": "passed_document_check",
+      "detail": "All local Markdown targets present at review."
+    },
+    {
+      "id": "QUOTE-TEMPLATE",
+      "result": "passed_document_check",
+      "detail": "Five work-package rows; empty quotes remain unquoted; real CSV parsed successfully."
+    },
+    {
+      "id": "NO-UI-IMPLEMENTATION",
+      "result": "passed_document_check",
+      "detail": "Application/runtime/test source unchanged; this is document review, not execution."
+    }
+  ],
+  "checks_passed": 21,
+  "runtime_import_tests_executed_by_reviewer": 0,
+  "all_new_import_acceptance_status": "NOT_RUN",
+  "findings_fixed": [
+    {
+      "id": "SCR-01",
+      "finding": "Unqualified mandatory PNG scope conflicted with Live2D-only route B",
+      "resolution": "Mandatory complete target now tied to recommended A; B explicitly needs first-release scope decision."
+    },
+    {
+      "id": "SCR-02",
+      "finding": "Additional-platform exclusion could be read as excluding the selected target OS",
+      "resolution": "Estimate now covers one selected OS; second/third OS separately estimated."
+    },
+    {
+      "id": "SCR-03",
+      "finding": "Zero outside-package access wording could count legitimate host/SDK resource access",
+      "resolution": "Metric scoped to package-reference-induced out-of-root access."
+    },
+    {
+      "id": "SCR-04",
+      "finding": "Unknown resource budgets lacked explicit freeze before acceptance",
+      "resolution": "U0 candidate budget, sample-based freeze before U6."
+    },
+    {
+      "id": "SCR-05",
+      "finding": "Two independent packages plus held-out package could imply three fixtures",
+      "resolution": "At least two per published format path, one held out."
+    }
+  ],
+  "independent_primary_source_reads": [
+    {
+      "url": "https://www.live2d.com/en/sdk/license/expandable/",
+      "access_date": "2026-11-12",
+      "verified": "Official page describes expandable avatar/model applications, all-publisher review/special publication agreement and stated conditions/fee schedule. Project category and agreement terms not determined by this review."
+    },
+    {
+      "url": "https://help.live2d.com/en/other/other_33/",
+      "access_date": "2026-11-12",
+      "verified": "Official AI-related FAQ permits AI uses in principle within terms and states rights/creator restrictions; not blanket permission for every asset/use."
+    }
+  ],
+  "unresolved": [
+    {
+      "item": "Target OS/hardware and supported renderer/SDK versions",
+      "impact": "Performance values and one-OS schedule remain conditional",
+      "close_by": "U0 pinned compatibility matrix and representative target-device sample."
+    },
+    {
+      "item": "Expandable/AI application classification, approval and fees",
+      "impact": "Live2D publication and its business plan cannot be treated as approved/free",
+      "close_by": "Owner-authorized vendor/professional confirmation and applicable agreement; no external contact performed."
+    },
+    {
+      "item": "Authorized representative and held-out assets",
+      "impact": "CI-01..28 have no fixtures or execution results",
+      "close_by": "Prepare owned/licensed samples and record version/hash/allowed uses."
+    },
+    {
+      "item": "Specific character style/proportions, art scope and quotes, and PNG-first milestone preference",
+      "impact": "Both kinds of allocation/specification are confirmed; actual art parameters, per-role quotes and delivery sequence remain undetermined.",
+      "close_by": "Fill the art brief and obtain owner-authorized estimates; do not invent fixed universal percentages."
+    },
+    {
+      "item": "Complete resource, self-service and appearance/persona migration acceptance",
+      "impact": "Document consistency does not prove implementation behavior or target device performance",
+      "close_by": "Implement and execute declared benchmark, freeze measurable thresholds before release; retain failures."
+    },
+    {
+      "item": "Local import versus cloud synchronization/public sharing",
+      "impact": "Privacy, rights, storage and operating cost differ",
+      "close_by": "Explicit scope choice; cloud features remain separate."
+    }
+  ],
+  "not_authorized_or_performed": [
+    "UI implementation",
+    "Model import/renderer execution",
+    "Commissioning artists",
+    "Purchasing SDK/assets",
+    "Vendor contact",
+    "Deployment or public sharing"
+  ],
+  "application_changes_observed": [],
+  "limited_amendment_reviews": [
+    {
+      "date": "2026-11-12",
+      "change": "User confirmed both artist work/budget allocation and visual proportion/layering specifications are required. Removed ambiguity from unknowns and recorded confirmation in decision section.",
+      "verification": "Reversing exactly those two edits reproduces the previous reviewed SHA256; WBS, arithmetic, risks, runtime scope and tests unchanged.",
+      "previous_plan_sha256": "dfce2af800a21042b8d6a9c27ffb77c8edb71fc31d681004f645d04d85dabfa1",
+      "current_plan_sha256": "e1e4bb0ad1f43f5d5bda443cbcba106f0d518cf9e7d2d70ce59d2e02550c927a",
+      "decision_unchanged": true,
+      "runtime_import_tests_executed": 0,
+      "new_test_status": "All 28 remain NOT_RUN"
+    }
+  ]
+}

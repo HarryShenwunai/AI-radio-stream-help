@@ -35,3 +35,7 @@ dist/
 **/models/
 **/voices/
 *.part
+
+.build/
+*.AppImage
+**/.cache/

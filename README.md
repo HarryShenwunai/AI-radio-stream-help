@@ -1,52 +1,63 @@
 # 虚拟陪伴项目（未命名）
 
-目标是自然、有稳定性格、能文字和语音相处的虚拟角色。学习监督是可选能力。长期记忆按需使用，不能代替对当前话题的理解。
+二次元桌面陪伴，用户可以创建自己的角色、导入PNG形象，并配置性格与相处方式。聊天、记忆和约定按角色隔离；更换同一角色的外观保留相处记录。学习监督是可选能力，长期记忆可关闭。
 
-**已获准启动实施，仓库现包含本地应用和首批协议/取消/离线直播模块。B站、弹幕姬、AR、Minecraft联调尚未完成。**
+当前开发版本 **0.4.0-dev1**。自助PNG角色与独立身份数据已实现；Live2D、VRM尚未实现。目标平台是 **Windows 10/11**，Windows构建、安装与真机桌面行为仍待CI和设备验证，不能将Linux结果当作Windows成品验收。
 
-[当前执行看板](docs/planning/execution-board.md) · [本地运行说明](app/README.md)
+[运行与角色导入](app/README.md) · [本批交付状态](docs/implementation/character-release.md) · [执行看板](docs/planning/execution-board.md)
+
+## 从源码启动
+
+在Python环境中安装图片组件后，从仓库根目录运行：
 
 ```sh
+python -m pip install -r app/requirements-core.txt
 python run.py --no-browser
 ```
 
-聊天需可选模型资产/依赖或用户配置的模型API；源码不含权重。当前开发版本0.3.0-dev1。
+打开终端打印的本机地址。角色管理与图片导入不要求下载大模型；真实聊天需要已有本地模型及可选推理依赖，或在设置中填写兼容模型API。源码不包含模型权重、音色文件、用户数据库或密钥。
 
-[直接阅读PDF报告](docs/report/comparison.pdf) · [HTML文件](docs/report/comparison.html)（下载后在浏览器打开）
+桌面壳启动、数据迁移和可选模型安装见[运行说明](app/README.md)。当前没有已核验的Windows安装包下载声明。
 
-## 从这里阅读
+## 当前可用
 
-- [类似产品与当前技术](docs/research/products-and-technology.md)：商业体验、开源框架与语音路线。
-- [Zerolan五仓库设计比较](docs/research/zerolan-comparison.md)：实现证据、分支差异、复用建议。
-- [修订项目计划](docs/planning/revised-plan.md)：范围、方案、工作包、预算假设、风险和七日行动。
-- [目标架构与权限](docs/design/architecture.md)：会话隔离、中断、协议适配和模型资源边界。
-- [现有设计与实际状态](docs/design/current-state.md)：已有原型、实测记录与未完成项。
-- [协议设计草案](contracts/interaction-v1.schema.json)和[验收追踪](review/traceability.csv)。
+- 创建、切换、归档、恢复和删除独立角色；名字不作为格式白名单。
+- 导入一张PNG，或配置待机、说话、眨眼、说话时眨眼四种图片状态。
+- 预览后明确启用；保留外观修订并切回旧版；无效图片不覆盖当前形象。
+- 角色自己的聊天、性格、记忆与约定分库存储；旧版数据库一次迁移并保留原库。
+- 共享模型连接配置，API密钥留在本机；切换角色不会恢复另一套旧提供方连接。
+- 流式文字、停止与重试、本地语音或兼容API、按需记忆及可关闭的主动联系。
+- 桌面壳提供角落常驻、展开同一会话、鼠标穿透与恢复入口；目前桌面行为证据限Linux X11，Windows待测。
 
-## 当前验证
+PNG说话状态是图片切换，不是Live2D绑定或音素级口型。上传的角色素材仍按各自授权使用；应用原有SVG只是占位示例。
 
-115项Python回归、8项Node竞态、12项Chrome检查通过。真实本地Qwen/Kokoro另做一次冒烟；语音质量、真实上游兼容和用户设备性能仍待验收。详见执行看板和review/phase1报告。
+## 验证与边界
 
-开发检查：`python scripts/check.py`；前端竞态：`node tests/test_voice_ui.mjs`（Node 20+）；浏览器：`python tests/phase1_browser_check.py`（需Playwright与Chrome）。
+本轮[185项Python回归](review/character-regression.json)通过；前端18项角色竞态、8项语音竞态，以及[15项真实Chrome检查](review/character-browser.json)通过。Chrome使用合成PNG与测试音、本机模型/TTS替身，未验证真实声线质量。
 
-## 当前判断
+[Linux编译后端](review/character-native-check.json)完成6项检查，包含实际本地Qwen/Kokoro与取消、重启持久化。它是一轮合成输入冒烟，**模型自然度与长期相处质量尚未人工接受**，时延也不是目标设备p95。另有[Linux Electron整包13项检查](desktop/test-results/bundled-app-smoke.json)通过，覆盖内嵌后端和实际应用PNG流程，仍不代表Windows通过。
 
-Zerolan的事件驱动、统一模型管线、独立展示与MC执行器值得参考。推荐保留已经能运行的原型，先建立可替换适配层与中断协议，再决定迁移范围。不能因为同一作者维护五个仓库，就假定所有默认分支可直接组成兼容版本。
+[独立审查](review/character-implementation-review.json)只覆盖已说明的PNG子集。原28项多格式规格不因这些测试自动全部通过。Windows、Live2D、真实平台/OBS、微信、AR、MC、全屏游戏及目标机能耗仍有未完成项。
 
-体验参考：AIRI、Open-LLM-VTuber、SillyTavern、星野、猫箱、Character.AI、Kindroid、Replika。它们的产品定位、开放程度与可接入能力不同，详见调研。
+开发检查：
 
-## 证据与状态
+```sh
+python scripts/check.py
+node tests/test_character_ui.mjs
+node tests/test_voice_ui.mjs
+python tests/character_browser_check.py
+```
 
-查阅日期：2026-11-12，Europe/London。能力描述区分源码事实、作者/产品文档声明、工程判断与未知；没有付费登录体验或上游部署实测，也没有购买服务、连接直播间或加入MC服务器。
+HTTP/Chrome检查需要允许本机socket；浏览器脚本需要Playwright与Chrome。最终测试以对应JSON的范围、结果和日期为准。
 
-已有v0.2原型记录包括36项后端测试、5项本机模拟模型协议测试，以及Linux编译程序、真实本地模型与语音验证。旧记录不代表本轮重测，不代表Zerolan集成已通过。模型表达仍存在错误，长期相处质量尚未用户验收。
+## 项目资料
 
-旧稿和原型中的称呼仅为历史占位，不作为正式产品名称。本轮不新增产品名。
+- [自助角色计划与画师交付基准](docs/planning/self-service-characters-plan.md)
+- [产品与技术比较](docs/research/products-and-technology.md)
+- [Zerolan五仓库研究](docs/research/zerolan-comparison.md)
+- [架构与权限](docs/design/architecture.md)
+- [历史原型与证据](docs/design/current-state.md)
 
-## 仓库内容边界
+旧计划、称呼和估算保留作历史追踪，不作为正式产品名或当前完成证明。角色导入以已实现格式和实际兼容矩阵为准。
 
-保留轻量设计、历史规划、原型截图、来源索引与脱敏验收记录。模型权重、安装包、数据库、私聊、Cookie、密钥和开发虚拟环境不放入Git历史。没有新增部署工作流。
-
-历史文档在[docs/history](docs/history)，其名称和估算以历史记录理解。新范围与估算以[修订计划](docs/planning/revised-plan.md)为准。用户已批准推荐路线启动，当前完成范围以执行看板为准；未把估算当作承诺。
-
-来源、许可和专业确认事项见[NOTICE.md](NOTICE.md)。
+模型、安装包、用户数据和凭证不进入Git历史。没有公开部署、登录直播间或游戏服务器。应用代码与可选依赖许可见[NOTICE.md](NOTICE.md)及[应用许可](app/LICENSE)。

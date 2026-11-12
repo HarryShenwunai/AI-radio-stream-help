@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "parent primary-source checks for self-service avatar release and runtime boundaries; no SDK download or operation",
+  "sources": [
+    {
+      "url": "https://www.live2d.com/en/sdk/license/",
+      "evidence": "official publication page read; expandable application and AI/chatbot classification flow exists; personal/small exemptions exclude expandable category",
+      "project_inference": "This user-extensible AI avatar application needs applicable category confirmed, not assumed free",
+      "price_verified": false
+    },
+    {
+      "url": "https://docs.live2d.com/en/cubism-sdk-manual/cubism-core/",
+      "evidence": "official manual read; Core separately licensed and included in SDK packages, not published on GitHub"
+    },
+    {
+      "url": "https://docs.live2d.com/en/cubism-sdk-manual/model-web/",
+      "evidence": "official loading references model3.json, moc3, textures, renderer; not run"
+    },
+    {
+      "url": "https://vrm.dev/en/vrm/meta/license/",
+      "evidence": "legacy VRM permissions include avatar use and redistribution; not proof of complete VRM1 implementation"
+    },
+    {
+      "url": "https://www.live2d.com/en/sdk/license/expandable/",
+      "evidence": "Official page read 2026-11-12; definition includes applications extended with indefinite numbers of models; review/special publication agreement applies to general users too; public fee schedule and review conditions exist",
+      "project_fee_confirmed": false,
+      "note": "No quoted project price; classification, contractual conditions and eligibility need confirmation"
+    },
+    {
+      "url": "https://help.live2d.com/en/other/other_33/",
+      "evidence": "Official FAQ dated 2025-03-11 read; AI-related use in principle allowed within terms; does not grant SDK or asset rights"
+    }
+  ],
+  "unchanged_application_base": "5a3189aba931881a806ca368bedf03c4ae7e63ac",
+  "new_import_runtime_tests_executed": 0,
+  "user_confirmed_requirements": [
+    "anime desktop companionship",
+    "self-service import and configuration, not fixed bundled characters",
+    "both production work/budget allocation and visual proportion/layer-separation specification"
+  ]
+}

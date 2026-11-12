@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "official documentation research and proposed artist/rigger delivery specification; no commissioning, purchase, model download, SDK execution or UI change",
+  "sources": [
+    {
+      "id": "PSD",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/precautions-for-psd-data/",
+      "source_updated": "2025-08-26",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "PSD/RGB/8bit-channel import conditions",
+        "sRGB, merged parts and masks notes"
+      ]
+    },
+    {
+      "id": "SPLIT",
+      "url": "https://docs.live2d.com/en/cubism-editor-tutorials/psd/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "illustration separation and hidden-region drawing",
+        "modeling and illustration source are distinct tasks"
+      ]
+    },
+    {
+      "id": "MATERIAL",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/divide-the-material/",
+      "source_updated": "2024-01-04",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "separation PSD and import PSD distinction"
+      ]
+    },
+    {
+      "id": "FILES",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/file-type-and-extension/",
+      "source_updated": "2026-10-13",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "cmo3/can3 authoring vs moc3/model3 runtime",
+        "physics/motion/expression extensions"
+      ]
+    },
+    {
+      "id": "EXPORT",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/export-moc3-motion3-files/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "moc3/model3/textures default export",
+        "export target and optional settings"
+      ]
+    },
+    {
+      "id": "PARAMS",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/standard-parameter-list/",
+      "source_updated": "2021-08-26",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "recommended parameter IDs/ranges; not every model is fixed to them"
+      ]
+    },
+    {
+      "id": "LIPSYNC",
+      "url": "https://docs.live2d.com/en/cubism-sdk-manual/lipsync/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "LipSync Groups mapping",
+        "audio-level mouth opening is distinct from phoneme alignment"
+      ]
+    },
+    {
+      "id": "TARGET",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/target-version-selection/",
+      "source_updated": "2025-08-26",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "target version follows embedding SDK",
+        "new authoring projects not guaranteed to open in older Editor"
+      ]
+    },
+    {
+      "id": "ATLAS",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/texture-atlas-edit/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "atlas configuration examples are not a universal product size requirement"
+      ]
+    },
+    {
+      "id": "PERFORMANCE",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/performance/",
+      "source_updated": "2024-06-28",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "SDK resource behavior must be measured for model complexity and clipping"
+      ]
+    },
+    {
+      "id": "COMPAT",
+      "url": "https://docs.live2d.com/en/cubism-sdk-manual/compatibility-with-cubism-5-3/",
+      "source_updated": "2026-01-29",
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "new features and renderer compatibility",
+        "article contains beta-era remarks; do not generalize as all-current guarantee"
+      ]
+    },
+    {
+      "id": "LICENSE",
+      "url": "https://www.live2d.com/en/sdk/license/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official text read through web tools; not runtime validation",
+      "supports": [
+        "Expandable Applications require special publication review/agreement",
+        "individual/small-business exemptions exclude expandable apps; applicability to project requires official confirmation"
+      ]
+    },
+    {
+      "id": "VRM1",
+      "url": "https://vrm.dev/en/vrm1/meta/",
+      "source_updated": null,
+      "access_date": "2026-11-12",
+      "evidence": "official page accessed; body is TODO placeholder, no complete metadata specification read",
+      "supports": [
+        "VRM1 English meta page is incomplete; full 1.0 fields remain unverified"
+      ]
+    }
+  ],
+  "proposed_not_official": [
+    "capability tiers",
+    "head/body ratio and viewport comparison",
+    "artist/rigger WBS and percentage calculation",
+    "ART-01 to ART-08 acceptance specifications"
+  ],
+  "prices_verified": false,
+  "runtime_tests_executed": 0,
+  "unknowns": [
+    "Art style and desired proportions",
+    "Asset/artist budget and quotes",
+    "Target device",
+    "Renderer and supported export matrix",
+    "SDK expandable-app classification and costs"
+  ],
+  "pitfalls": [
+    "Guessed texture-atlas and compatibility slugs inaccessible; used official directory links",
+    "Some compatibility docs retain beta notes",
+    "Authoring PSD/cmo3 are not runtime packages",
+    "No universal head/body ratio, 4K requirement, fixed motion count or artist/rigging cost split verified",
+    "VRM1 English meta page is TODO; not treated as complete metadata evidence"
+  ]
+}

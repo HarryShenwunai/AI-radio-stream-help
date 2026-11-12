@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "UI product research only; no application UI or runtime changes",
+  "missing_material": "/workspace/AI-radio-stream-help/docs/research/ui-references-2026.html not present at task start",
+  "reused_materials": [
+    "evidence/product-sources.json",
+    "docs/research/products-and-technology.md",
+    "docs/design/current-state.md"
+  ],
+  "sources": [
+    {
+      "id": "AIRI-WEB",
+      "url": "https://airi.moeru.ai/docs/en/docs/manual/web/",
+      "observed_date": "2026-11-12",
+      "source_date": "2026-08-13",
+      "evidence_type": "official documentation text read; image links located, not personally visually reviewed",
+      "verified_document_statements": [
+        "main-page text input and upper-right language/settings/character controls are documented",
+        "speech and hearing provider configuration is separated from the main hearing controls",
+        "character profiles can retain associated module/model preferences"
+      ],
+      "limits": [
+        "No provider configured or microphone access",
+        "Does not verify current canvas layout, animation, mobile quality or performance"
+      ],
+      "image_urls": [
+        "https://airi.moeru.ai/docs/assets/screenshot-chat.avif",
+        "https://airi.moeru.ai/docs/assets/screenshot-api-example.avif"
+      ],
+      "access_note": "Image fetch in web tool returned Internal Error; parent handles browser evidence"
+    },
+    {
+      "id": "OLV-WEB",
+      "url": "https://docs.llmvtuber.com/docs/user-guide/frontend/web/",
+      "requested_url": "https://open-llm-vtuber.github.io/docs/user-guide/frontend/",
+      "observed_date": "2026-11-12",
+      "evidence_type": "official documentation text read; official image URLs resolved",
+      "verified_document_statements": [
+        "collapsible history/settings sidebar, movable/resizable Live2D main scene and collapsible bottom state/mic/interrupt/input bar",
+        "documented interruption paths include button, speech with microphone enabled and sending text while speaking",
+        "documented history truncation retains only pre-interruption content"
+      ],
+      "limits": [
+        "No application runtime verified",
+        "Some preview/action/settings entries explicitly TODO",
+        "Do not infer every setting or platform behavior works"
+      ],
+      "image_urls": [
+        "https://docs.llmvtuber.com/assets/images/overview-699cf7f4afc375e16ada5ff50999da48.jpg",
+        "https://docs.llmvtuber.com/assets/images/history-943badee6afad2fcd90353a1f400f180.jpg"
+      ]
+    },
+    {
+      "id": "OLV-DESKTOP",
+      "url": "https://docs.llmvtuber.com/docs/user-guide/frontend/electron/",
+      "observed_date": "2026-11-12",
+      "evidence_type": "official documentation text read; official image URL resolved",
+      "verified_document_statements": [
+        "window and pet modes are documented as sharing context and state",
+        "pet mode documents transparent always-on-top character, click-through outside interactive regions and draggable input/subtitles",
+        "right-click menu documents mic, interruption, mode switch and hide/exit"
+      ],
+      "limits": [
+        "No Electron app run or installation",
+        "Target OS/window manager and resource overhead unknown"
+      ],
+      "image_urls": [
+        "https://docs.llmvtuber.com/assets/images/overview-a58675c5d26d8e9e8a1a5c9801083eeb.jpg"
+      ]
+    },
+    {
+      "id": "KINDROID-VOICE",
+      "url": "https://kindroid.ai/v2/docs/voice-calls-and-video-calls/",
+      "observed_date": "2026-11-12",
+      "source_date": "2026-10-13",
+      "evidence_type": "official documentation statement, not logged-in visual or call test",
+      "verified_document_statements": [
+        "phone control opens a call preview before starting; desktop calls stay inside chat page",
+        "shared-chat-history option determines text/call continuity; completed call can appear as a card with transcript",
+        "text-chat audio player is associated with a message"
+      ],
+      "limits": [
+        "Not a screenshot review",
+        "No current account eligibility, Chinese voice quality or billing behavior validated",
+        "Long-term recall behavior differs from short-term shared history; do not conflate"
+      ]
+    },
+    {
+      "id": "CAI-VOICE",
+      "url": "https://support.character.ai/hc/en-us/articles/23957274129691-Character-Calls-Voice-FAQ",
+      "observed_date": "2026-11-12",
+      "source_date": "2024-08-23",
+      "evidence_type": "official FAQ text, dated statement",
+      "verified_document_statements": [
+        "FAQ distinguishes two-way Calls from one-way Voice playback",
+        "FAQ says call conversations are stored as text chat",
+        "Voice can be associated with a character/chat"
+      ],
+      "limits": [
+        "Page contains legacy mobile-only Voice wording alongside later web Calls availability",
+        "Current layout/account rules and current mic/interrupt behavior not validated"
+      ]
+    },
+    {
+      "id": "XINGYE",
+      "url": "https://www.xingyeai.com/",
+      "observed_date": "2026-11-12",
+      "evidence_type": "official public marketing page text and image links only",
+      "verified_document_statements": [
+        "official page emphasizes custom characters and open story interactions"
+      ],
+      "limits": [
+        "Marketing is not logged-in interaction review",
+        "Do not use source page artwork as licensed project assets",
+        "No exact composer/call/settings behavior verified"
+      ]
+    },
+    {
+      "id": "MAOXIANG",
+      "url": "https://apps.apple.com/cn/app/id6475000292",
+      "observed_date": "2026-11-12",
+      "evidence_type": "issuer App Store description; not app runtime or image review",
+      "verified_document_statements": [
+        "issuer describes mobile character/story interaction and voice conversation"
+      ],
+      "limits": [
+        "No login, download, paid use or screen interaction",
+        "Ratings/reviews and store rankings are not evidence of product suitability",
+        "No exact layout or interruption gesture verified"
+      ]
+    }
+  ],
+  "personal_visual_review_performed": false,
+  "parent_browser_review_is_separate": true,
+  "runtime_or_paid_product_tests_executed": 0,
+  "inferences": [
+    "Three presentation directions should share the same authenticated conversation and generation lifecycle",
+    "A character stage may improve visible character presence but needs animation assets and mobile occlusion tests",
+    "Modern communication supports text/call continuity without requiring all technical settings on the home view",
+    "Desktop mode is now the user-selected primary experience; exact character assets, renderer, proportions and motion remain research choices"
+  ],
+  "unknowns": [
+    "User preferred character artwork, scale and motion",
+    "Target screen/platform and input mix",
+    "Real Chinese voice naturalness and interruption performance",
+    "Renderer/license/asset cost",
+    "Whether official screenshots match current live build"
+  ],
+  "decision_update": {
+    "date": "2026-11-12",
+    "source": "latest user selection relayed by coordinating parent agent",
+    "selected_direction": "desktop companionship",
+    "required_style": "anime / 2D character emphasis",
+    "primary_context": "small character alongside study or gaming, expanded interaction on demand",
+    "not_selected": [
+      "specific character identity or art details",
+      "Live2D as final renderer",
+      "licensed final character asset",
+      "color or material theme"
+    ],
+    "research_only": true,
+    "ui_modified": false,
+    "first_research_prototype": "same-scene half/full-body and static/light-motion storyboard; idle -> expand -> text -> wait -> actual playback/lips -> stop -> collapse; permissions/mute/late audio/app focus branches",
+    "proposed_checks": [
+      "legible face and silhouette at equal desktop footprint",
+      "no focus theft in passive mode",
+      "actual playback drives mouth; cancelled or muted output cannot revive lips/audio",
+      "collapse preserves draft and conversation",
+      "hidden renderer stops avoidable work",
+      "exit/reopen discoverable",
+      "CPU/GPU/RSS/frame-time baseline measured before thresholds"
+    ],
+    "unverified": [
+      "target OS and game window compatibility",
+      "click-through and focus behavior",
+      "multi-monitor/DPI handling",
+      "visual motion and performance",
+      "final asset license"
+    ]
+  }
+}

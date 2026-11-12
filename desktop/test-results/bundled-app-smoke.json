@@ -1,0 +1,68 @@
+{
+  "observed_at": "2026-11-12T13:29:51.764860+00:00",
+  "scope": "actual Linux Electron bundle spawning its embedded native backend and actual app page",
+  "checks": [
+    {
+      "name": "bundle spawned embedded backend without attached URL",
+      "result": "passed"
+    },
+    {
+      "name": "actual app page has one compact native window",
+      "result": "passed"
+    },
+    {
+      "name": "actual app compact root and body backgrounds are transparent",
+      "result": "passed"
+    },
+    {
+      "name": "create self-service character in real UI",
+      "result": "passed"
+    },
+    {
+      "name": "real backend validates PNG and returns isolated preview",
+      "result": "passed"
+    },
+    {
+      "name": "activate uploaded PNG in actual character stage",
+      "result": "passed"
+    },
+    {
+      "name": "collapse preserves uploaded character in same page",
+      "result": "passed"
+    },
+    {
+      "name": "actual app can enable timed click-through",
+      "result": "passed"
+    },
+    {
+      "name": "restore recovers actual app pointer state",
+      "result": "passed"
+    },
+    {
+      "name": "real hide sets explicit host media guard",
+      "result": "passed"
+    },
+    {
+      "name": "real app restores after hide",
+      "result": "passed"
+    },
+    {
+      "name": "actual app has no JavaScript page exceptions",
+      "result": "passed"
+    },
+    {
+      "name": "desktop quit stops owned backend and focus helper",
+      "result": "passed"
+    }
+  ],
+  "inference_or_microphone_tests": 0,
+  "limitations": [
+    "Only the executing OS/CI display; physical Windows 10/11, multi-DPI/multi-monitor/fullscreen not covered",
+    "Synthetic PNG tests import mechanics, not anime artwork quality",
+    "No model/voice quality evaluation in this check"
+  ],
+  "page_ready_seconds_with_cdp": 0.977,
+  "page_origin": "http://127.0.0.1:46389/",
+  "page_errors": [],
+  "passed": true
+}
