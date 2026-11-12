@@ -1,0 +1,107 @@
+{
+  "version": "research-revision-1.0",
+  "integration_tests_executed": 0,
+  "not_a_record_of_executed_tests": true,
+  "tests": [
+    {
+      "id": "Q01",
+      "work_packages": [
+        "P0",
+        "P5"
+      ],
+      "subject": "naturalness",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q02",
+      "work_packages": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "subject": "interruption",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q03",
+      "work_packages": [
+        "P1",
+        "P3",
+        "P5"
+      ],
+      "subject": "privacy and authority",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q04",
+      "work_packages": [
+        "P0",
+        "P1"
+      ],
+      "subject": "protocol compatibility",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q05",
+      "work_packages": [
+        "P2",
+        "P5"
+      ],
+      "subject": "speech response latency",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q06",
+      "work_packages": [
+        "P3",
+        "P5"
+      ],
+      "subject": "live scheduling",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q07",
+      "work_packages": [
+        "P0",
+        "P5"
+      ],
+      "subject": "resource overhead",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q08",
+      "work_packages": [
+        "P1",
+        "P5"
+      ],
+      "subject": "recovery",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q09",
+      "work_packages": [
+        "P6"
+      ],
+      "subject": "optional AR",
+      "status": "NOT_RUN",
+      "actual_result": null
+    },
+    {
+      "id": "Q10",
+      "work_packages": [
+        "P7"
+      ],
+      "subject": "optional MC",
+      "status": "NOT_RUN",
+      "actual_result": null
+    }
+  ]
+}

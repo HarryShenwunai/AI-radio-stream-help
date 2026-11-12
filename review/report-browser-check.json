@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-12",
+  "artifact": "design-comparison.html",
+  "checks": [
+    {
+      "width": 1440,
+      "document_overflow": false
+    },
+    {
+      "width": 390,
+      "document_overflow": false
+    }
+  ],
+  "title": "未命名虚拟陪伴项目 · 产品、架构与修订计划",
+  "svg_count": 9,
+  "javascript_errors": []
+}

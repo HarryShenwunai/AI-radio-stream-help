@@ -1,0 +1,31 @@
+{
+  "platform": "Linux x86_64",
+  "runtime": "PyInstaller onedir executable",
+  "model_calls": "real local Qwen3 4B",
+  "speech": "real local Kokoro",
+  "version": "0.2.0",
+  "memory_off_chat": {
+    "reply": "真好呀，干净的桌面像清晨的露珠一样清爽～你收拾的时候有觉得哪里特别舒服吗？",
+    "first_delta_seconds": 9.229,
+    "seconds": 11.205,
+    "chunks": 25
+  },
+  "recall": {
+    "seconds": 3.628,
+    "reply": "桂花乌龙茶。🌿"
+  },
+  "real_generation_stop": {
+    "result": "passed",
+    "seconds": 0.086,
+    "partial_saved": false
+  },
+  "speech_seconds": 3.419,
+  "audio_duration_seconds": 3.743,
+  "audio_sample_rate": 24000,
+  "audio_bytes": 179690,
+  "memory_kb": {
+    "VmHWM": 5569316,
+    "VmRSS": 5569316
+  },
+  "result": "passed"
+}

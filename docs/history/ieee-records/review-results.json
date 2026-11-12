@@ -1,0 +1,128 @@
+{
+  "document": "VG-PMP-002",
+  "revision": "2.0-review",
+  "date": "2026-11-11",
+  "scope": "plan structural consistency; not application validation or standards certification",
+  "checks": [
+    {
+      "check": "unique_requirement_ids",
+      "passed": true
+    },
+    {
+      "check": "unique_test_specification_ids",
+      "passed": true
+    },
+    {
+      "check": "all_requirements_have_source_and_owner",
+      "passed": true
+    },
+    {
+      "check": "all_requirement_links_valid",
+      "passed": true
+    },
+    {
+      "check": "all_open_links_valid",
+      "passed": true
+    },
+    {
+      "check": "forward_trace_reciprocal",
+      "passed": true
+    },
+    {
+      "check": "reverse_trace_reciprocal",
+      "passed": true
+    },
+    {
+      "check": "tests_have_steps_oracle_and_expected",
+      "passed": true
+    },
+    {
+      "check": "tests_have_versioned_synthetic_inputs",
+      "passed": true
+    },
+    {
+      "check": "no_fabricated_test_passes",
+      "passed": true
+    },
+    {
+      "check": "work_deliverable_matches_requirement",
+      "passed": true
+    },
+    {
+      "check": "work_dependencies_exist",
+      "passed": true
+    },
+    {
+      "check": "work_dependency_graph_acyclic",
+      "passed": true
+    },
+    {
+      "check": "core_effort_sum",
+      "passed": true
+    },
+    {
+      "check": "option_A_effort_and_hours",
+      "passed": true
+    },
+    {
+      "check": "option_B_effort_and_hours",
+      "passed": true
+    },
+    {
+      "check": "plan_matches_register_estimates",
+      "passed": true
+    },
+    {
+      "check": "review_draft_not_approved",
+      "passed": true
+    },
+    {
+      "check": "full_standard_conformance_not_claimed",
+      "passed": true
+    },
+    {
+      "check": "eight_main_document_sections",
+      "passed": true
+    },
+    {
+      "check": "seven_day_preparation_retained",
+      "passed": true
+    }
+  ],
+  "checks_passed": 21,
+  "requirements": 18,
+  "test_specifications": 24,
+  "linked_requirements": 18,
+  "structural_traceability_fraction": "18/18",
+  "application_test_runs": 0,
+  "application_tests_passed": 0,
+  "standard_full_text_clause_review": "not assessed; full text not obtained",
+  "approval_status": "not approved",
+  "estimate_A_person_days": [
+    12.5,
+    26
+  ],
+  "estimate_B_person_days": [
+    15.5,
+    33
+  ],
+  "open_items": [
+    "OPEN-01",
+    "OPEN-02",
+    "OPEN-03",
+    "OPEN-04",
+    "OPEN-05",
+    "OPEN-06",
+    "OPEN-07",
+    "OPEN-08"
+  ],
+  "manual_review": [
+    "Official public catalogue status and source scope checked; no fabricated clause numbers.",
+    "All original project scope and evidence sources retained.",
+    "Optional study and avatar requirements do not silently become release blockers.",
+    "Cancellation applies before new send requests; already-in-flight requests are reported.",
+    "Cost prices and resource thresholds remain open and block G2/G4 as applicable.",
+    "No deployment, purchase, account login or external message action performed.",
+    "Independent-person V&V not claimed; review is a self-review perspective."
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:virtual-companion:interaction:v1-draft",
+  "title": "Internal interaction contract — design draft, not implemented API",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "request_id",
+    "session_id",
+    "channel",
+    "source",
+    "generation_id",
+    "kind",
+    "created_at",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "request_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "channel": {
+      "enum": [
+        "private",
+        "live"
+      ]
+    },
+    "source": {
+      "enum": [
+        "web",
+        "bilibili",
+        "danmuji",
+        "unity",
+        "minecraft",
+        "scheduler",
+        "server"
+      ]
+    },
+    "generation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "kind": {
+      "enum": [
+        "user_text",
+        "asr_final",
+        "output_text_delta",
+        "output_text_final",
+        "audio_chunk",
+        "cancel_request",
+        "cancel_ack",
+        "playback_started",
+        "playback_stopped",
+        "playback_ended",
+        "tool_proposal",
+        "tool_result",
+        "connection_status"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deadline_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object",
+      "maxProperties": 32
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "audio_chunk"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": [
+              "utterance_id",
+              "seq",
+              "codec",
+              "sample_rate",
+              "channels",
+              "is_final"
+            ],
+            "properties": {
+              "utterance_id": {
+                "type": "string"
+              },
+              "seq": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "codec": {
+                "enum": [
+                  "pcm_s16le",
+                  "wav",
+                  "opus"
+                ]
+              },
+              "sample_rate": {
+                "type": "integer",
+                "minimum": 8000,
+                "maximum": 96000
+              },
+              "channels": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              },
+              "is_final": {
+                "type": "boolean"
+              },
+              "resource_id": {
+                "type": "string",
+                "maxLength": 160
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "cancel_ack"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "accepted",
+                  "already_done",
+                  "not_supported",
+                  "failed"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+﻿requirement,work_packages,subject,status
+Q01,P0 P5,naturalness,NOT_RUN
+Q02,P1 P2 P5,interruption,NOT_RUN
+Q03,P1 P3 P5,privacy and authority,NOT_RUN
+Q04,P0 P1,protocol compatibility,NOT_RUN
+Q05,P2 P5,speech response latency,NOT_RUN
+Q06,P3 P5,live scheduling,NOT_RUN
+Q07,P0 P5,resource overhead,NOT_RUN
+Q08,P1 P5,recovery,NOT_RUN
+Q09,P6,optional AR,NOT_RUN
+Q10,P7,optional MC,NOT_RUN

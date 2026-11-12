@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:xiaolan:live-event:draft-1",
+  "title": "Draft event contract — design only, no adapter implemented",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source",
+    "room_id",
+    "event_id",
+    "id_kind",
+    "type",
+    "text",
+    "received_at"
+  ],
+  "properties": {
+    "source": {
+      "enum": [
+        "bilibili-open-live",
+        "danmuji-bridge"
+      ]
+    },
+    "room_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "event_id": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "id_kind": {
+      "enum": [
+        "native",
+        "fingerprint"
+      ]
+    },
+    "actor_key": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 160
+    },
+    "type": {
+      "enum": [
+        "danmaku",
+        "gift",
+        "superchat",
+        "guard",
+        "like",
+        "system"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "event_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

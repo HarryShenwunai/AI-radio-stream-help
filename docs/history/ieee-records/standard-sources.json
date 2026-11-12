@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://standards.ieee.org/ieee/16326/6769/",
+    "accessed": "2026-11-11",
+    "scope": "project management",
+    "catalogue_access": "200 OK",
+    "full_standard_accessed": false,
+    "snapshot_sha256": "a0bf5e5f967865a045cc98580c25f77c438a462f3915a1e2930b222723de0c77"
+  },
+  {
+    "url": "https://standards.ieee.org/ieee/29148/6937/",
+    "accessed": "2026-11-11",
+    "scope": "requirements",
+    "catalogue_access": "200 OK",
+    "full_standard_accessed": false,
+    "snapshot_sha256": "06c1a58c18622aca0e735d6b42c4c5eece9cda2231793a27376d57a1134e328a"
+  },
+  {
+    "url": "https://standards.ieee.org/ieee/29119-3/7499/",
+    "accessed": "2026-11-11",
+    "scope": "test documentation",
+    "catalogue_access": "200 OK",
+    "full_standard_accessed": false,
+    "snapshot_sha256": "f22b5484af689cb46373f3a7d3d562efc5f52b57ab3a1d3a8b111b4904f34943"
+  },
+  {
+    "url": "https://standards.ieee.org/ieee/1058/1542/",
+    "accessed": "2026-11-11",
+    "scope": "superseded history",
+    "catalogue_access": "200 OK",
+    "full_standard_accessed": false,
+    "snapshot_sha256": "c12aa02cf89a7f2d4d7f3e3cc2a0de0c0fd8eaf51a5f258855666667002c5d11"
+  }
+]

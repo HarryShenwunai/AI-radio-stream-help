@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-12",
+  "review_type": "separate self-review pass, not independent personnel verification",
+  "functional_evidence": {
+    "backend_tests_passed": 36,
+    "http_mock_provider_tests_passed": 5,
+    "browser_fixture_test": "passed",
+    "real_model_and_browser_audio": "passed",
+    "compiled_linux_stream_stop_voice": "passed"
+  },
+  "corrections": [
+    "Removed unrelated memory fallback and required lookup intent",
+    "Stop cleans streamed draft before re-enabling send",
+    "Network failure preserves input and request ID",
+    "Negative requests for advice take precedence over keyword match",
+    "Recall assertion accepts correct short answers without mandatory pronoun",
+    "Intentional audio stop clears handlers before clearing source, preventing false error toast"
+  ],
+  "quality_observations": {
+    "scenarios": 12,
+    "completed": 12,
+    "revisions": 4,
+    "all_human_quality_passed": false,
+    "unresolved": ["Some environment descriptions evade finite rules", "Naturalness and media facts remain unreliable", "Long-term relationship quality not user-validated"],
+    "performance_note": "Scenario timing overlapped build load. Use independent native-check.json for single-run resource observation, not p95."
+  },
+  "not_implemented": ["WeChat", "Bilibili", "danmuji bridge", "OBS public output separation", "Live2D"],
+  "platform_scope": "Linux x86_64 native verified; Windows/macOS bootstrap scripts only"
+}

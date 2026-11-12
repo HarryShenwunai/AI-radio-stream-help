@@ -1,0 +1,365 @@
+{
+  "access_date": "2026-11-12",
+  "repos": {
+    "ZerolanLiveRobot": {
+      "branch": "main",
+      "commit": "aad29d093295eef351da03a0bbe6ffac5539716d"
+    },
+    "ZerolanPlayground": {
+      "branch": "main",
+      "commit": "fb23d1ed7345d51c73e82d72b1f27750c2e62961"
+    },
+    "zerolan-core": {
+      "branch": "main",
+      "commit": "baefa0f78abe756a91ca231fc2f6439b46ebe266"
+    },
+    "zerolan-data": {
+      "branch": "main",
+      "commit": "647157ddfe043ab89315c31902b0747158c1706d"
+    },
+    "KonekoMinecraftBot": [
+      {
+        "branch": "dev",
+        "commit": "b582ef3073bcb62c2fdfea7a9bfd9dffd472d7bf"
+      },
+      {
+        "branch": "master",
+        "commit": "6954c50f2d8d476bd97a10b38cdfadf58372ba2b"
+      }
+    ]
+  },
+  "files": [
+    {
+      "id": "robot-bot",
+      "repo": "ZerolanLiveRobot",
+      "path": "bot.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/bot.py",
+      "git_blob_sha": "f650894f9e9b4effc83a5982e1ec7a2299790b2e",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-base",
+      "repo": "ZerolanLiveRobot",
+      "path": "framework/base_bot.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/framework/base_bot.py",
+      "git_blob_sha": "7b4ff667c0815e531e868ccd17f78620832be387",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-events",
+      "repo": "ZerolanLiveRobot",
+      "path": "event/event_emitter.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/event/event_emitter.py",
+      "git_blob_sha": "f8aba587387d8372bff77a7858c5812a9cad644b",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-event-data",
+      "repo": "ZerolanLiveRobot",
+      "path": "event/event_data.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/event/event_data.py",
+      "git_blob_sha": "f3489129e2e17d1a1a3d269176d60ff0ceebaf32",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-bilibili",
+      "repo": "ZerolanLiveRobot",
+      "path": "services/live_stream/bilibili.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/services/live_stream/bilibili.py",
+      "git_blob_sha": "9329ff4547c8586ad034c2120a6cf7bb3981d15e",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-obs",
+      "repo": "ZerolanLiveRobot",
+      "path": "services/obs/client.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/services/obs/client.py",
+      "git_blob_sha": "c4dd194450c512aeb07f59b652ac5fe6c5285dc8",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-playground",
+      "repo": "ZerolanLiveRobot",
+      "path": "services/playground/bridge.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/services/playground/bridge.py",
+      "git_blob_sha": "cd65e1b3361b1a8bf4fc3c02c8e4b016ce491ff3",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-minecraft",
+      "repo": "ZerolanLiveRobot",
+      "path": "services/game/minecraft/app.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/services/game/minecraft/app.py",
+      "git_blob_sha": "f4f1596485f252f42eea49bd48735e4d61955da6",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-protocol",
+      "repo": "ZerolanLiveRobot",
+      "path": "common/web/zrl_ws.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/common/web/zrl_ws.py",
+      "git_blob_sha": "7408925599c50ebe60957cb744b37d3c7b0cc408",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-agent",
+      "repo": "ZerolanLiveRobot",
+      "path": "agent/tool_agent.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/agent/tool_agent.py",
+      "git_blob_sha": "18856fadfb7f5340a1c8635a1485be54291f4a46",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-base",
+      "repo": "zerolan-core",
+      "path": "common/abs_app.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/common/abs_app.py",
+      "git_blob_sha": "d836e9b2483f5dc395929084263a2f93d43c16a2",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-starter",
+      "repo": "zerolan-core",
+      "path": "starter.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/starter.py",
+      "git_blob_sha": "174a2d74da8f3918d924f7f8abca37ce2685e898",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-config",
+      "repo": "zerolan-core",
+      "path": "config.template.yaml",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/config.template.yaml",
+      "git_blob_sha": "62585032efd1546c9f9e7f862809864b1306c1dc",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-llm",
+      "repo": "zerolan-core",
+      "path": "llm/app.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/llm/app.py",
+      "git_blob_sha": "58a9dea3bbce72212ff620e0deafa81d62414162",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-tts",
+      "repo": "zerolan-core",
+      "path": "tts/app.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/tts/app.py",
+      "git_blob_sha": "918ef00814e19d2a8c26ef7c442d12bca7741ebb",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-protocol",
+      "repo": "zerolan-data",
+      "path": "src/zerolan/data/protocol/protocol.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/src/zerolan/data/protocol/protocol.py",
+      "git_blob_sha": "bfe5b130284364c2ce401667b2ddd0d7db0097cf",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-state",
+      "repo": "zerolan-data",
+      "path": "src/zerolan/data/data/state.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/src/zerolan/data/data/state.py",
+      "git_blob_sha": "d09caa3eb685d917fe92b17919ce66f0fafd7aef",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-llm",
+      "repo": "zerolan-data",
+      "path": "src/zerolan/data/pipeline/llm.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/src/zerolan/data/pipeline/llm.py",
+      "git_blob_sha": "7c9df5157c2ac45340c0e998c5209c6f4db2eb84",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-tts",
+      "repo": "zerolan-data",
+      "path": "src/zerolan/data/pipeline/tts.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/src/zerolan/data/pipeline/tts.py",
+      "git_blob_sha": "f28a602621172b2a601fe135b5489279f8ae51a5",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-pyproject",
+      "repo": "zerolan-data",
+      "path": "pyproject.toml",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/pyproject.toml",
+      "git_blob_sha": "388ae388e583aad0ca845bb733c6a3c9b0005892",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "ar-protocol",
+      "repo": "ZerolanPlayground",
+      "path": "Assets/Scripts/Web/ZerolanProtocolClient.cs",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanPlayground/blob/main/Assets/Scripts/Web/ZerolanProtocolClient.cs",
+      "git_blob_sha": "d7e39578483cc3697ffe47590a0227e5535a69aa",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "ar-speech",
+      "repo": "ZerolanPlayground",
+      "path": "Assets/Scripts/Controller/SpeechController.cs",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanPlayground/blob/main/Assets/Scripts/Controller/SpeechController.cs",
+      "git_blob_sha": "602b03d7e64208d2ca2cc8818dd2a2ca35f755b2",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "ar-dto",
+      "repo": "ZerolanPlayground",
+      "path": "Assets/Scripts/Data/Protocol.cs",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanPlayground/blob/main/Assets/Scripts/Data/Protocol.cs",
+      "git_blob_sha": "5009f40c0ffba086756269c9eea04123e9e4ef11",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "ar-packages",
+      "repo": "ZerolanPlayground",
+      "path": "Packages/manifest.json",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanPlayground/blob/main/Packages/manifest.json",
+      "git_blob_sha": "7238a3d0fea609acc2c304fcc2e6d7fbb193764c",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-server",
+      "repo": "KonekoMinecraftBot",
+      "path": "src/web/server.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/master/src/web/server.ts",
+      "git_blob_sha": "2d5204761d472ba30bb0e168dc1ca6a05ae34687",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-bot",
+      "repo": "KonekoMinecraftBot",
+      "path": "src/koneko.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/master/src/koneko.ts",
+      "git_blob_sha": "a5ad29b86adb09ae54bcdd1af80a60ffa29075be",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-fsm",
+      "repo": "KonekoMinecraftBot",
+      "path": "src/fsm/fsm.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/master/src/fsm/fsm.ts",
+      "git_blob_sha": "c6f2ad166542f7c473166ab67df727ba538ab757",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-package",
+      "repo": "KonekoMinecraftBot",
+      "path": "package.json",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/master/package.json",
+      "git_blob_sha": "332d15fb6751a07e0a8c8f6b877657db7c1968bd",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-tts",
+      "repo": "ZerolanLiveRobot",
+      "path": "pipeline/tts/tts_sync.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/pipeline/tts/tts_sync.py",
+      "git_blob_sha": "f4801fc6c3b8efc7a2131f3189f90e1758bea658",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-llm",
+      "repo": "ZerolanLiveRobot",
+      "path": "pipeline/llm/llm_sync.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/pipeline/llm/llm_sync.py",
+      "git_blob_sha": "cdecdab669d63952981ec6bd99fb3320a9a5e4d0",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-sync-base",
+      "repo": "ZerolanLiveRobot",
+      "path": "pipeline/base/base_sync.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/pipeline/base/base_sync.py",
+      "git_blob_sha": "7e301e55bc5e65329bb2c868b768c29b4ce94ed0",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-gpt-sovits",
+      "repo": "zerolan-core",
+      "path": "tts/gpt_sovits/model.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/tts/gpt_sovits/model.py",
+      "git_blob_sha": "f489af4ccc4f7017e231097c75e17eaaff2adf08",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "core-license",
+      "repo": "zerolan-core",
+      "path": "LICENSE",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-core/blob/main/LICENSE",
+      "git_blob_sha": "3111db9c4178d8545ce2a711308445ee2545f494",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "data-base",
+      "repo": "zerolan-data",
+      "path": "src/zerolan/data/pipeline/abs_data.py",
+      "url": "https://github.com/AkagawaTsurunaki/zerolan-data/blob/main/src/zerolan/data/pipeline/abs_data.py",
+      "git_blob_sha": "1b77bc8e8db44995af1036ad4440fb71ec7153ed",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-license",
+      "repo": "KonekoMinecraftBot",
+      "path": "LICENSE",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/master/LICENSE",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "ar-speech-handler",
+      "repo": "ZerolanPlayground",
+      "path": "Assets/Scripts/Handlers/SpeechHandler.cs",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanPlayground/blob/main/Assets/Scripts/Handlers/SpeechHandler.cs",
+      "git_blob_sha": "4e10fe153d2805abaea5040130f4c2f89362d111",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "robot-context",
+      "repo": "ZerolanLiveRobot",
+      "path": "framework/context.py",
+      "url": "https://github.com/AkagawaTsurunaki/ZerolanLiveRobot/blob/main/framework/context.py",
+      "git_blob_sha": "345e753901e7a3e8abff156c9d4e756ff0e31c09",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-dev-plugin",
+      "repo": "KonekoMinecraftBot",
+      "ref": "dev",
+      "path": "src/web/zerolanPlugin.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/dev/src/web/zerolanPlugin.ts",
+      "git_blob_sha": "0a4ca13582e65ffd85692c40a61b716e7d979f6a",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-dev-tool",
+      "repo": "KonekoMinecraftBot",
+      "ref": "dev",
+      "path": "src/agent/toolCall.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/dev/src/agent/toolCall.ts",
+      "git_blob_sha": "bf084129ebb6c0c7442fb8f7196e36dd79fa8a1f",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-dev-executor",
+      "repo": "KonekoMinecraftBot",
+      "ref": "dev",
+      "path": "src/instruction/executor.ts",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/dev/src/instruction/executor.ts",
+      "git_blob_sha": "e6bb8defab16f7839473ff80442b6eb2a4a7c04a",
+      "access_date": "2026-11-12"
+    },
+    {
+      "id": "mc-dev-package",
+      "repo": "KonekoMinecraftBot",
+      "ref": "dev",
+      "path": "package.json",
+      "url": "https://github.com/AkagawaTsurunaki/KonekoMinecraftBot/blob/dev/package.json",
+      "git_blob_sha": "de5a5c8d5bb5699bff16395a71bbd208b041a7d7",
+      "access_date": "2026-11-12"
+    }
+  ]
+}

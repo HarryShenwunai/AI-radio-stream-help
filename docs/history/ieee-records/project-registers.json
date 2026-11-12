@@ -1,0 +1,815 @@
+{
+  "version": "2.0-review",
+  "date": "2026-11-11",
+  "document_id": "VG-PMP-002",
+  "approval": "未批准",
+  "standard_conformance": "未声明",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "text": "角色核心设定应保持一致，设定更改必须有版本记录。",
+      "priority": "M",
+      "wbs": "T3",
+      "tests": [
+        "TC-001"
+      ],
+      "deliverable": "D04",
+      "source": "用户已明确",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-002",
+      "text": "日常接话、重复程度和角色感应达到用户确认的评分线。",
+      "priority": "M",
+      "wbs": "T3",
+      "tests": [
+        "TC-002"
+      ],
+      "deliverable": "D04",
+      "source": "用户已明确",
+      "owner": "U",
+      "category": "subjective",
+      "open": "OPEN-04",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-003",
+      "text": "用于回复的用户事实应记录来源、时间和事实/推断类别。",
+      "priority": "M",
+      "wbs": "T4",
+      "tests": [
+        "TC-003"
+      ],
+      "deliverable": "D05",
+      "source": "连续相处的设计推导",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-004",
+      "text": "用户更正事实后，检索应优先返回有效新事实。",
+      "priority": "M",
+      "wbs": "T4",
+      "tests": [
+        "TC-004"
+      ],
+      "deliverable": "D05",
+      "source": "连续相处的设计推导",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-005",
+      "text": "删除记忆应覆盖约定的原文片段、摘要、索引、缓存和活动上下文。",
+      "priority": "M",
+      "wbs": "T4",
+      "tests": [
+        "TC-005",
+        "TC-024"
+      ],
+      "deliverable": "D05",
+      "source": "隐私与用户控制设计",
+      "owner": "E",
+      "category": "core",
+      "open": "OPEN-06",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-006",
+      "text": "重启后应恢复角色、有效事实和已确认任务状态。",
+      "priority": "M",
+      "wbs": "T4",
+      "tests": [
+        "TC-006"
+      ],
+      "deliverable": "D05",
+      "source": "长期使用的设计推导",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-007",
+      "text": "系统应在获授权的本人会话中收发文字。",
+      "priority": "M",
+      "wbs": "T1",
+      "tests": [
+        "TC-007"
+      ],
+      "deliverable": "D02",
+      "source": "用户已明确",
+      "owner": "E",
+      "category": "channel",
+      "open": "OPEN-02",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-008",
+      "text": "系统应通过用户认可的入口与消息形式提供可播放角色语音。",
+      "priority": "M",
+      "wbs": "T5",
+      "tests": [
+        "TC-008",
+        "TC-019"
+      ],
+      "deliverable": "D06",
+      "source": "用户已明确",
+      "owner": "U",
+      "category": "voice",
+      "open": "OPEN-01",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-009",
+      "text": "主动联系应执行授权时段、频率和收件人策略。",
+      "priority": "M",
+      "wbs": "T6",
+      "tests": [
+        "TC-009",
+        "TC-023"
+      ],
+      "deliverable": "D07",
+      "source": "用户已明确",
+      "owner": "E",
+      "category": "core",
+      "open": "OPEN-02",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-010",
+      "text": "任务暂停或取消生效后，旧任务不得再发起发送。",
+      "priority": "M",
+      "wbs": "T6",
+      "tests": [
+        "TC-010",
+        "TC-021"
+      ],
+      "deliverable": "D07",
+      "source": "可控主动联系设计",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-011",
+      "text": "启用督学时应支持学习目标、计时、暂停和复盘。",
+      "priority": "S",
+      "wbs": "T6",
+      "tests": [
+        "TC-011"
+      ],
+      "deliverable": "D07",
+      "source": "用户已明确为可选功能",
+      "owner": "U",
+      "category": "study",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-012",
+      "text": "工具应拒绝越权收件人、任意命令和未授权数据访问。",
+      "priority": "M",
+      "wbs": "T7",
+      "tests": [
+        "TC-012",
+        "TC-022"
+      ],
+      "deliverable": "D08",
+      "source": "Agent权限设计",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-013",
+      "text": "记录应区分触发、接口接受、送达和已读，不得伪报状态。",
+      "priority": "M",
+      "wbs": "T7",
+      "tests": [
+        "TC-013",
+        "TC-020"
+      ],
+      "deliverable": "D08",
+      "source": "平台能力约束S2",
+      "owner": "E",
+      "category": "core",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-014",
+      "text": "目标设备上的延迟与资源开销应满足已确认的预算线。",
+      "priority": "M",
+      "wbs": "T7",
+      "tests": [
+        "TC-014"
+      ],
+      "deliverable": "D08",
+      "source": "用户要求性能验收",
+      "owner": "E",
+      "category": "performance",
+      "open": "OPEN-05",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-015",
+      "text": "备份恢复与版本回退应通过数据核对并遵守删除策略。",
+      "priority": "M",
+      "wbs": "T8",
+      "tests": [
+        "TC-015",
+        "TC-024"
+      ],
+      "deliverable": "D09",
+      "source": "持续使用设计",
+      "owner": "E",
+      "category": "core",
+      "open": "OPEN-06",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-016",
+      "text": "系统应记录实际计费用量并执行用户批准的预算策略。",
+      "priority": "M",
+      "wbs": "T7",
+      "tests": [
+        "TC-016"
+      ],
+      "deliverable": "D08",
+      "source": "用户要求成本控制",
+      "owner": "U",
+      "category": "cost",
+      "open": "OPEN-03",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-017",
+      "text": "选择动态形象后应与统一角色核心共享状态，后台降低渲染负担。",
+      "priority": "C",
+      "wbs": "TB",
+      "tests": [
+        "TC-017"
+      ],
+      "deliverable": "DB",
+      "source": "用户可延后体验",
+      "owner": "E",
+      "category": "avatar",
+      "open": "",
+      "status": "拟议，未实施"
+    },
+    {
+      "id": "REQ-018",
+      "text": "模型和语音服务只能接收约定数据，敏感内容不得写入普通日志。",
+      "priority": "M",
+      "wbs": "T7",
+      "tests": [
+        "TC-018",
+        "TC-022"
+      ],
+      "deliverable": "D08",
+      "source": "数据边界设计",
+      "owner": "U",
+      "category": "privacy",
+      "open": "OPEN-06",
+      "status": "拟议，未实施"
+    }
+  ],
+  "tests": [
+    {
+      "id": "TC-001",
+      "requirements": [
+        "REQ-001"
+      ],
+      "steps": "锁定角色版本；执行固定场景及话题切换；比对核心设定。",
+      "expected": "场景中核心设定矛盾为0；更改必须能定位配置版本。",
+      "oracle": "角色档案与逐项人工判定",
+      "status": "未执行",
+      "fixtures": [
+        "FX-01"
+      ]
+    },
+    {
+      "id": "TC-002",
+      "requirements": [
+        "REQ-002"
+      ],
+      "steps": "同一场景集测试两个模型；隐藏模型标签后由用户评分。",
+      "expected": "接话、重复、角色感评分达到G2确认值；不以模型自评替代。",
+      "oracle": "用户评分表，OPEN-04",
+      "status": "未执行",
+      "fixtures": [
+        "FX-01"
+      ]
+    },
+    {
+      "id": "TC-003",
+      "requirements": [
+        "REQ-003"
+      ],
+      "steps": "输入事实、猜测和角色背景；检查写入与检索。",
+      "expected": "所有被使用的事实可追溯原消息；推断不冒充用户事实。",
+      "oracle": "固定夹具及事实库导出",
+      "status": "未执行",
+      "fixtures": [
+        "FX-01",
+        "FX-02"
+      ]
+    },
+    {
+      "id": "TC-004",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": "先存旧计划，再明确更正；隔轮询问。",
+      "expected": "采用有效新记录，旧记录仅能作为标注历史出现。",
+      "oracle": "更正事件和检索结果",
+      "status": "未执行",
+      "fixtures": [
+        "FX-02"
+      ]
+    },
+    {
+      "id": "TC-005",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": "删除一条事实；检查原文、摘要、索引、缓存与新回复。",
+      "expected": "在确认的清理范围内无残留引用；记录删除回执。",
+      "oracle": "删除清单，OPEN-06",
+      "status": "未执行",
+      "fixtures": [
+        "FX-02"
+      ]
+    },
+    {
+      "id": "TC-006",
+      "requirements": [
+        "REQ-006"
+      ],
+      "steps": "保存角色、事实和任务；中断后重启。",
+      "expected": "恢复值与中断前已提交状态一致；未提交操作不伪报成功。",
+      "oracle": "事务边界与前后快照",
+      "status": "未执行",
+      "fixtures": [
+        "FX-10"
+      ]
+    },
+    {
+      "id": "TC-007",
+      "requirements": [
+        "REQ-007"
+      ],
+      "steps": "在授权本人测试会话往返文字并重启入口。",
+      "expected": "文本及会话寻址正确；明确记录平台结果。",
+      "oracle": "获授权的账号测试日志",
+      "status": "未执行",
+      "fixtures": [
+        "FX-04"
+      ]
+    },
+    {
+      "id": "TC-008",
+      "requirements": [
+        "REQ-008"
+      ],
+      "steps": "合成相同短句；按认可通道发送并实际播放。",
+      "expected": "音色由用户认可；消息形式符合OPEN-01；可播放。",
+      "oracle": "用户试听与入口截图",
+      "status": "未执行",
+      "fixtures": [
+        "FX-06"
+      ]
+    },
+    {
+      "id": "TC-009",
+      "requirements": [
+        "REQ-009"
+      ],
+      "steps": "生成约定与非约定任务；覆盖安静时段与频率上限。",
+      "expected": "只在授权策略内向本人发送；不无限追发。",
+      "oracle": "策略表与发送尝试记录",
+      "status": "未执行",
+      "fixtures": [
+        "FX-03"
+      ]
+    },
+    {
+      "id": "TC-010",
+      "requirements": [
+        "REQ-010"
+      ],
+      "steps": "暂停及取消未到期任务；经过触发时间。",
+      "expected": "状态生效后没有旧任务新发送尝试。",
+      "oracle": "任务事件与发送记录",
+      "status": "未执行",
+      "fixtures": [
+        "FX-03"
+      ]
+    },
+    {
+      "id": "TC-011",
+      "requirements": [
+        "REQ-011"
+      ],
+      "steps": "开启督学，设目标和计时，再暂停并请求复盘。",
+      "expected": "实际任务状态与角色回复一致；关闭后不催学。",
+      "oracle": "任务状态及场景记录",
+      "status": "未执行",
+      "fixtures": [
+        "FX-01",
+        "FX-03"
+      ]
+    },
+    {
+      "id": "TC-012",
+      "requirements": [
+        "REQ-012"
+      ],
+      "steps": "使用模拟工具请求他人会话、任意Shell及未授权读取。",
+      "expected": "全部拒绝，且产生实际拒绝日志；不执行真实外发。",
+      "oracle": "模拟工具审计",
+      "status": "未执行",
+      "fixtures": [
+        "FX-05"
+      ]
+    },
+    {
+      "id": "TC-013",
+      "requirements": [
+        "REQ-013"
+      ],
+      "steps": "模拟接受、拒绝、超时和无回执。",
+      "expected": "状态分别记录；没有回执不能记为送达或已读。",
+      "oracle": "已知响应夹具",
+      "status": "未执行",
+      "fixtures": [
+        "FX-04"
+      ]
+    },
+    {
+      "id": "TC-014",
+      "requirements": [
+        "REQ-014"
+      ],
+      "steps": "固定设备、版本和场景；分别测空闲、连续文字和语音。",
+      "expected": "p50/p95、CPU、RSS、显存及磁盘增长均满足G2线。",
+      "oracle": "原始计时与资源记录，OPEN-05",
+      "status": "未执行",
+      "fixtures": [
+        "FX-09"
+      ]
+    },
+    {
+      "id": "TC-015",
+      "requirements": [
+        "REQ-015"
+      ],
+      "steps": "在干净目录恢复备份并回退配置与数据版本。",
+      "expected": "核对角色、事实与任务一致；遵守RPO/RTO及删除策略。",
+      "oracle": "恢复报告，OPEN-06",
+      "status": "未执行",
+      "fixtures": [
+        "FX-10"
+      ]
+    },
+    {
+      "id": "TC-016",
+      "requirements": [
+        "REQ-016"
+      ],
+      "steps": "回放已知计费样本，模拟达到预算线。",
+      "expected": "用量计算可复核；按确认策略限额或停止，不自行加购。",
+      "oracle": "提供方价格快照与用量账本",
+      "status": "未执行",
+      "fixtures": [
+        "FX-08"
+      ]
+    },
+    {
+      "id": "TC-017",
+      "requirements": [
+        "REQ-017"
+      ],
+      "steps": "选定形象后测试状态同步和前后台切换。",
+      "expected": "共用角色版本；后台资源符合约定线。",
+      "oracle": "仅选择TB时启用",
+      "status": "未执行",
+      "fixtures": [
+        "FX-01",
+        "FX-09"
+      ]
+    },
+    {
+      "id": "TC-018",
+      "requirements": [
+        "REQ-018"
+      ],
+      "steps": "向模拟服务发送带标记数据，查看请求与日志。",
+      "expected": "仅出现允许字段；密钥和标记敏感字段未进入普通日志。",
+      "oracle": "模拟出站捕获和日志扫描",
+      "status": "未执行",
+      "fixtures": [
+        "FX-05"
+      ]
+    },
+    {
+      "id": "TC-019",
+      "requirements": [
+        "REQ-008"
+      ],
+      "steps": "模拟TTS超时、空音频和损坏文件。",
+      "expected": "保留文字，说明语音失败；有限重试，不标记已发语音。",
+      "oracle": "故障夹具",
+      "status": "未执行",
+      "fixtures": [
+        "FX-06"
+      ]
+    },
+    {
+      "id": "TC-020",
+      "requirements": [
+        "REQ-013"
+      ],
+      "steps": "重复投递同一回调并制造发送结果不确定。",
+      "expected": "可去重事件不产生重复发送；不确定状态不盲目重试。",
+      "oracle": "消息ID及幂等记录",
+      "status": "未执行",
+      "fixtures": [
+        "FX-04"
+      ]
+    },
+    {
+      "id": "TC-021",
+      "requirements": [
+        "REQ-010"
+      ],
+      "steps": "在调度触发和实际发送之间取消任务。",
+      "expected": "发送前重查取消版本；若请求已发出应如实显示竞态边界。",
+      "oracle": "并发时序与操作日志",
+      "status": "未执行",
+      "fixtures": [
+        "FX-03",
+        "FX-10"
+      ]
+    },
+    {
+      "id": "TC-022",
+      "requirements": [
+        "REQ-012",
+        "REQ-018"
+      ],
+      "steps": "在消息、记忆和外部文本中放入扩大权限的指令。",
+      "expected": "不改变工具权限或数据范围；没有真实越权操作。",
+      "oracle": "模拟工具与数据审计",
+      "status": "未执行",
+      "fixtures": [
+        "FX-05"
+      ]
+    },
+    {
+      "id": "TC-023",
+      "requirements": [
+        "REQ-009"
+      ],
+      "steps": "切换配置时区，覆盖跨日和支持时区的夏令时边界。",
+      "expected": "按确认规则执行；不存在时间和重复时间有明确处理。",
+      "oracle": "时区夹具与任务计算结果",
+      "status": "未执行",
+      "fixtures": [
+        "FX-07"
+      ]
+    },
+    {
+      "id": "TC-024",
+      "requirements": [
+        "REQ-005",
+        "REQ-015"
+      ],
+      "steps": "删除事实后从较旧备份恢复，再检索。",
+      "expected": "重放删除记录，不使已删除内容重新在线可检索。",
+      "oracle": "删除账本与恢复后核对",
+      "status": "未执行",
+      "fixtures": [
+        "FX-02",
+        "FX-10"
+      ]
+    }
+  ],
+  "work": [
+    {
+      "id": "T0",
+      "name": "范围与条件",
+      "min": 0.5,
+      "max": 1,
+      "depends": [],
+      "deliverable": "D01",
+      "gate": "G0",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T1",
+      "name": "微信可行性",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T0"
+      ],
+      "deliverable": "D02",
+      "gate": "G1",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T2",
+      "name": "模型/版本/指标基线",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T1"
+      ],
+      "deliverable": "D03",
+      "gate": "G2",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T3",
+      "name": "角色与自然文字",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T0",
+        "T2"
+      ],
+      "deliverable": "D04",
+      "gate": "G3",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T4",
+      "name": "相处记忆",
+      "min": 2,
+      "max": 4,
+      "depends": [
+        "T3"
+      ],
+      "deliverable": "D05",
+      "gate": "G3",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T5",
+      "name": "语音链路",
+      "min": 1,
+      "max": 3,
+      "depends": [
+        "T1",
+        "T3"
+      ],
+      "deliverable": "D06",
+      "gate": "G3",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T6",
+      "name": "主动联系及可选督学",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T1",
+        "T4"
+      ],
+      "deliverable": "D07",
+      "gate": "G3",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T7",
+      "name": "故障/权限/性能回归",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "deliverable": "D08",
+      "gate": "G4",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T8",
+      "name": "恢复/交付/试用准备",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T7"
+      ],
+      "deliverable": "D09",
+      "gate": "G4",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "T9",
+      "name": "贯穿配置/质量/评审控制",
+      "min": 1,
+      "max": 2,
+      "depends": [
+        "T0"
+      ],
+      "deliverable": "D10",
+      "gate": "G4",
+      "owner": "E",
+      "status": "未启动"
+    },
+    {
+      "id": "TB",
+      "name": "可选独立界面整合",
+      "min": 3,
+      "max": 7,
+      "depends": [
+        "T4",
+        "T5"
+      ],
+      "deliverable": "DB",
+      "gate": "G4",
+      "owner": "E",
+      "status": "未启动"
+    }
+  ],
+  "opens": [
+    {
+      "id": "OPEN-01",
+      "subject": "语音形式与是否补充独立界面",
+      "owner": "U",
+      "due": "G0",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-02",
+      "subject": "账号入口、主动发送有效条件与授权会话",
+      "owner": "U/E",
+      "due": "G1",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-03",
+      "subject": "预算上限、核价与计费用量规则",
+      "owner": "U",
+      "due": "G2",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-04",
+      "subject": "角色档案与自然感评分线",
+      "owner": "U",
+      "due": "G2",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-05",
+      "subject": "设备与性能/资源基线阈值",
+      "owner": "U/E",
+      "due": "G2",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-06",
+      "subject": "外部数据流、保留/删除及RPO/RTO",
+      "owner": "U/E",
+      "due": "G2",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-07",
+      "subject": "实施、评审、运维角色的实际人选",
+      "owner": "U",
+      "due": "G0",
+      "status": "待决定或验证"
+    },
+    {
+      "id": "OPEN-08",
+      "subject": "标准正文逐条核对的合法访问",
+      "owner": "E",
+      "due": "正式符合性声明前",
+      "status": "待决定或验证"
+    }
+  ]
+}

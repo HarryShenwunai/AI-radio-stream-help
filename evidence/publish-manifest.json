@@ -1,0 +1,202 @@
+{
+  "date": "2026-11-12",
+  "scope": "design research and sanitized historical prototype evidence; not application runtime",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 263,
+      "sha256": "a0066f77335dfc2f7e292063b1d961e470af9d2d6578a96a15cbb908da7379ed"
+    },
+    {
+      "path": "HANDOFF.MD",
+      "bytes": 3293,
+      "sha256": "ae9290ba74abb8e65cdd81ae67bd3653eaa180d01c5f7d56b19dc06076ceeca8"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 1268,
+      "sha256": "5c9f562d316bfd76f511f56061d45039821bda56f9f5fc64188c8619dfa6445d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2873,
+      "sha256": "7642e419fe9f2223f71402167267c80bd00d4a520d63b2db8d4c7e1766129b92"
+    },
+    {
+      "path": "contracts/interaction-v1.schema.json",
+      "bytes": 3695,
+      "sha256": "526166ba74518aa3c71956715695d6b64e759058c3e4522da2312cdd0e211850"
+    },
+    {
+      "path": "contracts/live-event-v0-draft.schema.json",
+      "bytes": 1235,
+      "sha256": "592d3f4e2fefaf07f613c8a9a096c8c323bda25669fad86b6e6ec7013c449a06"
+    },
+    {
+      "path": "docs/design/architecture.md",
+      "bytes": 6329,
+      "sha256": "d1533d3ac1b02ad5cd5eee3db779a29821b6048cc412f8240b09fa2ac90f7e07"
+    },
+    {
+      "path": "docs/design/current-state.md",
+      "bytes": 2706,
+      "sha256": "9a7a02e9f8431e5c8b27f0a58d660bd8d325d8e20fe2c6b47b4e62b5d3704f1c"
+    },
+    {
+      "path": "docs/history/bilibili-plan.md",
+      "bytes": 28003,
+      "sha256": "4394a74239375893d845850decdee47f521cd409680252dd3ef18ea0f2598d23"
+    },
+    {
+      "path": "docs/history/bilibili-traceability.csv",
+      "bytes": 444,
+      "sha256": "d0e6404b63dd3b68ca04310d6d3d1b3e3d30e2f7a845ab066e7c43da9654f3b2"
+    },
+    {
+      "path": "docs/history/ieee-plan.md",
+      "bytes": 56869,
+      "sha256": "55b7a7d81d6ebdb0505276ce9bd22849e661e24ce4596660cdb9db4df60514f8"
+    },
+    {
+      "path": "docs/history/ieee-records/open-items.csv",
+      "bytes": 659,
+      "sha256": "33022a9004460ee2e09661588630ca81a0f91551945f77ed3e46696daaa31ae3"
+    },
+    {
+      "path": "docs/history/ieee-records/project-registers.json",
+      "bytes": 20561,
+      "sha256": "0f04de79a758863e22eca93aa6188a92d3ca742c35f5a4a99dd8d7d5d9490c97"
+    },
+    {
+      "path": "docs/history/ieee-records/review-results.json",
+      "bytes": 3089,
+      "sha256": "e2a275eb7096cfa62034ed592358265ffa84b830510ef097726e9eb7602add87"
+    },
+    {
+      "path": "docs/history/ieee-records/standard-sources.json",
+      "bytes": 1170,
+      "sha256": "248e367f8496f6c3c1bdc47014b43ccb8512c4371f25fb5f4a2cf3776f0972f3"
+    },
+    {
+      "path": "docs/history/ieee-records/test-fixtures.json",
+      "bytes": 3853,
+      "sha256": "72e9be9d6b5e992f2f8cfd871f555647dd9e04e2db1bb7bac11e4eec7a6a614c"
+    },
+    {
+      "path": "docs/history/ieee-records/test-specifications.csv",
+      "bytes": 4662,
+      "sha256": "fc9bc1d4d798e8e5f8e1ac449d3913557d8dc65b471b00ac6cc1a00f4a96c088"
+    },
+    {
+      "path": "docs/history/ieee-records/traceability.csv",
+      "bytes": 2767,
+      "sha256": "e933fbc0725974c9c4f65bff0c192c2d41ab946a7ff1058e77caf8271ac2d701"
+    },
+    {
+      "path": "docs/history/ieee-records/work-packages.csv",
+      "bytes": 658,
+      "sha256": "8c9ca438249dca950feb90cee452bbe10c9a133de30462ca541a854a62315b5d"
+    },
+    {
+      "path": "docs/history/prototype/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "docs/history/prototype/avatar.svg",
+      "bytes": 3750,
+      "sha256": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2"
+    },
+    {
+      "path": "docs/history/prototype/desktop.png",
+      "bytes": 287261,
+      "sha256": "1f3441e2f8f12b8934a75a4849e75051e6b896b37b56e75552b2d1c10cfe6d07"
+    },
+    {
+      "path": "docs/history/prototype/mobile.png",
+      "bytes": 51751,
+      "sha256": "db5611cd4f62956eaf4a200831b002a2685927ed89fbed445705b099416165ce"
+    },
+    {
+      "path": "docs/history/prototype/release-v0.2.md",
+      "bytes": 4232,
+      "sha256": "fd2ab5e6bcbe48d33b4df5ba54864c9aaed31d01eefa858e4d27508006b08b6e"
+    },
+    {
+      "path": "docs/planning/revised-plan.md",
+      "bytes": 17421,
+      "sha256": "cbc548a5be5eeaf700ea2538c5ef4796829bae08b3540343d0ae1bea7926bcab"
+    },
+    {
+      "path": "docs/report/comparison.html",
+      "bytes": 166116,
+      "sha256": "640d5c6ea30b8d95ab47385f3c6ab00561bf8b1f2681d7c738dd5fa3fd98ddbe"
+    },
+    {
+      "path": "docs/report/comparison.pdf",
+      "bytes": 981126,
+      "sha256": "a261eb7ba86b4ed05115754ffce3a45087e1689aad083c62cddc85deb3ac5104"
+    },
+    {
+      "path": "docs/report/comparison.source.md",
+      "bytes": 9631,
+      "sha256": "79354fc09516fe345747a1e7f235b19099a5e85abee0b3d16d78ef0a918ec316"
+    },
+    {
+      "path": "docs/research/products-and-technology.md",
+      "bytes": 7289,
+      "sha256": "8772dc1443e97c439bf4d1201fc7b0da7e337cd673701281feee94f5e5cf9290"
+    },
+    {
+      "path": "docs/research/zerolan-comparison.md",
+      "bytes": 10933,
+      "sha256": "9001773f44dd297e9d8222fccb4437940a865313c1afabfd005b43e8c2726361"
+    },
+    {
+      "path": "evidence/native-v0.2.json",
+      "bytes": 793,
+      "sha256": "4ee5e102923ce74c0f65dc2da3719309323b2d28f82946ded53bf1965b8d1865"
+    },
+    {
+      "path": "evidence/product-sources.json",
+      "bytes": 4384,
+      "sha256": "5e9b9c14ed6091469dba4ad81dde0f26aebcd90528e899574e18bdf4248d9928"
+    },
+    {
+      "path": "evidence/prototype-review-v0.2.json",
+      "bytes": 1453,
+      "sha256": "5dceac4f97bfcc24c945c9e3faf63550aa3ad6805a21afe752fcf64ede08a210"
+    },
+    {
+      "path": "evidence/zerolan-source-refs.json",
+      "bytes": 13796,
+      "sha256": "3308690df28ac31b62e4838b06801e989a381e3b4afb2ebb4803516317036901"
+    },
+    {
+      "path": "review/check_design.py",
+      "bytes": 4217,
+      "sha256": "c7301f12cadcc14783d01f6e6435b2d05cfe402d6cf82502907f9c1a0d7fe43f"
+    },
+    {
+      "path": "review/design-review.json",
+      "bytes": 2393,
+      "sha256": "5373fd0e4439a1ea86154283f2299f0cb5f62d3227376507ad2ead86989828e7"
+    },
+    {
+      "path": "review/report-browser-check.json",
+      "bytes": 339,
+      "sha256": "82ba890116b9073dd71b8b29452c1e6e36543f2f78b61560c5525652234418b0"
+    },
+    {
+      "path": "review/test-specifications.json",
+      "bytes": 1976,
+      "sha256": "ac19ba067201c1e567439eee4531460241c09f51e052262ab229785dc2ce3c05"
+    },
+    {
+      "path": "review/traceability.csv",
+      "bytes": 396,
+      "sha256": "8f5f15f13a2d0de1e91ddacf2dbc217859e1d751c5fb7a1cf01b09d610c7a569"
+    }
+  ],
+  "excluded": "Git metadata and this manifest itself"
+}

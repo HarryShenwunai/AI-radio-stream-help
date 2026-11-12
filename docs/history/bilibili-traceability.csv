@@ -1,0 +1,11 @@
+﻿requirement,work_packages,test_subject,execution_status
+BLI-01,B1 B3,接收与去重,NOT_RUN
+BLI-02,B1 B5,私密隔离,NOT_RUN
+BLI-03,B1 B5,权限边界,NOT_RUN
+BLI-04,B2A B2B B5,断线恢复,NOT_RUN
+BLI-05,B4 B5,主播控制,NOT_RUN
+BLI-06,B3 B5,有界队列与覆盖率,NOT_RUN
+BLI-07,B4 B5 B6,端到端响应,NOT_RUN
+BLI-08,B2A B2B B5,接入负担,NOT_RUN
+BLI-09,B3 B5,弹幕洪峰,NOT_RUN
+BLI-10,B4 B6,输出有效性,NOT_RUN
