@@ -1,0 +1,121 @@
+{
+  "scope": "Supplemental first-party license texts; original collector inventory remains unchanged",
+  "access_date": "2026-11-12",
+  "sources": [
+    {
+      "component": "jieba-0.42.1",
+      "source_url": "https://files.pythonhosted.org/packages/c6/cb/18eeb235f833b726522d7ebed54f2278ce28ba9438e3135ab0278d9792a2/jieba-0.42.1.tar.gz",
+      "access_date": "2026-11-12",
+      "download_sha256": "055ca12f62674fafed09427f176506079bc135638a14e23e25be909131928db2",
+      "download_bytes": 19214172,
+      "source_archive_note": "Source archive contains no separately named license file",
+      "supplemented_from_exact_release_repository": "jieba-0.42.1-LICENSE.txt"
+    },
+    {
+      "component": "ordered-set-4.1.0",
+      "source_url": "https://files.pythonhosted.org/packages/4c/ca/bfac8bc689799bcca4157e0e0ced07e70ce125193fc2e166d2e685b7e2fe/ordered-set-4.1.0.tar.gz",
+      "access_date": "2026-11-12",
+      "download_sha256": "694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8",
+      "download_bytes": 12826,
+      "archive_member": "ordered-set-4.1.0/MIT-LICENSE",
+      "file": "ordered-set-4.1.0-LICENSE.txt",
+      "license_sha256": "0cf8f55f36dc1306b3fe89bf29e29a0c742f279f038d149244319e593ab16ca4",
+      "license_bytes": 1064,
+      "repository_copy_matches_source_archive": true
+    },
+    {
+      "component": "flatbuffers-25.12.19",
+      "source_url": "https://raw.githubusercontent.com/google/flatbuffers/v25.12.19/LICENSE",
+      "access_date": "2026-11-12",
+      "download_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "download_bytes": 11358,
+      "file": "flatbuffers-25.12.19-LICENSE.txt",
+      "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "license_bytes": 11358
+    },
+    {
+      "component": "espeakng-loader-0.2.4",
+      "source_url": "https://raw.githubusercontent.com/thewh1teagle/espeakng-loader/0ddc87adf77e5850d7eeb542ac8a87d421b64daa/LICENSE",
+      "access_date": "2026-11-12",
+      "download_sha256": "b05c73bb1335b4320ec97edff106b3991c12d0acdc6e899c96f061a15039119f",
+      "download_bytes": 1069,
+      "file": "espeakng-loader-0.2.4-LICENSE.txt",
+      "license_sha256": "b05c73bb1335b4320ec97edff106b3991c12d0acdc6e899c96f061a15039119f",
+      "license_bytes": 1069
+    },
+    {
+      "component": "espeak-ng-1.52.0",
+      "source_url": "https://raw.githubusercontent.com/espeak-ng/espeak-ng/4870adfa25b1a32b4361592f1be8a40337c58d6c/COPYING",
+      "access_date": "2026-11-12",
+      "download_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "download_bytes": 35147,
+      "file": "espeak-ng-1.52.0-LICENSE.txt",
+      "license_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "license_bytes": 35147
+    },
+    {
+      "component": "jieba-0.42.1",
+      "source_url": "https://raw.githubusercontent.com/fxsjy/jieba/1e20c89b66f56c9301b0feed211733ffaa1bd72a/LICENSE",
+      "release_tag": "v0.42.1",
+      "commit": "1e20c89b66f56c9301b0feed211733ffaa1bd72a",
+      "access_date": "2026-11-12",
+      "download_sha256": "18ba0984839f85853b29fadaf992f7dba8fd0ca0fbeae34de2b8735222dc7a37",
+      "download_bytes": 1075,
+      "file": "jieba-0.42.1-LICENSE.txt",
+      "license_sha256": "18ba0984839f85853b29fadaf992f7dba8fd0ca0fbeae34de2b8735222dc7a37",
+      "license_bytes": 1075
+    },
+    {
+      "component": "ordered-set-4.1.0",
+      "source_url": "https://raw.githubusercontent.com/rspeer/ordered-set/d921651b2737f5cfe711868fab558a8ef79e26ca/MIT-LICENSE",
+      "release_tag": "release/4.1.0",
+      "commit": "d921651b2737f5cfe711868fab558a8ef79e26ca",
+      "access_date": "2026-11-12",
+      "download_sha256": "0cf8f55f36dc1306b3fe89bf29e29a0c742f279f038d149244319e593ab16ca4",
+      "download_bytes": 1064,
+      "file": "ordered-set-4.1.0-LICENSE.txt",
+      "license_sha256": "0cf8f55f36dc1306b3fe89bf29e29a0c742f279f038d149244319e593ab16ca4",
+      "license_bytes": 1064
+    },
+    {
+      "component": "flatbuffers-25.12.19",
+      "source_url": "https://raw.githubusercontent.com/google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953/LICENSE",
+      "release_tag": "v25.12.19",
+      "commit": "7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+      "access_date": "2026-11-12",
+      "download_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "download_bytes": 11358,
+      "file": "flatbuffers-25.12.19-LICENSE.txt",
+      "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "license_bytes": 11358
+    }
+  ],
+  "source_build_evidence": [
+    {
+      "file": "espeakng-loader-0.2.4-source-pyproject.toml",
+      "source_url": "https://raw.githubusercontent.com/thewh1teagle/espeakng-loader/0ddc87adf77e5850d7eeb542ac8a87d421b64daa/pyproject.toml",
+      "sha256": "5a73d7088c71c778ee68032261c26b7b1ec7db77a0fbe791c3433b340748acb5",
+      "access_date": "2026-11-12"
+    },
+    {
+      "file": "espeakng-loader-0.2.4-native-build.yml",
+      "source_url": "https://raw.githubusercontent.com/thewh1teagle/espeakng-loader/0ddc87adf77e5850d7eeb542ac8a87d421b64daa/.github/workflows/build.yml",
+      "sha256": "ae5b6f7c8e7a1d3b46dd6d94c70d120d48364599711d22e588a4617866e97c1c",
+      "access_date": "2026-11-12"
+    },
+    {
+      "file": "espeakng-loader-0.2.4-wheel-build.yml",
+      "source_url": "https://raw.githubusercontent.com/thewh1teagle/espeakng-loader/0ddc87adf77e5850d7eeb542ac8a87d421b64daa/.github/workflows/pypi.yml",
+      "sha256": "eee726f7542d94f7616554c76addec5800604936478db652fe2a91c71c324ef8",
+      "access_date": "2026-11-12"
+    }
+  ],
+  "espeak_native_source": {
+    "source_tree": "https://github.com/espeak-ng/espeak-ng/tree/4870adfa25b1a32b4361592f1be8a40337c58d6c",
+    "source_archive": "https://github.com/espeak-ng/espeak-ng/archive/4870adfa25b1a32b4361592f1be8a40337c58d6c.tar.gz",
+    "release": "1.52.0",
+    "commit": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+    "basis": "loader fixed source commit pyproject declares0.2.4; native workflow pins1.52.0; submodule commit matches1.52.0 tag",
+    "unresolved": "Wheel workflow downloads latest native release assets; exact distributed DLL-to-source/build equivalence has not been independently reproduced. This is not a complete redistribution/legal audit."
+  }
+}

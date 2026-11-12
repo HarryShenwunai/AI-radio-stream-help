@@ -122,14 +122,15 @@
   },
   "source_sha256": {
     "app/server.py": "d4eee0a1b282755680fe8543fda4bf72e1aad685ef0c4ff39d03c7f10d117961",
-    "app/static/app.js": "3dd99cdf817c9543a396b616a0f8e4724cdafc7e1e9944342879ff282595b78e",
+    "app/static/app.js": "1f9d342f0e8ede57367381459b3ff096da3927119ff1e859acf6233fa41a77a0",
     "app/static/index.html": "37c4d314e650a16dc1a95dc2f022f9d8df433d7c9600a8048a4c0f18752b9c21",
     "app/static/style.css": "39fd8781f2d32c38df844f219a21ae5d8dc1f2d975cc879f47ed8ac31a2003fd",
     "src/companion_runtime/assets.py": "d835cdee20f27bebb5727f32788e61e46dbb703ccc040ab0191b5bcd23db3ecf",
-    "src/companion_runtime/characters.py": "12f0233243784a88779ebd478ce5276e87352cb261b54c19750d5f52b871c65e",
-    "tests/test_character_http.py": "098274af52ba0c66cf0f0ababd929f85bb4579d6996906ca01645ac73e257ea3",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
     "tests/character_browser_check.py": "3c8eadc0a48307b68828383fc784e68b47640a40e50396798cb1dacc0cd96d78",
-    "tests/test_character_ui.mjs": "ab8649dfc27e533c65294fca3582433bdfee589f6970fc7902155e6c3f06f147",
+    "tests/test_character_ui.mjs": "ff32935f00fdf20da5807ef31b7d67a0f03bc02a0d277e5939ddc8d9e6845690",
     "tests/test_voice_ui.mjs": "6cf19ee3f026f0cc4e0aeae61f9d4b3e8365cff44a3251a470bd6d947bbc6f17"
-  }
+  },
+  "final_frontend_chrome_rerun_at": "2026-11-12T14:02:48.017947+00:00"
 }

@@ -20,6 +20,7 @@ if(mediaChannel)mediaChannel.onmessage=event=>{
  if(data?.type==='character-changed'){stopVoice();refresh(true);}
 };
 function claimMedia(){mediaClock=Math.max(Date.now(),mediaClock+1);mediaClaimToken=String(mediaClock).padStart(20,'0')+'-'+mediaOwner;if(mediaChannel)mediaChannel.postMessage({type:'claim',owner:mediaOwner,clock:mediaClock,token:mediaClaimToken});}
+function isViewHidden(){return document.hidden||window.companionDesktopHidden===true;}
 function currentCharacterId(){return typeof app?.active_character_id==='string'?app.active_character_id:'';}
 function scopedPayload(payload,characterId=currentCharacterId()){
  const data={...payload};if(characterId&&data.expected_character_id===undefined)data.expected_character_id=characterId;return data;
@@ -40,7 +41,7 @@ function localTime(text){return new Date(text).toLocaleTimeString('zh-CN',{hour:
 function showView(name){view=name;document.querySelectorAll('.view').forEach(e=>e.hidden=e.id!=='view-'+name);document.querySelectorAll('.nav').forEach(e=>e.classList.toggle('active',e.dataset.view===name));$('#view-title').textContent=({chat:'聊天',memory:'记忆',tasks:'约定',settings:'设置',characters:'我的角色'})[name];if(name==='settings')fillSettings();if(name==='characters'){renderCharacters();loadAppearanceAssets();}}
 function voices(){if(!('speechSynthesis'in window))return [];return speechSynthesis.getVoices();}
 async function speak(text,context={}){
- if(document.hidden){stopVoice();return;}
+ if(isViewHidden()){stopVoice();return;}
  stopVoice();claimMedia();const serial=voiceSerial;voiceContext={...context};
  if((!selectedVoice||selectedVoice==='__local__'||!voices().length)&&app?.local_voice_available){await localSpeak(text,context);return;}
  if(!('speechSynthesis'in window)){toast('当前浏览器不支持朗读。试试 Chrome 或系统浏览器。');return;}
@@ -241,11 +242,11 @@ $('#clear-chat').onclick=async()=>{if(!confirm('清空聊天记录？已保存�
 $('#export').onclick=async()=>{const epoch=contextEpoch;try{const data=await api('export');if(epoch!==contextEpoch)throw new Error('角色已切换，请重新导出。');const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=(app?.settings.name||'角色')+'-聊天与记忆-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('已导出，请妥善保管个人聊天。');}catch(e){toast(e.message);}};
 for(const id of ['quiet-start','quiet-end'])for(let h=0;h<24;h++){const o=element('option','',String(h).padStart(2,'0')+':00');o.value=h;$('#'+id).append(o);}
 const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(SpeechRecognition){recognition=new SpeechRecognition();recognition.lang='zh-CN';recognition.interimResults=false;recognition.onresult=e=>{if(document.hidden||!recording||recognitionEpoch!==contextEpoch||recognitionCharacter!==currentCharacterId())return;const t=e.results[0][0].transcript;$('#message-input').value+=t;$('#message-input').focus();};recognition.onend=()=>{recording=false;$('#mic').textContent='🎙';};recognition.onerror=()=>toast('没能识别声音。请检查麦克风权限或改用文字。');}
+if(SpeechRecognition){recognition=new SpeechRecognition();recognition.lang='zh-CN';recognition.interimResults=false;recognition.onresult=e=>{if(isViewHidden()||!recording||recognitionEpoch!==contextEpoch||recognitionCharacter!==currentCharacterId())return;const t=e.results[0][0].transcript;$('#message-input').value+=t;$('#message-input').focus();};recognition.onend=()=>{recording=false;$('#mic').textContent='🎙';};recognition.onerror=()=>toast('没能识别声音。请检查麦克风权限或改用文字。');}
 $('#mic').onclick=()=>{if(!recognition){toast('此浏览器不支持语音输入，请用 Chrome 并允许麦克风。');return;}if(recording){recognition.stop();return;}if(!localStorage.getItem('lan-mic-consent')){if(!confirm('语音输入由浏览器提供，部分浏览器会将录音发送到在线识别服务。是否继续？'))return;localStorage.setItem('lan-mic-consent','yes');}try{recognitionEpoch=contextEpoch;recognitionCharacter=currentCharacterId();recognition.start();recording=true;$('#mic').textContent='■';toast('正在听，识别后会填入输入框，不自动发送。');}catch(e){toast('无法开始录音，请稍后重试。');}};
 if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=fillVoices;
 document.addEventListener('visibilitychange',()=>{if(document.hidden){stopVoice();if(recording&&recognition){recognition.abort();recording=false;}}else refresh();});
-refresh();setInterval(()=>{if(!document.hidden)refresh();},5000);
+refresh();setInterval(()=>{if(!isViewHidden())refresh();},5000);
 
 $('#restore-backup').onclick=()=>$('#backup-file').click();
 $('#backup-file').onchange=async e=>{const epoch=contextEpoch,characterId=currentCharacterId();const file=e.target.files[0];if(!file)return;if(file.size>900000){toast('备份文件过大。');return;}if(!confirm('恢复将替换聊天、记忆、约定与角色；API设置和密钥不变。未完成约定会暂停。如果曾删除记忆，旧对话不会导入，以免忘记的事实重新出现。')){e.target.value='';return;}try{const backup=JSON.parse(await file.text());if(epoch!==contextEpoch||characterId!==currentCharacterId())throw new Error('角色已切换，请重新选择备份。');const result=await api('restore',scopedPayload({backup},characterId));await refresh();fillSettings();toast(result.chat_skipped?'已恢复，旧对话因遗忘记录未导入。':'备份已恢复，未完成约定已暂停。');}catch(err){toast(err.message);}e.target.value='';};
@@ -265,7 +266,7 @@ async function localSpeak(text,context={}){
  try{
   const r=await fetch('/api/speech',{method:'POST',headers:{'Content-Type':'application/json','X-Companion':'local-app'},body:JSON.stringify(scopedPayload(payload,context.character_id||currentCharacterId())),signal:controller.signal});
   if(!r.ok){const body=await r.json();throw new Error(body.error||'语音合成失败。');}
-  const blob=await r.blob();if(serial!==voiceSerial||document.hidden)return;
+  const blob=await r.blob();if(serial!==voiceSerial||isViewHidden())return;
   const url=URL.createObjectURL(blob),audio=new Audio(url);let disposed=false;
   const current=()=>serial===voiceSerial&&localAudio===audio;
   cleanup=()=>{

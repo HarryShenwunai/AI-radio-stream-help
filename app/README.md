@@ -4,6 +4,8 @@
 
 ## 启动
 
+Windows 10/11 x64用户可在完整源码根目录双击 [`build-windows.cmd`](../build-windows.cmd)，默认准备依赖、编译并验证含模型的离线便携包。操作、Visual C++运行库前置、磁盘副本、日志和验收边界见[Windows本机一键构建](../docs/implementation/windows-local-build.md)。脚本已做语法与部分失败保护检查，尚未在用户Windows电脑实际执行，不能视为已验收安装包。
+
 在仓库根目录、独立Python环境中运行：
 
 ```sh
@@ -67,7 +69,7 @@ npm start
 
 ## 当前限制与验证
 
-185项Python、26项Node竞态和15项Chrome检查通过；Linux Electron实际整包另有13项通过。具体范围见[交付记录](../docs/implementation/character-release.md)。真实Linux编译后端已跑本地Qwen/Kokoro，但模型自然度、长期关系效果与用户目标机器资源没有人工验收。
+191项Python、26项Node竞态和15项Chrome检查通过；Linux Electron实际整包另有14项通过。具体范围见[交付记录](../docs/implementation/character-release.md)。真实Linux编译后端已跑本地Qwen/Kokoro，但模型自然度、长期关系效果与用户目标机器资源没有人工验收。
 
 目前没有已核验的Windows安装包。Windows CI、干净Windows启动、声卡/权限、透明/穿透/焦点/多屏与游戏场景须另有结果。Live2D、VRM、云同步、公开角色市场、微信、B站SDK、OBS、AR和MC尚未完成。旧Linux包属于旧版本，不能作为本版Windows交付。
 

@@ -69,7 +69,7 @@ try:
   background=X.XCreateSimpleWindow(display,root,0,0,1440,1000,0,0,0x336633);X.XStoreName(display,background,b'Probe background');hints=WMHints();hints.flags=3;hints.input=1;hints.initial_state=1;X.XSetWMHints(display,background,C.byref(hints));X.XSelectInput(display,background,1<<2);X.XMapWindow(display,background);X.XSync(display,0);time.sleep(.25)
   X.XMoveResizeWindow(display,background,0,0,1440,1000);message=ClientMessage();message.type=33;message.send_event=1;message.display=display;message.window=background;message.message_type=X.XInternAtom(display,b'_NET_ACTIVE_WINDOW',0);message.format=32;message.data.l[0]=1;X.XSendEvent(display,root,0,(1<<19)|(1<<20),C.byref(message));X.XSync(display,0);time.sleep(.25);before=focus(display);check('background test window receives initial focus',before==background)
   debug=freeport();binary=os.environ.get('COMPANION_DESKTOP_BINARY',str(ROOT/'.build/desktop/linux-unpacked/companion-desktop'))
-  child=subprocess.Popen([binary,'--backend-url='+f'http://127.0.0.1:{server.server_port}','--remote-debugging-port='+str(debug),'--disable-gpu','--user-data-dir='+str(td/'electron-data')],env=env,stdout=subprocess.DEVNULL,stderr=(td/'electron.log').open('w'));children.append(child)
+  child=subprocess.Popen([binary,'--smoke-test','--backend-url='+f'http://127.0.0.1:{server.server_port}','--remote-debugging-port='+str(debug),'--disable-gpu','--user-data-dir='+str(td/'electron-data')],env=env,stdout=subprocess.DEVNULL,stderr=(td/'electron.log').open('w'));children.append(child)
   deadline=time.monotonic()+20
   while time.monotonic()<deadline:
    if child.poll() is not None:raise RuntimeError((td/'electron.log').read_text()[-1000:])

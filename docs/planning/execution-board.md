@@ -21,13 +21,13 @@
 
 | 检查 | 结果 | 能证明的范围 |
 | --- | --- | --- |
-| [综合Python回归](../../review/character-regression.json) | 185项通过 | 真实SQLite/PNG与本机HTTP及既有协议回归；模型/音频部分用替身 |
+| [综合Python回归](../../review/character-regression.json) | 191项通过 | 真实SQLite/PNG与本机HTTP及既有协议回归；模型/音频部分用替身 |
 | [独立实现审查](../../review/character-implementation-review.json) | PNG范围验证通过，有限制 | 独立模块/HTTP测试和缺陷修复，不是完整产品验收 |
 | Node角色竞态/语音回归 | 18项+8项通过 | 实际发货JS，受控浏览器原语 |
 | [Chrome](../../review/character-browser.json) | 15项通过 | 实际上传、PNG、界面和HTMLAudio；LLM/TTS替身，允许autoplay |
 | [Linux原生后端](../../review/character-native-check.json) | 6项通过 | 编译程序与实际Qwen/Kokoro，单轮合成输入 |
 | [Linux窗口探测](../../desktop/test-results/native-window-probe.json) | 9项通过 | X11/xfwm4下实际透明、指针命中/穿透与焦点；合成页面 |
-| [Linux整包端到端](../../desktop/test-results/bundled-app-smoke.json) | 13项通过 | Electron实际应用页与内嵌后端、PNG、隐藏/恢复；不代表Windows或模型质量 |
+| [Linux整包端到端](../../desktop/test-results/bundled-app-smoke.json) | 14项通过 | Electron实际应用页与内嵌后端、PNG、隐藏/恢复；不代表Windows或模型质量 |
 | Windows CI与真机 | 待验 | Windows构建、打包、干净机器启动和桌面行为须分别取证 |
 
 前一批115项Python、8项Node与12项Chrome报告保留为历史；本批以character系列记录为准。此前一次回归受默认沙箱socket限制未完成，后在获准环境重跑185项通过；失败记录不能作为通过证据。
@@ -47,7 +47,7 @@
 | --- | --- |
 | 自助PNG路径 | 已实现并有本机证据；继续保留真实错误/资源限制提示 |
 | 角色隔离与迁移 | 本机路径通过；Windows权限、异常退出与数据恢复仍需目标平台验证 |
-| Linux运行基线 | 编译后端6项、实际整包13项和X11窗口9项分别通过，证据范围分开 |
+| Linux运行基线 | 编译后端6项、实际整包14项和X11窗口9项分别通过，证据范围分开 |
 | Windows 10/11 | 先通过Windows CI构建与打包，再验证干净环境启动、导入/重启和窗口行为；当前不宣称已有已验收Windows安装包 |
 | 模型质量 | 尚未人工接受；真实生成成功不能当自然度或长期关系达标 |
 | Live2D | 未实现；仍需固定SDK/合法样本、参数映射、兼容与发布许可确认 |
@@ -61,3 +61,11 @@
 B站/弹幕姬、Zerolan真实提供方互通、OBS、微信、AR、MC与云分享仍未完成。账号连接、公开播出、游戏动作和购买不自动执行。旧研究与预算文件保留作追踪，本看板不重新展开估算。
 
 运行方式见[应用说明](../../app/README.md)，本批状态见[交付记录](../implementation/character-release.md)，完整自助角色范围见[计划](self-service-characters-plan.md)。
+
+## Windows 本地构建与新增视觉标准
+
+GitHub run43229621691 因账户计费锁定未获得runner，实际Windows编译和测试均为0；不是程序编译失败。用户已选择使用自己的Windows电脑本地构建。交付入口为仓库根 `build-windows.cmd`，完整操作与生成证据见[说明](../implementation/windows-local-build.md)。不得修改计费或把尚未运行的本地脚本标成Windows通过。
+
+另有Windows PE嵌入式候选目录，仅在Wine兼容层通过Python/SQLite/Pillow、PNG、身份隔离与重启4项；NumPy导入遇Wine未实现ucrtbase.crealf，模型/TTS未通过。该候选使用上游声明不支持Python3.13的Misaki兼容实验，不作为已验收离线成品交付。
+
+用户新参考图确定了[视觉质量方向](../design/visual-quality-target.md)：自然比例、细致发丝和柔和光照；保持自助角色。设备已自报RTX4060/32GB，尚无程序探测或实测；CPU、显存与实际动态资产未知。后续优先验证3D光照/材质样例，当前PNG导入功能不能替代该画质门。

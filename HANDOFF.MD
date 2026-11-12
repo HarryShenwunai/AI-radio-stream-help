@@ -78,3 +78,13 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - Linux PyInstaller 后端已真实 PNG 导入/回滚/关系隔离/重启及本地 Qwen/Kokoro/取消通过。单次观察首字9.206秒、整句15.993秒、TTS3.645秒、取消0.099秒、峰值 RSS约5.31GiB；不是 p95 或 Windows 目标机指标。实际模型回答出现关联旧测试事实的话题漂移，human_quality_accepted=false，不声称自然度已通过。
 - Electron 45.3.1 Linux X11 透明/穿透/焦点恢复已实测；整包测试发现 Electron hide 时 document.hidden 不一定更新，因此增加显式主进程可见状态媒体 guard，阻止晚到语音。Windows 由独立原生 CI 构建和验证，不交叉编译或把 Linux 检查冒称 Windows 通过。
 - .github/workflows/windows-build.yml 将生成精简运行包与附 SHA256 校验模型的离线包，均只构建/测试/保存制品，无部署、购买、平台登录或真实发信。发布和真机 DPI/独占全屏/性能与人工语音质量仍待实际结果。
+
+## 2026-11-12 Windows 本地构建交付与新增画质目标
+
+- 用户已确认有 Windows 电脑可运行本地构建。已完成 build-windows.cmd + scripts/build_windows_local.ps1；优先兼容Python3.11/3.12，缺少时准备已校验uv与Astral项目内Python3.12，Node22便携工具，官方llama CPUwheel免VS编译，所有缓存/依赖/日志在.build。不自动安装全局VC++运行库；缺DLL给微软官方来源后停止。PowerShell解析、退出码0/1/无法启动保护已实际测试，191项回归通过；Windows原生执行仍待用户电脑报告。
+- 已新增10份补充许可/来源文件，collector保留原27包23有文本/4缺失的原始记录；补充源按固定版本/commit核对。eSpeak wheel构建沿latest取原生资产，未复现精确二进制源码对应，不能声称完整法律审查。
+- Linux最终真实Electron整包14项通过，含真实host-hidden且document.hidden=false时调用speak，语音请求/Audio创建/系统朗读均0。独立复查曾发现之前只写了主进程flag、app.js未消费，旧nativehide测试只设置document.hidden导致漏检；现已先红后绿修复。app.js最终SHA256 1f9d342f0e8ede57367381459b3ff096da3927119ff1e859acf6233fa41a77a0，Node18+8与Chrome15通过。send_message不会唤醒completed Agent，必须followup_task；不要把已发送修复要求当作已完成。
+- Windows嵌入式候选已静态组装官方Python3.13.17+27包+77个AMD64 PE，3模型SHA复核；但Misaki上游声明<3.13，属于显式兼容实验，不作正式交付。Wine基础4项通过；NumPy2.5.4及唯一官方2.2.6对照均被Wine未实现ucrtbase.crealf阻断，未改DLL/未降级/未声称LLM或Kokoro通过。仅留诊断目录，不将未验证包当成品。
+- 用户上传新画质参考，要求自然面部比例、细致发丝、柔和窗光与安静表情的高质量二次元表现。记录docs/design/visual-quality-target.md；不能由单图推断3D/Live2D制作方式，也不锁成图中角色。PNG版本仅基础导入验证，未达到动态画质目标。高质量2D绑定/3D渲染须合法独立样本、SDK边界与目标显卡实测；显卡RAM询问仍待答，不虚构性能门槛。
+- 新踩坑：Pillow13需要>=3.11；uv Windows默认可写PEP514/bin要显式--no-registry --no-bin；PS5.1内嵌双引号/旧LASTEXITCODE会误判，现探针单引号且先清退出码；大模型文件>2GiB用Python ZIP64而非Compress-Archive；.NET OSVersion有兼容层需只读实际build号；py3-none-win_amd64 wheel可含DLL，不能当纯Python或DLL闭包已齐。
+- 最新设备答复已到：用户自报“4060 32G”，按RTX4060/32GB内存作开发基准；未探测实际显存/CPU/驱动/移动桌面型号。视觉目标文档已更新，优先验证3D材质与光照样例，30fps角落/60fps展开仅候选目标而非实测承诺。当前推理构建仍CPU版，不声称已CUDA加速或实现3D。

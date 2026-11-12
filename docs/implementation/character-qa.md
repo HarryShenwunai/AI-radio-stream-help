@@ -1,6 +1,6 @@
 # 自助 PNG 角色独立验收
 
-2026-11-12 实际运行。审查者未修改被审应用实现，仅增加验收夹具、测试和本报告。对应源码 SHA256、运行环境、每项边界和缺陷保存在 `review/character-implementation-review.json`。
+2026-11-12 原独立审查实际运行。原独立审查者未修改被审应用实现，仅增加验收夹具、测试和本报告；前端实现者的后续修复与最终复测另列于末尾。对应源码 SHA256、运行环境、每项边界和缺陷保存在 `review/character-implementation-review.json`。
 
 ## 已完成
 
@@ -51,3 +51,11 @@ python tests/character_browser_check.py
 - 没有微信/哔哩哔哩/Zerolan 上游执行、云同步、公开分享、部署或生产环境操作；没有购买、连接账户、发消息、commit/push。
 
 结论仅限已列版本的本机自助 PNG 子集：没有剩余阻断缺陷，允许继续整合；完整项目发布与多格式验收仍需各自证据。
+
+## 最终前端复测
+
+2026-11-12，前端实现者检查实际源码时发现原生隐藏保护遗漏：`desktop.js` 已发布 `companionDesktopHidden`，但 `app.js` 仍只检查 `document.hidden`。先将第18条 Node 回归改为文档可见、原生隐藏的真实边界；旧实现实际得到17/18通过，失败同时指出新 TTS 请求、迟到 Audio 和迟到 ASR 三个问题。随后加入共享 `isViewHidden()`，用于朗读入口、TTS 响应体完成、识别结果及周期刷新；原有即时停止逻辑保留。没有修改视觉 UI。
+
+修复后实际执行 `node --check app/static/app.js`、角色 Node 18/18、语音 Node 8/8，以及 `python tests/character_browser_check.py`。最终真实 Chromium 15/15 项通过，JavaScript 异常0，外部产品连接0。`review/character-browser.json` 为本轮实际输出；独立审查报告仅刷新源码 SHA256 与本轮复测时间，原独立审查的测试和发现保留。应用前端自本轮通过后冻结。
+
+Chrome 复测使用本机临时数据库、自造 PNG、合成测试音和假 LLM/TTS；不覆盖原生窗口隐藏事件、Windows 环境、麦克风或真实模型/语音质量。Node 验证原生隐藏标志的消费者，实际主进程事件和窗口行为仍须查看桌面壳的独立报告。

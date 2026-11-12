@@ -12,5 +12,7 @@
 - NumPy: BSD-3-Clause. Source: https://github.com/numpy/numpy .
 - Jieba: MIT. Source: https://github.com/fxsjy/jieba .
 - PyInstaller: GPL-2.0-or-later with bootloader exception. Source: https://github.com/pyinstaller/pyinstaller .
+- Pillow: HPND/PIL historical permission notices and bundled-library terms. Source: https://github.com/python-pillow/Pillow . Actual installed distribution metadata and notice files are inventoried with the native build.
+- Electron: MIT, with Chromium and other third-party notices. Source: https://github.com/electron/electron . The desktop package retains the pinned Electron runtime's LICENSE and LICENSES.chromium.html; Python distribution notices do not replace them.
 
-Additional installed distribution license texts and metadata are included under licenses/distributions in the full native package. Local research artifacts, unknown-license Huayan weights, API keys and user databases are excluded.
+Additional installed Python distribution license texts and metadata are collected under licenses/distributions in the native package. Its inventory.json records exact versions, copied notice SHA256 values, unavailable files and packages that supplied metadata only. The inventory can include build/test dependencies installed in that build environment; it is not an assertion that every entry is linked into the executable, nor a substitute for reviewing missing notices. Local research artifacts, unknown-license Huayan weights, API keys and user databases are excluded.

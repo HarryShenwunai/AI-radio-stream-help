@@ -38,13 +38,13 @@
 
 | 证据 | 结果 | 限制 |
 | --- | --- | --- |
-| [综合Python](../../review/character-regression.json) | 185项通过 | 本机SQLite/文件/HTTP及既有模块；不等于所有运行平台 |
+| [综合Python](../../review/character-regression.json) | 191项通过 | 本机SQLite/文件/HTTP及既有模块；不等于所有运行平台 |
 | [独立审查](../../review/character-implementation-review.json) | PNG子集通过，有保留项 | 独立执行assets24、catalog24、角色HTTP22；不是完整多格式发布批准 |
 | Node | 角色18项、语音8项通过 | 实际JS与受控DOM/Audio/fetch，非声卡实测 |
 | [Chrome](../../review/character-browser.json) | 15项通过，JS异常0 | 实际文件选择上传、PNG与HTMLAudio测试音；LLM/TTS替身 |
 | [编译Linux后端](../../review/character-native-check.json) | 6项通过 | 实际本地Qwen/Kokoro、取消与重启；合成数据 |
 | [Linux窗口探测](../../desktop/test-results/native-window-probe.json) | 9项通过 | 私有Xvfb/xfwm4及XTest，实际命中/焦点；无Windows或游戏 |
-| [Linux桌面整包](../../desktop/test-results/bundled-app-smoke.json) | 13项通过 | 实际应用页与内嵌后端、PNG、透明和隐藏/恢复；不含Windows或模型质量 |
+| [Linux桌面整包](../../desktop/test-results/bundled-app-smoke.json) | 14项通过 | 实际应用页与内嵌后端、PNG、透明和隐藏/恢复；不含Windows或模型质量 |
 
 Chrome布局检查覆盖1440/390/360 CSS px；真实Audio播放时间推进、切换身份停声及单播放拥有者已测。测试启动允许autoplay，默认浏览器限制与目标机声卡尚未完成验收。
 
@@ -63,6 +63,10 @@ Linux编译后端单次观测：首段文字9.206秒、完整15.993秒、TTS3.64
 | QUALITY 用户体验 | 用户认可角色表达、声音、节奏和长期相处 | 未接受 |
 
 当前不能写“Windows版已构建/已交付/已验证”。CI构建通过也不自动证明干净Windows安装、桌面视觉与全屏游戏可用；结果须逐项补到本表。源码启动、Linux编译后端和Linux桌面壳是不同交付层。
+
+更新：真实Actions运行在分配runner前被账户计费锁定拦截，Windows执行步骤为0。用户已选择本地Windows构建，入口 `build-windows.cmd`；[操作与前置](windows-local-build.md)。另行组装的PE候选仅有Wine基础4项证据，模型层受Wine的ucrtbase.crealf未实现阻断；不能把它当作原生Windows或完整离线能力证明。
+
+新增[视觉质量门](../design/visual-quality-target.md)来自用户本轮参考图，当前基础版本尚未达到；高质量动态表现与用户自主导入同时保留。
 
 ## 尚未完成
 

@@ -1,0 +1,27 @@
+{
+  "verified_on": "2026-11-12",
+  "uv": {
+    "version": "0.13.7",
+    "filename": "uv-x86_64-pc-windows-msvc.zip",
+    "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip",
+    "sha256": "0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021",
+    "checksum_source": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip.sha256",
+    "python_distribution": "Astral python-build-standalone; managed CPython 3.12, not a python.org installer",
+    "cli_source": "https://github.com/astral-sh/uv/blob/0.13.7/crates/uv-cli/src/lib.rs"
+  },
+  "node": {
+    "version": "22.23.5",
+    "filename": "node-v22.23.5-win-x64.zip",
+    "url": "https://nodejs.org/dist/v22.23.5/node-v22.23.5-win-x64.zip",
+    "sha256": "4a191082e9706866830379d577d2cc8a50c776fcd9436a8d061b063ed0d9a0e3",
+    "checksum_source": "https://nodejs.org/dist/v22.23.5/SHASUMS256.txt"
+  },
+  "llama_cpu_wheel": {
+    "version": "0.3.36",
+    "filename": "llama_cpp_python-0.3.36-py3-none-win_amd64.whl",
+    "url": "https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.36/llama_cpp_python-0.3.36-py3-none-win_amd64.whl",
+    "sha256": "ae5e88a2cf464e5a2dde7c8898c2d5c71cc24d03cac6396bf7509456bde0b9fb",
+    "checksum_source": "https://api.github.com/repos/abetlen/llama-cpp-python/releases/tags/v0.3.36",
+    "index_source": "https://abetlen.github.io/llama-cpp-python/whl/cpu/llama-cpp-python/"
+  }
+}

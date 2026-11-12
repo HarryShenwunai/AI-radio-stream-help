@@ -25,6 +25,33 @@ There is no electron-builder dependency or browser download for the smoke test.
 The smoke connects to the packaged Electron's local CDP port only during testing.
 The normal executable does not enable CDP automatically.
 
+When a Windows runner is unavailable, the same portable layout can be assembled
+on Linux from existing Windows binaries. This does not compile Windows code or
+prove Windows execution:
+
+```sh
+ELECTRON_GET_USE_PROXY=1 node desktop/fetch-windows-electron.cjs --output=.build/windows-electron
+node desktop/build-windows.cjs --electron-dist=.build/windows-electron --embedded-backend=.build/windows-embedded-backend --output=.build/desktop/character-windows-embedded-x64
+```
+
+The downloader uses the pinned Electron package's official archive checksum and
+records expected/observed SHA256. Assembly checks `MZ`, PE signature, AMD64 machine,
+PE32+ format, the pinned dist version and required dist files before copying.
+The fallback backend must contain `python/python.exe`, isolated
+`python/python3xx._pth`, `app/server.py`, and `src/companion_runtime`, plus Windows
+wheel dependencies. Main launches only that fixed interpreter/script pair with
+`-I -u -X utf8`; the renderer cannot select code, interpreters, paths or flags.
+The runtime's `_pth` controls package search; host `PYTHONPATH` is not inherited
+as a package search path. Backend-only UTF-8 environment values are also set.
+Native CI PyInstaller builds remain supported by the existing `--backend` option.
+Windows dependency licenses are copied from the backend's
+`licenses/distributions` into the portable root's matching directory.
+
+Production packages remove remote-debugging and no-sandbox switches, and enable
+the renderer sandbox. Local smoke scripts explicitly pass `--smoke-test` to allow
+their local CDP connection. Neither assembly nor a future Wine experiment replaces
+physical Windows 10/11 acceptance or proves model/voice wheel compatibility.
+
 Optional `models` and `voices` directories belong next to the portable executable.
 Existing `COMPANION_MODELS` / `COMPANION_VOICES` take precedence. Model assets are
 added by the final packaging workflow; these builders do not download them.

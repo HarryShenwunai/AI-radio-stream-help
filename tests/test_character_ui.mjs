@@ -27,7 +27,7 @@ function harness(route=async()=>response({})){
  let initial=true;
  const context={console,AbortController,TextDecoder,Uint8Array,Response,ReadableStream,Audio,BroadcastChannel,btoa,
   document:{querySelector:get,querySelectorAll:()=>[],createElement:node,hidden:false,addEventListener(){},body:{classList:{add:x=>bodyClasses.add(x),remove:x=>bodyClasses.delete(x),toggle:(x,on)=>on?bodyClasses.add(x):bodyClasses.delete(x)}}},
-  window:{addEventListener(){}},localStorage:{getItem:()=> '__local__',setItem(){}},
+  window:{addEventListener(){},SpeechRecognition:class{start(){}stop(){}abort(){}}},localStorage:{getItem:()=> '__local__',setItem(){}},
   URL:{createObjectURL:()=>{const url=`blob:fixture-${urls.length}`;urls.push(url);return url;},revokeObjectURL:url=>revoked.push(url)},
   crypto:{randomUUID:()=> 'fixture-request'},setTimeout:()=>0,clearTimeout(){},setInterval(){},confirm:()=>true,
   fetch:(url,options={})=>{calls.push({url,...options});if(initial&&url==='/api/state'){initial=false;return new Promise(()=>{});}return route(url,options);},
@@ -163,8 +163,17 @@ test('hidden views cannot revive audio from late generation or reminder callback
  assert.equal(h.calls.some(call=>call.url==='/api/speech'),false);assert.equal(h.audios.length,0);
 });
 
-test('a response finishing during native hide never creates a new Audio object',async()=>{
+test('native hide blocks new speech, late audio and recognition even when document stays visible',async()=>{
+ const failures=[],hidden=harness();hidden.context.window.companionDesktopHidden=true;
+ assert.equal(hidden.context.document.hidden,false);
+ await hidden.context.speak('隐藏期间的新回复',{message_id:1});
+ if(hidden.calls.some(call=>call.url==='/api/speech')||hidden.audios.length)failures.push('native-hidden entry requested speech');
  const body=deferred(),h=harness(async()=>({ok:true,blob:()=>body.promise}));
- const spoken=h.context.speak('尚在下载',{message_id:1});await tick();h.context.document.hidden=true;
- body.resolve({audio:true});await spoken;assert.equal(h.audios.length,0);
+ const spoken=h.context.speak('尚在下载',{message_id:1});await tick();h.context.window.companionDesktopHidden=true;
+ assert.equal(h.context.document.hidden,false);
+ body.resolve({audio:true});await spoken;
+ if(h.audios.length)failures.push('late speech created Audio while native-hidden');
+ h.read(`recording=true;recognitionEpoch=contextEpoch;recognitionCharacter=currentCharacterId();recognition.onresult({results:[[{transcript:'隐藏后迟到的识别'}]]});`);
+ if(h.get('#message-input').value)failures.push('late ASR modified hidden draft');
+ assert.deepEqual(failures,[]);
 });

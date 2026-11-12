@@ -2,6 +2,7 @@
 from pathlib import Path
 import datetime as dt
 import json
+import os
 import sys
 import time
 import unittest
@@ -26,5 +27,7 @@ report = {
     'upstream_or_platform_tests_executed': 0,
     'does_not_verify': ['Zerolan deployment', 'real live room', 'user hardware', 'AR or MC execution', 'long-term character quality'],
 }
-(ROOT / 'review' / 'character-regression.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+report_dir = Path(os.environ.get('COMPANION_REPORT_DIR', str(ROOT / 'review')))
+report_dir.mkdir(parents=True, exist_ok=True)
+(report_dir / 'character-regression.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 sys.exit(0 if result.wasSuccessful() else 1)

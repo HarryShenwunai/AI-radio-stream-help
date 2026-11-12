@@ -24,5 +24,15 @@
       "sha256": "6a6764500eb8171d3cd6d793c09902974f8ea87bd20c68d9eac5f1eeaf3fc407"
     }
   ],
-  "x11_build_headers_scope": "Workspace extracted official headers only, no system installation; helper links existing libX11.so.6. Windows package does not include helper."
+  "x11_build_headers_scope": "Workspace extracted official headers only, no system installation; helper links existing libX11.so.6. Windows package does not include helper.",
+  "windows_runtime": {
+    "source": "https://github.com/electron/electron/releases/download/v45.3.1/electron-v45.3.1-win32-x64.zip",
+    "version": "45.3.1",
+    "platform": "win32",
+    "arch": "x64",
+    "sha256_expected": "d92d1aa4700e3a7e7f174731f5086ebd9c21f9773e642b260160fe0a6ebe12d2",
+    "sha256_observed": "d92d1aa4700e3a7e7f174731f5086ebd9c21f9773e642b260160fe0a6ebe12d2",
+    "verified": true,
+    "executed": false
+  }
 }

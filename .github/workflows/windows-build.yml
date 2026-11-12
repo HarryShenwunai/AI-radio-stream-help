@@ -92,6 +92,7 @@ jobs:
             review/character-native-check.json
             desktop/test-results/windows-*
             .build/pyinstaller-windows/**/warn-*.txt
+            .build/native/companion-backend/licenses/distributions/inventory.json
           if-no-files-found: warn
           retention-days: 7
 

@@ -13,6 +13,10 @@ let savedCompactBounds = null, microphoneGranted = false;
 let focusHelper = null, focusRestoreAvailable = false;
 const RECOVERY_SHORTCUT = 'CommandOrControl+Shift+Space';
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
+if (app.isPackaged && !args.includes('--smoke-test')) {
+  for (const flag of ['remote-debugging-port', 'remote-debugging-pipe', 'no-sandbox', 'disable-setuid-sandbox']) app.commandLine.removeSwitch(flag);
+}
+app.enableSandbox();
 const findArg = name => args.find(value => value.startsWith(name + '='))?.slice(name.length + 1);
 const state = () => ({ expanded, clickThrough, recoveryShortcut: recoverShortcut ? RECOVERY_SHORTCUT : null,
   clickThroughTimeoutSeconds: 60, trayAvailable: Boolean(tray), visible: Boolean(window && window.isVisible()),
@@ -98,18 +102,26 @@ function backendCommand(port) {
       path.join(process.resourcesPath, 'backend', 'companion-backend', exeName)]) {
       if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return [candidate, ['--port', String(port), '--no-browser']];
     }
+    if (process.platform === 'win32') {
+      const python = path.join(process.resourcesPath, 'backend', 'python', 'python.exe');
+      const script = path.join(process.resourcesPath, 'backend', 'app', 'server.py');
+      if ([python, script].every(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile())) {
+        return [python, ['-I', '-u', '-X', 'utf8', script, '--port', String(port), '--no-browser']];
+      }
+    }
     throw new Error('安装包缺少本地后端。');
   }
   return [process.env.COMPANION_PYTHON || 'python3', [path.join(__dirname, '..', 'run.py'), '--port', String(port), '--no-browser']];
 }
 function backendEnvironment() {
-  const env = { ...process.env, COMPANION_DATA: process.env.COMPANION_DATA || path.join(app.getPath('userData'), 'profile-data') };
+  const env = { ...process.env, PYTHONUTF8: '1', PYTHONIOENCODING: 'utf-8',
+    COMPANION_DATA: process.env.COMPANION_DATA || path.join(app.getPath('userData'), 'profile-data') };
   if (app.isPackaged) {
     const roots = [path.dirname(process.execPath), path.join(process.resourcesPath, 'backend'), process.resourcesPath];
     for (const [key, folder] of [['COMPANION_MODELS', 'models'], ['COMPANION_VOICES', 'voices']]) {
       if (env[key]) continue;
       const found = roots.map(root => path.join(root, folder)).find(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isDirectory());
-      if (found) env[key] = found;
+      env[key] = found || path.join(process.resourcesPath, 'backend', folder);
     }
   }
   return env;

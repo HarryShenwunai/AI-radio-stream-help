@@ -4,7 +4,7 @@ import datetime,json,os,secrets,shutil,socket,subprocess,tempfile,time,urllib.re
 import psutil
 from PIL import Image,ImageDraw
 from playwright.sync_api import sync_playwright
-ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'desktop/test-results';OUT.mkdir(exist_ok=True)
+ROOT=Path(__file__).resolve().parents[2];OUT=Path(os.environ.get('COMPANION_DESKTOP_TEST_RESULTS',str(ROOT/'desktop/test-results')));OUT.mkdir(parents=True,exist_ok=True)
 WINDOWS=os.name=='nt'
 binary=Path(os.environ.get('COMPANION_DESKTOP_BINARY',ROOT/('.build/desktop/character-windows-x64/companion-desktop.exe' if WINDOWS else '.build/desktop/character-linux-unpacked/companion-desktop')))
 def port():
@@ -24,7 +24,7 @@ try:
    xvfb=os.environ.get('COMPANION_XVFB') or shutil.which('Xvfb') or '/workspace/.desktop-tools/xvfb/usr/bin/Xvfb'
    children.append(subprocess.Popen([xvfb,display,'-screen','0','1440x1000x24','-nolisten','tcp','-auth',str(auth)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL));time.sleep(.4)
    children.append(subprocess.Popen(['xfwm4','--compositor=on','--vblank=off'],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL));time.sleep(.5)
-  debug=port();started=time.monotonic();desktop=subprocess.Popen([str(binary),'--remote-debugging-port='+str(debug),'--disable-gpu','--user-data-dir='+str(td/'electron-data')],env=env,stdout=(td/'desktop.stdout').open('w'),stderr=(td/'desktop.stderr').open('w'));children.append(desktop)
+  debug=port();started=time.monotonic();desktop=subprocess.Popen([str(binary),'--smoke-test','--remote-debugging-port='+str(debug),'--disable-gpu','--user-data-dir='+str(td/'electron-data')],env=env,stdout=(td/'desktop.stdout').open('w'),stderr=(td/'desktop.stderr').open('w'));children.append(desktop)
   deadline=time.monotonic()+40
   while time.monotonic()<deadline:
    if desktop.poll() is not None:raise RuntimeError((td/'desktop.stderr').read_text()[-2000:])
@@ -34,7 +34,10 @@ try:
    browser=p.chromium.connect_over_cdp(f'http://127.0.0.1:{debug}');page=browser.contexts[0].pages[0];errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
    page.wait_for_selector('.desktop-tools');page.wait_for_function('()=>document.querySelector("#character-select").options.length>0')
    report['page_ready_seconds_with_cdp']=round(time.monotonic()-started,3);report['page_origin']=page.url
-   descendant=psutil.Process(desktop.pid).children(recursive=True);backend=[proc for proc in descendant if proc.name().lower() in {'companion-backend','companion-backend.exe'}]
+   def is_backend(proc):
+    exe=proc.exe().replace('\\','/').lower()
+    return '/resources/backend/' in exe and (proc.name().lower() in {'companion-backend','companion-backend.exe'} or exe.endswith('/python/python.exe'))
+   descendant=psutil.Process(desktop.pid).children(recursive=True);backend=[proc for proc in descendant if is_backend(proc)]
    check('bundle spawned embedded backend without attached URL',len(backend)>=1 and '/resources/backend/' in backend[0].exe().replace('\\','/').lower())
    check('actual app page has one compact native window',page.locator('#manage-characters').count()==1 and page.evaluate('async()=>(await companionDesktop.getState()).windowCount===1 && document.body.classList.contains("desktop-collapsed")'))
    check('actual app compact root and body backgrounds are transparent',page.evaluate('()=>[document.documentElement,document.body].every(e=>getComputedStyle(e).backgroundColor==="rgba(0, 0, 0, 0)")'))
@@ -57,9 +60,28 @@ try:
    state=page.evaluate('()=>companionDesktop.getState()')
    if state['recoveryShortcut']:
     page.evaluate('()=>companionDesktop.hide()');page.wait_for_timeout(100);check('real hide sets explicit host media guard',page.evaluate('async()=>window.companionDesktopHidden && !(await companionDesktop.getState()).visible'))
+    hidden_audio=page.evaluate('''async()=>{
+     const descriptor=Object.getOwnPropertyDescriptor(document,'hidden'), originalFetch=window.fetch, OriginalAudio=window.Audio;
+     const originalSpeak=window.speechSynthesis?.speak,oldLocal=app.local_voice_available,oldSelected=selectedVoice;
+     const counts={speechRequests:0,audioObjects:0,synthesisCalls:0};
+     try{
+      Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});
+      app.local_voice_available=true;selectedVoice='';
+      window.fetch=(input,...options)=>{if(String(typeof input==='string'?input:input.url).includes('/api/speech')){counts.speechRequests++;return Promise.reject(new Error('Unexpected hidden speech'));}return originalFetch(input,...options);};
+      window.Audio=function(...args){counts.audioObjects++;return new OriginalAudio(...args);};
+      if(window.speechSynthesis)window.speechSynthesis.speak=()=>{counts.synthesisCalls++;};
+      await speak('隐藏窗口不应开始这次朗读');
+      return {documentHidden:document.hidden,hostHidden:window.companionDesktopHidden,...counts};
+     }finally{
+      window.fetch=originalFetch;window.Audio=OriginalAudio;app.local_voice_available=oldLocal;selectedVoice=oldSelected;
+      if(window.speechSynthesis)window.speechSynthesis.speak=originalSpeak;
+      if(descriptor)Object.defineProperty(document,'hidden',descriptor);else delete document.hidden;
+     }
+    }''');report['hidden_audio_probe']=hidden_audio
+    check('native hidden flag blocks new speech when document.hidden is false',hidden_audio=={'documentHidden':False,'hostHidden':True,'speechRequests':0,'audioObjects':0,'synthesisCalls':0})
     page.evaluate('()=>companionDesktop.restore()');page.wait_for_timeout(100);check('real app restores after hide',page.evaluate('async()=>!window.companionDesktopHidden && (await companionDesktop.getState()).visible'))
    check('actual app has no JavaScript page exceptions',not errors);report['page_errors']=errors
-   owned=[proc for proc in psutil.Process(desktop.pid).children(recursive=True) if proc.name().lower() in {'companion-backend','companion-backend.exe','focus-x11'}];page.evaluate('()=>companionDesktop.quit()');desktop.wait(timeout=8)
+   owned=[proc for proc in psutil.Process(desktop.pid).children(recursive=True) if is_backend(proc) or proc.name().lower()=='focus-x11'];page.evaluate('()=>companionDesktop.quit()');desktop.wait(timeout=8)
    deadline=time.monotonic()+4
    while time.monotonic()<deadline and any(proc.is_running() and proc.status()!=psutil.STATUS_ZOMBIE for proc in owned):time.sleep(.1)
    check('desktop quit stops owned backend and focus helper',all(not proc.is_running() or proc.status()==psutil.STATUS_ZOMBIE for proc in owned))

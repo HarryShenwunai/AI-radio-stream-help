@@ -49,6 +49,10 @@ def main():
     static = binary.parent/'_internal/static/index.html'
     if not binary.is_file() or not static.is_file():
         raise SystemExit('Build did not produce the backend executable and bundled static/index.html.')
+    from collect_dependency_licenses import collect
+    notices = collect(binary.parent/'licenses/distributions')
+    print(f'Collected metadata for {notices["distributions_count"]} installed distributions; '
+          f'{notices["with_issues"]} have inventory issues requiring review.')
     print(f'Built Windows backend: {binary}')
 
 

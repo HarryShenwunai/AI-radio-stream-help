@@ -1,0 +1,54 @@
+{
+  "observed_at": "2026-11-12T14:05:56.037504+00:00",
+  "status": "PREPARED_NOT_WINDOWS_EXECUTED",
+  "windows_build_or_tests_executed": 0,
+  "validation_host": "Linux; official SHA256-verified PowerShell7.5.4 portable parser",
+  "checks": {
+    "powershell_ast_parse": "passed",
+    "real_native_zero_exit": "passed",
+    "real_native_nonzero_rejected": "passed",
+    "missing_executable_cannot_reuse_old_zero_exit": "passed",
+    "ps51_source_ascii_without_bom": "passed",
+    "embedded_python_programs_parse": "passed",
+    "pinned_tool_hashes_well_formed": "passed",
+    "python_regressions": 191,
+    "report_dir_routing_under_build_default_report_unchanged": "passed"
+  },
+  "evidence": {
+    "powershell_log": "/workspace/research/windows-local-powershell-check.log",
+    "regression_log": "/workspace/research/windows-local-build-regression.log",
+    "actual_routed_report": ".build/windows-build-validation/report/character-regression.json"
+  },
+  "bootstrap_sources": "scripts/windows-build-tools.json; uv release digest and sidecar, Node official SHASUMS, official llama CPU release digest verified2026-11-12",
+  "python_compatibility": "Pillow13 Requires-Python>=3.11; Misaki0.9.4<3.13. Existing3.11/3.12x64 reused;3.10 detected but managed3.12 prepared.",
+  "safety": {
+    "registry_changes": false,
+    "global_path_changes": false,
+    "silent_vc_runtime_install": false,
+    "github_billing_or_account_changes": false,
+    "unchecked_downloaded_installer_execution": false,
+    "uv_explicit_flags": [
+      "--no-registry",
+      "--no-bin",
+      "--no-config"
+    ],
+    "local_npm_dependencies": ".build/windows-local/npm-project/node_modules",
+    "logs_and_model_cache": ".build/windows-local"
+  },
+  "remaining_checks": [
+    "Actual WindowsPowerShell5.1 execution",
+    "Official Windows downloaded tools execution on user machine",
+    "VC++ runtime/native import preflight on user machine",
+    "Actual Windows compilation and packaged Electron tests",
+    "Actual Windows model/TTS/cancellation test and resources",
+    "User hardware, quality, multi-DPI/multi-monitor/fullscreen behavior"
+  ],
+  "source_sha256": {
+    "build-windows.cmd": "9b96a6cac246c3f76f4e5e36d0985a9b5d95c46274b2e74c398a3ac707d2efb7",
+    "scripts/build_windows_local.ps1": "150adda22bc2fd254a0da60ab68762d08fde57fa542b7c77e3ba3f68639d0a51",
+    "scripts/windows-build-tools.json": "9de8a81713d5e1c2667ed5d41fb3fc90f25725060a4a73c6e91e08d14e317d2f",
+    "docs/implementation/windows-local-build.md": "e1ac1de8759b54bdc092ca4f86e9c19e42acf4fce03c30b542fd9223a871c88a",
+    "scripts/check.py": "041c2af6580e904fd4902378ecc5baf30e854d17db2b73166a86de40db1775a5",
+    "scripts/native_character_check.py": "9d421f0332ab5ca20bfa1832d7e515fdd4be0db5a881b7bdb123bea07ecdd92a"
+  }
+}
