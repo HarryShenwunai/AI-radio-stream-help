@@ -1,0 +1,99 @@
+{
+  "scope": "Real Linux Electron45/Blink, native dialogs/menus, Xvfb; synthetic camera, real desktop stream",
+  "physical_devices_tested": false,
+  "windows_tested": false,
+  "checks": [
+    {
+      "name": "real native camera confirmation grants exactly one synthetic video track",
+      "passed": true
+    },
+    {
+      "name": "synthetic camera delivers video frames to the actual preview",
+      "passed": true
+    },
+    {
+      "name": "camera tracks actually stop",
+      "passed": true
+    },
+    {
+      "name": "real chosen desktop stream contains video and no audio",
+      "passed": true
+    },
+    {
+      "name": "desktop capture track actually stops",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "investigation_only_preflight_override": true,
+  "camera": {
+    "state": "active",
+    "kind": "camera",
+    "tracks": [
+      {
+        "kind": "video",
+        "state": "live"
+      }
+    ],
+    "settings": {
+      "aspectRatio": 1.3333333333333333,
+      "deviceId": "0d054cd223934fe5b51571ea590f96b177d9216acdaaf226e365721848f7f8b5",
+      "exposureMode": "manual",
+      "exposureTime": 50,
+      "focusDistance": 50,
+      "focusMode": "manual",
+      "frameRate": 20,
+      "groupId": "5a71ce4958d5ff2a6a2528ba9bbf535970c5b5cc12a89433ca8d79cd61458994",
+      "height": 480,
+      "resizeMode": "none",
+      "width": 640
+    }
+  },
+  "camera_video": {
+    "current_time": 0.961239,
+    "width": 640,
+    "height": 480,
+    "ready_state": 4
+  },
+  "screen": {
+    "state": "active",
+    "kind": "screen",
+    "tracks": [
+      {
+        "kind": "video",
+        "state": "live"
+      }
+    ],
+    "settings": {
+      "aspectRatio": 1.4222222222222223,
+      "cursor": "always",
+      "deviceId": "screen:275:0",
+      "displaySurface": "monitor",
+      "frameRate": 30,
+      "height": 900,
+      "logicalSurface": true,
+      "resizeMode": "crop-and-scale",
+      "width": 1280
+    }
+  },
+  "legacy_probe": {
+    "state": "active",
+    "tracks": [
+      "video"
+    ],
+    "source": "screen:275:0"
+  },
+  "source_sha256": {
+    "desktop/main.cjs": "0f0fcb67903722602d8bdc38bb865bc067e3b28a435bdc9c6a1eb464a8574679",
+    "desktop/preload.cjs": "f924724733ff01ed78941586d2adc1dff116d189492ee5d8af58ba9adc439776",
+    "desktop/window-policy.cjs": "502131f8d9c829a61ae01855781d9d6c86255855a1b511a2c60441dbca9063b6",
+    "desktop/media-policy.cjs": "ef650a3b7ede7075427618344812da42e75ce7b0a6f3d69189b51a2e878555bc",
+    "desktop/screen-capture.cjs": "fda764e88bed63e62c3b73269e1abafd413cd7b40ab87d559c2d610b54516408",
+    "desktop/screen-capture.html": "601f17a77e383b13c2db55e28768dc83267e5edbd71b3bdf698383369c61ab95",
+    "desktop/screen-capture-view.js": "96df033c70fce16439fbe3eca616040a2b4858f8511cb1f13d6a20df0b39fbed",
+    "desktop/screen-capture.css": "585ed0cae454d4a639f4aa598406d1f0bbb50378b85efbe23eaadda93c79145e",
+    "desktop/test/media_native_probe.py": "2589752ad1eb848c3bc23a5c74f0ed1e7d81002d0487bbc053127f5c53c09cd2",
+    "desktop/test/media_native_fixture.cjs": "446bd76180009e8bda4ef67dcdbf74753c1f61681950c6e86f6849e3e8646607"
+  },
+  "sources_unchanged_during_checks": true
+}

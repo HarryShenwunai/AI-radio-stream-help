@@ -1,0 +1,911 @@
+{
+  "observed_at": "2026-11-12T21:04:16.893241+00:00",
+  "status": "captured",
+  "scope": "new IA actual Chromium/HTTP/SQLite/PNG/Audio/MediaRecorder; fake LLM/TTS/ASR and optional synthetic screen/VLM protocol",
+  "models_mocked": true,
+  "physical_microphone_or_camera_used": false,
+  "windows_or_rtx4060_verified": false,
+  "native_desktop_verified": false,
+  "human_visual_quality_accepted": false,
+  "source_sha256_before": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "app/static/app.js": "2efa9105266722ceff380fdbcdf5213d3a6eed3989350c63423fbeb0d08c1c7e",
+    "app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "app/static/conversation-view.js": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+    "app/static/desktop.css": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+    "app/static/desktop.js": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+    "app/static/index.html": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+    "app/static/layered-2d-renderer.js": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/privacy-flow.js": "acc354510d47de83abfbf93c12e2f7b13c107bd044e926cf30af6badcf025049",
+    "app/static/scene-controller.js": "8cee7f7da4f6008e4e8759628f8dfffd5e33ccae9a2ae21eb00a838af09191fd",
+    "app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "app/static/studio.js": "d39e237951e7f1b3be60d65dc14902eca0e06b9c7b5a01ccdc413455941fcdd5",
+    "app/static/style.css": "e045152a6e5dc7d4d08dcdbf872a5b332208afe0fa1a521c763d95119b19618b",
+    "app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "checks": {
+    "new_ia_no_old_forms_default_declarations_do_not_acquire_media": "passed",
+    "new_composer_real_http_to_fake_dialogue": "passed",
+    "real_single_file_package_preview_explicit_enable_and_regions": "passed",
+    "actual_viewports_and_110_125_200_percent_layout": "passed",
+    "regional_png_theme_reuses_canvas_scene_audio_and_no_new_raf": "passed",
+    "theme_local_persistence": "passed",
+    "purpose_local_flow_invalid_disclosure_and_escape_focus": "passed",
+    "keyboard_linebreak_submit_identity_and_private_draft_isolation": "passed",
+    "absent_mic_camera_aux_display_keep_pc_text_and_actual_tts": "passed",
+    "declare_present_again_does_not_resume_or_acquire_media": "passed",
+    "modal_navigation_stops_real_synthetic_media_recorder_tracks": "passed",
+    "real_media_recorder_wav_resample_to_fake_asr_draft_no_auto_send": "passed",
+    "unconfigured_vision_is_explicit_and_never_acquires_media": "passed",
+    "real_schedule_proposal_confirm_cancel_same_flow": "passed",
+    "reduced_motion_shell_css_only": "passed",
+    "no_page_exception_or_external_cdn_request": "passed"
+  },
+  "findings": [],
+  "scenarios": [
+    {
+      "name": "01-scene-1440-1",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/01-scene-1440-1.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1440,
+        "height": 665
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "02-studio-1440-1",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1,
+      "view": "studio",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/02-studio-1440-1.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1440,
+        "height": 665
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "03-scene-1120-1",
+      "requested_physical_size": [
+        1120,
+        850
+      ],
+      "zoom_equivalent": 1,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/03-scene-1120-1.png",
+      "screenshot_pixels": [
+        1120,
+        850
+      ],
+      "innerWidth": 1120,
+      "innerHeight": 850,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1120,
+        "height": 850,
+        "scale": 1
+      },
+      "scrollWidth": 1120,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1120,
+        "height": 515
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "04-scene-1440-1.1",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1.1,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/04-scene-1440-1.1.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1309,
+      "innerHeight": 909,
+      "dpr": 1.100000023841858,
+      "visualViewport": {
+        "width": 1309,
+        "height": 909,
+        "scale": 1
+      },
+      "scrollWidth": 1309,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1309,
+        "height": 574
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "05-studio-1440-1.1",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1.1,
+      "view": "studio",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/05-studio-1440-1.1.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1309,
+      "innerHeight": 909,
+      "dpr": 1.100000023841858,
+      "visualViewport": {
+        "width": 1309,
+        "height": 909,
+        "scale": 1
+      },
+      "scrollWidth": 1309,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1309,
+        "height": 574
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "06-scene-1440-1.25",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1.25,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/06-scene-1440-1.25.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1152,
+      "innerHeight": 800,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 1152,
+        "height": 800,
+        "scale": 1
+      },
+      "scrollWidth": 1152,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1152,
+        "height": 465
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "07-studio-1440-1.25",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1.25,
+      "view": "studio",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/07-studio-1440-1.25.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1152,
+      "innerHeight": 800,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 1152,
+        "height": 800,
+        "scale": 1
+      },
+      "scrollWidth": 1152,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 1152,
+        "height": 465
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "08-scene-390-1",
+      "requested_physical_size": [
+        390,
+        844
+      ],
+      "zoom_equivalent": 1,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/08-scene-390-1.png",
+      "screenshot_pixels": [
+        390,
+        844
+      ],
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 72,
+        "width": 390,
+        "height": 594
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "09-studio-390-1",
+      "requested_physical_size": [
+        390,
+        844
+      ],
+      "zoom_equivalent": 1,
+      "view": "studio",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/09-studio-390-1.png",
+      "screenshot_pixels": [
+        390,
+        844
+      ],
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 72,
+        "width": 390,
+        "height": 594
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "10-scene-390-1.25",
+      "requested_physical_size": [
+        390,
+        844
+      ],
+      "zoom_equivalent": 1.25,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/10-scene-390-1.25.png",
+      "screenshot_pixels": [
+        390,
+        844
+      ],
+      "innerWidth": 312,
+      "innerHeight": 675,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 312,
+        "height": 675,
+        "scale": 1
+      },
+      "scrollWidth": 312,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 72,
+        "width": 312,
+        "height": 425
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "11-scene-1440-2",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 2,
+      "view": "scene",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/11-scene-1440-2.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 720,
+      "innerHeight": 500,
+      "dpr": 2,
+      "visualViewport": {
+        "width": 720,
+        "height": 500,
+        "scale": 1
+      },
+      "scrollWidth": 720,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 720,
+        "height": 165
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [],
+      "keyboard_target_after_focus_scroll": {
+        "box": {
+          "x": 85,
+          "y": 382,
+          "width": 500,
+          "height": 44
+        },
+        "reachable": true
+      }
+    },
+    {
+      "name": "12-studio-1440-2",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 2,
+      "view": "studio",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/12-studio-1440-2.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 720,
+      "innerHeight": 500,
+      "dpr": 2,
+      "visualViewport": {
+        "width": 720,
+        "height": 500,
+        "scale": 1
+      },
+      "scrollWidth": 720,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 0,
+        "y": 105,
+        "width": 720,
+        "height": 165
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [],
+      "keyboard_target_after_focus_scroll": {
+        "box": {
+          "x": 47,
+          "y": 427,
+          "width": 626,
+          "height": 46
+        },
+        "reachable": true
+      }
+    },
+    {
+      "name": "13-history-1440-1",
+      "requested_physical_size": [
+        1440,
+        1000
+      ],
+      "zoom_equivalent": 1,
+      "view": "history",
+      "screenshot": "/workspace/dist/uiux-2026/after-current/13-history-1440-1.png",
+      "screenshot_pixels": [
+        1440,
+        1000
+      ],
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": null,
+      "composer": null,
+      "portrait": {
+        "x": 300,
+        "y": 105,
+        "width": 1140,
+        "height": 665
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    }
+  ],
+  "javascript_errors": [],
+  "external_requests": [],
+  "zoom_method": "Registered CSS viewport+DPR equivalent, not native Chrome zoom or physical Windows DPI.",
+  "initial_devices": {
+    "display": {
+      "declared_available": true,
+      "detection": "not_checked",
+      "permission": "not_requested",
+      "purpose": "optional_5inch_avatar_display"
+    },
+    "camera": {
+      "declared_available": true,
+      "detection": "not_checked",
+      "permission": "not_requested"
+    },
+    "microphone": {
+      "declared_available": true,
+      "detection": "not_checked",
+      "permission": "not_requested"
+    }
+  },
+  "initial_resource_paths": [
+    "/",
+    "/api/devices",
+    "/api/state",
+    "/app.js",
+    "/assistance-view.js",
+    "/companion-core.js",
+    "/connection-flow.js",
+    "/connectors-ui.js",
+    "/conversation-view.js",
+    "/desktop.css",
+    "/desktop.js",
+    "/playback-receipts.js",
+    "/privacy-flow.js",
+    "/scene-controller.js",
+    "/scene-forest.png",
+    "/sound-flow.js",
+    "/speech-controller.js",
+    "/studio.js",
+    "/style.css",
+    "/ui-kit.js",
+    "/voice-input.js"
+  ],
+  "character_package": {
+    "path": "/workspace/dist/character-2d.companion.json",
+    "bytes": 10389100,
+    "sha256": "022bfce5b6e323947efa97b43aa459a852dc42a6adb59d8dc96da2c861bab043"
+  },
+  "theme_resource_counts": {
+    "before": {
+      "contexts": 0,
+      "canvas": 1,
+      "raf": 11
+    },
+    "after": {
+      "contexts": 0,
+      "canvas": 1,
+      "raf": 11
+    }
+  },
+  "night_contrast_samples": [
+    {
+      "selector": "#current-reply",
+      "css_foreground": "rgb(240, 234, 249)",
+      "actual_background_pixel_rgb": [
+        47,
+        41,
+        53
+      ],
+      "background_sample_css_position": {
+        "x": 720,
+        "y": 758
+      },
+      "ratio": 11.979,
+      "candidate_target": 4.5,
+      "status": "meets_sample_target",
+      "scope": "single real composite-background padding pixel, not all gradients/states or WCAG certification"
+    },
+    {
+      "selector": "#theme-switch",
+      "css_foreground": "rgb(240, 234, 249)",
+      "actual_background_pixel_rgb": [
+        60,
+        46,
+        80
+      ],
+      "background_sample_css_position": {
+        "x": 1385,
+        "y": 28
+      },
+      "ratio": 10.503,
+      "candidate_target": 3,
+      "status": "meets_sample_target",
+      "scope": "single real composite-background padding pixel, not all gradients/states or WCAG certification"
+    },
+    {
+      "selector": ".readiness-card",
+      "css_foreground": "rgb(240, 234, 249)",
+      "actual_background_pixel_rgb": [
+        60,
+        46,
+        80
+      ],
+      "background_sample_css_position": {
+        "x": 1112,
+        "y": 219
+      },
+      "ratio": 10.503,
+      "candidate_target": 4.5,
+      "status": "meets_sample_target",
+      "scope": "single real composite-background padding pixel, not all gradients/states or WCAG certification"
+    }
+  ],
+  "real_recording_to_fake_asr": [
+    {
+      "bytes": 23082,
+      "duration_seconds": 0.7199375,
+      "nonzero_samples": 11268,
+      "asr_inference_mocked": true
+    }
+  ],
+  "reduced_motion_ui_css_only": [
+    {
+      "selector": "#scene-screen",
+      "transition": "0s",
+      "animation": "0s"
+    },
+    {
+      "selector": ".interaction-area",
+      "transition": "0s",
+      "animation": "0s"
+    }
+  ],
+  "source_sha256_after": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "app/static/app.js": "2efa9105266722ceff380fdbcdf5213d3a6eed3989350c63423fbeb0d08c1c7e",
+    "app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "app/static/conversation-view.js": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+    "app/static/desktop.css": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+    "app/static/desktop.js": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+    "app/static/index.html": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+    "app/static/layered-2d-renderer.js": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/privacy-flow.js": "acc354510d47de83abfbf93c12e2f7b13c107bd044e926cf30af6badcf025049",
+    "app/static/scene-controller.js": "8cee7f7da4f6008e4e8759628f8dfffd5e33ccae9a2ae21eb00a838af09191fd",
+    "app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "app/static/studio.js": "d39e237951e7f1b3be60d65dc14902eca0e06b9c7b5a01ccdc413455941fcdd5",
+    "app/static/style.css": "e045152a6e5dc7d4d08dcdbf872a5b332208afe0fa1a521c763d95119b19618b",
+    "app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "source_changed_during_run": false,
+  "all_requested_paths": [
+    "/",
+    "/api/assets/5e041a9b-889e-43fe-91fe-71d49ac8a045/blink.png",
+    "/api/assets/5e041a9b-889e-43fe-91fe-71d49ac8a045/idle.png",
+    "/api/assets/5e041a9b-889e-43fe-91fe-71d49ac8a045/talk.png",
+    "/api/assets/5e041a9b-889e-43fe-91fe-71d49ac8a045/talk_blink.png",
+    "/api/assistance/decision",
+    "/api/assistance/proposals",
+    "/api/characters/assets",
+    "/api/characters/assets/activate",
+    "/api/characters/assets/import",
+    "/api/characters/create",
+    "/api/characters/select",
+    "/api/chat/stream",
+    "/api/devices",
+    "/api/perception/status",
+    "/api/playback/receipt",
+    "/api/speech",
+    "/api/state",
+    "/api/transcribe",
+    "/api/transcribe/stop",
+    "/api/voice/status",
+    "/app.js",
+    "/assistance-view.js",
+    "/companion-core.js",
+    "/connection-flow.js",
+    "/connectors-ui.js",
+    "/conversation-view.js",
+    "/desktop.css",
+    "/desktop.js",
+    "/playback-receipts.js",
+    "/privacy-flow.js",
+    "/scene-controller.js",
+    "/scene-forest.png",
+    "/sound-flow.js",
+    "/speech-controller.js",
+    "/studio.js",
+    "/style.css",
+    "/ui-kit.js",
+    "/voice-input.js"
+  ],
+  "automated_ui_checks_passed": true,
+  "artifacts": [
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/05-studio-1440-1.1.png",
+      "bytes": 688462,
+      "sha256": "99f2cb10b1506eb2ad46085054b4c5f031deb15401349875771443ff8fc29bbe"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/synthetic-microphone-source.wav",
+      "bytes": 192044,
+      "sha256": "4458bc7eefa0078995abf6cb1ed3f63a04b4d78300c7ccf4b5a0628a0a4f95a8"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/04-scene-1440-1.1.png",
+      "bytes": 1493824,
+      "sha256": "9726582ec073cc53c73fe884b8a0f54a75b7ce505d8ffe81abd3b114475fac84"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/08-scene-390-1.png",
+      "bytes": 395714,
+      "sha256": "d3066fcca62b6341b6bc90431e21b90f882c5bb3647486fbe2bd28999a1c75f3"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/21-night-connection-warning.png",
+      "bytes": 803412,
+      "sha256": "e5fb567a804c1fc37f39bdff8b7dc5d7c6f0ad04adfd2b96a581ad3434025a1e"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/12-studio-1440-2.png",
+      "bytes": 195741,
+      "sha256": "27a9f0a7ae45807a9e1a9a2b842af48690f917e5a6142728a29f654c7b980bde"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/09-studio-390-1.png",
+      "bytes": 63138,
+      "sha256": "46f6f44cf19666c868a7575c06efea85985b4647ff3dc92ba06879b8bb928146"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/actual-new-ia-functional-flow.webm",
+      "bytes": 3377049,
+      "sha256": "21e6f4c19a899592dea7c59f845115b5f5d99249cc5d81cfde07a1166c03b4c0"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/20-night-scene.png",
+      "bytes": 1275090,
+      "sha256": "d3e9831c335727deca16f809842517bf8a442dd8b6180cb13623370ac94d3dea"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/13-history-1440-1.png",
+      "bytes": 1421021,
+      "sha256": "8c100f117b1be0f49eb0db95c67374f8b55372bbc1cd6950129e128abd04c752"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/10-scene-390-1.25.png",
+      "bytes": 382835,
+      "sha256": "4c2979664903e73f382230228e1ca34cd103eef7df1be6c6cfcd5bb6db4e0936"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/07-studio-1440-1.25.png",
+      "bytes": 579131,
+      "sha256": "67491934ebcdba04bd20c094c07a0a0d48d2bb49b67809ae4d9334ac193f720f"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/06-scene-1440-1.25.png",
+      "bytes": 1437894,
+      "sha256": "d2ade163ce9dfab00d6fa6c9ebb957818f826d8e4c3c4eadf58dd2d727f975da"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/03-scene-1120-1.png",
+      "bytes": 1004340,
+      "sha256": "9e46b2ace363c7aedb5d9ec0099a2a319b6022b925692c3de99e78673f4a62b0"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/11-scene-1440-2.png",
+      "bytes": 1116401,
+      "sha256": "ca906a596822b63ae3280756fdb4c0970385cfb4ed23ce9cc4002a82114c5eb8"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/01-scene-1440-1.png",
+      "bytes": 1526012,
+      "sha256": "e6edca1ba7cff2a81b315d0257cfde7f75ea41a53a2e1ee0b8ea78238153abd5"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/02-studio-1440-1.png",
+      "bytes": 967019,
+      "sha256": "5c09af8d3f80412ab6bd9b5a63ab4a61fc49d1d6fee681a369568b733bfe5610"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/after-current/raw-video/page@1aea216bad82b40c57019d3acb05a3b0.webm",
+      "bytes": 3377049,
+      "sha256": "21e6f4c19a899592dea7c59f845115b5f5d99249cc5d81cfde07a1166c03b4c0"
+    }
+  ],
+  "artifact_inspection": {
+    "actual_current_style_screenshots_reviewed": [
+      "01-scene-1440-1.png",
+      "08-scene-390-1.png",
+      "09-studio-390-1.png",
+      "12-studio-1440-2.png",
+      "20-night-scene.png"
+    ],
+    "note": "The listed current-run after-current screenshots were actually viewed; no human/user quality acceptance is implied.",
+    "video_ffprobe": {
+      "codec": "vp8",
+      "width": 1440,
+      "height": 1000,
+      "seconds": 33.16,
+      "bytes": 3377049,
+      "audio_tracks": 0
+    }
+  },
+  "harness_sha256_at_review": "4194b53e6951fa6f8c02d4a005261a5f58a6c364d606355ae6441dbf9dc1e92f"
+}

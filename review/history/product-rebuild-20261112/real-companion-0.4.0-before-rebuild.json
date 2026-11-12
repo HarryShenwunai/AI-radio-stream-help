@@ -1,0 +1,223 @@
+{
+  "observed_at": "2026-11-12T16:37:32.210630+00:00",
+  "scope": "actual app HTTP + actual local Qwen/Kokoro + real Chromium WebGL/HTMLAudio; synthetic input and original geometric VRM",
+  "status": "passed",
+  "checks": {
+    "actual_self_service_vrm_upload_and_webgl": "passed",
+    "real_qwen_sse_reply_displayed": "passed",
+    "actual_kokoro_audio_advances_and_drives_vrm_mouth": "passed",
+    "stop_silences_real_media_and_no_late_revival": "passed",
+    "actual_audio_stop_receipt_excludes_unheard_reply_from_next_prompt": "passed",
+    "no_page_exception_or_external_web_request": "passed"
+  },
+  "models_mocked": false,
+  "microphone_used": false,
+  "windows_or_rtx4060_verified": false,
+  "human_quality_accepted": false,
+  "p95_measured": false,
+  "external_requests": [],
+  "source_sha256_before": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "86ccdda665c4e8b590195c9949da465d0019002454fb6cbbcdcaa86738a06805",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c387f6a893dd3950c89eccf43aea2ccd2797fb11fbc14e619d770873c62f9ccb",
+    "app/static/desktop.js": "adf9c92f8707d0f40f703d9f2b164c5207c556821dd16383b62ccd5f315500a6",
+    "app/static/index.html": "431ba13159d07b42ef41c602468f933691497735d1a196b3a88f691ac2b71532",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "08390c645a415fb0dc8ae1fdfe1edef47b87dc8bd7847e4c05424bdcf51c4589",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "frontend/package.json": "eaa230d8acd744fc484641dcc3bd2c4e6d71db857b7a55e29a756f4f0f14eadd",
+    "frontend/renderer.mjs": "7857f9bda9a9847024d7a44c0fea3d12b80e7b42aa9d97e581dcf7ccb460df92",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "evidence_directory": "/workspace/dist/evidence-companion-real-20261112-163732",
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright COMPANION_MODELS=/workspace/companion/models COMPANION_VOICES=/workspace/companion/voices /workspace/companion/.venv/bin/python tests/real_companion_browser_check.py",
+  "screen_recording_audio_track": false,
+  "screen_recording_note": "Actual Playwright screen recording; no system audio track. Actual response WAV is preserved separately; no voice-quality acceptance.",
+  "model_filename": "qwen3-4b-instruct-2507-q4_k_m.gguf",
+  "actual_model_assets": [
+    {
+      "name": "qwen3-4b-instruct-2507-q4_k_m.gguf",
+      "bytes": 2497280736,
+      "sha256": "2fde00ce69dd4899c70d020845e2638353015bba0fdf161b3eb965f2bca4464e"
+    },
+    {
+      "name": "kokoro-v1.0.onnx",
+      "bytes": 325505369,
+      "sha256": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a"
+    },
+    {
+      "name": "voices-v1.0.bin",
+      "bytes": 28214398,
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    }
+  ],
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "first_text_or_error_seconds": 22.754,
+  "reply_seconds": 24.862,
+  "synthetic_reply": "我知道，你今天确实很累。",
+  "first_observed_audio_rms_seconds": 30.898,
+  "observed_audio_current_time_max": 0.080399,
+  "observed_mouth_max": 0.18837786842799917,
+  "actual_response_wav": {
+    "bytes": 127532,
+    "seconds": 2.656,
+    "sample_rate": 24000,
+    "sha256": "a5ba453ff25485e3bd7e991f6fd66b25b2920674d69265e9051b909ad58e7921",
+    "source": "actual playing HTMLAudio Blob, preserved before stop"
+  },
+  "stop_requested_while_audio_active": true,
+  "observed_stop_seconds": 0.127,
+  "actual_audio_receipt": {
+    "status": "stopped",
+    "position_seconds": 0.533333,
+    "duration_seconds": 2.656,
+    "confirmed_text": "",
+    "evidence": "client_owner_reported_playback_not_human_attention",
+    "reason": "client_stopped"
+  },
+  "media_trace": [
+    {
+      "at": 35134.79999999702,
+      "time": 0,
+      "paused": false,
+      "mouth": 0
+    },
+    {
+      "at": 35146.79999999702,
+      "time": 0,
+      "paused": false,
+      "mouth": 0
+    },
+    {
+      "at": 35166.70000000298,
+      "time": 0.015219,
+      "paused": false,
+      "mouth": 0
+    },
+    {
+      "at": 35187.59999999404,
+      "time": 0.036259,
+      "paused": false,
+      "mouth": 0
+    },
+    {
+      "at": 35206.70000000298,
+      "time": 0.042667,
+      "paused": false,
+      "mouth": 0
+    },
+    {
+      "at": 35228.89999999106,
+      "time": 0.074667,
+      "paused": false,
+      "mouth": 0.18837786842799917
+    },
+    {
+      "at": 35232.39999999106,
+      "time": 0.080399,
+      "paused": false,
+      "mouth": 0.18837786842799917
+    }
+  ],
+  "evidence_paths": [
+    "/workspace/dist/evidence-companion-real-20261112-163732/01-self-service-vrm-ready.png",
+    "/workspace/dist/evidence-companion-real-20261112-163732/02-real-chat-stream.png",
+    "/workspace/dist/evidence-companion-real-20261112-163732/03-real-audio-playing.png",
+    "/workspace/dist/evidence-companion-real-20261112-163732/04-real-audio-stopped.png",
+    "/workspace/dist/evidence-companion-real-20261112-163732/actual-app-process.webm",
+    "/workspace/dist/evidence-companion-real-20261112-163732/actual-kokoro-response.wav"
+  ],
+  "evidence_sha256": {
+    "/workspace/dist/evidence-companion-real-20261112-163732/01-self-service-vrm-ready.png": "307c06869bd585f5df8b6c7e53c26ddc9cacb6172db480419c4f00b7d0c92b81",
+    "/workspace/dist/evidence-companion-real-20261112-163732/02-real-chat-stream.png": "a9e2bd664de8cb35a55b1d082ad29f8c24826b0fa4894b50ed487c8d56254935",
+    "/workspace/dist/evidence-companion-real-20261112-163732/03-real-audio-playing.png": "db51bff923d1658e45cdf857e35f38d5b0d8d8fe69127f881ef0c55c261253ea",
+    "/workspace/dist/evidence-companion-real-20261112-163732/04-real-audio-stopped.png": "7145f43ec2b6c3078df57700cf77b4794efacf1e41d5997a72df487c4ac1ee2d",
+    "/workspace/dist/evidence-companion-real-20261112-163732/actual-app-process.webm": "57798b7e5f24aecf71216013f3253802611adba4ef30637734c346ac1cd0d2e5",
+    "/workspace/dist/evidence-companion-real-20261112-163732/actual-kokoro-response.wav": "a5ba453ff25485e3bd7e991f6fd66b25b2920674d69265e9051b909ad58e7921"
+  },
+  "max_rss_kib_linux_process": 5546508,
+  "source_sha256_after": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "86ccdda665c4e8b590195c9949da465d0019002454fb6cbbcdcaa86738a06805",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c387f6a893dd3950c89eccf43aea2ccd2797fb11fbc14e619d770873c62f9ccb",
+    "app/static/desktop.js": "adf9c92f8707d0f40f703d9f2b164c5207c556821dd16383b62ccd5f315500a6",
+    "app/static/index.html": "431ba13159d07b42ef41c602468f933691497735d1a196b3a88f691ac2b71532",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "08390c645a415fb0dc8ae1fdfe1edef47b87dc8bd7847e4c05424bdcf51c4589",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "frontend/package.json": "eaa230d8acd744fc484641dcc3bd2c4e6d71db857b7a55e29a756f4f0f14eadd",
+    "frontend/renderer.mjs": "7857f9bda9a9847024d7a44c0fea3d12b80e7b42aa9d97e581dcf7ccb460df92",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "source_changed_during_run": false,
+  "artifact_verification": {
+    "verified_at": "2026-11-12T16:40:12.989040+00:00",
+    "video_ffprobe": {
+      "codec": "vp8",
+      "width": 1440,
+      "height": 1000,
+      "fps": 25,
+      "duration_seconds": 35.4,
+      "bytes": 2296401,
+      "audio_tracks": 0
+    },
+    "wav_ffprobe": {
+      "codec": "pcm_s16le",
+      "sample_rate": 24000,
+      "channels": 1,
+      "duration_seconds": 2.656,
+      "bytes": 127532
+    },
+    "screenshots_actually_viewed": [
+      "03-real-audio-playing.png",
+      "04-real-audio-stopped.png"
+    ],
+    "visual_acceptance": false,
+    "note": "Geometric original fixture, not approved anime artwork. Actual playing/stopped UI states viewed; no human voice-quality listening test."
+  },
+  "harness_sha256_at_review": "fcc1808121d5c3c16da8fd85a78bb313812ee23f78fd0413cea4d7e405b53da7"
+}

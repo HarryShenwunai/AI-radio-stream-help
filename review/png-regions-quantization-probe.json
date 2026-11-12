@@ -1,0 +1,54 @@
+{
+  "readonly": {
+    "outside": 0,
+    "inside": 0,
+    "alpha": 0,
+    "max": 0,
+    "bounds": [
+      1070,
+      1470,
+      0,
+      0
+    ],
+    "examples": []
+  },
+  "talk": {
+    "outside": 0,
+    "inside": 9156,
+    "alpha": 0,
+    "max": 207,
+    "bounds": [
+      1070,
+      1470,
+      0,
+      0
+    ],
+    "examples": []
+  },
+  "restored": {
+    "outside": 0,
+    "inside": 0,
+    "alpha": 0,
+    "max": 0,
+    "bounds": [
+      1070,
+      1470,
+      0,
+      0
+    ],
+    "examples": []
+  },
+  "twenty": {
+    "outside": 0,
+    "inside": 0,
+    "alpha": 0,
+    "max": 0,
+    "bounds": [
+      1070,
+      1470,
+      0,
+      0
+    ],
+    "examples": []
+  }
+}

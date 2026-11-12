@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "scope": "Complete locked ZIP/tree/CRC/SHA and PE audit, not Windows DLL execution",
+  "archive_bytes": 83452536,
+  "archive_sha256": "4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21",
+  "manifest_raw_sha256": "de08abac2f341d0cacf2eba38fc89e53bef0252f98cc2f258736b95ed95bad12",
+  "manifest_no_lf_canonical_sha256": "a72ef9399f156c76874ccda0357295b9123305e5b923ed7bf3d8673cf5484f8b",
+  "locked_files": 2043,
+  "expanded_bytes": 231680607,
+  "unchanged_v1_payload_files": 2041,
+  "only_changed_metadata": [
+    "NOTICE-TRACKING.txt",
+    "WHEEL-PROVENANCE.json"
+  ],
+  "omitted_plugins": [
+    {
+      "bytes": 30876160,
+      "md5_matches_upstream_pin": "a821a1135251859655090c795af05789",
+      "path": "python312/site-packages/cv2/opencv_videoio_ffmpeg500_64.dll",
+      "reason": "Unused independently loaded Windows FFmpeg plugin omitted under upstream redistribution instructions; no camera/video codec capture is performed by this face pipeline.",
+      "sha256": "7aabff029d1fa47cf56ede4dbbe05dc62da3208f07cd16471d4c966a33f9aa31"
+    },
+    {
+      "bytes": 236064,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio.dylib",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "f48bedb7f4f79c0ca050776afe943458555db7341e0dae00511d109ccde907c0"
+    },
+    {
+      "bytes": 280576,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio32bit-asio.dll",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "b96d817debe1747d8ca3a5e5b57d1021bf0207ebbd907242331357b97c65e6d7"
+    },
+    {
+      "bytes": 260608,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio32bit.dll",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "3d27383a00397dae64b266189791ac20f84a19820778724e05705c2f6012dfd9"
+    },
+    {
+      "bytes": 343040,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio64bit-asio.dll",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "e38618a0cb83a0287bee3b8bd68a710ae0d34178217ef4fa21ed56f765111943"
+    },
+    {
+      "bytes": 316416,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudioarm64-asio.dll",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "57b7826fd3883daabbb8951814655a4ec253acb822c0ff6ce4002da9463064f5"
+    },
+    {
+      "bytes": 293888,
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudioarm64.dll",
+      "reason": "Unused ASIO SDK or non-x64 platform standby omitted; retain default Windows x64 non-ASIO PortAudio selected by the unmodified upstream loader.",
+      "sha256": "e39e95e95c0cb262c70ca4e676e440cf34be5643fe5a31cdfe23e8ab6f1422cb"
+    }
+  ],
+  "upstream_license_notice_files_preserved": 26,
+  "x64_pe_members": 20,
+  "cv2_pyd_imports": [
+    "python3.dll",
+    "WSOCK32.dll",
+    "ole32.dll",
+    "USER32.dll",
+    "GDI32.dll",
+    "KERNEL32.dll",
+    "OLEAUT32.dll",
+    "COMDLG32.dll",
+    "ADVAPI32.dll",
+    "MFPlat.DLL",
+    "MF.dll",
+    "MFReadWrite.dll",
+    "dxgi.dll",
+    "d3d11.dll",
+    "SHLWAPI.dll"
+  ],
+  "local_eval_portrait_or_user_frames_included": false,
+  "windows_execution_verified": false,
+  "elapsed_seconds": 3.6737
+}

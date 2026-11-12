@@ -1,0 +1,71 @@
+{
+  "scope": "real loopback HTTP adapter protocol only; synthetic responses; no real VLM inference",
+  "passed": true,
+  "checks": [
+    {
+      "path": "/v1",
+      "expected_error": null,
+      "passed": true
+    },
+    {
+      "path": "/redirect",
+      "expected_error": "provider_failed",
+      "passed": true
+    },
+    {
+      "path": "/oversize",
+      "expected_error": "provider_failed",
+      "passed": true
+    },
+    {
+      "path": "/failure",
+      "expected_error": "provider_failed",
+      "passed": true
+    }
+  ],
+  "redirect_followed": false,
+  "requests": [
+    {
+      "path": "/v1/chat/completions",
+      "has_authorization": true,
+      "image_size": [
+        64,
+        32
+      ],
+      "model": "synthetic-protocol-fixture",
+      "message_count": 2
+    },
+    {
+      "path": "/redirect/chat/completions",
+      "has_authorization": true,
+      "image_size": [
+        64,
+        32
+      ],
+      "model": "synthetic-protocol-fixture",
+      "message_count": 2
+    },
+    {
+      "path": "/oversize/chat/completions",
+      "has_authorization": true,
+      "image_size": [
+        64,
+        32
+      ],
+      "model": "synthetic-protocol-fixture",
+      "message_count": 2
+    },
+    {
+      "path": "/failure/chat/completions",
+      "has_authorization": true,
+      "image_size": [
+        64,
+        32
+      ],
+      "model": "synthetic-protocol-fixture",
+      "message_count": 2
+    }
+  ],
+  "elapsed_seconds": 0.0379,
+  "source_sha256": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35"
+}

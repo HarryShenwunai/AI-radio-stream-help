@@ -1,0 +1,102 @@
+{
+  "created_at_utc": "2026-11-12T20:51:41.890666+00:00",
+  "reviewer": "devices_preferences independent read-only integration review",
+  "product_files_modified": false,
+  "reviewed_basis_server_sha256": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+  "current_server_sha256_at_report": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+  "basis_matches_current": true,
+  "overall": "NO_OPEN_BLOCKING_FINDINGS_IN_REVIEWED_SCOPE",
+  "findings": [
+    {
+      "id": "REBUILD-REVIEW-001",
+      "status": "RESOLVED",
+      "severity": "high",
+      "category": "recovery/state truth",
+      "fact": "Restoring an empty task backup removes confirmed proposal tasks but preserves schedule proposal status confirmed and local_schedule_created=true. Repeated confirmation returns success for the nonexistent task.",
+      "minimal_reproduction": [
+        "POST assistance/proposals kind=schedule with future due_at",
+        "POST assistance/decision confirm",
+        "POST restore backup={messages:[],memories:[],tasks:[]}",
+        "GET state -> tasks=[] while confirmed schedule still claims task_id=1",
+        "POST same assistance/decision confirm -> HTTP 200 confirmed, task_id=1"
+      ],
+      "actual_http_reproduced": true,
+      "evidence": "review/rebuild-restore-orphaned-schedule.json",
+      "code": "app/server.py restore(); src/companion_runtime/assistance.py AssistanceStore.decide()",
+      "recommendation": "Reconcile or explicitly invalidate previous schedule proposal/task bindings inside restore transaction; retain audit and make repeat confirmation reflect the removed task. Add real HTTP restore regression.",
+      "reported_to_root": true,
+      "resolution": {
+        "server_sha256": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+        "actual_http_regression": "review/rebuild-restore-regression-check.json",
+        "log": "review/rebuild-restore-regression-tests.txt",
+        "tests_passed": 2,
+        "zero_skips": true,
+        "source_stable": true,
+        "result": "Old confirmed schedule bindings are cancelled in the same restore transaction; historical previous_task_id never claims a current task. Repeated confirmation returns409. Restored tasks are paused and unassociated. A transaction failure rolls back task/message/memory/proposal changes and the new audit event."
+      }
+    }
+  ],
+  "reviewed_areas": [
+    {
+      "area": "Owner/plugin ingress",
+      "result": "No new bypass found",
+      "basis": "All ordinary new APIs require owner cookie; mutations additionally check local Host, Origin and X-Companion. Only specific WeChat bridge routes accept bridge bearer credentials. JSON identity/permission fields are rejected."
+    },
+    {
+      "area": "Perception/tracking scope and stop",
+      "result": "No new crossing found",
+      "basis": "Frame keeps expected role enforcement and excludes only perception session_id from private envelope. Owner stop intentionally permits stale expected role to stop that exact old session. Manager verifies owner/role/appearance/epoch, cancellation and TTL; tracking is separate local camera scope."
+    },
+    {
+      "area": "Devices",
+      "result": "Consistent in code and previous actual HTTP tests",
+      "basis": "Declared defaults do not initialize capture. Camera absence cancels VLM camera and face tracking while preserving screen; microphone absence checks before registration and cancels ASR only; TTS and primary display remain independent."
+    },
+    {
+      "area": "Role deletion/restart/operation drain",
+      "result": "No new deletion recreation path found in new operations",
+      "basis": "Tracked assistance/preference operations register under mutation lock, cancel before role mutation, drain through SQLite finalization, and evict deleted stores. Preference uses SQLite mode=rw. Interrupted provider requests are not rerun after process restart."
+    },
+    {
+      "area": "Memory and role package permissions",
+      "result": "No new permission grant found; restore schedule issue above remains",
+      "basis": "Preference reconciliation removes forgotten/stale quote text and verifies actual confirmed memory. Model candidates cannot rewrite source statements. Per-role DB path comes from catalog. Restore imports only bounded message/fact/task fields and four profile text fields, not provider credentials or tool permissions. Asset paths come from validated manifests."
+    },
+    {
+      "area": "Optional host addon loading",
+      "result": "Bound to host layout and pinned manifest; Windows execution not proved by this review",
+      "basis": "activate_tracking_addon receives fixed ROOT, never client/role path; verifies fixed manifest/files and reused base dependencies, appends imports without .pth execution, caches per process. Verification may cost startup I/O on Windows; no Windows timing claim."
+    }
+  ],
+  "lock_order_review": {
+    "method": "Manual reachable call-chain review; not complete formal deadlock proof",
+    "observed_edges": [
+      "MODEL -> DB",
+      "CHARACTER_MUTATION -> HOST_SERVICES (short critical section)",
+      "CHARACTER_MUTATION -> MODEL -> DISPATCH",
+      "DB -> catalog",
+      "HOST_SERVICES -> catalog",
+      "VOICE -> HOST_SERVICES",
+      "DISPATCH -> MODEL only nonblocking in public ingress"
+    ],
+    "verified_breaks": [
+      "HOST_SERVICES is released before update_devices waits on VOICE",
+      "invalidate_current_media releases HOST_SERVICES before store cancellation and VOICE locks",
+      "provider calls run outside assistance/preference SQLite transactions",
+      "finished event is set before its HOST_SERVICES bookkeeping removal",
+      "MODEL acquisition from DISPATCH in public ingress is nonblocking; role change model wait is bounded"
+    ],
+    "reproduced_deadlocks": 0,
+    "conclusion": "No concrete new lock cycle reproduced or established in reviewed paths. Bounded refusal with noncooperative providers is intentional and actual HTTP tests cover recovery."
+  },
+  "limits": [
+    "No unrestricted thread interleaving exploration or whole-program lock proof",
+    "No Windows, physical camera, 5-inch display, far-field microphone or GPU execution",
+    "Synthetic providers and face engine only establish protocol/scoping tests; no semantic inference or extraction accuracy claim",
+    "Review is bound to recorded source SHA; root changes require focused recheck"
+  ],
+  "updated_at_utc": "2026-11-12T20:54:24.570418+00:00",
+  "original_reproduction_server_sha256": "edee2c9adfc0583f3ad7537b2d4ed53abf111e06c1faa352a019393139da6424",
+  "test_file_modified_only_for_requested_regression": "tests/test_rebuild_http.py",
+  "full_suite_status": "Existing 20-case run predates this fix; two focused restore regressions passed on recorded final SHA. Root owns the final full quality gate containing all22 HTTP tests."
+}

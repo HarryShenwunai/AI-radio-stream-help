@@ -1,0 +1,24 @@
+{
+  "created_at_utc": "2026-11-12T20:28:18.894426+00:00",
+  "scope": "Real SQLite and bounded actual Store actions; synthetic providers; not semantic/Windows/whole-program proof",
+  "tests_run": 27,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "bounded_traces": 216,
+  "bounded_store_actions": 648,
+  "elapsed_seconds": 2.086,
+  "source_stable": true,
+  "source_before": {
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "tests/test_preference_learning.py": "b22aa8cdd28b0b4f11bca36b592db89dba4bcba08ae4d9f3d27e21b2308574ea"
+  },
+  "source_after": {
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "tests/test_preference_learning.py": "b22aa8cdd28b0b4f11bca36b592db89dba4bcba08ae4d9f3d27e21b2308574ea"
+  },
+  "log": "review/preference-learning-tests.txt",
+  "strict_mypy": "passed separately on this module",
+  "critical_ruff": "passed separately on module and tests"
+}

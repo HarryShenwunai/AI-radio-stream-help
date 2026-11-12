@@ -1,0 +1,46 @@
+{
+  "scope": "Desktop native/source-update/addon installer only; frontend/backend owners freeze separately",
+  "source_sha256": {
+    "desktop/main.cjs": "0f0fcb67903722602d8bdc38bb865bc067e3b28a435bdc9c6a1eb464a8574679",
+    "desktop/preload.cjs": "f924724733ff01ed78941586d2adc1dff116d189492ee5d8af58ba9adc439776",
+    "desktop/window-policy.cjs": "502131f8d9c829a61ae01855781d9d6c86255855a1b511a2c60441dbca9063b6",
+    "desktop/media-policy.cjs": "ef650a3b7ede7075427618344812da42e75ce7b0a6f3d69189b51a2e878555bc",
+    "desktop/screen-capture.cjs": "fda764e88bed63e62c3b73269e1abafd413cd7b40ab87d559c2d610b54516408",
+    "desktop/screen-capture.html": "601f17a77e383b13c2db55e28768dc83267e5edbd71b3bdf698383369c61ab95",
+    "desktop/screen-capture-view.js": "96df033c70fce16439fbe3eca616040a2b4858f8511cb1f13d6a20df0b39fbed",
+    "desktop/screen-capture.css": "585ed0cae454d4a639f4aa598406d1f0bbb50378b85efbe23eaadda93c79145e",
+    "desktop/test/media_native_probe.py": "2589752ad1eb848c3bc23a5c74f0ed1e7d81002d0487bbc053127f5c53c09cd2",
+    "desktop/test/media_native_fixture.cjs": "446bd76180009e8bda4ef67dcdbf74753c1f61681950c6e86f6849e3e8646607",
+    "scripts/app_update.py": "768a14cdaf0802293af8a15d53a1e0798d3c81adc9c88ef6a2c584742a69629b",
+    "scripts/build_app_update.py": "f3dcc8326f3331745b6b534ec43c3ea49f07d6dfb32b31180209ed70f9129d75",
+    "scripts/tracking_addon.py": "3e5c1cb54e4ef12276e3778979eb919468ac706f172beec43923faee77f9c077",
+    "scripts/ui_update.py": "a8cef7e40886b265769f0bac0c3611bafe3405b068419abe48c1166812c39ef7",
+    "tests/test_app_update.py": "44baaaf6f5d9724d1283a4dcb9d6c736b2e0e185cf94b9f6626f5fbaa857695d",
+    "tests/test_tracking_addon_installer.py": "66f1e2f8c78fbd5d140afc2a4be4dfbd8e1290e0e255098eb004fb64910925b7",
+    "desktop/build-linux.cjs": "b3c83cfaf0d9d3ef884aaa3004dbb7c91fd47dd895ec7d0606a9d74eb1aa44c5",
+    "desktop/build-windows.cjs": "b6629169eaf1f43b10ee6d809b0ee8eb6ca623c1dfe463970f39f2ce1da4cea1",
+    "desktop/test/media-policy.test.cjs": "7033d8ef9f16d23ab7580c3a2465301f612e1a5d5fedf14109cf4f1bb5509d27",
+    "desktop/test/screen-capture.test.cjs": "44237ebef24a11ceeca2f2adef09aecc1241966439dc65435ff30d7e81f0f78d",
+    "desktop/test/window-policy.test.cjs": "0169147f3284878e3a06ba8ebaaaed37a2064e83101996370f7d40b155db219a",
+    "docs/implementation/desktop-capture-and-update.md": "0a930bb0737715db192059980bfc593c9b9ee7d855eb993bca2bbf0e02a133bc",
+    "tests/test_app_update_commit.py": "461d3f3039eea1f9dd01f41b4f0dbcf705d036a3c41219a1fa4030897f8ce7b6"
+  },
+  "native_report": "review/desktop-media-native-check.json",
+  "native_checks": 12,
+  "transaction_report": "review/app-update-check.json",
+  "transaction_tests": 31,
+  "optional_addon_report": "review/tracking-addon-v3-installer-check.json",
+  "optional_archive": {
+    "name": "tracking-addon-cp312-win-x64-v3.zip",
+    "sha256": "4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21",
+    "bytes": 83452536
+  },
+  "excluded_from_release": [
+    "tracking-addon-cp312-win-x64.zip",
+    "tracking-addon-cp312-win-x64-v2.zip"
+  ],
+  "windows_execution_verified": false,
+  "physical_hardware_verified": false,
+  "publisher_commit_guard_report": "review/app-update-commit-rejection-check.json",
+  "publisher_rule": "CLI requires existing exact Git commit and matching selected program/host/publisher/helper bytes before staging and before ZIP; pure fixture builder is not the release entrypoint"
+}

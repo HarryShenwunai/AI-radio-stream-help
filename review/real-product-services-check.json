@@ -1,0 +1,87 @@
+{
+  "observed_at": "2026-11-12T21:43:57.733458+00:00",
+  "models_mocked": false,
+  "scope": "actual local Qwen via real host preference/advice adapters; synthetic inputs",
+  "windows_or_rtx4060_verified": false,
+  "human_advice_quality_accepted": false,
+  "visual_inference_tested": false,
+  "source_sha256_before": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395"
+  },
+  "checks": {
+    "real_model_selects_exact_explicit_user_sources": true,
+    "explicit_confirmation_persists_only_exact_source": true,
+    "memory_off_blocks_learning": true,
+    "real_local_advice_without_tools_or_memory_requirement": true
+  },
+  "model_filename": "qwen3-4b-instruct-2507-q4_k_m.gguf",
+  "model_bytes": 2497280736,
+  "preferences_seconds": 10.156,
+  "preference_result": {
+    "request_id": "real-preferences-1",
+    "role_scope": "ebb0c6ba-9d7d-4d78-8fb6-0cea88b77184",
+    "status": "proposed",
+    "error": null,
+    "provider_id": "local:qwen3-4b-instruct-2507-q4_k_m.gguf",
+    "candidates": [
+      {
+        "candidate_id": "278b2356-36e0-4a00-8cc7-003dabed1b91",
+        "role_scope": "ebb0c6ba-9d7d-4d78-8fb6-0cea88b77184",
+        "source_message_id": 2,
+        "source_digest": "9582e15de53c49e9a85017b71d82ff0be14ec7c0f0459e966741e28027c0192a",
+        "text": "我希望你不要连续追问。",
+        "status": "pending",
+        "memory_id": null,
+        "created_at": "2026-11-12T21:44:08+00:00",
+        "updated_at": "2026-11-12T21:44:08+00:00",
+        "basis": "exact_explicit_user_line; owner_confirmation_required"
+      }
+    ],
+    "automatic_learning": false,
+    "external_actions": false
+  },
+  "advice_seconds": 6.467,
+  "advice_result": {
+    "request_id": "real-dinner-1",
+    "action_id": "3255be12-94a5-49b6-8ba5-a987d70a4723",
+    "role_scope": "ebb0c6ba-9d7d-4d78-8fb6-0cea88b77184",
+    "kind": "dinner",
+    "summary": "用豆腐和西兰花快炒，淋少许酱油和香油，清淡又营养。  \n米饭配着吃，温热饱腹，简单舒服的一餐。",
+    "inputs": {
+      "context": "",
+      "query": "我有豆腐、西兰花和米饭，请用两句话建议一顿清淡晚餐，不要提问。"
+    },
+    "permission_scope": "read_only",
+    "status": "proposed",
+    "source_evidence": [
+      {
+        "observed_at": "2026-11-12T21:44:08+00:00",
+        "scope": "explicit_request_only; no saved memory or unrequested screen capture",
+        "sha256": "8ff407eb34da4b4a85c0a9eca554caa62cd75b72b9b2ecd47865207cab4cfd6a",
+        "source": "user_input"
+      },
+      {
+        "observed_at": "2026-11-12T21:44:14+00:00",
+        "provider_id": "local:qwen3-4b-instruct-2507-q4_k_m.gguf",
+        "scope": "generated suggestion, not verified facts or executed actions",
+        "source": "model_provider"
+      }
+    ],
+    "result": {
+      "external_actions": false
+    },
+    "error": null,
+    "created_at": "2026-11-12T21:44:08+00:00",
+    "updated_at": "2026-11-12T21:44:14+00:00"
+  },
+  "source_sha256_after": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395"
+  },
+  "sources_unchanged": true,
+  "elapsed_seconds": 16.771,
+  "passed": true
+}

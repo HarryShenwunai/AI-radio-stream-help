@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "fixture": "TEST_ONLY_INDEPENDENT_LAYERS.zip",
+  "artwork_quality_proven": false,
+  "checks": {
+    "real_package_file_upload_and_first_canvas_draw_before_activation": "passed",
+    "single_stage_renderer_animates_real_separate_layers": "passed",
+    "single_active_stage_canvas": "passed",
+    "pause_disposes_canvas": "passed",
+    "no_page_errors": "passed"
+  },
+  "page_errors": []
+}

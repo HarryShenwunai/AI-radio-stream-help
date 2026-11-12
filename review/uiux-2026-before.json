@@ -1,0 +1,960 @@
+{
+  "observed_at": "2026-11-12T18:25:54.300986+00:00",
+  "phase": "before",
+  "source_commit": "c04c1b547b7ee1f56d9b172948121ee8b344d21e",
+  "source_root": "/workspace/AI-radio-stream-help/.build/uiux-2026/baseline-source",
+  "source_sha256_before": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "86ccdda665c4e8b590195c9949da465d0019002454fb6cbbcdcaa86738a06805",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c387f6a893dd3950c89eccf43aea2ccd2797fb11fbc14e619d770873c62f9ccb",
+    "app/static/desktop.js": "adf9c92f8707d0f40f703d9f2b164c5207c556821dd16383b62ccd5f315500a6",
+    "app/static/index.html": "431ba13159d07b42ef41c602468f933691497735d1a196b3a88f691ac2b71532",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "08390c645a415fb0dc8ae1fdfe1edef47b87dc8bd7847e4c05424bdcf51c4589",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "status": "captured",
+  "scope": "actual Chromium/HTTP/SQLite UI; fake LLM/TTS and controlled desktop bridge",
+  "models_mocked": true,
+  "real_microphone": false,
+  "real_accounts_connected": false,
+  "native_desktop_verified": false,
+  "windows_or_rtx4060_verified": false,
+  "zoom_method": "CSS viewport + DPR device-metrics equivalent. Not Chrome-native zoom or Windows physical DPI.",
+  "artwork": "existing repository placeholder only; not final anime artwork acceptance",
+  "scenarios": [
+    {
+      "name": "01-expanded-chat-1440",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1,
+      "view": "chat",
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 643.890625,
+        "y": 22,
+        "width": 774.109375,
+        "height": 956
+      },
+      "composer": {
+        "x": 685.890625,
+        "y": 880.203125,
+        "width": 690.109375,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 510.890625,
+        "height": 956
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/01-expanded-chat-1440.png",
+      "after_screenshot_viewport": {
+        "width": 1440,
+        "height": 1000,
+        "dpr": 1
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "02-characters-1440",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1,
+      "view": "characters",
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 643.890625,
+        "y": 22,
+        "width": 774.109375,
+        "height": 956
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 510.890625,
+        "height": 956
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "收起",
+          "width": 26,
+          "height": 20
+        },
+        {
+          "id": "",
+          "text": "删除",
+          "width": 26,
+          "height": 20
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/02-characters-1440.png",
+      "after_screenshot_viewport": {
+        "width": 1440,
+        "height": 1000,
+        "dpr": 1
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "03-expanded-chat-1120",
+      "nominal_physical_pixels": {
+        "width": 1120,
+        "height": 850
+      },
+      "layout_zoom_equivalent": 1,
+      "view": "chat",
+      "innerWidth": 1120,
+      "innerHeight": 850,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1120,
+        "height": 850,
+        "scale": 1
+      },
+      "scrollWidth": 1120,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 519.09375,
+        "y": 22,
+        "width": 578.90625,
+        "height": 806
+      },
+      "composer": {
+        "x": 561.09375,
+        "y": 730.203125,
+        "width": 494.90625,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 386.09375,
+        "height": 806
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/03-expanded-chat-1120.png",
+      "after_screenshot_viewport": {
+        "width": 1120,
+        "height": 850,
+        "dpr": 1
+      },
+      "screenshot_pixels": [
+        1120,
+        850
+      ]
+    },
+    {
+      "name": "04-expanded-chat-110-percent",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1.1,
+      "view": "chat",
+      "innerWidth": 1309,
+      "innerHeight": 909,
+      "dpr": 1.100000023841858,
+      "visualViewport": {
+        "width": 1309,
+        "height": 909,
+        "scale": 1
+      },
+      "scrollWidth": 1309,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 592.796875,
+        "y": 22,
+        "width": 694.203125,
+        "height": 865
+      },
+      "composer": {
+        "x": 634.796875,
+        "y": 788.203125,
+        "width": 610.203125,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 459.796875,
+        "height": 865
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/04-expanded-chat-110-percent.png",
+      "after_screenshot_viewport": {
+        "width": 1309,
+        "height": 909,
+        "dpr": 1.100000023841858
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "05-characters-110-percent",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1.1,
+      "view": "characters",
+      "innerWidth": 1309,
+      "innerHeight": 909,
+      "dpr": 1.100000023841858,
+      "visualViewport": {
+        "width": 1309,
+        "height": 909,
+        "scale": 1
+      },
+      "scrollWidth": 1309,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 592.796875,
+        "y": 22,
+        "width": 694.203125,
+        "height": 865
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 459.796875,
+        "height": 865
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "收起",
+          "width": 26,
+          "height": 20
+        },
+        {
+          "id": "",
+          "text": "删除",
+          "width": 26,
+          "height": 20
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/05-characters-110-percent.png",
+      "after_screenshot_viewport": {
+        "width": 1309,
+        "height": 909,
+        "dpr": 1.100000023841858
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "06-expanded-chat-125-percent",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1.25,
+      "view": "chat",
+      "innerWidth": 1152,
+      "innerHeight": 800,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 1152,
+        "height": 800,
+        "scale": 1
+      },
+      "scrollWidth": 1152,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 531.578125,
+        "y": 22,
+        "width": 598.421875,
+        "height": 756
+      },
+      "composer": {
+        "x": 573.578125,
+        "y": 679.203125,
+        "width": 514.421875,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 398.578125,
+        "height": 756
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/06-expanded-chat-125-percent.png",
+      "after_screenshot_viewport": {
+        "width": 1152,
+        "height": 800,
+        "dpr": 1.25
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "07-characters-125-percent",
+      "nominal_physical_pixels": {
+        "width": 1440,
+        "height": 1000
+      },
+      "layout_zoom_equivalent": 1.25,
+      "view": "characters",
+      "innerWidth": 1152,
+      "innerHeight": 800,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 1152,
+        "height": 800,
+        "scale": 1
+      },
+      "scrollWidth": 1152,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 531.578125,
+        "y": 22,
+        "width": 598.421875,
+        "height": 756
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 108,
+        "y": 22,
+        "width": 398.578125,
+        "height": 756
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "收起",
+          "width": 26,
+          "height": 20
+        },
+        {
+          "id": "",
+          "text": "删除",
+          "width": 26,
+          "height": 20
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/07-characters-125-percent.png",
+      "after_screenshot_viewport": {
+        "width": 1152,
+        "height": 800,
+        "dpr": 1.25
+      },
+      "screenshot_pixels": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "name": "08-chat-390",
+      "nominal_physical_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "layout_zoom_equivalent": 1,
+      "view": "chat",
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 780
+      },
+      "composer": {
+        "x": 32,
+        "y": 690.203125,
+        "width": 326,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/08-chat-390.png",
+      "after_screenshot_viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "screenshot_pixels": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "09-characters-390",
+      "nominal_physical_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "layout_zoom_equivalent": 1,
+      "view": "characters",
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 780
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "收起",
+          "width": 26,
+          "height": 20
+        },
+        {
+          "id": "",
+          "text": "删除",
+          "width": 26,
+          "height": 20
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/09-characters-390.png",
+      "after_screenshot_viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "screenshot_pixels": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "10-chat-390-125-percent",
+      "nominal_physical_pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "layout_zoom_equivalent": 1.25,
+      "view": "chat",
+      "innerWidth": 312,
+      "innerHeight": 675,
+      "dpr": 1.25,
+      "visualViewport": {
+        "width": 312,
+        "height": 675,
+        "scale": 1
+      },
+      "scrollWidth": 312,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 0,
+        "y": 0,
+        "width": 312,
+        "height": 611
+      },
+      "composer": {
+        "x": 32,
+        "y": 520.203125,
+        "width": 248,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ],
+      "screenshot": "/workspace/dist/uiux-2026/before/10-chat-390-125-percent.png",
+      "after_screenshot_viewport": {
+        "width": 312,
+        "height": 675,
+        "dpr": 1.25
+      },
+      "screenshot_pixels": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "browser-collapsed-390",
+      "screenshot": "/workspace/dist/uiux-2026/before/11-browser-collapsed-390.png",
+      "innerWidth": 390,
+      "innerHeight": 740,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 740,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": true,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 716
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "desktop-compact-330x470",
+      "host_bridge": "controlled_stub",
+      "screenshot": "/workspace/dist/uiux-2026/before/12-desktop-compact-330x470.png",
+      "innerWidth": 330,
+      "innerHeight": 470,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 330,
+        "height": 470,
+        "scale": 1
+      },
+      "scrollWidth": 330,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": true,
+      "workspace": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 0,
+        "y": 0,
+        "width": 330,
+        "height": 470
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "desktop-expanded-1120x850",
+      "host_bridge": "controlled_stub",
+      "screenshot": "/workspace/dist/uiux-2026/before/13-desktop-expanded-1120x850.png",
+      "innerWidth": 1120,
+      "innerHeight": 850,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1120,
+        "height": 850,
+        "scale": 1
+      },
+      "scrollWidth": 1120,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 519.09375,
+        "y": 70,
+        "width": 578.90625,
+        "height": 758
+      },
+      "composer": {
+        "x": 561.09375,
+        "y": 730.203125,
+        "width": 494.90625,
+        "height": 26.796875
+      },
+      "portrait": {
+        "x": 108,
+        "y": 70,
+        "width": 386.09375,
+        "height": 758
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        },
+        {
+          "id": "",
+          "text": "朗读",
+          "width": 26,
+          "height": 15
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "checks": {
+    "actual_text_form_to_fake_provider_reply": "passed",
+    "controlled_bridge_compact_to_expanded": "passed",
+    "javascript_runtime": "passed"
+  },
+  "javascript_errors": [],
+  "external_requests": [],
+  "source_sha256_after": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "86ccdda665c4e8b590195c9949da465d0019002454fb6cbbcdcaa86738a06805",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c387f6a893dd3950c89eccf43aea2ccd2797fb11fbc14e619d770873c62f9ccb",
+    "app/static/desktop.js": "adf9c92f8707d0f40f703d9f2b164c5207c556821dd16383b62ccd5f315500a6",
+    "app/static/index.html": "431ba13159d07b42ef41c602468f933691497735d1a196b3a88f691ac2b71532",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "08390c645a415fb0dc8ae1fdfe1edef47b87dc8bd7847e4c05424bdcf51c4589",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "source_changed_during_run": false,
+  "artifacts": [
+    {
+      "path": "/workspace/dist/uiux-2026/before/01-expanded-chat-1440.png",
+      "bytes": 272605,
+      "sha256": "7cc50b5204ca8ecb7d5d402fe80fb00b94e9f109a4ded1f8a8f86ce4817dd79c"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/02-characters-1440.png",
+      "bytes": 285714,
+      "sha256": "2f36543bef3c59100025367665e2f391c71a889479c99e6286c363ebb5872a93"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/03-expanded-chat-1120.png",
+      "bytes": 210421,
+      "sha256": "92ed22b6a6100244d4a90f6ba20948d4553f7c85f3d88c99c8772efe2a208b33"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/04-expanded-chat-110-percent.png",
+      "bytes": 288170,
+      "sha256": "05783bddc3f4fd1653f4ed6d6a487e0ed571c0ab7925fcb05c870d5a12abddb9"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/05-characters-110-percent.png",
+      "bytes": 297192,
+      "sha256": "09936639b34bb66a631e33070da772e5350842cfe602996eed7e79cc2512de80"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/06-expanded-chat-125-percent.png",
+      "bytes": 294820,
+      "sha256": "dc393cac90e81015b65cd4612bce4579e3c69c0941570100cc97037487e02141"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/07-characters-125-percent.png",
+      "bytes": 296600,
+      "sha256": "672d940e78eab9b793ff3c5d282055a1c725f9a9cb33433778088a5d8b8e2a7c"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/08-chat-390.png",
+      "bytes": 45378,
+      "sha256": "3e2e8f41b5ba0c9a475c350ca0db07fbf962208438836906c706ca30ff1f9d4c"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/09-characters-390.png",
+      "bytes": 47963,
+      "sha256": "03f9be38c24766e2124f2bfc61d9a83762456a78cc9a1d380c72478b81bc5c03"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/10-chat-390-125-percent.png",
+      "bytes": 58200,
+      "sha256": "cab814a0d8cd764eabfbda41a6bfb1127fff282657f44166b1b8ae982aa79565"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/11-browser-collapsed-390.png",
+      "bytes": 131147,
+      "sha256": "2e13526af8abfbabe9d705c960e06794560d1346439b8c7e90399842d17d012a"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/12-desktop-compact-330x470.png",
+      "bytes": 59784,
+      "sha256": "8fa5f284d04233d64ae84ff844586f85bc70a56a476b7708e169ae15c1c163dd"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/13-desktop-expanded-1120x850.png",
+      "bytes": 211706,
+      "sha256": "44cd539ecef18be20e54cf4ac410565de0a0c23e1c8132060c84631f38994fea"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/actual-browser-flow.webm",
+      "bytes": 682803,
+      "sha256": "700415e62f6d8548b3103226542423ba2c811eec5cd73c5980f0f0c4381d4530"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/before/controlled-host-flow.webm",
+      "bytes": 103638,
+      "sha256": "d42e19417b26c7975d09ef4d5ed83c300ef7956fd9f08c846e381d8014fe172d"
+    }
+  ],
+  "manual_evidence_review": {
+    "actually_viewed": [
+      "08-chat-390.png",
+      "12-desktop-compact-330x470.png",
+      "07-characters-125-percent.png"
+    ],
+    "browser_video_ffprobe": {
+      "codec": "vp8",
+      "width": 1440,
+      "height": 1000,
+      "duration_seconds": 13.76
+    },
+    "artwork_acceptance": false,
+    "candidate_accessibility_findings": [
+      {
+        "selector": ".read-button",
+        "observed_width_css_px": 26,
+        "observed_height_css_px": 15,
+        "count_in_chat": 2,
+        "state": "needs_review_of_target_size_and_applicable_exceptions_not_full_WCAG_finding"
+      }
+    ],
+    "video_scope": "primary actual text form and collapse flow plus separate controlled desktop bridge; zoom scenarios use individual real screenshots"
+  },
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright python tests/uiux_2026_browser_check.py --phase before --source-root .build/uiux-2026/baseline-source --source-commit c04c1b547b7ee1f56d9b172948121ee8b344d21e",
+  "snapshot_creation_command": "mkdir -p .build/uiux-2026/baseline-source && git archive c04c1b547b7ee1f56d9b172948121ee8b344d21e app src tests/test_character_http.py | tar -x -C .build/uiux-2026/baseline-source"
+}

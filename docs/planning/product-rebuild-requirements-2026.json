@@ -1,119 +1,165 @@
 {
-  "updated_at": "2026-11-12T20:09:41.509593+00:00",
-  "overall_status": "REBASELINE_IN_PROGRESS_NOT_COMPLETE",
+  "updated_at": "2026-11-12T21:43:59.347264+00:00",
+  "overall_status": "SOFTWARE_UPDATE_CANDIDATE_VERIFIED_TARGET_ACCEPTANCE_OPEN",
   "basis": "2026-11-12 user requested complete UIUX rebuild and AVA-like capabilities",
   "requirements": [
     {
       "id": "UX01",
       "title": "全新信息架构与交互",
       "acceptance": "移除旧任务/约定页面、六项dock和通用设置form；单场景交流、回看、角色工作室及用途专属流程",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "SOFTWARE_VERIFIED",
+      "acceptance_evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
     },
     {
       "id": "AV01",
       "title": "指定参考的高质量2D角色",
       "acceptance": "用户明确拒绝首轮3D造型并授权2D；不得再次展示或交付拒绝模型。高质量2D原始图/状态/可导入资产/来源记录及实际运行画质；PNG状态不能冒称完整Live2D拆件。",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "IMPLEMENTED_ART_ACCEPTANCE_OPEN",
+      "acceptance_evidence": [
+        "assets/character-2d/source-provenance.json",
+        "review/real-2d-companion-browser-check.json"
+      ]
     },
     {
       "id": "AV02",
       "title": "自然动画与可控绑定",
       "acceptance": "真实素材状态与音频驱动口型、眨眼、停止后归静止；可选真分层/有限形变；不把4整图叫完整Live2D或自然眼球跟踪。手机/桌面/自然背景下实际截图和录像验收。",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "PNG_EYE_MOUTH_VERIFIED_FULL_RIG_OPEN",
+      "acceptance_evidence": [
+        "review/png-region-stage-browser.json",
+        "review/png-region-stable-readback-check.json"
+      ]
     },
     {
       "id": "HW01",
       "title": "5英寸实体显示",
       "acceptance": "用户实际显示/光学硬件与尺寸校准验收；纯软件不得标实体全息完成",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "SOFTWARE_OUTPUT_VERIFIED_PHYSICAL_OPEN",
+      "acceptance_evidence": [
+        "review/desktop-media-native-check.json"
+      ]
     },
     {
       "id": "AI01",
       "title": "性格范围与自然相处",
       "acceptance": "可编辑风格起点从直率活泼到沉稳友善；角色专属、跨交流一致、可撤销",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "ROLE_SETTINGS_ISOLATION_VERIFIED_PERSONA_QUALITY_OPEN",
+      "acceptance_evidence": [
+        "review/uiux-new-ia-secret-contacts-check.json",
+        "review/quality-gate-rebuild-publish.json"
+      ]
     },
     {
       "id": "AI02",
       "title": "偏好学习与自主控制",
       "acceptance": "来源证据、确认/纠正/遗忘、角色隔离、长期记忆关闭后仍可正常交流；不从视觉推断长期事实",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "SOURCE_BOUND_ON_DEMAND_LEARNING_VERIFIED",
+      "acceptance_evidence": [
+        "review/preference-learning-check.json",
+        "review/rebuild-http-check.json",
+        "review/real-product-services-check.json"
+      ]
     },
     {
       "id": "IN01",
       "title": "摄像头情境输入",
       "acceptance": "明确用户开启、可见用途/预览、立即停止、默认不存图、无隐藏采集",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "SYNTHETIC_NATIVE_CAMERA_VERIFIED_PHYSICAL_OPEN",
+      "acceptance_evidence": [
+        "review/desktop-media-native-check.json"
+      ]
     },
     {
       "id": "IN02",
       "title": "摄像头驱动视线",
       "acceptance": "明示face/head/gaze estimate与专业眼动仪区别；实际摄像头/角色联动验收",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "REAL_CPU_ESTIMATOR_VERIFIED_TARGET_AVATAR_GAZE_OPEN",
+      "acceptance_evidence": [
+        "review/tracking-real-check.json",
+        "review/tracking-addon-v3-check.json"
+      ]
     },
     {
       "id": "IN03",
       "title": "远场语音",
       "acceptance": "需实际麦克风与距离/噪声测试；录音/识别/取消/停声各自正确，不能只靠近场合成音",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "RECORDING_PROTOCOL_VERIFIED_FAR_FIELD_OPEN",
+      "acceptance_evidence": [
+        "review/uiux-2026-after.json"
+      ]
     },
     {
       "id": "VIS01",
       "title": "PC Vision",
       "acceptance": "明确选择屏幕/窗口、能力与数据去向可见、停止/切角色失效、真实VLM理解而非固定响应",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "HOST_CAPTURE_AND_VISION_PROTOCOL_VERIFIED_REAL_VLM_OPEN",
+      "acceptance_evidence": [
+        "review/desktop-media-native-check.json",
+        "review/perception-provider-check.json"
+      ]
     },
     {
       "id": "AS01",
       "title": "日程",
       "acceptance": "自然对话提案/确认/拒绝/取消与幂等；旧数据保留且用户可停用，不恢复旧任务管理页",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "LOCAL_CONFIRMED_SCHEDULER_AND_RESTORE_VERIFIED",
+      "acceptance_evidence": [
+        "review/rebuild-http-check.json",
+        "review/rebuild-restore-regression-check.json"
+      ]
     },
     {
       "id": "AS02",
       "title": "穿搭与晚餐",
       "acceptance": "有实际上下文的建议；涉及图像只在视觉provider可用时声称观察，无购买外发权限",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "READ_ONLY_TEXT_ADVICE_VERIFIED_HUMAN_QUALITY_OPEN",
+      "acceptance_evidence": [
+        "review/real-product-services-check.json",
+        "review/quality-gate-rebuild-publish.json"
+      ]
     },
     {
       "id": "AS03",
       "title": "头脑风暴与分析",
       "acceptance": "真实模型建议或可复算数据结果；有界CSV统计，不执行任意代码",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "LOCAL_CSV_AND_ADVICE_BOUNDARIES_VERIFIED",
+      "acceptance_evidence": [
+        "review/quality-gate-rebuild-publish.json"
+      ]
     },
     {
       "id": "AS04",
       "title": "游戏队友",
       "acceptance": "需具体游戏场景/标准与实际画面评测；策略建议与游戏操控分开，不以营销词当通过",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "READ_ONLY_GAME_FLOW_IMPLEMENTED_EXPERTISE_UNBENCHMARKED",
+      "acceptance_evidence": [
+        "review/quality-gate-rebuild-publish.json"
+      ]
     },
     {
       "id": "QA01",
       "title": "整体验证",
       "acceptance": "原图/角色与新UI均提供实际截图录像、正常/边界/故障/恢复；Windows4060目标机单列",
-      "status": "NOT_VERIFIED",
-      "acceptance_evidence": []
+      "status": "AVAILABLE_LINUX_ENVIRONMENT_VERIFIED_TARGET_OPEN",
+      "acceptance_evidence": [
+        "review/quality-gate-rebuild-publish.json",
+        "review/formal-model-rebuild-check.json",
+        "review/uiux-2026-independent-summary.json"
+      ]
     },
     {
       "id": "REL01",
       "title": "完整可运行交付",
       "acceptance": "源工程/角色/软件/依赖清单/恢复/许可边界与哈希；未通过门不叫最终成品",
-      "status": "IN_PROGRESS",
-      "acceptance_evidence": []
+      "status": "ARTIFACTS_VERIFIED_GITHUB_DRAFT_UPLOAD_COMPLETE",
+      "acceptance_evidence": [
+        "review/app-update-artifact-check.json",
+        "review/packaged-app-update-check.json",
+        "deliveries/0.5.0-dev2-ui2d/release-integrity.json"
+      ]
     }
   ],
   "required_inputs": [
@@ -140,5 +186,15 @@
     "lighting_reference": "additional wooded side/back light, soft skin, shallow depth and natural bokeh",
     "rejected_asset_policy": "quarantined privately; no redisplay or publication",
     "new_2d_states": "four actual 1070x1470 RGBA images; runtime alignment and alpha acceptance pending"
-  }
+  },
+  "software_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "unresolved_acceptance": [
+    "Windows10/11 and RTX4060 actual execution/performance",
+    "Physical 5-inch display/optics, real camera and far-field audio distances",
+    "Real Bilibili/WeChat account round trips",
+    "Configured real VLM image understanding",
+    "Human artwork/voice/personality quality and long-term consistency",
+    "Default PNG independent eye rotation and full authored 2D rig",
+    "Specific game and measurable expertise benchmark"
+  ]
 }

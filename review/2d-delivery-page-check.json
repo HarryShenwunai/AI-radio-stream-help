@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "title": "2D角色更新与验收",
+      "width": 1440,
+      "scroll": 1440,
+      "images": [
+        {
+          "complete": true,
+          "width": 1440
+        }
+      ]
+    },
+    {
+      "title": "2D角色更新与验收",
+      "width": 390,
+      "scroll": 390,
+      "images": [
+        {
+          "complete": true,
+          "width": 1440
+        }
+      ]
+    }
+  ],
+  "page_errors": [],
+  "html_sha256": "474a5274b3b3c8ec57fb7528cda5b04533b6204537499197afa61628d4ccf826",
+  "pdf_sha256": "66c66035ecb63b32edeedc8f6ea8e10b793638671ec6e255998cdb06e41e876a",
+  "scope": "Actual local Chromium report rendering, not Windows application acceptance."
+}

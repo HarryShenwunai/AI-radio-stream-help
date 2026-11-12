@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-11-12T20:14:01.595696+00:00",
+  "models_mocked": false,
+  "scope": "actual local Qwen via real host preference/advice adapters; synthetic inputs",
+  "windows_or_rtx4060_verified": false,
+  "human_advice_quality_accepted": false,
+  "visual_inference_tested": false,
+  "source_sha256_before": {
+    "app/server.py": "c5e9722fbb77db54ef6a7ea850334f0aaee4d05f734256e9dc495ef2b7e88c43",
+    "src/companion_runtime/preference_learning.py": "3c2e3e256aa206ee605412dbfc37ba981a2f3566f23e072e0b29915dc392de57",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395"
+  },
+  "checks": {},
+  "model_filename": "qwen3-4b-instruct-2507-q4_k_m.gguf",
+  "model_bytes": 2497280736,
+  "preferences_seconds": 9.532,
+  "preference_result": {
+    "request_id": "real-preferences-1",
+    "role_scope": "2b382929-bafb-4d43-b8e3-458bd18a988e",
+    "status": "proposed",
+    "error": null,
+    "provider_id": "local:qwen3-4b-instruct-2507-q4_k_m.gguf",
+    "candidates": [
+      {
+        "candidate_id": "92e40ee2-6ffd-4015-837b-c4743adf0bfd",
+        "role_scope": "2b382929-bafb-4d43-b8e3-458bd18a988e",
+        "source_message_id": 2,
+        "source_digest": "9582e15de53c49e9a85017b71d82ff0be14ec7c0f0459e966741e28027c0192a",
+        "text": "我希望你不要连续追问。",
+        "status": "pending",
+        "memory_id": null,
+        "created_at": "2026-11-12T20:14:11+00:00",
+        "updated_at": "2026-11-12T20:14:11+00:00",
+        "basis": "exact_explicit_user_line; owner_confirmation_required"
+      }
+    ],
+    "automatic_learning": false,
+    "external_actions": false
+  },
+  "error": "AssertionError: {'request_id': 'real-preferences-1', 'role_scope': '2b382929-bafb-4d43-b8e3-458bd18a988e', 'status': 'proposed', 'error': None, 'provider_id': 'local:qwen3-4b-instruct-2507-q4_k_m.gguf', 'candidates': [{'candidate_id': '92e40ee2-6ffd-4015-837b-c4743adf0bfd', 'role_scope': '2b382929-bafb-4d43-b8e3-458bd18a988e', 'source_message_id': 2, 'source_digest': '9582e15de53c49e9a85017b71d82ff0be14ec7c0f0459e966741e28027c0192a', 'text': '我希望你不要连续追问。', 'status': 'pending', 'memory_id': None, 'created_at': '2026-11-12T20:14:11+00:00', 'updated_at': '2026-11-12T20:14:11+00:00', 'basis': 'exact_explicit_user_line; owner_confirmation_required'}], 'automatic_learning': False, 'external_actions': False}",
+  "source_sha256_after": {
+    "app/server.py": "c5e9722fbb77db54ef6a7ea850334f0aaee4d05f734256e9dc495ef2b7e88c43",
+    "src/companion_runtime/preference_learning.py": "3c2e3e256aa206ee605412dbfc37ba981a2f3566f23e072e0b29915dc392de57",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395"
+  },
+  "sources_unchanged": true,
+  "elapsed_seconds": 9.69,
+  "passed": false
+}

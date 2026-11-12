@@ -1,0 +1,230 @@
+{
+  "scope": "first new UI preview, not final acceptance; fake dialogue, original repository SVG",
+  "status": "preliminary_preview_captured",
+  "source_sha256_before": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "1106ec371af28d70bfda6d9e1c5822adcdc9b565421b2674d33e5f6f427b577e",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c387f6a893dd3950c89eccf43aea2ccd2797fb11fbc14e619d770873c62f9ccb",
+    "app/static/desktop.js": "adf9c92f8707d0f40f703d9f2b164c5207c556821dd16383b62ccd5f315500a6",
+    "app/static/index.html": "f338860e03b7a31652f7adfdc9d0eba7672cd33e0c1c23ea02be56fa834640e9",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "1797ba1081cec95b39d53938ff00b9a3be099de10d71bcf482d281baf274cc45",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "scenarios": [
+    {
+      "name": "01-wide-chat",
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 942,
+        "y": 102,
+        "width": 450,
+        "height": 788
+      },
+      "composer": {
+        "x": 974,
+        "y": 782,
+        "width": 386,
+        "height": 42
+      },
+      "portrait": {
+        "x": 48,
+        "y": 102,
+        "width": 866,
+        "height": 788
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "02-wide-characters",
+      "innerWidth": 1440,
+      "innerHeight": 1000,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 1440,
+        "height": 1000,
+        "scale": 1
+      },
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 942,
+        "y": 102,
+        "width": 450,
+        "height": 788
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 48,
+        "y": 102,
+        "width": 866,
+        "height": 788
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": []
+    },
+    {
+      "name": "03-mobile-chat",
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 12,
+        "y": 327.3125,
+        "width": 366,
+        "height": 422.6875
+      },
+      "composer": {
+        "x": 36,
+        "y": 649,
+        "width": 318,
+        "height": 42
+      },
+      "portrait": {
+        "x": 12,
+        "y": 82,
+        "width": 366,
+        "height": 236.3125
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "connection",
+          "text": "本地模型未安装 · 请打开设置",
+          "width": 121.046875,
+          "height": 18
+        }
+      ]
+    },
+    {
+      "name": "04-mobile-characters",
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "dpr": 1,
+      "visualViewport": {
+        "width": 390,
+        "height": 844,
+        "scale": 1
+      },
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "chatCollapsed": false,
+      "desktopCollapsed": false,
+      "workspace": {
+        "x": 12,
+        "y": 85,
+        "width": 366,
+        "height": 665
+      },
+      "composer": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "portrait": {
+        "x": 12,
+        "y": 82,
+        "width": 366,
+        "height": 236.3125
+      },
+      "visibleUnlabelledButtons": [],
+      "smallVisibleTargets": [
+        {
+          "id": "connection",
+          "text": "本地模型未安装 · 请打开设置",
+          "width": 121.046875,
+          "height": 18
+        }
+      ]
+    }
+  ],
+  "javascript_errors": [],
+  "source_sha256_after": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "app/static/app.js": "1106ec371af28d70bfda6d9e1c5822adcdc9b565421b2674d33e5f6f427b577e",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "app/static/desktop.css": "c7fa6d13c5d4acf850bba5b78eb9aa4d513a130421ce32717bdf5004b691b604",
+    "app/static/desktop.js": "f83de7dc42a7c6c83629537ce0af61dca2ff44428e3115888aa6830f3118d21c",
+    "app/static/index.html": "f338860e03b7a31652f7adfdc9d0eba7672cd33e0c1c23ea02be56fa834640e9",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/style.css": "1797ba1081cec95b39d53938ff00b9a3be099de10d71bcf482d281baf274cc45",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "2c9adcb8c8ccb427b84e8805e86a9a22586d3dfcf6ed1dd52d804ffed80096ee",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "source_changed_during_run": true
+}

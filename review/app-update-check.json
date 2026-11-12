@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "Real temporary filesystem transactions and local Git repositories on Linux; every program write fault/power-loss boundary, source-commit existence/tree/helper binding, no-artifact negative CLI cases; not Windows locking/native execution",
+  "tests": 31,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_sha256": {
+    "scripts/app_update.py": "768a14cdaf0802293af8a15d53a1e0798d3c81adc9c88ef6a2c584742a69629b",
+    "scripts/build_app_update.py": "f3dcc8326f3331745b6b534ec43c3ea49f07d6dfb32b31180209ed70f9129d75",
+    "scripts/tracking_addon.py": "3e5c1cb54e4ef12276e3778979eb919468ac706f172beec43923faee77f9c077",
+    "scripts/ui_update.py": "a8cef7e40886b265769f0bac0c3611bafe3405b068419abe48c1166812c39ef7",
+    "tests/test_app_update.py": "44baaaf6f5d9724d1283a4dcb9d6c736b2e0e185cf94b9f6626f5fbaa857695d",
+    "tests/test_tracking_addon_installer.py": "66f1e2f8c78fbd5d140afc2a4be4dfbd8e1290e0e255098eb004fb64910925b7",
+    "tests/test_app_update_commit.py": "461d3f3039eea1f9dd01f41b4f0dbcf705d036a3c41219a1fa4030897f8ce7b6"
+  },
+  "sources_unchanged_during_checks": true,
+  "elapsed_seconds": 6.156,
+  "native_windows_verified": false,
+  "signed": false
+}

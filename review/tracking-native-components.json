@@ -1,0 +1,434 @@
+{
+  "scope": "All executable magic headers from actual v2 tree, before final v3 omission; imports inspected for retained x64 candidates only",
+  "binaries": [
+    {
+      "path": "python312/site-packages/_cffi_backend.cp312-win_amd64.pyd",
+      "bytes": 181248,
+      "sha256": "9af5e4f68a41f26b726f2e9424f9d58a4f5666189f6a48be95f406b257102aec",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "USER32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio.dylib",
+      "bytes": 236064,
+      "sha256": "f48bedb7f4f79c0ca050776afe943458555db7341e0dae00511d109ccde907c0",
+      "kind": "MachO",
+      "machine": null,
+      "imports": []
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio32bit-asio.dll",
+      "bytes": 280576,
+      "sha256": "b96d817debe1747d8ca3a5e5b57d1021bf0207ebbd907242331357b97c65e6d7",
+      "kind": "PE",
+      "machine": "0x14c",
+      "imports": []
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio32bit.dll",
+      "bytes": 260608,
+      "sha256": "3d27383a00397dae64b266189791ac20f84a19820778724e05705c2f6012dfd9",
+      "kind": "PE",
+      "machine": "0x14c",
+      "imports": []
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio64bit-asio.dll",
+      "bytes": 343040,
+      "sha256": "e38618a0cb83a0287bee3b8bd68a710ae0d34178217ef4fa21ed56f765111943",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "WINMM.dll",
+        "ole32.dll",
+        "SETUPAPI.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "ADVAPI32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudio64bit.dll",
+      "bytes": 307712,
+      "sha256": "ec080194f01e4095c7fb43dbd7ed05af922c5b34295056a9ff56782741d65481",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "WINMM.dll",
+        "ole32.dll",
+        "SETUPAPI.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "ADVAPI32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudioarm64-asio.dll",
+      "bytes": 316416,
+      "sha256": "57b7826fd3883daabbb8951814655a4ec253acb822c0ff6ce4002da9463064f5",
+      "kind": "PE",
+      "machine": "0xaa64",
+      "imports": []
+    },
+    {
+      "path": "python312/site-packages/_sounddevice_data/portaudio-binaries/libportaudioarm64.dll",
+      "bytes": 293888,
+      "sha256": "e39e95e95c0cb262c70ca4e676e440cf34be5643fe5a31cdfe23e8ab6f1422cb",
+      "kind": "PE",
+      "machine": "0xaa64",
+      "imports": []
+    },
+    {
+      "path": "python312/site-packages/contourpy/_contourpy.cp312-win_amd64.pyd",
+      "bytes": 487936,
+      "sha256": "84f7c2e639b5ec63d5de4db8accb0716ba0ae056038d911eda480e7dc47d042c",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "python312.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/cv2/cv2.pyd",
+      "bytes": 112898048,
+      "sha256": "ae833b9b5771f5932200bd3b8ad0f483f4fbec92cbdbd26d21d38fe524c60e66",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python3.dll",
+        "WSOCK32.dll",
+        "ole32.dll",
+        "USER32.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "COMDLG32.dll",
+        "ADVAPI32.dll",
+        "MFPlat.DLL",
+        "MF.dll",
+        "MFReadWrite.dll",
+        "dxgi.dll",
+        "d3d11.dll",
+        "SHLWAPI.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/cu2qu/cu2qu.cp312-win_amd64.pyd",
+      "bytes": 101376,
+      "sha256": "9e21ca7f122b47ed8ef51b6d10eda7f5da2018400b9bd5c1d9846cc5af7bbc78",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/feaLib/lexer.cp312-win_amd64.pyd",
+      "bytes": 121856,
+      "sha256": "d3e02d815a7550ffe9fc5bcc9543d1fcecd1dde559d0277de53961576433d059",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/misc/bezierTools.cp312-win_amd64.pyd",
+      "bytes": 333824,
+      "sha256": "0b3a676d6fcfbfad7f636ab0d3a8cf73d3e69c5176e4c21ab9a0d749ee1ac2d0",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/pens/momentsPen.cp312-win_amd64.pyd",
+      "bytes": 85504,
+      "sha256": "5651df6be34eb0a60f6c7979ac08e47959c2f2020d907aeef0ef808073ae5d31",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/qu2cu/qu2cu.cp312-win_amd64.pyd",
+      "bytes": 117248,
+      "sha256": "5a7ca3fed31226225e699890d0856d4a8d4d7519d802a60569142b70717a8956",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/fontTools/varLib/iup.cp312-win_amd64.pyd",
+      "bytes": 144896,
+      "sha256": "76fcd7263475b01ab4ca3ebbca08871ec8444fbe83369297c6f088849e7f2014",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "python312.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/kiwisolver/_cext.cp312-win_amd64.pyd",
+      "bytes": 151552,
+      "sha256": "54abfa3bb07e45fd2ce60600cd1f4cf308dc3c3dd3e88b4868727f4f761c9446",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/_c_internal_utils.cp312-win_amd64.pyd",
+      "bytes": 181760,
+      "sha256": "5d986da161591ef9abe5d17b3cc78dff6153b61e40a7e96a354321de7623dda5",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "ole32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "python312.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/_image.cp312-win_amd64.pyd",
+      "bytes": 446976,
+      "sha256": "2259c5cc02e86b3f0efccde8b31fce7cae06ea1515ab16da148df40cc7f35705",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/_path.cp312-win_amd64.pyd",
+      "bytes": 346624,
+      "sha256": "f165cf39ad97cac9da2072ad49a8ec6eb19d1a90939dcd45586b2d3e73ac34a7",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/_qhull.cp312-win_amd64.pyd",
+      "bytes": 617472,
+      "sha256": "a88d15e5448fa3b82cbc09fb81b1cede0f562845b6ba9ce8dcdeea717a290bb6",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/_tri.cp312-win_amd64.pyd",
+      "bytes": 332288,
+      "sha256": "39f7da82becd2370395d814d819f612468b67272a0280361451e77f1abc225d3",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/backends/_backend_agg.cp312-win_amd64.pyd",
+      "bytes": 489984,
+      "sha256": "416f902ecdb31fbc7e49c5b356a04e738fd53c8a1ba3f6faa62764a0d70ea70a",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/backends/_tkagg.cp312-win_amd64.pyd",
+      "bytes": 201216,
+      "sha256": "0a2fc79b1a69763266cb417c504a5886d1d181fcc3854579d68f28aaf3188414",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "COMCTL32.dll",
+        "PSAPI.DLL",
+        "python312.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/matplotlib/ft2font.cp312-win_amd64.pyd",
+      "bytes": 2323968,
+      "sha256": "e3e98e3b5bdd2d2174338cc53724893127b04c4ae5c366a6d90e11c785a3385f",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "VCRUNTIME140_1.dll",
+        "VCRUNTIME140.dll",
+        "python312.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "python312/site-packages/mediapipe/tasks/c/libmediapipe.dll",
+      "bytes": 69320704,
+      "sha256": "b5a7c1f2162996f88f947f9fba4930a04dcbced33eece033386064c37602a3de",
+      "kind": "PE",
+      "machine": "0x8664",
+      "imports": [
+        "kernel32.dll",
+        "api-ms-win-core-localization-l1-2-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-1.dll",
+        "api-ms-win-core-processenvironment-l1-1-0.dll",
+        "ADVAPI32.dll",
+        "api-ms-win-core-synch-l1-1-0.dll",
+        "api-ms-win-core-errorhandling-l1-1-0.dll",
+        "api-ms-win-core-file-l1-2-2.dll",
+        "api-ms-win-core-memory-l1-1-0.dll",
+        "api-ms-win-core-file-l1-1-0.dll",
+        "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "api-ms-win-core-heap-l1-1-0.dll",
+        "api-ms-win-core-debug-l1-1-0.dll",
+        "ntdll.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "api-ms-win-core-processthreads-l1-1-0.dll",
+        "api-ms-win-core-interlocked-l1-1-0.dll",
+        "bcryptprimitives.dll",
+        "api-ms-win-core-psapi-l1-1-0.dll",
+        "dbghelp.dll",
+        "api-ms-win-core-processthreads-l1-1-1.dll",
+        "api-ms-win-core-memory-l1-1-1.dll",
+        "api-ms-win-core-timezone-l1-1-0.dll",
+        "WININET.dll",
+        "USER32.dll",
+        "api-ms-win-core-handle-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-2-1.dll",
+        "api-ms-win-core-namedpipe-l1-1-0.dll",
+        "api-ms-win-core-util-l1-1-0.dll",
+        "api-ms-win-core-string-l1-1-0.dll",
+        "api-ms-win-core-datetime-l1-1-0.dll"
+      ]
+    }
+  ],
+  "windows_execution_verified": false
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "actual app production Canvas2D and same SwiftShader browser flags; synthetic TTS; no rendering/context flag modification",
+  "status": "passed",
+  "source_sha_before": "8cee7f7da4f6008e4e8759628f8dfffd5e33ccae9a2ae21eb00a838af09191fd",
+  "animation_regions": {
+    "eyes": {
+      "x": 490,
+      "y": 290,
+      "width": 235,
+      "height": 95,
+      "feather": 10
+    },
+    "mouth": {
+      "x": 550,
+      "y": 430,
+      "width": 135,
+      "height": 70,
+      "feather": 10
+    }
+  },
+  "checks": {
+    "second_third_immediate_pure_read_exact_stability": "passed",
+    "actual_audio_changes_only_regions_exact_outside_zero": "passed"
+  },
+  "first_readback_cause": "unknown; GPU/CPU readback conversion is an inference, not established cause",
+  "pure_read_controls": {
+    "first_to_second": {
+      "outside": 706,
+      "inside": 0,
+      "maxChannelDelta": 1
+    },
+    "second_to_third": {
+      "outside": 0,
+      "inside": 0,
+      "maxChannelDelta": 0
+    }
+  },
+  "actual_audio_composite_delta": {
+    "outside": 0,
+    "inside": 9257,
+    "maxChannelDelta": 207
+  },
+  "source_sha_after": "8cee7f7da4f6008e4e8759628f8dfffd5e33ccae9a2ae21eb00a838af09191fd",
+  "source_changed": false
+}

@@ -1,0 +1,7 @@
+{
+  "archive": "/workspace/dist/evidence-native-capture-20261112-final.zip",
+  "bytes": 611345,
+  "sha256": "062390dc325353929cde64ef940b0fe5ae667b0a89e44729469b3b227617ada0",
+  "includes_user_data_or_private_vendor_assets": false,
+  "scope": "Linux native capture and display-output fixture evidence; not Windows or full product UI acceptance"
+}

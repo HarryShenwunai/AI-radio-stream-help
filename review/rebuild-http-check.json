@@ -1,0 +1,33 @@
+{
+  "created_at_utc": "2026-11-12T20:29:21.531625+00:00",
+  "scope": "Real isolated loopback Handler integration; synthetic advice/vision/preference replies and synthetic face engine; not semantic/physical/Windows acceptance",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "elapsed_seconds": 27.909,
+  "source_stable": true,
+  "source_before": {
+    "app/server.py": "409f6a2d5fc9f4f85b7cc289e71d79bd2ea9e6af217215170744c522863c3ce2",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_tracking.py": "b2911b3e4adf2d63966521930c1e26de205f3e8b6a8af3f74fd0e429cc0f2b7b",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/test_rebuild_http.py": "e792a54388c216e8cbc3d30e71b2d95a08e3b3fd8a6b592130981a3417e9f076"
+  },
+  "source_after": {
+    "app/server.py": "409f6a2d5fc9f4f85b7cc289e71d79bd2ea9e6af217215170744c522863c3ce2",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_tracking.py": "b2911b3e4adf2d63966521930c1e26de205f3e8b6a8af3f74fd0e429cc0f2b7b",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/test_rebuild_http.py": "e792a54388c216e8cbc3d30e71b2d95a08e3b3fd8a6b592130981a3417e9f076"
+  },
+  "log": "review/rebuild-http-tests.txt",
+  "redaction_review": "Only unittest names/results and failures if any; no credentials, authorization headers, production data, or raw model responses printed."
+}

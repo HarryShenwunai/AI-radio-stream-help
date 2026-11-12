@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "scope": "Real MediaPipe 1.2.3 CPU inference on one official portrait, blank and composed two-face images; not live camera or Windows",
+  "model_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+  "source_image_sha256": "a6f11efaa834706db23f275b6115058fa87fc7f14362681e6abe14e82749de3e",
+  "image_not_in_report": true,
+  "addon_verified_after_real_initialization": true,
+  "sounddevice_imported_but_no_stream_opened": true,
+  "explicit_local_portaudio_library": true,
+  "forbidden_python_audio_stream_calls": 0,
+  "injected_audio_stream_negative_control_detected": true,
+  "forbidden_opencv_capture_codec_calls": 0,
+  "injected_opencv_capture_negative_control_detected": true,
+  "checks": [
+    {
+      "case": "portrait",
+      "expected": "face",
+      "passed": true,
+      "elapsed_seconds": 0.01919,
+      "result": {
+        "state": "face",
+        "face_center_direction": {
+          "x": -0.01779,
+          "y": 0.56197
+        },
+        "head_pose_degrees": {
+          "pitch": 4.482,
+          "yaw": 1.335,
+          "roll": 0.806,
+          "convention": "RzRyRx_camera_degrees_estimate"
+        },
+        "expressions": {
+          "blink_left": 0.27424,
+          "blink_right": 0.29525,
+          "jaw_open": 0.11224,
+          "smile": 0.94492
+        },
+        "eye_blendshape_estimates": {
+          "eyeLookDownLeft": 0.19847,
+          "eyeLookDownRight": 0.22527,
+          "eyeLookInLeft": 0.01647,
+          "eyeLookInRight": 0.20263,
+          "eyeLookOutLeft": 0.26615,
+          "eyeLookOutRight": 0.05113,
+          "eyeLookUpLeft": 0.08192,
+          "eyeLookUpRight": 0.09189
+        },
+        "measurement": "head_and_face_direction_estimate",
+        "identity_recognition": false
+      }
+    },
+    {
+      "case": "blank_after_face",
+      "expected": "no_face",
+      "passed": true,
+      "elapsed_seconds": 0.00655,
+      "result": {
+        "state": "no_face",
+        "face_center_direction": null,
+        "head_pose_degrees": null,
+        "expressions": {}
+      }
+    },
+    {
+      "case": "portrait_after_blank",
+      "expected": "face",
+      "passed": true,
+      "elapsed_seconds": 0.01099,
+      "result": {
+        "state": "face",
+        "face_center_direction": {
+          "x": -0.01779,
+          "y": 0.56197
+        },
+        "head_pose_degrees": {
+          "pitch": 4.482,
+          "yaw": 1.335,
+          "roll": 0.806,
+          "convention": "RzRyRx_camera_degrees_estimate"
+        },
+        "expressions": {
+          "blink_left": 0.27424,
+          "blink_right": 0.29525,
+          "jaw_open": 0.11224,
+          "smile": 0.94492
+        },
+        "eye_blendshape_estimates": {
+          "eyeLookDownLeft": 0.19847,
+          "eyeLookDownRight": 0.22527,
+          "eyeLookInLeft": 0.01647,
+          "eyeLookInRight": 0.20263,
+          "eyeLookOutLeft": 0.26615,
+          "eyeLookOutRight": 0.05113,
+          "eyeLookUpLeft": 0.08192,
+          "eyeLookUpRight": 0.09189
+        },
+        "measurement": "head_and_face_direction_estimate",
+        "identity_recognition": false
+      }
+    },
+    {
+      "case": "shifted_right",
+      "expected": "face",
+      "passed": true,
+      "elapsed_seconds": 0.01488,
+      "result": {
+        "state": "face",
+        "face_center_direction": {
+          "x": 0.42675,
+          "y": 0.63501
+        },
+        "head_pose_degrees": {
+          "pitch": 5.979,
+          "yaw": -2.321,
+          "roll": 2.047,
+          "convention": "RzRyRx_camera_degrees_estimate"
+        },
+        "expressions": {
+          "blink_left": 0.26856,
+          "blink_right": 0.28193,
+          "jaw_open": 0.15362,
+          "smile": 0.94739
+        },
+        "eye_blendshape_estimates": {
+          "eyeLookDownLeft": 0.13293,
+          "eyeLookDownRight": 0.16852,
+          "eyeLookInLeft": 0.02361,
+          "eyeLookInRight": 0.16247,
+          "eyeLookOutLeft": 0.21588,
+          "eyeLookOutRight": 0.06202,
+          "eyeLookUpLeft": 0.13079,
+          "eyeLookUpRight": 0.13061
+        },
+        "measurement": "head_and_face_direction_estimate",
+        "identity_recognition": false
+      }
+    },
+    {
+      "case": "two_faces",
+      "expected": "multiple_faces",
+      "passed": true,
+      "elapsed_seconds": 0.02328,
+      "result": {
+        "state": "multiple_faces",
+        "face_center_direction": null,
+        "head_pose_degrees": null,
+        "expressions": {}
+      }
+    }
+  ],
+  "warm_direct_inference_samples": 20,
+  "warm_seconds_p50": 0.01041,
+  "warm_seconds_p95": 0.01143,
+  "cpu_seconds": 0.7511,
+  "initialization_seconds": 1.65302,
+  "peak_rss_kib": 189600,
+  "baseline_peak_rss_kib": 27316,
+  "hardware_camera_verified": false,
+  "windows_execution_verified": false,
+  "professional_eye_tracking_verified": false,
+  "source_sha256": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae"
+}

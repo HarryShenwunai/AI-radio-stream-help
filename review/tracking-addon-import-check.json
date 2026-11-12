@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "scope": "Real CPython3.12 pure-Python package import; platform/base-location activation checks simulated on Linux; no Windows DLL execution",
+  "verified_before": true,
+  "verified_after_real_import": true,
+  "dont_write_bytecode_initial": false,
+  "dont_write_bytecode_after_activate": true,
+  "optional_pycache_files": 0,
+  "negative_without_guard_created_pyc_files": 12,
+  "activation_and_import_seconds": 0.44802,
+  "manifest_sha256": "de08abac2f341d0cacf2eba38fc89e53bef0252f98cc2f258736b95ed95bad12",
+  "windows_execution_verified": false,
+  "source_sha256": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c"
+}

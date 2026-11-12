@@ -1,0 +1,89 @@
+{
+  "observed_at": "2026-11-12T21:15:59.161290+00:00",
+  "status": "INDEPENDENT_SOFTWARE_PATHS_VERIFIED_WITH_TARGET_ACCOUNT_QUALITY_GATES_OPEN",
+  "all_user_goals_complete": false,
+  "scope": "Current rebuilt single-scene2D companion, not rejected3D or historical floating draft",
+  "checks": {
+    "new_ui_actual_browser": 16,
+    "new_ui_layout_scenarios": 13,
+    "supplemental_role_secrets_and_contacts": 3,
+    "actual_linux_electron": 6,
+    "real_qwen_kokoro_regional_2d_audio_stop_context": 6
+  },
+  "evidence_reports": [
+    "review/uiux-2026-after.json",
+    "review/uiux-2026-native.json",
+    "review/real-2d-companion-browser-check.json",
+    "review/uiux-new-ia-secret-contacts-check.json",
+    "review/png-2d-alpha-browser.json",
+    "review/png-region-stable-readback-check.json",
+    "review/png-2d-stage-browser.json",
+    "review/uiux-2026-device-test-contract.json"
+  ],
+  "current_source_validation": {
+    "review/uiux-2026-after.json": {
+      "current_source_mismatches": [],
+      "all_recorded_sources_match_current": true
+    },
+    "review/uiux-2026-native.json": {
+      "current_source_mismatches": [],
+      "all_recorded_sources_match_current": true
+    },
+    "review/real-2d-companion-browser-check.json": {
+      "current_source_mismatches": [],
+      "all_recorded_sources_match_current": true
+    },
+    "review/uiux-new-ia-secret-contacts-check.json": {
+      "current_source_mismatches": [],
+      "all_recorded_sources_match_current": true
+    }
+  },
+  "regional_canvas": {
+    "first_second_read_changed_pixels": 706,
+    "first_second_max_channel_delta": 1,
+    "second_third_read_changed_pixels": 0,
+    "actual_audio_changed_pixels_outside_regions": 0,
+    "actual_audio_changed_pixels_inside_regions": 9257,
+    "cause_of_first_readback": "unknown; backend conversion is an inference, not a proved rendering violation",
+    "tolerance_relaxed": false,
+    "production_rendering_backend_modified_for_test": false
+  },
+  "device_semantics_verified": [
+    "default declarations are present without media acquisition",
+    "microphone/camera/auxiliary display absence preserve PC text and actual TTS",
+    "microphone declared present again never auto-starts",
+    "opening modal while actual synthetic recording stops tracks",
+    "unconfigured vision never starts media"
+  ],
+  "not_verified": [
+    "Windows10/11/RTX4060 actual machine",
+    "physical5-inch display/real camera/real microphone or far-field quality",
+    "actual OS screen chooser and physical face/head/gaze quality in these QA browser checks",
+    "real VLM semantic understanding",
+    "actual Bilibili/WeChat accounts or delivery",
+    "human visual/dialogue/voice acceptance",
+    "long-running or p95 resource budget",
+    "independent layered PSD/MOC/physical relighting"
+  ],
+  "old_red_evidence_retained": [
+    "review/png-2d-rms-long-release-red.json",
+    "/workspace/research/real-2d-first-readback-source-change-red.json",
+    "review/png-region-outside-probe.json",
+    "/workspace/research/uiux-2026-native-initial-visible-only.json"
+  ],
+  "critical_repairs_verified": [
+    "fast RMS release tested using internal audio silence rather than cold-start0",
+    "Canvas readback negative control prevents false outside-region assertion; exact0 still required",
+    "native restore waits for character Canvas and4 decoded states, not window.visible alone"
+  ],
+  "current_ui_video_seconds": 33.16,
+  "device_case_ledger": "review/uiux-2026-device-test-contract.json",
+  "archive_self_metadata_note": "The archive contains the summary before archive checksum insertion; the external summary provides the final archive checksum.",
+  "artifact_archive": {
+    "path": "/workspace/dist/uiux-2026-independent-evidence.zip",
+    "bytes": 30615229,
+    "sha256": "96591147afea93159b1e6ee6a8350293b4c3cc10fae8e18aa21074afbe860316",
+    "zip_test_passed": true,
+    "rejected_3d_or_vendor_sdk_included": false
+  }
+}
