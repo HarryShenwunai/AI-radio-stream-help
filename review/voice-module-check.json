@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-12",
+  "scope": "voice/conversation module implementation and layered checks",
+  "source_sha256": {
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "tests/test_voice.py": "1779873202887b6372989d628a5837ba85b3b55e10073491a2db5edb9168e78e",
+    "tests/test_voice_http.py": "ed711f3a9ffd44e212c3dd445cf951615011cfd98cfcc97e5e23a71e6873de31",
+    "tests/test_conversation.py": "d7cbbc9776a602601c13226e3bc77554fff6a7f6f206587e482b17c24a9a7bcd",
+    "app/requirements-asr.txt": "f3c33f1e2205a9d794224859dfc39e2fba501adc77b648b7bbb1c7fd83c83ffc",
+    "app/requirements-voice.txt": "1175b0c081a3bbbb9b1a440131fb2623f1ea27f7fc9940cb13e4b378d1b98e1d"
+  },
+  "fixture_tests": {
+    "wave_asr_and_external_tts_unit": 28,
+    "loopback_tts_transport": 4,
+    "conversation_policy_and_callback": 15,
+    "failed": 0,
+    "total": 47
+  },
+  "real_local_asr": "voice-real-smoke.json",
+  "real_local_llm": "conversation-real-smoke.json",
+  "retained_prior_failure": "conversation-before-presence-check.json",
+  "actual_external_gpt_sovits_model_tested": false,
+  "windows_or_rtx4060_tested": false,
+  "human_naturalness_accepted": false,
+  "pitfalls_fixed": [
+    "faster-whisper1.2.1 import passes with PyAV19 but actual decode metadata_errors fails; pin av16.1.0 and diagnose known mismatch",
+    "Administrative save-memory turns previously primed unrelated passphrase dialogue; exclude these from ordinary generation context, retain explicit recent recall",
+    "Real new output claimed physical accompaniment; retain record, add bounded observable check and one real-model repair",
+    "Earlier module tests measured memory budget including policy tail; memory block now bounded separately and placed last for owner grounding",
+    "ASR VAD also uses ONNX Runtime; disable telemetry events before model load, consistent with local Kokoro. Observed warning was not proof of audio upload."
+  ],
+  "unresolved": [
+    "Native ASR compute cannot be interrupted mid-call; caller must discard by event/character/generation",
+    "GPU/CUDA and Windows audio/runtime untested on actual user device",
+    "Human Chinese audio/noise/accent quality and long-form dialogue acceptance",
+    "Real owner-licensed GPT-SoVITS service not run; transport tested against local WAV fixture",
+    "App endpoints, frontend recording, default device and frozen package require their own integration checks"
+  ]
+}

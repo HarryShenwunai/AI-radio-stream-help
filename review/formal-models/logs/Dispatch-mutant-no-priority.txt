@@ -1,0 +1,63 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 60560] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /workspace/AI-radio-stream-help/review/formal-models/Dispatch.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/TLC.tla
+Parsing file /tmp/Sequences.tla
+Parsing file /tmp/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Dispatch
+Starting... (2026-11-12 16:34:07)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-12 16:34:07.
+Error: Invariant Safety is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ staleCommit = FALSE
+/\ overtook = FALSE
+/\ cancelled = FALSE
+/\ stopUsed = FALSE
+/\ owner = "none"
+/\ handle = FALSE
+/\ publicPhase = "idle"
+/\ published = FALSE
+/\ missedWindow = "none"
+/\ privatePhase = "idle"
+/\ permit = FALSE
+/\ scannedHandle = FALSE
+
+State 2: <PrivateAnnounce line 33, col 3 to line 35, col 84 of module Dispatch>
+/\ staleCommit = FALSE
+/\ overtook = FALSE
+/\ cancelled = FALSE
+/\ stopUsed = FALSE
+/\ owner = "none"
+/\ handle = FALSE
+/\ publicPhase = "idle"
+/\ published = FALSE
+/\ missedWindow = "none"
+/\ privatePhase = "announced"
+/\ permit = FALSE
+/\ scannedHandle = FALSE
+
+State 3: <PublicAcquire line 17, col 3 to line 24, col 56 of module Dispatch>
+/\ staleCommit = FALSE
+/\ overtook = TRUE
+/\ cancelled = FALSE
+/\ stopUsed = FALSE
+/\ owner = "public"
+/\ handle = TRUE
+/\ publicPhase = "registered"
+/\ published = FALSE
+/\ missedWindow = "none"
+/\ privatePhase = "announced"
+/\ permit = FALSE
+/\ scannedHandle = FALSE
+
+9 states generated, 8 distinct states found, 4 states left on queue.
+The depth of the complete state graph search is 3.
+The average outdegree of the complete state graph is 3 (minimum is 3, the maximum 3 and the 95th percentile is 3).
+Finished in 01s at (2026-11-12 16:34:07)

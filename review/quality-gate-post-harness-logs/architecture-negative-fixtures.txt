@@ -1,0 +1,18 @@
+
+STDERR:
+test_binary_response_double_serialization_fails (test_architecture_rules.ArchitectureMutationTests.test_binary_response_double_serialization_fails) ... ok
+test_current_source_baseline_passes (test_architecture_rules.ArchitectureMutationTests.test_current_source_baseline_passes) ... ok
+test_plugin_missing_authentication_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_missing_authentication_fails) ... ok
+test_plugin_owner_operation_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_owner_operation_fails) ... ok
+test_plugin_route_capability_expansion_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_route_capability_expansion_fails) ... ok
+test_public_ingress_storage_import_fails (test_architecture_rules.ArchitectureMutationTests.test_public_ingress_storage_import_fails) ... ok
+test_public_private_prompt_alias_fails (test_architecture_rules.ArchitectureMutationTests.test_public_private_prompt_alias_fails) ... ok
+test_real_cli_rejects_fixture_with_exit_one (test_architecture_rules.ArchitectureMutationTests.test_real_cli_rejects_fixture_with_exit_one) ... ok
+test_role_package_script_execution_fails (test_architecture_rules.ArchitectureMutationTests.test_role_package_script_execution_fails) ... ok
+test_sdk_bytes_in_default_static_fails (test_architecture_rules.ArchitectureMutationTests.test_sdk_bytes_in_default_static_fails) ... ok
+test_sdk_dependency_in_default_graph_fails (test_architecture_rules.ArchitectureMutationTests.test_sdk_dependency_in_default_graph_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.941s
+
+OK

@@ -1,0 +1,4 @@
+# Development checks only; never installed into the companion runtime profiles.
+# Versions verified against official PyPI on 2026-11-12.
+ruff==0.17.4
+mypy==2.4.1

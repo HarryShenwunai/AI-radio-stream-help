@@ -1,0 +1,42 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 60692] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /workspace/AI-radio-stream-help/review/formal-models/Playback.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/TLC.tla
+Parsing file /tmp/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Playback
+Starting... (2026-11-12 16:34:18)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-12 16:34:19.
+Error: Invariant Safety is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ dbPrefix = 0
+/\ pending = {}
+/\ applied = {}
+/\ first = "pending"
+/\ second = "not_started"
+/\ current = 1
+/\ switched = FALSE
+/\ accepted = {}
+/\ stoppedEver = {}
+
+State 2: <ReceiveCompleted line 32, col 5 to line 42, col 66 of module Playback>
+/\ dbPrefix = 0
+/\ pending = {[id |-> "C1", prefix |-> 3]}
+/\ applied = {}
+/\ first = "completed"
+/\ second = "not_started"
+/\ current = 1
+/\ switched = FALSE
+/\ accepted = {[id |-> 1, nonce |-> 2, scope |-> 1, atCurrent |-> 1, atSwitched |-> FALSE]}
+/\ stoppedEver = {}
+
+5 states generated, 4 distinct states found, 2 states left on queue.
+The depth of the complete state graph search is 2.
+Finished in 01s at (2026-11-12 16:34:19)

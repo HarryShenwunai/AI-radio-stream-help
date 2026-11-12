@@ -88,3 +88,11 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 用户上传新画质参考，要求自然面部比例、细致发丝、柔和窗光与安静表情的高质量二次元表现。记录docs/design/visual-quality-target.md；不能由单图推断3D/Live2D制作方式，也不锁成图中角色。PNG版本仅基础导入验证，未达到动态画质目标。高质量2D绑定/3D渲染须合法独立样本、SDK边界与目标显卡实测；显卡RAM询问仍待答，不虚构性能门槛。
 - 新踩坑：Pillow13需要>=3.11；uv Windows默认可写PEP514/bin要显式--no-registry --no-bin；PS5.1内嵌双引号/旧LASTEXITCODE会误判，现探针单引号且先清退出码；大模型文件>2GiB用Python ZIP64而非Compress-Archive；.NET OSVersion有兼容层需只读实际build号；py3-none-win_amd64 wheel可含DLL，不能当纯Python或DLL闭包已齐。
 - 最新设备答复已到：用户自报“4060 32G”，按RTX4060/32GB内存作开发基准；未探测实际显存/CPU/驱动/移动桌面型号。视觉目标文档已更新，优先验证3D材质与光照样例，30fps角落/60fps展开仅候选目标而非实测承诺。当前推理构建仍CPU版，不声称已CUDA加速或实现3D。
+
+
+## 2026-11-12 可执行纠错与证据（收口中）
+
+- 不扩写 AGENTS；新增 requirements-quality.txt、pyproject.toml、scripts/quality_gate.py 与 check_architecture.py，将关键 lint、四模块 strict typing、六类架构约束和负控制夹具变成真实退出码门禁。全量检查前后源码 SHA 不一致时整体验收失败，不能把并发修改前后的绿测混为一版。
+- R08 真实 HTTP 已复测15项：历史慢TTS不能夺新播放、ABA角色往返不能复活、非法speech不能抢占、stale generation stop不能终止新音频。真实Chrome7项含先确认上下文前置条件、1.41/4秒停止不猜已听词、后续prompt剔除未确认尾、完整重播后恢复；录像见review/playback-browser-check.json。2048/4096 prompt预算另有3项源码绑定回归。
+- Live2D Haru/Hiyori各12项真实Chrome本机评估通过；实修JSON bytes二次序列化、CSP禁止Pixi blob worker、Core污染clearColor、U+3000文件名与官方motion舍入。Core实测5.1/MOC5；SDK/第三方模型/录像不进Git或默认Windows包。参考美术、Windows/4060、真实账号及人工自然度尚未通过。
+- 正式形式化材料必须使用review/formal-models，避免.gitignore的**/models/把TLA+/配置/复现脚本整个漏提交；第三方research/vrm-fixtures/*.vrm明确只本机评估。TLC与实码性质测试有界，不宣称全程序、活性或人类实际听见的证明。

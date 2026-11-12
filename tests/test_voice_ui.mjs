@@ -108,3 +108,31 @@ test('system speech callbacks from a stopped utterance cannot change fresh playb
  await h.context.speak('新声音');const fresh=utterances[1];fresh.onstart();old.onend();old.onerror({error:'synthesis-failed'});old.onstart();
  assert.ok(h.bodyClasses.has('is-speaking'));assert.equal(h.get('#toast').textContent,'');fresh.onend();assert.equal(h.bodyClasses.has('is-speaking'),false);
 });
+
+const receiptSource=fs.readFileSync(new URL('../app/static/playback-receipts.js',import.meta.url),'utf8');
+const receiptMeta=()=>({playback_id:'playback-real-scope',nonce:'n'.repeat(32),character_id:'role-A',appearance_id:null,message_id:17,duration_seconds:4,text_length:100});
+function enableReceipts(h){h.context.atob=atob;h.context.performance={now:()=>0};vm.runInContext(receiptSource,h.context);h.read("app.active_character_id='role-A';app.active_character={id:'role-A',appearance_id:null}");}
+function systemVoices(h){const utterances=[];h.context.window.speechSynthesis=h.context.speechSynthesis={getVoices:()=>[{lang:'zh-CN',name:'Test',voiceURI:'test'}],cancel(){},speak:u=>utterances.push(u)};h.context.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};h.read("selectedVoice='test';app.settings.voice_backend='system';app.local_voice_available=false");return utterances;}
+function ack(){return {ok:true,json:async()=>({accepted:true,stale:false,confirmed_characters:100})};}
+
+test('tracked system speech preserves the exact bound text and reports only its observed completion',async()=>{
+ const h=harness(async url=>url==='/api/playback/start'?{ok:true,json:async()=>({playback:{...receiptMeta(),duration_seconds:null}})}:ack());enableReceipts(h);const utterances=systemVoices(h),text='**原文** https://example.com/完整链接';let now=0;h.context.performance.now=()=>now;
+ await h.context.speak(text,{message_id:17});assert.equal(utterances[0].text,text);utterances[0].onstart();now=5000;utterances[0].onend();await tick();
+ const bodies=h.calls.filter(x=>x.url==='/api/playback/receipt').map(x=>JSON.parse(x.body));assert.equal(bodies.length,1);assert.equal(bodies[0].status,'completed');assert.equal(bodies[0].duration_seconds,5);
+});
+test('late system playback metadata is stopped under its original identity without speaking',async()=>{
+ const pending=deferred(),h=harness(async url=>url==='/api/playback/start'?pending.promise:ack());enableReceipts(h);const utterances=systemVoices(h),speaking=h.context.speak('旧角色文字',{message_id:17});await tick();h.context.stopVoice();h.read("app.active_character_id='role-B'");pending.resolve({ok:true,json:async()=>({playback:{...receiptMeta(),duration_seconds:null}})});await speaking;await tick();
+ assert.equal(utterances.length,0);const body=JSON.parse(h.calls.find(x=>x.url==='/api/playback/receipt').body);assert.equal(body.status,'stopped');assert.equal(body.position_seconds,0);assert.equal(body.expected_character_id,'role-A');
+});
+test('a received audio header is stopped while its body is still downloading',async()=>{
+ const pending=deferred(),header=btoa(JSON.stringify(receiptMeta())),h=harness(async url=>url==='/api/speech'?{ok:true,headers:{get:()=>header},blob:()=>pending.promise}:ack());enableReceipts(h);
+ const speaking=h.context.speak('旧声音',{message_id:17});await tick();h.context.stopVoice();pending.resolve({audio:true});await speaking;await tick();assert.equal(h.audios.length,0);
+ const bodies=h.calls.filter(x=>x.url==='/api/playback/receipt').map(x=>JSON.parse(x.body));assert.equal(bodies.length,1);assert.equal(bodies[0].status,'stopped');assert.equal(bodies[0].position_seconds,0);
+});
+test('voice stop captures actual playback position before clearing the media resource',async()=>{
+ const header=btoa(JSON.stringify(receiptMeta())),h=harness(async url=>url==='/api/speech'?{...response(),headers:{get:()=>header}}:ack());enableReceipts(h);await h.context.speak('旧声音',{message_id:17});const audio=h.audios[0];audio.currentTime=1.2;audio.duration=4;audio.ended=false;h.context.stopVoice();await tick();
+ const stop=h.calls.filter(x=>x.url==='/api/playback/receipt').map(x=>JSON.parse(x.body)).find(x=>x.status==='stopped');assert.equal(stop.position_seconds,1.2);assert.equal(audio.src,'');assert.equal(stop.character_id,'role-A');
+});
+test('long-lived per-role playback notes are bounded',()=>{
+ const h=harness(async()=>ack());for(let id=1;id<=700;id++)h.context.recordPlaybackNote({...receiptMeta(),message_id:id,playback_id:'p'+id},'pending');assert.equal(h.read('playbackNotes.size'),512);assert.equal(h.read("playbackNotes.has('role-A:1')"),false);assert.equal(h.read("playbackNotes.has('role-A:700')"),true);
+});

@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-12",
+  "scope": "real CPU faster-whisper tiny; input is local Kokoro synthetic speech, no microphone or cloud recognition",
+  "source_text": "你好，今天我们一起学习。",
+  "transcription": {
+    "text": "您好今天我们一起学习",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.5,
+        "text": "您好今天我们一起学习"
+      }
+    ],
+    "duration_seconds": 2.683291666666667,
+    "language": "zh",
+    "elapsed_seconds": 1.2054734620032832,
+    "backend": "faster-whisper",
+    "device": "cpu"
+  },
+  "wall_seconds_including_load": 1.206,
+  "wav_bytes": 128842,
+  "silence_result": "no_speech",
+  "rss_kib_linux": 845200,
+  "model": {
+    "repo": "Systran/faster-whisper-tiny",
+    "revision": "d90ca5fe260221311c53c58e660288d3deb8d356",
+    "files": [
+      {
+        "name": "config.json",
+        "bytes": 2249,
+        "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8"
+      },
+      {
+        "name": "model.bin",
+        "bytes": 75538270,
+        "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1"
+      },
+      {
+        "name": "tokenizer.json",
+        "bytes": 2203239,
+        "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+      },
+      {
+        "name": "vocabulary.txt",
+        "bytes": 459861,
+        "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+      }
+    ],
+    "downloaded_by_explicit_action": true
+  },
+  "human_audio_or_naturalness_accepted": false,
+  "windows_or_rtx4060_tested": false,
+  "passed": true
+}

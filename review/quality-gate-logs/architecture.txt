@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "rules": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06"
+  ],
+  "violations": [],
+  "limits": "AST/import/call contracts and default dependency graph; not whole-program taint or SDK legal certification"
+}
+
+STDERR:

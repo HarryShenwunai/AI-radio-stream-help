@@ -23,5 +23,28 @@
     "sha256": "ae5e88a2cf464e5a2dde7c8898c2d5c71cc24d03cac6396bf7509456bde0b9fb",
     "checksum_source": "https://api.github.com/repos/abetlen/llama-cpp-python/releases/tags/v0.3.36",
     "index_source": "https://abetlen.github.io/llama-cpp-python/whl/cpu/llama-cpp-python/"
+  },
+  "python_standalone": {
+    "version": "3.12.16",
+    "minor": [
+      3,
+      12
+    ],
+    "format": "standalone-tar",
+    "filename": "cpython-3.12.16+20261110-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261110/cpython-3.12.16%2B20261110-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "sha256": "355ee61b8207b91574491b1c6dc9b0ebb4408fc56bfafe498f3ef439314b52dc",
+    "distributor": "Astral python-build-standalone",
+    "provenance": "https://github.com/astral-sh/python-build-standalone/releases/tag/20261110",
+    "note": "Maintained Astral CPython distribution; not a python.org Windows installer. Interpreter version satisfies declared dependencies."
+  },
+  "llama_cuda_wheel": {
+    "version": "0.3.36",
+    "profile": "cu124",
+    "filename": "llama_cpp_python-0.3.36-py3-none-win_amd64.whl",
+    "url": "https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.36-cu124/llama_cpp_python-0.3.36-py3-none-win_amd64.whl",
+    "sha256": "7086b98420cf9cca5e3f14181edc4332038bfb0a0e380370a693806bb527911f",
+    "checksum_source": "https://api.github.com/repos/abetlen/llama-cpp-python/releases/tags/v0.3.36-cu124",
+    "driver_policy": "Windows >=551.61 conservative CUDA12.4 GA policy; GPU/driver/import/offload still require device validation"
   }
 }

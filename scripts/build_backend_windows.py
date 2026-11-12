@@ -22,7 +22,7 @@ def command():
             '--paths', str(ROOT/'src'), '--add-data', str(ROOT/'app/static') + os.pathsep + 'static',
             '--hidden-import', 'PIL.PngImagePlugin']
     for package in ['llama_cpp', 'kokoro_onnx', 'espeakng_loader', 'pypinyin',
-                    'pypinyin_dict', 'jieba', 'onnxruntime']:
+                    'pypinyin_dict', 'jieba', 'onnxruntime', 'faster_whisper', 'ctranslate2', 'av', 'tokenizers', 'aiohttp', 'brotli']:
         args += ['--collect-all', package]
     args += ['--collect-data', 'misaki']
     for package in ['pandas', 'scipy', 'IPython', 'jedi', 'matplotlib', 'tkinter']:

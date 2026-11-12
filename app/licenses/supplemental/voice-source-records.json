@@ -1,0 +1,22 @@
+[
+  {
+    "package": "OpenNMT/CTranslate2",
+    "version_tag": "v4.9.0",
+    "source": "https://raw.githubusercontent.com/OpenNMT/CTranslate2/v4.9.0/LICENSE",
+    "file": "ctranslate2-4.9.0-LICENSE.txt",
+    "sha256": "54aa79d9fe3c09e67a16dcd95b9e88676405a6ec174efda31036983cf7672ecb",
+    "bytes": 1115,
+    "retrieved_utc": "2026-11-12",
+    "scope": "Original project license notice for exact declared release tag; wheel metadata still retained separately."
+  },
+  {
+    "package": "huggingface/tokenizers",
+    "version_tag": "v0.23.3",
+    "source": "https://raw.githubusercontent.com/huggingface/tokenizers/v0.23.3/LICENSE",
+    "file": "tokenizers-0.23.3-LICENSE.txt",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357,
+    "retrieved_utc": "2026-11-12",
+    "scope": "Original project license notice for exact declared release tag; wheel metadata still retained separately."
+  }
+]

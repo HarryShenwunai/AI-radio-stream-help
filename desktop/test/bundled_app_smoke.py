@@ -36,9 +36,9 @@ try:
    report['page_ready_seconds_with_cdp']=round(time.monotonic()-started,3);report['page_origin']=page.url
    def is_backend(proc):
     exe=proc.exe().replace('\\','/').lower()
-    return '/resources/backend/' in exe and (proc.name().lower() in {'companion-backend','companion-backend.exe'} or exe.endswith('/python/python.exe'))
+    return ('/resources/backend/' in exe or '/resources/backend-profiles/cuda/' in exe) and (proc.name().lower() in {'companion-backend','companion-backend.exe'} or exe.endswith('/python/python.exe'))
    descendant=psutil.Process(desktop.pid).children(recursive=True);backend=[proc for proc in descendant if is_backend(proc)]
-   check('bundle spawned embedded backend without attached URL',len(backend)>=1 and '/resources/backend/' in backend[0].exe().replace('\\','/').lower())
+   check('bundle spawned embedded backend without attached URL',len(backend)>=1 and is_backend(backend[0]))
    check('actual app page has one compact native window',page.locator('#manage-characters').count()==1 and page.evaluate('async()=>(await companionDesktop.getState()).windowCount===1 && document.body.classList.contains("desktop-collapsed")'))
    check('actual app compact root and body backgrounds are transparent',page.evaluate('()=>[document.documentElement,document.body].every(e=>getComputedStyle(e).backgroundColor==="rgba(0, 0, 0, 0)")'))
    page.locator('[data-desktop-action=expand]').click();page.wait_for_function('()=>!document.body.classList.contains("desktop-collapsed")')

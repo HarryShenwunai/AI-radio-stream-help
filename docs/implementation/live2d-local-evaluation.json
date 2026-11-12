@@ -1,0 +1,276 @@
+{
+  "observed_at": "2026-11-12T16:00:48.353339+00:00",
+  "scope": "Explicitly authorized owner-local development evaluation only; no publication/distribution/commercial approval",
+  "owner_license_confirmed_for_local_evaluation": true,
+  "core": {
+    "url": "https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js",
+    "sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "bytes": 207155,
+    "official_published_digest": false,
+    "version_observation": {
+      "reported_by": "character_frontend actual Chrome exposed API",
+      "raw": 83951616,
+      "version": "5.1.0",
+      "latest_moc_version": 5
+    }
+  },
+  "bundle": {
+    "sha256": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+    "bytes": 1169756,
+    "build_helper": "frontend/build-live2d-runtime.mjs",
+    "js_executed_during_bundle_build": false,
+    "default_package_inclusion": false,
+    "includes_copyright_license_banner": true
+  },
+  "npm_install_lifecycle_scripts": false,
+  "sample_sounds_downloaded": false,
+  "publication_permission_verified": false,
+  "runtime_initialization_verified_by_chrome": {
+    "core_sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "bundle_sha256": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+    "version_api_observed": true,
+    "core_version": "5.1.0",
+    "latest_moc_version": 5,
+    "new_banner_bundle_pending_retest": false
+  },
+  "actual_model_rendering_status": "PASSED_LOCAL: Haru12 and Hiyori12 actual Core/WebGL/audio/lifecycle checks, final screenshots inspected; not all exports or target Windows acceptance",
+  "software_source_bundles_include_vendor_code": false,
+  "npm_direct_packages": [
+    {
+      "name": "@jannchie/pixi-live2d-display",
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/@jannchie/pixi-live2d-display/-/pixi-live2d-display-1.4.0.tgz",
+      "integrity": "sha512-Qgg27x+psxB6nSxDbhtSgv4Caoxjir9iv4nBi+BH5XdD4AkyxNgm+wPP0UJjLXun0NFc55dmGTZfyPtVLTxevw==",
+      "declared_license": "MIT"
+    },
+    {
+      "name": "pixi.js",
+      "version": "8.23.0",
+      "resolved": "https://registry.npmjs.org/pixi.js/-/pixi.js-8.23.0.tgz",
+      "integrity": "sha512-RkWSwo+mAR0d7MKnJ20IjKkWGPdFh1C0adBRYYLa+SGdxTfbrr6RnQyZZRwjBaG/bDAIQqgBcTBbiNsN6iKFVQ==",
+      "declared_license": "MIT"
+    }
+  ],
+  "material": {
+    "name": "Haru",
+    "owner": "Live2D Inc.",
+    "source_repository": "Live2D/CubismWebSamples",
+    "commit": "b1de66b0b1f1cb881d95fb6158622aeb6a2827bd",
+    "visual_only_fixture_sha256": "1fcc1c5b68764d3c68fcc3c92fb506bff63d3694e0ab610d998f52ffaf689a9a",
+    "original_source_files_git_blob_verified": 21,
+    "changes": "Derived manifest removes four Sound references and UserData reference; source original retained; no visual redesign",
+    "default_project_character": false,
+    "artwork_quality_accepted": false
+  },
+  "private_provenance_path": "/workspace/.live2d/local-evaluation-provenance.json",
+  "not_in_repository": [
+    "Core bytes",
+    "Framework/wrapper/Pixi bundle bytes",
+    "SDK material/model bytes",
+    "sample screenshots"
+  ],
+  "updated_at": "2026-11-12T16:27:42.202382+00:00",
+  "second_material": {
+    "name": "Hiyori",
+    "owner": "Live2D Inc.",
+    "source_repository": "Live2D/CubismWebSamples",
+    "commit": "b1de66b0b1f1cb881d95fb6158622aeb6a2827bd",
+    "visual_only_fixture_sha256": "ad90704b1ad0b2338c08b5c063332ada562277d8bb542d7ad9d066bea76ddc4c",
+    "original_source_files_git_blob_verified": 17,
+    "design_changed": false,
+    "audio_used": false,
+    "role": "holdout supplied before testing, not used by supplier to tune implementation",
+    "default_project_character": false
+  },
+  "haru_actual_browser_validation": {
+    "report": "review/live2d-browser-check.json",
+    "checks": {
+      "actual_core_model_preview_without_activation": "passed",
+      "explicit_activation_creates_live2d_webgl_stage": "passed",
+      "real_framebuffer_contains_model_pixels_and_alpha": "passed",
+      "actual_audio_activity_drives_live2d_mouth": "passed",
+      "stop_resets_mouth": "passed",
+      "native_hidden_releases_canvas_and_renderer": "passed",
+      "restore_reloads_model": "passed",
+      "webgl_loss_retry_recovers": "passed",
+      "identity_switch_releases_old_live2d": "passed",
+      "identity_asset_selection_survives_reload": "passed",
+      "javascript_runtime": "passed"
+    },
+    "core_observation": {
+      "coreVersion": 83951616,
+      "latestMocVersion": 5,
+      "wrapper": {
+        "pixi": "8.23.0",
+        "wrapper": "1.4.0"
+      }
+    },
+    "moc_header": {
+      "code": 1,
+      "label": "MOC3 header revision 1",
+      "byte_order_flag": 0,
+      "core_verified": false
+    },
+    "framebuffer_observation": {
+      "width": 511,
+      "height": 696,
+      "colored": 49924,
+      "transparent": 305494,
+      "error": 0
+    },
+    "javascript_errors": [],
+    "not_tested": [
+      "Windows/RTX4060 performance",
+      "arbitrary Cubism exports",
+      "reference artwork acceptance",
+      "real voice/model quality",
+      "SDK or model publication permission"
+    ],
+    "status_at_observation": "Superseded mechanical pass, not final visual acceptance",
+    "later_failure": "alpha=0 but RGB=255 caused white compositing; stronger red test retained privately before-transparency-fix",
+    "final_status": "superseded by actual_browser_validation.Haru final12-check result; earlier mechanical record retained as history"
+  },
+  "actual_browser_validation": {
+    "Haru": {
+      "report": "review/live2d-browser-check.json",
+      "status": "passed",
+      "checks": {
+        "actual_core_model_preview_without_activation": "passed",
+        "explicit_activation_creates_live2d_webgl_stage": "passed",
+        "real_framebuffer_contains_model_pixels_and_alpha": "passed",
+        "premultiplied_transparent_background_is_valid": "passed",
+        "actual_audio_activity_drives_live2d_mouth": "passed",
+        "stop_resets_mouth": "passed",
+        "native_hidden_releases_canvas_and_renderer": "passed",
+        "restore_reloads_model": "passed",
+        "webgl_loss_retry_recovers": "passed",
+        "identity_switch_releases_old_live2d": "passed",
+        "identity_asset_selection_survives_reload": "passed",
+        "javascript_runtime": "passed"
+      },
+      "core_observation": {
+        "coreVersion": 83951616,
+        "latestMocVersion": 5,
+        "wrapper": {
+          "pixi": "8.23.0",
+          "wrapper": "1.4.0"
+        }
+      },
+      "moc_header": {
+        "code": 1,
+        "label": "MOC3 header revision 1",
+        "byte_order_flag": 0,
+        "core_verified": false
+      },
+      "framebuffer_observation": {
+        "width": 511,
+        "height": 696,
+        "colored": 49912,
+        "transparent": 305507,
+        "transparentRgbNonzero": 0,
+        "premultiplied": true,
+        "corner": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "cssBackground": "rgba(0, 0, 0, 0)",
+        "error": 0
+      },
+      "javascript_errors": [],
+      "not_tested": [
+        "Windows/RTX4060 performance",
+        "arbitrary Cubism exports",
+        "reference artwork acceptance",
+        "real voice/model quality",
+        "SDK or model publication permission"
+      ]
+    },
+    "Hiyori": {
+      "report": "review/live2d-hiyori-holdout.json",
+      "status": "passed",
+      "checks": {
+        "actual_core_model_preview_without_activation": "passed",
+        "explicit_activation_creates_live2d_webgl_stage": "passed",
+        "real_framebuffer_contains_model_pixels_and_alpha": "passed",
+        "premultiplied_transparent_background_is_valid": "passed",
+        "actual_audio_activity_drives_live2d_mouth": "passed",
+        "stop_resets_mouth": "passed",
+        "native_hidden_releases_canvas_and_renderer": "passed",
+        "restore_reloads_model": "passed",
+        "webgl_loss_retry_recovers": "passed",
+        "identity_switch_releases_old_live2d": "passed",
+        "identity_asset_selection_survives_reload": "passed",
+        "javascript_runtime": "passed"
+      },
+      "core_observation": {
+        "coreVersion": 83951616,
+        "latestMocVersion": 5,
+        "wrapper": {
+          "pixi": "8.23.0",
+          "wrapper": "1.4.0"
+        }
+      },
+      "moc_header": {
+        "code": 3,
+        "label": "MOC3 header revision 3",
+        "byte_order_flag": 0,
+        "core_verified": false
+      },
+      "framebuffer_observation": {
+        "width": 511,
+        "height": 696,
+        "colored": 56402,
+        "transparent": 299085,
+        "transparentRgbNonzero": 0,
+        "premultiplied": true,
+        "corner": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "cssBackground": "rgba(0, 0, 0, 0)",
+        "error": 0
+      },
+      "javascript_errors": [],
+      "not_tested": [
+        "Windows/RTX4060 performance",
+        "arbitrary Cubism exports",
+        "reference artwork acceptance",
+        "real voice/model quality",
+        "SDK or model publication permission"
+      ]
+    }
+  },
+  "visual_observations": [
+    {
+      "model": "Haru",
+      "path": "/workspace/.live2d/evaluation/haru/stage.png",
+      "sha256": "fe232172fde0776c9953e926489497eec57627646c0e314712731de98f33acc0",
+      "inspected_by_supplier": true,
+      "observation": "character visible; warm underlying stage background visible, no white rectangle; consistent with zero-RGB alpha0 framebuffer result",
+      "scope": "private Chromium viewport only; not Windows desktop compositor or artwork acceptance"
+    },
+    {
+      "model": "Hiyori",
+      "path": "/workspace/.live2d/evaluation/hiyori-holdout/stage.png",
+      "sha256": "855024ff6509d37434bad403aaba506e36bf4b465ef6e7ac25dd0a9438975fc9",
+      "inspected_by_supplier": true,
+      "observation": "character visible; warm underlying stage background visible, no white rectangle; consistent with zero-RGB alpha0 framebuffer result",
+      "scope": "private Chromium viewport only; not Windows desktop compositor or artwork acceptance"
+    }
+  ],
+  "hiyori_holdout": {
+    "passed_first_run": true,
+    "renderer_or_importer_tuned_after_hiyori_result": false,
+    "model_design_changed": false,
+    "all_exporters_compatibility_guaranteed": false
+  },
+  "preserved_failure_history": {
+    "location": "/workspace/.live2d/evaluation/before-transparency-fix",
+    "original_failure": "old11 mechanical checks missed alpha0/RGB255 white compositing; stronger red assertion and recording preserved",
+    "resolved": "adapter restores transparent black before every Pixi frame; final alpha0 RGB values zero"
+  }
+}

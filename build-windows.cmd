@@ -1,7 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-echo Building the Windows x64 desktop application locally.
+echo Preparing the Windows x64 desktop from verified binaries, without VS compilation.
 echo Downloads and dependencies stay inside this project's .build folder.
 echo This script does not change system configuration or GitHub billing.
 echo Missing Visual C++ runtime prerequisites are reported, never installed silently.

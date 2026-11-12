@@ -5,12 +5,14 @@ const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
 const { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, expandedBounds } = require('./window-policy.cjs');
+const { backendDirectory, selectRuntimeProfile, saveRuntimeProfile } = require('./runtime-profiles.cjs');
 
 app.setName('虚拟陪伴');
 let window = null, backend = null, tray = null, backendURL = '', quitting = false;
 let expanded = false, clickThrough = false, recoverShortcut = false, recoveryTimer = null;
 let savedCompactBounds = null, microphoneGranted = false;
 let focusHelper = null, focusRestoreAvailable = false;
+let runtimeSelection = { profile:'cpu',fallback:null }, runtimeSession = null;
 const RECOVERY_SHORTCUT = 'CommandOrControl+Shift+Space';
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
 if (app.isPackaged && !args.includes('--smoke-test')) {
@@ -20,7 +22,8 @@ app.enableSandbox();
 const findArg = name => args.find(value => value.startsWith(name + '='))?.slice(name.length + 1);
 const state = () => ({ expanded, clickThrough, recoveryShortcut: recoverShortcut ? RECOVERY_SHORTCUT : null,
   clickThroughTimeoutSeconds: 60, trayAvailable: Boolean(tray), visible: Boolean(window && window.isVisible()),
-  platform: process.platform, focusRestoreAvailable, windowCount: BrowserWindow.getAllWindows().length });
+  platform: process.platform, focusRestoreAvailable, runtimeProfile:runtimeSelection.profile,
+  runtimeFallback:runtimeSelection.fallback, windowCount: BrowserWindow.getAllWindows().length });
 function publishState() { if (window && !window.isDestroyed()) window.webContents.send('companion:desktop-state', state()); }
 function setFocusable(value) {
   // Electron documents this setter for Windows/macOS. Linux uses showInactive.
@@ -97,14 +100,14 @@ async function waitForBackend(url) {
 }
 function backendCommand(port) {
   if (app.isPackaged) {
+    const base = process.platform==='win32'?backendDirectory(process.resourcesPath,runtimeSelection.profile):path.join(process.resourcesPath,'backend');
     const exeName = process.platform === 'win32' ? 'companion-backend.exe' : 'companion-backend';
-    for (const candidate of [path.join(process.resourcesPath, 'backend', exeName),
-      path.join(process.resourcesPath, 'backend', 'companion-backend', exeName)]) {
+    for (const candidate of [path.join(base, exeName),path.join(base, 'companion-backend', exeName)]) {
       if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return [candidate, ['--port', String(port), '--no-browser']];
     }
     if (process.platform === 'win32') {
-      const python = path.join(process.resourcesPath, 'backend', 'python', 'python.exe');
-      const script = path.join(process.resourcesPath, 'backend', 'app', 'server.py');
+      const python = path.join(base, 'python', 'python.exe');
+      const script = path.join(base, 'app', runtimeSelection.profile==='cuda'?'desktop_backend.py':'server.py');
       if ([python, script].every(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile())) {
         return [python, ['-I', '-u', '-X', 'utf8', script, '--port', String(port), '--no-browser']];
       }
@@ -115,8 +118,11 @@ function backendCommand(port) {
 }
 function backendEnvironment() {
   const env = { ...process.env, PYTHONUTF8: '1', PYTHONIOENCODING: 'utf-8',
+    COMPANION_RUNTIME_PROFILE:runtimeSelection.profile,COMPANION_PROFILE_FALLBACK:runtimeSelection.fallback||'',
     COMPANION_DATA: process.env.COMPANION_DATA || path.join(app.getPath('userData'), 'profile-data') };
   if (app.isPackaged) {
+    // Profiles use fixed bundled DLL directories, without global toolkit paths.
+    delete env.CUDA_PATH;delete env.HIP_PATH;
     const roots = [path.dirname(process.execPath), path.join(process.resourcesPath, 'backend'), process.resourcesPath];
     for (const [key, folder] of [['COMPANION_MODELS', 'models'], ['COMPANION_VOICES', 'voices']]) {
       if (env[key]) continue;
@@ -129,6 +135,17 @@ function backendEnvironment() {
 async function startBackend() {
   const attached = findArg('--backend-url');
   if (attached) { backendURL = normalizeBackendURL(attached); await waitForBackend(backendURL); return; }
+  if(app.isPackaged&&process.platform==='win32')runtimeSelection=selectRuntimeProfile(process.resourcesPath);
+  try{await startOwnedBackend();}
+  catch(error){
+    if(runtimeSelection.profile!=='cuda')throw error;
+    stopOwnedBackend();backend=null;backendURL='';
+    runtimeSelection={profile:'cpu',fallback:'CUDA配置启动失败，已退回CPU；请检查驱动和运行库。'};
+    saveRuntimeProfile(process.resourcesPath,'cpu',runtimeSelection.fallback);
+    await startOwnedBackend();
+  }
+}
+async function startOwnedBackend() {
   const [command, commandArgs] = backendCommand(0);
   backend = spawn(command, commandArgs, { cwd: app.isPackaged ? process.resourcesPath : path.join(__dirname, '..'),
     env: backendEnvironment(), stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
@@ -147,6 +164,29 @@ async function startBackend() {
     });
   });
   await waitForBackend(backendURL);
+  if(runtimeSession)fs.writeFileSync(runtimeSession,JSON.stringify({pid:process.pid,backend_origin:backendURL})+'\n',{mode:0o600});
+}
+function stopOwnedBackend(){
+  if(!backend||backend.exitCode!==null)return;
+  const child=backend;
+  if(process.platform==='win32'&&child.pid){
+    const taskkill=path.join(process.env.SystemRoot||'C:\\Windows','System32','taskkill.exe');
+    spawnSync(taskkill,['/PID',String(child.pid),'/T','/F'],{windowsHide:true,stdio:'ignore',timeout:2500});
+  }
+  child.kill('SIGTERM');
+  const timer=setTimeout(()=>{if(child.exitCode===null)child.kill('SIGKILL');},2000);timer.unref();
+}
+function claimRuntimeSession(){
+  if(!app.isPackaged||process.platform!=='win32')return;
+  runtimeSession=path.join(process.resourcesPath,'runtime-session.json');
+  if(fs.existsSync(runtimeSession)){
+    if(fs.statSync(runtimeSession).size>4096)throw new Error('运行时锁文件损坏，请在程序关闭后检查。');
+    const prior=JSON.parse(fs.readFileSync(runtimeSession,'utf8'));
+    if(Number.isSafeInteger(prior.pid)&&prior.pid>0){try{process.kill(prior.pid,0);throw new Error('运行时仍在使用中；请先退出已打开的程序。');}catch(error){if(error.code!=='ESRCH')throw error;}}
+    fs.unlinkSync(runtimeSession);
+  }
+  const fd=fs.openSync(runtimeSession,'wx',0o600);
+  try{fs.writeFileSync(fd,JSON.stringify({pid:process.pid})+'\n');}finally{fs.closeSync(fd);}
 }
 
 function makeTray() {
@@ -209,18 +249,8 @@ function cleanup() {
   if (quitting) return; quitting = true;
   stopClickThrough(); globalShortcut.unregisterAll(); tray?.destroy(); tray = null;
   focusHelper?.stdin.end();
-  if (backend && backend.exitCode === null) {
-    const child = backend;
-    // Windows kill() alone can leave a PyInstaller bootloader descendant alive.
-    // Only our owned process identifier is accepted; no renderer command is used.
-    if (process.platform === 'win32' && child.pid) {
-      const taskkill = path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'taskkill.exe');
-      spawnSync(taskkill, ['/PID', String(child.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore', timeout: 2500 });
-    }
-    child.kill('SIGTERM');
-    const killTimer = setTimeout(() => { if (child.exitCode === null) child.kill('SIGKILL'); }, 2000);
-    killTimer.unref();
-  }
+  stopOwnedBackend();
+  if(runtimeSession){try{if(JSON.parse(fs.readFileSync(runtimeSession,'utf8')).pid===process.pid)fs.unlinkSync(runtimeSession);}catch{}}
 }
 if (!app.requestSingleInstanceLock()) app.quit();
 else {
@@ -229,9 +259,13 @@ else {
   app.whenReady().then(async () => {
     try {
       if (args.includes('--smoke-test')) app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
-      installIPC(); await startBackend(); await createWindow();
+      installIPC(); claimRuntimeSession(); await startBackend(); await createWindow();
       recoverShortcut = globalShortcut.register(RECOVERY_SHORTCUT, restore);
       makeTray(); publishState();
-    } catch (error) { console.error('Desktop startup failed:', error.message); cleanup(); app.exit(1); }
+    } catch (error) {
+      console.error('Desktop startup failed:', error.message);
+      if(app.isPackaged&&!args.includes('--smoke-test'))dialog.showErrorBox('本机程序未能启动',error.message+'\n请确认已完整解压。缺少MSVCP140/VCOMP140时请查看微软官方VC++ x64运行库说明；程序不会自行修改系统运行库。');
+      cleanup(); app.exit(1);
+    }
   });
 }

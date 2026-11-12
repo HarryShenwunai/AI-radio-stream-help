@@ -1,9 +1,9 @@
 """Assemble official Windows Python and Windows wheels on any build host.
 
-This does not compile or execute Windows code. Misaki 0.9.4 declares Python
-<3.13; including it on this interpreter requires an explicit compatibility-
-experiment flag and is recorded as unsupported by upstream, without changing
-its metadata. Wine testing is a separate, non-native validation step.
+This does not compile or execute Windows code. The default is maintained Astral
+CPython 3.12, within the pinned packages' declared compatibility. The previous
+python.org 3.13 experiment remains explicit and is never the default. CPU/CUDA
+are separate runtime profiles; native Windows validation remains necessary.
 """
 from __future__ import annotations
 
@@ -50,6 +50,35 @@ ENV.update({"python_version": "3.13", "python_full_version": PYTHON_VERSION,
 TAGS = list(cpython_tags(PYTHON_MINOR, abis=["cp313"], platforms=["win_amd64"]))
 TAGS += list(compatible_tags(PYTHON_MINOR, interpreter="cp313", platforms=["win_amd64"]))
 RANK = {tag: index for index, tag in enumerate(TAGS)}
+PYTHON_DISTRIBUTION = {}
+COMPUTE_PROFILE = "cpu"
+
+
+def configure_runtime(python_profile: str, compute_profile: str) -> None:
+    global PYTHON_VERSION, PYTHON_MINOR, PYTHON_URL, PYTHON_SHA256, PYTHON_DISTRIBUTION, COMPUTE_PROFILE
+    global LLAMA_URL, LLAMA_SHA256, TAGS, RANK
+    tools = json.loads((ROOT / "scripts/windows-build-tools.json").read_text())
+    if python_profile == "standalone312":
+        PYTHON_DISTRIBUTION = tools["python_standalone"]
+        PYTHON_VERSION = PYTHON_DISTRIBUTION["version"]
+        PYTHON_MINOR = tuple(PYTHON_DISTRIBUTION["minor"])
+        PYTHON_URL = PYTHON_DISTRIBUTION["url"]
+        PYTHON_SHA256 = PYTHON_DISTRIBUTION["sha256"]
+    else:
+        PYTHON_VERSION, PYTHON_MINOR = "3.13.17", (3, 13)
+        PYTHON_URL = "https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip"
+        PYTHON_SHA256 = "9e35319bffedab8b36ad44d8f377cb4f1733bcec257a0b6d04d94f01486ddb38"
+        PYTHON_DISTRIBUTION = {"format": "embedded-zip", "distributor": "python.org",
+                              "provenance": "https://www.python.org/downloads/release/python-31317/",
+                              "note": "Explicit legacy 3.13 compatibility experiment, not the default release"}
+    COMPUTE_PROFILE = compute_profile
+    wheel = tools["llama_cuda_wheel" if compute_profile == "cuda" else "llama_cpu_wheel"]
+    LLAMA_URL, LLAMA_SHA256 = wheel["url"], wheel["sha256"]
+    version = ".".join(map(str, PYTHON_MINOR)); interpreter = "cp" + "".join(map(str, PYTHON_MINOR))
+    ENV.update({"python_version": version, "python_full_version": PYTHON_VERSION, "implementation_version": PYTHON_VERSION})
+    TAGS = list(cpython_tags(PYTHON_MINOR, abis=[interpreter], platforms=["win_amd64"]))
+    TAGS += list(compatible_tags(PYTHON_MINOR, interpreter=interpreter, platforms=["win_amd64"]))
+    RANK = {tag: index for index, tag in enumerate(TAGS)}
 
 
 def sha256(path: Path) -> str:
@@ -70,10 +99,16 @@ def download(url: str, expected: str, cache: Path) -> Path:
     # URL path is official metadata, but still cannot select an arbitrary cache path.
     if not re.fullmatch(r"[A-Za-z0-9_.+%-]+", name):
         raise ValueError("unsafe download filename")
-    target = cache / name
+    bucket = cache / expected[:16]
+    bucket.mkdir(parents=True, exist_ok=True)
+    target = bucket / name
+    legacy = cache / name
+    if not target.exists() and legacy.is_file() and sha256(legacy) == expected:
+        shutil.copy2(legacy, target)
     if target.is_file() and sha256(target) == expected:
         return target
-    part = target.with_suffix(target.suffix + ".part")
+    handle, temporary = tempfile.mkstemp(prefix=".download-", suffix=".part", dir=bucket)
+    os.close(handle); part = Path(temporary)
     last_error = None
     for attempt in range(3):
         try:
@@ -125,7 +160,7 @@ def choose(name: str, specifier: SpecifierSet, allow_experiment: bool) -> dict:
         files = [item for item in metadata["urls"] if not item.get("yanked")]
         if name == "llama-cpp-python" and str(version) == "0.3.36":
             selected = {"filename": LLAMA_URL.rsplit("/", 1)[-1], "url": LLAMA_URL,
-                        "sha256": LLAMA_SHA256, "source": "official GitHub CPU release"}
+                        "sha256": LLAMA_SHA256, "source": "official GitHub " + COMPUTE_PROFILE + " release"}
         else:
             candidates = [(wheel_rank(item["filename"]), item) for item in files if item["filename"].endswith(".whl")]
             candidates = [(rank, item) for rank, item in candidates if rank is not None]
@@ -145,13 +180,30 @@ def choose(name: str, specifier: SpecifierSet, allow_experiment: bool) -> dict:
 
 
 def resolve(allow_experiment: bool) -> list[dict]:
-    if not allow_experiment:
+    if PYTHON_MINOR >= (3, 13) and not allow_experiment:
         raise RuntimeError("Misaki 0.9.4 declares Python<3.13; use --allow-misaki-313-experiment only for explicit compatibility testing")
     constraints: dict[str, list[str]] = {}
     extras: dict[str, set[str]] = {}
     selected: dict[str, dict] = {}
     expanded: dict[str, tuple] = {}
     pending = [Requirement(value) for value in ROOT_REQUIREMENTS]
+    if COMPUTE_PROFILE == 'cuda':
+        pending += [Requirement('nvidia-cuda-runtime-cu12==12.4.127'), Requirement('nvidia-cublas-cu12==12.4.5.8')]
+    def read_requirements(path: Path, seen: set[Path]) -> list[Requirement]:
+        path = path.resolve()
+        if not path.is_relative_to(ROOT) or path in seen: raise ValueError("Invalid recursive project requirements")
+        seen.add(path); result = []
+        for line in path.read_text().splitlines():
+            line = line.split(" #",1)[0].strip()
+            if not line or line.startswith("#"): continue
+            if line.startswith("-r "): result.extend(read_requirements(path.parent / line[3:].strip(), seen))
+            elif line.startswith("-"): raise ValueError("Unsupported requirements option")
+            else: result.append(Requirement(line))
+        return result
+    connector_requirements = ROOT / "app/requirements-connectors.txt"
+    if not connector_requirements.exists(): connector_requirements = ROOT / "src/companion_runtime/connectors/requirements.txt"
+    for requirements in [ROOT / "app/requirements-voice.txt", connector_requirements]:
+        if requirements.exists(): pending.extend(read_requirements(requirements,set()))
     while pending:
         req = pending.pop(0)
         name = canonicalize_name(req.name)
@@ -215,9 +267,31 @@ def build_jieba(source: Path, cache: Path) -> Path:
             raise RuntimeError("jieba source unexpectedly declares extension modules")
     output = cache / "pure-wheels"
     output.mkdir(exist_ok=True)
-    subprocess.run([sys.executable, "-m", "pip", "wheel", "--no-deps", "--no-build-isolation", "--no-index", "--wheel-dir", str(output), str(source)], check=True)
+    if list(output.glob("jieba-0.42.1-*-none-any.whl")): return next(output.glob("jieba-0.42.1-*-none-any.whl"))
+    subprocess.run([sys.executable, "-m", "pip", "wheel", "--no-cache-dir", "--no-deps", "--no-build-isolation", "--no-index", "--wheel-dir", str(output), str(source)], check=True,
+                   env={**os.environ,"PIP_CACHE_DIR":str(cache / "pip-cache")})
     built = next(output.glob("jieba-0.42.1-*-none-any.whl"))
     return built
+
+
+def unpack_python(path: Path, destination: Path) -> None:
+    if PYTHON_DISTRIBUTION["format"] == "embedded-zip":
+        unpack_archive(path, destination)
+        return
+    total = 0
+    with tarfile.open(path, "r:gz") as archive:
+        for entry in archive:
+            parts = PurePosixPath(entry.name).parts
+            if not parts or parts[0] != "python": raise ValueError("Unexpected standalone Python root")
+            if entry.isdir(): continue
+            if not entry.isfile(): raise ValueError("Standalone Python archive contains links or special files")
+            relative = "/".join(parts[1:])
+            target = member_target(relative, destination)
+            total += entry.size
+            if total > 1024 * 1024 * 1024: raise ValueError("Standalone interpreter exceeds extraction budget")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with archive.extractfile(entry) as source, target.open("wb") as output:
+                shutil.copyfileobj(source, output)
 
 
 def inspect_windows_binaries(site: Path) -> list[dict]:
@@ -241,6 +315,7 @@ def inspect_windows_binaries(site: Path) -> list[dict]:
 
 def copy_sources(output: Path) -> None:
     (output / "app").mkdir(exist_ok=True)
+    shutil.copy2(ROOT/'desktop/desktop_backend.py',output/'app/desktop_backend.py')
     for name in ["server.py", "models-manifest.json", "model-sources.json", "LICENSE", "ATTRIBUTIONS.md"]:
         source = ROOT / "app" / name
         if source.exists():
@@ -251,19 +326,57 @@ def copy_sources(output: Path) -> None:
         shutil.copytree(ROOT / "app/licenses", output / "app/licenses", dirs_exist_ok=True)
 
 
+def write_profile_manifest(output: Path, profile: str) -> None:
+    source_files = sorted([p for folder in [output/'app',output/'src'] for p in folder.rglob('*')
+                           if p.is_file() and p.suffix in {'.py','.js','.css','.html','.json','.svg'} and '__pycache__' not in p.parts])
+    source_records = {p.relative_to(output).as_posix():sha256(p) for p in source_files}
+    source_id = hashlib.sha256(json.dumps(source_records,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    critical = [output/'python/python.exe',output/'python/sitecustomize.py',*sorted((output/'python').glob('python3*.dll'))]
+    critical += [p for p in (output/'python/Lib/site-packages/llama_cpp').rglob('*') if p.suffix.lower() in {'.dll','.pyd'}]
+    critical += [p for p in (output/'python/Lib/site-packages/nvidia').rglob('*.dll')]
+    critical += [output/'app/server.py']
+    manifest = {'schema_version':1,'profile':profile,'python_version':PYTHON_VERSION,'source_id':source_id,
+                'source_files':source_records,'critical_files':{p.relative_to(output).as_posix():sha256(p) for p in critical if p.is_file()},
+                'native_windows_verified':False,'gpu_offload_confirmed':False}
+    (output/'runtime-profile-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+
+
+def write_runtime_sitecustomize(output: Path) -> None:
+    # Only this interpreter process is affected, never the system environment.
+    code = '''import os
+from pathlib import Path
+_companion_dll_handles=[]
+if os.name=="nt":
+    os.environ.pop("CUDA_PATH",None)
+    os.environ.pop("HIP_PATH",None)
+    _companion_dll_paths=[]
+    for relative in ("Lib/site-packages/nvidia/cuda_runtime/bin","Lib/site-packages/nvidia/cublas/bin"):
+        directory=Path(__file__).resolve().parent/relative
+        if directory.is_dir():
+            _companion_dll_handles.append(os.add_dll_directory(str(directory)))
+            _companion_dll_paths.append(str(directory))
+    if _companion_dll_paths:os.environ["PATH"]=os.pathsep.join(_companion_dll_paths+[os.environ.get("PATH","")])
+'''
+    (output/'python/sitecustomize.py').write_text(code,encoding='utf-8')
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / ".build/windows-embedded-backend")
     parser.add_argument("--cache", type=Path, default=ROOT / ".cache/windows-embedded")
     parser.add_argument("--allow-misaki-313-experiment", action="store_true")
+    parser.add_argument("--python-profile", choices=["standalone312", "embedded313"], default="standalone312")
+    parser.add_argument("--profile", choices=["cpu", "cuda"], default="cpu")
     parser.add_argument("--lock", type=Path, help="Reuse URLs, versions and hashes from a previously generated manifest")
     args = parser.parse_args()
+    configure_runtime(args.python_profile, args.profile)
     args.cache.mkdir(parents=True, exist_ok=True)
     if args.lock:
         lock = json.loads(args.lock.read_text())
         packages = lock["packages"]
         if lock["python"]["version"] != PYTHON_VERSION or lock["python"]["sha256"] != PYTHON_SHA256:
             raise ValueError("lock uses another Python runtime")
+        if lock.get("compute_profile", "cpu") != COMPUTE_PROFILE: raise ValueError("lock uses another compute profile")
         if any(p.get("compatibility_experiment") for p in packages) and not args.allow_misaki_313_experiment:
             raise RuntimeError("lock contains explicit compatibility experiment")
     else:
@@ -278,9 +391,13 @@ def main() -> None:
     try:
         python = staging / "python"
         python.mkdir()
-        unpack_archive(paths[0], python)
+        unpack_python(paths[0], python)
         site = python / "Lib/site-packages"
-        site.mkdir(parents=True)
+        site.mkdir(parents=True, exist_ok=True)
+        # This is a ready-to-run runtime, not a build environment. The upstream
+        # distribution's pip contains x86/ARM launcher templates we never use.
+        for unused in [site / "pip", *site.glob("pip-*.dist-info")]:
+            if unused.exists(): shutil.rmtree(unused)
         for record, path in zip(packages, paths[1:]):
             if path.name.endswith(".tar.gz"):
                 path = build_jieba(path, args.cache)
@@ -288,8 +405,11 @@ def main() -> None:
             if wheel_rank(path.name) is None:
                 raise RuntimeError("wheel has incompatible target tags: " + path.name)
             unpack_archive(path, site, wheel=True)
-        (python / "python313._pth").write_text("python313.zip\n.\nLib/site-packages\n../app\n../src\nimport site\n", encoding="utf-8")
+        standard = "Lib\nDLLs\n" if PYTHON_DISTRIBUTION["format"] == "standalone-tar" else "python313.zip\n"
+        (python / ("python" + "".join(map(str, PYTHON_MINOR)) + "._pth")).write_text(standard + ".\nLib/site-packages\n../app\n../src\nimport site\n", encoding="utf-8")
         copy_sources(staging)
+        write_runtime_sitecustomize(staging)
+        write_profile_manifest(staging,COMPUTE_PROFILE)
         subprocess.run([sys.executable, str(ROOT / "scripts/collect_dependency_licenses.py"),
                         "--output", str(staging / "licenses/distributions"),
                         "--site-packages", str(site)], check=True)
@@ -297,9 +417,11 @@ def main() -> None:
         manifest = {"built_at": datetime.now(timezone.utc).isoformat(), "build_host": sys.platform,
                     "target": "Windows 10/11 x64", "assembly_only": True,
                     "native_windows_runtime_verified": False, "wine_runtime_verified": False,
+                    "compute_profile": COMPUTE_PROFILE,
+                    "default_settings": {"local_compute": "cpu", "local_gpu_layers": 20, "local_context": 4096},
                     "python": {"version": PYTHON_VERSION, "url": PYTHON_URL, "sha256": PYTHON_SHA256,
-                               "provenance": "https://www.python.org/downloads/release/python-31317/",
-                               "note": "Latest official binary in 3.13 series; 3.13.18 is source-only security release"},
+                               "provenance": PYTHON_DISTRIBUTION["provenance"], "distributor": PYTHON_DISTRIBUTION["distributor"],
+                               "note": PYTHON_DISTRIBUTION["note"]},
                     "packages": packages, "windows_pe_binaries": binaries,
                     "runtime_prerequisites": [{"name": "Microsoft Visual C++ x64 runtime",
                         "required_dlls": ["MSVCP140.dll", "MSVCP140_1.dll", "VCOMP140.dll"],
@@ -307,9 +429,12 @@ def main() -> None:
                         "official_documentation": "https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170",
                         "official_download_entry": "https://aka.ms/vc14/vc_redist.x64.exe",
                         "evidence": "Static PE imports of official llama/ONNX Runtime/eSpeak wheels; architecture checks do not establish DLL availability"}],
-                    "compatibility_notes": ["Misaki metadata remains original and declares Python<3.13; inclusion is an explicit unverified compatibility experiment", "No model weights downloaded or copied by this builder", "No Linux native modules are permitted in target", "Use Python -I -u -X utf8; _pth includes only bundled app/source/site paths", "App model/voice paths must be explicitly set to resources/backend/models and voices", "VC++ x64 runtime availability on a fresh Windows host must be checked separately; Wine builtins do not establish it"]}
+                    "compatibility_notes": ["Misaki metadata is original; 3.12 target satisfies its declared Python range" if PYTHON_MINOR == (3,12) else "Explicit unverified Misaki/Python3.13 experiment", "No model weights downloaded or copied by this builder", "No Linux native modules are permitted in target", "Use Python -I -u -X utf8; _pth includes only bundled app/source/site paths", "App model/voice paths must be explicitly set to resources/backend/models and voices", "VC++ x64 runtime availability on a fresh Windows host must be checked separately; no global runtime or driver is installed", "CUDA profile is capability packaging only, never proof of active model offload"]}
         (staging / "embedded-runtime-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-        (staging / "BUILD-STATUS.txt").write_text("Windows x64 files assembled on Linux. Native execution NOT VERIFIED.\nMisaki on Python 3.13 is an upstream-declared-unsupported compatibility experiment.\nMicrosoft VC++ x64 runtime DLLs (MSVCP140, MSVCP140_1, VCOMP140) are prerequisites and are not bundled. Fresh Windows runtime verification is outstanding.\nSee manifest and separate runtime validation evidence.\n")
+        status = "Windows x64 files assembled on " + sys.platform + ". Native execution NOT VERIFIED.\n"
+        status += "Maintained CPython3.12 distribution; pinned packages declare this Python version supported.\n" if PYTHON_MINOR == (3,12) else "Explicit upstream-unsupported Misaki/Python3.13 compatibility experiment.\n"
+        status += "Compute profile: " + COMPUTE_PROFILE + "; configured default remains CPU until explicitly changed.\nMicrosoft VC++ x64 runtime prerequisites are not installed globally by this builder. Fresh Windows import/offload verification remains outstanding.\nSee manifest and separate runtime validation evidence.\n"
+        (staging / "BUILD-STATUS.txt").write_text(status)
         staging.rename(args.output)
         print(json.dumps({"output": str(args.output), "packages": len(packages), "windows_pe_binaries": len(binaries), "native_windows_runtime_verified": False}, ensure_ascii=False), flush=True)
     finally:

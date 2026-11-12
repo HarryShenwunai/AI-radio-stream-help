@@ -1,11 +1,11 @@
 {
-  "observed_at": "2026-11-12T14:02:40.334874+00:00",
+  "observed_at": "2026-11-12T16:35:40.521537+00:00",
   "scope": "local regression, character catalog/assets, isolated HTTP and protocol checks",
-  "tests_run": 191,
+  "tests_run": 417,
   "failures": [],
   "errors": [],
   "skipped": [],
-  "elapsed_seconds": 23.817,
+  "elapsed_seconds": 66.108,
   "passed": true,
   "upstream_or_platform_tests_executed": 0,
   "does_not_verify": [

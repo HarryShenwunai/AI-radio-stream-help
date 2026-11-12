@@ -1,71 +1,54 @@
-# 执行看板：自助PNG角色实现批次
+# 执行看板：动态角色与本地陪伴集成
 
-更新：2026-11-12，Europe/London。用户已明确开始做软件；画师委托不作为开发前置。目标是Windows 10/11上的二次元桌面陪伴，角色由用户自行导入与配置。项目仍未命名。
+更新：2026-11-12 UTC。版本暂为 **0.4.0-dev1**，以最终包清单为准。目标是 Windows 10/11 上可自行上传角色的二次元桌面陪伴；角色、关系连续性和自然互动优先，督学可选。用户已自报 RTX4060/32GB，具体 CPU、显存、驱动与实测未知。
 
-## 本批已经完成
+## 当前状态
 
-| 范围 | 实现/交付 | 当前证据 |
+| 工作流 | 当前状态 | 证据/负责人 |
 | --- | --- | --- |
-| 独立角色 | 创建、切换、归档、恢复、删除；每个身份独立SQLite | catalog24项模块测试及角色HTTP测试 |
-| 外观导入 | 单张或四状态PNG、真实解码/规范化、隔离预览、明确启用 | assets24项模块测试；实际文件选择器上传与渲染 |
-| 可逆外观 | 保存修订、重新使用旧版、删除非当前修订 | 实际Chrome回退与Linux原生后端检查 |
-| 关系隔离 | 聊天、性格、记忆、约定分库；换同身份外观保留数据 | 合成canary隔离、迁移/WAL与故障回滚 |
-| 共享模型连接 | 提供方配置与密钥一致性保护，切换不恢复旧连接 | 本机替身提供方与错误/过期请求测试 |
-| 媒体与界面 | 旧身份/外观输出失效、单音频拥有者、说话状态与停止复位 | Node竞态、Chrome真实HTMLAudio测试音 |
-| Linux编译后端 | 实际PNG/身份操作、重启、本地LLM/TTS与取消 | character-native-check.json的6项检查 |
-| 桌面壳 | 单窗口常驻/展开、透明、穿透/恢复、焦点控制 | 源码与Linux X11测试；不代表Windows验证 |
+| 身份与关系 | 独立 SQLite、同身份换皮、归档/恢复/删除、迁移和记忆控制已实现 | 历史 PNG 子集报告与新增 HTTP；root、QA |
+| PNG/VRM | 四状态自然眨眼；VRM 0/1 自包含导入、本地 WebGL、RMS 口型、隐藏释放/回退已实现并有 Chrome 证据 | review/vrm-browser-check.json；assets、frontend、QA |
+| Live2D | ZIP 及资源检查、可选运行时安装、真实 Core 初始化；Haru/Hiyori 各12项真实 Chrome 通过，含预乘透明、口型、隐藏/恢复与回退；只代表这两模型本机评估 | review/live2d-browser-check.json、review/live2d-hiyori-holdout.json；docs/implementation/live2d-local-evaluation.json；catalog、frontend、QA |
+| 本地语音 | tiny CPU 真转写 HTTP、只填草稿、不暗用在线识别；Kokoro 与可配置 GPT-SoVITS | review/asr-http-real-check.json、review/voice-module-check.json；voice、frontend |
+| 对话质量 | 原有人设/短期上下文/相关记忆，反无关记忆与未确认经历检查；真实模型单轮冒烟 | review/conversation-real-smoke.json；voice、root；人工质量尚未接受 |
+| 未听内容 | 已有生成失效与晚到拒绝；播放回执、历史TTS、ABA/stale-stop与保守未听尾上下文已完成本机验证 | review/playback-browser-check.json 7项真实Chrome；HTTP/Node回归；root、frontend、QA |
+| 平台控制 | 微信私聊绑定/审批/暂停、Bili 官方 Open Live 输入与本机预览；Chrome 控制面板已检查，未连接真实账号 | review/connectors-browser.json；catalog、root、voice |
+| Windows 便携包 | 随包 3.12、预编译 CPU/CUDA profile、固定依赖/模型复用、诊断和切换脚本已准备；最终源码同步与整包校验进行中 | docs/implementation/windows-portable-runtime.md；desktop、QA |
 
-应用开发版本为0.4.0-dev1。当前支持静态PNG状态，不支持Live2D、VRM、PSD自动绑定或其他软件专用角色文件。测试素材是合成图形，不是已选定的最终二次元角色美术。
+已收到的选择：微信接受 ClawBot + 音频文件，原生语音条降为可选；Bili 用当前官方路线，用户有可管理房间但尚无本机凭据；Live2D 仅本机开发评估条款已经明确同意，不重复征求这项同意，不将其扩大为发布许可。
 
-## 验证记录
+## 发布前剩余任务与依赖
 
-| 检查 | 结果 | 能证明的范围 |
+| 优先级 | 动作与负责人 | 前置与完成标准 |
 | --- | --- | --- |
-| [综合Python回归](../../review/character-regression.json) | 191项通过 | 真实SQLite/PNG与本机HTTP及既有协议回归；模型/音频部分用替身 |
-| [独立实现审查](../../review/character-implementation-review.json) | PNG范围验证通过，有限制 | 独立模块/HTTP测试和缺陷修复，不是完整产品验收 |
-| Node角色竞态/语音回归 | 18项+8项通过 | 实际发货JS，受控浏览器原语 |
-| [Chrome](../../review/character-browser.json) | 15项通过 | 实际上传、PNG、界面和HTMLAudio；LLM/TTS替身，允许autoplay |
-| [Linux原生后端](../../review/character-native-check.json) | 6项通过 | 编译程序与实际Qwen/Kokoro，单轮合成输入 |
-| [Linux窗口探测](../../desktop/test-results/native-window-probe.json) | 9项通过 | X11/xfwm4下实际透明、指针命中/穿透与焦点；合成页面 |
-| [Linux整包端到端](../../desktop/test-results/bundled-app-smoke.json) | 14项通过 | Electron实际应用页与内嵌后端、PNG、隐藏/恢复；不代表Windows或模型质量 |
-| Windows CI与真机 | 待验 | Windows构建、打包、干净机器启动和桌面行为须分别取证 |
+| P0 | QA 将已通过的 R08 纳入冻结全量 | 本机端到端已过；冻结后保留历史TTS、ABA、迟到/重复/过期回执回归；不把机械回执当真人已听见，Windows多轮另验 |
+| P0 | QA 保留已通过 Live2D 双模型回归 | Haru/Hiyori 本机已过；冻结后检查同一 runtime/source ID，保留透明红测与修复记录，不扩大为全 Cubism/Windows兼容或发布许可 |
+| P0 | desktop/root 同步最终源码并冻结交付清单 | 所有源码冻结后；CPU/CUDA 两 profile 源码 ID、关键文件哈希、模型及 ASR 清单一致，压缩包校验，许可与运行说明同行 |
+| P0 | QA 复跑冻结后的本机回归 | 上述改动落盘；新失败修正后复测受影响范围；台账区分受控、本机 HTTP、Chrome 与目标机器，不提前固定总数 |
+| P1 | 用户/desktop 在 Windows 实机启动及恢复 | 完整解压、VC/驱动前置提示可执行；记录 Windows 版本/CPU/显存/驱动，CPU 聊天/TTS/麦克风、退出清理、重启持久化、穿透/恢复；CUDA 实际 offload 另有证据 |
+| P1 | 用户/QA 验证合法账号互通 | 用户在本机填 Open Live 凭据、ClawBot/测试私聊；开始前明确发送对象/内容与影响；验证输入、断线重连、暂停与文字/音频文件送达，不把适配器交接当送达 |
+| P1 | 用户/QA 评估声音/角色与关系 | 确定有权使用的目标素材和声音；在记忆开/关、普通聊天/工具场景比较，确认自然度、角色一致性及视觉表现 |
 
-前一批115项Python、8项Node与12项Chrome报告保留为历史；本批以character系列记录为准。此前一次回归受默认沙箱socket限制未完成，后在获准环境重跑185项通过；失败记录不能作为通过证据。
+## 工程与有限形式化门禁
 
-原28项多格式导入规格仍是计划基线。当前PNG子集已有实际测试，但完整规格尚未逐项映射验收，尤其不能替Live2D/VRM标为通过。
+`python scripts/quality_gate.py --full` 已实现关键 Ruff、4模块 strict mypy、6架构规则和违规夹具、Python/Node；冻结全量8步已过：Python417项零跳过、桌面Python9、前端Node76、桌面Node7；最后取证脚本另有默认复测，详见[工具说明](../implementation/engineering-gates.md)及[报告](../../review/quality-gate.json)。[TLA+/TLC有限模型](../../review/formal-model-check.json)与[实际实现边界探索](../../review/formal-implementation-check.json)有真实结果，仍只覆盖定义的有限安全边界，不证明全程序、活性、硬件或人类听感。
 
-## 已修正的问题
+## 接下来七天的条件行动
 
-- 本地blob图片预览被CSP拒绝：只给图片源增加blob许可，脚本限制保留。
-- 外观操作完成后按钮仍被busy状态锁住：状态结束后刷新控件，真实Chrome验证回退。
-- 旧版名字超过新目录限制：只规范化迁移副本的显示名，旧源数据库保留。
-- 全局密钥与角色各自旧提供方可能错配：共享连接配置、凭证一致性与过期快照拒绝，错误场景不发出请求。
+这是行动优先级，不是七天内全部交付承诺。Day 1–2 将已通过的 R08/Live2D 纳入全量门禁，完成交付同步，产出冻结源码及对应真实报告；Day 3 做 Windows 启动/硬件诊断，若无法获得真机则保留阻断并继续本机恢复测试；Day 4–5 在用户已授权的测试账号和房间做最小互通，缺凭据时不模拟成成功；Day 6 测目标机 30 分钟完整进程树 RSS/VRAM、帧时间、CPU/GPU占用及后台开销；Day 7 汇总对话/语音/视觉体验和失败清单，更新验收台账。具体日程受真机、凭据和合法资产可用性约束。
 
-## 发布阶段门
+资源与质量候选值要在同资产、同窗口尺寸和同推理配置下冻结后评估；小窗 30fps/展开 60fps 仍是候选目标，尚无 RTX4060 证据。单次 Linux 推理/合成语音冒烟不是 p95 或人类自然度结论。Win CUDA 模型推理与 ASR CUDA 是不同能力；当前包 ASR 默认 CPU，不含 cuDNN9。
 
-| 阶段 | 当前状态/下一动作 |
+## 外部阻断与恢复
+
+| 阻断 | 影响与处理 |
 | --- | --- |
-| 自助PNG路径 | 已实现并有本机证据；继续保留真实错误/资源限制提示 |
-| 角色隔离与迁移 | 本机路径通过；Windows权限、异常退出与数据恢复仍需目标平台验证 |
-| Linux运行基线 | 编译后端6项、实际整包14项和X11窗口9项分别通过，证据范围分开 |
-| Windows 10/11 | 先通过Windows CI构建与打包，再验证干净环境启动、导入/重启和窗口行为；当前不宣称已有已验收Windows安装包 |
-| 模型质量 | 尚未人工接受；真实生成成功不能当自然度或长期关系达标 |
-| Live2D | 未实现；仍需固定SDK/合法样本、参数映射、兼容与发布许可确认 |
+| 无目标 Windows 实机证据 | 不能宣布目标平台验收。可先交候选和本机诊断脚本，由用户机器产生报告；缺 VC/驱动仅提示官方入口，不静默安装 |
+| 无本机平台凭据/真实私聊验收 | 平台模块与 UI 测试继续有效，真实账号、送达和重连保持待验；默认不登录、不发送 |
+| Live2D 公开分发许可未确认 | 本机评估继续；默认源码/常规包不带 vendor Core/Framework，不公开发布这些组件或样例 |
+| 目标美术/合法声音未验收 | 功能可测试，参考画质/声音质量不判通过；不替用户购买/委托或下载无授权角色 |
+| 历史 GitHub Actions 计费锁定 | 无 runner 的旧任务不算编译失败；使用独立便携组装/本机构建，不改计费 |
 
-下一批优先完成Windows构建与实际验证、整包启动/退出及数据持久化，随后处理用户可接受的模型表现与Live2D路径。资源验收需测完整进程树、导入/切换p50/p95、后台CPU/GPU和能耗；目前没有目标Windows机器数据。
+用户数据/密钥不进入 Git、交付包或自动上传报告。换外观保留修订；错误预览不激活；换身份/停止取消旧生成；完整备份在退出应用后复制数据目录。新增模块失败优先回退到已知可用格式、CPU 或本机文字预览。
 
-## 保留的范围与控制点
-
-当前首个可用格式是用户上传PNG；示例不构成固定角色库。角色、外观、关系和模型连接的边界分别保留。
-
-B站/弹幕姬、Zerolan真实提供方互通、OBS、微信、AR、MC与云分享仍未完成。账号连接、公开播出、游戏动作和购买不自动执行。旧研究与预算文件保留作追踪，本看板不重新展开估算。
-
-运行方式见[应用说明](../../app/README.md)，本批状态见[交付记录](../implementation/character-release.md)，完整自助角色范围见[计划](self-service-characters-plan.md)。
-
-## Windows 本地构建与新增视觉标准
-
-GitHub run43229621691 因账户计费锁定未获得runner，实际Windows编译和测试均为0；不是程序编译失败。用户已选择使用自己的Windows电脑本地构建。交付入口为仓库根 `build-windows.cmd`，完整操作与生成证据见[说明](../implementation/windows-local-build.md)。不得修改计费或把尚未运行的本地脚本标成Windows通过。
-
-另有Windows PE嵌入式候选目录，仅在Wine兼容层通过Python/SQLite/Pillow、PNG、身份隔离与重启4项；NumPy导入遇Wine未实现ucrtbase.crealf，模型/TTS未通过。该候选使用上游声明不支持Python3.13的Misaki兼容实验，不作为已验收离线成品交付。
-
-用户新参考图确定了[视觉质量方向](../design/visual-quality-target.md)：自然比例、细致发丝和柔和光照；保持自助角色。设备已自报RTX4060/32GB，尚无程序探测或实测；CPU、显存与实际动态资产未知。后续优先验证3D光照/材质样例，当前PNG导入功能不能替代该画质门。
+详细当前边界见[交付状态](../implementation/completion-release.md)，实际验收以[台账](../../review/completion-status.json)为准。旧计划和旧 PNG 报告保留历史用途，不重新累加旧估算或把源码实现当成目标平台通过。

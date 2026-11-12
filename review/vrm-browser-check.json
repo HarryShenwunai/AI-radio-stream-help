@@ -1,0 +1,68 @@
+{
+  "scope": "actual local HTTP, real Chromium/WebGL; original synthetic VRM0/1, fake LLM/TTS with actual440Hz WAV playback",
+  "status": "passed",
+  "checks": {
+    "vrm1_real_file_preview_does_not_activate": "passed",
+    "explicit_activation_creates_real_webgl_stage": "passed",
+    "gpu_framebuffer_contains_model_pixels_and_transparency": "passed",
+    "real_renderer_draws_triangles_and_runs_blink_cycle": "passed",
+    "different_vrm0_textured_multi_mesh_structure_renders": "passed",
+    "user_vrm_revision_rollback_releases_previous_canvas": "passed",
+    "renderer_failure_keeps_current_asset_and_stops_render_loop": "passed",
+    "actual_audio_playback_drives_vrm_mouth": "passed",
+    "stop_resets_vrm_mouth": "passed",
+    "host_hidden_disposes_renderer_and_gpu_canvas": "passed",
+    "context_loss_falls_back_and_explicit_retry_recovers": "passed",
+    "identity_switch_disposes_old_model_and_keeps_chat_isolated": "passed",
+    "vrm_selection_persists_after_reload": "passed",
+    "actual_settings_ui_roundtrips_compute_tts_and_local_asr_fields": "passed",
+    "actual_asr_device_select_keeps_precision_compatible": "passed",
+    "missing_local_asr_does_not_capture_microphone_or_silently_use_browser_service": "passed",
+    "missing_live2d_runtime_blocks_activation_without_loading_core_or_changing_vrm": "passed",
+    "layout_1440_390_360": "passed",
+    "no_page_exceptions_or_external_model_requests": "passed"
+  },
+  "windows_or_rtx4060_verified": false,
+  "not_tested": [
+    "reference visual quality",
+    "real voice/model/ASR quality",
+    "native desktop host",
+    "Windows",
+    "RTX4060/p95/VRAM",
+    "real Bilibili/WeChat account",
+    "actual Live2D Core/model playback"
+  ],
+  "external_requests": [],
+  "live2d_runtime_script_requests": [],
+  "webgl": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 511,
+    "height": 696,
+    "opaque": 290166,
+    "transparent": 65490,
+    "total": 355656
+  },
+  "asr_precision_ui": {
+    "device": "cuda",
+    "precision": "float16",
+    "options": [
+      {
+        "value": "int8",
+        "disabled": true
+      },
+      {
+        "value": "float16",
+        "disabled": false
+      },
+      {
+        "value": "float32",
+        "disabled": false
+      },
+      {
+        "value": "int8_float16",
+        "disabled": false
+      }
+    ]
+  },
+  "javascript_errors": []
+}

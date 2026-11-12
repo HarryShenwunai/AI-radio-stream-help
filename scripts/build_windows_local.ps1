@@ -1,7 +1,7 @@
 # Windows PowerShell 5.1 compatible. This script changes only its own process
 # environment and generated files below the project's .build directory.
 [CmdletBinding()]
-param([switch]$WithoutModels, [switch]$NoOpen)
+param([switch]$WithoutModels, [switch]$NoOpen, [switch]$NativeCompile, [switch]$CpuOnly)
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -14,6 +14,7 @@ $Tools = Join-Path $Build 'tools'
 $Utf8 = [Text.UTF8Encoding]::new($false)
 $Report = [ordered]@{ status = 'running'; stage = 'preflight'; started_at = (Get-Date).ToUniversalTime().ToString('o'); models_included = !$WithoutModels; windows_execution_verified = $false }
 $TranscriptStarted = $false
+$OriginalCompanionData = $env:COMPANION_DATA
 
 function Write-JsonFile([string]$Path, $Value) {
     [IO.File]::WriteAllText($Path, ($Value | ConvertTo-Json -Depth 12), $Utf8)
@@ -170,11 +171,16 @@ try {
     $Results = Join-Path $Logs ('results-' + $Stamp)
     $env:COMPANION_REPORT_DIR = $Results
     $env:COMPANION_DESKTOP_TEST_RESULTS = $Results
+    if (!$NativeCompile) {
+        . (Join-Path $PSScriptRoot 'windows_portable_route.ps1')
+        Invoke-PortableRoute
+        return
+    }
     $Report['stage'] = 'install-dependencies'
     Run-Checked $python @('-m', 'pip', 'install', '--upgrade', 'pip')
     $wheel = Get-VerifiedArtifact $Manifest.llama_cpu_wheel
     Run-Checked $python @('-m', 'pip', 'install', '--no-deps', $wheel)
-    Run-Checked $python @('-m', 'pip', 'install', '--prefer-binary', '--only-binary=llama-cpp-python', '-r', 'app/requirements-core.txt', '-r', 'app/requirements.txt', '-r', 'requirements-dev.txt', 'pyinstaller==6.22.3', 'psutil==7.0.0')
+    Run-Checked $python @('-m', 'pip', 'install', '--prefer-binary', '--only-binary=llama-cpp-python', '-r', 'app/requirements-core.txt', '-r', 'app/requirements.txt', '-r', 'app/requirements-voice.txt', '-r', 'src/companion_runtime/connectors/requirements.txt', '-r', 'requirements-dev.txt', 'pyinstaller==6.22.3', 'psutil==7.0.0')
     Run-Checked $python @('-m', 'pip', 'check')
     $Report['stage'] = 'native-dll-preflight'
     $importScript = @'
@@ -198,6 +204,7 @@ except Exception as error:
     Copy-Item -LiteralPath (Join-Path $Root 'desktop\package-lock.json') -Destination (Join-Path $NpmProject 'package-lock.json') -Force
     Run-Checked $npm @('ci', '--prefix', $NpmProject)
     $Report['stage'] = 'regression-tests'
+    Run-Checked $python @('scripts/quality_gate.py', '--bootstrap', '--full', '--report', (Join-Path $Results 'quality-gate.json'))
     Run-Checked $python @('scripts/check.py')
     Run-Checked $node @('tests/test_character_ui.mjs')
     Run-Checked $node @('tests/test_voice_ui.mjs')

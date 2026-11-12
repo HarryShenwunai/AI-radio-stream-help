@@ -1,67 +1,65 @@
 # 虚拟陪伴项目（未命名）
 
-二次元桌面陪伴，用户可以创建自己的角色、导入PNG形象，并配置性格与相处方式。聊天、记忆和约定按角色隔离；更换同一角色的外观保留相处记录。学习监督是可选能力，长期记忆可关闭。
+用户可以创建自己的二次元角色、上传有权使用的形象，并配置性格与相处方式。聊天、记忆和约定按身份隔离；同一角色换外观保留关系。学习监督是可选能力，长期记忆可关闭。
 
-当前开发版本 **0.4.0-dev1**。自助PNG角色与独立身份数据已实现；Live2D、VRM尚未实现。目标平台是 **Windows 10/11**，Windows构建、安装与真机桌面行为仍待CI和设备验证，不能将Linux结果当作Windows成品验收。
+开发版本 **0.4.0-dev1**，目标 **Windows 10/11 x64**。当前已实现 PNG、VRM 与 Live2D 运行包的自助导入流程、本地录音转写、语音提供方配置和平台控制面板；各格式与平台的验证程度不同。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
 
-[运行与角色导入](app/README.md) · [本批交付状态](docs/implementation/character-release.md) · [执行看板](docs/planning/execution-board.md)
+[运行与角色导入](app/README.md) · [执行看板](docs/planning/execution-board.md) · [视觉质量目标](docs/design/visual-quality-target.md)
 
-用户新增的[视觉质量参考](docs/design/visual-quality-target.md)要求细腻、自然的二次元表现。当前PNG基础版本尚未达到动态画质目标，参考图不构成固定角色或已获得可动模型。
+[工程门禁与截图/录像复现](docs/implementation/engineering-gates.md)
 
-Windows 用户可以完整解压源码后双击 `build-windows.cmd`，在自己的电脑上准备依赖、编译、测试并打包。构建细节、VC++运行库前置和输出位置见[本地构建说明](docs/implementation/windows-local-build.md)。GitHub Actions当前因账户计费锁定未启动runner，详见[原始错误证据](review/windows-build-blocker.json)；本地构建不依赖Actions。
+## Windows 运行
+
+完整便携目录采用随包 CPython 3.12 和预编译依赖，运行时不需要预装 Python、Node.js 或 Visual Studio。完整解压后双击 `companion-desktop.exe` 或 `start.cmd`；CPU 为默认模式，可在退出后通过 `使用CPU.cmd` / `使用CUDA.cmd`切换。是否包含模型、语音和 ASR 资产，以实际交付清单为准。
+
+微软 VC++ x64 运行库和兼容的 NVIDIA 驱动仍可能是前置条件。预检会提示缺项，不静默修改系统；CUDA 模式失败可退回 CPU。CUDA ASR 所需 cuDNN9 未随包提供，录音识别默认 CPU。候选目录在 Linux 上组装，**尚无 Windows/RTX4060 真机运行、性能或最终画质验收结论**。
+
+[便携运行时与诊断](docs/implementation/windows-portable-runtime.md)说明布局、资源报告与边界。若从源码自行准备，双击根目录 `build-windows.cmd`；这是重建路径，详见[本机构建说明](docs/implementation/windows-local-build.md)。GitHub Actions 历史任务因账户计费锁定未获 runner，不能把它记为代码编译失败，也不能以组装成功代替 Windows 运行通过。
+
+## 当前能力与实际边界
+
+| 能力 | 当前实现与验证范围 |
+| --- | --- |
+| 自助身份与 PNG | 创建、切换、归档、恢复、删除；预览后启用、修订回退；四状态自然眨眼/说话切换，本机 HTTP 与真实 Chrome 已验证 |
+| VRM 0/1 | 自包含运行资产导入、本地 WebGL、眨眼/呼吸/视线、音频 RMS 口型及隐藏释放；本机 Chrome 已验证，非音素级口型/目标美术验收 |
+| Live2D | ZIP 检查、依赖规范化、可选运行时与隔离预览已实现；用户已同意仅本机开发评估，Core5.1/MOC5 下 Haru、Hiyori 两份合法模型各12项真实 Chrome 检查通过；仅本机评估，非 Windows/全导出器/参考画质或发布许可 |
+| 对话与关系 | 流式回复、相关记忆、记忆关闭、短期上下文和可控约定；真实本地模型已冒烟，人工自然度与长期关系体验未验收 |
+| 语音 | 本地 Kokoro、可选 GPT-SoVITS 或系统声音；PCM16 WAV → 本地 faster-whisper tiny → 输入草稿，已做合成语音真实 HTTP 检查，未作 Windows 真人麦克风验收 |
+| 打断 | 生成取消、旧身份/旧媒体拒绝已有本机证据；播放回执、历史 TTS、过期停止拒绝及未听尾部的保守上下文处理已完成本机验证；7项真实 Chrome 通过，不证明真人已听见 |
+| 微信 | AstrBot ClawBot 私聊桥接、逐条审核/自动回复控制和音频文件路径已实现；用户接受音频文件，原生语音条非必做；真实账号与送达待验 |
+| 哔哩哔哩 | 官方 Open Live 输入、独立公开设定、停止/重连与本机弹幕回复预览已实现；用户有可管理房间，凭据与真实连接待验；无默认公开播出 |
+| 桌面 | 角落常驻、展开、透明/穿透/恢复与本机后端生命周期；已有 Linux/X11 证据，Windows 多屏、DPI 和游戏场景仍待验 |
+
+PSD 不会自动绑定为 Live2D；上传模型元数据不会自动变成人设、声音或工具权限。用户提供的素材仍按其原授权使用。默认源码与常规包不包含 Live2D Core/Framework，当前本机评估同意不等于公开分发/Expandable 许可。
 
 ## 从源码启动
 
-在Python环境中安装图片组件后，从仓库根目录运行：
+推荐独立 Python 3.12 环境，在仓库根运行：
 
 ```sh
 python -m pip install -r app/requirements-core.txt
 python run.py --no-browser
 ```
 
-打开终端打印的本机地址。角色管理与图片导入不要求下载大模型；真实聊天需要已有本地模型及可选推理依赖，或在设置中填写兼容模型API。源码不包含模型权重、音色文件、用户数据库或密钥。
+打开终端打印的本机地址。角色管理不要求先下载大模型；生成需配置已有本地模型及依赖，或自己的兼容模型 API。可选安装、资产下载与本地识别见[应用说明](app/README.md)。模型、用户数据库和密钥不进入 Git。
 
-桌面壳启动、数据迁移和可选模型安装见[运行说明](app/README.md)。当前没有已核验的Windows安装包下载声明。
+## 如何读验证结果
 
-## 当前可用
+[验收台账](review/completion-status.json)区分源码/受控测试、本机 HTTP、真实浏览器、目标机器/账号及用户质量验收。不同层级不能相加成“完成率”。历史 PNG 报告是当时子集，新功能以对应日期、范围与 JSON 为准；回归总数在最终冻结后统一汇总。
 
-- 创建、切换、归档、恢复和删除独立角色；名字不作为格式白名单。
-- 导入一张PNG，或配置待机、说话、眨眼、说话时眨眼四种图片状态。
-- 预览后明确启用；保留外观修订并切回旧版；无效图片不覆盖当前形象。
-- 角色自己的聊天、性格、记忆与约定分库存储；旧版数据库一次迁移并保留原库。
-- 共享模型连接配置，API密钥留在本机；切换角色不会恢复另一套旧提供方连接。
-- 流式文字、停止与重试、本地语音或兼容API、按需记忆及可关闭的主动联系。
-- 桌面壳提供角落常驻、展开同一会话、鼠标穿透与恢复入口；目前桌面行为证据限Linux X11，Windows待测。
+可查阅[VRM 浏览器](review/vrm-browser-check.json)、[平台浏览器](review/connectors-browser.json)、[真实 ASR HTTP](review/asr-http-real-check.json)、[对话冒烟](review/conversation-real-smoke.json)、[Live2D Haru](review/live2d-browser-check.json)/[Hiyori 独立模型](review/live2d-hiyori-holdout.json)及[播放回执](review/playback-browser-check.json)。合成音、替身提供方和软件 WebGL 不证明真实声线、账号互通或 RTX4060 性能。参考图表现仍需合法目标资产和用户确认。
 
-PNG说话状态是图片切换，不是Live2D绑定或音素级口型。上传的角色素材仍按各自授权使用；应用原有SVG只是占位示例。
+## 工具与工程检查
 
-## 验证与边界
+按[工程门禁说明](docs/implementation/engineering-gates.md)准备工具后，运行 `python scripts/quality_gate.py --full`：关键 bug lint、四核心模块 strict mypy、六项架构规则和违规夹具，再跑 Python/Node。最终全量结果见[工程报告](review/quality-gate.json)，完整门禁已通过：Python417项零跳过、桌面Python9项、前端Node76项、桌面Node7项；检查期间源码SHA不变。取证脚本随后单独修正并通过[最终默认门禁](review/quality-gate-post-harness.json)，产品实现未变。
 
-本轮[191项Python回归](review/character-regression.json)通过；前端18项角色竞态、8项语音竞态，以及[15项真实Chrome检查](review/character-browser.json)通过。Chrome使用合成PNG与测试音、本机模型/TTS替身，未验证真实声线质量。
-
-[Linux编译后端](review/character-native-check.json)完成6项检查，包含实际本地Qwen/Kokoro与取消、重启持久化。它是一轮合成输入冒烟，**模型自然度与长期相处质量尚未人工接受**，时延也不是目标设备p95。另有[Linux Electron整包14项检查](desktop/test-results/bundled-app-smoke.json)通过，覆盖内嵌后端和实际应用PNG流程，仍不代表Windows通过。
-
-[独立审查](review/character-implementation-review.json)只覆盖已说明的PNG子集。原28项多格式规格不因这些测试自动全部通过。Windows、Live2D、真实平台/OBS、微信、AR、MC、全屏游戏及目标机能耗仍有未完成项。
-
-开发检查：
-
-```sh
-python scripts/check.py
-node tests/test_character_ui.mjs
-node tests/test_voice_ui.mjs
-python tests/character_browser_check.py
-```
-
-HTTP/Chrome检查需要允许本机socket；浏览器脚本需要Playwright与Chrome。最终测试以对应JSON的范围、结果和日期为准。
+[TLA+/TLC 有限模型](review/formal-model-check.json)和[实际实现边界探索](review/formal-implementation-check.json)有独立报告；只覆盖明确的有限安全边界，不是整程序形式化正确性、活性、性能或人类听感证明。
 
 ## 项目资料
 
 - [自助角色计划与画师交付基准](docs/planning/self-service-characters-plan.md)
-- [产品与技术比较](docs/research/products-and-technology.md)
-- [Zerolan五仓库研究](docs/research/zerolan-comparison.md)
-- [架构与权限](docs/design/architecture.md)
-- [历史原型与证据](docs/design/current-state.md)
+- [产品与技术比较](docs/research/products-and-technology.md)及[Zerolan 五仓库研究](docs/research/zerolan-comparison.md)
+- [架构与权限](docs/design/architecture.md)、[当前批次执行与阻断](docs/planning/execution-board.md)
+- [许可通知](NOTICE.md)、[应用许可](app/LICENSE)与[依赖说明](app/ATTRIBUTIONS.md)
 
-旧计划、称呼和估算保留作历史追踪，不作为正式产品名或当前完成证明。角色导入以已实现格式和实际兼容矩阵为准。
-
-模型、安装包、用户数据和凭证不进入Git历史。没有公开部署、登录直播间或游戏服务器。应用代码与可选依赖许可见[NOTICE.md](NOTICE.md)及[应用许可](app/LICENSE)。
+没有因本机开发授权自动登录真实账号、发送消息、公开播出或发布 Live2D 运行时。云同步、公开角色市场、AR、MC 和第三方弹幕姬互通需另行明确范围，不能从旧研究文档推定已实现。

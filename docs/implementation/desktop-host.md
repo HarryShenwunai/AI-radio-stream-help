@@ -4,6 +4,12 @@ The host reuses one local application page, one backend, and the page's existing
 audio owner. Compact/expanded modes resize the same native window. Character
 images remain user-imported assets; the host contains no character catalog.
 
+Current Windows delivery uses maintained CPython 3.12.16 profiles, replacing the
+previous Python 3.13 compatibility experiment. See
+[Windows portable runtime](windows-portable-runtime.md). The default
+`build-windows.cmd` route assembles original Windows binaries without a native
+compiler. The older PyInstaller route is explicit `-NativeCompile`.
+
 ## Build and run
 
 Windows 10/11 x64 is the requested delivery target. Build on Windows x64:

@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 import math
 import threading
 import time
-from typing import Callable, Literal
+from typing import Callable, Iterable, Literal
 from uuid import uuid4
 
 
@@ -208,6 +208,7 @@ class GenerationRegistry:
         with self._lock:
             stamp = self._clock()
             self._prune(stamp)
+            candidates: Iterable[_Entry | None]
             if generation_id is not None:
                 candidates = [self._entries.get(generation_id)]
             else:

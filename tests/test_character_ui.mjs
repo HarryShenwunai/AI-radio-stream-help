@@ -177,3 +177,71 @@ test('native hide blocks new speech, late audio and recognition even when docume
  if(h.get('#message-input').value)failures.push('late ASR modified hidden draft');
  assert.deepEqual(failures,[]);
 });
+
+function vrmFile(size=64){const bytes=new Uint8Array(size),view=new DataView(bytes.buffer);view.setUint32(0,0x46546c67,true);view.setUint32(4,2,true);view.setUint32(8,size,true);return {name:'自选模型.vrm',size,arrayBuffer:async()=>bytes.buffer};}
+function vrmPack(){return {id:PACK,format:'vrm',model:{resource:'model.vrm',url:`/api/assets/${PACK}/model.vrm?character_id=${A}`},metadata:{name:'<自选模型>',authors:['作者']},states:{}};}
+function mockVrm(h,load=async()=>true){const instances=[];h.context.window.CompanionVrm={create:options=>{const item={options,disposed:false,speaking:false,load,setSpeaking(value){this.speaking=value;},setAudio(audio){this.audio=audio;},setScale(){},setExpanded(){},setHidden(value){this.hidden=value;},dispose(){this.disposed=true;}};instances.push(item);return item;}};return instances;}
+
+test('VRM upload rejects oversize and invalid headers before sending any model',async()=>{
+ const h=harness();h.get('#asset-vrm').files=[{name:'too-large.vrm',size:64*1024*1024+1}];await h.context.importVrmAppearance();
+ assert.match(h.get('#character-error').textContent,/64 MB/);assert.equal(h.calls.some(x=>x.url.includes('assets/import')),false);
+ h.get('#asset-vrm').files=[{name:'wrong.vrm',size:40,arrayBuffer:async()=>new Uint8Array(40).buffer}];await h.context.importVrmAppearance();
+ assert.match(h.get('#character-error').textContent,/完整的 VRM/);assert.equal(h.calls.some(x=>x.url.includes('assets/import')),false);
+});
+
+test('VRM server validation and real renderer readiness precede explicit activation',async()=>{
+ const h=harness(async url=>response(url.endsWith('/import')?{asset:vrmPack()}:{assets:[vrmPack()]}));const instances=mockVrm(h);h.get('#asset-vrm').files=[vrmFile()];
+ await h.context.importVrmAppearance();const write=h.calls.find(x=>x.url.endsWith('/import'));
+ assert.equal(JSON.parse(write.body).format,'vrm');assert.equal(JSON.parse(write.body).character_id,A);
+ assert.equal(h.read('app.active_character.appearance'),null);assert.equal(h.get('#activate-appearance').disabled,false);
+ assert.equal(instances.length,1);assert.equal(h.get('#vrm-model-credit').textContent,'<自选模型> · 作者');
+ assert.equal(h.calls.some(x=>x.url.endsWith('/activate')),false);
+});
+
+test('a failed VRM preview never enables activation or replaces the current character',async()=>{
+ const h=harness(async url=>response(url.endsWith('/import')?{asset:vrmPack()}:{assets:[]}));mockVrm(h,async()=>false);h.get('#asset-vrm').files=[vrmFile()];await h.context.importVrmAppearance();
+ assert.equal(h.get('#activate-appearance').disabled,true);assert.equal(h.read('app.active_character.appearance'),null);
+});
+
+test('VRM preview cancelled during load cannot re-enable activation after a role change',async()=>{
+ const ready=deferred(),h=harness(async url=>response(url.endsWith('/import')?{asset:vrmPack()}:{assets:[]}));const instances=mockVrm(h,()=>ready.promise);h.get('#asset-vrm').files=[vrmFile()];
+ const loading=h.context.importVrmAppearance();await tick();h.context.invalidateCharacterContext();h.setState(state(B));ready.resolve(true);await loading;
+ assert.equal(instances[0].disposed,true);assert.equal(h.get('#activate-appearance').disabled,true);assert.equal(h.read('pendingAsset'),null);
+});
+
+test('native-hidden VRM stage disposes GPU ownership and ignores a late model load',async()=>{
+ const ready=deferred(),h=harness();const instances=mockVrm(h,()=>ready.promise);h.setState(state(A,vrmPack()));
+ const loading=h.context.renderVrmStage(vrmPack(),100);await tick();h.context.window.companionDesktopHidden=true;h.context.pauseVrmViews();ready.resolve(true);await loading;
+ assert.equal(instances[0].disposed,true);assert.equal(h.read('stageVrm'),null);assert.equal(h.get('#vrm-stage').hidden,true);
+});
+
+test('missing Live2D runtime blocks preview activation without fetching vendor scripts',async()=>{
+ const h=harness(async url=>response(url==='/api/live2d/runtime'?{available:false,core_url:null,reason:'owner_runtime_setup_required'}:{assets:[]}));
+ const asset={id:PACK,format:'live2d',model:{resource:'model.model3.json',url:`/api/assets/${PACK}/model.model3.json?character_id=${A}`},resources:{}};
+ await h.context.previewExistingLive2D(asset);assert.equal(h.get('#activate-appearance').disabled,true);assert.match(h.get('#appearance-status').textContent,/运行时尚未准备好/);assert.equal(h.get('#appearance-status').textContent.includes('owner_runtime_setup_required'),false);assert.equal(h.read('app.active_character.appearance'),null);
+ assert.equal(h.calls.filter(x=>x.url==='/api/live2d/runtime').length,1);assert.equal(h.calls.some(x=>x.url.endsWith('/activate')),false);
+});
+test('Core without the separately installed display framework remains unavailable',async()=>{
+ const h=harness(async()=>response({available:true,core_url:'/live2d-core.js',runtime_url:null}));
+ await assert.rejects(h.context.ensureLive2DRuntime(),/显示框架尚未安装/);assert.equal(h.calls.length,2);
+});
+test('two requests for the same dynamic preview create only the latest renderer',async()=>{
+ const engine=deferred(),h=harness(),instances=mockVrm(h);const factory=h.context.window.CompanionVrm;h.context.ensureCharacterRenderer=()=>engine.promise;
+ h.read(`pendingAsset=${JSON.stringify(vrmPack())};pendingAssetCharacter='${A}'`);
+ const first=h.context.renderVrmPreview(vrmPack()),second=h.context.renderVrmPreview(vrmPack());engine.resolve(factory);await first;await second;
+ assert.equal(instances.length,1);assert.equal(instances[0].disposed,false);assert.equal(h.get('#activate-appearance').disabled,false);
+});
+
+test('ASR device changes select a compatible precision and preserve a valid preference',()=>{
+ const h=harness(),device=h.get('#asr-device'),precision=h.get('#asr-precision');precision.options=['int8','float16','float32','int8_float16'].map(value=>({value,disabled:false}));
+ device.value='cuda';precision.value='int8';h.context.syncAsrPrecision();assert.equal(precision.value,'float16');assert.equal(precision.options[0].disabled,true);assert.equal(precision.options[3].disabled,false);
+ device.value='cpu';h.context.syncAsrPrecision();assert.equal(precision.value,'int8');assert.equal(precision.options[1].disabled,true);assert.equal(precision.options[3].disabled,true);
+ precision.value='float32';device.value='cuda';h.context.syncAsrPrecision();assert.equal(precision.value,'float32');
+});
+test('optional PNG blink states follow real speaking and release timers on hide',async()=>{
+ const h=harness(),timers=[],cleared=[];h.context.setTimeout=(fn,delay)=>{timers.push({fn,delay});return timers.length;};h.context.clearTimeout=id=>cleared.push(id);
+ const asset=pack();for(const [key,resource]of [['blink','blink.png'],['talk_blink','talk_blink.png']])asset.states[key]={resource,url:`/api/assets/${PACK}/${resource}?character_id=${A}`};h.setState(state(A,asset));h.context.renderCharacterImage();
+ assert.equal(timers.length,1);assert.ok(timers[0].delay>=1500&&timers[0].delay<=6000);await h.context.speak('实际播放',{message_id:1});
+ timers[0].fn();assert.ok(h.get('#portrait-avatar').src.includes('/talk_blink.png'));assert.equal(timers[1].delay,120);timers[1].fn();assert.ok(h.get('#portrait-avatar').src.includes('/talk.png'));
+ h.context.window.companionDesktopHidden=true;h.context.pauseVrmViews();assert.equal(h.read('pngBlinkActive'),false);assert.equal(h.read('pngBlinkTimer'),0);assert.ok(cleared.includes(3));
+});

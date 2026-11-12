@@ -14,7 +14,7 @@ import math
 import re
 import threading
 import time
-from typing import Callable, Mapping
+from typing import Callable, Mapping, TypeGuard
 
 SOURCES = frozenset({'bilibili-open-live', 'danmuji-bridge'})
 FIELDS = frozenset({'room_id', 'event_id', 'text', 'actor_key', 'event_at', 'type'})
@@ -36,13 +36,13 @@ def _valid_utf8(value: str) -> bool:
     return True
 
 
-def _identifier(value: object, limit: int) -> bool:
+def _identifier(value: object, limit: int) -> TypeGuard[str]:
     return (isinstance(value, str) and 0 < len(value) <= limit
             and value == value.strip() and _valid_utf8(value)
             and not any(ord(char) < 32 or ord(char) == 127 for char in value))
 
 
-def _finite_number(value: object) -> bool:
+def _finite_number(value: object) -> TypeGuard[int | float]:
     if not isinstance(value, (int, float)) or isinstance(value, bool):
         return False
     try:
@@ -104,7 +104,8 @@ def normalize_event(
         raise LiveEventError()
     if payload['room_id'] != binding.room_id:
         raise LiveEventError('wrong_room')
-    if not _identifier(payload['event_id'], 160):
+    event_id = payload['event_id']
+    if not _identifier(event_id, 160):
         raise LiveEventError()
     if payload.get('type', 'danmaku') != 'danmaku':
         raise LiveEventError()
@@ -128,7 +129,7 @@ def normalize_event(
         age = max(0.0, wall_now - event_at)
     return PublicEvent(
         source=binding.source, room_id=binding.room_id,
-        event_id=payload['event_id'], text=text.strip(), actor_key=actor,
+        event_id=event_id, text=text.strip(), actor_key=actor,
         received_at=received_at, event_at=event_at,
         expires_at=received_at + ttl_seconds - age,
     )

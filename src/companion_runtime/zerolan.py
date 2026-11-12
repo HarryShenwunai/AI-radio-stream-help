@@ -10,7 +10,7 @@ import io
 import json
 import math
 from collections.abc import Iterable, Iterator, Mapping, Sequence
-from typing import Any
+from typing import Any, NoReturn
 from uuid import UUID, uuid4
 
 
@@ -52,7 +52,7 @@ def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
-def _loads(text: str) -> Any:
+def _loads(text: str) -> object:
     try:
         return json.loads(text, object_pairs_hook=_unique_object,
                           parse_constant=_json_constant, parse_float=_finite_float)
@@ -84,7 +84,7 @@ class NDJSONDecoder:
         self._frame = io.StringIO()
         self._closed = False
 
-    def _fail(self, message: str) -> None:
+    def _fail(self, message: str) -> NoReturn:
         self._closed = True
         self._frame.close()
         self._decoder.reset()
@@ -239,6 +239,8 @@ def _control_copy(value: Any) -> dict[str, Any]:
         raise
     except (TypeError, ValueError, UnicodeError, RecursionError) as error:
         raise ProtocolError("Invalid control JSON") from error
+    if not isinstance(result, dict):
+        raise ProtocolError("Control JSON must remain an object")
     return result
 
 

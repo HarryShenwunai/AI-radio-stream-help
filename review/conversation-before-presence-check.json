@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-12",
+  "scope": "four real local Qwen3-4B observations on synthetic dialogue; no human quality acceptance",
+  "model": "qwen3-4b-instruct-2507-q4_k_m.gguf",
+  "backend": "llama-cpp-python CPU 4 threads",
+  "cases": [
+    {
+      "case": "memory_admin_does_not_become_current_topic",
+      "reply": "我懂，累了就静静待着，没关系。",
+      "observable_issues": [],
+      "elapsed_seconds": 9.314,
+      "first_text_seconds": 8.305,
+      "generation_passes": 1,
+      "completed": true,
+      "stale_passphrase_present": false
+    },
+    {
+      "case": "no_old_facts",
+      "reply": "好的，我陪你去看轻松的电影。选一部有笑声、不沉重的片子，像《疯狂动物城》那种，看着就让人想笑。",
+      "observable_issues": [],
+      "elapsed_seconds": 5.405,
+      "first_text_seconds": 2.515,
+      "generation_passes": 1,
+      "completed": true
+    },
+    {
+      "case": "study_is_optional",
+      "reply": "我懂，累了就歇会儿，别勉强自己。你慢慢放松，我在这儿陪着。",
+      "observable_issues": [],
+      "elapsed_seconds": 4.505,
+      "first_text_seconds": 2.627,
+      "generation_passes": 1,
+      "completed": true
+    },
+    {
+      "case": "character_preferences_belong_to_character",
+      "reply": "我最喜欢轻快的民谣，像风吹过麦田那种温柔又带点故事感的旋律。你听过《平凡之路》吗？那种安静却有力的感觉，特别适合傍晚时分一个人听。",
+      "observable_issues": [],
+      "elapsed_seconds": 5.464,
+      "first_text_seconds": 1.381,
+      "generation_passes": 1,
+      "completed": true
+    }
+  ],
+  "human_naturalness_accepted": false,
+  "windows_or_rtx4060_tested": false,
+  "failed_observations_retained": true,
+  "manual_review_findings": [
+    "The no_old_facts reply suggested physically accompanying the user to a movie; existing checks missed it. A bounded unsupported_presence check and regression were added; this record is retained before rerun."
+  ]
+}

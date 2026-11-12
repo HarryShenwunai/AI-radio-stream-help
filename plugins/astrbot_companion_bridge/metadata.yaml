@@ -1,0 +1,6 @@
+name: companion_owner_bridge
+display_name: 本机陪伴桥接
+desc: 仅绑定主人的 weixin_oc 私聊；默认只预览，音频作为文件。
+version: v0.1.0
+author: project-contributors
+repo: https://github.com/HarryShenwunai/AI-radio-stream-help

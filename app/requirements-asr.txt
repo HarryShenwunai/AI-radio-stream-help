@@ -1,0 +1,5 @@
+# Optional local ASR; CPU is default. No model is fetched during transcription.
+faster-whisper==1.2.1
+ctranslate2==4.9.0
+av==16.1.0
+huggingface-hub==2.4.0

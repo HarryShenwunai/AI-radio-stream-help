@@ -39,3 +39,6 @@ dist/
 .build/
 *.AppImage
 **/.cache/
+
+# Downloaded third-party role assets are local evaluation inputs, not source.
+research/vrm-fixtures/*.vrm

@@ -180,6 +180,16 @@ class AssetStore:
             raise AssetError("角色素材不存在。", 404)
         return folder
 
+    def import_vrm(self, data: bytes, filename: str | None = None, *,
+                   cancel_event: threading.Event | None = None) -> dict[str, Any]:
+        from .vrm_assets import import_vrm
+        return import_vrm(self, data, filename, cancel_event=cancel_event)
+
+    def import_live2d(self, data: bytes, filename: str | None = None, *,
+                      cancel_event: threading.Event | None = None) -> dict[str, Any]:
+        from .live2d_assets import import_live2d
+        return import_live2d(self, data, filename, cancel_event=cancel_event)
+
     def import_png_states(self, states: dict[str, bytes],
                           filenames: dict[str, str] | None = None, *,
                           cancel_event: threading.Event | None = None) -> dict[str, Any]:
@@ -287,20 +297,29 @@ class AssetStore:
             try:
                 manifest = json.loads(path.read_text(encoding="utf-8"))
                 if (not isinstance(manifest, dict) or manifest.get("id") != asset_id
-                        or manifest.get("schema_version") != 1 or manifest.get("format") != "png-states"
-                        or not isinstance(manifest.get("states"), dict)
-                        or "idle" not in manifest["states"]
-                        or not set(manifest["states"]).issubset(STATE_NAMES)):
+                        or manifest.get("schema_version") != 1):
                     raise ValueError("invalid manifest")
-                resources = [(state + ".png", value) for state, value in manifest["states"].items()]
-                resources.append(("thumbnail.png", manifest["thumbnail"]))
-                for expected, value in resources:
+                if manifest.get("format") == "vrm":
+                    from .vrm_assets import manifest_resources
+                    resources = manifest_resources(manifest)
+                elif manifest.get("format") == "live2d":
+                    from .live2d_assets import manifest_resources
+                    resources = manifest_resources(manifest)
+                elif (manifest.get("format") == "png-states"
+                        and isinstance(manifest.get("states"), dict)
+                        and "idle" in manifest["states"]
+                        and set(manifest["states"]).issubset(STATE_NAMES)):
+                    resources = [(state + ".png", value, MAX_FILE_BYTES) for state, value in manifest["states"].items()]
+                    resources.append(("thumbnail.png", manifest["thumbnail"], MAX_FILE_BYTES))
+                else:
+                    raise ValueError("invalid manifest")
+                for expected, value, maximum in resources:
                     if not isinstance(value, dict) or value.get("resource") != expected:
                         raise ValueError("invalid resource")
                     file = folder / expected
                     if (file.is_symlink() or not file.is_file() or file.resolve().parent != folder
                             or not isinstance(value.get("bytes"), int) or isinstance(value["bytes"], bool)
-                            or file.stat().st_size != value["bytes"] or not 0 < value["bytes"] <= MAX_FILE_BYTES):
+                            or file.stat().st_size != value["bytes"] or not 0 < value["bytes"] <= maximum):
                         raise ValueError("missing resource")
                 return manifest
             except (OSError, ValueError, TypeError, KeyError, UnicodeError):
@@ -313,6 +332,10 @@ class AssetStore:
             manifest = self.get(asset_id)
             resources = {v["resource"] for v in manifest["states"].values()}
             resources.add(manifest["thumbnail"]["resource"])
+            if manifest.get("format") in {"vrm", "live2d"}:
+                resources.add(manifest["model"]["resource"])
+            if manifest.get("format") == "live2d":
+                resources.update(manifest["resources"])
             if resource not in resources:
                 raise AssetError("素材文件不存在。", 404)
             return self._folder(asset_id) / resource

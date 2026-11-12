@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "checks": {
+    "real_navigation_and_local_status": "passed",
+    "native_hidden_clears_secrets_immediately": "passed",
+    "identity_adoption_resets_old_approval_secrets": "passed",
+    "layout_1440_390_360": "passed",
+    "no_connector_configuration_approval_or_send": "passed",
+    "javascript_runtime": "passed"
+  },
+  "real_platform_connections": 0,
+  "real_messages_sent": 0,
+  "javascript_errors": [],
+  "connector_posts": []
+}
