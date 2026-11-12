@@ -13,7 +13,7 @@
 | 对话质量 | 原有人设/短期上下文/相关记忆，反无关记忆与未确认经历检查；真实模型单轮冒烟 | review/conversation-real-smoke.json；voice、root；人工质量尚未接受 |
 | 未听内容 | 已有生成失效与晚到拒绝；播放回执、历史TTS、ABA/stale-stop与保守未听尾上下文已完成本机验证 | review/playback-browser-check.json 7项真实Chrome；HTTP/Node回归；root、frontend、QA |
 | 平台控制 | 微信私聊绑定/审批/暂停、Bili 官方 Open Live 输入与本机预览；Chrome 控制面板已检查，未连接真实账号 | review/connectors-browser.json；catalog、root、voice |
-| Windows 便携包 | 随包 3.12、预编译 CPU/CUDA profile、固定依赖/模型复用、诊断和切换脚本已准备；最终源码同步与整包校验进行中 | docs/implementation/windows-portable-runtime.md；desktop、QA |
+| Windows 便携包 | 随包 3.12、预编译 CPU/CUDA profile、固定依赖/模型复用、诊断和切换脚本已准备；候选已封包并发布到[GitHub Release](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)；三卷及11附件SHA已验，目标Windows仍待验 | docs/implementation/windows-portable-runtime.md；desktop、QA |
 
 已收到的选择：微信接受 ClawBot + 音频文件，原生语音条降为可选；Bili 用当前官方路线，用户有可管理房间但尚无本机凭据；Live2D 仅本机开发评估条款已经明确同意，不重复征求这项同意，不将其扩大为发布许可。
 
@@ -23,7 +23,7 @@
 | --- | --- | --- |
 | P0 | QA 将已通过的 R08 纳入冻结全量 | 本机端到端已过；冻结后保留历史TTS、ABA、迟到/重复/过期回执回归；不把机械回执当真人已听见，Windows多轮另验 |
 | P0 | QA 保留已通过 Live2D 双模型回归 | Haru/Hiyori 本机已过；冻结后检查同一 runtime/source ID，保留透明红测与修复记录，不扩大为全 Cubism/Windows兼容或发布许可 |
-| P0 | desktop/root 同步最终源码并冻结交付清单 | 所有源码冻结后；CPU/CUDA 两 profile 源码 ID、关键文件哈希、模型及 ASR 清单一致，压缩包校验，许可与运行说明同行 |
+| P0 | desktop/root 同步最终源码并冻结交付清单（候选发布已完成） | 所有源码冻结后；CPU/CUDA 两 profile 源码 ID、关键文件哈希、模型及 ASR 清单一致，压缩包校验，许可与运行说明同行 |
 | P0 | QA 复跑冻结后的本机回归 | 上述改动落盘；新失败修正后复测受影响范围；台账区分受控、本机 HTTP、Chrome 与目标机器，不提前固定总数 |
 | P1 | 用户/desktop 在 Windows 实机启动及恢复 | 完整解压、VC/驱动前置提示可执行；记录 Windows 版本/CPU/显存/驱动，CPU 聊天/TTS/麦克风、退出清理、重启持久化、穿透/恢复；CUDA 实际 offload 另有证据 |
 | P1 | 用户/QA 验证合法账号互通 | 用户在本机填 Open Live 凭据、ClawBot/测试私聊；开始前明确发送对象/内容与影响；验证输入、断线重连、暂停与文字/音频文件送达，不把适配器交接当送达 |
@@ -35,7 +35,7 @@
 
 ## 接下来七天的条件行动
 
-这是行动优先级，不是七天内全部交付承诺。Day 1–2 将已通过的 R08/Live2D 纳入全量门禁，完成交付同步，产出冻结源码及对应真实报告；Day 3 做 Windows 启动/硬件诊断，若无法获得真机则保留阻断并继续本机恢复测试；Day 4–5 在用户已授权的测试账号和房间做最小互通，缺凭据时不模拟成成功；Day 6 测目标机 30 分钟完整进程树 RSS/VRAM、帧时间、CPU/GPU占用及后台开销；Day 7 汇总对话/语音/视觉体验和失败清单，更新验收台账。具体日程受真机、凭据和合法资产可用性约束。
+这是行动优先级，不是七天内全部交付承诺。Day 1–2 的本机 R08/Live2D、冻结全量、候选封包与 GitHub 发布已完成；Day 3 做 Windows 启动/硬件诊断，若无法获得真机则保留阻断并继续本机恢复测试；Day 4–5 在用户已授权的测试账号和房间做最小互通，缺凭据时不模拟成成功；Day 6 测目标机 30 分钟完整进程树 RSS/VRAM、帧时间、CPU/GPU占用及后台开销；Day 7 汇总对话/语音/视觉体验和失败清单，更新验收台账。具体日程受真机、凭据和合法资产可用性约束。
 
 资源与质量候选值要在同资产、同窗口尺寸和同推理配置下冻结后评估；小窗 30fps/展开 60fps 仍是候选目标，尚无 RTX4060 证据。单次 Linux 推理/合成语音冒烟不是 p95 或人类自然度结论。Win CUDA 模型推理与 ASR CUDA 是不同能力；当前包 ASR 默认 CPU，不含 cuDNN9。
 

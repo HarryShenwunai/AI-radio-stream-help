@@ -4,6 +4,8 @@
 
 ## Windows 便携目录
 
+[下载 Windows 便携候选包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。下载页面中的 `download-and-assemble.cmd` 和 `download-and-assemble.ps1`，放在同一文件夹后双击 CMD，自动下载三卷、校验并合并；完整解压后运行程序。合计下载约 4.18 GiB，候选包尚待 Windows 真机验收。
+
 完整解压后双击 `companion-desktop.exe` 或 `start.cmd`，不要在压缩包内直接运行。运行完整目录不要求安装 Python、Node 或 Visual Studio；CPU/CUDA 两套预编译运行配置共享模型。先退出软件，再运行 `使用CPU.cmd` 或 `使用CUDA.cmd`；CPU 默认可用路径，CUDA 真机 offload 仍需证据。缺 VC++ x64 运行库或 NVIDIA 驱动时按预检提示处理，程序不会静默安装系统组件。
 
 `诊断本机.cmd` 和 `测量运行资源.cmd`生成本机报告，不自动上传。候选包是在 Linux 上组装，不是已完成 Windows 运行验收；包含模型/音色/ASR 与否以交付清单为准。ASR 默认 CPU，CUDA-ASR 所需 cuDNN9 不在包内。布局与限制见[便携运行时](../docs/implementation/windows-portable-runtime.md)。源码重建另用根目录 `build-windows.cmd`，见[本机构建](../docs/implementation/windows-local-build.md)。

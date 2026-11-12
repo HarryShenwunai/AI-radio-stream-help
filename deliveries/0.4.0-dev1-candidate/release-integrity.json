@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-11-12T18:01:10.787136+00:00",
+  "source_commit": "d01ccc42bbe6795c216afae37dd0e53128ab58d9",
+  "release_id": 443254620,
+  "files": [
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part01",
+      "bytes": 1610612736,
+      "sha256": "b5b43075d0faf72ff0dbe87df8fe5dc434c06e4296b8f8b177715819f056cc9d",
+      "server_digest_matched": true
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part02",
+      "bytes": 1610612736,
+      "sha256": "19a6919e6c753f5cc82d9deddcb9de5919e37c7c848da1589355e189ce61d177",
+      "server_digest_matched": true
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part03",
+      "bytes": 1270187593,
+      "sha256": "3cca5c00194ee35c58a600cdeddcaca5d02127931069f56d43b9610af29a7cda",
+      "server_digest_matched": true
+    },
+    {
+      "name": "download-helper-check.json",
+      "bytes": 814,
+      "sha256": "4a4c0a2021e79450e95b84be2cca6963c170ff2e5e495a9d4d8b169195cf612c",
+      "server_digest_matched": true
+    },
+    {
+      "name": "download-and-assemble.cmd",
+      "bytes": 305,
+      "sha256": "27b4bf00bd844e8ec29690bf177cf03efe82a08d6e3f50ff4bb89f7fab119593",
+      "server_digest_matched": true
+    },
+    {
+      "name": "download-and-assemble.ps1",
+      "bytes": 4305,
+      "sha256": "664104e1bf32e006f67a24d25eb61a9e3349c00a4e0ff19175ef5164b0f591db",
+      "server_digest_matched": true
+    },
+    {
+      "name": "release-manifest.json",
+      "bytes": 1111,
+      "sha256": "4181b6ea555e42066b04022ff145fb29eb830eb4a68224999a2eaa709826dae7",
+      "server_digest_matched": true
+    },
+    {
+      "name": "candidate-manifest.json",
+      "bytes": 818,
+      "sha256": "8e78a9dc7e176a390032fb040b1c3ea5710b7d05e56c752d016bd99bef746335",
+      "server_digest_matched": true
+    },
+    {
+      "name": "START-HERE.txt",
+      "bytes": 2504,
+      "sha256": "c2af8b6be23820f050b7f3274fb3ac7b877d5cb11b0f4f413c941088d2e336f0",
+      "server_digest_matched": true
+    },
+    {
+      "name": "evidence-companion-real-20261112-163732.zip",
+      "bytes": 2912812,
+      "sha256": "918099432ed4bb4facf2b035e8ad7f1f0ffa64981eb5e9b0ab4cc9346673c472",
+      "server_digest_matched": true
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.sha256",
+      "bytes": 113,
+      "sha256": "20a4fcd08a2f52d3b3e7abe254425276e9381d1f714dd4f0dfc70101af4ab221",
+      "server_digest_matched": true
+    }
+  ],
+  "all_assets_verified": true,
+  "windows_native_execution_verified": false,
+  "cuda_offload_confirmed": false,
+  "published": true,
+  "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate",
+  "published_at": "2026-11-12T18:01:13Z",
+  "tag_commit": "d01ccc42bbe6795c216afae37dd0e53128ab58d9"
+}

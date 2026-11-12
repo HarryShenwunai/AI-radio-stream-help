@@ -10,6 +10,8 @@
 
 ## Windows 运行
 
+[下载 Windows 便携候选包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。下载页面中的 `download-and-assemble.cmd` 和 `download-and-assemble.ps1`，放在同一文件夹后双击 CMD，自动下载三卷、校验并合并；完整解压后运行程序。合计下载约 4.18 GiB，候选包尚待 Windows 真机验收。
+
 完整便携目录采用随包 CPython 3.12 和预编译依赖，运行时不需要预装 Python、Node.js 或 Visual Studio。完整解压后双击 `companion-desktop.exe` 或 `start.cmd`；CPU 为默认模式，可在退出后通过 `使用CPU.cmd` / `使用CUDA.cmd`切换。是否包含模型、语音和 ASR 资产，以实际交付清单为准。
 
 微软 VC++ x64 运行库和兼容的 NVIDIA 驱动仍可能是前置条件。预检会提示缺项，不静默修改系统；CUDA 模式失败可退回 CPU。CUDA ASR 所需 cuDNN9 未随包提供，录音识别默认 CPU。候选目录在 Linux 上组装，**尚无 Windows/RTX4060 真机运行、性能或最终画质验收结论**。

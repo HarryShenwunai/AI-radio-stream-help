@@ -1,0 +1,112 @@
+{
+  "checked_at": "2026-11-12T18:03:34.612037+00:00",
+  "passed": true,
+  "release_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate",
+  "client_authorization_header_sent": false,
+  "small_assets": [
+    {
+      "name": "download-and-assemble.cmd",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/download-and-assemble.cmd",
+      "status": 200,
+      "bytes": 305,
+      "sha256": "27b4bf00bd844e8ec29690bf177cf03efe82a08d6e3f50ff4bb89f7fab119593",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "download-and-assemble.ps1",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/download-and-assemble.ps1",
+      "status": 200,
+      "bytes": 4305,
+      "sha256": "664104e1bf32e006f67a24d25eb61a9e3349c00a4e0ff19175ef5164b0f591db",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "release-manifest.json",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/release-manifest.json",
+      "status": 200,
+      "bytes": 1111,
+      "sha256": "4181b6ea555e42066b04022ff145fb29eb830eb4a68224999a2eaa709826dae7",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "candidate-manifest.json",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/candidate-manifest.json",
+      "status": 200,
+      "bytes": 818,
+      "sha256": "8e78a9dc7e176a390032fb040b1c3ea5710b7d05e56c752d016bd99bef746335",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "START-HERE.txt",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/START-HERE.txt",
+      "status": 200,
+      "bytes": 2504,
+      "sha256": "c2af8b6be23820f050b7f3274fb3ac7b877d5cb11b0f4f413c941088d2e336f0",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "download-helper-check.json",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/download-helper-check.json",
+      "status": 200,
+      "bytes": 814,
+      "sha256": "4a4c0a2021e79450e95b84be2cca6963c170ff2e5e495a9d4d8b169195cf612c",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    },
+    {
+      "name": "evidence-companion-real-20261112-163732.zip",
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/evidence-companion-real-20261112-163732.zip",
+      "status": 200,
+      "bytes": 2912812,
+      "sha256": "918099432ed4bb4facf2b035e8ad7f1f0ffa64981eb5e9b0ab4cc9346673c472",
+      "matched_local": true,
+      "final_host": "release-assets.githubusercontent.com"
+    }
+  ],
+  "parts": [
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part01",
+      "statuses": [
+        206,
+        206
+      ],
+      "sample_bytes": 128,
+      "prefix_suffix_match": true,
+      "full_server_sha256_matched": true
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part02",
+      "statuses": [
+        206,
+        206
+      ],
+      "sample_bytes": 128,
+      "prefix_suffix_match": true,
+      "full_server_sha256_matched": true
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part03",
+      "statuses": [
+        206,
+        206
+      ],
+      "sample_bytes": 128,
+      "prefix_suffix_match": true,
+      "full_server_sha256_matched": true
+    }
+  ],
+  "helper": {
+    "passed": true,
+    "scope": "actual PowerShell7 on Linux, small manifest fixture downloading from the public release; original helper code unchanged",
+    "downloaded_bytes": 818,
+    "original_helper_sha256": "664104e1bf32e006f67a24d25eb61a9e3349c00a4e0ff19175ef5164b0f591db",
+    "windows_tested": false
+  },
+  "full_4_49GB_payload_redownloaded": false,
+  "windows_native_execution_verified": false
+}

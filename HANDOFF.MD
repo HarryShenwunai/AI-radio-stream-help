@@ -105,3 +105,12 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 阻塞有实证：gh可读写api.github.com并创建草稿，但uploads.github.com小文件和大文件均HTTP401 Bad credentials，草稿assets=[]。现有连接器无Release上传工具，当前无可用浏览器控制工具；不能假称完整包已上传。需用户在环境密钥设置提供允许api.github.com及uploads.github.com的有效上传凭据，不让用户把token贴聊天；待配置后刷新状态再续传。
 - download-and-assemble.ps1使用固定HTTPS地址、逐卷/整包SHA、临时文件与原子合并，不覆写已有损坏归档、不自动登录/启动/全局安装。真实PowerShell/.NET五小夹具过（正确拼接、损坏拒绝、缺卷不联网、已有有效ZIP复用、已有坏ZIP保留），这不是Windows实测。云端pwsh需要XDG_CACHE_HOME/CONFIG_HOME/DATA_HOME都指向可写目录，不能为此改HOME。
 - 仅公开自有几何模型的实际运行录像/截图；Live2D Core/framework/官方样例及仅本机评估截图视频没有上传。大包临时part01在401后已删，原完整ZIP保留；暂存及复现器在/workspace/dist/github-release与/tmp/upload-companion-parts.py，可在凭据修复后续传。
+
+
+## 2026-11-12 GitHub 候选下载已发布
+
+- 发布地址：https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate；pre-release，tag绑定原软件源码d01ccc42bbe6795c216afae37dd0e53128ab58d9。三卷共4,491,413,065bytes；11个Release附件的服务端SHA256和大小均与本机匹配，不把4.49GB写进普通Git历史。
+- 可仅下载download-and-assemble.cmd/ps1两文件到同一目录，双击CMD自动下载、逐卷校验和合并；完整解压后运行companion-desktop.exe。各卷保留，下载/合并/解压分别需要约4.18/4.18/6.32GiB磁盘空间。
+- 已无登录凭据实测7个小附件完整下载SHA、三卷的6个首尾HTTP206范围与原包字节一致；真实PowerShell7又用小夹具走公开HTTP下载/校验/合并路径通过。没有重新下载整个4.49GB，也没有称为Windows真机测试。证据见deliveries/0.4.0-dev1-candidate/public-download-check.json和release-integrity.json。
+- 新坑：GitHub把纯中文说明附件名规范化为default.txt，发布前集合/大小/SHA检查拦下；已改名START-HERE.txt，内容SHA保持不变，并对附件名加入ASCII约束。仓库中文路径与Release附件命名规则不能混为一谈。
+- 仓库Secrets仅Actions可读；当前Actions仍billing-lock，最终经用户在GitHub官网确认官方CLI设备授权后上传成功。没有读取/导出仓库secret，也未把token写入源码或聊天。Live2D vendor/官方模型及仅本机评估录像未公开。Windows/4060、实际CUDA、账号互通和人工质量验收仍未通过。

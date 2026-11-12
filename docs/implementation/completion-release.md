@@ -24,7 +24,7 @@
 
 **工程与形式化边界**：`quality_gate.py --full` 已实现 critical Ruff、4核心模块 strict mypy、6条架构规则及违规夹具、Python/Node 全量；[工程说明](engineering-gates.md)和[最终报告](../../review/quality-gate.json)记录冻结源码全量8步通过，最后取证脚本另有默认复测。有限 TLA+/TLC [模型](../../review/formal-model-check.json)和[实际实现边界探索](../../review/formal-implementation-check.json)有真实结果，但不构成全程序 refinement/活性/任意调度或用户听感证明；数字以报告为准。
 
-**最终打包**：在本机功能验证之后继续冻结源码，CPU/CUDA profile 同步源码，统一源 ID/关键文件哈希、资产/许可证清单与包内说明后复核。已有 Windows 候选不是旧 buildkit，也不是目标机器验收完成的声明。安装外部 VC/驱动前置由用户按官方提示处理，不自动改系统。
+**最终打包**：Windows 便携候选包已封装并发布到 [GitHub Release](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)；三卷总计4,491,413,065 bytes，11个附件均按远端大小/SHA256校验。包内BUILD-INFO绑定源码d01ccc42bbe6795c216afae37dd0e53128ab58d9，完整ZIP的13,068个成员已逐项CRC/SHA核验。下载合并脚本、清单与实际运行证据随发布提供；Windows/4060及实际CUDA仍未验收。
 
 ## 用户已确认与仍需外部验证
 

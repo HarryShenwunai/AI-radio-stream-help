@@ -1,15 +1,21 @@
-# Windows 候选交付材料
+# Windows 便携候选版下载
 
-**完整便携包的 Release 附件尚未上传成功，暂时不能从这里下载软件本体。** 当前 GitHub 授权可以推送仓库内容，但上传域名 `uploads.github.com` 返回 `401 Bad credentials`。发布草稿保留，未把空下载页标为发布完成。
+[打开 GitHub Release 下载页](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。完整包分三卷，合计4.18GiB。
 
-- [源码版本 d01ccc4](https://github.com/HarryShenwunai/AI-radio-stream-help/tree/d01ccc42bbe6795c216afae37dd0e53128ab58d9)
-- [下载真实运行证据 ZIP](https://github.com/HarryShenwunai/AI-radio-stream-help/raw/refs/heads/feat/phase1-runtime/deliveries/0.4.0-dev1-candidate/evidence-companion-real-20261112-163732.zip)
-- [候选包清单](candidate-manifest.json)：完整包 4,491,413,065 bytes，SHA256已校验。
-- [分卷及SHA清单](release-manifest.json)：因GitHub单个Release附件须小于2GiB，完整包准备为三卷。
-- 下载/合并脚本已完成五项真实PowerShell/.NET小夹具检查；[报告](download-helper-check.json)注明Linux执行范围，不宣称Windows实测。
+1. 下载 [download-and-assemble.cmd](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/download-and-assemble.cmd) 和 [download-and-assemble.ps1](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/download-and-assemble.ps1)，放进同一个文件夹。
+2. 双击CMD；脚本下载三卷，校验每卷和完整ZIP的SHA256，再合并。已手动下载的正确分卷会复用。
+3. 完整解压生成的ZIP，进入目录，双击 `companion-desktop.exe`。可先运行 `诊断本机.cmd`；报告仅留本机。
 
-`download-and-assemble.cmd` 和 `.ps1` 是待附件上传完成后使用的工具。当前不要把脚本可下载当成完整软件已经可下载。
+下载三卷约4.18GiB，合并ZIP另约4.18GiB，解压目录约6.32GiB；脚本会保留分卷。
 
-运行证据ZIP含真实模型整链录像、四张截图、实际Kokoro WAV及机读报告。录像没有系统音轨；WAV独立附带；自有几何VRM不是最终角色美术。不含Live2D SDK、第三方官方角色或其仅本机评估截图/录像。
+完整包包含解释器、本地模型、声音、ASR及CPU/CUDA运行配置。Live2D vendor运行时/官方角色及仅本机评估录像不在公开交付内。
 
-当前源码/本机回归通过不代替Windows/4060、真实B站/ClawBot与人工自然度验收；详情见仓库验收台账。
+这是在Linux组装的Windows候选包；Windows/RTX4060真机、实际CUDA、真实平台互通及最终视觉/自然度仍待验收。源码/本机回归不代替这些结果。包内BUILD-INFO绑定源码d01ccc42bbe6795c216afae37dd0e53128ab58d9。
+
+[下载实际运行证据ZIP](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/evidence-companion-real-20261112-163732.zip)包含真实Qwen/Kokoro整链录像、四张截图、WAV和机读报告。录像没有系统音轨，音频独立附带；VRM为自有几何测试模型，不是最终美术。
+
+[候选清单](candidate-manifest.json) · [分卷SHA清单](release-manifest.json) · [下载工具检查](download-helper-check.json)。GitHub自动生成的Source code ZIP是源码，软件本体请按上面的步骤下载。
+
+![GitHub公开附件列表：未登录Chrome实测](github-release-assets.png)
+
+[公开下载校验](public-download-check.json) · [附件完整性](release-integrity.json) · [浏览器实测](release-browser-check.json)。
