@@ -96,3 +96,12 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - R08 真实 HTTP 已复测15项：历史慢TTS不能夺新播放、ABA角色往返不能复活、非法speech不能抢占、stale generation stop不能终止新音频。真实Chrome7项含先确认上下文前置条件、1.41/4秒停止不猜已听词、后续prompt剔除未确认尾、完整重播后恢复；录像见review/playback-browser-check.json。2048/4096 prompt预算另有3项源码绑定回归。
 - Live2D Haru/Hiyori各12项真实Chrome本机评估通过；实修JSON bytes二次序列化、CSP禁止Pixi blob worker、Core污染clearColor、U+3000文件名与官方motion舍入。Core实测5.1/MOC5；SDK/第三方模型/录像不进Git或默认Windows包。参考美术、Windows/4060、真实账号及人工自然度尚未通过。
 - 正式形式化材料必须使用review/formal-models，避免.gitignore的**/models/把TLA+/配置/复现脚本整个漏提交；第三方research/vrm-fixtures/*.vrm明确只本机评估。TLC与实码性质测试有界，不宣称全程序、活性或人类实际听见的证明。
+
+
+## 2026-11-12 GitHub 下载交付：附件认证阻塞
+
+- 用户因云端文件链接无法下载，已明确授权把交付物push GitHub。源码仍是d01ccc4；交付材料另提交9bdfab4到feat/phase1-runtime，deliveries/0.4.0-dev1-candidate含实际运行证据ZIP、完整/分卷SHA清单及下载合并脚本。公开无凭据下载证据ZIP和PS1均HTTP200、SHA与本机一致；没有把它们叫完整软件包。
+- GitHub官方about-releases核实每个附件须小于2GiB；4,491,413,065-byte原包准备为三卷(1.5GiB/1.5GiB/1.18GiB)，原包及SHA保持不变。源码Git只新增约3MB证据，避免把4.49GB分卷塞普通Git。Release草稿ID443254620/tag v0.4.0-dev1-candidate绑定原源码；没有发布空Release。
+- 阻塞有实证：gh可读写api.github.com并创建草稿，但uploads.github.com小文件和大文件均HTTP401 Bad credentials，草稿assets=[]。现有连接器无Release上传工具，当前无可用浏览器控制工具；不能假称完整包已上传。需用户在环境密钥设置提供允许api.github.com及uploads.github.com的有效上传凭据，不让用户把token贴聊天；待配置后刷新状态再续传。
+- download-and-assemble.ps1使用固定HTTPS地址、逐卷/整包SHA、临时文件与原子合并，不覆写已有损坏归档、不自动登录/启动/全局安装。真实PowerShell/.NET五小夹具过（正确拼接、损坏拒绝、缺卷不联网、已有有效ZIP复用、已有坏ZIP保留），这不是Windows实测。云端pwsh需要XDG_CACHE_HOME/CONFIG_HOME/DATA_HOME都指向可写目录，不能为此改HOME。
+- 仅公开自有几何模型的实际运行录像/截图；Live2D Core/framework/官方样例及仅本机评估截图视频没有上传。大包临时part01在401后已删，原完整ZIP保留；暂存及复现器在/workspace/dist/github-release与/tmp/upload-companion-parts.py，可在凭据修复后续传。
