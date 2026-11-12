@@ -11,6 +11,7 @@
 - [类似产品与当前技术](docs/research/products-and-technology.md)：商业体验、开源框架与语音路线。
 - [Zerolan五仓库设计比较](docs/research/zerolan-comparison.md)：实现证据、分支差异、复用建议。
 - [修订项目计划](docs/planning/revised-plan.md)：范围、方案、工作包、预算假设、风险和七日行动。
+- [P0固定版本兼容样例](docs/planning/p0-compatibility.md)：9份源码哈希复核、离线分帧与握手格式检查；真实集成尚未运行。
 - [目标架构与权限](docs/design/architecture.md)：会话隔离、中断、协议适配和模型资源边界。
 - [现有设计与实际状态](docs/design/current-state.md)：已有原型、实测记录与未完成项。
 - [协议设计草案](contracts/interaction-v1.schema.json)和[验收追踪](review/traceability.csv)。

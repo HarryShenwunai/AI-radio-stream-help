@@ -25,6 +25,8 @@
 
 ## 状态与下一步
 
+续办进度：已补[P0固定版本兼容样例](docs/planning/p0-compatibility.md)，9份固定commit源码的blob哈希匹配，20项合成离线检查通过。运行`python review/test_p0_reference.py`可复现；参考代码不是运行时适配器。P0/G1未完成，Q01–Q10保持NOT_RUN。现有Git不含v0.2可运行原型源码；继续真实适配前需找到原源码与测试入口。禁止把合成hello格式验证称为WS握手联调，或将未知response语义、音频格式、取消能力当作已兼容。
+
 新集成测试Q01–Q10均NOT_RUN。已有36项后端/5项模拟模型协议等记录来自旧原型，不是本轮重测。主计划、工时和验收以docs/planning/revised-plan.md为准，历史计划另存history。
 
 先做固定版本兼容样例，再决定适配或迁移。核心P0–P5含储备18–33人日；AR与MC均选则24–45人日，均是8小时/人日的工程估算，不是承诺。

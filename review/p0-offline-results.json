@@ -1,0 +1,23 @@
+{
+  "scope": "synthetic offline design-reference checks only; no upstream runtime execution",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "integration_tests_executed": 0,
+  "inputs_sha256": {
+    "review/p0_reference.py": "9445d0c1992aa68f688599d380deb6b8668667befa9453552d38c89634ef6487",
+    "review/test_p0_reference.py": "8d4c54ef274d43817bd68baf593c34acd240b6c642b18aac50f8ca191940e468",
+    "review/p0-fixtures.json": "3b8db64765b42a5c6383ebd6674423037d68591b2d3311a19a65fe0a307160aa",
+    "evidence/p0-source-verification.json": "c6bbd244b1c090a0bc78a6d7e64e5faca087a6d0b2d7f6dd43f2fbd917dcaa87"
+  },
+  "not_verified": [
+    "real Core HTTP",
+    "SSE adapter",
+    "TTS audio decoding and metadata",
+    "MC WebSocket handshake or game",
+    "cancellation and playback",
+    "public/private isolation",
+    "delta versus cumulative response semantics"
+  ]
+}

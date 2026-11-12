@@ -1,0 +1,15 @@
+{
+  "provenance": "Synthetic messages derived from pinned type definitions; not captured upstream traffic",
+  "predictions": [
+    {"id": "fixture-prediction-1", "response": "你好，今天想聊什么？", "history": []},
+    {"id": "fixture-prediction-2", "response": "可以慢慢说。", "history": []}
+  ],
+  "mc_hello": {
+    "protocol": "ZerolanProtocol",
+    "version": "1.1",
+    "message": "koneko.server.hello",
+    "action": "koneko.client.hello",
+    "code": 0,
+    "data": {}
+  }
+}

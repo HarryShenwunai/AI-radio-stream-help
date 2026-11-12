@@ -1,0 +1,65 @@
+[
+  {
+    "id": "core-llm",
+    "commit": "baefa0f78abe756a91ca231fc2f6439b46ebe266",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-core/baefa0f78abe756a91ca231fc2f6439b46ebe266/llm/app.py",
+    "git_blob_sha": "58a9dea3bbce72212ff620e0deafa81d62414162",
+    "verified": true
+  },
+  {
+    "id": "core-tts",
+    "commit": "baefa0f78abe756a91ca231fc2f6439b46ebe266",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-core/baefa0f78abe756a91ca231fc2f6439b46ebe266/tts/app.py",
+    "git_blob_sha": "918ef00814e19d2a8c26ef7c442d12bca7741ebb",
+    "verified": true
+  },
+  {
+    "id": "data-protocol",
+    "commit": "647157ddfe043ab89315c31902b0747158c1706d",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-data/647157ddfe043ab89315c31902b0747158c1706d/src/zerolan/data/protocol/protocol.py",
+    "git_blob_sha": "bfe5b130284364c2ce401667b2ddd0d7db0097cf",
+    "verified": true
+  },
+  {
+    "id": "data-llm",
+    "commit": "647157ddfe043ab89315c31902b0747158c1706d",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-data/647157ddfe043ab89315c31902b0747158c1706d/src/zerolan/data/pipeline/llm.py",
+    "git_blob_sha": "7c9df5157c2ac45340c0e998c5209c6f4db2eb84",
+    "verified": true
+  },
+  {
+    "id": "data-tts",
+    "commit": "647157ddfe043ab89315c31902b0747158c1706d",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-data/647157ddfe043ab89315c31902b0747158c1706d/src/zerolan/data/pipeline/tts.py",
+    "git_blob_sha": "f28a602621172b2a601fe135b5489279f8ae51a5",
+    "verified": true
+  },
+  {
+    "id": "robot-sync-base",
+    "commit": "aad29d093295eef351da03a0bbe6ffac5539716d",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/ZerolanLiveRobot/aad29d093295eef351da03a0bbe6ffac5539716d/pipeline/base/base_sync.py",
+    "git_blob_sha": "7e301e55bc5e65329bb2c868b768c29b4ce94ed0",
+    "verified": true
+  },
+  {
+    "id": "core-gpt-sovits",
+    "commit": "baefa0f78abe756a91ca231fc2f6439b46ebe266",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-core/baefa0f78abe756a91ca231fc2f6439b46ebe266/tts/gpt_sovits/model.py",
+    "git_blob_sha": "f489af4ccc4f7017e231097c75e17eaaff2adf08",
+    "verified": true
+  },
+  {
+    "id": "data-base",
+    "commit": "647157ddfe043ab89315c31902b0747158c1706d",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/zerolan-data/647157ddfe043ab89315c31902b0747158c1706d/src/zerolan/data/pipeline/abs_data.py",
+    "git_blob_sha": "1b77bc8e8db44995af1036ad4440fb71ec7153ed",
+    "verified": true
+  },
+  {
+    "id": "mc-dev-plugin",
+    "commit": "b582ef3073bcb62c2fdfea7a9bfd9dffd472d7bf",
+    "url": "https://raw.githubusercontent.com/AkagawaTsurunaki/KonekoMinecraftBot/b582ef3073bcb62c2fdfea7a9bfd9dffd472d7bf/src/web/zerolanPlugin.ts",
+    "git_blob_sha": "0a4ca13582e65ffd85692c40a61b716e7d979f6a",
+    "verified": true
+  }
+]

@@ -29,3 +29,4 @@ Library/
 Temp/
 build/
 dist/
+*.py[cod]
