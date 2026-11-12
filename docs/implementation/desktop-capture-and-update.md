@@ -50,6 +50,8 @@ v2 固定锚定已发布 d01 基础包：CPU/CUDA 原配置清单、主机壳、
 
 构建只接受 `passed:true`、`sources_unchanged_during_checks:true` 的报告，并逐项匹配 `source_sha256`。须覆盖所有改变的程序及全部主机文件；场景 PNG 也必须在报告中。元数据的 commit、source ID、CPU/CUDA 来源及实际 profile payload 必须一致。程序更新负载上限 64MiB。
 
+发布 CLI 在创建输出目录前调用本地 Git：确认完整提交对象实际存在，并逐字节核对该提交树与所有固定程序、主机和随包 installer 源码。调用工具本身及其 helper 也必须匹配；脏代码、旧提交、Gitless 目录或只长得像 40 位 SHA 的标签都拒绝。暂存完成后、封 ZIP 前再检查一次。请自动读取实际 `git rev-parse --verify HEAD`，不要手抄提交。纯 `build_folder` 保留测试夹具用途，不能替代发布 CLI 门禁。
+
 ```sh
 python scripts/build_app_update.py \
   --base-package .build/desktop/character-windows312-x64 \

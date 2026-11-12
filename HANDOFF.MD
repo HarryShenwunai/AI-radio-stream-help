@@ -191,3 +191,19 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - v1/v2发现实际独立LGPL2.1 FFmpeg插件及ASIO/非x64备用库，均只本机历史审计不外发。官方精确OpenCV40738fb.../第三方06dc20c...readme明确支持省略独立FFmpeg DLL，实际原MD5与官方pin一致；保留默认x64非ASIOPortAudio，最终v3明确省略7个未用binary，其他2041成员字节不变、26份license/notice保持，全部20个native均x64。许可证/来源/省略原SHA在包内manifest+NOTICE；Matplotlib自己公开sample_data仍原样保留，不含本地评估portrait或用户帧，不要扩写成所有wheel无图片。
 - 最终只发/workspace/dist/tracking-addon-cp312-win-x64-v3.zip：83452536bytes，SHA4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21。2043锁payload+manifest共2044成员，解压231680607bytes。raw manifest含末尾LF，SHAde08abac2f341d0cacf2eba38fc89e53bef0252f98cc2f258736b95ed95bad12；canonical去LF SHAa72ef9399f156c76874ccda0357295b9123305e5b923ed7bf3d8673cf5484f8b。安装必须保留原字节，别把两种SHA混为重建。desktop已获最终唯一锚，不覆盖成品。
 - optional加载先核代码常量manifestSHA及全部路径/文件SHA/类型，拒链接/reparse、未列文件/目录、.pth/sitecustomize/pyc、排除SDK/外平台二进制；失败不挂聊天。成功设置sys.dont_write_bytecode=True，真实纯Pythonimport后仍全树通过；去保护负控生成12pyc。另实修Matplotlib缓存：不能放model.parent，否则资源模型首次启动就在锁树生陌生目录；改进程级私有临时字体缓存，真实初始化/推理前后资源锁树均过，缓存不含帧/人脸。
+
+## 2026-11-12 Root验收与发布门禁实际纠错
+
+- 首个重建full真PASS：638 Python、9 desktop Python、79前端Node、24桌面Node、0skip，10核心strict类型；248程序/视觉SHA稳定。首源码commit f3e4b105cfc96e6ef3f412c57de5809de7acf53a逐文件与报告SHA相符。此为首冻结快照，不代替下述构建器补丁后的最终报告。
+- 原图3D造型被用户明确reject，所有失败模型/渲染只在ignored .build/rejected-3d-reference；不可再展示/对比/交付。当前四图是真PNG状态，局部眼嘴合成不是Live2D/真拆件。实际RMS内部声静音能开闭、区域外像素exact0、4次资源fetch后不重复读，真实Qwen/Kokoro/停止6门亦过，Win4060/真人/真实账号仍未验。
+- 强制SwiftShader首次只读Canvas read1→2会出现706个外区RGB差1，read2→3全图0；稳定纯读基线后实际Audio外区exact0、写外区1像素负控检出1。不能为此放宽阈值或误称口型越区已证；报告保存默认/SwiftShader对照和红probe。
+- Root首次封小更新误手抄不存在的40hex source commit；builder旧门只验regex，错误包曾生成但未上传，已隔离 .build/rejected-package-metadata。必须自动从git读取真实SHA，并在CLI校验Git对象存在和随包源字节与提交树一致，封ZIP前再复核；禁止外发旧错包。新guard/真实临时repo正负测试由desktop owner补齐。
+- 新Perception TLC配置1514 generated/529 distinct/depth11全搜索无反例，3移除owner/consent/迟到保护负控都检出；总14配置=4安全/10负控，report formal-model-rebuild-check.json。只证明有限抽象安全性质，不是Python精化或全程序/无限会话/活性证明。
+- Workspace /workspace/HANDOFF.MD和项目HANDOFF.MD是两份不同文件，不是链接；项目发布相关坑需同时记录，不能以为写workspace就自动进入Git仓库。实际修复优先固化为执行门禁，避免仅靠长文记忆。
+
+
+## 2026-11-12 发布提交标签误报与自动门禁
+
+- Root实际手抄不存在的40hex f3e4b1071d6ac2f735f01cfdbfb5bd9ef3d43120时，旧builder仅regex检查竟产生包；已隔离未上传。不能把40hex格式或质量报告hash匹配等同Git提交存在。
+- scripts/build_app_update.py 发布CLI现先用git rev-parse --verify <id>^{commit}确认真实commit，再用ls-tree及Git blob字节hash核对全部PROGRAM_FILES/host/随包installer与当前源码；调用builder/helper的checkout也须匹配。缺文件、symlink、tree对象、旧commit/脏文件、Gitless和不匹配publisher拒绝，创建输出目录前就失败；暂存完封ZIP前再核一次。纯build_folder的a*40夹具用途未改。发布必须先提交这些工具更改并自动读取真实HEAD，不能复用修复前commit。
+- 新真实临时Git仓库10项+既有事务/installer21项合计31测试；还以本仓库实际错误SHA重放CLI，验证exit2、无ZIP/part/输出目录。报告review/app-update-check.json与app-update-commit-rejection-check.json；native/optional内容未变，无故不重跑硬件夹具。

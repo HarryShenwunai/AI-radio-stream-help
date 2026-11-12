@@ -7,16 +7,62 @@ import argparse
 from copy import deepcopy
 import hashlib
 import json
+import os
 from pathlib import Path
+import re
 import shutil
+import subprocess
 import tempfile
 import zipfile
 
 from app_update import (BASE_ARCHIVE_SHA, BASE_COMMIT, BASE_HOST_SHA, BASE_PROFILE_SHA, FORMAT,
                         HOST, HOST_FILES, PROGRAM_FILES, PROFILES, canonical_hash, load_update)
-from ui_update import digest, relative
+from ui_update import UpdateError, digest, relative, safe
 
 ROOT=Path(__file__).resolve().parents[1]
+PUBLISHER_FILES=frozenset({'scripts/build_app_update.py','scripts/app_update.py','scripts/ui_update.py','scripts/tracking_addon.py'})
+COMMIT_FILES=frozenset({*PROGRAM_FILES,*['desktop/'+name for name in HOST_FILES],*PUBLISHER_FILES})
+
+def validate_source_commit(source: Path, commit: str, *, publisher_source: Path | None=None) -> str:
+    """Require a real Git commit whose selected release bytes match the checkout.
+
+    This publishing guard intentionally is not part of the pure fixture builder.
+    Installer helpers copied from the invoking tool's checkout are checked too.
+    """
+    if not re.fullmatch('[a-f0-9]{40}',commit):raise ValueError('Source commit must be a full 40-character Git commit ID')
+    source=source.resolve()
+    environment={**os.environ,'GIT_NO_REPLACE_OBJECTS':'1'}
+    def git(*arguments: str) -> bytes:
+        try:
+            result=subprocess.run(['git','-C',str(source),*arguments],capture_output=True,timeout=15,env=environment)
+        except (OSError,subprocess.TimeoutExpired) as error:raise ValueError('Publishing requires a readable local Git repository') from error
+        if result.returncode:raise ValueError('Requested Git commit/repository is unavailable; refusing to publish a source label')
+        return result.stdout
+    if Path(os.fsdecode(git('rev-parse','--show-toplevel').strip())).resolve()!=source:
+        raise ValueError('--source must be the Git repository root')
+    resolved=git('rev-parse','--verify',commit+'^{commit}').decode('ascii').strip()
+    if resolved!=commit:raise ValueError('Requested object is not the exact commit ID')
+    entries={}
+    for row in git('ls-tree','-r','-z','--full-tree',commit,'--',*sorted(COMMIT_FILES)).split(b'\0'):
+        if not row:continue
+        record,name=row.split(b'\t',1);mode,kind,oid=record.decode('ascii').split()
+        entries[os.fsdecode(name)]=(mode,kind,oid)
+    def matches(file: Path, wanted: str) -> bool:
+        if not file.is_file():return False
+        data=file.read_bytes()
+        return hashlib.sha1(b'blob '+str(len(data)).encode('ascii')+b'\0'+data).hexdigest()==wanted
+    for name in sorted(COMMIT_FILES):
+        entry=entries.get(name)
+        if not entry or entry[0] not in {'100644','100755'} or entry[1]!='blob':
+            raise ValueError('Required release source is absent or non-regular in the commit: '+name)
+        try:file=safe(source,name)
+        except UpdateError as error:raise ValueError('Unsafe release source path: '+name) from error
+        if not matches(file,entry[2]):raise ValueError('Release source does not match the requested commit: '+name)
+        if publisher_source is not None and name in PUBLISHER_FILES:
+            try:publisher_file=safe(publisher_source.resolve(),name)
+            except UpdateError as error:raise ValueError('Unsafe publisher/helper path: '+name) from error
+            if not matches(publisher_file,entry[2]):raise ValueError('Invoking publisher/helper differs from the requested commit: '+name)
+    return resolved
 
 def encoded(value: dict) -> bytes:
     return (json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode()
@@ -138,9 +184,13 @@ def main() -> None:
     parser.add_argument('--source',type=Path,default=ROOT);parser.add_argument('--source-commit',required=True);parser.add_argument('--update-id',required=True)
     parser.add_argument('--validation-report',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
     if args.output.exists():raise SystemExit('Refusing to overwrite an existing release artifact')
+    try:validate_source_commit(args.source,args.source_commit,publisher_source=ROOT)
+    except ValueError as error:parser.error(str(error))
     args.output.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='source-update-build-',dir=args.output.parent) as temporary:
         folder=Path(temporary)/'app-update';manifest=build_folder(args.base_package,args.source,folder,args.source_commit,args.update_id,args.validation_report)
+        try:validate_source_commit(args.source,args.source_commit,publisher_source=ROOT)
+        except ValueError as error:parser.error(str(error))
         archive=args.output.with_suffix('.zip.part')
         with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as output:
             for file in sorted(folder.rglob('*')):
