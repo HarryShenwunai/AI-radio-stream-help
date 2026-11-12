@@ -1,0 +1,29 @@
+{
+  "original_name": "character-windows-x64-0.4.0-dev1-candidate.zip",
+  "bytes": 4491413065,
+  "sha256": "92d3e858cb93471b1fe4e633e2b5328aa43dc178f325a9bfa65ca62d1405b7e3",
+  "source_commit": "d01ccc42bbe6795c216afae37dd0e53128ab58d9",
+  "download_base": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.4.0-dev1-candidate/",
+  "parts": [
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part01",
+      "bytes": 1610612736,
+      "sha256": "b5b43075d0faf72ff0dbe87df8fe5dc434c06e4296b8f8b177715819f056cc9d",
+      "offset": 0
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part02",
+      "bytes": 1610612736,
+      "sha256": "19a6919e6c753f5cc82d9deddcb9de5919e37c7c848da1589355e189ce61d177",
+      "offset": 1610612736
+    },
+    {
+      "name": "character-windows-x64-0.4.0-dev1-candidate.zip.part03",
+      "bytes": 1270187593,
+      "sha256": "3cca5c00194ee35c58a600cdeddcaca5d02127931069f56d43b9610af29a7cda",
+      "offset": 3221225472
+    }
+  ],
+  "windows_native_execution_verified": false,
+  "cuda_offload_confirmed": false
+}

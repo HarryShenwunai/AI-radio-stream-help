@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "valid_parts_join_exactly",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "corrupt_part_is_rejected",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "missing_part_does_not_contact_network",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "name": "existing_valid_archive_is_reused",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "name": "existing_invalid_archive_is_preserved",
+      "passed": true,
+      "exit_code": 1
+    }
+  ],
+  "scope": "actual PowerShell/.NET execution on Linux with small fixtures; original release script unmodified; no Windows execution or real model retest",
+  "original_script_sha256": "664104e1bf32e006f67a24d25eb61a9e3349c00a4e0ff19175ef5164b0f591db"
+}
