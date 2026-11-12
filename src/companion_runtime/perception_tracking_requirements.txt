@@ -1,0 +1,3 @@
+# Optional local CPU head/face-direction estimation; not required for chat/voice.
+# Official PyPI 1.2.3 verified against google-ai-edge/mediapipe v1.2.3 release.
+mediapipe==1.2.3

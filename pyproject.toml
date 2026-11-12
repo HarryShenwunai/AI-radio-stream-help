@@ -14,6 +14,12 @@ files = [
   "src/companion_runtime/live.py",
   "src/companion_runtime/zerolan.py",
   "src/companion_runtime/http_payload.py",
+  "src/companion_runtime/assistance.py",
+  "src/companion_runtime/devices.py",
+  "src/companion_runtime/perception.py",
+  "src/companion_runtime/preference_learning.py",
+  "src/companion_runtime/perception_tracking.py",
+  "src/companion_runtime/perception_optional.py",
 ]
 follow_imports = "normal"
 mypy_path = "src"

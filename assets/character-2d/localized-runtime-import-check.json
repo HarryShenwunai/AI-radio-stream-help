@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "actual_target_images": true,
+  "same_normalized_png_bytes_for_all_four_states": true,
+  "raw_source_sha_unchanged": true,
+  "new_preview_revision_distinct": true,
+  "source_manifest_unchanged": true,
+  "regions": {
+    "eyes": {
+      "x": 490,
+      "y": 290,
+      "width": 235,
+      "height": 95,
+      "feather": 10
+    },
+    "mouth": {
+      "x": 550,
+      "y": 430,
+      "width": 135,
+      "height": 70,
+      "feather": 10
+    }
+  },
+  "timing": {
+    "cloud_cpu_import_seconds": 2.293,
+    "cloud_cpu_region_revision_seconds": 2.2103,
+    "process_peak_rss_linux_kib": 49924,
+    "scope": "Single isolated cloud Python process. Not browser GPU/Windows/RTX4060 performance."
+  },
+  "art_visual_acceptance": "NOT_CLAIMED"
+}

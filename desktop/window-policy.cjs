@@ -38,4 +38,9 @@ function expandedBounds(workArea) {
   return { width, height, x: workArea.x + Math.floor((workArea.width - width) / 2),
     y: workArea.y + Math.floor((workArea.height - height) / 2) };
 }
-module.exports = { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, expandedBounds };
+function restoreOutputBounds(saved, area) {
+  const width = Math.max(1,Math.min(saved.width,area.width)), height = Math.max(1,Math.min(saved.height,area.height));
+  return { width,height,x:Math.max(area.x,Math.min(saved.x,area.x+area.width-width)),
+    y:Math.max(area.y,Math.min(saved.y,area.y+area.height-height)) };
+}
+module.exports = { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, expandedBounds, restoreOutputBounds };

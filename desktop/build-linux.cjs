@@ -12,7 +12,7 @@ require('./build-focus.cjs');
 fs.mkdirSync(output,{recursive:true});fs.cpSync(electronDist,output,{recursive:true});
 fs.renameSync(path.join(output,'electron'),path.join(output,'companion-desktop'));
 const appDir=path.join(output,'resources','app');fs.mkdirSync(appDir,{recursive:true});
-for(const file of ['main.cjs','preload.cjs','window-policy.cjs','runtime-profiles.cjs','icon.png','focus-x11'])fs.copyFileSync(path.join(__dirname,file),path.join(appDir,file));
+for(const file of ['main.cjs','preload.cjs','window-policy.cjs','runtime-profiles.cjs','media-policy.cjs','screen-capture.cjs','screen-capture.html','screen-capture-view.js','screen-capture.css','icon.png','focus-x11'])fs.copyFileSync(path.join(__dirname,file),path.join(appDir,file));
 fs.writeFileSync(path.join(appDir,'package.json'),JSON.stringify({name:'companion-desktop-runtime',version:require('./package.json').version,main:'main.cjs',license:'GPL-3.0'},null,2)+'\n');
 if(backendArg){
  const source=path.resolve(backendArg.slice(10));

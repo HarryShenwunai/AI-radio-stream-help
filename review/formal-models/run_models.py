@@ -24,6 +24,10 @@ CASES = [
     ('Playback-mutant-last-write', False, 'sensitivity control: naive last-write loses earlier confirmed prefix'),
     ('Playback-mutant-stale', False, 'sensitivity control: stale scope/nonce receipt may be accepted'),
     ('Playback-mutant-terminal', False, 'sensitivity control: stopped attempt may be revived'),
+    ('Perception-fixed', True, 'bounded owner consent, two sessions, role/appearance epoch and late provider result'),
+    ('Perception-mutant-late', False, 'sensitivity control: accept a frame after stop/scope/device invalidation'),
+    ('Perception-mutant-owner', False, 'sensitivity control: plugin ingress may start a private capture'),
+    ('Perception-mutant-consent', False, 'sensitivity control: a declared device is treated as capture consent'),
 ]
 
 
@@ -53,7 +57,8 @@ def main():
         raise SystemExit(2)
     logs=MODELS/'logs';logs.mkdir(exist_ok=True)
     checks=[]
-    source_files = [ROOT/name for name in ('app/server.py','src/companion_runtime/playback.py')]
+    source_files = [ROOT/name for name in ('app/server.py','src/companion_runtime/playback.py',
+        'src/companion_runtime/perception.py','src/companion_runtime/perception_tracking.py','src/companion_runtime/devices.py')]
     source_files += [Path(__file__).resolve(), *MODELS.glob('*.tla'), *MODELS.glob('*.cfg')]
     before = {str(path.relative_to(ROOT)):sha(path) for path in source_files}
     with tempfile.TemporaryDirectory(prefix='companion-tlc-') as temp:
@@ -84,7 +89,8 @@ def main():
                     'source':'https://github.com/tlaplus/tlaplus/releases/download/v1.7.4/tla2tools.jar',
                     'sha256_observed':sha(args.jar),'pinned_sha256':JAR_SHA256,
                     'official_published_digest':False,'java_version':subprocess.run(['java','-version'],capture_output=True,text=True).stderr.splitlines()[0]},
-            'scope':{'dispatch':'one public attempt, one private attempt, one optional stop, primitive model mutex assumed correct',
+            'scope':{'perception':'two session starts, two scope epoch changes, one in-flight frame, owner/plugin callers, consent and camera availability; uncooperative provider may return late',
+                     'dispatch':'one public attempt, one private attempt, one optional stop, primitive model mutex assumed correct',
                      'playback':'one owner, two attempts of same full text, one role/appearance switch, arbitrary finite receipt-persistence order',
                      'safety_only':True,'deadlock_check':False,'liveness_proved':False,'hash_unforgeability_proved':False,
                      'implementation_refinement_proved':False},
@@ -92,7 +98,8 @@ def main():
             'source_changed_during_check':before != after,
             'source_sha256_before':before,'source_sha256_after':after,
             'spec_sha256':{p.name:sha(p) for p in MODELS.glob('*.tla')},
-            'implementation_review_snapshot':{name:sha(ROOT/name) for name in ('app/server.py','src/companion_runtime/playback.py')},
+            'implementation_review_snapshot':{name:sha(ROOT/name) for name in ('app/server.py','src/companion_runtime/playback.py',
+                'src/companion_runtime/perception.py','src/companion_runtime/perception_tracking.py','src/companion_runtime/devices.py')},
             'remaining_limits':['No equivalence proof from Python to TLA+; source mapping and separate real-code tests are required.',
                 'No unbounded multi-owner/multi-provider progress, C/CUDA behavior, sockets, UI, Windows hardware or platform/account verification.',
                 'TLC uses 64-bit state fingerprints; consult raw logs for calculated collision estimates.',

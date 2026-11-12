@@ -1,18 +1,22 @@
 'use strict';
-const { app, BrowserWindow, dialog, globalShortcut, ipcMain, Menu, nativeImage, screen, Tray } = require('electron');
+const { app, BrowserWindow, desktopCapturer, dialog, globalShortcut, ipcMain, Menu, nativeImage, screen, Tray } = require('electron');
 const { spawn, spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const http = require('node:http');
 const path = require('node:path');
-const { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, expandedBounds } = require('./window-policy.cjs');
+const { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, expandedBounds, restoreOutputBounds } = require('./window-policy.cjs');
 const { backendDirectory, selectRuntimeProfile, saveRuntimeProfile } = require('./runtime-profiles.cjs');
+const { installMediaPermissions } = require('./media-policy.cjs');
+const { createScreenCaptureManager } = require('./screen-capture.cjs');
 
 app.setName('虚拟陪伴');
 let window = null, backend = null, tray = null, backendURL = '', quitting = false;
 let expanded = false, clickThrough = false, recoverShortcut = false, recoveryTimer = null;
-let savedCompactBounds = null, microphoneGranted = false;
+let savedCompactBounds = null;
 let focusHelper = null, focusRestoreAvailable = false;
 let runtimeSelection = { profile:'cpu',fallback:null }, runtimeSession = null;
+let screenCapture = null;
+let displayOutput = null;
 const RECOVERY_SHORTCUT = 'CommandOrControl+Shift+Space';
 const args = process.argv.slice(app.isPackaged ? 1 : 2);
 if (app.isPackaged && !args.includes('--smoke-test')) {
@@ -23,8 +27,15 @@ const findArg = name => args.find(value => value.startsWith(name + '='))?.slice(
 const state = () => ({ expanded, clickThrough, recoveryShortcut: recoverShortcut ? RECOVERY_SHORTCUT : null,
   clickThroughTimeoutSeconds: 60, trayAvailable: Boolean(tray), visible: Boolean(window && window.isVisible()),
   platform: process.platform, focusRestoreAvailable, runtimeProfile:runtimeSelection.profile,
-  runtimeFallback:runtimeSelection.fallback, windowCount: BrowserWindow.getAllWindows().length });
+  runtimeFallback:runtimeSelection.fallback, windowCount: BrowserWindow.getAllWindows().length,
+  displayOutputId:displayOutput?.id ?? null });
 function publishState() { if (window && !window.isDestroyed()) window.webContents.send('companion:desktop-state', state()); }
+function ensureNoPendingUIUpdate() {
+  if (app.isPackaged && process.platform === 'win32' &&
+      fs.existsSync(path.join(process.resourcesPath, 'ui-update-journal.json'))) {
+    throw new Error('检测到未完成的界面更新。请重新运行已校验的 apply-ui-update.cmd 完成更新，或运行 rollback-ui-update.cmd 恢复；暂不启动本机服务。');
+  }
+}
 function setFocusable(value) {
   // Electron documents this setter for Windows/macOS. Linux uses showInactive.
   if (window && ['win32', 'darwin'].includes(process.platform)) window.setFocusable(value);
@@ -35,6 +46,7 @@ function stopClickThrough() {
 }
 function setExpanded(value, focus = true) {
   if (!window || window.isDestroyed()) return;
+  if (displayOutput) restoreDisplayOutput();
   stopClickThrough();
   if (!expanded) savedCompactBounds = window.getBounds();
   expanded = value;
@@ -48,6 +60,31 @@ function setExpanded(value, focus = true) {
     if (focusRestoreAvailable && focusHelper?.stdin.writable) focusHelper.stdin.write('restore\n');
   }
   publishState();
+}
+function displayInfo() {
+  const primary = screen.getPrimaryDisplay(), displays = screen.getAllDisplays();
+  return { displays:displays.map(item=>({id:item.id,label:item.label||'显示器',is_primary:item.id===primary.id,
+    bounds:item.bounds,scale_factor:item.scaleFactor})), external_display_detected:displays.some(item=>item.id!==primary.id),
+    output_display_id:displayOutput?.id ?? null };
+}
+function setDisplayOutput(id) {
+  if (!Number.isSafeInteger(id) || !window || window.isDestroyed()) throw new Error('无效显示器。');
+  const target = screen.getAllDisplays().find(item=>item.id===id);
+  if (!target) throw new Error('所选显示器已断开。');
+  if (!displayOutput) displayOutput = { id,bounds:window.getBounds(),expanded,resizable:window.isResizable(),
+    alwaysOnTop:window.isAlwaysOnTop(),compact:savedCompactBounds,originalDisplayId:screen.getDisplayMatching(window.getBounds()).id };
+  else displayOutput.id=id;
+  stopClickThrough(); expanded=false;
+  window.setResizable(false); window.setAlwaysOnTop(true,'floating'); setFocusable(true);
+  window.setBounds(target.workArea); window.show(); window.focus(); publishState(); return state();
+}
+function restoreDisplayOutput() {
+  if (!displayOutput || !window || window.isDestroyed()) return state();
+  const old=displayOutput;displayOutput=null;
+  const target=screen.getAllDisplays().find(item=>item.id===old.originalDisplayId)||screen.getPrimaryDisplay();
+  expanded=old.expanded;savedCompactBounds=old.compact;stopClickThrough();
+  window.setBounds(restoreOutputBounds(old.bounds,target.workArea));window.setResizable(old.resizable);
+  window.setAlwaysOnTop(old.alwaysOnTop,'floating');setFocusable(old.expanded);window.showInactive();publishState();return state();
 }
 function restore() { stopClickThrough(); setExpanded(false, false); window?.showInactive(); publishState(); }
 function setClickThrough(value) {
@@ -74,6 +111,20 @@ function assertSender(event) {
       !trustedNavigation(event.senderFrame.url, backendURL)) throw new Error('Untrusted desktop request');
 }
 function installIPC() {
+  ipcMain.handle('companion:display-output', (event, command, id) => {
+    assertSender(event);
+    if (command==='list' && id===undefined) return displayInfo();
+    if (command==='restore' && id===undefined) return restoreDisplayOutput();
+    if (command==='select' && Number.isSafeInteger(id)) return setDisplayOutput(id);
+    throw new Error('Invalid display output request');
+  });
+  ipcMain.handle('companion:screen-preview', async (event, command, captureId) => {
+    assertSender(event);
+    if (command === 'start' && captureId === undefined) return screenCapture.start();
+    if (!['frame','stop'].includes(command) || typeof captureId !== 'string' ||
+        !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(captureId)) throw new Error('Invalid capture request');
+    return command === 'frame' ? screenCapture.frame(captureId) : screenCapture.stop(captureId);
+  });
   ipcMain.handle('companion:desktop', (event, command, value) => {
     assertSender(event); validateCommand(command, value);
     if (command === 'set-expanded') setExpanded(value);
@@ -196,6 +247,7 @@ function makeTray() {
     tray = new Tray(image); tray.setToolTip('虚拟陪伴');
     tray.setContextMenu(Menu.buildFromTemplate([
       { label: '显示角色', click: restore }, { label: '展开聊天', click: () => setExpanded(true) },
+      { label: '返回电脑显示', click: restoreDisplayOutput },
       { label: '恢复鼠标', click: () => { stopClickThrough(); publishState(); } },
       { type: 'separator' }, { label: '退出', click: () => app.quit() },
     ]));
@@ -213,13 +265,9 @@ async function createWindow() {
   window.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   window.webContents.on('will-navigate', (event, url) => { if (!trustedNavigation(url, backendURL)) event.preventDefault(); });
   window.webContents.on('will-attach-webview', event => event.preventDefault());
-  window.webContents.session.setPermissionRequestHandler(async (contents, permission, callback, details) => {
-    if (contents !== window?.webContents || !trustedNavigation(contents.getURL(), backendURL) ||
-        permission !== 'media' || !details.mediaTypes?.length || details.mediaTypes.some(type => type !== 'audio')) return callback(false);
-    const answer = await dialog.showMessageBox(window, { type: 'question', buttons: ['取消', '允许麦克风'],
-      defaultId: 0, cancelId: 0, message: '允许这次使用麦克风？', detail: '只在你主动开启语音输入时采集。' });
-    microphoneGranted = answer.response === 1; callback(microphoneGranted);
-  });
+  installMediaPermissions({ getWindow: () => window, getBackendURL: () => backendURL, dialog, desktopCapturer, Menu });
+  screenCapture = createScreenCaptureManager({ getOwner: () => window, BrowserWindow, desktopCapturer, Menu });
+  window.webContents.on('did-start-navigation', (_event, _url, _inPlace, mainFrame) => { if (mainFrame) screenCapture.stopAll(); });
   window.webContents.on('did-finish-load', publishState);
   window.on('closed', () => { window = null; if (!quitting) app.quit(); });
   window.on('close', () => { stopClickThrough(); });
@@ -248,6 +296,7 @@ async function startFocusHelper() {
 function cleanup() {
   if (quitting) return; quitting = true;
   stopClickThrough(); globalShortcut.unregisterAll(); tray?.destroy(); tray = null;
+  screenCapture?.stopAll();
   focusHelper?.stdin.end();
   stopOwnedBackend();
   if(runtimeSession){try{if(JSON.parse(fs.readFileSync(runtimeSession,'utf8')).pid===process.pid)fs.unlinkSync(runtimeSession);}catch{}}
@@ -259,7 +308,13 @@ else {
   app.whenReady().then(async () => {
     try {
       if (args.includes('--smoke-test')) app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
-      installIPC(); claimRuntimeSession(); await startBackend(); await createWindow();
+      ensureNoPendingUIUpdate(); installIPC(); claimRuntimeSession(); await startBackend(); await createWindow();
+      screen.on('display-removed', () => {
+        if (displayOutput && !screen.getAllDisplays().some(item=>item.id===displayOutput.id)) restoreDisplayOutput();
+      });
+      screen.on('display-metrics-changed', (_event, display) => {
+        if (displayOutput?.id===display.id && window && !window.isDestroyed()) window.setBounds(display.workArea);
+      });
       recoverShortcut = globalShortcut.register(RECOVERY_SHORTCUT, restore);
       makeTray(); publishState();
     } catch (error) {

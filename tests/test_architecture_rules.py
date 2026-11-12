@@ -23,7 +23,7 @@ SPEC.loader.exec_module(architecture)
 class ArchitectureMutationTests(unittest.TestCase):
     def setUp(self):
         self.sources = {path: (ROOT / path).read_text(encoding="utf-8") for path in
-                        (*architecture.PUBLIC, *architecture.ASSETS, "app/server.py")}
+                        (*architecture.PUBLIC, *architecture.ASSETS, *architecture.ADVICE, "app/server.py")}
         self.package = json.loads((ROOT / "frontend/package.json").read_text(encoding="utf-8"))
         self.lock = json.loads((ROOT / "frontend/package-lock.json").read_text(encoding="utf-8"))
         self.static = [str(path.relative_to(ROOT)) for path in (ROOT / "app/static").rglob("*") if path.is_file()]
@@ -61,6 +61,23 @@ class ArchitectureMutationTests(unittest.TestCase):
         self.sources[architecture.ASSETS[0]] += "\ndef bad_asset(value):\n    return eval(value)\n"
         self.reject("A03")
 
+    def test_layered_character_parser_is_covered_by_execution_gate(self):
+        path = 'src/companion_runtime/layered_2d_assets.py'
+        self.assertIn(path, architecture.ASSETS)
+        self.sources[path] += '\nimport subprocess as layer_executor\n'
+        self.reject('A03')
+
+    def test_assistance_cannot_acquire_external_execution_transport(self):
+        self.sources[architecture.ADVICE[0]] += "\nimport subprocess as tools\n"
+        self.reject("A07")
+
+    def test_preference_learning_cannot_own_network_or_tools(self):
+        original = self.sources[architecture.ADVICE[1]]
+        for injected in ('import urllib.request as service', 'import subprocess as tool'):
+            with self.subTest(injected=injected):
+                self.sources[architecture.ADVICE[1]] = original + '\n' + injected + '\n'
+                self.reject('A07')
+
     def test_sdk_bytes_in_default_static_fails(self):
         self.static.append("app/static/vendor/live2dcubismcore.min.js")
         self.reject("A04")
@@ -82,6 +99,17 @@ class ArchitectureMutationTests(unittest.TestCase):
         self.plugin_branch(tree).body.insert(0, ast.parse("approve({})").body[0])
         self.save(tree)
         self.reject("A05")
+
+    def test_plugin_cannot_reach_new_host_capture_advice_or_learning(self):
+        original = self.sources['app/server.py']
+        for helper in ('perception_request','assistance_request','preference_request','update_devices',
+                       'host_services','preference_store','assistance_store'):
+            with self.subTest(helper=helper):
+                self.sources['app/server.py'] = original
+                tree = self.server()
+                self.plugin_branch(tree).body.insert(0, ast.parse(helper + '()').body[0])
+                self.save(tree)
+                self.reject('A05')
 
     def test_plugin_missing_authentication_fails(self):
         class RemoveAuthentication(ast.NodeTransformer):

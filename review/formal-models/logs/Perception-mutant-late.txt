@@ -1,0 +1,88 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 90396] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /workspace/AI-radio-stream-help/review/formal-models/Perception.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/TLC.tla
+Parsing file /tmp/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Perception
+Starting... (2026-11-12 21:01:39)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-12 21:01:39.
+Error: Invariant Safety is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ pending = [epoch |-> 0, role |-> "A", session |-> 0]
+/\ epoch = 0
+/\ started = {}
+/\ submitted = {}
+/\ starts = 0
+/\ current = 0
+/\ role = "A"
+/\ accepted = {}
+/\ consent = FALSE
+/\ enabled = TRUE
+
+State 2: <Start line 23, col 3 to line 27, col 64 of module Perception>
+/\ pending = [epoch |-> 0, role |-> "A", session |-> 0]
+/\ epoch = 0
+/\ started = {[consent |-> TRUE, who |-> "owner"]}
+/\ submitted = {}
+/\ starts = 1
+/\ current = 1
+/\ role = "A"
+/\ accepted = {}
+/\ consent = TRUE
+/\ enabled = TRUE
+
+State 3: <Capture line 30, col 3 to line 33, col 77 of module Perception>
+/\ pending = [epoch |-> 0, role |-> "A", session |-> 1]
+/\ epoch = 0
+/\ started = {[consent |-> TRUE, who |-> "owner"]}
+/\ submitted = {1}
+/\ starts = 1
+/\ current = 1
+/\ role = "A"
+/\ accepted = {}
+/\ consent = TRUE
+/\ enabled = TRUE
+
+State 4: <Stop line 47, col 3 to line 50, col 79 of module Perception>
+/\ pending = [epoch |-> 0, role |-> "A", session |-> 1]
+/\ epoch = 0
+/\ started = {[consent |-> TRUE, who |-> "owner"]}
+/\ submitted = {1}
+/\ starts = 1
+/\ current = 0
+/\ role = "A"
+/\ accepted = {}
+/\ consent = FALSE
+/\ enabled = TRUE
+
+State 5: <Deliver line 36, col 3 to line 41, col 78 of module Perception>
+/\ pending = [epoch |-> 0, role |-> "A", session |-> 0]
+/\ epoch = 0
+/\ started = {[consent |-> TRUE, who |-> "owner"]}
+/\ submitted = {1}
+/\ starts = 1
+/\ current = 0
+/\ role = "A"
+/\ accepted = { [ epoch |-> 0,
+    role |-> "A",
+    enabled |-> TRUE,
+    consent |-> FALSE,
+    session |-> 1,
+    nowSession |-> 0,
+    nowRole |-> "A",
+    nowEpoch |-> 0 ] }
+/\ consent = FALSE
+/\ enabled = TRUE
+
+79 states generated, 45 distinct states found, 25 states left on queue.
+The depth of the complete state graph search is 5.
+The average outdegree of the complete state graph is 2 (minimum is 0, the maximum 6 and the 95th percentile is 6).
+Finished in 00s at (2026-11-12 21:01:40)

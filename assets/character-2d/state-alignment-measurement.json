@@ -1,0 +1,82 @@
+{
+  "method": "Read-only pixel measurement; RGB premultiplied by alpha, only joint alpha>160 compared; no artwork editing or registration applied. ROI is an analyst-defined approximate facial rectangle, not face landmark detection.",
+  "acceptance": "REVIEW_REQUIRED; numeric differences alone cannot prove perceptual alignment.",
+  "results": {
+    "idle": {
+      "eyes_and_mouth_review_roi": {
+        "overlap_pixels": 63250,
+        "mean_rgb_absolute_difference_0_255": 0.0,
+        "fraction_mean_rgb_difference_over_20": 0.0
+      },
+      "outside_face": {
+        "overlap_pixels": 895535,
+        "mean_rgb_absolute_difference_0_255": 0.0,
+        "fraction_mean_rgb_difference_over_20": 0.0
+      },
+      "lower_body_stable_roi": {
+        "overlap_pixels": 613620,
+        "mean_rgb_absolute_difference_0_255": 0.0,
+        "fraction_mean_rgb_difference_over_20": 0.0
+      },
+      "alpha_nonzero_median": 253.0,
+      "alpha_over_240_pixels": 945172
+    },
+    "talk": {
+      "eyes_and_mouth_review_roi": {
+        "overlap_pixels": 63250,
+        "mean_rgb_absolute_difference_0_255": 8.291,
+        "fraction_mean_rgb_difference_over_20": 0.04764
+      },
+      "outside_face": {
+        "overlap_pixels": 895003,
+        "mean_rgb_absolute_difference_0_255": 6.564,
+        "fraction_mean_rgb_difference_over_20": 0.01866
+      },
+      "lower_body_stable_roi": {
+        "overlap_pixels": 613619,
+        "mean_rgb_absolute_difference_0_255": 5.835,
+        "fraction_mean_rgb_difference_over_20": 0.00845
+      },
+      "alpha_nonzero_median": 253.0,
+      "alpha_over_240_pixels": 959240
+    },
+    "blink": {
+      "eyes_and_mouth_review_roi": {
+        "overlap_pixels": 63250,
+        "mean_rgb_absolute_difference_0_255": 8.446,
+        "fraction_mean_rgb_difference_over_20": 0.07698
+      },
+      "outside_face": {
+        "overlap_pixels": 892168,
+        "mean_rgb_absolute_difference_0_255": 4.668,
+        "fraction_mean_rgb_difference_over_20": 0.01221
+      },
+      "lower_body_stable_roi": {
+        "overlap_pixels": 613092,
+        "mean_rgb_absolute_difference_0_255": 4.281,
+        "fraction_mean_rgb_difference_over_20": 0.0049
+      },
+      "alpha_nonzero_median": 253.0,
+      "alpha_over_240_pixels": 945109
+    },
+    "talk_blink": {
+      "eyes_and_mouth_review_roi": {
+        "overlap_pixels": 63250,
+        "mean_rgb_absolute_difference_0_255": 11.758,
+        "fraction_mean_rgb_difference_over_20": 0.11995
+      },
+      "outside_face": {
+        "overlap_pixels": 894780,
+        "mean_rgb_absolute_difference_0_255": 7.328,
+        "fraction_mean_rgb_difference_over_20": 0.02152
+      },
+      "lower_body_stable_roi": {
+        "overlap_pixels": 613620,
+        "mean_rgb_absolute_difference_0_255": 6.9,
+        "fraction_mean_rgb_difference_over_20": 0.01069
+      },
+      "alpha_nonzero_median": 253.0,
+      "alpha_over_240_pixels": 957281
+    }
+  }
+}

@@ -49,12 +49,13 @@ def bootstrap(arguments, test_python):
 
 def source_hashes():
     paths = []
-    for directory in ("app", "src", "scripts", "tests", "plugins", "desktop", "frontend", ".github", "review/formal-models"):
+    for directory in ("app", "src", "scripts", "tests", "plugins", "desktop", "frontend", "assets", ".github", "review/formal-models"):
         for path in (ROOT / directory).rglob("*"):
             relative = path.relative_to(ROOT)
             if any(part in {"node_modules", "__pycache__", "test-results", "models", "voices", "data"} for part in relative.parts):
                 continue
-            if path.is_file() and (path.suffix in {".py", ".mjs", ".cjs", ".js", ".json", ".ps1", ".css", ".html", ".toml", ".yml", ".yaml", ".tla", ".cfg"} or path.name.startswith("requirements") and path.suffix == ".txt"):
+            image_source = (directory == 'assets' or relative.parts[:2] == ('app','static')) and path.suffix.lower() in {'.png','.jpg','.jpeg','.webp','.svg','.avif'}
+            if path.is_file() and (image_source or path.suffix in {".py", ".mjs", ".cjs", ".js", ".json", ".ps1", ".css", ".html", ".toml", ".yml", ".yaml", ".tla", ".cfg"} or path.name.startswith("requirements") and path.suffix == ".txt"):
                 paths.append(path)
     paths.extend(ROOT / name for name in ("pyproject.toml", "requirements-quality.txt", "requirements-dev.txt"))
     return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(set(paths)) if path.is_file()}
@@ -75,7 +76,7 @@ def main():
         except importlib.metadata.PackageNotFoundError:versions[name] = "MISSING: install requirements-quality.txt"
     commands = [
         ("critical-lint", [sys.executable, "-m", "ruff", "check", "app", "src", "scripts", "tests", "plugins", "desktop"]),
-        ("strict-core-types", [sys.executable, "-m", "mypy"]),
+        ("strict-core-types", [sys.executable, "-m", "mypy", "--python-executable", args.test_python]),
         ("architecture", [sys.executable, "scripts/check_architecture.py"]),
         ("architecture-negative-fixtures", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", "test_architecture_rules.py", "-v"]),
     ]
@@ -131,7 +132,7 @@ def main():
               "python_regression":regression,
               "tool_version_sources":{"verified_on":"2026-11-12", "ruff":"https://pypi.org/pypi/ruff/json", "mypy":"https://pypi.org/pypi/mypy/json"},
               "elapsed_seconds":round(time.monotonic() - started, 3),
-              "limits":["Strict typing covers four core modules, not all legacy server code", "AST contracts are bounded regression checks, not whole-program information-flow proof", "Local synthetic tests do not verify Windows/GPU hardware, real platform accounts or visual quality", "No deployment, downloads, account connection or messages are performed by this command"]}
+              "limits":["Strict typing covers the explicit pyproject core-module list, not all legacy server code", "AST contracts are bounded regression checks, not whole-program information-flow proof", "Local synthetic tests do not verify Windows/GPU hardware, real platform accounts or visual quality", "No deployment, downloads, account connection or messages are performed by this command"]}
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(("PASS" if report["passed"] else "FAIL") + ": " + str(args.report), flush=True)
     return 0 if report["passed"] else 1

@@ -114,3 +114,80 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 已无登录凭据实测7个小附件完整下载SHA、三卷的6个首尾HTTP206范围与原包字节一致；真实PowerShell7又用小夹具走公开HTTP下载/校验/合并路径通过。没有重新下载整个4.49GB，也没有称为Windows真机测试。证据见deliveries/0.4.0-dev1-candidate/public-download-check.json和release-integrity.json。
 - 新坑：GitHub把纯中文说明附件名规范化为default.txt，发布前集合/大小/SHA检查拦下；已改名START-HERE.txt，内容SHA保持不变，并对附件名加入ASCII约束。仓库中文路径与Release附件命名规则不能混为一谈。
 - 仓库Secrets仅Actions可读；当前Actions仍billing-lock，最终经用户在GitHub官网确认官方CLI设备授权后上传成功。没有读取/导出仓库secret，也未把token写入源码或聊天。Live2D vendor/官方模型及仅本机评估录像未公开。Windows/4060、实际CUDA、账号互通和人工质量验收仍未通过。
+
+
+## 2026-11-12 新范围：完整产品/UI与原图角色重建（不可用旧日夜稿冒充完成）
+
+- 用户明确“UIUX全面更新，不要现有任务和UI设置，按2026重新制作，不允许省时间”，并新增指定原图从零建模/动画/目光/表情/口型、性格、自适应偏好、HD摄像头/远场mic/PCVision、日程穿搭晚餐/分析/游戏协助。旧六导航/旧任务页/旧通用settings form不再作为最终UI；底层已验会话/权限/语音仍可复用，用户数据不可删。当前日夜浮层只有内部预览，未发布新版本。
+- avatar_from_reference查259张/常见file文件头，原图约1179x1435未找到（3处不可读记录不冒称全盘穷尽）；Blender4.3.2可用。必须向用户重新索取原图文件；不能靠记忆换角色或拿程序占位/官方样例当成品。原图单视角缺的背面/全身属于需记录的设计推断。硬件型号已async询问，未得到实际设备不称5英寸实体显示/远场/摄像头完成。
+- 当前7槽：root独占server集成/范围；frontend全新IA与static，允许换UI IDs、新静态模块；QA独占真实UI/原生Linux测试；desktop更新与journal guard；avatar_from_reference资产工程；perception_runtime感知/配置模块；engineering_gates assistance提案模块。都已收到不假实现/不半成品边界。
+- root已把ui-kit,companion-core,scene-controller,speech-controller,conversation-view,studio,connection-flow,sound-flow,privacy-flow,assistance-view十JS按精确文件名加入server白名单，py_compile过；不是最终功能验收。frontend核心拆模块正在实施，不得保留隐藏旧form桥。
+- Perception合同：status；owner session/start/stop/frame，scope由server(owner,role,appearance,epoch)生成，frame≤1.5MB/1920edge/2.0736MP、单inflight/2s间隔/TTL900；无默认持久化，provider未配明确unavailable，OS媒体授权不能用JSON布尔冒充。真实LLama0.3.36有Qwen25VLChatHandler/mtmd但当前Qwen3-4B纯文本、无Qwen3VL handler；不能假Vision就绪。配置采用新VisionConfigStore(DATA/perception)、owner /api/perception/config，自助固定HTTPS/loopback开发HTTP、密钥0600原子不进state/log，更新取消旧会话；agent正实现。
+- Assistance合同：Store(profile.db,role_scope,provider,provider_kinds)；owner proposals{request_id,expected_character_id,kind,inputs} / decision{action_id,decision} / pause；state.assistance。kind schedule/outfit/dinner/brainstorm/data_analysis/game；固定权限read_only或local_schedule；真实provider未配unavailable，CSV只统计，不代码/购买/发信/游戏操控。migrate_connection给tasks加assistance_action_id，messages加task_id(旧消息不猜关联)；root待接scheduler INSERT task_id与state透出。任务取消改对话来源卡，不重建旧管理列表。
+- 新范围机读清单docs/planning/product-rebuild-requirements-2026.json overall明确NOT_COMPLETE，各项未假填证据。旧417/Chrome等只证明旧范围。2026官方产品研究在docs/research/uiux-2026-refresh.md及evidence/uiux-2026-product-sources.json；AIRI实际网站Loading，只读固定0.14官方ADR/版本与手册例图，AVA看了宣传图但无硬件实测。所有新软件/硬件/人物质感要分层验收。
+
+
+## 2026-11-12 感知边界与真实协议验证
+
+- `perception.py` 默认 vision_not_configured；本机 Qwen3-4B 是文本模型，不可当VLM。安装llama-cpp-python0.3.36有Qwen25VL handler+独立投影器要求，没有Qwen3VL handler。本次官方Qwen2.5-VL-3B SHA66285546d2b821cf421d4f5eb2576359d3770cd3的LICENSE是Qwen RESEARCH LICENSE，不能沿用第三方量化页Apache标签。
+- owner自助视觉连接只存全局transport配置，不进角色记忆：原子0600/0700、拒绝链接/reparse/超大/非regular；Windows仍须私有AppData ACL。更换base_url未显式新key时清旧key，避免把服务A凭据发给B。配置完成不等于模型确实看懂图。
+- 帧真实PNG/JPEG解码后新像素重编码去元数据；单解码/推理槽、全局2秒间隔防重开session绕过、会话/缓存/TTL限制；取消/换role/appearance/epoch后的迟到结果拒交付。供应商不合作可能继续至超时，不能声称能撤回远端已发帧。
+- `manager.observation(scope,id)`仅从真实成功帧创建短期server-only provenance；owner/epoch/session/捕获年龄与缓存年龄≤30秒检查，stop/config立即失效。建议接口只收opaque observation_id，不接受前端description冒充来源；模型输出仍标untrusted_context及inference_verified:false，不授予工具权。
+- 47模块测试全过，含1296有限trace/5184实际管理器操作；strict mypy需`--python-executable /workspace/companion/.venv/bin/python`以找到真实Pillow类型（quality工具venv本身无PIL），无ignore；关键Ruff通过。review/perception-module-check.json绑定源码SHA。真实loopback HTTP4请求验证multimodal/auth、307拒跟随、响应限额/500脱敏，review/perception-provider-check.json；合成响应不证明VLM理解/摄像/Windows/4060。
+- 官方MediaPipe代码及BlazeFace/FaceMeshV2/BlendshapesV2模型卡分别已核Apache2。初次1.5MB抓取截断两张PDF导致解析失败，改有界8MiB完整解析后核实；不要把截断资料当许可缺失。尚未安装具体task/真人测试；面部方向/表情估计不能称专业眼动，远场麦克风/投影效果仍取决硬件。
+
+
+## 2026-11-12 设备声明持久化边界
+
+- 新 `DevicePreferencesStore(DATA / 'devices')` 仅存 display/camera/microphone 三个布尔声明；默认有设备不代表已检测、已授权或正在采集。display 是额外5英寸角色装置，缺失不可影响PC舞台/PCVision；microphone 缺失不可影响TTS。Root需独立连接停止实际输入会话的逻辑。
+- 实际修正：损坏的已有设备配置不能按首次启动恢复全部true，否则可能重新启用此前禁用的输入。当前损坏/不完整/重复JSON键均拒绝，保留原文件；配置只在缺失时采用默认。原子写入/受限模式/符号链接和reparse检查；Windows ACL、物理检测和采集未因此被证明。
+- 模块12项测试、strict mypy单模块及关键Ruff已通过；无server/UI改动，未声称Windows/硬件验收。调用API与单写者/可信父目录限制见docs/implementation/devices.md。
+
+
+## 2026-11-12 新后端真实HTTP验收
+
+- `tests/test_rebuild_http.py` 15项真实loopback Handler集成通过，0skip/0error，18.708s；6文件SHA前后稳定。报告与日志在`.build/rebuild-http-check.json`/`.build/rebuild-http-tests.txt`。覆盖owner/plugin鉴权、scope伪造拒绝、frame session_id与private envelope区分、缺camera仅停camera、缺mic停ASR不禁TTS、声明跨role、迟到视觉拒交付、提案确认幂等与reminder task_id、旧schema迁移和观察ID撤销。模型回复均合成，不证明视觉语义、游戏水平、硬件或Windows。
+- 验收修正：非合作协助provider未收尾时，角色/外观切换的正确行为是先取消ledger并返回409；provider结束后重试可成功。测试必须断言旧summary始终为空、迟到建议没有交付、旧role未在409时被谎称切换，而不能硬写每次切换必200。迁移fixture按保留消息ID查找，不能假定messages[0]是夹具（初始化已有消息）。
+
+
+## 2026-11-12 按需偏好候选与遗忘一致性验收
+
+- 新 preference_learning.py 只按用户明确请求读取当前角色≤12条user/chat（每条≤3000字/总≤12000），真实provider只可选完整单行原句≤300字。带source_message_id/精确原文SHA/角色scope，候选待确认，普通聊天无额外推理；memory_mode=off拒绝collect/confirm且不传源文。缺provider明确unavailable；模型改写/视觉/assistant来源不能直接进memory。
+- 实际修正：只删除memories行不够，候选ledger也可能泄漏遗忘原文。reconcile/list/cached request现会redact forgotten或pending源失效候选；confirmed须核对实际memory行/原文/source，重复confirm不可重建删掉的记忆。单清chat但已确认memory仍在可保留。correct删除旧确认memory、忘记旧原句，新真实source候选仍需再确认；root清旧chat保留newsource。SQLite使用mode=rw，stale store不再可重建已删除角色DB；role取消后仍须drain并驱逐缓存。
+- 模块27项真实SQLite测试PASS（2.086s），含216有限动作trace/648次实际Store操作；strict mypy/Ruff通过。报告review/preference-learning-check.json，模块SHA47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a。该有限安全覆盖不是完整形式证明或偏好语义准确率。
+- 新HTTP最终20项PASS/0skip（27.909s），8源码SHA前后稳定，server SHA409f6a2d5fc9f4f85b7cc289e71d79bd2ea9e6af217215170744c522863c3ce2。review/rebuild-http-check.json/log；原15项归档before-preferences。新增真实JSONadapter确认/遗忘/纠正、off不调用、source删除失效、非合作collect先409后恢复删除驱逐、tracking明确synthetic engine的session_id和缺相机隔离。合成回复/engine只证明协议，不证明语义/真人跟踪/Windows/4060。
+
+
+## 2026-11-12 原生捕获与小更新的实际坑
+
+- Electron45真实负控证明display-capture前置许可先于来源handler，旧GUM chromeMediaSource同许可且可绕过标准picker。不能只把主UI前置许可设true打通测试；现主UI永拒，专用打包本地sandbox捕获窗经native选源+真实点击才开始，限定视频/帧率/分辨率，无外网或任意IPC。主UI桥只取本机帧，手动确认才发后端；close/hide/minimize/导航/role换均停止旧owner。调查临时放宽只在测试flag，不能当产品配置。
+- 新main依赖capture模块，不能把全量新host当更新先行bootstrap，否则依赖未写就require失败。v2先写从固定基础host派生的最小无新依赖门禁，journal在场拒启后端，最后装完整host；保留运行租约与SHA/备份/每写点故障恢复。scripts/build_app_update.py/app_update.py是本次程序小更新，早期UI-only v1不适用。静态PNG与新增runtime须明确白名单并绑定最终验证SHA；用户角色单独确认导入。
+- Windows交付用Python -I时不自动加脚本目录；app_update/tracking_addon显式只将可信 sibling helper目录放入sys.path，已用-I --help验证。
+- optional addon raw manifest带末尾LF的SHA与JSON canonical无LF的SHA不同，不能误认文件被重建；installer同时锁二者并保留原始bytes。v2新文件名84,268,648bytes/233,406,422解压，剔除无用FFmpeg Video I/O插件，旧97MB仅私有审计。
+- Native测试页不能依赖window.screen/window.stop隐式ID全局，已改getElementById；Playwright wait_for_function字符串会触严格CSP eval，改函数字面式而不放宽产品CSP。X11连接须先关闭再停Xvfb，否则XIO直接结束Python导致报告未落盘。视频要保留足够真实active采样，不能只抓到新窗口白屏；截图、实际帧时间及有界fps分别断言。
+- 实际单屏Xvfb枚举与同一主window输出/恢复已测，不能当第二显示器、5英寸、全息或4060验收。设备declared present默认不授媒体权限；额外显示器没有不禁PCVision。源码/截图/视频路径见docs/implementation/desktop-capture-and-update.md；新UI整体native QA由独立agent负责。
+
+
+## 2026-11-12 独立后端审查发现并修正恢复误报
+
+- 真HTTP最小反例：schedule proposal确认后restore空tasks备份，tasks已空但旧proposal仍confirmed/local_schedule_created=true，重复确认假称task_id仍在。红证据review/rebuild-restore-orphaned-schedule.json保留。Root修复为restore原事务内cancel旧确认关联、旧ID仅previous_task_id历史、记审计；新恢复task仍paused/无旧关联。
+- 新增2项真实HTTP回归：空/含task备份都不再误报，重复confirm409；valid JSON嵌套status=[]在事务中失败400，messages/memories/tasks/proposal和新审计全部回滚。review/rebuild-restore-regression-check.json 2PASS/0skip/1.254s，三源SHA稳定，server4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c。完整HTTP测试现22项，最终全门禁由root运行，不能把原20项报告称覆盖本次修复。
+- 独立review/rebuild-server-independent-review.json将该项RESOLVED；未证明新的锁序闭环或owner/plugin越权，记录实际锁边、已释放HOST再等VOICE、provider不持SQLite事务、bounded drain等依据。仅审查范围内无开放阻断，不代表全程序死锁证明、Windows/硬件或模型语义验收。
+
+
+## 2026-11-12 可选跟踪扩展最终v3纠正
+
+- 最终仅允许发布tracking-addon-cp312-win-x64-v3.zip：83,452,536bytes，SHA4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21；2043锁文件+manifest共231,680,607bytes解压。perception Agent已完成全部成员、20个native均x64、上游许可证和实际FaceLandmarker有限场景审查；Windows DLL执行仍未验。v1/v2 ZIP保留本机审计，不得作为新Release附件。
+- v3再剔除无用ASIO/跨架构binary，仅保留实际路线使用的默认64bit PortAudio和全部相关license。installer/builder CMD均改v3唯一名字与raw/canonical双锁，未改变native host或重复跑其未变化测试。必要事务正负测试及真实2043文件安装/重复/可恢复禁用以review/app-update-check.json和review/tracking-addon-v3-installer-check.json为准，旧v2报告只是历史。
+
+
+## 2026-11-12 本地面部估计与无pip Windows组件（最终v3已冻结）
+
+- 新runtime只有perception.py/perception_tracking.py/perception_optional.py；perception_addon_build.py仅开发构建器不进入运行白名单。FaceTrackingManager独立camera路径，默认无依赖/固定task就unavailable，status仅元数据/SHA检查不导入启动算法。用户真实选源授权后才start；不识别人脸身份、不称专业眼动，PNG只能有限状态/位移，不能单图独立转眼球。root已接独立tracking routes、camera设无与角色epoch停止；可选5英寸display不是PC screen权限。
+- 实际固定官方task3758596bytes SHA64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff，隔离MediaPipe1.2.3 CPU/XNNPACK对官方portrait/空白/恢复/右移/双脸5场景通过，20暖帧P5010.41ms/P9511.43ms，初始化1.653s、进程峰RSS189600KiB，仅云Linux样本。真实禁VideoCapture/VideoWriter/imread/imdecode与Python音频stream负控被检出，正常推理0违规。MediaPipe顶层会import音频辅助模块；不要误说完全不import sounddevice，更不能把导入库与打开录音流混为一谈。
+- Linux CPU.so也依赖libGLESv2；sounddevice真实音频禁调用测试还需PortAudio。云apt索引不可用，均从官方Debian下载17KB/65KB到私有dev目录提取，不改系统/语音。LD_LIBRARY_PATH给私有lib，PortAudio find_library不自动发现私有soname，测试显式给真实库路径；不是WindowsDLL执行证明。
+- 83感知测试含1296trace/5184实际管理器操作、strict3runtime+mypy真实Pillow解释器、Ruff全绿，前后源码SHA稳定：review/perception-module-check.json。真实CPU/完整包/纯Python导入证据分别review/tracking-real-check.json、tracking-addon-v3-check.json、tracking-addon-import-check.json；实际Win/4060/摄像/头像自然度仍待验。
+- 已发布旧WindowsCPU/CUDA都是CP312嵌入无pip。共享固定resources/optional/tracking/python312/site-packages只追加sys.path，复用原numpy2.5.4/Pillow13/flatbuffers25.12.19/packaging26.3，不覆盖原native/模型。15官方Windowswheels总93795778bytes，逐SHA/marker闭包核实；许可原文完整保留，不能笼统说全Apache。
+- v1/v2发现实际独立LGPL2.1 FFmpeg插件及ASIO/非x64备用库，均只本机历史审计不外发。官方精确OpenCV40738fb.../第三方06dc20c...readme明确支持省略独立FFmpeg DLL，实际原MD5与官方pin一致；保留默认x64非ASIOPortAudio，最终v3明确省略7个未用binary，其他2041成员字节不变、26份license/notice保持，全部20个native均x64。许可证/来源/省略原SHA在包内manifest+NOTICE；Matplotlib自己公开sample_data仍原样保留，不含本地评估portrait或用户帧，不要扩写成所有wheel无图片。
+- 最终只发/workspace/dist/tracking-addon-cp312-win-x64-v3.zip：83452536bytes，SHA4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21。2043锁payload+manifest共2044成员，解压231680607bytes。raw manifest含末尾LF，SHAde08abac2f341d0cacf2eba38fc89e53bef0252f98cc2f258736b95ed95bad12；canonical去LF SHAa72ef9399f156c76874ccda0357295b9123305e5b923ed7bf3d8673cf5484f8b。安装必须保留原字节，别把两种SHA混为重建。desktop已获最终唯一锚，不覆盖成品。
+- optional加载先核代码常量manifestSHA及全部路径/文件SHA/类型，拒链接/reparse、未列文件/目录、.pth/sitecustomize/pyc、排除SDK/外平台二进制；失败不挂聊天。成功设置sys.dont_write_bytecode=True，真实纯Pythonimport后仍全树通过；去保护负控生成12pyc。另实修Matplotlib缓存：不能放model.parent，否则资源模型首次启动就在锁树生陌生目录；改进程级私有临时字体缓存，真实初始化/推理前后资源锁树均过，缓存不含帧/人脸。

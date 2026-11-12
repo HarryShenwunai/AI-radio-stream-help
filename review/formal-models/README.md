@@ -1,13 +1,13 @@
 # 可复跑的并发安全检查
 
-2026-11-12。这里提供实际运行的 TLA+/TLC 有限状态模型，以及**独立的真实 Python 属性回归**。这不是整个应用的正确性证明，也不代表 Windows、GPU、声音设备或真实账号已经验收。当前实现的有限模型无反例；旧实现边界及故意移除保护的模型应当找到反例，否则检查失败。
+2026-11-12。这里提供实际运行的 TLA+/TLC 有限状态模型，以及**独立的真实 Python 属性回归**。当前runner含14个配置：4个当前安全配置无反例，10个历史/故障配置检出预期反例。最新实证为[重建版TLC报告](../formal-model-rebuild-check.json)，旧10配置报告保留。这不是整个应用的正确性证明，也不代表Windows、GPU、声音设备或真实账号已经验收。
 
 ## 单命令复现
 
 从仓库根目录运行，不会下载依赖、连接账号、部署或发送消息：
 
 ```sh
-python review/formal-models/run_models.py --jar /workspace/.formal-tools/tla2tools-1.7.4.jar
+python review/formal-models/run_models.py --jar /workspace/.formal-tools/tla2tools-1.7.4.jar --output review/formal-model-rebuild-check.json
 python review/formal-models/run_implementation.py
 ```
 
@@ -25,7 +25,7 @@ python review/formal-models/run_implementation.py
 
 - [TLC JSON 报告](../formal-model-check.json)：每个 case 的完整运行 argv、状态数、配置/模型/实现 SHA256、运行前后源码稳定性、预期反例是否找到。
 - [真实实现 JSON 报告](../formal-implementation-check.json)：实际调度结果、动作域、运行前后源码 SHA256、持续时间。
-- [原始日志](logs/)：三个安全模型的完整搜索统计、七个负控制的实际反例轨迹、真实 Python 测试日志。
+- [原始日志](logs/)：四个安全配置的完整搜索统计、十个负控制的实际反例轨迹、真实Python测试日志。
 
 `python scripts/quality_gate.py --full` 通过 `scripts/check.py` 自动 discover `tests/test_formal_boundaries.py`；不需要把 TLC jar 安装到生产依赖中。独立 TLC 命令保持明确，缺 TLC 不得冒充该形式化步骤已完成。
 
@@ -40,6 +40,8 @@ python review/formal-models/run_implementation.py
 | `ReceiveCompleted` | `PlaybackTracker.receipt()` 的 attempt、nonce、scope/current 与终态校验 | 有限凭证值 `{1,2}`，代表相同/不相同；不证明密码学安全或 HTTP 认证 |
 | `BeginSecond` / `SwitchScope` | `begin()` 的 retire 与 `invalidate()` | 同一 owner、同一消息的两个 attempt、最多一次切换；未建模 TTL/多 owner 竞争 |
 | `Persist` | `merge_receipts()` 保留最长兼容确认前缀 | 已由服务端生成、同角色/消息/文本的回执；模拟持久化提交顺序，不模拟磁盘故障 |
+| `Start` / `Capture` | 本机owner HTTP鉴权、`PerceptionManager.start/frame`及设备声明判断 | 声明拥有设备不等于采集授权；有限caller值owner/plugin |
+| `Deliver` / `Stop` / `SwitchScope` / `DisableCamera` | `_check()`核role/appearance epoch、session、cancel，`stop/stop_all`及host失效 | 保留未合作provider的在途结果，检查它不能在停用或换角色后交付；不证明远端已发数据可撤回 |
 
 TLA+ 模型不是从 Python 自动抽取的，没有证明两者的 refinement。源码人工映射和下列真实实现测试是额外证据，不能用模型代替代码执行。
 
@@ -60,8 +62,13 @@ Playback：一个 owner、同一完整消息的两个 attempt、一次 scope 切
 | `Playback-mutant-last-write` | 完成回执已持久化 → 较旧 playing/pending 回执覆盖确认前缀 |
 | `Playback-mutant-stale` | 错误 scope/nonce 的完成事件被接受 |
 | `Playback-mutant-terminal` | stopped attempt 又收到完成事件并变成 completed |
+| `Perception-mutant-late` | 停止、换scope或关闭相机后仍交付旧帧结果 |
+| `Perception-mutant-owner` | 插件caller启动私人采集 |
+| `Perception-mutant-consent` | 把设备声明拥有当成采集授权 |
 
-以上七个 case 均是故意保留的历史/故障配置，不表示当前配置仍有这些漏洞。反例日志含具体变量值与动作序列；负控制若没有触发 invariant violation，runner 总结果失败。
+以上十个case均是故意保留的历史/故障配置，不表示当前配置仍有这些漏洞。反例日志含具体变量值与动作序列；负控制若没有触发invariant violation，runner总结果失败。
+
+Perception新增范围为两个session启动、最多两次role/appearance epoch改变、一个在途帧、相机启停与owner/plugin caller。模型不包括图像解码、OS授权UI、TTL真实时间、无限会话或网络/模型语义。实际manager有限轨迹/HTTP/算法证据分别见`tests/test_perception_state_space.py`、`tests/test_rebuild_http.py`与`review/tracking-real-check.json`，不能用TLC替代代码、权限或硬件执行。
 
 ## 独立的真实实现属性回归
 

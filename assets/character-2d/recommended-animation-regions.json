@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "width": 1070,
+    "height": 1470
+  },
+  "animation_regions": {
+    "eyes": {
+      "x": 490,
+      "y": 290,
+      "width": 235,
+      "height": 95,
+      "feather": 10
+    },
+    "mouth": {
+      "x": 550,
+      "y": 430,
+      "width": 135,
+      "height": 70,
+      "feather": 10
+    }
+  },
+  "basis": "Independent QA manual coordinate review of actual four source states in Chrome on 2026-11-12; not detected landmarks.",
+  "visual_feather_playback_acceptance": {
+    "status": "PASS_FOR_SYNTHETIC_AUDIO_CHROME_REGION_TEST",
+    "evidence": "review/png-region-stage-browser.json",
+    "scope": "Real Chrome/HTTP/PNG with alternating 125ms synthetic tone/silence: body_rgba_changed_components=0 and interior voiced/silent mouth states observed. Does not replace final Qwen/Kokoro or Windows acceptance."
+  }
+}

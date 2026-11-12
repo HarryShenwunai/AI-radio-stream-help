@@ -15,11 +15,14 @@ from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ("src/companion_runtime/live.py", "src/companion_runtime/connectors/bilibili.py")
-ASSETS = tuple("src/companion_runtime/" + name + ".py" for name in ("assets", "vrm_assets", "live2d_assets"))
+ASSETS = tuple("src/companion_runtime/" + name + ".py" for name in ("assets", "vrm_assets", "live2d_assets", "layered_2d_assets"))
+ADVICE = ("src/companion_runtime/assistance.py", "src/companion_runtime/preference_learning.py")
 PRIVATE_MODULES = frozenset({"app", "server", "sqlite3", "characters", "conversation", "runtime_settings", "integration_service", "playback"})
 PRIVATE_CALLS = frozenset({"settings", "db", "build_prompt", "select_memories", "chat", "profile_context", "state", "_state"})
 EXECUTION_CALLS = frozenset({"eval", "exec", "compile", "__import__"})
-OWNER_CALLS = frozenset({"approve", "set_settings", "connector_request", "configure_wechat", "configure_bili", "character_request"})
+OWNER_CALLS = frozenset({"approve", "set_settings", "connector_request", "configure_wechat", "configure_bili", "character_request",
+                         "perception_request", "assistance_request", "preference_request", "update_devices",
+                         "host_services", "preference_store", "assistance_store"})
 PLUGIN_ROUTES = frozenset("/api/connectors/wechat/" + name for name in ("inbound", "claim", "ack"))
 VENDOR_PACKAGES = frozenset({"pixi-live2d-display", "@jannchie/pixi-live2d-display", "@live2d/cubism-core", "@live2d/cubism-framework"})
 
@@ -118,7 +121,7 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
         try:trees[path] = ast.parse(source, filename=path)
         except SyntaxError as error:
             failures.append(Violation("A00", path, error.lineno or 0, "Python source cannot be parsed"))
-    for path in (*PUBLIC, *ASSETS, "app/server.py"):
+    for path in (*PUBLIC, *ASSETS, *ADVICE, "app/server.py"):
         if path not in trees:
             failures.append(Violation("A00", path, 0, "Required architecture boundary is missing"))
     for path in PUBLIC:
@@ -141,6 +144,20 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
             bare_execution = isinstance(node.func, ast.Name) and bool(refs & EXECUTION_CALLS)
             if bare_execution or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen"}:
                 failures.append(Violation("A03", path, node.lineno, "Role asset parser may execute code or contact a service"))
+    for path in ADVICE:
+        tree = trees.get(path)
+        if tree is None:continue
+        bindings = aliases(tree)
+        forbidden = {"app", "server", "conversation", "characters", "integration_service", "subprocess", "ctypes", "importlib", "runpy", "requests", "aiohttp", "httpx", "urllib", "socket"}
+        for node, module, _ in imports(tree):
+            if set(module.split(".")) & forbidden:
+                failures.append(Violation("A07", path, node.lineno, "Proposal modules may not import application helpers, execute tools or own a network transport"))
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):continue
+            refs = call_names(node, bindings)
+            if ((isinstance(node.func, ast.Name) and bool(refs & (EXECUTION_CALLS | {"open"})))
+                    or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen"}):
+                failures.append(Violation("A07", path, node.lineno, "Assistance may only parse supplied data and use its scoped ledger; executable tools are forbidden"))
     server = trees.get("app/server.py")
     if server is not None:
         bindings = aliases(server)
@@ -211,7 +228,7 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
 
 def check_project(root: Path) -> list[Violation]:
     sources = {str(path.relative_to(root)).replace('\\','/'):path.read_text(encoding="utf-8")
-               for path in [*(root/path for path in (*PUBLIC, *ASSETS)), root/"app/server.py"] if path.is_file()}
+               for path in [*(root/path for path in (*PUBLIC, *ASSETS, *ADVICE)), root/"app/server.py"] if path.is_file()}
     packages = json.loads((root/"frontend/package.json").read_text(encoding="utf-8"))
     lock = json.loads((root/"frontend/package-lock.json").read_text(encoding="utf-8"))
     static = [str(path.relative_to(root)).replace('\\','/') for path in (root/"app/static").rglob('*') if path.is_file()]
@@ -226,7 +243,7 @@ def main() -> int:
     except (OSError, ValueError) as error:
         print(json.dumps({"passed":False,"error":type(error).__name__}))
         return 1
-    print(json.dumps({"passed":not violations,"rules":["A01","A02","A03","A04","A05","A06"],
+    print(json.dumps({"passed":not violations,"rules":["A01","A02","A03","A04","A05","A06","A07"],
                       "violations":[asdict(v) for v in violations],
                       "limits":"AST/import/call contracts and default dependency graph; not whole-program taint or SDK legal certification"}, ensure_ascii=False, indent=2))
     return 1 if violations else 0

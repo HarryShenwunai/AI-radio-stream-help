@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "REJECTED_3D_DIRECTION_USER_SELECTED_2D",
+  "reference": {
+    "path": "assets/character-source/reference-guidance.png",
+    "sha256": "dd9882fd64b405a748414d5f8ef9b0ac32400bcad0b4ebc1acca604cb6d39c60",
+    "expected_original_dimensions": [
+      1179,
+      1435
+    ],
+    "description": "User-provided semi-realistic anime portrait: short black bob, cream oversized sweater, mug, window backlight. Description is context, not a substitute for the source image.",
+    "kind": "AI-generated multi-view guidance derived by parent agent from fresh user attachment on 2026-11-12",
+    "original_attachment_local_path": null
+  },
+  "source_blend": null,
+  "required_humanoid": [
+    "hips",
+    "spine",
+    "head",
+    "leftEye",
+    "rightEye",
+    "leftUpperArm",
+    "leftLowerArm",
+    "leftHand",
+    "rightUpperArm",
+    "rightLowerArm",
+    "rightHand",
+    "leftUpperLeg",
+    "leftLowerLeg",
+    "leftFoot",
+    "rightUpperLeg",
+    "rightLowerLeg",
+    "rightFoot"
+  ],
+  "required_expressions": [
+    "blink",
+    "blinkLeft",
+    "blinkRight",
+    "happy",
+    "angry",
+    "sad",
+    "relaxed",
+    "surprised",
+    "aa",
+    "ih",
+    "ou",
+    "ee",
+    "oh"
+  ],
+  "limits": {
+    "vrm_bytes": 67108864,
+    "texture_pixels_total": 32000000,
+    "texture_edge": 4096,
+    "texture_images": 32,
+    "vertex_influences": 4,
+    "triangles_candidate_ceiling": 150000
+  },
+  "limits_basis": {
+    "runtime": "src/companion_runtime/vrm_assets.py current import limits; audit must be followed by actual runtime import",
+    "triangles": "Provisional source review ceiling, not a verified RTX 4060 performance guarantee or a visual quality minimum"
+  },
+  "unobserved_design": [
+    "Back of hair and clothing",
+    "Lower body and footwear",
+    "Hidden hand and mug contact topology"
+  ],
+  "acceptance": {
+    "source_reference_match": "NOT_RUN",
+    "editable_original_source": "NOT_RUN",
+    "closeup_fullbody_turntable_expression_review": "NOT_RUN",
+    "actual_app_render_and_lipsync": "NOT_RUN",
+    "windows_rtx4060_performance": "NOT_RUN",
+    "physical_display_camera_eye_tracking": "NOT_RUN"
+  },
+  "final_character_complete": false,
+  "rejection": {
+    "date": "2026-11-12",
+    "reason": "User explicitly rejected the rendered 3D character and selected 2D; rejected visuals are not deliverables."
+  }
+}

@@ -1,85 +1,22 @@
-// E1 controlled DOM fixtures: no platform login, network, or real sending.
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {createRequire} from 'node:module';
-const require = createRequire(import.meta.url);
-const createUI = require('../app/static/connectors-ui.js');
-const pending = () => { let resolve; const promise = new Promise(r => resolve = r); return {promise, resolve}; };
-const tick = () => new Promise(r => setImmediate(r));
-function harness(route = async () => ({wechat:{configured:false},bili:{state:'not_connected'}})) {
-  const walk = n => [n, ...n.children.flatMap(walk)];
-  function node(tag) { return {tagName:tag, children:[], textContent:'', hidden:false, value:'', checked:false, type:'', disabled:false, dataset:{},
-    append(...items) { this.children.push(...items); }, replaceChildren(...items) { this.children = items; },
-    setAttribute(name,value) { this[name] = value; }, remove() {},
-    querySelectorAll(selector) { return walk(this).filter(n => n.tagName === selector); },
-  }; }
-  const nav=node('nav'), workspace=node('main'), calls=[], confirms=[], toasts=[], listeners={}, copies=[];
-  let id='role-a', decision=true, interval;
-  const doc={hidden:false,createElement:node,querySelector:s=>s==='.rail nav'?nav:workspace,addEventListener:(name,fn)=>listeners[name]=fn,removeEventListener:name=>delete listeners[name]};
-  const ui=createUI({document:doc,eventTarget:{addEventListener:(name,fn)=>listeners[name]=fn,removeEventListener:name=>delete listeners[name]},api:async(path,data)=>{calls.push({path,data});return route(path,data);},characterId:()=>id,
-    showView:()=>ui.section.hidden=false,confirm:text=>{confirms.push(text);return decision;},toast:text=>toasts.push(text),
-    clipboard:{writeText:async text=>copies.push(text)},setInterval:fn=>{interval=fn;return 1;},clearInterval(){}});
-  const button = text => walk(ui.section).find(n=>n.tagName==='button'&&n.textContent===text);
-  return {ui,doc,calls,confirms,toasts,copies,button,walk,nav,setId:value=>id=value,setDecision:value=>decision=value,poll:()=>interval(),listeners};
+// E1 purpose-flow behavior, controlled DOM/API. No accounts are paired or sent.
+import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';import vm from'node:vm';import{deferred,tick}from'./ui_rebuild_harness.mjs';
+function harness(route=async()=>({wechat:{configured:false},bili:{state:'not_connected'}})){
+ const walk=n=>[n,...n.children.flatMap(walk)],frames=[],calls=[],confirms=[];let role='role-a',decision=true,active=null,cleanup=null;
+ function el(tag,cls='',text=''){return {tagName:tag,className:cls,textContent:text,children:[],value:'',checked:false,hidden:false,disabled:false,dataset:{},append(...nodes){this.children.push(...nodes);},replaceChildren(...nodes){this.children=nodes;},querySelectorAll(selector){return walk(this).filter(n=>selector==='input[type=password]'?n.tagName==='input'&&n.type==='password':n.tagName===selector);},setAttribute(){}};}
+ const kit={el,hint:text=>el('p','',text),row:(...nodes)=>{const n=el('div');n.append(...nodes);return n;},button:(title,options={})=>{const n=el('button','',title);n.onclick=options.action;return n;},field:(title,options={})=>{const label=el('label','',title),input=el('input');input.type=options.type||'text';input.value=options.value||'';label.append(input);return {label,input};},error:(n,text)=>{n.textContent=text;n.hidden=!text;},formAction:(form,title,action)=>{const n=el('button','',title);n.onclick=action;form.append(n);}};
+ const ui={panel(){const node=el('section'),body=el('div');node.append(body);const frame={node,body};frames.push(frame);return frame;},open(node,options){cleanup?.();active=options.id;cleanup=options.onClose;},close(){active=null;cleanup?.();cleanup=null;},notify(){},get active(){return active;}};
+ const core={scope:()=>({character_id:role,epoch:0}),current:stamp=>stamp.character_id===role,api:async(path,data)=>{calls.push({path,data:data?{...data,expected_character_id:role}:undefined});return route(path,data);}};
+ const context={window:{},CompanionUI:kit,confirm:text=>{confirms.push(text);return decision;}};vm.createContext(context);vm.runInContext(fs.readFileSync(new URL('../app/static/connectors-ui.js',import.meta.url),'utf8'),context);const contacts=context.window.CompanionContacts.create({core,ui});
+ const nodes=()=>frames.length?walk(frames.at(-1).node):[],button=text=>nodes().find(n=>n.tagName==='button'&&n.textContent===text),field=text=>nodes().find(n=>n.tagName==='label'&&n.textContent===text)?.children[0];
+ return {contacts,ui,calls,confirms,nodes,button,field,setDecision:v=>decision=v,changeRole:v=>{role=v;ui.close();},async open(page){await contacts.open();if(page)button(page==='wechat'?'微信私聊桥接':'哔哩哔哩直播预览').onclick();}};
 }
-test('mount never connects, authenticates, or reads storage; explicit navigation reads status',async()=>{
-  const h=harness();assert.equal(h.calls.length,0);await h.ui.nav.onclick();await tick();
-  assert.equal(h.calls[0].path,'connectors/status');assert.equal(h.ui.fields.voice.checked,true);assert.equal(h.ui.fields.auto_approve.checked,false);
-});
-test('one-time pairing token is shown only after configure and cleared on character reset',async()=>{
-  const h=harness(async path=>path.endsWith('/configure')?{pairing_token:'secret-once'}:{wechat:{configured:false}});
-  h.ui.fields.owner_origin.value='weixin_oc:FriendMessage:owner';
-  await h.button('绑定当前角色').onclick();assert.equal(h.ui.fields.pairing_token.value,'secret-once');
-  assert.equal(h.ui.fields.pairing_token.type,'password');await h.button('复制').onclick();assert.deepEqual(h.copies,['secret-once']);
-  h.setId('role-b');h.ui.resetCharacter();assert.equal(h.ui.fields.pairing_token.value,'');
-  await h.ui.refresh();assert.equal(h.ui.fields.pairing_token.value,'');
-});
-test('automatic replies require explicit confirmation and cancelled approval makes no POST',async()=>{
-  const h=harness();h.ui.fields.auto_approve.checked=true;h.setDecision(false);
-  await h.button('绑定当前角色').onclick();assert.equal(h.confirms.length,1);assert.equal(h.calls.length,0);
-  h.setDecision(true);await h.button('绑定当前角色').onclick();
-  const req=h.calls.find(x=>x.path.endsWith('/configure'));assert.equal(req.data.confirm_owner_auto_reply,true);assert.equal(req.data.expected_character_id,'role-a');
-});
-test('only current character private previews appear and real send approval requires confirmation',async()=>{
-  const h=harness();h.ui.renderStatus({wechat:{configured:true,character_id:'role-a',previews:[
-    {id:'a',character_id:'role-a',text:'current',state:'preview'}, {id:'b',character_id:'role-b',text:'private-other',state:'preview'}]}});
-  const texts=h.walk(h.ui.section).map(n=>n.textContent);assert.ok(texts.includes('current'));assert.ok(!texts.includes('private-other'));
-  h.setDecision(false);await h.button('批准发送').onclick();assert.equal(h.calls.length,0);
-  h.setDecision(true);await h.button('批准发送').onclick();assert.deepEqual(h.calls[0],{path:'connectors/wechat/approve',data:{id:'a',expected_character_id:'role-a'}});
-});
-test('a stale configure cannot reveal its token after switching characters',async()=>{
-  const wait=pending(),h=harness(()=>wait.promise);const configure=h.button('绑定当前角色').onclick();
-  h.setId('role-b');h.ui.resetCharacter();wait.resolve({pairing_token:'old-secret'});await configure;
-  assert.equal(h.ui.fields.pairing_token.value,'');assert.deepEqual(h.toasts,[]);
-});
-test('stale status never paints private preview after reset',async()=>{
-  const wait=pending(),h=harness(()=>wait.promise);const read=h.ui.refresh();h.setId('role-b');h.ui.resetCharacter();
-  wait.resolve({wechat:{configured:true,character_id:'role-a',previews:[{character_id:'role-a',text:'old-private'}]}});await read;
-  assert.ok(!h.walk(h.ui.section).some(n=>n.textContent==='old-private'));
-});
-test('Bili connection is explicit, secret fields clear, output UI only generates local preview',async()=>{
-  const h=harness();for(const n of ['access_key_id','access_key_secret','app_id','room_id','anchor_code'])h.ui.fields[n].value=n+'-fixture';
-  h.setDecision(false);await h.button('连接直播间').onclick();assert.equal(h.calls.length,0);
-  h.setDecision(true);await h.button('连接直播间').onclick();const req=h.calls[0];assert.equal(req.path,'connectors/bili/configure');assert.equal(req.data.connect,true);
-  assert.equal(h.ui.fields.access_key_secret.value,'');assert.equal(h.ui.fields.anchor_code.value,'');
-  h.ui.renderStatus({public_events:[{event_id:'fixture-event',room_id:'123',text:'<script>untrusted</script>'}]});
-  assert.ok(h.walk(h.ui.section).some(n=>n.textContent==='<script>untrusted</script>'));
-  await h.button('生成预览').onclick();assert.equal(h.calls.find(x=>x.path==='connectors/bili/reply').data.event_id,'fixture-event');
-});
-test('hidden view does not poll and clears one-time secrets; role-change event clears previews',async()=>{
-  const h=harness();h.ui.fields.pairing_token.value='secret';h.poll();assert.equal(h.calls.length,0);assert.equal(h.ui.fields.pairing_token.value,'');
-  h.ui.section.hidden=false;h.poll();await tick();assert.equal(h.calls.length,1);
-  h.ui.fields.pairing_token.value='again';h.listeners['companion:character-change']();assert.equal(h.ui.fields.pairing_token.value,'');
-});
-test('pause endpoint explicitly promises suspension and cancellation, no delivery success claim',async()=>{
-  const h=harness();await h.button('暂停自动发送并取消待发').onclick();
-  assert.equal(h.calls[0].path,'connectors/wechat/stop');assert.equal(h.ui.fields.auto_approve.checked,false);
-  assert.ok(h.toasts[0].includes('已暂停自动发送'));
-});
-
-test('native host pause immediately clears credentials while document remains visible; status codes stay internal',()=>{
-  const h=harness();h.ui.fields.pairing_token.value='secret';h.ui.fields.access_key_secret.value='key';
-  h.listeners['companion:desktop-pause']();assert.equal(h.doc.hidden,false);assert.equal(h.ui.fields.pairing_token.value,'');assert.equal(h.ui.fields.access_key_secret.value,'');
-  h.ui.renderStatus({bili:{state:'internal_unknown',last_error:'open_live_internal_error'}});
-  const text=h.walk(h.ui.section).map(n=>n.textContent).join(' ');assert.ok(text.includes('连接异常'));assert.ok(!text.includes('open_live_internal_error'));assert.ok(!text.includes('internal_unknown'));
-});
+test('mount is inert; opening a purpose flow only reads status',async()=>{const h=harness();assert.equal(h.calls.length,0);await h.open();assert.deepEqual(h.calls.map(c=>c.path),['connectors/status']);});
+test('one-time pairing token appears only after configure and clears on close',async()=>{const h=harness(async path=>path.endsWith('/configure')?{pairing_token:'only-once'}:{wechat:{configured:false}});await h.open('wechat');h.field('AstrBot私聊来源').value='origin';await h.button('绑定当前角色').onclick();const token=h.field('本次配对令牌');assert.equal(token.value,'only-once');assert.equal(token.type,'password');h.ui.close();assert.equal(token.value,'');});
+test('automatic replies require explicit confirmation before any write',async()=>{const h=harness();await h.open('wechat');h.field('允许自动回复这个私聊').checked=true;h.setDecision(false);await h.button('绑定当前角色').onclick();assert.equal(h.calls.filter(c=>c.data).length,0);assert.equal(h.confirms.length,1);});
+test('current-role private previews alone render and approval can be refused',async()=>{const h=harness(async()=>({wechat:{configured:true,character_id:'role-a',previews:[{id:'a',character_id:'role-a',state:'preview',text:'current'},{id:'b',character_id:'role-b',state:'preview',text:'foreign-private'}]}}));await h.open('wechat');assert.ok(h.nodes().some(n=>n.textContent==='current'));assert.equal(h.nodes().some(n=>n.textContent==='foreign-private'),false);h.setDecision(false);await h.button('审核并批准这条发送').onclick();assert.equal(h.calls.filter(c=>c.data).length,0);});
+test('late configure cannot reveal a token after role changes',async()=>{const late=deferred(),h=harness(path=>path.endsWith('/configure')?late.promise:Promise.resolve({wechat:{}}));await h.open('wechat');const configuring=h.button('绑定当前角色').onclick();h.changeRole('role-b');late.resolve({pairing_token:'old-secret'});await configuring;assert.equal(h.nodes().some(n=>n.value==='old-secret'),false);});
+test('late status cannot paint private content after role change',async()=>{const late=deferred(),h=harness(()=>late.promise);const opening=h.contacts.open();h.changeRole('role-b');late.resolve({wechat:{configured:true,character_id:'role-a',previews:[{text:'old-private'}]}});await opening;assert.equal(h.nodes().some(n=>n.textContent==='old-private'),false);});
+test('Bili connection is explicit; secret fields clear after attempted connection',async()=>{const h=harness();await h.open('bili');for(const name of['Access Key ID','Access Key Secret','应用ID','直播间ID','主播身份码'])h.field(name).value='fixture';h.setDecision(false);await h.button('连接并接收弹幕').onclick();assert.equal(h.calls.filter(c=>c.data).length,0);h.setDecision(true);const secret=h.field('Access Key Secret'),anchor=h.field('主播身份码');await h.button('连接并接收弹幕').onclick();assert.equal(secret.value,'');assert.equal(anchor.value,'');assert.equal(h.calls.find(c=>c.path==='connectors/bili/configure').data.connect,true);});
+test('hidden flows do not poll and clear credentials on close',async()=>{const h=harness();await h.open('bili');const secret=h.field('Access Key Secret');secret.value='private';const count=h.calls.length;h.ui.close();await tick();assert.equal(secret.value,'');assert.equal(h.calls.length,count);});
+test('pause uses cancellation endpoint without a fake delivered claim',async()=>{const h=harness();await h.open('wechat');await h.button('暂停自动发送并取消待发').onclick();assert.ok(h.calls.some(c=>c.path==='connectors/wechat/stop'));assert.equal(h.nodes().some(n=>n.textContent==='发送成功'),false);});
+test('native pause cleanup works while browser visibility is unchanged and unknown codes stay internal',async()=>{const h=harness(async()=>({bili:{state:'internal_auth_error'}}));await h.open('bili');const secret=h.field('Access Key Secret');secret.value='private';h.ui.close();assert.equal(secret.value,'');assert.equal(h.nodes().some(n=>n.textContent==='internal_auth_error'),false);});

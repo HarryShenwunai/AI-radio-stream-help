@@ -159,6 +159,44 @@ def _description(resource: str, data: bytes, width: int, height: int) -> dict[st
             "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
 
 
+def _animation_regions(value: Any, width: int, height: int) -> dict[str, dict[str, int]] | None:
+    """Bounded runtime clips over real PNG states; never rewrite the artwork."""
+    if value is None:
+        return None
+    if (isinstance(width, bool) or isinstance(height, bool) or not isinstance(width, int)
+            or not isinstance(height, int) or not 1 <= width <= MAX_EDGE or not 1 <= height <= MAX_EDGE
+            or width * height > MAX_TOTAL_PIXELS):
+        raise AssetError("状态动画画布不正确。")
+    if not isinstance(value, dict) or not value or not set(value) <= {"eyes", "mouth"}:
+        raise AssetError("局部状态动画只支持 eyes 和 mouth 区域。")
+    normalized: dict[str, dict[str, int]] = {}
+    area = 0
+    for name in ("eyes", "mouth"):
+        if name not in value:
+            continue
+        region = value[name]
+        required = {"x", "y", "width", "height"}
+        if not isinstance(region, dict) or not required <= set(region) <= required | {"feather"}:
+            raise AssetError("局部动画区域含未知字段或缺少尺寸。")
+        item = {**region, "feather": region.get("feather", 0)}
+        if any(isinstance(v, bool) or not isinstance(v, int) for v in item.values()):
+            raise AssetError("局部动画区域必须使用整数像素。")
+        x, y, w, h, feather = (item[k] for k in ("x", "y", "width", "height", "feather"))
+        if not (0 <= x < width and 0 <= y < height and w > 0 and h > 0
+                and x + w <= width and y + h <= height and 0 <= feather <= min(16, w // 4, h // 4)):
+            raise AssetError("局部动画区域或羽化超出画布范围。")
+        area += w * h
+        normalized[name] = item
+    if area * 10 > width * height * 3:
+        raise AssetError("局部动画区域合计不得超过画布的 30%。")
+    if len(normalized) == 2:
+        a, b = normalized["eyes"], normalized["mouth"]
+        if (max(a["x"], b["x"]) < min(a["x"] + a["width"], b["x"] + b["width"])
+                and max(a["y"], b["y"]) < min(a["y"] + a["height"], b["y"] + b["height"])):
+            raise AssetError("眼睛与嘴部动画区域不能重叠。")
+    return normalized
+
+
 class AssetStore:
     def __init__(self, root: Path | str) -> None:
         folder = Path(root)
@@ -190,8 +228,14 @@ class AssetStore:
         from .live2d_assets import import_live2d
         return import_live2d(self, data, filename, cancel_event=cancel_event)
 
+    def import_layered_2d(self, data: bytes, filename: str | None = None, *,
+                          cancel_event: threading.Event | None = None) -> dict[str, Any]:
+        from .layered_2d_assets import import_layered_2d
+        return import_layered_2d(self, data, filename, cancel_event=cancel_event)
+
     def import_png_states(self, states: dict[str, bytes],
                           filenames: dict[str, str] | None = None, *,
+                          animation_regions: dict[str, dict[str, int]] | None = None,
                           cancel_event: threading.Event | None = None) -> dict[str, Any]:
         if not isinstance(states, dict) or not states or "idle" not in states:
             raise AssetError("请先选择待机状态的 PNG 图片。")
@@ -227,6 +271,7 @@ class AssetStore:
                 dimensions[key] = _png_payload(value)[1:]
             if len(set(dimensions.values())) != 1:
                 raise AssetError("同一角色的状态图片需要使用相同画布尺寸。")
+            regions = _animation_regions(animation_regions, *dimensions["idle"])
             total_pixels = sum(w * h for w, h in dimensions.values())
             if total_pixels > MAX_TOTAL_PIXELS:
                 raise AssetError("全部状态图片合计不得超过 800 万像素。", 413)
@@ -245,6 +290,8 @@ class AssetStore:
                                      "blink": "blink" in states,
                                      "talk_blink": "talk_blink" in states},
                 }
+                if regions is not None:
+                    manifest["animation_regions"] = regions
                 total_output = 0
                 for state in STATE_NAMES:
                     if state not in states:
@@ -288,6 +335,25 @@ class AssetStore:
                     except OSError:
                         raise AssetError("导入未完成，临时素材清理失败，请重试或检查磁盘。", 503) from None
 
+    def revise_png_animation_regions(self, asset_id: str,
+                                     animation_regions: dict[str, dict[str, int]] | None, *,
+                                     cancel_event: threading.Event | None = None) -> dict[str, Any]:
+        """Create a preview revision; the original files and profile stay untouched."""
+        with self._lock:
+            if cancel_event is not None and cancel_event.is_set():
+                raise AssetError("素材导入已取消。", 409)
+            manifest = self.get(asset_id)
+            if manifest["format"] != "png-states":
+                raise AssetError("局部眼嘴动画只适用于 PNG 状态素材。")
+            _animation_regions(animation_regions, manifest["width"], manifest["height"])
+            states = {}
+            for state, item in manifest["states"].items():
+                if cancel_event is not None and cancel_event.is_set():
+                    raise AssetError("素材导入已取消。", 409)
+                states[state] = self.resolve(asset_id, item["resource"]).read_bytes()
+            return self.import_png_states(states, {state: state + ".png" for state in states},
+                                          animation_regions=animation_regions, cancel_event=cancel_event)
+
     def get(self, asset_id: str) -> dict[str, Any]:
         with self._lock:
             folder = self._folder(asset_id)
@@ -305,10 +371,17 @@ class AssetStore:
                 elif manifest.get("format") == "live2d":
                     from .live2d_assets import manifest_resources
                     resources = manifest_resources(manifest)
+                elif manifest.get("format") == "layered-2d":
+                    from .layered_2d_assets import manifest_resources
+                    resources = manifest_resources(manifest)
                 elif (manifest.get("format") == "png-states"
                         and isinstance(manifest.get("states"), dict)
                         and "idle" in manifest["states"]
                         and set(manifest["states"]).issubset(STATE_NAMES)):
+                    if "animation_regions" in manifest:
+                        regions = _animation_regions(manifest["animation_regions"], manifest["width"], manifest["height"])
+                        if regions is None or regions != manifest["animation_regions"]:
+                            raise ValueError("invalid animation regions")
                     resources = [(state + ".png", value, MAX_FILE_BYTES) for state, value in manifest["states"].items()]
                     resources.append(("thumbnail.png", manifest["thumbnail"], MAX_FILE_BYTES))
                 else:
@@ -332,9 +405,9 @@ class AssetStore:
             manifest = self.get(asset_id)
             resources = {v["resource"] for v in manifest["states"].values()}
             resources.add(manifest["thumbnail"]["resource"])
-            if manifest.get("format") in {"vrm", "live2d"}:
+            if manifest.get("format") in {"vrm", "live2d", "layered-2d"}:
                 resources.add(manifest["model"]["resource"])
-            if manifest.get("format") == "live2d":
+            if manifest.get("format") in {"live2d", "layered-2d"}:
                 resources.update(manifest["resources"])
             if resource not in resources:
                 raise AssetError("素材文件不存在。", 404)

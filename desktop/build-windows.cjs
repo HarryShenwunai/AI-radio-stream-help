@@ -29,7 +29,7 @@ if(fs.readFileSync(path.join(electron,'version'),'utf8').trim().replace(/^v/,'')
 for(const file of ['LICENSE','LICENSES.chromium.html','resources/default_app.asar'])if(!fs.existsSync(path.join(electron,file)))throw new Error('Incomplete Electron dist: '+file);
 fs.mkdirSync(output,{recursive:true});copyTree(electron,output);fs.renameSync(path.join(output,'electron.exe'),path.join(output,'companion-desktop.exe'));
 const appDir=path.join(output,'resources','app');fs.mkdirSync(appDir,{recursive:true});
-for(const file of ['main.cjs','preload.cjs','window-policy.cjs','runtime-profiles.cjs','switch_runtime_profile.py','icon.png'])fs.copyFileSync(path.join(__dirname,file),path.join(appDir,file));
+for(const file of ['main.cjs','preload.cjs','window-policy.cjs','runtime-profiles.cjs','media-policy.cjs','screen-capture.cjs','screen-capture.html','screen-capture-view.js','screen-capture.css','switch_runtime_profile.py','icon.png'])fs.copyFileSync(path.join(__dirname,file),path.join(appDir,file));
 fs.writeFileSync(path.join(appDir,'package.json'),JSON.stringify({name:'companion-desktop-runtime',version:require('./package.json').version,main:'main.cjs',license:'GPL-3.0'},null,2)+'\n');
 copyTree(backend,path.join(output,'resources','backend'));
 const cudaSource=arg('--cuda-backend');

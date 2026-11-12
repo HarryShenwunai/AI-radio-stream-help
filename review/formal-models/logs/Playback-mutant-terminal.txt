@@ -1,5 +1,5 @@
 TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
-Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 60720] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
+Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 90344] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
 Parsing file /workspace/AI-radio-stream-help/review/formal-models/Playback.tla
 Parsing file /tmp/Naturals.tla
 Parsing file /tmp/FiniteSets.tla
@@ -10,9 +10,9 @@ Semantic processing of module Sequences
 Semantic processing of module FiniteSets
 Semantic processing of module TLC
 Semantic processing of module Playback
-Starting... (2026-11-12 16:34:20)
+Starting... (2026-11-12 21:01:38)
 Computing initial states...
-Finished computing initial states: 1 distinct state generated at 2026-11-12 16:34:21.
+Finished computing initial states: 1 distinct state generated at 2026-11-12 21:01:38.
 Error: Invariant Safety is violated.
 Error: The behavior up to this point is:
 State 1: <Initial predicate>
@@ -51,4 +51,4 @@ State 3: <ReceiveCompleted line 32, col 5 to line 42, col 66 of module Playback>
 19 states generated, 15 distinct states found, 10 states left on queue.
 The depth of the complete state graph search is 3.
 The average outdegree of the complete state graph is 4 (minimum is 3, the maximum 5 and the 95th percentile is 5).
-Finished in 01s at (2026-11-12 16:34:21)
+Finished in 00s at (2026-11-12 21:01:38)

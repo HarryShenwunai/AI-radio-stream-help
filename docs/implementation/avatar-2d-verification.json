@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-12",
+  "character_format": "png-states",
+  "selected_direction": "2D; rejected 3D isolated and excluded",
+  "tests": {
+    "asset_suites": {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_*assets.py' -q",
+      "passed": 69
+    },
+    "png_regions": {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_avatar_png_regions.py' -q",
+      "passed": 5
+    },
+    "real_handler": {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_layered_2d_http.py' -v",
+      "passed": 3,
+      "loopback_sandbox_escalation_used": true
+    },
+    "critical_ruff": "PASS"
+  },
+  "runtime_files_sha256": {
+    "src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "tests/test_avatar_png_regions.py": "476ceab57ac2d5e21f443cb3c9beca35e19ef2b975c4362fc5f4dc384b456277",
+    "tests/test_layered_2d_assets.py": "38198007b4f40db8f84997a0137f5527e85d5ee429e96b76ed4f1ef549a22a37",
+    "tests/test_layered_2d_http.py": "21ebd6f15b84b26341c23d6398049ab2db7232ebf10a5abd2727d9ef838e5abe"
+  },
+  "limits": {
+    "actual_target_independent_layers": "NOT_CREATED",
+    "live2d_rig": "NOT_CREATED",
+    "windows_rtx4060_performance": "NOT_RUN",
+    "physical_hardware": "NOT_RUN",
+    "final_art_acceptance": "NOT_CLAIMED"
+  }
+}
