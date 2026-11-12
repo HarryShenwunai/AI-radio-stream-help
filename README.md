@@ -1,8 +1,16 @@
-# 虚拟陪伴项目：设计与技术调研（未命名）
+# 虚拟陪伴项目（未命名）
 
 目标是自然、有稳定性格、能文字和语音相处的虚拟角色。学习监督是可选能力。长期记忆按需使用，不能代替对当前话题的理解。
 
-**本仓库保存设计、调研与验收计划。B站、弹幕姬、AR、Minecraft联调尚未完成。**
+**已获准启动实施，仓库现包含本地应用和首批协议/取消/离线直播模块。B站、弹幕姬、AR、Minecraft联调尚未完成。**
+
+[当前执行看板](docs/planning/execution-board.md) · [本地运行说明](app/README.md)
+
+```sh
+python run.py --no-browser
+```
+
+聊天需可选模型资产/依赖或用户配置的模型API；源码不含权重。当前开发版本0.3.0-dev1。
 
 [直接阅读PDF报告](docs/report/comparison.pdf) · [HTML文件](docs/report/comparison.html)（下载后在浏览器打开）
 
@@ -14,6 +22,12 @@
 - [目标架构与权限](docs/design/architecture.md)：会话隔离、中断、协议适配和模型资源边界。
 - [现有设计与实际状态](docs/design/current-state.md)：已有原型、实测记录与未完成项。
 - [协议设计草案](contracts/interaction-v1.schema.json)和[验收追踪](review/traceability.csv)。
+
+## 当前验证
+
+115项Python回归、8项Node竞态、12项Chrome检查通过。真实本地Qwen/Kokoro另做一次冒烟；语音质量、真实上游兼容和用户设备性能仍待验收。详见执行看板和review/phase1报告。
+
+开发检查：`python scripts/check.py`；前端竞态：`node tests/test_voice_ui.mjs`（Node 20+）；浏览器：`python tests/phase1_browser_check.py`（需Playwright与Chrome）。
 
 ## 当前判断
 
@@ -33,6 +47,6 @@ Zerolan的事件驱动、统一模型管线、独立展示与MC执行器值得�
 
 保留轻量设计、历史规划、原型截图、来源索引与脱敏验收记录。模型权重、安装包、数据库、私聊、Cookie、密钥和开发虚拟环境不放入Git历史。没有新增部署工作流。
 
-历史文档在[docs/history](docs/history)，其名称和估算以历史记录理解。新范围与估算以[修订计划](docs/planning/revised-plan.md)为准，尚未形成用户批准的执行基线。
+历史文档在[docs/history](docs/history)，其名称和估算以历史记录理解。新范围与估算以[修订计划](docs/planning/revised-plan.md)为准。用户已批准推荐路线启动，当前完成范围以执行看板为准；未把估算当作承诺。
 
 来源、许可和专业确认事项见[NOTICE.md](NOTICE.md)。

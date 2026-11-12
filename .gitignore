@@ -29,3 +29,9 @@ Library/
 Temp/
 build/
 dist/
+
+# Isolated local runs and optional assets are never published.
+.run/
+**/models/
+**/voices/
+*.part

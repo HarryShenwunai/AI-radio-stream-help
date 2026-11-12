@@ -11,11 +11,11 @@
       "result": "passed"
     },
     {
-      "check": "new integration tests honestly NOT_RUN",
+      "check": "design baseline preserves unexecuted full-phase acceptance",
       "result": "passed"
     },
     {
-      "check": "no fabricated integration executions",
+      "check": "design snapshot does not fabricate phase acceptance",
       "result": "passed"
     },
     {
@@ -43,7 +43,7 @@
       "result": "passed"
     },
     {
-      "check": "scope of publishing is not execution",
+      "check": "approved route does not grant account or broadcast authorization",
       "result": "passed"
     },
     {
@@ -51,7 +51,7 @@
       "result": "passed"
     },
     {
-      "check": "all local Markdown targets exist",
+      "check": "all owned local Markdown targets exist",
       "result": "passed"
     },
     {
@@ -75,7 +75,8 @@
       "result": "passed"
     }
   ],
-  "new_integration_tests_executed": 0,
+  "upstream_or_platform_tests_executed": 0,
+  "current_local_execution": "phase1-tests.json",
   "unresolved": [
     "User hardware and budget",
     "Live room/platform eligibility and exact danmuji",

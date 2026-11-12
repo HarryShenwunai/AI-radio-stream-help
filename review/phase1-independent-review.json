@@ -1,0 +1,133 @@
+{
+  "review_id": "PHASE1-INDEPENDENT-001",
+  "reviewed_at": "2026-11-12T07:27:01.910455+00:00",
+  "reviewer": "separate AI agent /root/independent_review; not independent personnel V&V or IEEE certification",
+  "scope": "local P0 protocol fixtures, P1 lifecycle and private HTTP ingress, client cancellation races, offline public-event ingress",
+  "decision": "proceed with local development; no unresolved blocking finding in the reviewed scope; not a production release approval",
+  "source_sha256": {
+    "app/server.py": "3518df4d333bc63bdb5cf7e94387af980e2e002c8b54d4562b15866ef89447d3",
+    "app/static/app.js": "4e0a13bd3bdcdd4bd4a529ef056946d0d4be6d594784b81ea9ab516107be741d",
+    "src/companion_runtime/lifecycle.py": "1b308e269439420231cd69dcdaea69626acdcfaaa89066c5d90a93726c447dcc",
+    "src/companion_runtime/zerolan.py": "dcbe99b817a1cf778a2516db25e27d5553189e6ce5845fa0b2a36c0d9a00854f",
+    "src/companion_runtime/live.py": "ceefd7b437a4c4716b4a76b50f4eeef247992066f815a43a095c8aaaef5b0594",
+    "tests/test_phase1_http.py": "ed467b8e874131b433ca6cafe5fcbb2b2c9260dfd7caedc572a8f023f9e3a360",
+    "tests/test_voice_ui.mjs": "6cf19ee3f026f0cc4e0aeae61f9d4b3e8365cff44a3251a470bd6d947bbc6f17"
+  },
+  "tests_independently_executed": [
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_lifecycle.py' -v",
+      "passed": 15,
+      "failed": 0,
+      "kind": "in-process lifecycle unit tests"
+    },
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_zerolan.py' -v",
+      "passed": 27,
+      "failed": 0,
+      "kind": "offline protocol and DTO fixtures; no upstream server"
+    },
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_live.py' -v",
+      "passed": 19,
+      "failed": 0,
+      "kind": "offline synthetic events and queue limits; no platform"
+    },
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p 'test_phase1_http.py' -v",
+      "passed": 13,
+      "failed": 0,
+      "kind": "real loopback HTTP/SQLite, temporary database, mock generation and WAV"
+    },
+    {
+      "command": "node tests/test_voice_ui.mjs",
+      "passed": 8,
+      "failed": 0,
+      "kind": "real app.js in VM, fake DOM/Audio/fetch; not browser audio performance"
+    }
+  ],
+  "totals": {
+    "python_tests_passed": 74,
+    "node_tests_passed": 8,
+    "upstream_or_platform_integrations_tested": 0
+  },
+  "findings": [
+    {
+      "id": "IR-01",
+      "severity": "medium",
+      "problem": "A completed request ID accepted changed text and returned an unrelated cached response; beginning its generation also invalidated current media before input validation.",
+      "observed_before_fix": "HTTP regression failed with 200 != expected 409.",
+      "resolution": "Parent moved cache/retry/ID preflight before begin and bound cached replies to original user turn.",
+      "verification": "test_reused_request_id_with_changed_text_rejects_cached_answer passes and original generation remains usable for speech.",
+      "status": "fixed_and_retested"
+    },
+    {
+      "id": "IR-02",
+      "severity": "medium",
+      "problem": "A lone Unicode surrogate in public event_id raised UnicodeEncodeError during dedupe hashing.",
+      "observed_before_fix": "LiveIngress.submit event_id=surrogate raised UnicodeEncodeError.",
+      "resolution": "Live ingress author added strict UTF-8 validation for IDs, text and actor metadata.",
+      "verification": "test_unpaired_surrogates_are_rejected_in_all_public_strings passes; next valid event still works.",
+      "status": "fixed_and_retested"
+    },
+    {
+      "id": "IR-03",
+      "severity": "medium",
+      "problem": "A very large integer event_at raised OverflowError in math.isfinite.",
+      "observed_before_fix": "LiveIngress.submit event_at=10**1000 raised OverflowError.",
+      "resolution": "Live ingress author handles numeric conversion errors and rejects invalid timestamps.",
+      "verification": "test_huge_integer_timestamps_are_rejected_without_killing_ingress passes.",
+      "status": "fixed_and_retested"
+    }
+  ],
+  "static_review": [
+    "Private scope is derived from authenticated local server context; mismatched channel/source/session and claimed permissions are rejected before SSE response or mutations.",
+    "Generation and request IDs must jointly match; playback text comes from the committed assistant message. Completion does not prevent explicit media cancellation.",
+    "TTS results are checked after synthesis, and deleted/changed assistant history is rechecked before delivery.",
+    "Registry and event/dedupe queues have explicit limits; active valid state is not silently evicted to admit other scopes.",
+    "Control adapter rejects unsupported tool/cancel actions; it does no networking or execution.",
+    "Public event module does not import private application settings, storage, memory, credentials or tools.",
+    "Client generation serials and per-Audio cleanup prevent old responses or callbacks from reviving/clearing newer audio."
+  ],
+  "unresolved_checks": [
+    {
+      "item": "Real Zerolan/Core/GPT-SoVITS fork and MC branch compatibility",
+      "impact": "P0 fixture success does not close G1 runtime compatibility.",
+      "next": "Pin versions and run authorized isolated provider handshakes with required dependencies."
+    },
+    {
+      "item": "Public pairing, source SDK mapping and actual private/public model context separation",
+      "impact": "Offline ingress is not an authenticated live room integration or complete public LLM path.",
+      "next": "Implement separate binding credentials and dedicated live context; never reuse private browser Cookie."
+    },
+    {
+      "item": "Provider/TTS work may continue after cancellation",
+      "impact": "Current acknowledgement proves local invalidation, not compute termination or immediate model-lock release.",
+      "next": "Measure actual provider abort behavior and retain client mute/late-result gates."
+    },
+    {
+      "item": "Actual played audio milliseconds and unheard-context truncation",
+      "impact": "Not yet a complete natural streaming voice-call lifecycle.",
+      "next": "Add playback progress protocol and provider-specific truncation; distinguish text history from audio heard."
+    },
+    {
+      "item": "Target-device latency, p95, RSS/GPU/OBS overhead, full audio/browser behavior",
+      "impact": "Mock concurrency tests and synthetic-time replay are not performance acceptance.",
+      "next": "Run G1/P5 same-device benchmarks and actual Chrome playback tests; record thresholds and hardware."
+    },
+    {
+      "item": "Bilibili/danmuji/OBS, WeChat, AR and MC real integration",
+      "impact": "No account/platform or game acceptance has occurred in this review.",
+      "next": "Resolve SDK, eligibility, licensing and user-controlled connection points before relevant stage."
+    },
+    {
+      "item": "Long-term conversational quality and user acceptance",
+      "impact": "Deterministic model mocks cannot show naturalness or hallucination improvement.",
+      "next": "Review held-out conversations with memory off and irrelevant memory, then longer use."
+    }
+  ],
+  "notes": [
+    "Initial test import without PYTHONPATH failed before execution; repeated with documented PYTHONPATH=src and adopted only actual passing results.",
+    "This environment summarized node --test as one wrapper file; direct node tests/test_voice_ui.mjs listed eight cases. Counted the latter once.",
+    "Historical baseline and parent-agent browser/native results are not included in these independent execution totals."
+  ]
+}

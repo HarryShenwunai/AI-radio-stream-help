@@ -34,3 +34,13 @@
 Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原始用户资料。不复制上游整套源码或未获许可素材；本仓库只提供分析与来源标识。
 
 本轮设计文件/Schema结构检查18项通过；HTML由本地answer-me-with-html CLI生成，STE警告0。Chrome的1440/390宽度检查无页面横向溢出、无JavaScript异常；6页PDF中的架构图已查看。以上是文档交付检查，不是新增集成功能测试。
+
+## 启动批次（用户已批准）
+
+用户批准推荐路线并要求多Agent协作。主Agent集成；protocol负责协议、lifecycle负责取消状态、voice_ui负责前端/Chrome、live_ingress负责公开离线队列、independent_review独立审查。彼此采用文件独占避免写入冲突。当前代码在app/与src/，run.py可启动，计划执行状态以docs/planning/execution-board.md为准。
+
+实际Python回归115项通过，Node竞态8项、Chrome检查12项通过。真实Qwen/Kokoro单次冒烟通过；首段10.790秒，完整17.248秒，语音3.124秒，取消0.091秒，RSS约5.27GiB，非p95/用户验收。完整Q01–Q10尚未验收；旧追踪文件是设计时快照，当前执行见phase1报告。没有真实直播、上游部署、OBS、AR、MC或微信连接。
+
+新增踩坑：已成功rid换text曾静默返回旧cached回答，已预检拒绝409，且无效请求不使旧generation失效；直播字符串孤立surrogate与超大event_at曾抛异常，已统一invalid并加回归。HTTP abort只能阻止客户端接收，不能假称底层TTS停算；合成前后和浏览器serial均须检查。旧Audio回调必须绑定本对象，防误清新URL。
+
+后续先测上游兼容和完整语音轮次；真实房间需明确弹幕姬/官方入口、设备与账号条件。AR/MC仍可选，不因多Agent自动扩大权限或压缩整体估算。
