@@ -52,3 +52,5 @@ test('audit14 duplicate SSE done cannot produce duplicate spoken answers',async(
 test('audit15 oversized unterminated SSE fails with a bounded-frame error',async()=>{const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response('x'.repeat(1048577))):Promise.resolve(response(state())));let error='';h.core.on('error',e=>error=e.message);assert.equal(await h.core.send('hello'),false);assert.match(error,/过大/);});
 
 test('audit16 object deltas cannot become visible chat text',async()=>{const wire=[{type:'delta',text:{bad:true}},{type:'done'}].map(x=>'data: '+JSON.stringify(x)+'\n\n').join('');const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(wire)):Promise.resolve(response(state())));assert.equal(await h.core.send('hello'),false);});
+
+test('audit17 malformed UTF8 stream is rejected',async()=>{const bytes=Buffer.concat([Buffer.from('data: {"type":"delta","text":"'),Buffer.from([255]),Buffer.from('"}\n\ndata: {"type":"done"}\n\n')]);const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(bytes)):Promise.resolve(response(state())));assert.equal(await h.core.send('hello'),false);});

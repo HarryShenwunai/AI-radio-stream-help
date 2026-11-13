@@ -59,7 +59,7 @@ window.CompanionCore=(()=>{
     const payload={text,request_id:requestId,expected_character_id:stamp.character_id};if(retryId!==null)payload.retry_message_id=retryId;
     const response=await fetcher('/api/chat/stream',{method:'POST',headers:{'Content-Type':'application/json','X-Companion':'local-app'},body:JSON.stringify(payload),signal:controller.signal});
     if(!response.ok){const error=await response.json();throw new Error(error.error||'对话未能开始。');}if(!response.body)throw new Error('当前浏览器不支持流式回复。');
-    const reader=response.body.getReader(),decoder=new TextDecoder();let buffer='';
+    const reader=response.body.getReader(),decoder=new TextDecoder('utf-8',{fatal:true});let buffer='';
     async function event(data){
      if(!live()||finished)return;
      if(data.type==='meta'){chat.generationId=typeof data.generation_id==='string'?data.generation_id:'';if(data.user&&!state.messages.some(item=>item.id===data.user.id))state.messages.push(data.user);if(chat.stopping)await stopChat();}
