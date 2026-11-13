@@ -11,7 +11,7 @@ window.CompanionScene=(()=>{
   if(!bundles.has('live2d'))bundles.set('live2d',(async()=>{if(!window.Live2DCubismCore)await script('/live2d-core.js');if(!window.CompanionLive2DRuntime)await script('/live2d-runtime.js');await script('/live2d-renderer.js');if(typeof window.CompanionLive2D?.create!=='function')throw new Error('角色显示组件未正确初始化。');return window.CompanionLive2D;})().catch(error=>{bundles.delete('live2d');throw error;}));return bundles.get('live2d');
  }
  function resource(asset,state='idle'){
-  const item=state==='model'?asset?.model:state==='thumbnail'?asset?.thumbnail:asset?.states?.[state];if(!item?.url)return '';
+  const item=state==='model'?asset?.model:state==='thumbnail'?asset?.thumbnail:asset?.states?.[state];if(typeof item?.url!=='string'||!item.url)throw new Error('角色资源地址缺失，请重新导入。');
   const parsed=new URL(item.url,location.href);if(parsed.origin!==location.origin||!parsed.pathname.startsWith('/api/assets/'))throw new Error('角色引用了未允许的资源。');return item.url;
  }
  function create({container,image,api,onState=()=>{},preview=false}){
