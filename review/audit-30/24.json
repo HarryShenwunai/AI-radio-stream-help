@@ -1,0 +1,25 @@
+{
+  "id": 24,
+  "title": "Fail full quality checks when regression evidence is missing or stale",
+  "branch": "fix/audit-24-quality-report-fail-closed",
+  "scope": "tests/test_quality_gate_contract.py",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_quality_gate_contract.py",
+    "-k",
+    "audit24"
+  ],
+  "source_sha256": {
+    "scripts/quality_gate.py": "00c5f17b81bcb950f1f05f1c2f18e0048331e4eb122ab87d28b9ea22f29ffdf8"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
