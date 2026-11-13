@@ -25,3 +25,11 @@ class RegressionEvidenceTests(unittest.TestCase):
    code,report=invoke(Path(d),full=True)
    self.assertEqual(code,1);self.assertFalse(report['passed'])
 
+
+class RootFingerprintTests(unittest.TestCase):
+ def test_audit25_root_startup_mutations_change_fingerprint(self):
+  with tempfile.TemporaryDirectory() as d,patch.object(gate,'ROOT',Path(d)):
+   file=Path(d)/'start.cmd';file.write_text('before')
+   before=gate.source_hashes();file.write_text('after');after=gate.source_hashes()
+   self.assertIn('start.cmd',before);self.assertNotEqual(before,after)
+

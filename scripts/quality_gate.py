@@ -57,7 +57,7 @@ def source_hashes():
             image_source = (directory == 'assets' or relative.parts[:2] == ('app','static')) and path.suffix.lower() in {'.png','.jpg','.jpeg','.webp','.svg','.avif'}
             if path.is_file() and (image_source or path.suffix in {".py", ".mjs", ".cjs", ".js", ".json", ".ps1", ".cmd", ".css", ".html", ".toml", ".yml", ".yaml", ".tla", ".cfg"} or path.name.startswith("requirements") and path.suffix == ".txt"):
                 paths.append(path)
-    paths.extend(ROOT / name for name in ("pyproject.toml", "requirements-quality.txt", "requirements-dev.txt"))
+    paths.extend(path for path in ROOT.iterdir() if path.is_file() and (path.suffix in {".py", ".cmd", ".ps1", ".toml", ".json", ".yml", ".yaml"} or path.name.startswith("requirements") and path.suffix == ".txt"))
     return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(set(paths)) if path.is_file()}
 
 
