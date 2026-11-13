@@ -33,3 +33,11 @@ class RootFingerprintTests(unittest.TestCase):
    before=gate.source_hashes();file.write_text('after');after=gate.source_hashes()
    self.assertIn('start.cmd',before);self.assertNotEqual(before,after)
 
+
+class TimeoutEvidenceTests(unittest.TestCase):
+ def test_audit26_timeout_keeps_partial_diagnostics(self):
+  with tempfile.TemporaryDirectory() as d:
+   code,report=invoke(Path(d),timeout=True);self.assertEqual(code,1)
+   log=Path(report['checks'][0]['log']).read_text()
+   self.assertIn('partial-stdout-marker',log);self.assertIn('partial-stderr-marker',log)
+

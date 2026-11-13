@@ -1,0 +1,15 @@
+Running critical-lint
+critical-lint: FAIL (see /tmp/tmpeaphk50a/result-logs/critical-lint.txt)
+Running strict-core-types
+strict-core-types: PASS
+Running architecture
+architecture: PASS
+Running architecture-negative-fixtures
+architecture-negative-fixtures: PASS
+FAIL: /tmp/tmpeaphk50a/result.json
+
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK

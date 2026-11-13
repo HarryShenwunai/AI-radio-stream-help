@@ -1,0 +1,25 @@
+{
+  "id": 26,
+  "title": "Preserve partial stdout and stderr when automated checks time out",
+  "branch": "fix/audit-26-quality-timeout-output",
+  "scope": "tests/test_quality_gate_contract.py",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_quality_gate_contract.py",
+    "-k",
+    "audit26"
+  ],
+  "source_sha256": {
+    "scripts/quality_gate.py": "71f33a8f8deff5ee9cd42b2a1059c36e66f157ada48a5ccc088e1bfc0f7ed5f8"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}

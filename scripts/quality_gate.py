@@ -105,7 +105,11 @@ def main():
         try:
             process = subprocess.run(command, cwd=ROOT, env=environment, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600)
             code, stdout, stderr = process.returncode, process.stdout, process.stderr
-        except (OSError, subprocess.TimeoutExpired) as error:
+        except subprocess.TimeoutExpired as error:
+            def decoded(value):
+                return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value or ""
+            code, stdout, stderr = 124, decoded(error.stdout), decoded(error.stderr) + "\n" + str(error)
+        except OSError as error:
             code, stdout, stderr = 124, "", str(error)
         log = log_dir / (name + ".txt")
         log.write_text(stdout + "\nSTDERR:\n" + stderr, encoding="utf-8")

@@ -1,0 +1,24 @@
+Running critical-lint
+critical-lint: FAIL (see /tmp/tmp_w_v_xvv/result-logs/critical-lint.txt)
+Running strict-core-types
+strict-core-types: PASS
+Running architecture
+architecture: PASS
+Running architecture-negative-fixtures
+architecture-negative-fixtures: PASS
+FAIL: /tmp/tmp_w_v_xvv/result.json
+
+F
+======================================================================
+FAIL: test_audit26_timeout_keeps_partial_diagnostics (test_quality_gate_contract.TimeoutEvidenceTests.test_audit26_timeout_keeps_partial_diagnostics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_quality_gate_contract.py", line 42, in test_audit26_timeout_keeps_partial_diagnostics
+    self.assertIn('partial-stdout-marker',log);self.assertIn('partial-stderr-marker',log)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'partial-stdout-marker' not found in "\nSTDERR:\nCommand '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '-m', 'ruff', 'check', 'app', 'src', 'scripts', 'tests', 'plugins', 'desktop']' timed out after 600 seconds"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)
