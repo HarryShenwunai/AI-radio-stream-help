@@ -5,6 +5,7 @@ window.CompanionPlayback=(()=>{
  function fromHeader(value){if(!value)return null;const meta=JSON.parse(atob(value));if(!valid(meta))throw new Error('播放回执信息无效，请重试。');return meta;}
  function create(meta,{onState=()=>{},onLimit=()=>{}}={}){
   if(!valid(meta))throw new Error('播放回执信息无效，请重试。');
+  meta=Object.freeze({...meta});
   let audio=null,startedAt=null,terminal=false,lastSent=-Infinity,lastPosition=0,chain=Promise.resolve(),limitTimer=0;
   const known=Number.isFinite(meta.duration_seconds)&&meta.duration_seconds>0&&meta.duration_seconds<=180?meta.duration_seconds:null;
   const notify=(status,result={})=>onState(status,result);

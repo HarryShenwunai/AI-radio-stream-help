@@ -1,0 +1,29 @@
+✖ audit05 caller mutation cannot change receipt owner or nonce (3.341762ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.811456
+
+✖ failing tests:
+
+test at tests/test_playback_ui.mjs:61:1
+✖ audit05 caller mutation cannot change receipt owner or nonce (3.341762ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'role-B' !== 'role-A'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_playback_ui.mjs:61:184)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'role-B',
+    expected: 'role-A',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
