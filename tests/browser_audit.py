@@ -4,6 +4,8 @@ import sys, json, base64, hashlib, subprocess, traceback, argparse
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tests"))
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
+from quality_gate import source_hashes
 from test_character_http import CharacterHTTPTests
 from playwright.sync_api import sync_playwright
 
@@ -22,7 +24,15 @@ parser.add_argument(
     "--baseline-ref", default="564ea22a1be84c28d71b968f658574f4bbdf297c"
 )
 parser.add_argument("--output-dir", type=Path, default=ROOT / ".build/audit-30/browser")
+parser.add_argument(
+    "--idle-video-seconds",
+    type=float,
+    default=0,
+    help="Hold the actual app idle pose in the recording (0..30 seconds)",
+)
 args = parser.parse_args()
+if not 0 <= args.idle_video_seconds <= 30:
+    parser.error("idle-video-seconds must be within 0..30")
 out = args.output_dir.resolve()
 out.mkdir(parents=True, exist_ok=True)
 owned = args.runtime_dir.resolve()
@@ -53,6 +63,15 @@ class ExistingRuntime:
         return (owned / "build/owner-live2d-runtime.js").read_bytes()
 
 
+source_before = source_hashes()
+commit_before = subprocess.check_output(
+    ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+).strip()
+dirty_before = bool(
+    subprocess.check_output(
+        ["git", "status", "--porcelain"], cwd=ROOT, text=True
+    ).strip()
+)
 f = CharacterHTTPTests(
     "test_new_identity_has_separate_memories_chat_tasks_and_personality"
 )
@@ -118,6 +137,8 @@ try:
         )
         report["checks"]["actual_model_import_and_gl_ready"] = True
         page.screenshot(path=str(out / "01-actual-model-ready.png"))
+        if args.idle_video_seconds:
+            page.wait_for_timeout(args.idle_video_seconds * 1000)
         baseline = subprocess.check_output(
             ["git", "show", args.baseline_ref + ":app/static/scene-controller.js"],
             cwd=ROOT,
@@ -173,6 +194,26 @@ try:
         page.evaluate("CompanionApp.scene.applyControls({reset:true,idleMotion:true})")
         page.wait_for_timeout(1800)
         page.set_viewport_size({"width": 390, "height": 844})
+        # ResizeObserver and the next Core draw are asynchronous. A screenshot
+        # immediately after set_viewport_size can capture the old GPU viewport.
+        page.wait_for_function("""() => {
+          const canvas=document.querySelector('#character-canvas canvas');
+          if(!canvas)return false;
+          const box=canvas.getBoundingClientRect();
+          const ratio=Math.min(devicePixelRatio||1,2,2048/Math.max(box.width,box.height));
+          return Math.abs(canvas.width-box.width*ratio)<=2 &&
+                 Math.abs(canvas.height-box.height*ratio)<=2 && box.width<=innerWidth;
+        }""")
+        before_resize_frame = page.evaluate("CompanionApp.scene.getStats().frames")
+        page.wait_for_function(
+            "previous=>CompanionApp.scene.getStats().frames>previous+1",
+            arg=before_resize_frame,
+        )
+        report["mobile_canvas"] = page.evaluate("""() => {
+          const c=document.querySelector('#character-canvas canvas'),b=c.getBoundingClientRect();
+          return {width:c.width,height:c.height,cssWidth:b.width,cssHeight:b.height};
+        }""")
+        report["checks"]["mobile_canvas_resized_and_redrawn"] = True
         assert page.evaluate("document.documentElement.scrollWidth<=innerWidth")
         page.screenshot(path=str(out / "06-mobile-layout.png"))
         report["checks"]["mobile_no_horizontal_overflow"] = True
@@ -208,9 +249,18 @@ finally:
         for p in out.glob("*")
         if p.is_file() and p.name != "report.json"
     }
-    report["tested_source_commit"] = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip()
+    after = source_hashes()
+    report["tested_source_commit"] = commit_before
+    report["working_tree_dirty_at_start"] = dirty_before
+    report["source_sha256"] = source_before
+    report["sources_unchanged_during_check"] = source_before == after
+    if source_before != after:
+        report["passed"] = False
+        report["source_mutations"] = sorted(
+            name
+            for name in source_before.keys() | after.keys()
+            if source_before.get(name) != after.get(name)
+        )
     report["model_sha256"] = hashlib.sha256(args.model_zip.read_bytes()).hexdigest()
     (out / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print(json.dumps(report, ensure_ascii=False))

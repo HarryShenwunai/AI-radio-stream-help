@@ -1,0 +1,42 @@
+{
+  "R3-Transparent-Companion.zip": {
+    "bytes": 8960336,
+    "sha256": "c55a8f8b67b4b0a81f98294e8007fa65409ceb19bca1b208c65925d6750d6850"
+  },
+  "R3-Transparent-Editable.zip": {
+    "bytes": 35562046,
+    "sha256": "3c028c019692637a9bf14ffc1584ea617337db9fd06069f177b457b661adc265"
+  },
+  "R3-Transparent-Viewer.zip": {
+    "bytes": 8962007,
+    "sha256": "50135e4c17e93c1364635201d17ac038f3162615a84b5b862f256aee87385849"
+  },
+  "R3-actual-app-preview.mp4": {
+    "bytes": 2045733,
+    "sha256": "bc7be32b50c9dd9112a0465b455db89f9c61ab1dd871f3ce076f48a6138b4e15"
+  },
+  "R3-actual-app.png": {
+    "bytes": 1141964,
+    "sha256": "de233f161f3b82928ad9c7d23f813b54309fa40fca9a1e4c971986e0f8e25de5"
+  },
+  "R3-eyes-and-head-detail.png": {
+    "bytes": 281354,
+    "sha256": "58ada08029c843c75d957edde5fd308c7c757147f69117e5bc01b437ad437627"
+  },
+  "R3-eyes-closeup.mp4": {
+    "bytes": 453503,
+    "sha256": "4f02a7d49fba5933a14f48020ebb81f872155dda290baffc107ae5443a0a14c8"
+  },
+  "R3-mobile.png": {
+    "bytes": 341334,
+    "sha256": "60121f9033f1cd15a2080415f8905d24373c7621ab9a70df3f33f96cccd47bfc"
+  },
+  "R3-native-motion-proof.mp4": {
+    "bytes": 568017,
+    "sha256": "6fae22db3266c3d1b6900b573acc025e9c99c326f550210299f3ad08e18efcd0"
+  },
+  "R3-stage-before-after.png": {
+    "bytes": 384085,
+    "sha256": "20da5d44bc170b54dadc8aabc375e4d51da3ec26aa4aac5d92cab813eba77b4a"
+  }
+}

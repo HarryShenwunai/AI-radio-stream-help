@@ -1,0 +1,46 @@
+{
+  "hair": {
+    "same_size": true,
+    "rgb_identical": true,
+    "alpha_never_expands_original": true,
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "unchanged_layers": [
+    "Background_and_hidden_body.png",
+    "Torso.png",
+    "Empty_pose_cleanplate.png",
+    "Sleeve_far.png",
+    "Sleeve_near.png",
+    "Cup.png",
+    "Near_thumb.png",
+    "Near_index.png",
+    "Near_middle.png",
+    "Near_ring.png",
+    "Near_little.png",
+    "Near_palm.png",
+    "Far_index.png",
+    "Far_middle.png",
+    "Far_ring.png",
+    "Far_little.png",
+    "Far_palm.png",
+    "Neck_face.png",
+    "Eye_closed.png",
+    "Mouth_open.png"
+  ],
+  "changed_layers": [
+    "Hair_shell.png",
+    "Steam.png"
+  ],
+  "cutout_sha256": {
+    "Hair_shell-extracted.png": "0050854707ca419ce153a6ffcb025f2af4e860785ce33f184490358c8f54f65e",
+    "Steam-extracted.png": "428aeef56a32d302699085f1cab0e3c881fecccdd721ef82e06c181072eda90b"
+  },
+  "face_overlap": {
+    "protected_authored_hair_pixels": 69234,
+    "maximum_allowed_alpha_loss": 1
+  },
+  "limits": "Asset registration only; actual Core pose and visual checks are required."
+}

@@ -1,0 +1,14 @@
+{
+  "actual_source_passed": {
+    "protected_authored_hair_pixels": 69234,
+    "maximum_allowed_alpha_loss": 1
+  },
+  "injected_gap": {
+    "rejected": true,
+    "reason": "Hair extraction opened a gap at the authored face overlap",
+    "injected_gap": [
+      215,
+      281
+    ]
+  }
+}
