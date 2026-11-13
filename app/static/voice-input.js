@@ -2,6 +2,7 @@
 // Explicit push-to-record, local HTTP transcription. No auto-send or online ASR fallback.
 window.CompanionVoiceInput=(()=>{
  function pcm16Wav(samples,rate=16000){
+  if(!Number.isInteger(rate)||rate<1||rate>192000||!samples||!Number.isSafeInteger(samples.length)||samples.length>192000*60||!Array.from(samples).every(Number.isFinite))throw new Error("录音采样格式无效。");
   const result=new ArrayBuffer(44+samples.length*2),view=new DataView(result);
   const ascii=(offset,value)=>{for(let i=0;i<value.length;i++)view.setUint8(offset+i,value.charCodeAt(i));};
   ascii(0,'RIFF');view.setUint32(4,result.byteLength-8,true);ascii(8,'WAVE');ascii(12,'fmt ');view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,1,true);view.setUint32(24,rate,true);view.setUint32(28,rate*2,true);view.setUint16(32,2,true);view.setUint16(34,16,true);ascii(36,'data');view.setUint32(40,samples.length*2,true);
