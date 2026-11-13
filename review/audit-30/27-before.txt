@@ -1,0 +1,17 @@
+
+F
+======================================================================
+FAIL: test_audit27_missing_connection_fields_is_rejected (test_architecture_rules.MissingConnectionContractTests.test_audit27_missing_connection_fields_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 157, in test_audit27_missing_connection_fields_is_rejected
+    tree=self.server();tree.body=[n for n in tree.body if not isinstance(n,ast.Assign) or not any(isinstance(t,ast.Name) and t.id=='CONNECTION_FIELDS' for t in n.targets)];self.save(tree);self.reject('A02')
+                                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 35, in reject
+    self.assertIn(rule, {failure.rule for failure in self.violations()})
+AssertionError: 'A02' not found in set()
+
+----------------------------------------------------------------------
+Ran 1 test in 0.302s
+
+FAILED (failures=1)

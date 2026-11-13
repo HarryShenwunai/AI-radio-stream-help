@@ -151,3 +151,8 @@ class ArchitectureMutationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class MissingConnectionContractTests(ArchitectureMutationTests):
+ def test_audit27_missing_connection_fields_is_rejected(self):
+  tree=self.server();tree.body=[n for n in tree.body if not isinstance(n,ast.Assign) or not any(isinstance(t,ast.Name) and t.id=='CONNECTION_FIELDS' for t in n.targets)];self.save(tree);self.reject('A02')
+

@@ -175,8 +175,11 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
             for node in ast.walk(region):
                 if isinstance(node, ast.Call) and call_names(node, bindings) & PRIVATE_CALLS:
                     failures.append(Violation("A02", "app/server.py", node.lineno, "Shared/public model path calls private conversation/storage code"))
-        for node in server.body:
-            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "CONNECTION_FIELDS" for t in node.targets):
+        field_declarations = [node for node in server.body if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "CONNECTION_FIELDS" for t in node.targets)]
+        if len(field_declarations) != 1:
+            failures.append(Violation("A02", "app/server.py", 0, "Exactly one connection field allowlist is required"))
+        for node in field_declarations:
+            if isinstance(node, ast.Assign):
                 try:fields = set(ast.literal_eval(node.value))
                 except (ValueError, TypeError):fields = set()
                 if fields != {"engine", "api_base", "api_model"}:
