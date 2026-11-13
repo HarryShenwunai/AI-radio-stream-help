@@ -53,7 +53,7 @@ window.CompanionVoiceInput=(()=>{
     const check=await fetch('/api/voice/status'),status=await check.json();if(localTicket!==ticket)return;if(isHidden()||id!==getCharacterId()){cancel();return;}
     if(!check.ok||!status.asr?.ready)throw new Error(status.asr?.reason||'本地语音识别尚未准备好，请先完成安装。');
     const opened=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:true,noiseSuppression:true},video:false});
-    if(localTicket!==ticket||isHidden()||id!==getCharacterId()){opened.getTracks().forEach(track=>track.stop());return;}
+    if(localTicket!==ticket||isHidden()||id!==getCharacterId()){opened.getTracks().forEach(track=>track.stop());if(localTicket===ticket)cancel();return;}
     stream=opened;owner=id;operation=crypto.randomUUID();chunks=[];
     const mime=window.MediaRecorder.isTypeSupported?.('audio/webm;codecs=opus')?'audio/webm;codecs=opus':'';
     const current=new window.MediaRecorder(opened,mime?{mimeType:mime}:{});recorder=current;
