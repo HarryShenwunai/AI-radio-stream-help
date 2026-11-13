@@ -42,3 +42,5 @@ test('audit09 rejected model load releases allocated instance',async()=>{let dis
 test('audit10 disposed scene cannot restart audio resources',()=>{const h=sceneHarness();h.scene.dispose();h.scene.setAudio({});assert.equal(h.contexts,0);assert.equal(h.raf.size,0);});
 
 test('audit11 missing renderer registration does not poison retries',async()=>{const h=sceneHarness();const good=h.context.window.CompanionVrm;h.context.window.CompanionVrm=undefined;assert.equal(await h.scene.sync(spec(pack('vrm'))),false);h.context.window.CompanionVrm=good;assert.equal(await h.scene.retry(),true);assert.equal(h.scripts.length,2);});
+
+test('audit12 empty state URLs never fetch the document as a texture',async()=>{const h=sceneHarness(),asset=pack();asset.states.idle.url='';assert.equal(await h.scene.sync(spec(asset)),false);assert.equal(h.calls.some(x=>x.url===''),false);assert.equal(h.states.at(-1).state,'error');});

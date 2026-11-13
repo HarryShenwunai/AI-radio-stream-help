@@ -1,0 +1,20 @@
+{
+  "id": 12,
+  "title": "Reject missing required model resources before issuing a request",
+  "branch": "fix/audit-12-scene-missing-resource",
+  "scope": "tests/test_character_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit12",
+    "tests/test_character_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/scene-controller.js": "2cac58e0de3eb731b1961104969a9c7e9cabd7672a9b2eaab731e809f492ca11"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
