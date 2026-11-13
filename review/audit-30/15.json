@@ -1,0 +1,20 @@
+{
+  "id": 15,
+  "title": "Bound unterminated chat stream frames",
+  "branch": "fix/audit-15-sse-buffer-limit",
+  "scope": "tests/test_character_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit15",
+    "tests/test_character_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/companion-core.js": "09b393d8685ec95f4bb3090af4500a2d521348ef160f750b7812451619f3e507"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
