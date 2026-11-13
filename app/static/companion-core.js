@@ -21,7 +21,7 @@ window.CompanionCore=(()=>{
    const stamp=scope(),character=options.character_id||stamp.character_id;
    let payload=data===undefined?undefined:{...data};
    if(payload&&!path.startsWith('characters/')&&character&&payload.expected_character_id===undefined)payload.expected_character_id=character;
-   const response=await fetcher('/api/'+path,payload===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json','X-Companion':'local-app'},body:JSON.stringify(payload),signal:options.signal});
+   const response=await fetcher('/api/'+path,payload===undefined?{signal:options.signal}:{method:'POST',headers:{'Content-Type':'application/json','X-Companion':'local-app'},body:JSON.stringify(payload),signal:options.signal});
    let result;try{result=await response.json();}catch{throw new Error('应用响应不可用，请稍后重试。');}
    if(!response.ok){const messages={due_out_of_range:'请选择未来7天内的提醒时间。',invalid_inputs:'请检查填写内容。',game_context_required:'请补充游戏情境，或先分享一次屏幕观察。',observation_expired:'这次观察已过期，请重新分享画面。',provider_not_configured_for_kind:'还未连接这项建议能力。',invalid_csv:'无法读取这份CSV，请检查分隔符与内容。',csv_size_limit:'这份数据太大，请缩小后重试。',vision_not_configured:'视觉模型尚未连接。',consent_required:'请先确认这次分享。',scope_changed:'角色或形象已切换，旧操作已停止。',cancelled:'操作已经取消。',session_expired:'分享已过期，请重新选择来源。',rate_limited:'请稍等两秒再分享画面。',frame_too_large:'画面过大，请缩小来源后重试。',invalid_frame:'未能读取这次画面，请重新预览。',provider_failed:'视觉服务没有完成分析，请检查连接。',owner_runtime_setup_required:'尚未安装已获授权的Live2D运行时。'};const error=new Error(messages[result.code]||messages[result.error]||result.error||'操作未完成，请重试。');error.status=response.status;error.code=result.code;throw error;}
    if(!options.allowStale&&!path.startsWith('characters/')&&!current(stamp))throw new Error('角色已切换，旧操作已停止。');
