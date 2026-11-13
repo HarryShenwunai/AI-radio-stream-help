@@ -51,7 +51,7 @@ window.CompanionScene=(()=>{
     const timer=setTimeout(()=>paintedResolve(false),15000);const rendered=instance.getStats?.().frames>0||await painted;clearTimeout(timer);
     if(ticket!==own||disposed||!visible)return false;if(!rendered){instance.dispose();model=null;publish('error','角色尚未成功绘制，可以重试。');return false;}
     ready=true;instance.setScale((spec.scale||100)/100);instance.setExpanded(expanded);instance.setSpeaking(speaking);if(speaking&&audio)instance.setAudio(audio);publish('ready');return true;
-   }catch(error){if(ticket===own){ready=false;publish('error',error.message);if(image)image.hidden=true;}return false;}
+   }catch(error){if(ticket===own){ready=false;model?.dispose();model=null;container.hidden=true;publish('error',error.message);if(image)image.hidden=true;}return false;}
   }
   async function layered(){if(!bundles.has('layered'))bundles.set('layered',script('/layered-2d-renderer.js').then(()=>window.CompanionLayered2D).catch(error=>{bundles.delete('layered');throw error;}));return bundles.get('layered');}
   return {sync,retry(){if(spec){const value=spec;release();return sync(value);}},setSpeaking(value){speaking=Boolean(value);if(model){model.setSpeaking(speaking);if(!speaking)audio=null;}else{if(!speaking)detachAudio();png();}},

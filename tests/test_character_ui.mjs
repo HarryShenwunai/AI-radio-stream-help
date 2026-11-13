@@ -36,3 +36,5 @@ test('PNG package extracts only states/regions, never attacker identity or permi
 test('PNG package rejects missing idle, unknown states and mismatched dimensions',async()=>{for(const states of [{},{evil:{data_base64:'AAAA'}}, {idle:{data_base64:'not base64!'}}])await assert.rejects(studio.parsePngPackage(JSON.stringify({format:'companion-png-package',version:1,states})));});
 
 test('audit08 false model load leaves loading state',async()=>{const h=sceneHarness({modelFactory:()=>({load:async()=>false,dispose(){}})});assert.equal(await h.scene.sync(spec(pack('vrm'))),false);assert.equal(h.states.at(-1).state,'error');assert.match(h.states.at(-1).error,/重试/);});
+
+test('audit09 rejected model load releases allocated instance',async()=>{let disposed=0;const h=sceneHarness({modelFactory:()=>({load:async()=>{throw Error('decode failure');},dispose(){disposed++;}})});await h.scene.sync(spec(pack('vrm')));assert.equal(disposed,1);assert.equal(h.states.at(-1).state,'error');});
