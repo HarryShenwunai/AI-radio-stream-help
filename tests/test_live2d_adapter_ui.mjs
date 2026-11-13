@@ -70,6 +70,7 @@ test('clearing selected expression invalidates a reserved load and allows the sa
 // resource-delay Chromium cases independently exercise the pinned real SDK.
 function controlledAdapter(){
  const saved={fetch:globalThis.fetch,raf:globalThis.requestAnimationFrame,caf:globalThis.cancelAnimationFrame,observer:globalThis.ResizeObserver,runtime:window.CompanionLive2DRuntime,core:window.Live2DCubismCore};
+ let applicationStarts=0;
  let resolveExpression;const expression=new Promise(resolve=>resolveExpression=resolve);
  const makeModel=()=>{
   const values=new Float32Array([0]),raw={parameters:{ids:['ParamMouthOpenY'],minimumValues:new Float32Array([0]),maximumValues:new Float32Array([1]),defaultValues:new Float32Array([0])},drawables:{count:0}};
@@ -80,12 +81,12 @@ function controlledAdapter(){
  };
  const a=makeModel(),b=makeModel(),queue=[a,b];
  const runner={add(){},remove(){}};
- class Application{async init(){this.canvas={setAttribute(){},addEventListener(){},removeEventListener(){}};this.stage={children:[],addChild(value){this.children.push(value);},removeChild(value){this.children=this.children.filter(v=>v!==value);}};this.renderer={resize(){},gl:{clearColor(){}},runners:{prerender:runner},texture:{getGlSource:()=>({texture:{}})},render(){}};this.ticker={stop(){}};}destroy(){}}
+ class Application{async init(){applicationStarts++;this.canvas={setAttribute(){},addEventListener(){},removeEventListener(){}};this.stage={children:[],addChild(value){this.children.push(value);},removeChild(value){this.children=this.children.filter(v=>v!==value);}};this.renderer={resize(){},gl:{clearColor(){}},runners:{prerender:runner},texture:{getGlSource:()=>({texture:{}})},render(){}};this.ticker={stop(){}};}destroy(){}}
  window.CompanionLive2DRuntime={PIXI:{Application,Assets:{setPreferences(){}}},Live2DModel:{from:async()=>queue.shift()}};window.Live2DCubismCore={Version:{csmGetLatestMocVersion:()=>5,csmGetVersion:()=>83951616}};
  globalThis.fetch=async()=>({ok:true,json:async()=>model()});globalThis.requestAnimationFrame=()=>1;globalThis.cancelAnimationFrame=()=>{};globalThis.ResizeObserver=class{observe(){}disconnect(){}};
  const container={clientWidth:100,clientHeight:100,getBoundingClientRect:()=>({width:100,height:100}),append(){},addEventListener(){},removeEventListener(){}};
  const adapter=create({container}),makeAsset=value=>{const data=asset();data.id=value;data.model.url=`/api/assets/${value}/model.model3.json?character_id=role-A`;for(const[name,item]of Object.entries(data.resources))item.url=`/api/assets/${value}/${name}?character_id=role-A`;return data;};
- return{adapter,a,b,makeAsset,resolveExpression,cleanup(){adapter.dispose();Object.assign(globalThis,{fetch:saved.fetch,requestAnimationFrame:saved.raf,cancelAnimationFrame:saved.caf,ResizeObserver:saved.observer});window.CompanionLive2DRuntime=saved.runtime;window.Live2DCubismCore=saved.core;}};
+ return{adapter,a,b,makeAsset,resolveExpression,get applicationStarts(){return applicationStarts;},cleanup(){adapter.dispose();Object.assign(globalThis,{fetch:saved.fetch,requestAnimationFrame:saved.raf,cancelAnimationFrame:saved.caf,ResizeObserver:saved.observer});window.CompanionLive2DRuntime=saved.runtime;window.Live2DCubismCore=saved.core;}};
 }
 test('an old expression result cannot overwrite or stop a newly loaded model',async t=>{
  const h=controlledAdapter();t.after(h.cleanup);assert.equal(await h.adapter.load(h.makeAsset('A')),true);
@@ -98,4 +99,21 @@ test('reset supersedes an in-flight expression even if its SDK promise later suc
  const pending=h.adapter.applyControls({expression:'gentle',motion:{group:'Idle',index:0}});
  assert.equal(await h.adapter.applyControls({reset:true}),true);const stops=h.a.stops;h.resolveExpression(true);
  assert.equal(await pending,false);assert.equal(h.a.stops,stops);assert.equal(h.a.motions,0);assert.equal(h.adapter.getDiagnostics().currentExpression,null);
+});
+
+
+test('disposed adapter cannot allocate another renderer or audio context',async t=>{
+ const h=controlledAdapter();t.after(h.cleanup);let audioStarts=0;
+ const previous=window.AudioContext;window.AudioContext=class{constructor(){audioStarts++;}createMediaElementSource(){return{connect(){},disconnect(){}};}createAnalyser(){return{connect(){},disconnect(){}};}resume(){return Promise.resolve();}close(){return Promise.resolve();}};
+ t.after(()=>{window.AudioContext=previous;});
+ await h.adapter.load(h.makeAsset('A'));h.adapter.dispose();const starts=h.applicationStarts;
+ assert.equal(await h.adapter.load(h.makeAsset('B')),false);
+ assert.equal(h.applicationStarts,starts,'dispose must be terminal for GPU allocation');
+ h.adapter.setAudio({});assert.equal(audioStarts,0,'dispose must be terminal for audio allocation');
+});
+
+test('disposed adapter rejects audio attachment independently of model loading',t=>{
+ const h=controlledAdapter();t.after(h.cleanup);let allocated=0;const previous=window.AudioContext;
+ window.AudioContext=class{constructor(){allocated++;}};t.after(()=>{window.AudioContext=previous;});
+ h.adapter.dispose();h.adapter.setAudio({});assert.equal(allocated,0);
 });

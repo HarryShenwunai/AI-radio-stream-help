@@ -1,0 +1,25 @@
+✔ every model3 resource retains its authenticated character scope (2.800749ms)
+✔ unmapped paths and external resources are rejected before invoking any runtime (0.894134ms)
+✔ model-authored audio never acquires another playback owner (0.363557ms)
+✔ an absent owner-installed Core/framework fails closed before WebGL creation (0.338159ms)
+✔ same-origin resources cannot cross asset or role boundaries (0.697573ms)
+✔ observed Core maximum rejects newer MOC before GPU allocation (0.350617ms)
+✔ a setter without actual start/stop lipsync APIs is incompatible (0.463997ms)
+✔ bounded controls reject NaN, infinity, unknown authority and invalid motion indexes (0.504038ms)
+✔ custom controls accept only bounded data entries without authority or duplicate IDs (0.734664ms)
+✔ active textures use current Pixi getGlSource rather than the obsolete touched flag (2.325655ms)
+✔ a recreated managed texture invalidates stale wrapper handles without disabling GC (0.24659ms)
+✔ reset restores SDK-motion-saved values that never entered any manual control map (0.510868ms)
+✔ clearing selected expression invalidates a reserved load and allows the same expression again (0.220141ms)
+✔ an old expression result cannot overwrite or stop a newly loaded model (3.277255ms)
+✔ reset supersedes an in-flight expression even if its SDK promise later succeeds (0.653673ms)
+✔ disposed adapter cannot allocate another renderer or audio context (0.930128ms)
+✔ disposed adapter rejects audio attachment independently of model loading (0.730738ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 134.163637
