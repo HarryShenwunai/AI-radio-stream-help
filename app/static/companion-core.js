@@ -13,7 +13,7 @@ window.CompanionCore=(()=>{
   function view(){return {state,scope:scope(),chat:chat?{...chat,controller:undefined}:null,mutating,transitioning,draft:drafts.get(role())||'',failed};}
   function change(){emit('change',view());}
   function invalidate(reason='role-change'){
-   const previous=scope();transitioning=true;epoch++;readSerial++;chat?.controller.abort();chat=null;failed=null;lastSeen=0;
+   const previous=scope();transitioning=true;epoch++;readSerial++;refreshing=false;chat?.controller.abort();chat=null;failed=null;lastSeen=0;
    emit('invalidate',{reason,previous,current:scope()});change();
   }
   async function api(path,data,options={}){
