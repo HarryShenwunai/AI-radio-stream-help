@@ -1,0 +1,20 @@
+{
+  "id": 19,
+  "title": "Prevent disposed companion controllers from sending new requests",
+  "branch": "fix/audit-19-core-disposal-boundary",
+  "scope": "tests/test_character_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit19",
+    "tests/test_character_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/companion-core.js": "70b9e7b8aed33f3afcf6a1beee49b083be320af74097d71d78391c9fdd874960"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
