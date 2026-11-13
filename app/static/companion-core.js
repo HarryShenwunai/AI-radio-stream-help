@@ -64,7 +64,7 @@ window.CompanionCore=(()=>{
      if(!live()||finished)return;
      if(data.type==='meta'){chat.generationId=typeof data.generation_id==='string'?data.generation_id:'';if(data.user&&!state.messages.some(item=>item.id===data.user.id))state.messages.push(data.user);if(chat.stopping)await stopChat();}
      else if(data.type==='status'){if(data.replace)chat.text='';chat.status='adjusting';}
-     else if(data.type==='delta'){chat.text+=data.text||'';chat.status='replying';}
+     else if(data.type==='delta'){if(typeof data.text!=='string')throw new Error('回复文本格式无效。');chat.text+=data.text;chat.status='replying';}
      else if(data.type==='done'){
       finished=true;failed=null;if(typeof data.generation_id==='string')chat.generationId=data.generation_id;
       if(!data.cancelled&&data.message){if(retryId!==null)state.messages=state.messages.filter(item=>!(item.role==='assistant'&&item.id>retryId&&item.kind==='chat'));if(!state.messages.some(item=>item.id===data.message.id))state.messages.push(data.message);emit('answer',{message:data.message,character_id:stamp.character_id,generation_id:chat.generationId,request_id:requestId,automatic:!chat.stopping&&state.settings.voice});}
