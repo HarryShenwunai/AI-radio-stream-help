@@ -1,0 +1,20 @@
+{
+  "id": 22,
+  "title": "Validate system speech receipt character and appearance before speaking",
+  "branch": "fix/audit-22-system-receipt-scope",
+  "scope": "tests/test_voice_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit22",
+    "tests/test_voice_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/speech-controller.js": "64c2386a2b9b733969560fd6e8ba181783e59a2c7c48210efb30a7367bcfe2eb"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}

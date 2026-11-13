@@ -12,7 +12,7 @@ window.CompanionSpeech=(()=>{
    if(!ctx.message_id&&!(ctx.generation_id&&ctx.request_id))return null;
    const payload=ctx.generation_id&&ctx.request_id?{generation_id:ctx.generation_id,request_id:ctx.request_id}:{message_id:ctx.message_id};
    const response=await fetch('/api/playback/start',{method:'POST',headers:{'Content-Type':'application/json','X-Companion':'local-app'},body:JSON.stringify({...payload,expected_character_id:stamp.character_id})});
-   const result=await response.json();if(!response.ok)throw new Error(result.error||'这条朗读已失效。');return tracked(result.playback,ticket);
+   const result=await response.json();if(!response.ok)throw new Error(result.error||'这条朗读已失效。');if(result.playback?.character_id!==stamp.character_id||result.playback?.appearance_id!==stamp.appearance_id)throw new Error('角色已变化，旧声音已停止。');return tracked(result.playback,ticket);
   }
   async function speak(text,ctx={}){
    if(isHidden()){stop();return;}stop();core.claimMedia();const ticket=serial,stamp=core.scope(),settings=core.get().state?.settings||{};context={...ctx};
