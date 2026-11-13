@@ -1,0 +1,740 @@
+{
+  "observed_at": "2026-11-13T05:03:59.856159+00:00",
+  "status": "passed",
+  "checks": {
+    "final_full_rig_and_new_owner_runtime_source_binding": "passed",
+    "actual_final_zip_import_activation_and_official_core_ready": "passed",
+    "actual_local_qwen_reply_with_memory_off": "passed",
+    "actual_kokoro_audio_analyser_and_causal_core_mouth_geometry": "passed",
+    "actual_bounded_stop_neutral_core_mouth_no_late_audio": "passed",
+    "unheard_tail_excluded_real_sqlite_receipt_ui_text_preserved": "passed",
+    "no_page_exception_or_external_browser_request": "passed"
+  },
+  "models_mocked": false,
+  "actual_provider_invoked": true,
+  "scope": "Real private app HTTP + local CPU Qwen/Kokoro + FINAL original full Live2D + actual HTMLAudio/Analyser/official Core, stop and conservative next prompt",
+  "browser_external_requests": [],
+  "microphone_used": false,
+  "screen_video_has_audio_track": false,
+  "wav_saved_separately": true,
+  "windows_or_rtx4060_verified": false,
+  "human_voice_or_art_accepted": false,
+  "p95_measured": false,
+  "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2",
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /workspace/companion/.venv/bin/python /workspace/AI-radio-stream-help/tests/real_live2d_companion_browser_check.py --model-zip /workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip --contract .build/original-character-rig-formal-r1/rigid-cup-character-functional-contract.json --landmarks .build/original-character-rig-formal-r1/rigid-cup-character-landmarks.json --source-manifest .build/original-character-art-formal-r1/layers.json --rig-acceptance-report review/hand-cup-rigid-r2-v1-full.json --runtime-dir /workspace/.live2d/owner-generated-runtime-check --models /workspace/companion/models --voices /workspace/companion/voices --output review/real-live2d-rigid-r2-companion.json --evidence-dir /workspace/dist/evidence-real-live2d-rigid-r2",
+  "source_sha256_before": {
+    "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/rigid-cup-character-functional-contract.json": "de1cca6de34a9cad571e7e09c1e2f73d4d11e998e1b4091255499966673776a1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/rigid-cup-character-landmarks.json": "948e8e671eb6b6a8c7fa0d1f57eca719fcb616ea5168b5537700d77bc36d0e1e",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers.json": "f8b5aae4de8626c02009df204052bd9418d7b73ceaa5fb7057459953165c1d1e",
+    "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-v1-full.json": "3f497dae00845575c947e70bd0b95a95e1e8e2b334c42ea1c8d7b2505f49dd60",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/00-back-hair.png": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/01-topwear-backfill.png": "0f065c6050cedc3c9e76ad9331bb6577ada9abe945b89c998afdd51bfdb4eabd",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/02-upperarm-r.png": "86908f2949bbec98dc0e9b63b947f22a45ef6be4678439fdf9c1e0e1bff3b87a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/03-upperarm-l.png": "91967a70d5dc2b808b3e450de9adfaf5f298fff8d44f794f388be68539f83d8f",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/04-topwear.png": "acfcd1a48de14e563e413a510b6de031f22e56b5329433ff09d4ad6783585007",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/05-forearm-r.png": "9401c6514d0cbd6bd8d26fbb398209589d723bad2b9bc26649deffede2802e48",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/06-forearm-l.png": "de17c3ce6762c9a2e06bc8e88cf7c70bc94fe8817ed8e7a09675c1171db9bc8a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/07-face.png": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/08-eyewhite-r.png": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/09-eyewhite-l.png": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/10-iris-r.png": "956d21cb7976859c6be5f4976b690c38fbc58cce06fe8a0a3315b5bc9f382ede",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/11-iris-l.png": "a44d4deecafb3853ec6dc90339423bd8536d0776a390efde07f4aa3ecc5145da",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/12-eyelash-r.png": "b55107b7cfae0629490a00cfc7626d207fdb3efda3f85f9456a3176776525610",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/13-eyelash-l.png": "9a306a012239ba97a932d4bd68faf6291d96c33dbc728e8f65ae853d187e077f",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/14-lower-eyelash-r.png": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/15-lower-eyelash-l.png": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/16-eyebrow-r.png": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/17-eyebrow-l.png": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/18-mouth.png": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/19-upper-teeth.png": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/20-tongue.png": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/21-upper-lip.png": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/22-lower-lip.png": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/23-mouth-close.png": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/24-front-hair-1.png": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/25-front-hair-3.png": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/26-front-hair-2.png": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/27-finger-thumb-r.png": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/28-finger-little-l.png": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/29-cup.png": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/30-finger-thumb-l.png": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/31-finger-index-l.png": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/32-finger-middle-l.png": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/33-finger-ring-l.png": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/34-finger-little-r.png": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/35-finger-ring-r.png": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/36-finger-middle-r.png": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/37-finger-index-r.png": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/38-hand-r.png": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/39-hand-l.png": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/40-cuff-front-r.png": "1c866d139a7db8509f079664bcb3b6356212ccbd35a64dc977e5da1f146dbaa5",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/41-cuff-front-l.png": "9588fa51eef61399986317735c72d9e27d58300ecd6aa237c7cff02e6d472566",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "/workspace/AI-radio-stream-help/app/server.py": "2defb5b2e6e6da18eee506ce3a605b5b8ce602ef1d0113e7729461fafbb23d01",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_assets.py": "f5ed54af03892433a64f91a583fab7e4bca97adc4e3b60def0da2396a68a35d0",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "/workspace/AI-radio-stream-help/app/static/scene-evening.png": "590aee7c280802c3076755972d134557b8594774a0e45bc1d2d05997b2852a04",
+    "/workspace/AI-radio-stream-help/app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "/workspace/AI-radio-stream-help/app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "/workspace/AI-radio-stream-help/app/static/stage-actions.js": "e5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8",
+    "/workspace/AI-radio-stream-help/app/static/style.css": "e4cc2bda9aac009aa3dd3ce6cd6145ef00dafedc28e55d24cc9e0cc921308021",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "/workspace/AI-radio-stream-help/app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "/workspace/AI-radio-stream-help/app/static/scene-morning.png": "473a4f584e8c353e48b3effb031233c4e0755efc2f7358cca6f09ebdd32dbadf",
+    "/workspace/AI-radio-stream-help/app/static/desktop.js": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+    "/workspace/AI-radio-stream-help/app/static/conversation-view.js": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+    "/workspace/AI-radio-stream-help/app/static/privacy-flow.js": "d3384cb398d30025de537366b6c2ab5595e834fd87eea82049a96572a438f4b4",
+    "/workspace/AI-radio-stream-help/app/static/index.html": "6ff33c93525a4c2b12e5c9e837c45af93485e131f33922b1e117a536838e2993",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151",
+    "/workspace/AI-radio-stream-help/app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "/workspace/AI-radio-stream-help/app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "/workspace/AI-radio-stream-help/app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "/workspace/AI-radio-stream-help/app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "/workspace/AI-radio-stream-help/app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "/workspace/AI-radio-stream-help/app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "/workspace/AI-radio-stream-help/app/static/desktop.css": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+    "/workspace/AI-radio-stream-help/app/static/layered-2d-renderer.js": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+    "/workspace/AI-radio-stream-help/app/static/scene-forest.png": "27789bdb6f58dacd8131aefff77239c048384890d53c7e10bdfe4448f04dbcda",
+    "/workspace/AI-radio-stream-help/app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "/workspace/AI-radio-stream-help/tests/real_live2d_companion_browser_check.py": "da763ddaaddbb0e2a80b62b5c454700e5b821b987b0d5ed13fc8384fa4333566",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "371eec1589e6e96a475d3b254809b3645dacf326b29c05dfa1408543ab55fe4a",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "ffe2fbd1c6060951f78c12d84cdbc84db17162fab395ff222534f698dd23b0eb",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02"
+  },
+  "actual_model_assets": [
+    {
+      "file": "/workspace/companion/models/qwen3-4b-instruct-2507-q4_k_m.gguf",
+      "bytes": 2497280736,
+      "sha256": "2fde00ce69dd4899c70d020845e2638353015bba0fdf161b3eb965f2bca4464e"
+    },
+    {
+      "file": "/workspace/companion/voices/kokoro-v1.0.onnx",
+      "bytes": 325505369,
+      "sha256": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a"
+    },
+    {
+      "file": "/workspace/companion/voices/voices-v1.0.bin",
+      "bytes": 28214398,
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    }
+  ],
+  "mouth_proof_model": {
+    "actualServedMocSha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "coreVersion": 83951616,
+    "officialConsistency": 1,
+    "lipSyncIds": [
+      "ParamMouthOpenY"
+    ],
+    "causalDrawables": [
+      "ArtMeshMouthClose",
+      "ArtMeshLayer2",
+      "ArtMeshLayer3",
+      "ArtMeshToothT",
+      "ArtMeshTongue",
+      "ArtMeshMouth"
+    ],
+    "actualParameterCount": 41,
+    "actualDrawableCount": 42
+  },
+  "voice_control_conditions": {
+    "idle_motion": false,
+    "expression": null,
+    "breath_and_blink": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": false
+    },
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "parameter_pins": false,
+    "authored_pose_reset_to_actual_defaults_before_observation": true,
+    "reason": "Isolate Audio contribution while body/breath/hair remain dynamic; never require whole-model geometry exact0"
+  },
+  "initial_scene": {
+    "coreVersion": 83951616,
+    "coreEvaluations": 7,
+    "drawableCount": 42,
+    "parameterCount": 41,
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "automatic": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": true
+    }
+  },
+  "first_text_or_error_seconds": 49.54,
+  "actual_reply": "风拂过树梢，云绕山腰，你歇一歇，世界便安静地陪着你。",
+  "reply_seconds": 62.314,
+  "audio_rms_observed_seconds": 69.621,
+  "actual_wav": {
+    "sha256": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f",
+    "bytes": 274442,
+    "seconds": 5.716625,
+    "rate": 24000,
+    "channels": 1
+  },
+  "actual_mouth_causal_proof": {
+    "coreEvaluations": 595,
+    "lipSyncEnabled": true,
+    "lipParameters": [
+      {
+        "id": "ParamMouthOpenY",
+        "value": 0.06549466401338577,
+        "default": 0
+      }
+    ],
+    "actualMouthEqualsIndependentCoreAtAllActualInputs": true,
+    "changedByMouthOnlyCounterfactual": [
+      "ArtMeshMouthClose",
+      "ArtMeshLayer2",
+      "ArtMeshLayer3",
+      "ArtMeshToothT",
+      "ArtMeshTongue",
+      "ArtMeshMouth"
+    ],
+    "method": "Hold every actual head/body/breath/physics input fixed; set ONLY actual LipSync IDs to defaults in a separate official raw Core instance. Body/breath/physics inputs remain at their actual dynamic values; package idle/expression is paused for voice isolation."
+  },
+  "observed_real_analyser_rms": 0.049648863927899245,
+  "causal_audio_frame": {
+    "position": 0.405333,
+    "duration": 5.716625
+  },
+  "stop_request_state": {
+    "active": true,
+    "position": 1.472295,
+    "duration": 5.716625,
+    "coreEvaluations": 615
+  },
+  "observed_stop_seconds": 0.793,
+  "actual_receipt": {
+    "status": "stopped",
+    "position_seconds": 2.048196,
+    "duration_seconds": 5.716625,
+    "confirmed_text": "",
+    "evidence": "client_owner_reported_playback_not_human_attention",
+    "reason": "client_stopped"
+  },
+  "next_prompt_assistant_entries": [],
+  "media_trace": [
+    {
+      "at": 77508.29999999702,
+      "time": 0,
+      "duration": NaN,
+      "paused": false,
+      "rms": 0,
+      "mouth": 0,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "at": 77566.5,
+      "time": 0,
+      "duration": NaN,
+      "paused": false,
+      "rms": 0,
+      "mouth": 0,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "at": 77667.79999999702,
+      "time": 0,
+      "duration": NaN,
+      "paused": false,
+      "rms": 0,
+      "mouth": 0,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "at": 77815.5,
+      "time": 0.153029,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.15585047187329876,
+      "mouth": 0.020203282095290237,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.016162626445293427
+        }
+      ]
+    },
+    {
+      "at": 77935.70000000298,
+      "time": 0.270646,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.11452823817103802,
+      "mouth": 0.616765517826258,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.49341240525245667
+        }
+      ]
+    },
+    {
+      "at": 78065.60000000894,
+      "time": 0.403766,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.049648863927899245,
+      "mouth": 0.08186832779349484,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.06549466401338577
+        }
+      ]
+    },
+    {
+      "at": 78174.60000000894,
+      "time": 0.514846,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.036757558240021256,
+      "mouth": 0.4457406110988907,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.35659247636795044
+        }
+      ]
+    },
+    {
+      "at": 78266.29999999702,
+      "time": 0.601928,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.14524171807582248,
+      "mouth": 0.33376729056042453,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.267013818025589
+        }
+      ]
+    },
+    {
+      "at": 78367.10000000894,
+      "time": 0.704,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.05269140682917562,
+      "mouth": 0.522078386523331,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.41766270995140076
+        }
+      ]
+    },
+    {
+      "at": 78515.5,
+      "time": 0.851593,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.06527555159792657,
+      "mouth": 0.07794167945013639,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.06235334277153015
+        }
+      ]
+    },
+    {
+      "at": 78565.60000000894,
+      "time": 0.899871,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.08462704348104266,
+      "mouth": 0.33850817392417065,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.27080655097961426
+        }
+      ]
+    },
+    {
+      "at": 78682.29999999702,
+      "time": 1.019197,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.080592295792925,
+      "mouth": 0.3409168358125331,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.2727334797382355
+        }
+      ]
+    },
+    {
+      "at": 78689.10000000894,
+      "time": 1.024,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.080592295792925,
+      "mouth": 0.3409168358125331,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.2727334797382355
+        }
+      ]
+    },
+    {
+      "at": 78762.60000000894,
+      "time": 1.099526,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.07989257155967305,
+      "mouth": 0.31957327046439993,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.2556586265563965
+        }
+      ]
+    },
+    {
+      "at": 78764,
+      "time": 1.100927,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.07989257155967305,
+      "mouth": 0.31957327046439993,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.2556586265563965
+        }
+      ]
+    },
+    {
+      "at": 78822.70000000298,
+      "time": 1.158233,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.05822229261774235,
+      "mouth": 0.3195702862386922,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.25565624237060547
+        }
+      ]
+    },
+    {
+      "at": 78905.90000000596,
+      "time": 1.24144,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.0015822120845722315,
+      "mouth": 0.006328848338288923,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.005063078831881285
+        }
+      ]
+    },
+    {
+      "at": 79017.60000000894,
+      "time": 1.344,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.0026520460183594276,
+      "mouth": 0.01060818407343771,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.008486547507345676
+        }
+      ]
+    },
+    {
+      "at": 79232.20000000298,
+      "time": 1.563137,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.06621298997786675,
+      "mouth": 0.3694092111509987,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.2955273687839508
+        }
+      ]
+    },
+    {
+      "at": 79351.70000000298,
+      "time": 1.674667,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.14498829103746227,
+      "mouth": 0.4302996349974123,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.3442397117614746
+        }
+      ]
+    },
+    {
+      "at": 79460.5,
+      "time": 1.781333,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.08306093199249522,
+      "mouth": 0.5311763936829786,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.42494112253189087
+        }
+      ]
+    },
+    {
+      "at": 79559.40000000596,
+      "time": 1.882667,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.03485144833766468,
+      "mouth": 0.07956437715651826,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.06365150213241577
+        }
+      ]
+    },
+    {
+      "at": 79616,
+      "time": 1.940218,
+      "duration": 5.716625,
+      "paused": false,
+      "rms": 0.09615855939024018,
+      "mouth": 0.13940579335065872,
+      "lipSyncEnabled": true,
+      "lipParameters": [
+        {
+          "id": "ParamMouthOpenY",
+          "value": 0.11152463406324387
+        }
+      ]
+    }
+  ],
+  "compute_runtime": {
+    "requested_backend": "cpu",
+    "effective_backend": "cpu",
+    "gpu_offload_supported": false,
+    "fallback_reason": null,
+    "renderer_reserve_mib": 2048,
+    "requested_gpu_layers": 0,
+    "context": 4096,
+    "actual_gpu_allocation_verified": false
+  },
+  "max_rss_kib_linux_process": 5631388,
+  "page_errors": [],
+  "source_sha256_after": {
+    "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/rigid-cup-character-functional-contract.json": "de1cca6de34a9cad571e7e09c1e2f73d4d11e998e1b4091255499966673776a1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/rigid-cup-character-landmarks.json": "948e8e671eb6b6a8c7fa0d1f57eca719fcb616ea5168b5537700d77bc36d0e1e",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers.json": "f8b5aae4de8626c02009df204052bd9418d7b73ceaa5fb7057459953165c1d1e",
+    "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-v1-full.json": "3f497dae00845575c947e70bd0b95a95e1e8e2b334c42ea1c8d7b2505f49dd60",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/00-back-hair.png": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/01-topwear-backfill.png": "0f065c6050cedc3c9e76ad9331bb6577ada9abe945b89c998afdd51bfdb4eabd",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/02-upperarm-r.png": "86908f2949bbec98dc0e9b63b947f22a45ef6be4678439fdf9c1e0e1bff3b87a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/03-upperarm-l.png": "91967a70d5dc2b808b3e450de9adfaf5f298fff8d44f794f388be68539f83d8f",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/04-topwear.png": "acfcd1a48de14e563e413a510b6de031f22e56b5329433ff09d4ad6783585007",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/05-forearm-r.png": "9401c6514d0cbd6bd8d26fbb398209589d723bad2b9bc26649deffede2802e48",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/06-forearm-l.png": "de17c3ce6762c9a2e06bc8e88cf7c70bc94fe8817ed8e7a09675c1171db9bc8a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/07-face.png": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/08-eyewhite-r.png": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/09-eyewhite-l.png": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/10-iris-r.png": "956d21cb7976859c6be5f4976b690c38fbc58cce06fe8a0a3315b5bc9f382ede",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/11-iris-l.png": "a44d4deecafb3853ec6dc90339423bd8536d0776a390efde07f4aa3ecc5145da",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/12-eyelash-r.png": "b55107b7cfae0629490a00cfc7626d207fdb3efda3f85f9456a3176776525610",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/13-eyelash-l.png": "9a306a012239ba97a932d4bd68faf6291d96c33dbc728e8f65ae853d187e077f",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/14-lower-eyelash-r.png": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/15-lower-eyelash-l.png": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/16-eyebrow-r.png": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/17-eyebrow-l.png": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/18-mouth.png": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/19-upper-teeth.png": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/20-tongue.png": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/21-upper-lip.png": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/22-lower-lip.png": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/23-mouth-close.png": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/24-front-hair-1.png": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/25-front-hair-3.png": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/26-front-hair-2.png": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/27-finger-thumb-r.png": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/28-finger-little-l.png": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/29-cup.png": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/30-finger-thumb-l.png": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/31-finger-index-l.png": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/32-finger-middle-l.png": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/33-finger-ring-l.png": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/34-finger-little-r.png": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/35-finger-ring-r.png": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/36-finger-middle-r.png": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/37-finger-index-r.png": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/38-hand-r.png": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/39-hand-l.png": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/40-cuff-front-r.png": "1c866d139a7db8509f079664bcb3b6356212ccbd35a64dc977e5da1f146dbaa5",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers/41-cuff-front-l.png": "9588fa51eef61399986317735c72d9e27d58300ecd6aa237c7cff02e6d472566",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "/workspace/AI-radio-stream-help/app/server.py": "2defb5b2e6e6da18eee506ce3a605b5b8ce602ef1d0113e7729461fafbb23d01",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_assets.py": "f5ed54af03892433a64f91a583fab7e4bca97adc4e3b60def0da2396a68a35d0",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "/workspace/AI-radio-stream-help/app/static/scene-evening.png": "590aee7c280802c3076755972d134557b8594774a0e45bc1d2d05997b2852a04",
+    "/workspace/AI-radio-stream-help/app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "/workspace/AI-radio-stream-help/app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "/workspace/AI-radio-stream-help/app/static/stage-actions.js": "e5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8",
+    "/workspace/AI-radio-stream-help/app/static/style.css": "e4cc2bda9aac009aa3dd3ce6cd6145ef00dafedc28e55d24cc9e0cc921308021",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "/workspace/AI-radio-stream-help/app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "/workspace/AI-radio-stream-help/app/static/scene-morning.png": "473a4f584e8c353e48b3effb031233c4e0755efc2f7358cca6f09ebdd32dbadf",
+    "/workspace/AI-radio-stream-help/app/static/desktop.js": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+    "/workspace/AI-radio-stream-help/app/static/conversation-view.js": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+    "/workspace/AI-radio-stream-help/app/static/privacy-flow.js": "d3384cb398d30025de537366b6c2ab5595e834fd87eea82049a96572a438f4b4",
+    "/workspace/AI-radio-stream-help/app/static/index.html": "6ff33c93525a4c2b12e5c9e837c45af93485e131f33922b1e117a536838e2993",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151",
+    "/workspace/AI-radio-stream-help/app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "/workspace/AI-radio-stream-help/app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "/workspace/AI-radio-stream-help/app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "/workspace/AI-radio-stream-help/app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "/workspace/AI-radio-stream-help/app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "/workspace/AI-radio-stream-help/app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "/workspace/AI-radio-stream-help/app/static/desktop.css": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+    "/workspace/AI-radio-stream-help/app/static/layered-2d-renderer.js": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+    "/workspace/AI-radio-stream-help/app/static/scene-forest.png": "27789bdb6f58dacd8131aefff77239c048384890d53c7e10bdfe4448f04dbcda",
+    "/workspace/AI-radio-stream-help/app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "/workspace/AI-radio-stream-help/tests/real_live2d_companion_browser_check.py": "da763ddaaddbb0e2a80b62b5c454700e5b821b987b0d5ed13fc8384fa4333566",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "371eec1589e6e96a475d3b254809b3645dacf326b29c05dfa1408543ab55fe4a",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "ffe2fbd1c6060951f78c12d84cdbc84db17162fab395ff222534f698dd23b0eb",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02"
+  },
+  "source_changed_during_run": false,
+  "evidence_files": {
+    "/workspace/dist/evidence-real-live2d-rigid-r2/actual-kokoro-response.wav": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f",
+    "/workspace/dist/evidence-real-live2d-rigid-r2/02-actual-qwen-stream.png": "6ba3a72ca0a417af4c497c9894271deb319783f783982e41547d3949deafe2df",
+    "/workspace/dist/evidence-real-live2d-rigid-r2/03-actual-kokoro-live2d-mouth.png": "0095cc0fc21a738614d0e4d77d1b1ec590bf0a46668c2792f7e6748724dc0981",
+    "/workspace/dist/evidence-real-live2d-rigid-r2/04-actual-stopped-context-safe.png": "f103f5541c5a2d751401eca44e90c375d48680832f5f6d874f919bb5dd04939a",
+    "/workspace/dist/evidence-real-live2d-rigid-r2/01-final-original-rig-ready.png": "5f0e351890a77f8cb30bdd1bc4ae5f83e441536d13e4ca98dfa60f87608fb66c",
+    "/workspace/dist/evidence-real-live2d-rigid-r2/actual-qwen-kokoro-original-live2d-stop.webm": "1b48122c43ac621f5b86e310419cdb6936833a2fce83cd41e40defded6d1722f"
+  }
+}

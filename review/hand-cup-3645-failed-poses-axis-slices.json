@@ -1,0 +1,1004 @@
+{
+  "status": "measured_exact_axis_slices_not_rig_acceptance",
+  "observed_at": "2026-11-13T02:45:38.825213+00:00",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.model3.json": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.moc3": "44a23dc46877108c99000b888650bbb2b57730af1e3f1c3a5ab8c6d26da6c87f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/character-landmarks.json": "eab372cdb3b67b0ae9975442db9f72c19144b08eb326667f84dafaa6fde2acd7",
+    "/workspace/AI-radio-stream-help/review/hand-cup-3645-independent-seed2000-q-validation.json": "ea42edae9aa04234c436e5a798a40c2088bf9b459f246493eae4cf85810d7e57",
+    "/workspace/AI-radio-stream-help/review/hand-cup-formal-lean9-proportion5-3645-q-prediction.actual-core-samples.json": "8cef32f7464690f4ebbd01badcdffb293200e22d613ed574e99ed1f7e372eb76",
+    "/workspace/AI-radio-stream-help/.build/cup_failed_pose_axis_slices.py": "a048aa91f37964e75ee173264568b41cc0a7b2bbbbbe49f5c0319d47d943fd32",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "sources_unchanged": true,
+  "failed_pose_count": 6,
+  "actual_new_core_samples": 1152,
+  "per_axis_worst_remaining_error_px": {
+    "ParamBodyAngleX": 1.1869157181834615,
+    "ParamBodyAngleY": 1.1908773225447824,
+    "ParamBodyAngleZ": 1.0405411024427211,
+    "ParamBodyLean": 1.1453816909127847,
+    "ParamProportion": 1.0074456747342728,
+    "ParamBreath": 1.1969961632338217
+  },
+  "cases": [
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 1.0452786482764078,
+      "errors_by_hand_px": [
+        1.0452786482764078,
+        0.17003520591597032
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.1961018736189999,
+          -1.0267188065413393
+        ],
+        [
+          -0.10131420803281799,
+          -0.13655549238887943
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 1.0547939415157768,
+      "errors_by_hand_px": [
+        1.0547939415157768,
+        0.15446489721389822
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.275496484515088,
+          -1.0181807040394233
+        ],
+        [
+          -0.01946921801913959,
+          -0.15323300565160025
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 0.4785612805624297,
+      "errors_by_hand_px": [
+        0.4785612805624297,
+        0.074389244825687
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.055846996149057304,
+          -0.4752915024221238
+        ],
+        [
+          -0.04017706277272737,
+          -0.06260641638596098
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 1.0088062543909753,
+      "errors_by_hand_px": [
+        1.0088062543909753,
+        0.16278684809196445
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2743369738219599,
+          -0.9707879705129017
+        ],
+        [
+          -0.031110869068470492,
+          -0.15978633151030408
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 0.8366934051059995,
+      "errors_by_hand_px": [
+        0.8366934051059995,
+        0.14414518205634283
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.3420669004900674,
+          -0.7635745475963631
+        ],
+        [
+          0.09240343808392026,
+          -0.1106319941984566
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 6.521385192871094,
+        "ParamBodyAngleY": -9.951011657714844,
+        "ParamBodyAngleZ": 5.379536151885986,
+        "ParamBodyLean": 8.798357963562012,
+        "ParamProportion": -2.752718925476074,
+        "ParamBreath": 0.9453911185264587
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.0555173239831919,
+      "remaining_error_px": 1.0590573043693918,
+      "errors_by_hand_px": [
+        1.0590573043693918,
+        0.155781472755718
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2742088708555457,
+          -1.0229427496601602
+        ],
+        [
+          -0.01783335200025249,
+          -0.15475735462450757
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 1.1080618207702155,
+      "errors_by_hand_px": [
+        1.1080618207702155,
+        0.13644502336325798
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.29853534269341253,
+          -1.0670883973746186
+        ],
+        [
+          -0.09546975987404949,
+          -0.09748214887963513
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 1.1057995126624593,
+      "errors_by_hand_px": [
+        1.1057995126624593,
+        0.1225794244599405
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.31586266002136654,
+          -1.05972795669868
+        ],
+        [
+          -0.07450762265239064,
+          -0.09733616731523398
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 0.16810274427507896,
+      "errors_by_hand_px": [
+        0.16810274427507896,
+        0.10298143882972433
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.06021887676786264,
+          -0.15694654986214118
+        ],
+        [
+          -0.09704761125544792,
+          -0.03445196501002101
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 1.0997223286284101,
+      "errors_by_hand_px": [
+        1.0997223286284101,
+        0.12916562583787633
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.31104979211056616,
+          -1.0548162052755288
+        ],
+        [
+          -0.08069739096526973,
+          -0.10085479656163443
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 0.9800656399715442,
+      "errors_by_hand_px": [
+        0.9800656399715442,
+        0.06799187844174136
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.3845340325955249,
+          -0.9014778069529257
+        ],
+        [
+          0.021200885520556767,
+          -0.06460199677394485
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.494514465332031,
+        "ParamBodyAngleY": -8.250657081604004,
+        "ParamBodyAngleZ": 2.2244811058044434,
+        "ParamBodyLean": 9.764082908630371,
+        "ParamProportion": -1.3827300071716309,
+        "ParamBreath": 0.9995477199554443
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.1095921223731322,
+      "remaining_error_px": 1.1198979574526957,
+      "errors_by_hand_px": [
+        1.1198979574526957,
+        0.13197277978643024
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.3165189772961412,
+          -1.074237949487042
+        ],
+        [
+          -0.07623285132422097,
+          -0.1077282088569973
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 1.0111373375743091,
+      "errors_by_hand_px": [
+        1.0111373375743091,
+        0.056410225062649325
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.17578581302086604,
+          -0.9957399577085653
+        ],
+        [
+          -0.017064569826061415,
+          -0.053767220016197825
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 1.0253194583369498,
+      "errors_by_hand_px": [
+        1.0253194583369498,
+        0.10374531714562166
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.27250190188669876,
+          -0.9884445887921629
+        ],
+        [
+          0.07288330812673394,
+          -0.07383166140721187
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 0.2651029520621833,
+      "errors_by_hand_px": [
+        0.2651029520621833,
+        0.06684115212974812
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.05180609171861761,
+          -0.25999173843206336
+        ],
+        [
+          0.0641941931587553,
+          -0.01862378003329468
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 1.0063623619228137,
+      "errors_by_hand_px": [
+        1.0063623619228137,
+        0.0975948898311387
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.25514217411841855,
+          -0.9734822414820883
+        ],
+        [
+          0.05638377514935655,
+          -0.07965947791103645
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 0.9035699879945761,
+      "errors_by_hand_px": [
+        0.9035699879945761,
+        0.12738246956568453
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2872601502615453,
+          -0.8566915018116106
+        ],
+        [
+          0.10607405073199061,
+          -0.07053076856209373
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 4.415992259979248,
+        "ParamBodyAngleY": -2.13136887550354,
+        "ParamBodyAngleZ": 2.5024051666259766,
+        "ParamBodyLean": 9.316096305847168,
+        "ParamProportion": -5.95380163192749,
+        "ParamBreath": 0.9520097374916077
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.0270301087891933,
+      "remaining_error_px": 1.0296926318504993,
+      "errors_by_hand_px": [
+        1.0296926318504993,
+        0.10328391897998901
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.26987543041218487,
+          -0.993697221565526
+        ],
+        [
+          0.0687223915448385,
+          -0.0771025344604368
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 1.0794644389633816,
+      "errors_by_hand_px": [
+        1.0794644389633816,
+        0.04166479417417831
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.069203054301056,
+          -1.0772438963679178
+        ],
+        [
+          0.0020997142412397807,
+          -0.041611852562482454
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 1.0737849761423996,
+      "errors_by_hand_px": [
+        1.0737849761423996,
+        0.04347726801351192
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.05731070701096996,
+          -1.0722544743907747
+        ],
+        [
+          0.01242603421030708,
+          -0.041663731322614694
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 1.0336839396082746,
+      "errors_by_hand_px": [
+        1.0336839396082746,
+        0.016838621743249838
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.1830674928173721,
+          -1.0173439831628457
+        ],
+        [
+          -0.012409336176460783,
+          0.011381896057855556
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 0.9848166617819094,
+      "errors_by_hand_px": [
+        0.9848166617819094,
+        0.06818180579797804
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.05183702915678623,
+          -0.9834514628244051
+        ],
+        [
+          -0.03906545968004593,
+          -0.05588066304062522
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 0.6006034139443597,
+      "errors_by_hand_px": [
+        0.6006034139443597,
+        0.05866716314320001
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.012522174183004608,
+          -0.6004728603320473
+        ],
+        [
+          0.024412518445160458,
+          -0.0533466491397121
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.629707336425781,
+        "ParamBodyAngleY": 8.530587196350098,
+        "ParamBodyAngleZ": -6.4775848388671875,
+        "ParamBodyLean": 8.313741683959961,
+        "ParamProportion": -2.8418610095977783,
+        "ParamBreath": 0.14886727929115295
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.077422719425298,
+      "remaining_error_px": 1.088216107385172,
+      "errors_by_hand_px": [
+        1.088216107385172,
+        0.048292175697172444
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.06184845919005966,
+          -1.0864571157981118
+        ],
+        [
+          0.015086330218878174,
+          -0.04587523159716511
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 1.062894264167271,
+      "errors_by_hand_px": [
+        1.062894264167271,
+        0.2666815473406773
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.1415213355111291,
+          -1.053430552241025
+        ],
+        [
+          0.2047410454472356,
+          0.1708805196656158
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 1.0566618242648307,
+      "errors_by_hand_px": [
+        1.0566618242648307,
+        0.2773381472701659
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.1276507904266282,
+          -1.048923012695468
+        ],
+        [
+          0.2184105169274062,
+          0.17091896918350358
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 1.0405411024427211,
+      "errors_by_hand_px": [
+        1.0405411024427211,
+        0.10219110112842415
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.25330452966466055,
+          -1.0092386244709814
+        ],
+        [
+          0.10028117345018472,
+          0.0196648773526249
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 0.4540935251351119,
+      "errors_by_hand_px": [
+        0.4540935251351119,
+        0.18038188804452118
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.023304891055431654,
+          -0.45349510650339653
+        ],
+        [
+          0.11368491185612584,
+          0.14004772883117766
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 0.9249225957321843,
+      "errors_by_hand_px": [
+        0.9249225957321843,
+        0.267812489753082
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.09169971797348353,
+          -0.92036567179548
+        ],
+        [
+          0.20217802641900562,
+          0.17563477816497652
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 9.674607276916504,
+        "ParamBodyAngleY": -1.030017614364624,
+        "ParamBodyAngleZ": -1.6277894973754883,
+        "ParamBodyLean": 3.991992950439453,
+        "ParamProportion": 6.115665435791016,
+        "ParamBreath": 0.47654521465301514
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.0590658845640044,
+      "remaining_error_px": 1.06241500747281,
+      "errors_by_hand_px": [
+        1.06241500747281,
+        0.27397820402520257
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.13087636290993032,
+          -1.054323017739307
+        ],
+        [
+          0.21571963473729738,
+          0.1689055815231768
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamBodyAngleX",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 1.1869157181834615,
+      "errors_by_hand_px": [
+        1.1869157181834615,
+        0.14942014718925806
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2360171140252305,
+          -1.1632131549970381
+        ],
+        [
+          -0.09403478543595156,
+          -0.116119935902816
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamBodyAngleY",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 1.1908773225447824,
+      "errors_by_hand_px": [
+        1.1908773225447824,
+        0.12851756951973303
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2940195608466638,
+          -1.1540109597360697
+        ],
+        [
+          -0.03067818245926901,
+          -0.1248023028483658
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamBodyAngleZ",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 0.5369899328265995,
+      "errors_by_hand_px": [
+        0.5369899328265995,
+        0.06838170145054391
+      ],
+      "prediction_error_xy_px": [
+        [
+          0.08506236882215035,
+          -0.5302099408418144
+        ],
+        [
+          -0.05125212012785596,
+          -0.04526894383207036
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamBodyLean",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 1.1453816909127847,
+      "errors_by_hand_px": [
+        1.1453816909127847,
+        0.14887899530776472
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.27770344749899323,
+          -1.1112065573624932
+        ],
+        [
+          -0.056769710503203896,
+          -0.13763050248121544
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamProportion",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 1.0074456747342728,
+      "errors_by_hand_px": [
+        1.0074456747342728,
+        0.11460789876358149
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.338350556807427,
+          -0.9489287055669138
+        ],
+        [
+          0.0583367554081633,
+          -0.09864985264789539
+        ]
+      ]
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 7.9383625984191895,
+        "ParamBodyAngleY": -2.6342577934265137,
+        "ParamBodyAngleZ": 4.852529525756836,
+        "ParamBodyLean": 9.108964920043945,
+        "ParamProportion": -3.3743550777435303,
+        "ParamBreath": 0.9425776600837708
+      },
+      "exact_axis": "ParamBreath",
+      "original_error_px": 1.193312234346878,
+      "remaining_error_px": 1.1969961632338217,
+      "errors_by_hand_px": [
+        1.1969961632338217,
+        0.13452842481658023
+      ],
+      "prediction_error_xy_px": [
+        [
+          -0.2895779781232477,
+          -1.1614406611543018
+        ],
+        [
+          -0.035709405151465035,
+          -0.1297024882851474
+        ]
+      ]
+    }
+  ],
+  "scope": "At each failed full6 pose set one dimension exactly to that value, bracket the other5 on frozen3645 grid; isolates interpolation contribution with interactions, not additive causal proof."
+}

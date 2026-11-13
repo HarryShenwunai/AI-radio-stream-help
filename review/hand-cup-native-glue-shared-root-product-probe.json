@@ -1,0 +1,244 @@
+{
+  "observed_at": "2026-11-13T01:45:25.248265+00:00",
+  "scope": "Actual application import/activate and product SDK/Core/GL, eight fixed native-glue poses only; no final art/XYZ/motions/Windows claim",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.moc3": "b5d4b5ec3db0a6d08e8385006f20687ac37a3c15f5b84fdd88ea03c2f5f72751",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.4096/texture_00.png": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.cdi3.json": "16c773e0bb7afc2ce4bdd4b9d7cbabebeb7c4eb360bc0cfcc94548489ec8b0ef",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-shared-root-probe/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/native-glue-shared-root-fresh-grips.json": "8953ebfa06bd25033ab7a156bc4a4fd0c8b2a915686ac2647796306d7113765c",
+    "/workspace/AI-radio-stream-help/.build/hand-cup-independent-seed-1618033988-512.json": "7ef9d926bde0a2c68d8acce1347f880118bcb27021d5a52a7ee5f0dcae07158a",
+    "/workspace/AI-radio-stream-help/.build/cup_native_glue_shared_root_product_probe.py": "d86653be57b763b1f98c20dbe2970164b1aa0220400c0e2e39254355e1e40d3a",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "261c8550391da022e4d09498a00fd26dd47f9e70915153bb70f07dd4300b333c",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "a2860fdb1043da85c2439bc775383412d47103bab7010f7e58ea4ecf798da5ec",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "3e733af9e5e39366671bdab0d0d88c669b74c79ffad04b48c2b8b92af4e47925",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "89e88edae0933cee15d1298e23bf3a0d4a3cfad48770e3fb32a09c72b8c07337",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "checks": {},
+  "samples": [
+    {
+      "parameters": {},
+      "held_errors_source_px": [
+        0.0,
+        0.0
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 206264,
+        "colored": 205642,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": -0.1592485010623932,
+        "ParamBodyAngleY": 3.5514180660247803,
+        "ParamBodyAngleZ": -6.71469259262085,
+        "ParamBodyLean": 0.7377936840057373,
+        "ParamProportion": -3.6204640865325928,
+        "ParamBreath": 0.926313042640686
+      },
+      "held_errors_source_px": [
+        0.005385861056354002,
+        0.00022917005401597635
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 202908,
+        "colored": 202310,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 1.524129867553711,
+        "ParamBodyAngleY": -6.613228797912598,
+        "ParamBodyAngleZ": -4.810093879699707,
+        "ParamBodyLean": 0.4737183153629303,
+        "ParamProportion": -8.45826530456543,
+        "ParamBreath": 0.7504568099975586
+      },
+      "held_errors_source_px": [
+        0.0001111769237304088,
+        8.992844006990446e-05
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 194258,
+        "colored": 193681,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 8.011746406555176,
+        "ParamBodyAngleY": -2.76723575592041,
+        "ParamBodyAngleZ": 2.2360968589782715,
+        "ParamBodyLean": 4.545567512512207,
+        "ParamProportion": -5.935268402099609,
+        "ParamBreath": 0.15691794455051422
+      },
+      "held_errors_source_px": [
+        0.0025494853260697196,
+        8.682162128674391e-05
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 190864,
+        "colored": 190289,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 2.5311059951782227,
+        "ParamBodyAngleY": 7.620058059692383,
+        "ParamBodyAngleZ": 5.040766716003418,
+        "ParamBodyLean": -3.5218617916107178,
+        "ParamProportion": 4.255631446838379,
+        "ParamBreath": 0.0939577966928482
+      },
+      "held_errors_source_px": [
+        2.4110392511773966e-05,
+        0.00012407727062147428
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 211480,
+        "colored": 210874,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 2.7263147830963135,
+        "ParamBodyAngleY": -1.9610713720321655,
+        "ParamBodyAngleZ": 6.3662261962890625,
+        "ParamBodyLean": 3.344205856323242,
+        "ParamProportion": -4.263933181762695,
+        "ParamBreath": 0.024786798283457756
+      },
+      "held_errors_source_px": [
+        1.8643030982759148e-05,
+        0.00012189205703009056
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 196488,
+        "colored": 195872,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": -8.38604736328125,
+        "ParamBodyAngleY": -8.738607406616211,
+        "ParamBodyAngleZ": -5.866263389587402,
+        "ParamBodyLean": -2.1785924434661865,
+        "ParamProportion": 7.001462936401367,
+        "ParamBreath": 0.531167209148407
+      },
+      "held_errors_source_px": [
+        9.58810639290467e-05,
+        0.0015895807260381638
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 219005,
+        "colored": 218360,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    },
+    {
+      "parameters": {
+        "ParamBodyAngleX": 5.23706579208374,
+        "ParamBodyAngleY": 5.761035919189453,
+        "ParamBodyAngleZ": -7.390285491943359,
+        "ParamBodyLean": -9.303057670593262,
+        "ParamProportion": -0.7985713481903076,
+        "ParamBreath": 0.10903589427471161
+      },
+      "held_errors_source_px": [
+        2.393173100287999e-05,
+        0.0015306123765653475
+      ],
+      "helpers_opacity": 0,
+      "root_full_vertices_opacity_exact": true,
+      "noncup_full_vertices_opacity_exact": true,
+      "gl": {
+        "error": 0,
+        "opaque": 199643,
+        "colored": 199058,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      }
+    }
+  ],
+  "page_errors": [],
+  "status": "failed",
+  "actual": {
+    "parameter_count": 41,
+    "drawable_count": 44,
+    "consistency": 1
+  },
+  "manual_negative_controls": [],
+  "error": "['OriginalCupHelperL', 'OriginalCupHelperR']",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/.build/cup_native_glue_shared_root_product_probe.py\", line 36, in <module>\n    value=bounds[parameter][bound];state=page.evaluate('v=>__handCup.productPose(v)',{'ParamCupHold':1,parameter:value});meshes=by_id(state);changed=[mid for mid in meshes if mid!='ArtMeshLayer'and meshes[mid]!=base_meshes[mid]];assert not changed,changed\n                                                                                                                                                                                                                                            ^^^^^^^^^^^\nAssertionError: ['OriginalCupHelperL', 'OriginalCupHelperR']\n",
+  "sources_unchanged": true
+}

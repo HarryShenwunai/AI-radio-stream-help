@@ -1,0 +1,84 @@
+{
+  "frozen_utc": "2026-11-13T01:43:20.953744+00:00",
+  "status": "manual_qa_sources_frozen_pending_final_model_execution",
+  "owner": "character_independent_qa",
+  "files": [
+    {
+      "path": "tests/live2d_original_core_check.py",
+      "sha256": "ffe2fbd1c6060951f78c12d84cdbc84db17162fab395ff222534f698dd23b0eb",
+      "bytes": 29881
+    },
+    {
+      "path": "tests/live2d_core_snapshot.py",
+      "sha256": "521863b38543feeaa871c21c38278c6434e3f54f1d618593572e18ec194113c7",
+      "bytes": 3300
+    },
+    {
+      "path": "tests/live2d_semantic_ownership_check.py",
+      "sha256": "85047ef68de82fa9344b601b5583cd756978d6e5f06ef636661799d6178fa00a",
+      "bytes": 9689
+    },
+    {
+      "path": "tests/live2d_finger_nonrigid_check.py",
+      "sha256": "d8066e9a541908d451987f7bc3c954892930f2502e30188f79a4d6c3533d17e3",
+      "bytes": 6810
+    },
+    {
+      "path": "tests/live2d_joint_fold_check.py",
+      "sha256": "7fb28adcde7e0f70d6e4012cc5099f0d8853ec996812465bc148b12efe7dcc61",
+      "bytes": 6429
+    },
+    {
+      "path": "tests/live2d_joint_poses.py",
+      "sha256": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02",
+      "bytes": 2814
+    },
+    {
+      "path": "tests/live2d_core_candidate_compare.py",
+      "sha256": "0ae9c389649756d7ca26c9b5a120b0714f41cc1a1c062bc58a589bfa19be9087",
+      "bytes": 4862
+    },
+    {
+      "path": "tests/live2d_coordinate_calibration_check.py",
+      "sha256": "ab8132e77579a222743906c7e28fe59883df03cf78f309c5df6dcb25c3ea1242",
+      "bytes": 4336
+    },
+    {
+      "path": "tests/live2d_mouth_registration_check.py",
+      "sha256": "1df6a5c5d19df0f923adf8c5a4470bfcef6b1dbebebadc67c7f81464bf82f5d7",
+      "bytes": 3554
+    },
+    {
+      "path": "tests/live2d_neutral_face_probe.py",
+      "sha256": "67439289119fec8346588b120c7aef531cea29685ca5f65db176a62f15b0f1e0",
+      "bytes": 9845
+    },
+    {
+      "path": "tests/live2d_layer_opacity_check.py",
+      "sha256": "5610a5cb772afe5da299a87abad0d0d3879b9aa5630dcc39674ce2b439e6fbb9",
+      "bytes": 3212
+    },
+    {
+      "path": "tests/real_live2d_companion_browser_check.py",
+      "sha256": "da763ddaaddbb0e2a80b62b5c454700e5b821b987b0d5ed13fc8384fa4333566",
+      "bytes": 28808
+    },
+    {
+      "path": "tests/real_live2d_instrument_check.py",
+      "sha256": "f9f9d662d0639e2ec96ef7c6e88e6e4237b01c8802fdfb5723e3359eb9b9d92d",
+      "bytes": 6688
+    },
+    {
+      "path": "tests/uiux_2026_browser_check.py",
+      "sha256": "4194b53e6951fa6f8c02d4a005261a5f58a6c364d606355ae6441dbf9dc1e92f",
+      "bytes": 61294
+    }
+  ],
+  "policy": "No manual Python source edits during final quality/real-provider windows. New .build models, review JSON, evidence and docs only. Actual test blocker requires explicit root notification before source edit.",
+  "actual_final_provider_invoked": false,
+  "not_proven": [
+    "All future runs pass",
+    "Final model/art acceptance",
+    "Windows/4060"
+  ]
+}

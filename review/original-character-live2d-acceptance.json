@@ -1,0 +1,63 @@
+{
+  "status": "technical_r3_pass_art_and_body_pending",
+  "actual_model_revision": "original-character-art-r3 / authored mouth-r3",
+  "full_report": "review/original-character-live2d-mouth-r3-full-core.json",
+  "full_report_sha256": "e4522bebe4908188a0de0d346f7b3b97477b329a276dda1d3b50b280ff4f08b0",
+  "actual_core_version": 83951616,
+  "moc_version": 5,
+  "core_parameter_count": 20,
+  "actual_drawable_count": 21,
+  "checks": {
+    "official_consistency_and_parameter_geometry": "passed",
+    "actual_webgl_original_export": "passed",
+    "real_framework_physics_to_core_geometry": "passed",
+    "sidecar_no_operation_negative_control": "passed",
+    "all_real_expressions_change_declared_core_parameters_and_geometry": "passed",
+    "all_real_motions_change_core_parameters_and_geometry": "passed",
+    "required_parameters_have_actual_visible_pixel_effects": "passed",
+    "export_specific_reviewed_anatomy_rois": "passed"
+  },
+  "source_sha_stable": true,
+  "current_sources_match": true,
+  "product_texture_lifetime_hook": true,
+  "not_completed": [
+    "Final human/user reference-art acceptance",
+    "Independent hand/arm/cup/sipping controls; r3 body is merged",
+    "Actual product Audio/RMS -> THIS character Core mouth -> visible mouth",
+    "Official Cubism Editor actual CMO3 reopen/edit",
+    "Windows10/11 RTX4060 physical performance"
+  ],
+  "failure_evidence_preserved": [
+    "review/original-character-live2d-r3-core.json",
+    "review/original-character-live2d-r3-core-diagnostics.json",
+    "review/live2d-active-texture-gc-counterexample.json",
+    "review/original-character-live2d-mouth-r1-roi-negative.json",
+    "review/original-character-live2d-lip-unit-calibration.json"
+  ],
+  "corrections": [
+    "Initial per-part visual center-distance estimate was not an edge gap; real Core bbox measurements supersede it",
+    "Strict unit-calibration symmetry failed and remains recorded; no threshold relaxation",
+    "Raw wrapper GL deleted-handle bug reproduced, actual product normal resource handling regression passed; not solved by disabling GC"
+  ],
+  "art_review": "review/original-character-live2d-r3-art-review.json",
+  "evidence": {
+    "path": "/workspace/dist/evidence-original-character-live2d-r3/mouth-r3-full/original-core.webm",
+    "sha256": "889706a8bed645a9df88c102949082f04c4cf79fb35f4365e2a0956225fbdd19",
+    "ffprobe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 690
+        }
+      ],
+      "format": {
+        "duration": "64.400000"
+      }
+    },
+    "audio_track": false,
+    "note": "Actual browser execution recording; sidecars are fixed-step simulation, not real-time performance or voice evidence"
+  }
+}

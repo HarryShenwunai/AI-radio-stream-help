@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-13T01:31:40.369597+00:00",
+  "status": "SOURCE_FROZEN_AUTHORING_CONTINUES_PRIVATELY",
+  "unittest_avatar_count": 42,
+  "unittest_result": "PASS",
+  "ruff": "PASS",
+  "sources": {
+    "scripts/avatar_live2d_character_recipe.py": "fbeb2385480a1a948016eb1f427c69ea41f99b34f3985b21ffbe473ee7078754",
+    "scripts/avatar_live2d_contract.py": "c2e017722142824b418600c288488fb2e4d9b27344acbc5603bea240e56df521",
+    "scripts/avatar_live2d_cup_warp_recipe.py": "2d346c5ba2541cdf652ac5493624f1040f110ffb8f73808ddd7beb0f92931691",
+    "scripts/avatar_live2d_hold_recipe.py": "6cfc37303e5f9b020f2ac5a80ed33f627beaa57c45bc1795be2727d09d6e1042",
+    "scripts/avatar_live2d_recipe.py": "4cdb317155a94077eaa45ba406f9329a65b84be22329e43967d4de4da1cf1403",
+    "scripts/avatar_live2d_source.py": "3434073476407d2854d7229cce8322ba7219cb50125bb006add5bdc2258d4819",
+    "scripts/avatar_live2d_units.py": "ae3f91de323648ed3c4a409363a34a1dfe7be9e7d6374de50a63186d08143207",
+    "tests/test_avatar_live2d_character_recipe.py": "7aaa84deaa809a1c8b293dc160fc15fd5b8449025ecf4a3b1c44247cf5c28422",
+    "tests/test_avatar_live2d_contract.py": "9e9aa8b082dbd6daecba9d92dcdc850c9ebf980d5002443af0af602f3f16ccd7",
+    "tests/test_avatar_live2d_cup_warp_recipe.py": "53ec7495ab5b39a4ff683a51d9494fe81b7db224cb4195de3458f358f829d48b",
+    "tests/test_avatar_live2d_hold_recipe.py": "69caaf090d14d9a665b6b94d920d28a880a360aed49649621015f5b14fbfa808",
+    "tests/test_avatar_live2d_recipe.py": "853da2434f3a21ced4fe9b8c96995e64caecd88f22ce5902e420a839e04174c9",
+    "tests/test_avatar_live2d_source.py": "958c3f01574204c5cc574936085251a36a804c5838ba436bf8ec4c0afb83ac66",
+    "tests/test_avatar_live2d_units.py": "d17814da6c0417fc5d946bd9e1ba674eab086f3d1ff1bcfe2f02eed419ad6453"
+  },
+  "art_acceptance": "NOT_CLAIMED",
+  "remaining": "Native cup follow architecture / visible dynamic cloth coverage / final source PSD synchronization / actual final QA"
+}

@@ -4,16 +4,18 @@
 
 ## 2026-11-13 原创Live2D当前状态
 
-**仍为未完成。** 已用自主独立分层、真实PSD/PSD2Live工程实际导出MOC3/CMO3，并通过主人本机授权的真实Core运行；未拿官模换皮、四帧PNG或结构假MOC3替代原创绑定。旧12项官样例/旧VRM/旧PNG真Qwen整链不是当前完整人物的验收。
+**本机技术验收已收口，整体仍有目标机、账号与用户接受门未过。** 当前对象为真正同源42层PSD重建出的硬杯r2；原生Core实际读取42个drawable、41个参数，MOC SHA为`6e34e112…5934bd`。不是官模换皮、四帧PNG或假MOC3结构夹具。被拒的3D不展示、不打包。
 
-- 原创42层实际Core手/杯/十指可分别控制，十指非刚性弯曲另有真实旧刚性负控。CupHold、四个手杯动作和完整最终合同必须绑定同一最终MOC再通过，不能从中间分支拼接PASS。
-- candidate7真实肩肘组合出现纸片尖刺与50–241个三角翻转，已否决并保留真实图/视频。新`export-cloth-continuous`在8单轴、12大组合、14离key有限样本中翻转0，最大边长倍率1.223，但大组合真实GL仍有长背景缝与三角孔，**仍未美术接受**。当前只为body分支，无CupHold，不称全rig。
-- 后续`underfill-aa-correct-base-order`实际Core新底层draw25/render2、位于两上臂之前，old0/new1独立通过；root查看真实neutral/最坏组合后**内部接受服装基线**，余右楔视为与外界连通的腋下空气保留。此项不是用户E5、不是最终同源MOC通过，旧红/实际alpha记录不改绿；最终重放后仍复验34姿势与场景。详见`review/original-character-live2d-underfill-correct-base-independent-review.json`。
-- 同一最终角色的眼/唇默认呈现、最终布料连续覆盖、手杯耦合/四动作和人工视觉接受仍须收口。Core顶点可动或GL无错只证明技术子门。 Root后续直接查出眼atlas等分切行把虹膜残片带入睫毛，正在修源提取并重出head-r3；旧真实EyeOpen对照保留，但不能把调低开度当成修复该source错误。此根因由root实测，独立QA仍等新MOC复验。
-- 新真实Qwen→Kokoro→原创Live2D→实际Analyser/Core嘴部→停止→未听尾排除的独立harness已准备、语法及因果检测器实际Core自检完成；**尚未运行该最终角色的真实provider整链**。等待最终ZIP/合同/实际landmarks/新owner-runtime及完整手杯PASS冻结后仅跑一次，现有Linux权重不重下载。
-- 目标Windows10/11/4060、真实B站/微信账号和最终听感/美术接受的原有外部门仍未通过，不用Linux软件GL或本机适配器替代。
+- **当前公源质量门已过**：`review/quality-gate-live2d-delivery-final.json`，04:28:07 UTC、源码执行期稳定；780 Python/0 skip、111前端Node、9桌面Python、27桌面Node。327个源SHA已再次与当前文件核对无漂移。此报告证明代码快照的检查，不代替模型、目标机或账号验收。02:00:45及更早quality报告只保留历史范围。
+- **新r2独立实际Core/GL八个子门已过**：13个参数真实min/mid/max像素、4表情、8动作、物理、no-op负控、2378次Core评价，JS错误0、源SHA执行期稳定。34个布料姿态含8单轴、8同侧四角、4相反双侧及14离key，三角翻转0，最大边长倍率1.222723。实际neutral眼参数均1、嘴Open0/Form0，原画眼mesh重建与半睑关键形确实生效，没有生产pin .65。眼嘴、视线、转头XYZ及布料关键帧均已实看；详见`review/original-character-live2d-rigid-r2-core-gl.json`和`review/original-character-live2d-rigid-r2-cloth-folds.json`。
+- **整包已有可审候选，格式不等于完成**：精确runtime ZIP为11,017,918B、SHA`23afbd64…1b052e`；源码ZIP为345,553,022B、SHA`1625219f…f8f0dc`，位于`/workspace/dist/live2d-0.5.0-dev3/`。实际packager与AssetStore格式门通过，packager仍明确candidate/Core=false/full=false；QA另核runtime model3/MOC与新功能合同一致。可编辑项目实际281,235,238B，源身份/CRC由root和packager已有报告证明，不重复大包扫描。
+- **新r2同一MOC手杯技术全门已过**：`review/hand-cup-rigid-r2-v1-full.json`真实13门，486个所选角点加61个离key，共547姿态（不是穷举20655个作者keyforms）。另实际5000抓握最大误差0.678589源px，低于原1px门；5000杯形最大similarity残差0.0001063源px，低于事前0.5px门。主舞台四动作/三场景9门、表情UI3门已过并绑定同一6e34模型。旧r1的25.445px软杯反例仍原样保留，不倒改旧红。
+- **最终真实provider恢复轮7门已过**：精确`23af…` runtime ZIP、新合同和fullPASS实际接入本地Qwen3-4B→Kokoro→真实Audio/Analyser→独立Core口部反事实；6个实际口部drawable随音频变化，停止0.793秒（事前门2秒）、之后无晚到复活。真实SQLite回执为stopped、已确认前缀为空，下一prompt无未听助手尾文，UI原文仍保留；记忆关闭也能正常回复。7门/JS0/浏览器外连0，执行前后112个源一致，独立审查又核当前112源、327公源及6媒体SHA。
+- **明确两次调用事实**：第一次真实Qwen/Kokoro已生成WAV和三图，但环境重置中断，没有最终stop/receipt报告，保留为partial而不计PASS；第二次由root完整恢复验证成功。不能写“只调用一次”或把第一轮片段算完整成功。完整结果见`review/real-live2d-rigid-r2-companion.json`，独立审查见`review/real-live2d-rigid-r2-independent-final-review.json`，旧中断记录见`review/real-live2d-rigid-r2-interrupted-observation.json`。
+- **可审媒体与单次观测**：`/workspace/dist/evidence-real-live2d-rigid-r2/`有四张真实过程图、24kHz单声道PCM16 WAV（5.716625秒）和1440×1000 VP8视频（81.64秒、无音轨，实际WAV单独提供）。恢复轮首次文字49.540秒、完整回复62.314秒、首次观测音频RMS69.621秒，Python进程峰RSS5,631,388KiB；是共享Linux CPU的一次恢复观测，不是p95、不是RTX4060成绩，也不代表真人听感通过。
+- **外部门仍未过**：Windows10/11及RTX4060、真人麦克风、真实B站/微信账号、用户E5画质/听感接受；另有范围相关未知：官方Editor重开CMO3与等效导出未验证，不把它擅自升格为软件运行的新增必需项。Linux软件GL、source完整和代码测试总数都不能替代这些门。
 
-当前独立证据见`review/original-character-live2d-continuous-cloth-independent-review.json`、`review/original-character-live2d-candidate7-independent-review.json`及`review/real-live2d-harness-preparation.json`。新旧报告均保留原SHA和执行范围；旧工程门禁不代表变更后源码全量再验。
+当前机器状态以`review/completion-status.json`的`current_original_live2d_review`为准。此前candidate7折片、source眼atlas切行错误、双underlay visibility假设、错误drawOrder请求以及r1软杯反例与各自SHA均保留；不倒改旧红，也不把root内部视觉基线接受等同用户E5。
 
 ## 真实目标与边界
 
@@ -45,18 +47,18 @@ AR和MC来自上游研究与可选P6/P7，不因比较过五个仓库就自动�
 | R01 Windows10/11可运行 | 本地构建材料、PowerShell解析；GitHub未分配runner | 同一源码完成编译、解压启动、重启、退出无孤儿进程；分别记OS/build/CPU/GPU/显存/驱动、版本及报告；干净环境依赖失败有准确提示 | `BLOCKED_EXTERNAL`：等待实际Windows构建报告；desktopHost+用户 |
 | R02 自助PNG与独立身份 | 真PNG模块/HTTP/Chrome、迁移与关系隔离 | 不编辑源码即可导入→预览→启用→换皮保关系→独立身份隔离→回退/删除；失败保留当前角色；Windows再验 | `LOCAL_VERIFIED`：本机PNG层通过，目标机未过；root+QA |
 | R03 自助动态VRM | 两份自有不同结构VRM0/1、9项导入/资源HTTP及19项真Chrome；真framebuffer有模型像素，RMS口型/释放/回退通过 | 声明的VRM0/1版本、两份不同结构合法模型可导入预览/启用/回退；真WebGL显示、眨眼/视线/口型/停止收敛；坏包拒绝、context-lost/超预算回退、旧renderer释放；目标机再验 | `LOCAL_VERIFIED_PARTIAL`：SwiftShader并非4060，目标机未过；pngAgent+frontend+root+QA |
-| R04 高质量角色表现 | 参考方向文档；无已认可动态样本 | 使用有权运行的同一高质量模型、固定机位和尺寸比较眼/发丝/轮廓/透明边缘/灯光/表情；记录用户接受；小窗/展开/隐藏在4060记录帧时间p50/p95、GPU/VRAM与常驻开销 | `NOT_ACCEPTED`：30/60fps只是候选值，未冻结；frontend+用户 |
-| R05 自然聊天与角色一致 | Linux真实Qwen单轮；已有话题漂移，未人工接受 | 旧Q01：30条独立场景、记忆关/无关两组，记录接受率、追问/说教/虚构和角色一致性；同提供方A/B；通过门槛先据基线与用户评分冻结 | `NOT_ACCEPTED`：真实生成不等于自然；voiceAgent+root+用户 |
-| R06 自然中文语音 | Linux真实Kokoro生成一次；测试音已验证播放 | 真实目标机本地合成/播放，选定合法音色，短句/长句/标点/中英混合/失败重试；听感人工评分；旧Q05至少100轮测话尾到首个可听音频p50/p95，门槛待同机基线 | `PARTIAL`：Windows通路、听感和100轮未过；voiceAgent+desktopHost+用户 |
+| R04 高质量角色表现 | 原创42源同源PSD/硬杯r2；实际34cloth、5000杯形、三景主UI及root内部视觉基线接受；仍无用户E5 | 使用有权运行的同一高质量模型、固定机位和尺寸比较眼/发丝/轮廓/透明边缘/灯光/表情；记录用户接受；小窗/展开/隐藏在4060记录帧时间p50/p95、GPU/VRAM与常驻开销 | `NOT_ACCEPTED`：30/60fps只是候选值，未冻结；frontend+用户 |
+| R05 自然聊天与角色一致 | 当前Qwen3-4B记忆off真实恢复轮成功；历史单轮有漂移；当前尚无30场景人工质量评分 | 旧Q01：30条独立场景、记忆关/无关两组，记录接受率、追问/说教/虚构和角色一致性；同提供方A/B；通过门槛先据基线与用户评分冻结 | `NOT_ACCEPTED`：真实生成不等于自然；voiceAgent+root+用户 |
+| R06 自然中文语音 | 当前真实Kokoro→实际Audio/Analyser/Core口部通路成功，独立24kHz/5.716625秒WAV可审；真人听感未验 | 真实目标机本地合成/播放，选定合法音色，短句/长句/标点/中英混合/失败重试；听感人工评分；旧Q05至少100轮测话尾到首个可听音频p50/p95，门槛待同机基线 | `PARTIAL`：Windows通路、听感和100轮未过；voiceAgent+desktopHost+用户 |
 | R07 本地ASR与语音轮次 | 真实HTTP→faster-whisper tiny CPU已识别2.683秒Kokoro合成WAV，单次HTTP1.762秒；9项应用HTTP及缺模型不采音/不转在线Chrome门通过 | 明确本地提供方/模型与许可；固定WAV真识别、空白/噪声/超长/坏格式拒绝；用户开启麦克风后实采，显示实际听/想/说状态；无未经选择的音频外发 | `LOCAL_VERIFIED_PARTIAL`：非真人、非Windows，无麦克风实测；voiceAgent+frontend+root |
-| R08 可打断与晚到拒绝 | generation/旧TTS/隐藏保护；新增nonce回执、完整段确认、保守上下文、SQLite级联、历史重听单调及迟到竞态15项HTTP通过 | 旧Q02：100次目标机真播放，停止后复活0，本机暂停p95候选≤300ms；区分播放暂停/后端取消，丢弃旧代音频；处理未听部分上下文；说话期间新输入/切角色/隐藏/断线均测 | `LOCAL_VERIFIED_PARTIAL`：历史慢TTS迟到、ABA与旧generation停止误伤新播放反例均已修并独立回归；目标机100次未过；所有音频层 |
-| R09 记忆可关、关系可控 | 每角色SQLite、memory_mode、按需记忆及遗忘 | 关闭长期记忆不检索/不自动新增，用户明确手工保存/删除另按其操作；当前对话仍自然；忘记/备份恢复不复活已遗忘内容；20条私密canary不出公共端；跨角色0串库 | `LOCAL_VERIFIED_PARTIAL`：新入口整合需回归；root+QA |
+| R08 可打断与晚到拒绝 | nonce/晚到/ABA等15项HTTP历史回归；当前硬杯r2真实恢复轮停止0.793秒、700ms无复活、未听尾不入prompt | 旧Q02：100次目标机真播放，停止后复活0，本机暂停p95候选≤300ms；区分播放暂停/后端取消，丢弃旧代音频；处理未听部分上下文；说话期间新输入/切角色/隐藏/断线均测 | `LOCAL_VERIFIED_PARTIAL`：历史慢TTS迟到、ABA与旧generation停止误伤新播放反例均已修并独立回归；目标机100次未过；所有音频层 |
+| R09 记忆可关、关系可控 | 每角色SQLite/遗忘/按需记忆；当前真实Qwen恢复轮memoryoff且memories0，停止后未听助手尾文不入prompt | 关闭长期记忆不检索/不自动新增，用户明确手工保存/删除另按其操作；当前对话仍自然；忘记/备份恢复不复活已遗忘内容；20条私密canary不出公共端；跨角色0串库 | `LOCAL_VERIFIED_PARTIAL`：新入口整合需回归；root+QA |
 | R10 主动联系可控 | proactive开关、安静时段、暂停旧约定 | 默认不主动；开关/时区跨日/静默/冷却/未回复次数/重启/离线恢复有实测；关闭后无排队晚发；发送动作按准确渠道和目标授权，不从公开消息取得权限 | `PARTIAL`：新渠道不可用模块测试代替发送验证；root+catalogAgent |
 | R11 哔哩哔哩官方接入与弹幕 | 已选当前官方OpenLive路线；接收实现及本机对端测试，公有prompt不含私聊/人格/记忆canary；公开停止/私人接管HTTP已验，输出仍为local_preview | 当前官方接口与授权房间/凭证配置；真实消息/重复/断线/洪峰/停止/重连不过期补播；公开输出与私聊隔离；有界队列报告覆盖率，不能只报“不崩溃”；若另需特定弹幕姬再列其兼容门 | `LOCAL_VERIFIED_PARTIAL`：真实房间/凭证未过，OpenLive不冒充另一个软件SDK；catalogAgent+root+用户 |
 | R12 微信ClawBot文字与音频文件 | 用户已接受该降级范围；应用私有worker/批准/claim/音频附件/ACK/去重/轮换/重启已在本机HTTP验证，无实际微信收发 | 固定ClawBot及适配层版本/资格，指定本人可控测试会话；真实文本与音频文件收发、重试去重/离线/关闭/凭证保护；用户明确允许具体目标的实际发送后再测，不用本机自回显冒充微信送达 | `BLOCKED_EXTERNAL`：真实账号接入/目标/凭证未给出；原生语音可选且未支持；catalogAgent+用户 |
-| R13 4060/32GB资源与并发 | 用户自报；LinuxCPU模型单次约5.31GiB，不是整机预算 | 真实设备探测；同模型与场景空闲/小窗/展开/LLM+ASR+TTS并发30分钟，完整进程树RSS/VRAM/CPU/GPU、p50/p95首声与帧时间；一份LLM常驻；隐藏暂停渲染；CPU/CUDA实际支持单列 | `BLOCKED_EXTERNAL`：硬件诊断与目标机运行未取得；desktopHost+QA+用户 |
-| R14 安全、恢复与可交付包 | 源码隔离、备份回退与部分故障注入 | 新模块无公网读取/任意执行/路径越界；损坏模型/设备丢失/账号断连只降级模块；旧数据源不改；整包依赖/模型SHA及许可清单，缺许可处理明确；重启不重复发声/发信/执行；可回到上一个可用修订 | `IN_PROGRESS`：模块与整包分别过门；全体+QA |
-| R15 自助Live2D运行包 | ZIP结构导入及缺runtime拒绝已验；获准的真实Core/框架+Haru已由独立Chrome12项验证，真实像素/透明/口型/停止/释放/恢复通过 | 真正Core和固定显示框架+合法可运行模型完成预览/启用/参数/播放/停止/释放/回退；不把自造MOC3头结构夹具当可播放模型；Windows另验 | `LOCAL_VERIFIED_PARTIAL`：本机Core播放通过，任意导出兼容/目标机未过；公开发布/Expandable许可单列不推定；catalogAgent+frontend+QA |
+| R13 4060/32GB资源与并发 | 用户自报4060/32GB；当前LinuxCPU恢复轮Python进程峰5,631,388KiB，非整机/非Windows；实际首音观测69.621秒非p95 | 真实设备探测；同模型与场景空闲/小窗/展开/LLM+ASR+TTS并发30分钟，完整进程树RSS/VRAM/CPU/GPU、p50/p95首声与帧时间；一份LLM常驻；隐藏暂停渲染；CPU/CUDA实际支持单列 | `BLOCKED_EXTERNAL`：硬件诊断与目标机运行未取得；desktopHost+QA+用户 |
+| R14 安全、恢复与可交付包 | 当前780Python/111Node/desktop9+27及327源SHA稳定；runtime/source候选双ZIP格式/源身份与真实Core各自有证据 | 新模块无公网读取/任意执行/路径越界；损坏模型/设备丢失/账号断连只降级模块；旧数据源不改；整包依赖/模型SHA及许可清单，缺许可处理明确；重启不重复发声/发信/执行；可回到上一个可用修订 | `IN_PROGRESS`：模块与整包分别过门；全体+QA |
+| R15 自助Live2D运行包 | 当前原创硬杯r2真实Core/新47点/v1无helper、13手杯门与5000形状/抓点、真实语音7门均过；不是官样例或假MOC3头 | 真正Core和固定显示框架+合法可运行模型完成预览/启用/参数/播放/停止/释放/回退；不把自造MOC3头结构夹具当可播放模型；Windows另验 | `LOCAL_VERIFIED_PARTIAL`：本机Core播放通过，任意导出兼容/目标机未过；公开发布/Expandable许可单列不推定；catalogAgent+frontend+QA |
 
 ## 准备与测试次序
 

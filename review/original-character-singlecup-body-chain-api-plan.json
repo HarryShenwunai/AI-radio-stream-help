@@ -1,0 +1,143 @@
+{
+  "status": "READ_ONLY_STRUCTURAL_API_DESIGN_PENDING_ROTATION_PATH_COUNTERFACTUAL",
+  "source_ir": "/workspace/AI-radio-stream-help/.build/single-cup-body-chain-readonly/body-warps-original-ir.json",
+  "source_ir_sha256": "1064dbfe6441c8d0e46466b7ef224bbb9cfb8051a1191c375b8989d295bb4a9f",
+  "prepared_cell_copy_requests": "/workspace/AI-radio-stream-help/.build/single-cup-body-chain-readonly/singlecup-body-cell-copy-requests.READONLY.json",
+  "verified_grid_shapes": [
+    {
+      "source_id": "DeformBodyXY",
+      "destination_id": "OriginalCupBodyXY",
+      "rows": 14,
+      "columns": 12,
+      "bilinear": true,
+      "source_cell_count": 9,
+      "destination_cell_count": 18,
+      "controls_per_cell": 195,
+      "hold0_source_key": {
+        "ParamBodyAngleX": 0,
+        "ParamBodyAngleY": 0
+      }
+    },
+    {
+      "source_id": "DeformBodyLean",
+      "destination_id": "OriginalCupBodyLean",
+      "rows": 12,
+      "columns": 8,
+      "bilinear": true,
+      "source_cell_count": 9,
+      "destination_cell_count": 18,
+      "controls_per_cell": 117,
+      "hold0_source_key": {
+        "ParamBodyLean": 0,
+        "ParamProportion": 0
+      }
+    },
+    {
+      "source_id": "DeformBodyZBreath",
+      "destination_id": "OriginalCupBodyZBreath",
+      "rows": 6,
+      "columns": 4,
+      "bilinear": true,
+      "source_cell_count": 9,
+      "destination_cell_count": 18,
+      "controls_per_cell": 35,
+      "hold0_source_key": {
+        "ParamBodyAngleZ": 0,
+        "ParamBreath": 0.5
+      }
+    }
+  ],
+  "copied_body_control_float_count": 12492,
+  "copied_body_raw_float_bytes": 49968,
+  "plan": [
+    {
+      "step": 1,
+      "action": "Freeze source/project and actual rest contacts. Read actual source BodyWarp IR, all cells and bilinear mode, plus hand/cup actual parent chains.",
+      "verified": "Archived original BodyXY14x12, Lean12x8, ZBreath6x4,9cells each, no extra blend shapes/channels."
+    },
+    {
+      "step": 2,
+      "action": "Create3 empty matching warps. A root-empty warp can be created child_of_deformer with meshes[] and explicit unit bounds, then moved toROOT with space local while still empty. Create Lean/Z empty under new parents.",
+      "note": "object_paste source BodyWarp always copies descendants; do not duplicate entire character."
+    },
+    {
+      "step": 3,
+      "action": "Use54 keyform_apply copy changes: target is source warp, from complete exact original2-axis cell, destination copied warp, key originalBodyKey+Hold1. Hold0 copies source DEFAULT cell to every Body key.",
+      "verified": "Release applyKeyformCopy directly extracts controlPoints and writes destination form. Unlike paste no same-parent check. Public set does not accept raw warp point arrays. Missing/inexact from key can be a no-op, so compare destination IR cell counts/Float32 arrays afterward."
+    },
+    {
+      "step": 4,
+      "action": "Before assuming coupling, compare existing palms actual Rotation-chain propagation with copied-chain direct Warp propagation at same source contacts, including off-key six-axis states.",
+      "critical": "Release RotationWorld samples parentWarp at rotation origin and -Y probe to build a rigid affine even when local angle0. Warp child transforms all control points. Therefore direct cup-under-Z is not mathematically equivalent to current palms-under-Shoulder/Elbow/Wrist; source API inspection alone cannot resolve this. Do not proceed to success claim until true Core comparison passes, or explicitly redesign to a common actual propagation path."
+    },
+    {
+      "step": 5,
+      "action": "Once path equivalence is established, preserve unique cup mesh and use object_edit_appearance bind kind mesh parent_id newCupZ space canvas while old cup parent chain and neutral pose are intact.",
+      "verified": "carriedToParent uses full old/new composed parent worlds and per-vertex Newton inverse, preserves UV/indices and migrates keyform/blend deltas. Forward residual gate is per-coordinate<0.05 source units; actual new Core still must meet existing contracts.",
+      "correction": "Earlier Carrier/manual inverse suggestion was unnecessary because I initially inspected rig_edit_structure rather than separate object_edit_appearance schema."
+    },
+    {
+      "step": 6,
+      "action": "Place ROOT manual X/Y/R wrapper above copied XY after raw body cells are copied. Bounds must cover all source XY control cells, not just cup bounds; wrapper insertion normalizes all copied XY forms. Rebuild manual keys in wrapper frame, preserving source cup neutral size.",
+      "source_xy_all_key_control_bbox": {
+        "left": -50.934810638427734,
+        "top": 559.4331665039062,
+        "right": 1559.029541015625,
+        "bottom": 2050.722900390625
+      },
+      "note": "Wrap Warp rather than Rotation to avoid known v3.6.7 rotation-grid loss."
+    },
+    {
+      "step": 7,
+      "action": "Resolve contact tessellation with real source support. Preferred: insert actual same-position contact vertex in cup and corresponding palm before rebind, then match canonical prebody coordinates and preserve source UV. Alternative: insert cup vertices corresponding to all3 actual palm support triangle vertices for each contact and reuse identical bary weights.",
+      "risks": [
+        "All added vertices must remain in actual supported art regions; out-of-outline topology growth can extrapolate UV into other atlas content.",
+        "A mere equal neutral barycentric point in different triangles is not invariant under nonlinear deformation.",
+        "Rebind fresh Core indices/UV-alpha/landmarks after topology changes; do not reuse old indices or shift contacts to hide failures."
+      ]
+    },
+    {
+      "step": 8,
+      "action": "Export isolated candidate and run same exact0 Hold0 ROOT/noncup invariants,1px both grips,0.5px finger roots,810 authored combinations+512 fixed off-key poses, intermediate Hold continuity, strong displaced-cup negative, GL art and runtime/performance checks.",
+      "limit": "No thresholds changed; no newly authored Core has been executed by this review."
+    }
+  ],
+  "sources": {
+    "RigEditOverlay.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigEditOverlay.kt",
+      "sha256": "0b1baf877df827b72c847352af603a3463aa93f308a174e48e9ead2854b9cabe",
+      "access_date_utc": "2026-11-13"
+    },
+    "CanvasEdits.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/CanvasEdits.kt",
+      "sha256": "59fd091a398330e80da0a67c112fd1dce75d548e9146467893d0eaa035892710",
+      "access_date_utc": "2026-11-13"
+    },
+    "RigStructureEdits.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigStructureEdits.kt",
+      "sha256": "e89ce318d83dd7e27100dd245150eba2522925ba4fc0fbc45dc174dced59b769",
+      "access_date_utc": "2026-11-13"
+    },
+    "DrawableSpaceMapping.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/render/eval/DrawableSpaceMapping.kt",
+      "sha256": "9e8cd8799361e02f47b5ae31d8a7b3f50e110520de3a88ace9b44fd006a5152f",
+      "access_date_utc": "2026-11-13"
+    },
+    "DeformerCascade.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/render/eval/DeformerCascade.kt",
+      "sha256": "3e324c33074603c19b15f4c85d21f2e050c45b880edc4391af9cf3c73ce28ac2",
+      "access_date_utc": "2026-11-13"
+    },
+    "RigIrBinary.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/format-compile/src/main/kotlin/io/github/psd2live/format/compile/RigIrBinary.kt",
+      "sha256": "f270c8dc20f40b6d6f1d29d1936e8c60ada19765be1b6320986156fe800d4b3d",
+      "access_date_utc": "2026-11-13"
+    }
+  },
+  "pitfalls": [
+    "PRIO version>=5 float arrays use byte planes; initial ordinary float reader produced invalid keys and was corrected before sharing. Corrected extraction validates finite floats, expected source keys, control counts and exact object bytes consumed.",
+    "Hold0 unit-I for all3 nodes is wrong because outerXY maps normalized input to ROOTcanvas pixels and Breath-default is notidentity; use constant source default maps for no-body-effect neutral.",
+    "Hidden parent Rotation is not a neutral pass-through of a nonlinear Warp, even at zero angle."
+  ],
+  "performed": "Read-only source/archive/current API discovery only; no production/source/project/MOC mutations."
+}

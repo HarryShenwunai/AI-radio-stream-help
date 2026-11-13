@@ -1,0 +1,189 @@
+{
+  "status": "instrument_selfcheck_passed_not_real_provider_or_final_rig",
+  "scope": "Measurement-instrument selfcheck only: actual Core/product with manually controlled mouth and moving body/physics; no AI/audio/provider, no final rig acceptance",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.model3.json": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.moc3": "85a85d2a170635f35de5792ce96d06d88022a59617bd28a9356014cd290117be",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.4096/texture_00.png": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.motion.motion3.json": "1ff8a784604767eb3b9e2bcf40928122796e4bc1978ac31cf2185352c5ae3ca8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.motion2.motion3.json": "35a23d2c76321d2654113dbe08fc9dd6ae817272336b51170bfbb5a34bb29dfd",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.motion3.motion3.json": "18d23b6922a2596b3516442d31ab63323b22e61f56d1f7b31c431a4b88d739eb",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-candidate7/character.motion4.motion3.json": "1504c21f97f59c2b628c6bc2f91e555cd1f3ff266873e26b95e49d6e965f958a",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "/workspace/AI-radio-stream-help/tests/real_live2d_instrument_check.py": "f9f9d662d0639e2ec96ef7c6e88e6e4237b01c8802fdfb5723e3359eb9b9d92d",
+    "/workspace/AI-radio-stream-help/tests/real_live2d_companion_browser_check.py": "1e0c7bc2ea6d45fb8fc52191366104147f6e93a0f64c05dd0979e5801455a527",
+    "/workspace/AI-radio-stream-help/app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/layered_2d_assets.py": "7e956104858b259f7035fd5e766c34b3877667601a10107ed28f5d5d0f270cda",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/assets.py": "6f7eb18040e35ac031f41e9697c85144efe684aee3eac0ca718b437dbc6ce765",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/live2d_assets.py": "f5ed54af03892433a64f91a583fab7e4bca97adc4e3b60def0da2396a68a35d0",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "/workspace/AI-radio-stream-help/src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "/workspace/AI-radio-stream-help/app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "/workspace/AI-radio-stream-help/app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "/workspace/AI-radio-stream-help/app/static/style.css": "e045152a6e5dc7d4d08dcdbf872a5b332208afe0fa1a521c763d95119b19618b",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+    "/workspace/AI-radio-stream-help/app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "/workspace/AI-radio-stream-help/app/static/desktop.js": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+    "/workspace/AI-radio-stream-help/app/static/conversation-view.js": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+    "/workspace/AI-radio-stream-help/app/static/privacy-flow.js": "d3384cb398d30025de537366b6c2ab5595e834fd87eea82049a96572a438f4b4",
+    "/workspace/AI-radio-stream-help/app/static/index.html": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "/workspace/AI-radio-stream-help/app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "/workspace/AI-radio-stream-help/app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "/workspace/AI-radio-stream-help/app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "/workspace/AI-radio-stream-help/app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "/workspace/AI-radio-stream-help/app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "/workspace/AI-radio-stream-help/app/static/desktop.css": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+    "/workspace/AI-radio-stream-help/app/static/layered-2d-renderer.js": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+    "/workspace/AI-radio-stream-help/app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074"
+  },
+  "actual_provider_invoked": false,
+  "detector": {
+    "actualServedMocSha256": "85a85d2a170635f35de5792ce96d06d88022a59617bd28a9356014cd290117be",
+    "coreVersion": 83951616,
+    "officialConsistency": 1,
+    "lipSyncIds": [
+      "ParamMouthOpenY"
+    ],
+    "causalDrawables": [
+      "ArtMeshMouthClose",
+      "ArtMeshLayer2",
+      "ArtMeshLayer3",
+      "ArtMeshToothT",
+      "ArtMeshTongue",
+      "ArtMeshMouth"
+    ],
+    "actualParameterCount": 41,
+    "actualDrawableCount": 42
+  },
+  "manual_positive": {
+    "coreEvaluations": 16,
+    "lipSyncEnabled": false,
+    "lipParameters": [
+      {
+        "id": "ParamMouthOpenY",
+        "value": 0.44999998807907104,
+        "default": 0
+      }
+    ],
+    "actualMouthEqualsIndependentCoreAtAllActualInputs": true,
+    "changedByMouthOnlyCounterfactual": [
+      "ArtMeshMouthClose",
+      "ArtMeshLayer2",
+      "ArtMeshLayer3",
+      "ArtMeshToothT",
+      "ArtMeshTongue",
+      "ArtMeshMouth"
+    ],
+    "method": "Hold every actual head/body/breath/physics input fixed; set ONLY actual LipSync IDs to defaults in a separate official raw Core instance. Body/breath/physics inputs remain at their actual dynamic values; package idle/expression is paused for voice isolation."
+  },
+  "default_negative_with_body_active": {
+    "coreEvaluations": 46,
+    "lipSyncEnabled": false,
+    "lipParameters": [
+      {
+        "id": "ParamMouthOpenY",
+        "value": 0,
+        "default": 0
+      }
+    ],
+    "actualMouthEqualsIndependentCoreAtAllActualInputs": true,
+    "changedByMouthOnlyCounterfactual": [],
+    "method": "Hold every actual head/body/breath/physics input fixed; set ONLY actual LipSync IDs to defaults in a separate official raw Core instance. Body/breath/physics inputs remain at their actual dynamic values; package idle/expression is paused for voice isolation."
+  },
+  "body_conditions": {
+    "automatic": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": false
+    },
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "actualNonMouthInputs": [
+      {
+        "id": "ParamAngleX",
+        "value": 11.25
+      },
+      {
+        "id": "ParamAngleY",
+        "value": 0.6197720170021057
+      },
+      {
+        "id": "ParamAngleZ",
+        "value": 1.4624366760253906
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "value": 0.0003228939021937549
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "value": 2.5
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "value": -0.11512065678834915
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "value": -0.049974411725997925
+      },
+      {
+        "id": "ParamBreath",
+        "value": 0.022197674959897995
+      },
+      {
+        "id": "ParamHairFront",
+        "value": 0.005360225681215525
+      },
+      {
+        "id": "ParamHairBack",
+        "value": 0.05443950742483139
+      }
+    ]
+  },
+  "sources_unchanged": true
+}

@@ -270,3 +270,48 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 杯子flatten810在旧61离key过，但独立512仍43个失败/max3.223px；直接挂原BodyZ反事实512全部失败/max41.335px。原因包括零角Rotation子也会把Warp父刚性化，不能当透传。原始min/default/max不是完整作者内部关键格。
 - 可行结构已由独立实际Core/产品证明：一个可见ROOT杯，两恒0opacity技术helper，单向NativeGlue先全跟一侧再按t混另侧；完整手动控制外根必须原生Rotation(scale1)，并复制原3BodyWarp+6Shoulder/Elbow/Wrist真实父链。新未参与选择的1000样本最大接触差.005953765源px，H0 visible杯全vertices exact0。此为技术候选证据，不能覆盖正在重放的最终新PSD/MOC。v2合同明确可见杯与技术helper作用域，保留1px握点/.5px指根及物理角色非杯exact0，helper任意非0opacity即拒，旧v1结构红保留。
 - 第一轮全量8步虽然各自通过（Python754零skip、desktopPy9、Node97、desktopNode27），但两份manual test源在检查期间改变，整体报告正确false，未改成绿或用于发布。最终必须用稳定源码新全量报告。
+
+
+## 2026-11-13 实际dev3小更新exactbase文件验收
+
+- 实际已提交084aaf222b54e1828595bde82fc07c58acbb6075程序包character-app-source-update-0.5.0-dev3.zip(7026261bytes/SHA d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6)由产物自身app_update.execute完成82ops真实apply/repeat/rollback；原baseZIP前后exact92d3...，SourceIDd26a...。只复制92源/metadata计4376827bytes、22native只读hardlink，未复制6GB/运行Windowsexe或DLL。
+- 两套复制后的CPU/CUDA后端实际loopback返回/stage-actions.js 200且SHAe5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8(4796bytes)，非白路径404；产物ownerhelper可载入/锁验证、未ack拒安装。13门/19.149s全过，每operation原SHA恢复、所有选定原base文件及synthetic model/data哨兵未变，副本已清。review/app-source-update-dev3-exactbase-check.json含实际脚本重现与SHA。
+- 首次正常sandbox不许socket(EPERM)使CPU路由仪器失败，保留.failure.json；按root授权escalated允许127.0.0.1再跑同脚本才完成，不假装初轮全绿或放宽产品门。当前仅Linuxfilesystem+真实HTTP路由，不称Windowscmd/4060/模型推理验收。
+
+
+## 2026-11-13 当前源码全门与小更新真实产物
+
+- 主舞台动作/表情与硬杯测量CLI冻结后，quality-gate-live2d-mainstage-final.json于03:33:41 UTC实际8步全PASS且源码稳定：Python766/0skip、desktopPy9、Node111、desktopNode27、strict10模块、7架构规则/15负控。此为软件源码门，不冒充尚在私有作者工具写入的新硬杯模型或Windows/4060验收。
+- 软件实际commit通过git程序读取为084aaf222b54e1828595bde82fc07c58acbb6075，builder commit guard/CRC均通过，小更新character-app-source-update-0.5.0-dev3.zip为7,026,261bytes、SHA d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6，82白名单操作；分支已push至GitHub。此产物不含模型/SDK/用户数据。
+- 盘空间不足时仅将8个冻结formal旧export中完全相同的10,109,209byte atlas做exactSHA硬链，保留所有路径/字节，实际回收70,791,168分配bytes，报告review/live2d-formal-retired-atlas-hardlink-dedup.json。新r2必须使用新export目录，不能对共享旧atlas原地重写；原画、PSD/工程、已发布baseZIP/parts和用户数据未动。
+
+
+## 2026-11-13 最终作者源落盘的真实容量险情
+
+- rolling大域工程保存中free降至20MiB，不能继续只做10MB小文件去重。仅移除已经过时、由本会话生成的旧Linux安装ZIP `/workspace/dist/XiaoLan-linux-x64.zip`（1,643,010,416bytes、SHA1c6d468f4825d11c146934b8684149682a9e051b7e356c01fb38893bdd195ca9），删除前记录1155个member/CRC/size到review/obsolete-linux-installer-cleanup.json；free恢复1.6GB。用户已选择Windows，保留更新3,023,043,885byte Linux v0.2 ZIP、全部Windowsbase ZIP/parts/unpackedbase、Git源/原画/可编辑项目/权重/媒体证据/用户data。没有删除用户上传资料。
+- 作者checkpoint需关注临时保存的展开/历史容量，不能仅按最终压缩40MB推需40MB空闲；IO失败可能局部生效，必须读取actual state/terminal save和SHA后续，不能把ENOSPC当完成。
+
+
+## 2026-11-13 作者源离线打包容量门：不能提高产品上传门
+
+- root仅解冻开发packager/tests/doc：实际rollingC SHA02d3e704104a7c6ab3d1906ae127b1faac567096b0ec8b740f3bcfbff01193c9在旧8MiB每JSON门真实拒绝，红review/live2d-packager-c15360-old-budget-red.json保留。历史文件名c15360不是当前格数声明；该实际ZIP126777737bytes/expanded730842307，未超旧768MiB aggregate，旧通用error实际由单JSON超8MiB触发。
+- 现只对严格document/nodes/journal/[a-f0-9]{64}.json给64MiB，且filename stem==actual流式SHA==独立manifestSHA；nested总2GiB、8192entries，其他内外JSON仍8MiB、source单文件256MiB/selected总512MiB、所有生产runtime/上传/owner/updater门不改。超过最终硬预算应报真实size阻断，不继续盲涨。
+- 预算修后实际同源又被127个history/revisions/<64hex>.json拒，红review/live2d-packager-rolling-c-budget-preflight-red.json保留。root授权精确兼容路径后仍8MiB+manifestSHA/CRC。实际127文件stem均非payloadSHA，不能把journal内容寻址规则硬套历史revision身份；真实格式观察另报告。
+- 33专属单位正负控+Ruff过：>8MiB/exact64MiB journal绿，64MiB+1红；同大nonjournal/history红、错prefix/hash红、stem/manifest两独立SHA/CRC红、metadata假大2GiB aggregate红(不构造2GB文件)。代码/测试/doc新冻结review/live2d-packager-source-freeze.json。
+- 真实C before/after SHA稳定最终预检1180payload逐SHA+CRC/PSD身份过，103journal、最大14842068bytes；1.843s/peakRSS21156KiB，review/live2d-packager-rolling-c-budget-preflight.json。仅离线checkpoint结构预检，不是最终角色/编辑器/Core/完整sourceZIP通过。7MB软件artifact SHA d662...未变，不复测084产品；root另跑新全量gate。
+
+
+## 2026-11-13 最终作者工程显式project字段320MiB门
+
+- 最终rigid-cup-character.psd2live实际281235238bytes/SHA1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70，原通用256MiB门真实拒绝；review/live2d-final-project-old-256m-red.json保留，不把新版可过回写旧红。root仅授权开发packager明确project字段到320MiB（约19%实测余量）。
+- pinned新增keyword-only source_limit，只有source_members的project行显式传MAX_PROJECT_FILE=320MiB；不按.psd2live扩展名全球放宽。其他源256MiB/selected总512MiB、JSON8MiB/journal64MiB/nested2GiB及所有产品门不动。3追加测试用真正稀疏ZIP，mock仅外层SHA避免读大hole；256MiB+1通过实际source_members字段→check_project，320exact允许/+1拒，generic project/PSD/PNG仍256拒。
+- 36专属测试+Ruff过，新freeze review/live2d-packager-source-freeze.json/sourceSHA8795cb7c28bb76e4e7df1ea0e978efdbde97131a7a2a5764a74ffee395f486ab；详情live2d-packager-project-field-limit-check.json。实际最终文件单独无mock真SHA前后稳定，展开1496362356bytes/1579members，1578payload CRC/SHA及118journal/PSD身份均过，3.896s/峰RSS20816KiB，live2d-final-project-size-and-format-preflight.json。
+- 以上不是整个sourceZIP selected总量/最终Core/艺术验收，必须正式packager另跑；生产084和7MB更新artifact SHA d662...不变，root另跑新全量gate，勿拿旧sourcegate覆盖当前packager版本。
+
+
+## 2026-11-13 本机最终功能交付与真实语音恢复通过
+
+- 最终MOC6e34/42mesh41params/47真实点/v1无helpers的13门、547双通道、sealed5000 asm grip.678588px、shape similarity.0001063px/affine.0000857px、Root27、主UI9/表情3/三景与中段均真实通过且public源码未再改。全部327当前源码SHA与780/111最终门一致。547是486所选角点+61离key，不是20655内部全表Core穷举；source/MOC41310键格另有独立证书。
+- 实际provider第一次由QA调用，在环境重置后只留三图/WAV/raw视频，无最终stop报告，不能因为已无PID误称未调用；Root不同目录作一次完整恢复，review/real-live2d-rigid-r2-companion.json7门全过：exactZIP23af→Qwen/Kokoro/Analyser/Core、stop.793s、未听尾部排除与UI原文保留。两轮目录各自不覆盖，原interrupted JSON保留；不能声称只调用一次。
+- 当前恢复CPU单次首次文字49.54s、语音RMS69.621s、进程peak约5.37GiB，不声称已达实时/Windows4060目标。Playwright录像无音轨，真实WAV另附。Source重导出CLI6GiB heap/RSS约6.2GiB与正常角色运行不同，不混作运行开销。
+- 实际双ZIP：runtime11,017,918B SHA23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e；source345,553,022B SHA1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc；source-validation49,477,803B SHAae2e9a61d05e5c475541e7673cf820e5f57c3d374b9cbcd5bdfc40df8cadde41。Root source/index、native/runtime/provider证据分开，SDK/权重/真实会话/禁用3D均不进发布包。

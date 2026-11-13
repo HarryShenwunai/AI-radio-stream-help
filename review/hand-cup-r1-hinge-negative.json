@@ -1,0 +1,442 @@
+{
+  "observed_at": "2026-11-12T23:24:14.320280+00:00",
+  "status": "failed",
+  "scope": "Partial real-Core and product-adapter probe of intermediate candidate; not final full character acceptance",
+  "checks": {
+    "actual_product_import_runtime_and_independent_consistent_core": "passed",
+    "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+    "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+    "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed"
+  },
+  "full_acceptance": "BLOCKED",
+  "artwork_accepted": false,
+  "windows_executed": false,
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.moc3": "63d0d048eec66c988d8217678259fa5f473de6157ba764eaaed58855af7d4930",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.4096/texture_00.png": "bf51fc0ea2dec7b6471b88ea30a69670d1e91ebb2b87c768288e6afcd7bd0b0c",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/rig-r1-contract.json": "ac9ee34a3d9d58ba85666b5a480f662424a2861973f37be12b46b1f00c66b0c4",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_candidate_check.py": "fef90ab8d246d623e93fad2c6748bb0d5d5150a78bad319e63938953e16a4f03",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "d41071f5ce0c2000dbb328930d55f995b7a016b13e2294c9f93f5c10f850814e",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "7b95787ffdf348d9d90513b479fd45222b056c99ad5f11f515557d73fbc68e02",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "473a0d2d8c1ace540a04ab5e90640738668f37bd72f628d01e652f031f61239e",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "68fc4679ed55a62ae88dadba788149eda8fc31d7aa9b2b2c4f7c176512c9ad2f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/r4-r1-landmark-contract.json": "55c2aba9788b163841a8397f6323409b3bbead85ec2c5066b7d806a117516f2d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/r4-r1-joint-landmark-contract.json": "059128cccd206504e4f0fa472b3f99cf627383093aefabcf2cb8b310c5aa31d5"
+  },
+  "blocked_items": [],
+  "actual_core": {
+    "version": 83951616,
+    "consistency": 1,
+    "parameters": 40,
+    "drawables": 41,
+    "canvasInfo": {
+      "width": 1536,
+      "height": 2048,
+      "originX": 768,
+      "originY": 1024,
+      "ppu": 1536
+    }
+  },
+  "visibility_pixels": {
+    "error": 0,
+    "opaque": 206247,
+    "colored": 205628,
+    "changed": 6273,
+    "width": 1000,
+    "height": 665
+  },
+  "transforms": [
+    {
+      "parameter": "ParamCupX",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14228
+    },
+    {
+      "parameter": "ParamCupY",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14080
+    },
+    {
+      "parameter": "ParamCupRotation",
+      "values": [
+        -45,
+        45
+      ],
+      "pixels": 6474
+    }
+  ],
+  "semantic_supports": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            638,
+            669,
+            613
+          ],
+          "weights": [
+            0.04153722218646153,
+            0.15772537733135666,
+            0.8007374004821819
+          ],
+          "uv": [
+            0.17065499042409962,
+            0.6193723038631794
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            689,
+            626,
+            606
+          ],
+          "weights": [
+            0.3774665986919232,
+            0.4672229275368207,
+            0.15531047377125606
+          ],
+          "uv": [
+            0.16088368302896144,
+            0.5876317436392666
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            590,
+            666,
+            669
+          ],
+          "weights": [
+            0.34279919473800147,
+            0.3660076828293884,
+            0.29119312243261014
+          ],
+          "uv": [
+            0.17553312858074943,
+            0.6364770761058032
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    }
+  ],
+  "semantic_owners": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    }
+  ],
+  "curl": {
+    "root_budget_source_px": 0.5,
+    "minimum_tip_source_px": 1,
+    "minimum_bend_degrees": 1,
+    "budget_basis": "predeclared instrument thresholds before r3b evaluation; exact non-target meshes and actual visible GL required",
+    "fingers": [
+      {
+        "name": "finger-index-r",
+        "parameter": "ParamFingerIndexR",
+        "mesh": "ArtMeshLayerR2",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 6.079235991072798e-05,
+            "tip_movement_source_px": 44.872391760688984,
+            "palm_seam_source_px": 3.155159830055874e-05,
+            "bend_change_degrees": 5.915074439144519e-07
+          },
+          "product": {
+            "root_drift_source_px": 6.079235991072798e-05,
+            "tip_movement_source_px": 44.872391760688984,
+            "palm_seam_source_px": 3.155159830055874e-05,
+            "bend_change_degrees": 5.915074439144519e-07
+          }
+        },
+        "visible_pixels": 406,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-middle-r",
+        "parameter": "ParamFingerMiddleR",
+        "mesh": "ArtMeshLayerR3",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 6.195632958335952e-05,
+            "tip_movement_source_px": 47.01752588849197,
+            "palm_seam_source_px": 3.363395722199128e-05,
+            "bend_change_degrees": 5.619629604325382e-06
+          },
+          "product": {
+            "root_drift_source_px": 6.195632958335952e-05,
+            "tip_movement_source_px": 47.01752588849197,
+            "palm_seam_source_px": 3.363395722199128e-05,
+            "bend_change_degrees": 5.619629604325382e-06
+          }
+        },
+        "visible_pixels": 306,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-ring-r",
+        "parameter": "ParamFingerRingR",
+        "mesh": "ArtMeshLayerR4",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 6.041808875041685e-05,
+            "tip_movement_source_px": 43.67932944673501,
+            "palm_seam_source_px": 3.2115320275142175e-05,
+            "bend_change_degrees": 1.7571576137243028e-05
+          },
+          "product": {
+            "root_drift_source_px": 6.041808875041685e-05,
+            "tip_movement_source_px": 43.67932944673501,
+            "palm_seam_source_px": 3.2115320275142175e-05,
+            "bend_change_degrees": 1.7571576137243028e-05
+          }
+        },
+        "visible_pixels": 276,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-little-r",
+        "parameter": "ParamFingerLittleR",
+        "mesh": "ArtMeshLayerR5",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 6.377866637898151e-05,
+            "tip_movement_source_px": 35.54261838945849,
+            "palm_seam_source_px": 3.593817384661718e-05,
+            "bend_change_degrees": 2.4373449576842177e-05
+          },
+          "product": {
+            "root_drift_source_px": 6.377866637898151e-05,
+            "tip_movement_source_px": 35.54261838945849,
+            "palm_seam_source_px": 3.593817384661718e-05,
+            "bend_change_degrees": 2.4373449576842177e-05
+          }
+        },
+        "visible_pixels": 164,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-ring-l",
+        "parameter": "ParamFingerRingL",
+        "mesh": "ArtMeshLayerL2",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 2.694944407310311e-05,
+            "tip_movement_source_px": 29.596600800667357,
+            "palm_seam_source_px": 1.963301870268924e-05,
+            "bend_change_degrees": 1.6663177007103513e-06
+          },
+          "product": {
+            "root_drift_source_px": 2.694944407310311e-05,
+            "tip_movement_source_px": 29.596600800667357,
+            "palm_seam_source_px": 1.963301870268924e-05,
+            "bend_change_degrees": 1.6663177007103513e-06
+          }
+        },
+        "visible_pixels": 215,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-middle-l",
+        "parameter": "ParamFingerMiddleL",
+        "mesh": "ArtMeshLayerL3",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 3.064819288546234e-05,
+            "tip_movement_source_px": 31.308520030668724,
+            "palm_seam_source_px": 1.6049501095944647e-05,
+            "bend_change_degrees": 4.405165611842676e-05
+          },
+          "product": {
+            "root_drift_source_px": 3.064819288546234e-05,
+            "tip_movement_source_px": 31.308520030668724,
+            "palm_seam_source_px": 1.6049501095944647e-05,
+            "bend_change_degrees": 4.405165611842676e-05
+          }
+        },
+        "visible_pixels": 228,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-index-l",
+        "parameter": "ParamFingerIndexL",
+        "mesh": "ArtMeshLayerL4",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 3.198890721723798e-05,
+            "tip_movement_source_px": 33.10959409476936,
+            "palm_seam_source_px": 2.1973957937580738e-05,
+            "bend_change_degrees": 9.938411466237085e-06
+          },
+          "product": {
+            "root_drift_source_px": 3.198890721723798e-05,
+            "tip_movement_source_px": 33.10959409476936,
+            "palm_seam_source_px": 2.1973957937580738e-05,
+            "bend_change_degrees": 9.938411466237085e-06
+          }
+        },
+        "visible_pixels": 238,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-thumb-l",
+        "parameter": "ParamFingerThumbL",
+        "mesh": "ArtMeshLayerL5",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 3.21756726297597e-05,
+            "tip_movement_source_px": 43.0251875038391,
+            "palm_seam_source_px": 1.773424479659087e-05,
+            "bend_change_degrees": 2.8096656421894295e-05
+          },
+          "product": {
+            "root_drift_source_px": 3.21756726297597e-05,
+            "tip_movement_source_px": 43.0251875038391,
+            "palm_seam_source_px": 1.773424479659087e-05,
+            "bend_change_degrees": 2.8096656421894295e-05
+          }
+        },
+        "visible_pixels": 328,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-little-l",
+        "parameter": "ParamFingerLittleL",
+        "mesh": "ArtMeshLayerL6",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 3.243405682590312e-05,
+            "tip_movement_source_px": 23.643535774114984,
+            "palm_seam_source_px": 1.9504549531616584e-05,
+            "bend_change_degrees": 1.1015764300736919e-06
+          },
+          "product": {
+            "root_drift_source_px": 3.243405682590312e-05,
+            "tip_movement_source_px": 23.643535774114984,
+            "palm_seam_source_px": 1.9504549531616584e-05,
+            "bend_change_degrees": 1.1015764300736919e-06
+          }
+        },
+        "visible_pixels": 133,
+        "passes_root_tip_nonrigid_visible": false
+      },
+      {
+        "name": "finger-thumb-r",
+        "parameter": "ParamFingerThumbR",
+        "mesh": "ArtMeshLayerR6",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 5.8044289210848285e-05,
+            "tip_movement_source_px": 32.214954973402705,
+            "palm_seam_source_px": 3.160419297302192e-05,
+            "bend_change_degrees": 2.063089624471104e-06
+          },
+          "product": {
+            "root_drift_source_px": 5.8044289210848285e-05,
+            "tip_movement_source_px": 32.214954973402705,
+            "palm_seam_source_px": 3.160419297302192e-05,
+            "bend_change_degrees": 2.063089624471104e-06
+          }
+        },
+        "visible_pixels": 195,
+        "passes_root_tip_nonrigid_visible": false
+      }
+    ],
+    "failed": [
+      "finger-index-r",
+      "finger-middle-r",
+      "finger-ring-r",
+      "finger-little-r",
+      "finger-ring-l",
+      "finger-middle-l",
+      "finger-index-l",
+      "finger-thumb-l",
+      "finger-little-l",
+      "finger-thumb-r"
+    ]
+  },
+  "error": "actual root/tip/nonrigid/visible curl checks failed: ['finger-index-r', 'finger-middle-r', 'finger-ring-r', 'finger-little-r', 'finger-ring-l', 'finger-middle-l', 'finger-index-l', 'finger-thumb-l', 'finger-little-l', 'finger-thumb-r']",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/hand_cup_candidate_check.py\", line 128, in main\n    assert not failed,'actual root/tip/nonrigid/visible curl checks failed: '+str(failed)\n           ^^^^^^^^^^\nAssertionError: actual root/tip/nonrigid/visible curl checks failed: ['finger-index-r', 'finger-middle-r', 'finger-ring-r', 'finger-little-r', 'finger-ring-l', 'finger-middle-l', 'finger-index-l', 'finger-thumb-l', 'finger-little-l', 'finger-thumb-r']\n",
+  "page_errors": [],
+  "sources_unchanged": true
+}

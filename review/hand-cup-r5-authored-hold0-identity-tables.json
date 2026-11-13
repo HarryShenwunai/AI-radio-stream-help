@@ -1,0 +1,111 @@
+{
+  "observed_at": "2026-11-13T00:14:59.005231+00:00",
+  "status": "measured_authored_hold0_tables",
+  "scope": "independent exact-bit serialized key-table audit, not an inference about native Core interpolation internals",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/authoring/character-hold-fixed.psd2live": "c50d5c79a1b8aa255a1f4fdfcaced1dabe987ca7a59aaaeca463090ad5adba3a",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_authored_identity_check.py": "cead6bfc307125080724f7eea8a6dfcae24d1d4dd80990f02587c9c26287e32c",
+    "/workspace/AI-radio-stream-help/.build/live2d-toolchain-research/RigIrObjects.kt": "ba8ec256279288aa77b471256aef05afc3d0e08d8b6a09198f55656325f0f30f",
+    "/workspace/AI-radio-stream-help/.build/live2d-toolchain-research/RigIrBinary.kt": "19a3b39caf4e1df972a54149ceb4fff9e4f583f6dee0363dd51f8fd4bae4ceb6",
+    "/workspace/AI-radio-stream-help/.build/live2d-toolchain-research/MaterializedRigCodec.kt": "86a5ae92f877f2183887b45f8ff7ab57de7743b6db3131315e59971fa74291de"
+  },
+  "sources_unchanged": true,
+  "nodes": {
+    "OriginalCupHoldFollow": {
+      "id": "OriginalCupHoldFollow",
+      "kind": "warp",
+      "axis_keys": {
+        "ParamCupHold": [
+          0.0,
+          1.0
+        ],
+        "ParamBodyAngleX": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyAngleY": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyAngleZ": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyLean": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamProportion": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBreath": [
+          0.0,
+          1.0
+        ]
+      },
+      "all_cells": 972,
+      "hold0_cells": 486,
+      "hold0_unique_bit_forms": 1,
+      "hold0_form_floats": 8,
+      "hold0_first_form_sha256": "ee8cbb0798ac256a4d98fce56f54de5483c7a7a2c51b6a5cb8e83d939442b13a",
+      "hold0_all_form_values_zero": false,
+      "constant_opacity": 1.0,
+      "additional_channels": 0,
+      "additional_blend_bindings": 0
+    },
+    "ArtMeshLayer": {
+      "id": "ArtMeshLayer",
+      "kind": "mesh",
+      "axis_keys": {
+        "ParamBodyAngleX": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyAngleY": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyAngleZ": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBodyLean": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamProportion": [
+          -10.0,
+          0.0,
+          10.0
+        ],
+        "ParamBreath": [
+          0.0,
+          1.0
+        ],
+        "ParamCupHold": [
+          0.0,
+          1.0
+        ]
+      },
+      "all_cells": 972,
+      "hold0_cells": 486,
+      "hold0_unique_bit_forms": 1,
+      "hold0_form_floats": 308,
+      "hold0_first_form_sha256": "0abe90866c4fbc89ae5b4512dde9df1c441a2f5923ee3e7932cf34532a6bf773",
+      "hold0_all_form_values_zero": true,
+      "constant_opacity": 1.0,
+      "additional_channels": 1,
+      "additional_blend_bindings": 0
+    }
+  }
+}

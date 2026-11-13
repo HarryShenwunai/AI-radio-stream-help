@@ -1,0 +1,81 @@
+{
+  "format": "desktop-version-source-update-check-v1",
+  "generated_at": "2026-11-13T00:26:28.528321+00:00",
+  "status": "PASS",
+  "sources_unchanged_during_checks": true,
+  "elapsed_seconds": 8.045,
+  "source_sha256": {
+    "scripts/app_update.py": "94105a0cc8b6f53639d1e23038e9e7b1fa3ca58a8ca04abb9000e0fff6a569ea",
+    "scripts/build_app_update.py": "526f4fd48f79523c9c095ba554d9ee92d65646ac99fb96d208bea4396bd58941",
+    "scripts/ui_update.py": "a8cef7e40886b265769f0bac0c3611bafe3405b068419abe48c1166812c39ef7",
+    "scripts/setup_live2d_owner.py": "5e6d02d59923210ffde04392c935d8c70e791440dfdf925db1b44c9986640423",
+    "scripts/live2d-owner-packages.json": "65e66fc7151e519afc938fcdfdbac46898f4bf47fb6f6ea54e68547b59666671",
+    "scripts/setup-live2d-owner.cmd": "9e7b8b7609f07f3d176c765951e6eb5ce133efac1f62bc5859274c24e3cc4ae0",
+    "desktop/package.json": "27bd00cb82cb1a696645b5955fbed09eb2af4baf6823bc4d53c85970cc6f9931",
+    "app/server.py": "d92578befd8598999073d0eb2209668b48d831f6ea28c56ba23159ed9c76156d",
+    "tests/test_app_update.py": "a76914de2284c9fbc9673d2f1d823fdf717270ad165e58189f2402bbe6a1626b",
+    "tests/test_app_update_commit.py": "5307822b4cf47a4cd38b7606124af7447ded34325c9605cf44aa3723c124603c",
+    "tests/test_live2d_owner_setup.py": "bf593298dd1a0450826f33273ac884a835b6d315754f2d0841441dffd9ad5620",
+    "docs/implementation/desktop-capture-and-update.md": "4abb83e6313a7d77abbc79b9d9f19c1b65390704a6c0ec959ac270ae0b9b69ed",
+    "scripts/tracking_addon.py": "3e5c1cb54e4ef12276e3778979eb919468ac706f172beec43923faee77f9c077",
+    "tests/test_tracking_addon_installer.py": "66f1e2f8c78fbd5d140afc2a4be4dfbd8e1290e0e255098eb004fb64910925b7"
+  },
+  "test_count": 50,
+  "checks": [
+    {
+      "name": "test_app_update.py",
+      "exit_code": 0,
+      "test_count": 17,
+      "stdout": "",
+      "stderr": "test_bad_backup_preserves_journal_and_fails_closed (test_app_update.AppUpdateTests.test_bad_backup_preserves_journal_and_fails_closed) ... ok\ntest_builder_rejects_desktop_identity_entry_and_server_version_mismatch (test_app_update.AppUpdateTests.test_builder_rejects_desktop_identity_entry_and_server_version_mismatch) ... ok\ntest_builder_rejects_stale_validation_and_unallowlisted_new_source (test_app_update.AppUpdateTests.test_builder_rejects_stale_validation_and_unallowlisted_new_source) ... ok\ntest_desktop_version_is_applied_and_restored_without_changing_name_or_entry (test_app_update.AppUpdateTests.test_desktop_version_is_applied_and_restored_without_changing_name_or_entry) ... ok\ntest_every_write_fault_rolls_back_without_leaving_an_incoherent_runnable_program (test_app_update.AppUpdateTests.test_every_write_fault_rolls_back_without_leaving_an_incoherent_runnable_program) ... ok\ntest_forged_original_profile_and_native_update_are_rejected (test_app_update.AppUpdateTests.test_forged_original_profile_and_native_update_are_rejected) ... ok\ntest_live_host_process_blocks_update_without_killing_it (test_app_update.AppUpdateTests.test_live_host_process_blocks_update_without_killing_it) ... ok\ntest_loader_rejects_rehashed_desktop_metadata_and_missing_package_payload (test_app_update.AppUpdateTests.test_loader_rejects_rehashed_desktop_metadata_and_missing_package_payload) ... ok\ntest_manifest_cannot_target_user_data_models_dlls_or_path_traversal (test_app_update.AppUpdateTests.test_manifest_cannot_target_user_data_models_dlls_or_path_traversal) ... ok\ntest_native_dll_modification_stops_before_any_program_write (test_app_update.AppUpdateTests.test_native_dll_modification_stops_before_any_program_write) ... ok\ntest_payload_corruption_is_rejected_before_writes (test_app_update.AppUpdateTests.test_payload_corruption_is_rejected_before_writes) ... ok\ntest_power_loss_at_each_phase_recovers_on_next_trusted_run (test_app_update.AppUpdateTests.test_power_loss_at_each_phase_recovers_on_next_trusted_run) ... ok\ntest_profile_payload_and_release_source_metadata_must_match_declared_update (test_app_update.AppUpdateTests.test_profile_payload_and_release_source_metadata_must_match_declared_update) ... ok\ntest_real_folder_apply_repeat_and_rollback_preserves_models_data_and_native_files (test_app_update.AppUpdateTests.test_real_folder_apply_repeat_and_rollback_preserves_models_data_and_native_files) ... ok\ntest_source_manifest_cannot_introduce_null_hashes_or_nonprogram_members (test_app_update.AppUpdateTests.test_source_manifest_cannot_introduce_null_hashes_or_nonprogram_members) ... ok\ntest_source_modification_and_extra_python_source_are_not_carried_into_new_source_id (test_app_update.AppUpdateTests.test_source_modification_and_extra_python_source_are_not_carried_into_new_source_id) ... ok\ntest_symlink_payload_or_destination_is_never_followed (test_app_update.AppUpdateTests.test_symlink_payload_or_destination_is_never_followed) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 6.240s\n\nOK\n"
+    },
+    {
+      "name": "test_app_update_commit.py",
+      "exit_code": 0,
+      "test_count": 11,
+      "stdout": "",
+      "stderr": "test_actual_commit_and_exact_selected_source_are_accepted (test_app_update_commit.AppUpdateCommitTests.test_actual_commit_and_exact_selected_source_are_accepted) ... ok\ntest_cli_invalid_commit_fails_before_creating_any_artifact_or_output_directory (test_app_update_commit.AppUpdateCommitTests.test_cli_invalid_commit_fails_before_creating_any_artifact_or_output_directory) ... ok\ntest_cli_stale_source_fails_without_building_a_package (test_app_update_commit.AppUpdateCommitTests.test_cli_stale_source_fails_without_building_a_package) ... ok\ntest_existing_tree_object_is_not_a_commit (test_app_update_commit.AppUpdateCommitTests.test_existing_tree_object_is_not_a_commit) ... ok\ntest_gitless_source_fails_instead_of_accepting_a_plausible_label (test_app_update_commit.AppUpdateCommitTests.test_gitless_source_fails_instead_of_accepting_a_plausible_label) ... ok\ntest_nonexistent_full_hex_is_not_treated_as_a_commit (test_app_update_commit.AppUpdateCommitTests.test_nonexistent_full_hex_is_not_treated_as_a_commit) ... ok\ntest_old_commit_is_rejected_after_a_selected_program_file_changes (test_app_update_commit.AppUpdateCommitTests.test_old_commit_is_rejected_after_a_selected_program_file_changes) ... ok\ntest_publisher_cannot_copy_uncommitted_helpers_from_another_checkout (test_app_update_commit.AppUpdateCommitTests.test_publisher_cannot_copy_uncommitted_helpers_from_another_checkout) ... ok\ntest_required_source_missing_in_git_or_replaced_by_link_is_rejected (test_app_update_commit.AppUpdateCommitTests.test_required_source_missing_in_git_or_replaced_by_link_is_rejected) ... ok\ntest_uncommitted_desktop_version_metadata_is_rejected (test_app_update_commit.AppUpdateCommitTests.test_uncommitted_desktop_version_metadata_is_rejected) ... ok\ntest_uncommitted_host_change_is_rejected (test_app_update_commit.AppUpdateCommitTests.test_uncommitted_host_change_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.597s\n\nOK\n"
+    },
+    {
+      "name": "test_live2d_owner_setup.py",
+      "exit_code": 0,
+      "test_count": 15,
+      "stdout": "",
+      "stderr": "test_archive_traversal_links_windows_aliases_and_oversized_members_are_rejected (test_live2d_owner_setup.Live2DOwnerSetupTests.test_archive_traversal_links_windows_aliases_and_oversized_members_are_rejected) ... ok\ntest_corrupt_backup_does_not_discard_a_good_installed_pair (test_live2d_owner_setup.Live2DOwnerSetupTests.test_corrupt_backup_does_not_discard_a_good_installed_pair) ... ok\ntest_corrupt_download_is_rejected_before_cache_write (test_live2d_owner_setup.Live2DOwnerSetupTests.test_corrupt_download_is_rejected_before_cache_write) ... ok\ntest_existing_partial_runtime_is_preserved_and_restored_after_success (test_live2d_owner_setup.Live2DOwnerSetupTests.test_existing_partial_runtime_is_preserved_and_restored_after_success) ... ok\ntest_first_install_can_be_reversibly_removed_without_touching_role_data (test_live2d_owner_setup.Live2DOwnerSetupTests.test_first_install_can_be_reversibly_removed_without_touching_role_data) ... ok\ntest_late_owner_modification_prevents_rollback_from_overwriting_it (test_live2d_owner_setup.Live2DOwnerSetupTests.test_late_owner_modification_prevents_rollback_from_overwriting_it) ... ok\ntest_lock_file_and_cached_tarball_are_bound_to_sha (test_live2d_owner_setup.Live2DOwnerSetupTests.test_lock_file_and_cached_tarball_are_bound_to_sha) ... ok\ntest_missing_owner_acknowledgement_stops_before_paths_download_or_execution (test_live2d_owner_setup.Live2DOwnerSetupTests.test_missing_owner_acknowledgement_stops_before_paths_download_or_execution) ... usage: python3 -m unittest [-h] --application-root APPLICATION_ROOT\n                           [--runtime-root RUNTIME_ROOT]\n                           [--accept-official-license] [--trust-locked-build]\n                           {plan,install,restore}\npython3 -m unittest: error: Explicit OWNER license acceptance and locked-build acknowledgement are required before any download.\nok\ntest_nonregistry_download_is_rejected_before_opening_a_network_client (test_live2d_owner_setup.Live2DOwnerSetupTests.test_nonregistry_download_is_rejected_before_opening_a_network_client) ... ok\ntest_normal_failures_and_simulated_power_loss_restore_previous_runtime (test_live2d_owner_setup.Live2DOwnerSetupTests.test_normal_failures_and_simulated_power_loss_restore_previous_runtime) ... ok\ntest_official_download_failure_keeps_existing_runtime_unchanged (test_live2d_owner_setup.Live2DOwnerSetupTests.test_official_download_failure_keeps_existing_runtime_unchanged) ... ok\ntest_original_base_without_readonly_cli_is_not_launched_accidentally (test_live2d_owner_setup.Live2DOwnerSetupTests.test_original_base_without_readonly_cli_is_not_launched_accidentally) ... ok\ntest_oversized_registry_response_is_rejected (test_live2d_owner_setup.Live2DOwnerSetupTests.test_oversized_registry_response_is_rejected) ... ok\ntest_safe_package_is_extracted_without_running_its_code (test_live2d_owner_setup.Live2DOwnerSetupTests.test_safe_package_is_extracted_without_running_its_code) ... ok\ntest_setup_never_moves_a_role_directory_or_follows_a_runtime_symlink (test_live2d_owner_setup.Live2DOwnerSetupTests.test_setup_never_moves_a_role_directory_or_follows_a_runtime_symlink) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.132s\n\nOK\n"
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "name": "actual_current_metadata",
+      "exit_code": 0,
+      "metadata": {
+        "name": "companion-desktop-runtime",
+        "main": "main.cjs",
+        "version": "0.5.0-dev3"
+      },
+      "package_in_host_files": true,
+      "package_in_commit_guard": true
+    },
+    {
+      "name": "test_tracking_addon_installer.py",
+      "exit_code": 0,
+      "test_count": 7,
+      "stdout": "",
+      "stderr": "test_corrupt_archive_stops_before_any_addon_target_is_created (test_tracking_addon_installer.TrackingAddonInstallerTests.test_corrupt_archive_stops_before_any_addon_target_is_created) ... ok\ntest_existing_symlink_destination_or_unknown_staging_file_is_preserved (test_tracking_addon_installer.TrackingAddonInstallerTests.test_existing_symlink_destination_or_unknown_staging_file_is_preserved) ... ok\ntest_install_repeat_and_reversible_disable_only_touch_new_optional_directory (test_tracking_addon_installer.TrackingAddonInstallerTests.test_install_repeat_and_reversible_disable_only_touch_new_optional_directory) ... ok\ntest_known_interrupted_stage_is_verified_then_rebuilt (test_tracking_addon_installer.TrackingAddonInstallerTests.test_known_interrupted_stage_is_verified_then_rebuilt) ... ok\ntest_live_runtime_lease_prevents_dll_install_without_terminating_process (test_tracking_addon_installer.TrackingAddonInstallerTests.test_live_runtime_lease_prevents_dll_install_without_terminating_process) ... ok\ntest_malicious_manifest_paths_never_escape_the_fixed_optional_root (test_tracking_addon_installer.TrackingAddonInstallerTests.test_malicious_manifest_paths_never_escape_the_fixed_optional_root) ... ok\ntest_unlocked_or_extra_installed_files_are_not_silently_overwritten (test_tracking_addon_installer.TrackingAddonInstallerTests.test_unlocked_or_extra_installed_files_are_not_silently_overwritten) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.088s\n\nOK\n"
+    }
+  ],
+  "corrected_fixture": "First run exposed a stale-validation fixture containing syntactically invalid Python; it now retains matching static VERSION while changing an untested statement, preserving its original SHA-gate purpose.",
+  "source_id_scope": "CPU/CUDA SourceID remains the backend source_files hash, including app/server.py VERSION. Host package.json is separately bound by its operation SHA, validation report SHA and actual Git commit guard.",
+  "limitations": [
+    "No Windows application/native Electron execution performed for this metadata-only change.",
+    "No package download, Windows base modification, deployment or external publication performed.",
+    "Existing native media host code unchanged; historical native reports are not rerun or relabeled."
+  ],
+  "instrument_corrections": [
+    "The optional follow-up mistakenly requested a nonexistent test_ui_update.py pattern, collecting zero tests. It was replaced with the actual seven-test tracking addon installer suite; this was an orchestration error, not an application failure."
+  ]
+}

@@ -1,0 +1,1232 @@
+{
+  "date": "2026-11-12T22:48:34.420117+00:00",
+  "status": "passed",
+  "scope": "real installed Core/Framework + official Haru local evaluation; synthetic WAV through real Audio/analyser; Core parameters and drawable vertex digest, not app mouth stats",
+  "fixture_path": "official licensed Haru technical control",
+  "fixture_kind": "official licensed technical control",
+  "original_character_complete": false,
+  "SDK_or_sample_redistribution_authorized": false,
+  "checks": {
+    "real_core_consistent_moc_textures_and_drawables": "passed",
+    "disabled_actual_lipsync_reproduces_stats_without_core_deformation": "passed",
+    "real_audio_enables_core_lipsync_parameter_and_changes_geometry": "passed",
+    "stop_disables_lipsync_and_restores_core_parameter_and_geometry": "passed",
+    "head_control_changes_actual_core_parameter_and_geometry": "passed",
+    "gaze_control_changes_actual_core_parameter_and_geometry": "passed",
+    "custom_actual_id_uses_authored_range_and_changes_core_value": "passed",
+    "unknown_custom_id_rejected_without_creating_core_parameter": "passed",
+    "custom_value_outside_authored_range_rejected": "passed",
+    "declared_expression_loads_and_changes_core_parameters": "passed",
+    "reselecting_current_expression_is_idempotent": "passed",
+    "declared_motion_loads_and_changes_core_parameters": "passed",
+    "explicit_motion_can_restart_without_false_load_error": "passed",
+    "authored_physics_core_outputs_change_when_enabled_and_stay_frozen_when_disabled": "passed",
+    "natural_breath_changes_real_core_parameter": "passed",
+    "automatic_blink_changes_real_core_eyelid_parameter": "passed",
+    "nonfinite_control_rejected": "passed",
+    "undeclared_expression_rejected": "passed",
+    "pause_releases_real_core_canvas": "passed",
+    "javascript_runtime": "passed"
+  },
+  "sources": {
+    "frontend/live2d-renderer.mjs": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+    "app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "app/static/privacy-flow.js": "d3384cb398d30025de537366b6c2ab5595e834fd87eea82049a96572a438f4b4",
+    "app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f"
+  },
+  "loaded_core": {
+    "state": "ready",
+    "available": true,
+    "coreVersion": 83951616,
+    "mocConsistencyChecked": true,
+    "coreEvaluations": 1,
+    "lipSyncEnabled": false,
+    "lipSyncValue": 0,
+    "parameters": [
+      {
+        "id": "ParamAngleX",
+        "index": 0,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": 0.0023076944053173065
+      },
+      {
+        "id": "ParamAngleY",
+        "index": 1,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": 0.002275418257340789
+      },
+      {
+        "id": "ParamAngleZ",
+        "index": 2,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": 0.0018164397915825248
+      },
+      {
+        "id": "ParamTere",
+        "index": 3,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamFaceForm",
+        "index": 4,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "index": 5,
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "value": 1
+      },
+      {
+        "id": "ParamEyeLSmile",
+        "index": 6,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeROpen",
+        "index": 7,
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "value": 1
+      },
+      {
+        "id": "ParamEyeRSmile",
+        "index": 8,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeForm",
+        "index": 9,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "index": 10,
+        "min": -1,
+        "max": 0,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamTear",
+        "index": 11,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeBallX",
+        "index": 12,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamEyeBallY",
+        "index": 13,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowLY",
+        "index": 14,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowRY",
+        "index": 15,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowLX",
+        "index": 16,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowRX",
+        "index": 17,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowLAngle",
+        "index": 18,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowRAngle",
+        "index": 19,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowLForm",
+        "index": 20,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBrowRForm",
+        "index": 21,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamMouthForm",
+        "index": 22,
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "value": 1
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "index": 23,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamScarf",
+        "index": 24,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "index": 25,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": 0.00025885834475047886
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "index": 26,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "index": 27,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBodyUpper",
+        "index": 28,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamBreath",
+        "index": 29,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0.0001554039481561631
+      },
+      {
+        "id": "ParamBustY",
+        "index": 30,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamArmLA",
+        "index": 31,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamArmRA",
+        "index": 32,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamArmLB",
+        "index": 33,
+        "min": -1,
+        "max": 5,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamArmRB",
+        "index": 34,
+        "min": -1,
+        "max": 5,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHandChangeR",
+        "index": 35,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHandAngleR",
+        "index": 36,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHandDhangeL",
+        "index": 37,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHandAngleL",
+        "index": 38,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHairFront",
+        "index": 39,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHairSide",
+        "index": 40,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      },
+      {
+        "id": "ParamHairBack",
+        "index": 41,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": 0
+      }
+    ],
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "automatic": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": true
+    },
+    "expressions": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08"
+    ],
+    "currentExpression": null,
+    "motions": {
+      "Idle": 2,
+      "TapBody": 4
+    },
+    "drawableCount": 84,
+    "textureCount": 2,
+    "drawables": [
+      {
+        "id": "D_PSD_20",
+        "vertexCount": 54,
+        "vertexDigest": "222a6d31",
+        "opacity": 0,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_18",
+        "vertexCount": 51,
+        "vertexDigest": "73937a4e",
+        "opacity": 0,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_19",
+        "vertexCount": 37,
+        "vertexDigest": "a680f06b",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_71",
+        "vertexCount": 41,
+        "vertexDigest": "94762bff",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_81",
+        "vertexCount": 55,
+        "vertexDigest": "afc2cb20",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_23",
+        "vertexCount": 51,
+        "vertexDigest": "0c6e6438",
+        "opacity": 0,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_22",
+        "vertexCount": 41,
+        "vertexDigest": "16eee297",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_17",
+        "vertexCount": 47,
+        "vertexDigest": "77bea416",
+        "opacity": 0,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_67",
+        "vertexCount": 62,
+        "vertexDigest": "d2d77836",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_21",
+        "vertexCount": 55,
+        "vertexDigest": "256f6430",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_10",
+        "vertexCount": 45,
+        "vertexDigest": "408cca53",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_09",
+        "vertexCount": 48,
+        "vertexDigest": "bbfc89d8",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_08",
+        "vertexCount": 37,
+        "vertexDigest": "523b54b4",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_13",
+        "vertexCount": 42,
+        "vertexDigest": "e9aed8db",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_12",
+        "vertexCount": 55,
+        "vertexDigest": "cd7dd550",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_11",
+        "vertexCount": 38,
+        "vertexDigest": "579f3b82",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_16",
+        "vertexCount": 58,
+        "vertexDigest": "885cde8c",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_15",
+        "vertexCount": 42,
+        "vertexDigest": "3b8c00eb",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_14",
+        "vertexCount": 81,
+        "vertexDigest": "2822c5c8",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_05",
+        "vertexCount": 44,
+        "vertexDigest": "611887c7",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_02",
+        "vertexCount": 72,
+        "vertexDigest": "ba65db85",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_01",
+        "vertexCount": 72,
+        "vertexDigest": "34d0b3e4",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_00",
+        "vertexCount": 74,
+        "vertexDigest": "858f9b9a",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_27",
+        "vertexCount": 36,
+        "vertexDigest": "6067bc06",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_26",
+        "vertexCount": 25,
+        "vertexDigest": "7eda238e",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_25",
+        "vertexCount": 33,
+        "vertexDigest": "729420e2",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_24",
+        "vertexCount": 42,
+        "vertexDigest": "30dda1e1",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_07",
+        "vertexCount": 65,
+        "vertexDigest": "76c759fc",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_06",
+        "vertexCount": 42,
+        "vertexDigest": "fb72db3b",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_70",
+        "vertexCount": 10,
+        "vertexDigest": "167f8dc0",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_68",
+        "vertexCount": 9,
+        "vertexDigest": "b86c10d4",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_73",
+        "vertexCount": 7,
+        "vertexDigest": "30dae8b1",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_72",
+        "vertexCount": 7,
+        "vertexDigest": "7fa9b2c2",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_69",
+        "vertexCount": 9,
+        "vertexDigest": "92a69625",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_66",
+        "vertexCount": 13,
+        "vertexDigest": "7bfb6a46",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_65",
+        "vertexCount": 35,
+        "vertexDigest": "53700969",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_64",
+        "vertexCount": 22,
+        "vertexDigest": "6d2ca4e0",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_63",
+        "vertexCount": 20,
+        "vertexDigest": "044c7c5f",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_03",
+        "vertexCount": 51,
+        "vertexDigest": "f8a7d180",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_77",
+        "vertexCount": 29,
+        "vertexDigest": "05d9a657",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_76",
+        "vertexCount": 28,
+        "vertexDigest": "06c63b04",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_78",
+        "vertexCount": 305,
+        "vertexDigest": "592d152e",
+        "opacity": 1.0000498294830322,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_74",
+        "vertexCount": 36,
+        "vertexDigest": "6a48dd2e",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_75",
+        "vertexCount": 35,
+        "vertexDigest": "247b2df7",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_29",
+        "vertexCount": 30,
+        "vertexDigest": "138568c1",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_28",
+        "vertexCount": 28,
+        "vertexDigest": "c7d06a7a",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_34",
+        "vertexCount": 13,
+        "vertexDigest": "547c74b7",
+        "opacity": 0.9999997615814209,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_33",
+        "vertexCount": 75,
+        "vertexDigest": "0ca7accc",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_32",
+        "vertexCount": 57,
+        "vertexDigest": "8a92bd6a",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_31",
+        "vertexCount": 26,
+        "vertexDigest": "c645c1bc",
+        "opacity": 0.9999997615814209,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_80",
+        "vertexCount": 31,
+        "vertexDigest": "cca6c2a4",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_79",
+        "vertexCount": 33,
+        "vertexDigest": "cc0ac06e",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_44",
+        "vertexCount": 7,
+        "vertexDigest": "3dcfcd6d",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_43",
+        "vertexCount": 8,
+        "vertexDigest": "648fbddd",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_42",
+        "vertexCount": 8,
+        "vertexDigest": "2161d73b",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_41",
+        "vertexCount": 7,
+        "vertexDigest": "cd1bba56",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_40",
+        "vertexCount": 24,
+        "vertexDigest": "c0aed7d8",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_39",
+        "vertexCount": 27,
+        "vertexDigest": "c185ca8b",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_62",
+        "vertexCount": 12,
+        "vertexDigest": "f5174c7c",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_61",
+        "vertexCount": 11,
+        "vertexDigest": "4883e7f8",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_60",
+        "vertexCount": 11,
+        "vertexDigest": "f26df7c7",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_59",
+        "vertexCount": 11,
+        "vertexDigest": "c122242a",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_57",
+        "vertexCount": 20,
+        "vertexDigest": "a778fe18",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_55",
+        "vertexCount": 7,
+        "vertexDigest": "c42835da",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_58",
+        "vertexCount": 19,
+        "vertexDigest": "6cbfd376",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_56",
+        "vertexCount": 7,
+        "vertexDigest": "86f1f1c1",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_53",
+        "vertexCount": 32,
+        "vertexDigest": "348f1281",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_51",
+        "vertexCount": 50,
+        "vertexDigest": "4554095f",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_49",
+        "vertexCount": 16,
+        "vertexDigest": "9672d812",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_47",
+        "vertexCount": 19,
+        "vertexDigest": "e6ba5b34",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_45",
+        "vertexCount": 21,
+        "vertexDigest": "b3708996",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_54",
+        "vertexCount": 29,
+        "vertexDigest": "de19257c",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_52",
+        "vertexCount": 44,
+        "vertexDigest": "bc3a02af",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_50",
+        "vertexCount": 17,
+        "vertexDigest": "0e4b0383",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_48",
+        "vertexCount": 17,
+        "vertexDigest": "ffd26ec1",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_46",
+        "vertexCount": 21,
+        "vertexDigest": "a129584d",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_38",
+        "vertexCount": 27,
+        "vertexDigest": "3a6e21f8",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_37",
+        "vertexCount": 29,
+        "vertexDigest": "fffd6779",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_35",
+        "vertexCount": 78,
+        "vertexDigest": "baf08635",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_36",
+        "vertexCount": 79,
+        "vertexDigest": "0f6df0b6",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_30",
+        "vertexCount": 66,
+        "vertexDigest": "96a901cf",
+        "opacity": 0.9999998807907104,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_04",
+        "vertexCount": 162,
+        "vertexDigest": "bfbd1203",
+        "opacity": 0.9999997615814209,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "HitArea",
+        "vertexCount": 4,
+        "vertexDigest": "6ffb27da",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "HitArea2",
+        "vertexCount": 4,
+        "vertexDigest": "71bde62b",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      }
+    ],
+    "drawablesTruncated": false
+  },
+  "baseline_stabilization": {
+    "consecutive_exact_core_frames": 5,
+    "seconds": 1.198,
+    "core_evaluations": 25,
+    "note": "Wait for real parameters, vertex arrays and drawable opacity to settle, including authored Pose fade; no comparison tolerance."
+  },
+  "negative_probe": {
+    "baseline_values": {
+      "ParamAngleX": 0,
+      "ParamAngleY": 0,
+      "ParamAngleZ": 0,
+      "ParamTere": 0,
+      "ParamFaceForm": 0,
+      "ParamEyeLOpen": 1,
+      "ParamEyeLSmile": 0,
+      "ParamEyeROpen": 1,
+      "ParamEyeRSmile": 0,
+      "ParamEyeForm": 0,
+      "ParamEyeBallForm": 0,
+      "ParamTear": 0,
+      "ParamEyeBallX": 0,
+      "ParamEyeBallY": 0,
+      "ParamBrowLY": 0,
+      "ParamBrowRY": 0,
+      "ParamBrowLX": 0,
+      "ParamBrowRX": 0,
+      "ParamBrowLAngle": 0,
+      "ParamBrowRAngle": 0,
+      "ParamBrowLForm": 0,
+      "ParamBrowRForm": 0,
+      "ParamMouthForm": 1,
+      "ParamMouthOpenY": 0,
+      "ParamScarf": 0,
+      "ParamBodyAngleX": 0,
+      "ParamBodyAngleY": 0,
+      "ParamBodyAngleZ": 0,
+      "ParamBodyUpper": 0,
+      "ParamBreath": 0,
+      "ParamBustY": 0,
+      "ParamArmLA": 0,
+      "ParamArmRA": 0,
+      "ParamArmLB": 0,
+      "ParamArmRB": 0,
+      "ParamHandChangeR": 0,
+      "ParamHandAngleR": 0,
+      "ParamHandDhangeL": 0,
+      "ParamHandAngleL": 0,
+      "ParamHairFront": 0,
+      "ParamHairSide": 0,
+      "ParamHairBack": 0
+    },
+    "actual_values": {
+      "ParamAngleX": 0,
+      "ParamAngleY": 0,
+      "ParamAngleZ": 0,
+      "ParamTere": 0,
+      "ParamFaceForm": 0,
+      "ParamEyeLOpen": 1,
+      "ParamEyeLSmile": 0,
+      "ParamEyeROpen": 1,
+      "ParamEyeRSmile": 0,
+      "ParamEyeForm": 0,
+      "ParamEyeBallForm": 0,
+      "ParamTear": 0,
+      "ParamEyeBallX": 0,
+      "ParamEyeBallY": 0,
+      "ParamBrowLY": 0,
+      "ParamBrowRY": 0,
+      "ParamBrowLX": 0,
+      "ParamBrowRX": 0,
+      "ParamBrowLAngle": 0,
+      "ParamBrowRAngle": 0,
+      "ParamBrowLForm": 0,
+      "ParamBrowRForm": 0,
+      "ParamMouthForm": 1,
+      "ParamMouthOpenY": 0,
+      "ParamScarf": 0,
+      "ParamBodyAngleX": 0,
+      "ParamBodyAngleY": 0,
+      "ParamBodyAngleZ": 0,
+      "ParamBodyUpper": 0,
+      "ParamBreath": 0,
+      "ParamBustY": 0,
+      "ParamArmLA": 0,
+      "ParamArmRA": 0,
+      "ParamArmLB": 0,
+      "ParamArmRB": 0,
+      "ParamHandChangeR": 0,
+      "ParamHandAngleR": 0,
+      "ParamHandDhangeL": 0,
+      "ParamHandAngleL": 0,
+      "ParamHairFront": 0,
+      "ParamHairSide": 0,
+      "ParamHairBack": 0
+    },
+    "changed_drawables": []
+  },
+  "negative_control": {
+    "method": "isolated browser replaces startLipSync with no-op while actual WAV/Analyser continue",
+    "reported_audio_mouth": 0.43714672539261273,
+    "actual_core_mouth": 0,
+    "changed_drawables": 0
+  },
+  "audio_lip_geometry": {
+    "baseline": 0,
+    "active": 0.34275245666503906,
+    "changed_drawables": [
+      "D_PSD_33",
+      "D_PSD_32",
+      "D_PSD_31"
+    ]
+  },
+  "physics_hair_outputs": {
+    "ParamHairFront": [
+      0.7540837526321411,
+      -0.28658950328826904,
+      -0.3085063099861145,
+      0.11300932615995407,
+      0.003839096985757351,
+      -0.03488950431346893,
+      -0.019956665113568306,
+      0.01150635164231062
+    ],
+    "ParamHairSide": [
+      0.7497501373291016,
+      -0.15845590829849243,
+      -0.382953017950058,
+      0.07707133144140244,
+      0.10188359767198563,
+      0.021905606612563133,
+      -0.04146115481853485,
+      -0.02398080937564373
+    ],
+    "ParamHairBack": [
+      0.8046044707298279,
+      -0.30578988790512085,
+      -0.32917505502700806,
+      0.1205805167555809,
+      0.0040963017381727695,
+      -0.03722696751356125,
+      -0.02129368484020233,
+      0.01227723341435194
+    ]
+  },
+  "page_errors": []
+}

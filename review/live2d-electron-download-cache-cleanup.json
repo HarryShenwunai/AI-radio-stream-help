@@ -1,0 +1,905 @@
+{
+  "observed_at": "2026-11-13T02:50:11.297514+00:00",
+  "scope": "Only downloaded Electron cache ZIPs; every original archive member is retained byte-for-byte in existing installed unpacked runtimes",
+  "free_bytes_before": 460906496,
+  "free_bytes_after": 743194624,
+  "freed_bytes": 282288128,
+  "retained_members_reverified": 145,
+  "archives": [
+    {
+      "archive": "/workspace/.cache/electron/15705763c2a501c8e55079067f73292eede184576305647a01ddc80f4e1b1e17/electron-v45.3.1-linux-x64.zip",
+      "bytes": 123927956,
+      "archive_sha256": "c61d44206f8bd533d30310840b5baaa7fd0e8421cd711b8d1f719a7a336cbce7",
+      "all_members_retained": true,
+      "members": [
+        {
+          "member": "locales/ar.pak",
+          "bytes": 166492,
+          "sha256": "b9d9fd99026b05e831097646b408ccb96b4b56fc42e63c63ac01132224a4cf50",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ar.pak"
+        },
+        {
+          "member": "locales/en-US.pak",
+          "bytes": 95201,
+          "sha256": "0b62e6e46b428c2f8b95943d183276b7977d72f3f32c6772f96f699b43fc14ab",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/en-US.pak"
+        },
+        {
+          "member": "locales/bn.pak",
+          "bytes": 240838,
+          "sha256": "654cd1df7454856cc4cbf9bab340d1c2a3fa5309b3ddf7f5484e289f9e5ce9a9",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/bn.pak"
+        },
+        {
+          "member": "v8_context_snapshot.bin",
+          "bytes": 753352,
+          "sha256": "265ac201f12e9dd8306c5c2eebb4a899f85782ab0c069adef44cd60341b7ba78",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/v8_context_snapshot.bin"
+        },
+        {
+          "member": "icudtl.dat",
+          "bytes": 10824576,
+          "sha256": "e1ed8f674bb8449731b79cae956042da59f9ecbd37c8d3f86586a22b4836e5b2",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/icudtl.dat"
+        },
+        {
+          "member": "LICENSES.chromium.html",
+          "bytes": 5598206,
+          "sha256": "214152f78cc0b611f63ff8faefcc6670c4605ffbff05f092bb671e6df80ce741",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/LICENSES.chromium.html"
+        },
+        {
+          "member": "locales/af.pak",
+          "bytes": 102890,
+          "sha256": "d77653a70276d84908a7d6b0ea38e92a66a1a49868bf3f7e575a47fab7ad1a3f",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/af.pak"
+        },
+        {
+          "member": "locales/te.pak",
+          "bytes": 257697,
+          "sha256": "5a8743ebb7472156104e51360f09c02ca4ed571f492849f26e93dc1b7010ac2e",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/te.pak"
+        },
+        {
+          "member": "locales/nb.pak",
+          "bytes": 103971,
+          "sha256": "b0774d912ee33b2ce63ea43b5bec7cbe4553e916b93a7d2a195e64f10aa645e0",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/nb.pak"
+        },
+        {
+          "member": "locales/es-419.pak",
+          "bytes": 114260,
+          "sha256": "055e0df68b4fb5d69cc6fa74e3704e506da93a615d53c22d0d61947f1a061df9",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/es-419.pak"
+        },
+        {
+          "member": "locales/hr.pak",
+          "bytes": 112657,
+          "sha256": "562fad805a807a8b9051d90384942b8b40737a17d70fbd697c961f2c186fdf86",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/hr.pak"
+        },
+        {
+          "member": "locales/fr.pak",
+          "bytes": 121839,
+          "sha256": "843133d3b7f31e238310f41b4382a7b58188a5b5083cb539b0e29196a6a5acaa",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/fr.pak"
+        },
+        {
+          "member": "locales/hi.pak",
+          "bytes": 248969,
+          "sha256": "a6431b7b209932746a6743ec010c7f72807fa779e014f1f0143d6dffa3872934",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/hi.pak"
+        },
+        {
+          "member": "chrome_100_percent.pak",
+          "bytes": 568371,
+          "sha256": "2808cd9c9e0f261ebce06777a0f8e8291c9cd931d688af1d010a41b4aecb46de",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/chrome_100_percent.pak"
+        },
+        {
+          "member": "locales/ms.pak",
+          "bytes": 105246,
+          "sha256": "579b5831320613edfaf99aeb0340e8efe1914152e10c39cbb89e44f05455ae76",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ms.pak"
+        },
+        {
+          "member": "locales/sv.pak",
+          "bytes": 104339,
+          "sha256": "5e472a011a458a7cd304e545d081dfc00dcf552ddc952898ff3d269e87daa340",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/sv.pak"
+        },
+        {
+          "member": "locales/ko.pak",
+          "bytes": 114153,
+          "sha256": "f17e99e472facdb75979886ac8faf0983a4a68f35068c262f28eb1d1f90bcfe2",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ko.pak"
+        },
+        {
+          "member": "locales/ta.pak",
+          "bytes": 278479,
+          "sha256": "b409a3acae223c5842438065561a145ef748dd80b661112e2143f434153a9742",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ta.pak"
+        },
+        {
+          "member": "locales/fa.pak",
+          "bytes": 162670,
+          "sha256": "43b717e4a01414ddc158b0a8ad7669d48a43df1aeffc91c5ad9be46d72754a0a",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/fa.pak"
+        },
+        {
+          "member": "chrome_200_percent.pak",
+          "bytes": 927795,
+          "sha256": "8d81c78e492ebe19d1bf8dea377fc0b353d543281be96791448590fb6d732ea3",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/chrome_200_percent.pak"
+        },
+        {
+          "member": "snapshot_blob.bin",
+          "bytes": 374320,
+          "sha256": "cf453b8a5bcaf8603659a29084d1ba683fb230df2a67a20a830b0220dc1d46b3",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/snapshot_blob.bin"
+        },
+        {
+          "member": "locales/da.pak",
+          "bytes": 107272,
+          "sha256": "e646cc8e653127563a82522ebf611b5c3392da63c6197711942018690c4b9762",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/da.pak"
+        },
+        {
+          "member": "locales/pt-PT.pak",
+          "bytes": 113219,
+          "sha256": "bfc5e76d473d44a9feec777797302bcf8b282a5e6d170ce3de050073a731dd8b",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/pt-PT.pak"
+        },
+        {
+          "member": "locales/nl.pak",
+          "bytes": 108994,
+          "sha256": "cd6e7e77a52e6662221d872e127e0c1ac75934e9f4f835adcb8ab1a058107418",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/nl.pak"
+        },
+        {
+          "member": "locales/kn.pak",
+          "bytes": 262245,
+          "sha256": "c2ebbcac6509636c416df12b9c5f2e3b16f27b00209a746edc5dd4632df9cfb3",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/kn.pak"
+        },
+        {
+          "member": "vk_swiftshader_icd.json",
+          "bytes": 107,
+          "sha256": "c9eef28b6b984fec220ef0abfecc40b502d46946706e47bfe97707027cb818bd",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/vk_swiftshader_icd.json"
+        },
+        {
+          "member": "electron",
+          "bytes": 234544456,
+          "sha256": "c8e64073703ee96c02b6e70ba08e67489f9bb222c78894af7c624e5d60d5d555",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/electron"
+        },
+        {
+          "member": "locales/gu.pak",
+          "bytes": 234228,
+          "sha256": "65ec9753ea5045fb29d0ef121c8aed59ee5ca0ddc490e0b5694363b4f31e6ecf",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/gu.pak"
+        },
+        {
+          "member": "locales/sr.pak",
+          "bytes": 173891,
+          "sha256": "f9a0fbb4b724795dbf057751d070135a0ce25975ea5a4949427713be05b98ccf",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/sr.pak"
+        },
+        {
+          "member": "locales/sk.pak",
+          "bytes": 120097,
+          "sha256": "f94a41b2549b72c634ba3f644126d426d07454b1a127f57085692c19cf783f84",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/sk.pak"
+        },
+        {
+          "member": "locales/cs.pak",
+          "bytes": 117141,
+          "sha256": "373f4ec11cce7f571903d030bdb5528eb33a08cb13702a9ac5d460824cb57b65",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/cs.pak"
+        },
+        {
+          "member": "locales/zh-CN.pak",
+          "bytes": 93488,
+          "sha256": "2cbcf8afe6655ec311e86aa74fc5efafc7114e4b3e908530f8f5c24a050b3d0c",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/zh-CN.pak"
+        },
+        {
+          "member": "resources/default_app.asar",
+          "bytes": 110835,
+          "sha256": "eac55d6cfcf4eab7e31a45356567f549ef7eb669e3699226b48a8492ad34f510",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/resources/default_app.asar"
+        },
+        {
+          "member": "locales/vi.pak",
+          "bytes": 132334,
+          "sha256": "58b9efda3c8550592f669b6d00ee1284f3fb47c711e4e5304abe524368dcba34",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/vi.pak"
+        },
+        {
+          "member": "locales/ja.pak",
+          "bytes": 133590,
+          "sha256": "150f3cd0da9d9a52ee59e1d10e7b447e20aff4b6a43201f8e05a5101f62541ba",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ja.pak"
+        },
+        {
+          "member": "locales/am.pak",
+          "bytes": 163797,
+          "sha256": "033b085b853b38db1db9413d916c7e0fb2e0af5384ac794e1024f46ab605d31e",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/am.pak"
+        },
+        {
+          "member": "locales/pl.pak",
+          "bytes": 117286,
+          "sha256": "20dddd456d4b3ffb03c7b9a8c990bdb9c1dcb073e545ce9312ee1b5d00a727fc",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/pl.pak"
+        },
+        {
+          "member": "locales/he.pak",
+          "bytes": 141099,
+          "sha256": "033e8dbca2b90c0789c38284a80085b6375c1706606ba9aab38ab12ed39c94c4",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/he.pak"
+        },
+        {
+          "member": "locales/es.pak",
+          "bytes": 115010,
+          "sha256": "cd4a690770d1a242876e01360c3c52ac7e7a2ef3d5b5dd26622e634735ca1418",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/es.pak"
+        },
+        {
+          "member": "chrome_crashpad_handler",
+          "bytes": 1683256,
+          "sha256": "23fe05bd68ad92d73cf7b8d67a193fcda9e7a2b42ad065d31b51c23f7814a2f3",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/chrome_crashpad_handler"
+        },
+        {
+          "member": "locales/bg.pak",
+          "bytes": 187884,
+          "sha256": "69b0f3796ffb8d0f2cfe9259ffcdcc014316fe02d120520eb3354862b96c6d74",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/bg.pak"
+        },
+        {
+          "member": "libffmpeg.so",
+          "bytes": 2794128,
+          "sha256": "22973709f3742997e9ab399160f036b46270b13c46ba3b4364d9776cb1666669",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/libffmpeg.so"
+        },
+        {
+          "member": "version",
+          "bytes": 6,
+          "sha256": "3119321c81d42114e93c7db0ef0ef4aec6661e6402d3444cdcf8a97703203dc6",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/version"
+        },
+        {
+          "member": "locales/th.pak",
+          "bytes": 218059,
+          "sha256": "e916f79f65a9d34fa0d24abbada00c13da0a4d7946ec40ad7c5122383a598d0e",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/th.pak"
+        },
+        {
+          "member": "chrome-sandbox",
+          "bytes": 15216,
+          "sha256": "f16e2562837856845cfc8ebf4aa7f78b57fdadc6b69130509b1db87ce5d2f869",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/chrome-sandbox"
+        },
+        {
+          "member": "locales/it.pak",
+          "bytes": 113401,
+          "sha256": "12546dcffec040827b2c34e8803bb0f31b58f52c84ff6d51439caadf89235a5e",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/it.pak"
+        },
+        {
+          "member": "locales/ro.pak",
+          "bytes": 117181,
+          "sha256": "fe40486b7794d708801e4ac1f99a5f1472322cbda466bb0c39525c305c25b8e4",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ro.pak"
+        },
+        {
+          "member": "locales/ca.pak",
+          "bytes": 115831,
+          "sha256": "2bec2d52291d32241eecd05f9eb847c83671ac737bf5df0a2d9b8a1e52a54ceb",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ca.pak"
+        },
+        {
+          "member": "locales/fil.pak",
+          "bytes": 117258,
+          "sha256": "101520a329c897c1b0d7bc6ff1fc515d369df1f34c60a8c65184574117a0fd7f",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/fil.pak"
+        },
+        {
+          "member": "locales/sl.pak",
+          "bytes": 112030,
+          "sha256": "b376b7d90526b5e9caaa516a6842efb17384db68399bcb4aa010d1a400a1e190",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/sl.pak"
+        },
+        {
+          "member": "locales/lv.pak",
+          "bytes": 120484,
+          "sha256": "626b254ec925351b84d6aeff01943e3302f6596e25d5d513c799d93026b2ba3b",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/lv.pak"
+        },
+        {
+          "member": "locales/ru.pak",
+          "bytes": 184078,
+          "sha256": "31cddf41965542ee1a6c952b4f66c9d5600d2ecfe4ddcae858ff0f223d365db8",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ru.pak"
+        },
+        {
+          "member": "locales/lt.pak",
+          "bytes": 119952,
+          "sha256": "5a34fa54a3c62d0c43bb5494e390b37746b448a804f6c1f4fa3398210cc24084",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/lt.pak"
+        },
+        {
+          "member": "libvulkan.so.1",
+          "bytes": 2509248,
+          "sha256": "2f2c5af814419590bb9317f9ecc00fa66288366cf65a7728d002d7fc97ae3b11",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/libvulkan.so.1"
+        },
+        {
+          "member": "locales/tr.pak",
+          "bytes": 111553,
+          "sha256": "31c18c0d41376a7d1f7ddba35c6517645825bc5796380cd98d4ff51e38795821",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/tr.pak"
+        },
+        {
+          "member": "locales/uk.pak",
+          "bytes": 185919,
+          "sha256": "b574a3c4e87fdab20876f2201af2b9399f5b4de726e30ab553015e9548c4fe9c",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/uk.pak"
+        },
+        {
+          "member": "locales/ur.pak",
+          "bytes": 167084,
+          "sha256": "32965e67755880636e17f0430b89deec71e93aecdd3a8a21584584fba7a0e139",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ur.pak"
+        },
+        {
+          "member": "libvk_swiftshader.so",
+          "bytes": 4575048,
+          "sha256": "fec7e094f1947c79abe692e478d448a1c5604a493abadf611cd4c83c58d374ba",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/libvk_swiftshader.so"
+        },
+        {
+          "member": "locales/et.pak",
+          "bytes": 103516,
+          "sha256": "a58522d08257d2b5776a523e2f9120a0377efd737f20da34b73e2751617b4495",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/et.pak"
+        },
+        {
+          "member": "LICENSE",
+          "bytes": 1096,
+          "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/LICENSE"
+        },
+        {
+          "member": "locales/zh-TW.pak",
+          "bytes": 92377,
+          "sha256": "ea6cbc6c73ad69b94ef65cb8f6eff3fca61efb8577cd3262874c62735dee6df8",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/zh-TW.pak"
+        },
+        {
+          "member": "resources.pak",
+          "bytes": 13572687,
+          "sha256": "563f70448f436bd9f3af1593cfc8540e718526067c76a923fd6e22b4e8b7ce32",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/resources.pak"
+        },
+        {
+          "member": "locales/el.pak",
+          "bytes": 204829,
+          "sha256": "1b873ab9334d5972161bc21ca833655b5ee053628f94309e5ec66fbbba038ff5",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/el.pak"
+        },
+        {
+          "member": "locales/sw.pak",
+          "bytes": 109724,
+          "sha256": "5cc0b426049cf84dc006ce093b983ed2e4e74684dad12a14bb0de0c3faf54477",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/sw.pak"
+        },
+        {
+          "member": "locales/pt-BR.pak",
+          "bytes": 112062,
+          "sha256": "bea44087a56791f024f0ac5966547f351f6b82ff964fe9296b7c75f1e3ec0734",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/pt-BR.pak"
+        },
+        {
+          "member": "locales/en-GB.pak",
+          "bytes": 94607,
+          "sha256": "96fc060e53c53ec3c7d1fc47ac15dc56986be52ec3ff7363938a0f39bd4579a0",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/en-GB.pak"
+        },
+        {
+          "member": "locales/de.pak",
+          "bytes": 114629,
+          "sha256": "e7697603c971431395a877b52fa64e03724bf24d27b9d023e3e223dfbcf70ecb",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/de.pak"
+        },
+        {
+          "member": "locales/hu.pak",
+          "bytes": 123316,
+          "sha256": "3eb8c70c596ec7c87ab75e203ba5ce3eec67faa2847a14de80882fd96674f225",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/hu.pak"
+        },
+        {
+          "member": "locales/fi.pak",
+          "bytes": 106214,
+          "sha256": "7fdc329d9c4875f15756fd5a50b73020f97845a990b93d60f350117fc4e4688e",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/fi.pak"
+        },
+        {
+          "member": "locales/mr.pak",
+          "bytes": 231464,
+          "sha256": "6ce1ed9cd3bd54ed5cb4aada1f1968a06fd9464632ebe7e37fb6a77d759c922b",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/mr.pak"
+        },
+        {
+          "member": "locales/id.pak",
+          "bytes": 102475,
+          "sha256": "e2f634af2638881c68c61ae666cae2fecf82f27cb77eb54392d2b4c09ef5dbba",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/id.pak"
+        },
+        {
+          "member": "locales/ml.pak",
+          "bytes": 278557,
+          "sha256": "9d53bc0de70e2837fa972b0a5b75cd56a1b514585686cada180d5bd73009e400",
+          "retained": "/workspace/AI-radio-stream-help/desktop/node_modules/electron/dist/locales/ml.pak"
+        }
+      ]
+    },
+    {
+      "archive": "/workspace/.cache/electron/15705763c2a501c8e55079067f73292eede184576305647a01ddc80f4e1b1e17/electron-v45.3.1-win32-x64.zip",
+      "bytes": 158352921,
+      "archive_sha256": "d92d1aa4700e3a7e7f174731f5086ebd9c21f9773e642b260160fe0a6ebe12d2",
+      "all_members_retained": true,
+      "members": [
+        {
+          "member": "locales/zh-TW.pak",
+          "bytes": 592026,
+          "sha256": "ea471e1619a95468390ac92f5a101e482b663e8bd58613ca643e6a52c45e0716",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/zh-TW.pak"
+        },
+        {
+          "member": "locales/nl.pak",
+          "bytes": 671742,
+          "sha256": "122fc0b9596008b8556822555f8831628c6e10a1f337f03ad81aa1f85f633f02",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/nl.pak"
+        },
+        {
+          "member": "locales/uk.pak",
+          "bytes": 1225347,
+          "sha256": "e9d26214e799ec895304952223dd3a5d13d3041e3984378c710fef5626d4d880",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/uk.pak"
+        },
+        {
+          "member": "locales/fil.pak",
+          "bytes": 748590,
+          "sha256": "808d6f4620a9c4fee771dfcf39f382db42e83f1e66fe206f93797b86c22dea24",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/fil.pak"
+        },
+        {
+          "member": "locales/th.pak",
+          "bytes": 1377527,
+          "sha256": "acf2778d5abda266d91a534d8ceb14cfe2fe34bc41a157c4b7a2058ba778ccbb",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/th.pak"
+        },
+        {
+          "member": "icudtl.dat",
+          "bytes": 10824576,
+          "sha256": "e1ed8f674bb8449731b79cae956042da59f9ecbd37c8d3f86586a22b4836e5b2",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/icudtl.dat"
+        },
+        {
+          "member": "locales/ro.pak",
+          "bytes": 733934,
+          "sha256": "c8bac592c3f94d10da90e072ef6940108916d18c3fd6782a182635707435393b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ro.pak"
+        },
+        {
+          "member": "chrome_100_percent.pak",
+          "bytes": 568479,
+          "sha256": "d3bd0c80348ef27db06e1166f3bc2da9a3ceb18eb43ec1ea4a23bfc0fc613ab5",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/chrome_100_percent.pak"
+        },
+        {
+          "member": "locales/ar.pak",
+          "bytes": 1143050,
+          "sha256": "4440bc830751e5f15852628bfa8b5bf8597d176b7c5ffc9fbf2d045cbc502bc6",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ar.pak"
+        },
+        {
+          "member": "vk_swiftshader.dll",
+          "bytes": 5453312,
+          "sha256": "ff2ad0a1edc867450c86dddbfcc8847ecf46f1a150b4bf583c7ce281673b66cd",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/vk_swiftshader.dll"
+        },
+        {
+          "member": "vulkan-1.dll",
+          "bytes": 957440,
+          "sha256": "2f0f62eaf6381893e9492a8c6388129810465b12bdee048b541e3068097ee493",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/vulkan-1.dll"
+        },
+        {
+          "member": "locales/de.pak",
+          "bytes": 728044,
+          "sha256": "d3668cae9058f6f97ceed5bfe05679e20fa75b9333f36a53056688ceb13f55c8",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/de.pak"
+        },
+        {
+          "member": "d3dcompiler_47.dll",
+          "bytes": 4753864,
+          "sha256": "f5c95e919b4ffa1ac71049cd45b9f986d2965e6888395ca2806337985334fa56",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/d3dcompiler_47.dll"
+        },
+        {
+          "member": "dxcompiler.dll",
+          "bytes": 25779712,
+          "sha256": "4b9f924f3f5acea46bd59400035b7418c82b3e49a6419ca28f5c6c8f7aa2f6e9",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/dxcompiler.dll"
+        },
+        {
+          "member": "locales/he.pak",
+          "bytes": 941003,
+          "sha256": "7edfc0e9033ad6e451e175e14d2fba4a158129cbbf45c768314d86c6e1f1b207",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/he.pak"
+        },
+        {
+          "member": "chrome_200_percent.pak",
+          "bytes": 927818,
+          "sha256": "0627475518ecb15650c05a0c438ce27e84568739657f76ad6faf867b5d95ac4f",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/chrome_200_percent.pak"
+        },
+        {
+          "member": "locales/bn.pak",
+          "bytes": 1526566,
+          "sha256": "e2d4d1c81b0218849880b01c896d1d92c2a28347860cb4d5f37d4c777e4aa7cb",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/bn.pak"
+        },
+        {
+          "member": "locales/af.pak",
+          "bytes": 641339,
+          "sha256": "10121e47f8fe41355dd8f4475907be7adea7f5b25459aa53c9f3ef07dafef05c",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/af.pak"
+        },
+        {
+          "member": "resources/default_app.asar",
+          "bytes": 110835,
+          "sha256": "eac55d6cfcf4eab7e31a45356567f549ef7eb669e3699226b48a8492ad34f510",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/resources/default_app.asar"
+        },
+        {
+          "member": "locales/en-GB.pak",
+          "bytes": 585046,
+          "sha256": "e2cf3bd4d2ec7f900c710346362b03bdedf0a46285fd32d9cf6b8fab373b2f20",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/en-GB.pak"
+        },
+        {
+          "member": "locales/kn.pak",
+          "bytes": 1738870,
+          "sha256": "cc9903cb7a98ac81c08b33d3f88e88f35b290eaf0f5eaa8fab67395b330d88f0",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/kn.pak"
+        },
+        {
+          "member": "locales/mr.pak",
+          "bytes": 1481173,
+          "sha256": "7bb875ecd2f725eb037758e261dea1d53c2c6668ccbc6b10fedbb427d0947b8d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/mr.pak"
+        },
+        {
+          "member": "locales/sk.pak",
+          "bytes": 766398,
+          "sha256": "97ff061baeac4437c53a5d0c332f381dfd1abb212886c785ee92fa8444f6fb3f",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/sk.pak"
+        },
+        {
+          "member": "locales/sl.pak",
+          "bytes": 729966,
+          "sha256": "4e9d2aa291c653c0b3a92c973e1d5d1ecd1b6c1cc64b569c0ae37a28b6d46bcd",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/sl.pak"
+        },
+        {
+          "member": "locales/sw.pak",
+          "bytes": 692178,
+          "sha256": "580c759a4004ae1b15145ef6310a31965e4a99ed599572b00d7dcb077b11bc59",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/sw.pak"
+        },
+        {
+          "member": "locales/ml.pak",
+          "bytes": 1785503,
+          "sha256": "6e3480887885349cd3198c2f608da25bc7722dbad7c1fba695f95e0e6d564b36",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ml.pak"
+        },
+        {
+          "member": "ffmpeg.dll",
+          "bytes": 3097600,
+          "sha256": "fadaac6d021d2141488ecffd1ddaf3088bb6c78f5e729ee8fd7964bdcef3930c",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/ffmpeg.dll"
+        },
+        {
+          "member": "locales/ru.pak",
+          "bytes": 1212098,
+          "sha256": "88d2779bbe1c8b8427ca9d78d23c53663e506910435dbdf88a949dc4ca91964b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ru.pak"
+        },
+        {
+          "member": "version",
+          "bytes": 6,
+          "sha256": "3119321c81d42114e93c7db0ef0ef4aec6661e6402d3444cdcf8a97703203dc6",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/version"
+        },
+        {
+          "member": "locales/el.pak",
+          "bytes": 1309811,
+          "sha256": "f8e4cc68aed45935d7311bd98627fce5934ffcc151d109093de689696c890ec0",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/el.pak"
+        },
+        {
+          "member": "locales/nb.pak",
+          "bytes": 643919,
+          "sha256": "754820b5f3ec2a19f5a0177026541654bba2a9394a665cd3006e049edd71881d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/nb.pak"
+        },
+        {
+          "member": "locales/pt-BR.pak",
+          "bytes": 705491,
+          "sha256": "bd20fd86ea750a3f1094353e3b4b1c23e7c9bd5e2c59f1ec88361ffd4220448e",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/pt-BR.pak"
+        },
+        {
+          "member": "locales/vi.pak",
+          "bytes": 839393,
+          "sha256": "ea7f9ee1aa410b35131a62566f5908eee5a5ab87274ef19eec9da04bbaf3ed4a",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/vi.pak"
+        },
+        {
+          "member": "locales/es.pak",
+          "bytes": 710843,
+          "sha256": "2a210033ed22dc0a0c5be15d3e14ad1550f782ce2c1289265130643a52d5e59e",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/es.pak"
+        },
+        {
+          "member": "resources.pak",
+          "bytes": 13371664,
+          "sha256": "dbd9835e7779d5b226aabba17ed140a3ac1f9556f55970a984403881b7618b88",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/resources.pak"
+        },
+        {
+          "member": "locales/it.pak",
+          "bytes": 700983,
+          "sha256": "b78bca99c590f45b660ce446a0a094e3d7a101c987965ac4e697f79685c230c9",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/it.pak"
+        },
+        {
+          "member": "locales/lt.pak",
+          "bytes": 785117,
+          "sha256": "2fe1400fc3e0010f30955171124c9c8bf0fbab6aaddfce967b997bdc31fa2977",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/lt.pak"
+        },
+        {
+          "member": "locales/sv.pak",
+          "bytes": 654571,
+          "sha256": "9b7ada21987ccced94e15c5b0495f564ecbbaef3afd5746ed20b08fa3625578b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/sv.pak"
+        },
+        {
+          "member": "locales/ur.pak",
+          "bytes": 1060438,
+          "sha256": "f4d5f15daf9f3dd422f52421b93f0b5f6791a9928facb0e1b6dfd894a3814281",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ur.pak"
+        },
+        {
+          "member": "locales/hi.pak",
+          "bytes": 1601863,
+          "sha256": "e55d2c94104b5e4329c5f254cf670caa6414ca1137af260e86adeff986f4292f",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/hi.pak"
+        },
+        {
+          "member": "locales/am.pak",
+          "bytes": 1037302,
+          "sha256": "5150bc6cfc63844816e305b9645cb8e15587ff826a2be1d8639f2087bfb0a5da",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/am.pak"
+        },
+        {
+          "member": "locales/pt-PT.pak",
+          "bytes": 708345,
+          "sha256": "3221980cfcc761036ab340c903d17630379e2b592736abe4e2d2513c5cbdcd1d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/pt-PT.pak"
+        },
+        {
+          "member": "locales/ta.pak",
+          "bytes": 1773876,
+          "sha256": "6ef6497441c04f7dcc18caa552d961c5f22e8b369c97a6632bca6b57d6bd7876",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ta.pak"
+        },
+        {
+          "member": "v8_context_snapshot.bin",
+          "bytes": 753352,
+          "sha256": "da6d3ede7446ff74d3f797ed4144dbba19f3198b569ab0caf04764c42cef8a22",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/v8_context_snapshot.bin"
+        },
+        {
+          "member": "LICENSE",
+          "bytes": 1096,
+          "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/LICENSE"
+        },
+        {
+          "member": "locales/zh-CN.pak",
+          "bytes": 600098,
+          "sha256": "ec56f40036a2deb4cf98071c58a271c27c7faf5d07c8a8ad14b50ed14a44980d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/zh-CN.pak"
+        },
+        {
+          "member": "locales/id.pak",
+          "bytes": 642959,
+          "sha256": "7111a5623ece2362e16be5a785030a9a628937ab680db34c9dbab6ae7926d0e6",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/id.pak"
+        },
+        {
+          "member": "locales/gu.pak",
+          "bytes": 1508809,
+          "sha256": "71d29958f321c014b0d36625c9e7d5af7e42e5ab2d753ecd6bceaf02b64d652d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/gu.pak"
+        },
+        {
+          "member": "locales/ms.pak",
+          "bytes": 677751,
+          "sha256": "e0a46e0f40cf0c197c2a1fcb2adca421a93d2ade3d1333b99489f8b7d4a335d3",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ms.pak"
+        },
+        {
+          "member": "locales/ja.pak",
+          "bytes": 853529,
+          "sha256": "489cdbde7e1ce5fab60086547e4cd6de5316ecee9520ca1ee71dd4911cba0fe0",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ja.pak"
+        },
+        {
+          "member": "vk_swiftshader_icd.json",
+          "bytes": 106,
+          "sha256": "32d83ff113fef532a9f97e0d2831f8656628ab1c99e9060f0332b1532839afd9",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/vk_swiftshader_icd.json"
+        },
+        {
+          "member": "locales/fa.pak",
+          "bytes": 1078279,
+          "sha256": "0809bfeb0b0f3d0cab589a590f04d73e45faace6671fef137fc901db9884314f",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/fa.pak"
+        },
+        {
+          "member": "locales/ko.pak",
+          "bytes": 730396,
+          "sha256": "d3d22df64bab98e36e5a5635e98b33323af0a4b7f1a649bc049e1a753cd70ccb",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ko.pak"
+        },
+        {
+          "member": "locales/es-419.pak",
+          "bytes": 714500,
+          "sha256": "21849404ab973bf6c51ca3a876974056140916fa3c32e07e62363fece70c4b4d",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/es-419.pak"
+        },
+        {
+          "member": "locales/cs.pak",
+          "bytes": 753878,
+          "sha256": "cdd8eb041d9e2231e737c5cacae51034d3e3935e2c33d31d216caa17e5d941ff",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/cs.pak"
+        },
+        {
+          "member": "locales/sr.pak",
+          "bytes": 1124214,
+          "sha256": "847f575be1bb00072c1d8dad3365117b51de7ffa7ea70b09f3a76de44e804467",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/sr.pak"
+        },
+        {
+          "member": "locales/da.pak",
+          "bytes": 674463,
+          "sha256": "cdf0ea6c9f400af2374c88e50e0cd0a33d9a1ee58db797ad15f7b1ad99890a96",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/da.pak"
+        },
+        {
+          "member": "electron_wer.dll",
+          "bytes": 425472,
+          "sha256": "104f8ae206c2ffa4228e4b9058e22ef00d61e9fef6dad033861776df8e5a43d1",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/electron_wer.dll"
+        },
+        {
+          "member": "LICENSES.chromium.html",
+          "bytes": 5705935,
+          "sha256": "7dac8267ac6da8d959cfe88f5f055b18a397f10230380b5329125e167bf5639b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/LICENSES.chromium.html"
+        },
+        {
+          "member": "locales/bg.pak",
+          "bytes": 1189898,
+          "sha256": "3f9d18988748118895dc026e4f56a442f078d3a5d564000d177a52ce934346b7",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/bg.pak"
+        },
+        {
+          "member": "locales/te.pak",
+          "bytes": 1648207,
+          "sha256": "301a6b26e82540bc6079c1e210f575950b1dbd8c03437a7817d8446c06c755e7",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/te.pak"
+        },
+        {
+          "member": "locales/en-US.pak",
+          "bytes": 592299,
+          "sha256": "de43db43fe0072543ab225f6d762cce3656a1639bf9e25f371fe0e80d9eabba7",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/en-US.pak"
+        },
+        {
+          "member": "locales/hu.pak",
+          "bytes": 775366,
+          "sha256": "0d44b7669e37805786b3fe637f2291654c2698b8ec8b57ddec17c1cf4bea5857",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/hu.pak"
+        },
+        {
+          "member": "locales/ca.pak",
+          "bytes": 724870,
+          "sha256": "d8919779075e3c13a2690e46a039878e5dd5031d4076596590ce2400a06ce95b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/ca.pak"
+        },
+        {
+          "member": "electron.exe",
+          "bytes": 250091008,
+          "sha256": "8e259d3bd53d7e16f491987e8bad461b84734807816856c99a2640d3577812e2",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/electron.exe"
+        },
+        {
+          "member": "locales/lv.pak",
+          "bytes": 782864,
+          "sha256": "3ed091a6dbba7b8a5a4beff7191918f84ee0a7de23004d76f57826104094f02b",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/lv.pak"
+        },
+        {
+          "member": "snapshot_blob.bin",
+          "bytes": 374320,
+          "sha256": "55c133d347a35d632388c61c387033e769587d5572d5efee48ccc2d655661213",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/snapshot_blob.bin"
+        },
+        {
+          "member": "locales/fi.pak",
+          "bytes": 663455,
+          "sha256": "a3e8bcb525568ba1e1908e8cc57b9e05b3ee3d9245cd74894d0fb485eb79a9a7",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/fi.pak"
+        },
+        {
+          "member": "locales/pl.pak",
+          "bytes": 751664,
+          "sha256": "364ac77a3f7f3aed3f42016b12a4c140dc7e89b0ff197cddfa968269a414cb62",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/pl.pak"
+        },
+        {
+          "member": "locales/tr.pak",
+          "bytes": 706650,
+          "sha256": "33f8ad8adb97a342ab85ce0319788b874ccfbd125b0f881bf12adce42eaa6d75",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/tr.pak"
+        },
+        {
+          "member": "locales/fr.pak",
+          "bytes": 774089,
+          "sha256": "a69c3908223e2f6d1cb4e1e7166a82af58ddf498f49a1522417cc4bbac72fbc1",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/fr.pak"
+        },
+        {
+          "member": "locales/et.pak",
+          "bytes": 649737,
+          "sha256": "9a8f5574c2a9931e6bd2eb2c021e2132d39a6f569e8fdc40a8475e5a8c0a776a",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/et.pak"
+        },
+        {
+          "member": "locales/hr.pak",
+          "bytes": 724777,
+          "sha256": "96506f22e560e838ae740bfd72e07ad7a484d4af2d52816a64b9b35742dbf5b3",
+          "retained": "/workspace/AI-radio-stream-help/.build/windows-electron/locales/hr.pak"
+        }
+      ]
+    }
+  ],
+  "not_modified": [
+    "published base ZIP/parts",
+    "Windows base unpacked bytes",
+    "model weights",
+    "user data",
+    "source artwork",
+    "model projects",
+    "evidence media"
+  ]
+}

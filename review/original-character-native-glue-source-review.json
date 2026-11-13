@@ -1,0 +1,145 @@
+{
+  "status": "READ_ONLY_NATIVE_GLUE_SOURCE_AND_RECIPE_REVIEW",
+  "verified_api_and_solver": {
+    "one_way": "A=activeCup,B=technicalHelper. weightA moves A toward B; weightB=0 keeps helper untouched. Public canvas_glue_edit weights supports hits_a indices + weight_mode a/b + delta, each stored pair receives independent weights.",
+    "ordered_two_helper_formula": "First R-reference glue aWeight1,bWeight0; second L-reference glue aWeight=t(vertex),bWeight0. With both glue intensities h: C1=(1-h)Croot+h*HrefR; C2=(1-h*t)*C1+h*t*HrefL. At h1 C2=(1-t)HrefR+t*HrefL; at h0 Croot. Reverse order or complementary weights(1-t,t) does not realize this map.",
+    "hold_binding": {
+      "operation": "keyform_apply",
+      "request_example": {
+        "changes": [
+          {
+            "op": "set",
+            "target": "glue:OriginalCupAttachmentR",
+            "key": {
+              "ParamCupHold": 0
+            },
+            "channels": {
+              "glueIntensity": 0
+            }
+          },
+          {
+            "op": "set",
+            "target": "glue:OriginalCupAttachmentR",
+            "key": {
+              "ParamCupHold": 1
+            },
+            "channels": {
+              "glueIntensity": 1
+            }
+          }
+        ]
+      },
+      "constraint": "Glue intensity supports ordinary parameters; release refuses blend-shape parameters. Every source paired vertex and matching index must be audited.",
+      "source_lines": "RigAuthoringJournal113-122, CanvasEdits460-545, GlueSeam280-306, DeformPrepare340-358"
+    },
+    "opacity0_export": "Moc3ExportEligibility90-106 does not filter numerical opacity0. Keep mesh and Part visible, non-sketch, geometry and parent inverse available. Clear all copied opacity key tracks as well as static opacity; do not use visibility false. Actual minimum native Core reports below now confirm invisible helpers survive and move.",
+    "overlap_handling": "Source CPU applies glues sequentially. Compact GPU attributes have one partner/vertex; repeated cup vertices trigger requiresSequentialGlue and PuppetRenderer737-751 evaluates sequential CPU deformation. MOC lowerGlues preserves list order and pair-side weights; actual NativeCore mechanism is independently verified below, not inferred solely from the preview.",
+    "contact_topology": "Cup contact must be actual inserted vertex at each reviewed contact so t is exactly0/1 at evaluated cup anchor. Because palms final parent is RotationWorld affine, source palm triangle barycentric point follows same T(p), no need to copy its complete triangle. Preserve actual original UV by inside-triangle split, then duplicate helper meshes. Rebind all actual Core vertex/triangle indices after export."
+  },
+  "full_unified_S_graph_review": {
+    "mathematical_result": "Under true ROOT rigid Rotation S(scale1,no mirror), warp CP propagation, RotationWorld origin/direction probes and ordered glue affine combinations are Euclidean-equivariant. Duplicate full3BodyWarp+6Shoulder/Elbow/Wrist chains under S, helpers under copied Wrist, activeCup under same S. Then held cup=S[(1-t)T_R(p)+tT_L(p)], detached=S(p), so manual XYZ remains meaningful without fitting six body axes.",
+    "required_static_rebase": "Root pivot c=(891.5,1185.5) with origin=c+XY and angle=R requires all9 copied BodyXY cells translated by-c; all Lean/Z and6Rot local definitions remain unchanged. Warp has no separate hidden bounds field. All9 recipe normalized deltas independently match extracted source IR exactly.",
+    "manual_warp_not_equivalent": "Sampled rotation through ManualWarp linearly interpolates CP and introduces scale off-key; WarpWorld accY does not propagate that spatial scale into child RotationWorld. Use true ROOT Rotation scale1 for this exact proof.",
+    "full_recipe": "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/native-glue-shared-root-recipe.json",
+    "recipe_sha256": "e6b691bd882d7455d0174bc280cef67a509adbb24e6d0723a0cbc54eb8e2533f",
+    "step_count": 35,
+    "all_child_of_deformer_use_parent_id": true,
+    "empty_rotation_business_rule": "CanvasEdits134 refuses empty parent_of_selected Rotation despite public meshes min0. Correct recipe creates TmpEmptyWarp under intended parent, wraps only that temporary empty Warp with Rotation parent_of_deformer(preservePose false), moves temporary Warp toROOT and deletes it, then copies exact source rotation cells. No animated existing warp is wrapped.",
+    "actual_execution_limit": "This reviewer did not execute recipe or mutate MCP. Owner is executing isolated new source; unified S XYZ,810/512,actions,topology/pixels/performance still require separate true Core evidence."
+  },
+  "observed_independent_minimal_native_core_evidence": [
+    {
+      "report": "/workspace/AI-radio-stream-help/review/hand-cup-native-glue-helper-counterfactual-seed512.json",
+      "sha256": "a3f7c7ffeaf474b389fb00b88aeac3b81023d9064e9236cfdc52d8929b23b502",
+      "execution_owner": "Independent frontend agent, not this reviewer",
+      "observed_status": "measured_counterfactual_within_budget_not_full_acceptance",
+      "current_bound_sources_rehashed": 11,
+      "current_source_sha_mismatches": [],
+      "actual_measurements": {
+        "cases": 512,
+        "max_error_source_px": 3.1754692720719173e-05,
+        "max_root_coordinate_drift_source_px": 0,
+        "noncup_changed_cases": 0,
+        "root_changed_cases": 0,
+        "max_helper_opacity": 0
+      },
+      "checks": {},
+      "scope": "Actual Core native-glue helper mechanism only; no held XYZ, motions, GL, Windows or art acceptance"
+    },
+    {
+      "report": "/workspace/AI-radio-stream-help/review/hand-cup-native-glue-helper-product-probe.json",
+      "sha256": "a42ac99809622ce4f98c53083bd3ba016b0513c8a86ac720e6ba902a680fb65e",
+      "execution_owner": "Independent frontend agent, not this reviewer",
+      "observed_status": "passed_limited_mechanism_not_final_acceptance",
+      "current_bound_sources_rehashed": 31,
+      "current_source_sha_mismatches": [],
+      "actual_measurements": {},
+      "checks": {
+        "actual_http_import_activate_sdk_core_gl": "passed",
+        "eight_fixed_poses_grips_1px": "passed",
+        "helpers_never_visible": "passed",
+        "detached_root_exact": "passed",
+        "cup_hold_noncup_exact": "passed"
+      },
+      "scope": "Actual application import/activate and product SDK/Core/GL, eight fixed native-glue poses only; no final art/XYZ/motions/Windows claim"
+    }
+  ],
+  "contract_decision": "Root explicitly requested versioned physical active-cup vs always-invisible technical-helper roles. Preserve original grip<=1px/fingerroot<=0.5px, physical noncup exact0 and active-cup detachedROOT exact0. Permit only declared helper geometry to follow Body/XYZ/its actual limb ancestors; helper opacity must remain exact0. This review changes no test or threshold.",
+  "sources": {
+    "Glue.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/runtime/model/Glue.kt",
+      "sha256": "2575ebfa431ab1a90ee51d924cc91ffa4328c27cc5a640e12ebe8b623de83ebf",
+      "access_date_utc": "2026-11-13"
+    },
+    "DeformPrepare.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/render/eval/DeformPrepare.kt",
+      "sha256": "92cce2e858b769bfe4b540fa1d74c222137734b797a9542708c94da992057bb0",
+      "access_date_utc": "2026-11-13"
+    },
+    "GlueSeam.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/GlueSeam.kt",
+      "sha256": "1e8bbf90dc24ee86c94854b3bcda31b4215a944b6c70d5bc2837f9cf74126d53",
+      "access_date_utc": "2026-11-13"
+    },
+    "Moc3ExportEligibility.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/interop/moc3/export/Moc3ExportEligibility.kt",
+      "sha256": "cae468229df322d1247dafea39995b4ce10bcc36d45f4ca7fc7a3b6a5f16bd1b",
+      "access_date_utc": "2026-11-13"
+    },
+    "Moc3GlueLowering.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/interop/moc3/export/Moc3GlueLowering.kt",
+      "sha256": "ce81d98ed28999a1caae4b45f8300f532699393e8b48e762136ced44e4d0cb31",
+      "access_date_utc": "2026-11-13"
+    },
+    "GlueLayout.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/render/puppet/GlueLayout.kt",
+      "sha256": "0fb559511fdab267114660ae6f3604a7d350e3549f2df6b5154e30956ccb201b",
+      "access_date_utc": "2026-11-13"
+    },
+    "PuppetRenderer.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/umamo/src/main/kotlin/org/umamo/render/puppet/PuppetRenderer.kt",
+      "sha256": "de1f259951fc230bf885a3b8d5f668769c79076531d7f3f11a0cc045ad4ab8a9",
+      "access_date_utc": "2026-11-13"
+    },
+    "CanvasEdits.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/CanvasEdits.kt",
+      "sha256": "59fd091a398330e80da0a67c112fd1dce75d548e9146467893d0eaa035892710",
+      "access_date_utc": "2026-11-13"
+    },
+    "WorkspaceCanvasCommands.kt": {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/application/WorkspaceCanvasCommands.kt",
+      "sha256": "cec6f08802b83f8d87523ba0fd21e2eef416ff8e64eb2e60bbcbfeedeecf16ad",
+      "access_date_utc": "2026-11-13"
+    }
+  },
+  "actual_pitfalls_for_handoff": [
+    "Copy3BodyWarp alone is not equal to palms Rotation-chain propagation, even when joint angles0.",
+    "Numerical zero opacity survives native export; isVisible=false is a different condition and may drop the helper.",
+    "Staticopacity0 does not override copied keyed CupVisible opacity; clear every opacity key.",
+    "Sequential overlapping glue weights are order-dependent; first fullR then weightedL is required.",
+    "canvas_warp child_of_deformer reads parent_id while parent_of_deformer reads deformer_id; original shared-root recipe actually hit this after schema accepted it, red audit retained by author.",
+    "Public empty Rotation request is schema-legal but business-invalid; use temporary empty Warp.",
+    "PRIO float arrays>=v5 are byte planes; corrected source reader validates finite data and complete object consumption before publishing."
+  ],
+  "performed": "Read-only archive/source/API schema/reports/recipe review only; no original image, MOC, authoring project, production or acceptance test modified."
+}

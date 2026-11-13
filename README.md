@@ -2,13 +2,18 @@
 
 用户可以创建自己的二次元角色、上传有权使用的形象，并配置性格与相处方式。聊天、记忆和约定按身份隔离；同一角色换外观保留关系。学习监督是可选能力，长期记忆可关闭。
 
-开发版本 **0.5.0-dev3**，目标 **Windows 10/11 x64**。当前已实现 PNG、VRM 与 Live2D 运行包的自助导入流程、本地录音转写、语音提供方配置和平台控制面板；各格式与平台的验证程度不同。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
+开发版本 **0.5.0-dev3**，目标 **Windows 10/11 x64**。本批已完成原创半身 Live2D：独立十指、手掌、硬质杯子、四种手杯动作，以及自助导入、主舞台操作和真实本地语音联动。PNG、VRM、录音转写及平台桥接保留各自的验收范围。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
 
 [运行与角色导入](app/README.md) · [执行看板](docs/planning/execution-board.md) · [视觉质量目标](docs/design/visual-quality-target.md)
 
 [工程门禁与截图/录像复现](docs/implementation/engineering-gates.md) · [原创 Live2D 制作状态](docs/implementation/avatar-original-live2d-status.md) · [本机运行库安装](docs/implementation/live2d-windows-owner-setup.md)
 
 ## Windows 运行
+
+[本批软件更新、Live2D 模型、完整编辑源与实际录像](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d)。已有基础包时，只需约7MB程序更新和约11MB运行模型；完整源文件约346MB，供编辑使用，不是软件导入包。
+
+先退出软件并应用 `character-app-source-update-0.5.0-dev3.zip` 中的 `apply-ui-update.cmd`；再按[本机运行库安装](docs/implementation/live2d-windows-owner-setup.md)运行 `setup-live2d-owner.cmd`；打开角色工作室，导入 `original-live2d-r2-candidate-runtime.zip`，预览并确认。安装运行库复用原包Python，无需Node/npm，明确接受条款后才下载约29MB固定依赖及官方Core。
+
 
 [下载 Windows 便携候选包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。下载页面中的 `download-and-assemble.cmd` 和 `download-and-assemble.ps1`，放在同一文件夹后双击 CMD，自动下载三卷、校验并合并；完整解压后运行程序。合计下载约 4.18 GiB，候选包尚待 Windows 真机验收。
 
@@ -26,9 +31,9 @@
 | --- | --- |
 | 自助身份与 PNG | 创建、切换、归档、恢复、删除；预览后启用、修订回退；四状态自然眨眼/说话切换，本机 HTTP 与真实 Chrome 已验证 |
 | VRM 0/1 | 自包含运行资产导入、本地 WebGL、眨眼/呼吸/视线、音频 RMS 口型及隐藏释放；本机 Chrome 已验证，非音素级口型/目标美术验收 |
-| Live2D | 自助 ZIP 导入、真实 MOC 渲染、视线/眨眼/呼吸/音频口型、物理、包内表情和动作；主舞台直接操作与形象重载故障恢复已有真实 Chrome 证据。原创半身角色的独立十指、手掌和可脱离杯子正在最终硬杯验收，以[制作状态](docs/implementation/avatar-original-live2d-status.md)为准 |
+| Live2D | 42网格/41参数原创半身模型、十指独立弯曲、手掌与衣袖、杯子独立位移/旋转/隐藏及持杯跟随；四种动作/四表情/三种场景主UI通过；547组合双通道与独立5000持杯/杯形实测通过，见[最终汇总](review/live2d-rigid-r2-frontend-acceptance-summary.json) |
 | 对话与关系 | 流式回复、相关记忆、记忆关闭、短期上下文和可控约定；真实本地模型已冒烟，人工自然度与长期关系体验未验收 |
-| 语音 | 本地 Kokoro、可选 GPT-SoVITS 或系统声音；PCM16 WAV → 本地 faster-whisper tiny → 输入草稿，已做合成语音真实 HTTP 检查，未作 Windows 真人麦克风验收 |
+| 语音 | 最终模型和运行ZIP已真实走通Qwen→Kokoro→HTMLAudio/Analyser→Core口型与停止/上下文回执，见[实测](review/real-live2d-rigid-r2-companion.json)；录音识别及Windows真人麦克风为独立验收 |
 | 打断 | 生成取消、旧身份/旧媒体拒绝已有本机证据；播放回执、历史 TTS、过期停止拒绝及未听尾部的保守上下文处理已完成本机验证；7项真实 Chrome 通过，不证明真人已听见 |
 | 微信 | AstrBot ClawBot 私聊桥接、逐条审核/自动回复控制和音频文件路径已实现；用户接受音频文件，原生语音条非必做；真实账号与送达待验 |
 | 哔哩哔哩 | 官方 Open Live 输入、独立公开设定、停止/重连与本机弹幕回复预览已实现；用户有可管理房间，凭据与真实连接待验；无默认公开播出 |

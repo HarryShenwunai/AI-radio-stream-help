@@ -1,0 +1,149 @@
+{
+  "observed_at": "2026-11-13T01:20:44.700343+00:00",
+  "status": "SOURCE_EXTRACTION_FIXED_RUNTIME_ART_REVIEW_PENDING",
+  "actual_evidence": {
+    "old_y614_alpha_ge8_pixels": 86,
+    "old_y614_alpha_ge128_pixels": 74,
+    "old_y614_max_alpha": 252,
+    "old_left_upperlash_foreign_iris_alpha_ge8_pixels_first30rows": 91,
+    "corrected_rows": [
+      0,
+      350,
+      685,
+      960,
+      1230,
+      1536
+    ],
+    "cells_guarded": 16,
+    "layers": 21
+  },
+  "executed": {
+    "unit_command": "node --test --test-reporter=tap tests/test_live2d_atlas_cells.mjs (authorized normal process reporting)",
+    "unit_passed": 9,
+    "unit_skipped": 0,
+    "cli_command": "node scripts/assemble_live2d_head.mjs .build/original-character-art-r4-head-r3-eye-gutters",
+    "cli_exit_code": 0,
+    "source_only": true
+  },
+  "changed_layers": [
+    {
+      "name": "iris-r",
+      "old_cell": {
+        "left": 0,
+        "top": 307,
+        "width": 512,
+        "height": 307
+      },
+      "new_cell": {
+        "left": 0,
+        "top": 350,
+        "width": 512,
+        "height": 335
+      },
+      "old_alpha_crop": {
+        "left": 181,
+        "top": 116,
+        "width": 192,
+        "height": 191
+      },
+      "new_alpha_crop": {
+        "left": 181,
+        "top": 73,
+        "width": 192,
+        "height": 197
+      }
+    },
+    {
+      "name": "iris-l",
+      "old_cell": {
+        "left": 512,
+        "top": 307,
+        "width": 512,
+        "height": 307
+      },
+      "new_cell": {
+        "left": 512,
+        "top": 350,
+        "width": 512,
+        "height": 335
+      },
+      "old_alpha_crop": {
+        "left": 139,
+        "top": 116,
+        "width": 192,
+        "height": 191
+      },
+      "new_alpha_crop": {
+        "left": 139,
+        "top": 73,
+        "width": 192,
+        "height": 198
+      }
+    },
+    {
+      "name": "eyelash-r",
+      "old_cell": {
+        "left": 0,
+        "top": 614,
+        "width": 512,
+        "height": 307
+      },
+      "new_cell": {
+        "left": 0,
+        "top": 685,
+        "width": 512,
+        "height": 275
+      },
+      "old_alpha_crop": {
+        "left": 73,
+        "top": 0,
+        "width": 360,
+        "height": 267
+      },
+      "new_alpha_crop": {
+        "left": 73,
+        "top": 66,
+        "width": 360,
+        "height": 130
+      }
+    },
+    {
+      "name": "eyelash-l",
+      "old_cell": {
+        "left": 512,
+        "top": 614,
+        "width": 512,
+        "height": 307
+      },
+      "new_cell": {
+        "left": 512,
+        "top": 685,
+        "width": 512,
+        "height": 275
+      },
+      "old_alpha_crop": {
+        "left": 79,
+        "top": 0,
+        "width": 356,
+        "height": 268
+      },
+      "new_alpha_crop": {
+        "left": 79,
+        "top": 66,
+        "width": 356,
+        "height": 131
+      }
+    }
+  ],
+  "source_sha256_after_check": {
+    "scripts/assemble_live2d_head.mjs": "9acc17e63a2ed88f23e7b78ebdad887804d3029405afc0dcd4e062d6299a6eeb",
+    "scripts/live2d_atlas_cells.mjs": "48546a7c59cd772dd68102bbd7b8089d8ea8300a28bdfabad284f15268c37c81",
+    "tests/test_live2d_atlas_cells.mjs": "3d0f4d3605611e395afc7c827aa90ac03bc3f0706d267a842dd3046fb0eaabf6",
+    ".build/original-character-art-r4-head-r3-eye-gutters/layers.json": "0cc0f325bc3a67689b8f99944e73980ec483e872c9e85f4ef550737da780ffd7"
+  },
+  "limits": [
+    "This regenerates PNG source layers, not a MOC or final visual acceptance",
+    "Source head assembly displays all mouth layers without runtime opacity and is not a neutral character render",
+    "Normal filesystem sandbox Node child IPC reports files rather than individual cases; explicit non-isolated run and authorized normal process run each exposed nine passes; intentional failed subtest was rejected."
+  ]
+}

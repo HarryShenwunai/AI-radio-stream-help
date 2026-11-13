@@ -1,0 +1,50 @@
+{
+  "frozen_at": "2026-11-13T03:15:50.801095+00:00",
+  "status": "expression_ui_and_reproducible_shape_instrument_frozen_r2_moc_pending",
+  "sources": {
+    "app/static/stage-actions.js": "e5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8",
+    "app/static/index.html": "6ff33c93525a4c2b12e5c9e837c45af93485e131f33922b1e117a536838e2993",
+    "tests/test_stage_actions_ui.mjs": "82ae65e27a65554290ba4fb288be41fbf03e2520c0915c69154995aad7ac729e",
+    "tests/live2d_cup_geometry.py": "c0f38a1e6e112410f87472f36d8095a46765478cd3adb03684dbfa2f6a409dba",
+    "tests/test_live2d_cup_geometry.py": "14c179a363edd315544fc6161067b797df2a189403e3c1b3827d418e95e89eb8",
+    "tests/live2d_cup_rigidity_check.py": "e35bfec96770269f0340df37963d621c8cc4e3068204bbcd315ae6d529babbca",
+    "tests/fixtures/live2d-cup-poses-seed2236067977-5000.json": "243ae53faad169f4b02ce73e1cd5912e9ec7710c3aa63221220e845faf83f057"
+  },
+  "unchanged_production": {
+    "app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "app/static/style.css": "e4cc2bda9aac009aa3dd3ce6cd6145ef00dafedc28e55d24cc9e0cc921308021",
+    "frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+  },
+  "node_cases": 111,
+  "node_pass": 111,
+  "node_skip": 0,
+  "geometry_instrument_unit_cases": 8,
+  "geometry_unit_result": "passed",
+  "critical_ruff": "passed",
+  "actual_expression_ui": {
+    "report": "review/live2d-mainstage-expression-controls.json",
+    "sha256": "1e28c3e247b2d50bebe50a7d3382b12e45aaea7669224a641e650e313071fb2f",
+    "source_stable": true
+  },
+  "old_soft_cup_rejected": {
+    "report": "review/hand-cup-formal-r1-official-rigidity-red.json",
+    "threshold_before_r2_export": {
+      "used_vertices_affine_source_px": 0.5,
+      "used_vertices_similarity_source_px": 0.5
+    },
+    "alpha_supported_count": 81,
+    "used_vertices_count": 154,
+    "unused_count": 0
+  },
+  "fresh5000_q_prediction": {
+    "report": "review/hand-cup-20655-independent-seed5000-q-validation.json",
+    "max_source_px": 0.6786062916092933,
+    "not_new_moc_pass": true
+  },
+  "limits": [
+    "R2 actual export/grip5000/shape must be independently executed",
+    "No Windows/4060 or physical-device performance claim",
+    "Expression UI test current originalMOC is separate from hard-cup acceptance"
+  ]
+}

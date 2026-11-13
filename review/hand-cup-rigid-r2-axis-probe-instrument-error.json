@@ -1,0 +1,6 @@
+{
+  "observed_at": "2026-11-13T04:48:18.658434+00:00",
+  "status": "instrument_error",
+  "error": "Read-only axis probe used HandwearR/L but actual Core IDs are ArtMeshHandwearR/L; actual mesh lookup explicitly failed before measurement. No model failure or pass inferred.",
+  "production_changed": false
+}

@@ -1,0 +1,96 @@
+{
+  "date_utc": "2026-11-12T23:53:20.720678+00:00",
+  "status": "actual_r5_partial_verified_full_character_not_complete",
+  "checks": {
+    "r4_hand_cup": {
+      "path": "review/original-character-live2d-r4-r1-hand-cup-endpoints.json",
+      "sha256": "6dacf9619832817436bf0ebe1586149e0f8622703806109cc871ad5db129e314",
+      "status": "passed",
+      "source_stability_observed": true
+    },
+    "r4_semantic": {
+      "path": "review/original-character-live2d-r4-r1-semantic-ownership.json",
+      "sha256": "973c3eae7aad388bae074a69c6d02778c395f947a91369e0813ee495c4bbff7c",
+      "status": "bounded_semantic_and_detached_cup_checks_passed",
+      "source_stability_observed": true
+    },
+    "r5_overlap": {
+      "path": "review/original-character-live2d-r5-overlap-probe.json",
+      "sha256": "905c1b99c8744a15d16b60d509f40c9bf87bac17efe1fe87bae9c11ff889743f",
+      "status": "passed",
+      "source_stability_observed": true
+    },
+    "r5_backfill": {
+      "path": "review/original-character-live2d-r5-backfill-probe.json",
+      "sha256": "fa7feb3a4e81c38578e56a65f2d94ddc7bbeb3cddf246bab3437e0ce0cc458c8",
+      "status": "passed",
+      "source_stability_observed": true
+    },
+    "r5_glue": {
+      "path": "review/original-character-live2d-r5-glue-probe.json",
+      "sha256": "695199d1cce03350383027b89687b1789e33121b494b55470a405752e186a082",
+      "status": "passed",
+      "source_stability_observed": true
+    },
+    "r5_nonrigid": {
+      "path": "review/original-character-live2d-r5-glue-nonrigid-fingers.json",
+      "sha256": "7ef7e1148d764fac1a5cbd68e167e6f8a92cbe4c6918755d4d43389768ee0f86",
+      "status": "passed",
+      "source_stability_observed": true
+    },
+    "old_rigid_negative": {
+      "path": "review/original-character-live2d-r4-rigid-procrustes-negative.json",
+      "sha256": "466ab3d0374c1835cec9b57475dc168f4d71140e09ce1e4caa86dd0287496763",
+      "status": "expected_rigid_counterexample_reproduced",
+      "source_stability_observed": true
+    },
+    "r5_glue_semantic": {
+      "path": "review/original-character-live2d-r5-glue-semantic-ownership.json",
+      "sha256": "3a5559ed1877920c10743051039e7bb8df4979eebe9971aafc79237bc6fa33af",
+      "status": "bounded_semantic_and_detached_cup_checks_passed",
+      "source_stability_observed": true
+    }
+  },
+  "verified": [
+    "r4 actual40 parameters and41drawables; all20 new hand/cup controls have real GL endpoint changes",
+    "r4 andnewr5glue semantic3 actualCore rest-triangle barycentric/UV/atlas alpha expectedTopwear253 forbidden arm/cuff0;32limb/finger extremes preserve3points;27detachedCupROOT corners cup-only",
+    "r5 source4px overlap removesneutral GPU white cut lines; actual screenshots inspected",
+    "actual backfill on42ndmesh Topwear2opacity1 fills mostlarge white elbow wedges",
+    "real4glue export inspected actualshoulder/elbow endpoints; largegap improved, smallwhite fissures/hardjointfaces remain",
+    "all10r5glue fingers genuinely nonrigid: min best-rigid-fit residual2.801817sourcepixels; actualroot3triangle unchanged; non-target vertices/opacity exactunchanged",
+    "sameDetector actualoldr4 rigid10fingers rejected, not renamedpassed"
+  ],
+  "pending": [
+    "CupHold actual grip/body/breath compensation, currentlycandidateknownred",
+    "Fourrealhand/cupactions andfullstrictcontract",
+    "Finalhand/cuff/joint artwork acceptance andremainingdynamicseams",
+    "FinaloriginalrigAudio/Analyser/Core plusstrongnegative onnewownerruntime",
+    "ONE realQwen/Kokoro/finalLive2D stop/context run; harness preparednotexecuted",
+    "Windows/4060 andofficialEditor reopen"
+  ],
+  "snapshots_private_build": [
+    {
+      "file": ".build/original-character-rig-r4/r4-r1-rest-core-snapshot.json",
+      "bytes": 539663,
+      "sha256": "e1981e42f5394623be91e075029863d94de4ced9dcf30bec1e525e00a7632829"
+    },
+    {
+      "file": ".build/original-character-rig-r5/r5-rest-core-snapshot.json",
+      "bytes": 550088,
+      "sha256": "b8f32ca490c433ff3860a9beaddc1491eb6bc3bddd936c1448bb84327c641337"
+    },
+    {
+      "file": ".build/original-character-rig-r5/r5-backfill-rest-core-snapshot.json",
+      "bytes": 612834,
+      "sha256": "2a739f507909724540b7aaa68a73abd576b1211966a903ada0932f8f24fe6fc7"
+    },
+    {
+      "file": ".build/original-character-rig-r5/r5-glue-rest-core-snapshot.json",
+      "bytes": 622697,
+      "sha256": "c7b628b9f68fb04e5219f0eb451390782b11d5aa409a9f0ea927ccc27d0c5795"
+    }
+  ],
+  "provider_preparation": "review/real-live2d-harness-preparation.json",
+  "source3protection_scope": "Three reviewed actual barycentric source points; legitimate shoulder glue may change otherTopwear vertices",
+  "quality_interpretation": "Core/parameter/GLtechnical passes do not grantart,heldgrip,motion,Windowsorfullproductacceptance"
+}

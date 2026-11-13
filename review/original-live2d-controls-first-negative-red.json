@@ -1,0 +1,376 @@
+{
+  "date": "2026-11-12T22:17:58.042884+00:00",
+  "status": "failed",
+  "scope": "real installed Core/Framework + official Haru local evaluation; synthetic WAV through real Audio/analyser; Core parameters and drawable vertex digest, not app mouth stats",
+  "fixture_path": "/workspace/AI-radio-stream-help/.build/original-live2d-fixture-v2/TEST_ONLY_runtime.zip",
+  "fixture_kind": "independent original geometric rig",
+  "original_character_complete": false,
+  "SDK_or_sample_redistribution_authorized": false,
+  "checks": {
+    "real_core_consistent_moc_textures_and_drawables": "passed"
+  },
+  "sources": {
+    "frontend/live2d-renderer.mjs": "d4e49c1be830bfba72f6e8297f8213c591b8f00dd3a05cfa79748b867d2f9f53",
+    "app/static/live2d-renderer.js": "6a3371101d3bce46d9db60ef33c19e03e239c5e1ee36e1f3fc51a6e2e6d2dfaa",
+    "app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005"
+  },
+  "loaded_core": {
+    "state": "ready",
+    "available": true,
+    "coreVersion": 83951616,
+    "mocConsistencyChecked": true,
+    "lipSyncEnabled": false,
+    "lipSyncValue": 0,
+    "parameters": [
+      {
+        "id": "ParamAngleX",
+        "index": 0,
+        "min": -45,
+        "max": 45,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamAngleY",
+        "index": 1,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamAngleZ",
+        "index": 2,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "index": 3,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "index": 4,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "index": 5,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyLean",
+        "index": 6,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamProportion",
+        "index": 7,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "index": 8,
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "value": null
+      },
+      {
+        "id": "ParamEyeROpen",
+        "index": 9,
+        "min": 0,
+        "max": 1,
+        "default": 1,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallX",
+        "index": 10,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallY",
+        "index": 11,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "index": 12,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowLY",
+        "index": 13,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowRY",
+        "index": 14,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamMouthForm",
+        "index": 15,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "index": 16,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBreath",
+        "index": 17,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHairFront",
+        "index": 18,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHairBack",
+        "index": 19,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      }
+    ],
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "automatic": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": true
+    },
+    "expressions": [
+      "Smile",
+      "Sad",
+      "Angry",
+      "Surprised"
+    ],
+    "motions": {
+      "Idle": 1,
+      "Blink": 1,
+      "Nod": 1,
+      "Shake": 1
+    },
+    "drawableCount": 20,
+    "textureCount": 1,
+    "drawables": [
+      {
+        "id": "ArtMeshFrontHair",
+        "vertexCount": 26,
+        "vertexDigest": "cf2b7cfd",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair2",
+        "vertexCount": 21,
+        "vertexDigest": "5edc888a",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair3",
+        "vertexCount": 25,
+        "vertexDigest": "3f0f5a0b",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshToothT",
+        "vertexCount": 8,
+        "vertexDigest": "104eddce",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshTongue",
+        "vertexCount": 8,
+        "vertexDigest": "04640d64",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshMouth",
+        "vertexCount": 75,
+        "vertexDigest": "b50133aa",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshMouth_lip_0",
+        "vertexCount": 98,
+        "vertexDigest": "1ce288fa",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshMouth_lip_1",
+        "vertexCount": 98,
+        "vertexDigest": "afaf8fde",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowR",
+        "vertexCount": 16,
+        "vertexDigest": "a3308d53",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowL",
+        "vertexCount": 16,
+        "vertexDigest": "e1547bdf",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashR",
+        "vertexCount": 16,
+        "vertexDigest": "f9c15b1e",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashL",
+        "vertexCount": 16,
+        "vertexDigest": "fbff36db",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshIridesR",
+        "vertexCount": 8,
+        "vertexDigest": "4f323b1e",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshIridesL",
+        "vertexCount": 8,
+        "vertexDigest": "25194fd7",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshEyewhiteR",
+        "vertexCount": 11,
+        "vertexDigest": "0083691d",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyewhiteL",
+        "vertexCount": 11,
+        "vertexDigest": "cac6e485",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFace",
+        "vertexCount": 121,
+        "vertexDigest": "4306f103",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshNeck",
+        "vertexCount": 21,
+        "vertexDigest": "2db125cc",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshTopwear",
+        "vertexCount": 97,
+        "vertexDigest": "a627c169",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshBackHair",
+        "vertexCount": 97,
+        "vertexDigest": "b4a556cc",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      }
+    ],
+    "drawablesTruncated": false
+  },
+  "error": "",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/live2d_controls_browser_check.py\", line 24, in main\n    page.evaluate('()=>{const p=CompanionLive2DRuntime.Live2DModel.prototype;window.__realStartLipSync=p.startLipSync;p.startLipSync=function(){};}');page.evaluate('()=>CompanionApp.speech.speak(\"实际音频口型参数验证。\")');page.wait_for_function('()=>CompanionApp.scene.getStats().mouth>.1');negative=diag();assert negative['lipSyncEnabled'] is False;assert values(negative)['ParamMouthOpenY']==basevalues['ParamMouthOpenY'];assert digest(negative)==basedigest;report['negative_control']={'method':'isolated browser replaces startLipSync with no-op while actual WAV/Analyser continue','reported_audio_mouth':page.evaluate('()=>CompanionApp.scene.getStats().mouth'),'actual_core_mouth':values(negative)['ParamMouthOpenY'],'changed_drawables':0};report['checks']['disabled_actual_lipsync_reproduces_stats_without_core_deformation']='passed';page.evaluate('()=>{CompanionLive2DRuntime.Live2DModel.prototype.startLipSync=window.__realStartLipSync;delete window.__realStartLipSync;CompanionApp.scene.setSpeaking(true);}');page.wait_for_function('()=>{const d=CompanionApp.scene.getDiagnostics();return d.lipSyncEnabled&&d.parameters.some(p=>p.id===\"ParamMouthOpenY\"&&p.value>.05)}',timeout=15000);active=diag();changed=[id for id,data in digest(active).items()if basedigest.get(id)!=data];assert changed, 'Core geometry/opacity did not change under actual Audio';assert values(active)['ParamMouthOpenY']>basevalues['ParamMouthOpenY']+.05;report['audio_lip_geometry']={'baseline':basevalues['ParamMouthOpenY'],'active':values(active)['ParamMouthOpenY'],'changed_drawables':changed};report['checks']['real_audio_enables_core_lipsync_parameter_and_changes_geometry']='passed';page.screenshot(path=str(OUT/'02-core-audio-mouth.png'));page.evaluate('()=>CompanionApp.speech.stop()');page.wait_for_function('()=>{const d=CompanionApp.scene.getDiagnostics();return !d.lipSyncEnabled&&d.parameters.find(p=>p.id===\"ParamMouthOpenY\").value<.001}');stopped=diag();assert values(stopped)['ParamMouthOpenY']==basevalues['ParamMouthOpenY'];assert digest(stopped)==basedigest;report['checks']['stop_disables_lipsync_and_restores_core_parameter_and_geometry']='passed'\n                                                                                                                                                                                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "page_errors": []
+}

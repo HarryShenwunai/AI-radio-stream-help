@@ -1,0 +1,295 @@
+{
+  "status": "actual_same_topology_core_comparison_measured",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.moc3": "5954d589f5e81cbefca10e8807fcd8a78389a3b60f44fd6b011a0f25c8ca491d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.moc3": "89bfdbfde83c887ad81ec244e72e4fe59bd1d7a9f36e00f6bcd71c141dc82606",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/tests/live2d_core_candidate_compare.py": "0ae9c389649756d7ca26c9b5a120b0714f41cc1a1c062bc58a589bfa19be9087",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02"
+  },
+  "sources_unchanged": true,
+  "poses": [
+    {
+      "name": "actual-defaults",
+      "parameters": {},
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamForearmR-min",
+      "parameters": {
+        "ParamForearmR": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamForearmR-max",
+      "parameters": {
+        "ParamForearmR": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamArmR-min",
+      "parameters": {
+        "ParamArmR": -4
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamArmR-max",
+      "parameters": {
+        "ParamArmR": 4
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamForearmL-min",
+      "parameters": {
+        "ParamForearmL": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamForearmL-max",
+      "parameters": {
+        "ParamForearmL": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamArmL-min",
+      "parameters": {
+        "ParamArmL": -4
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "ParamArmL-max",
+      "parameters": {
+        "ParamArmL": 4
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "L-shoulder-min-elbow-min",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamForearmL": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "L-shoulder-min-elbow-max",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamForearmL": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "L-shoulder-max-elbow-min",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamForearmL": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "L-shoulder-max-elbow-max",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamForearmL": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "R-shoulder-min-elbow-min",
+      "parameters": {
+        "ParamArmR": -4,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "R-shoulder-min-elbow-max",
+      "parameters": {
+        "ParamArmR": -4,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "R-shoulder-max-elbow-min",
+      "parameters": {
+        "ParamArmR": 4,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "R-shoulder-max-elbow-max",
+      "parameters": {
+        "ParamArmR": 4,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "opposite-shoulders-min-elbows-min",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamArmR": 4,
+        "ParamForearmL": -6,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "opposite-shoulders-min-elbows-max",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamArmR": 4,
+        "ParamForearmL": 6,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "opposite-shoulders-max-elbows-min",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamArmR": -4,
+        "ParamForearmL": -6,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "opposite-shoulders-max-elbows-max",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamArmR": -4,
+        "ParamForearmL": 6,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamArmL-min",
+      "parameters": {
+        "ParamArmL": -1.48
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamArmL-max",
+      "parameters": {
+        "ParamArmL": 1.48
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamArmR-min",
+      "parameters": {
+        "ParamArmR": -1.48
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamArmR-max",
+      "parameters": {
+        "ParamArmR": 1.48
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamForearmL-min",
+      "parameters": {
+        "ParamForearmL": -2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamForearmL-max",
+      "parameters": {
+        "ParamForearmL": 2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamForearmR-min",
+      "parameters": {
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-ParamForearmR-max",
+      "parameters": {
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-L-opposed--1",
+      "parameters": {
+        "ParamArmL": -1.24,
+        "ParamForearmL": 2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-L-opposed-1",
+      "parameters": {
+        "ParamArmL": 1.24,
+        "ParamForearmL": -2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-R-opposed--1",
+      "parameters": {
+        "ParamArmR": -1.24,
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-R-opposed-1",
+      "parameters": {
+        "ParamArmR": 1.24,
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-bilateral-opposed--1",
+      "parameters": {
+        "ParamArmL": -1.24,
+        "ParamArmR": 1.24,
+        "ParamForearmL": 2.2199999999999998,
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": []
+    },
+    {
+      "name": "interior-bilateral-opposed-1",
+      "parameters": {
+        "ParamArmL": 1.24,
+        "ParamArmR": -1.24,
+        "ParamForearmL": -2.2199999999999998,
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": []
+    }
+  ],
+  "all_exact_same": true,
+  "not_proven": [
+    "Continuous state space",
+    "Authoring glue mechanism or why exports agree",
+    "Pixel/texture equivalence",
+    "Art acceptance"
+  ]
+}

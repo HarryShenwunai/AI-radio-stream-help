@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-11-13T02:11:32.173503+00:00",
+  "status": "instrument_report_write_error",
+  "error": "finally SHA helper received str instead of Path: AttributeError read_bytes",
+  "actual_screenshots_created": [
+    "01-morning-hold.png",
+    "02-forest-empty_hands.png",
+    "03-evening-wave.png",
+    "04-forest-detach.png"
+  ],
+  "not_claimed": "Measured Core result lost before report persistence; do not infer full pass from screenshot existence; rerun corrected instrument unchanged product."
+}

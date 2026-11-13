@@ -1,0 +1,21 @@
+{
+  "scope": "Export-specific r3 neutral placement in this harness 900x900 framebuffer, WebGL bottom-left origin. Generous fixed mouth area selected from actual original CLI Core neutral/endpoint captures, not an automatic anatomy detector; not for arbitrary user avatars.",
+  "stage": [
+    900,
+    900
+  ],
+  "parameters": {
+    "ParamMouthOpenY": [
+      450,
+      540,
+      565,
+      610
+    ],
+    "ParamMouthForm": [
+      450,
+      540,
+      565,
+      610
+    ]
+  }
+}

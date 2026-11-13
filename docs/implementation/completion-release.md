@@ -1,43 +1,48 @@
-# 动态角色与语音集成交付状态
+# 0.5.0-dev3 实际交付状态
 
-更新：2026-11-12 UTC；当前版本暂 **0.4.0-dev1**，发布前由维护者统一版本和源码 ID。目标为自助角色、自然且一致的二次元桌面陪伴；督学可选。本批显著扩大了可运行能力，**尚未完成全部项目验收**，不以主观百分比替代未通过的门。
+更新：2026-11-13 UTC。本次已完成原创半身Live2D、完整手部与独立杯子，并完成最终运行包的本机真实语音验证。整项目的Windows目标机、真实账号、实体设备及用户质量验收仍未完成。
 
-## 已完成的实现与证据
+## 下载与运行
 
-| 能力 | 已落地 | 已有证据与限制 |
-| --- | --- | --- |
-| 身份/关系/PNG | 角色创建、切换、归档/恢复/删除、独立 SQLite、迁移与外观修订；四状态实际眨眼/说话 | 本机 HTTP/Chrome、历史 Linux 后端/桌面报告；Windows 仍待测 |
-| VRM | VRM0/1 自包含规范化、隔离预览、本地 WebGL、RMS 口型、眨眼/呼吸/视线、失效释放与回退 | [真实浏览器报告](../../review/vrm-browser-check.json)通过；软件 WebGL/测试资产，不等于 RTX4060 或参考美术验收 |
-| Live2D | 有界 ZIP、依赖/纹理检查、可选运行时安装与原创适配；Core5.1/MOC5 下 Haru/Hiyori 实际预览、播放、启用/回退、口型和生命周期 | [本机评估记录](live2d-local-evaluation.json)；[Haru](../../review/live2d-browser-check.json)与[Hiyori 独立 holdout](../../review/live2d-hiyori-holdout.json)各12项真实 Chrome 通过，含预乘透明背景断言；非Windows或参考画质 |
-| 本地 ASR | 严格 PCM16 WAV 校验、tiny CPU 本地识别、诊断、取消迟到拒绝；转写仅草稿 | [真实 HTTP](../../review/asr-http-real-check.json)已用 Kokoro 合成 2.683 秒句子识别，HTTP 约 1.762 秒；非真人/Windows/p95 |
-| 声音与对话 | Kokoro 默认、可选固定服务地址 GPT-SoVITS、用户人设/短期上下文/相关记忆；约束检查后可用真实模型修订 | [声音模块](../../review/voice-module-check.json)、[真实对话冒烟](../../review/conversation-real-smoke.json)；不是人工自然度、合法目标声线或长期效果验收 |
-| 平台控制与隔离 | 微信私聊角色绑定、一次令牌、逐条审批/暂停、音频文件桥接；Bili 官方 Open Live 输入、公开设定与本机预览 | [Chrome 控制面板](../../review/connectors-browser.json)6项通过，无真实配置/审批POST、无真实发送；模块/HTTP替身测试不证明账号互通 |
-| Windows 便携候选 | CPython3.12、官方预编译 CPU/CUDA profile、共享模型/ASR、诊断与切换脚本 | Linux 上组装与静态/脚本检查；完整包不要求 Python/Node/VS，VC/驱动仍需预检；无目标 Windows 运行结论 |
+[GitHub本批发布](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d)提供程序小更新、模型运行ZIP、完整编辑源、截图、录像与独立WAV。
 
-冻结全量实际通过：Python417项且零跳过、桌面Python9项、前端Node76项、桌面Node7项。全量检查期间161份源码SHA不变；最后仅取证脚本修改，另有[默认复测](../../review/quality-gate-post-harness.json)，不声称417项再次运行。证据层约定：E0 源码/设计、E1 受控模块或原语、E2 真实本机 HTTP/文件/SQLite、E3 真实浏览器/本地应用、E4 目标机器/真实提供方或账号、E5 用户质量接受。不同层不能互相替代或简单相加。
+已有0.4.0-dev1便携基础包时：
 
-## 本机验证已收口与最终交付门
+1. 退出软件，解压约7MB程序更新，运行apply-ui-update.cmd并选择原软件目录。
+2. 同目录运行setup-live2d-owner.cmd，按条款完成本机评估运行库安装。依赖约29MB加官方Core，不需要Node/npm；SDK不随默认包分发。
+3. 打开角色工作室，上传original-live2d-r2-candidate-runtime.zip，预览并确认。主舞台动作入口提供拿杯、移杯、招手、空手和包内表情。
 
-**R08 播放回执与未听上下文**：后端有界 nonce、身份/轮次失效、历史 TTS、ABA 身份往返和过期 stop 拒绝均已接入。真实 Chrome 7项验证了停止后保守裁剪未确认尾部、正常结束后完整段可用于下一轮，以及界面原文仍保留；配套 HTTP/Node 也有回归。见[真实浏览器](../../review/playback-browser-check.json)与[处理语义](playback-receipts.md)。没有可靠 alignment 时只承认完整已确认段或服务端合成前缀，不以播放百分比捏造已听词边界。机械播放回执不证明真人已听见，Windows/100轮打断仍是目标机门。
+没有基础包时，先按[原基础包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)的下载合并脚本安装。基础包BUILD-INFO保留0.4组装记录，程序与server更新为0.5.0-dev3；实际小更新程序源码为084aaf222b54e1828595bde82fc07c58acbb6075。后续提交只补源包工具及验收材料，不冒称重新构建Windowsexe。
 
-**Live2D 真模型**：用户已同意仅本机开发评估。Core5.1/MOC5、Haru 与独立 Hiyori 各12项真实 Chrome 检查通过，包含 framebuffer、预乘透明、口型复位、隐藏释放/恢复、上下文丢失重试与身份切换；两份最终图已实际查看。旧机械测试曾漏白底，新增 alpha/RGB 一致性断言先红后修，旧失败/修复证据保留，不能用截图有像素代替透明正确。通过范围是 Linux/Chrome 两份合法样例的本机评估，不是所有 Cubism 导出器、Windows/4060、参考画质或公开分发许可。vendor 运行时仍在私有配置区，不进入默认公开包。
+## 实现与实际验收
 
-**工程与形式化边界**：`quality_gate.py --full` 已实现 critical Ruff、4核心模块 strict mypy、6条架构规则及违规夹具、Python/Node 全量；[工程说明](engineering-gates.md)和[最终报告](../../review/quality-gate.json)记录冻结源码全量8步通过，最后取证脚本另有默认复测。有限 TLA+/TLC [模型](../../review/formal-model-check.json)和[实际实现边界探索](../../review/formal-implementation-check.json)有真实结果，但不构成全程序 refinement/活性/任意调度或用户听感证明；数字以报告为准。
+| 项目 | 结果与证据 |
+| --- | --- |
+| 原创角色 | 42个实际网格、41参数、四表情、八动作组；42层PNG与外部/内嵌同源PSD，完整可编辑工程及CMO3/CAN3已交付 |
+| 手部与杯子 | [完整13门](../../review/hand-cup-rigid-r2-v1-full.json)通过：十指真弯曲、指根漂移0、手掌/衣身保护、杯子独立位移旋转隐藏、四真实动作、Core/产品/GL/Studio生命周期 |
+| 持杯 | 547姿态含486所选角点+61离key组合，raw/product双通道；另[独立5000](../../review/hand-cup-rigid-r2-actual5000-grip-asm.json)最大误差0.678588源px，预算1px |
+| 硬杯 | [同5000杯形](../../review/hand-cup-rigid-r2-shape5000.json)154个三角形使用顶点，最大affine残差0.0000857、similarity0.0001063源px，均低于0.5；旧r1同域25.4447px软杯红保留 |
+| 衣袖与脸 | [独立Core/GL](../../review/original-character-live2d-rigid-r2-core-gl.json)8门、13参数、2378次评价通过；34cloth姿态0翻转，最大edge1.222722；中性眼1/嘴0及头眼嘴/侧件已实看 |
+| 主舞台 | [9门动作与三景](../../review/live2d-rigid-r2-mainstage-actions-ui.json)、[3门表情](../../review/live2d-rigid-r2-mainstage-expression-controls.json)、390键盘/Esc/焦点与角色隔离通过；正常录像与诊断暂停中段分开 |
+| 真实声音 | [恢复轮7门](../../review/real-live2d-rigid-r2-companion.json)通过：exact最终ZIP→Qwen→Kokoro真实WAV→HTMLAudio/Analyser→Core口型；停止0.793s，未确认尾部不进入后续prompt |
+| 程序更新 | [真实产物13门](../../review/app-source-update-dev3-exactbase-check.json)：82操作、重复执行和完整回滚、CPU/CUDA后端新脚本200、数据哨兵与原基础包不变；Linux文件系统验证，未执行Windowscmd |
+| 工程门禁 | [780Python零跳过、111Node、桌面9Python/27Node](../../review/quality-gate-live2d-delivery-final.json)，strict10模块、7架构规则及15负控，源码SHA检查前后稳定 |
 
-**最终打包**：Windows 便携候选包已封装并发布到 [GitHub Release](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)；三卷总计4,491,413,065 bytes，11个附件均按远端大小/SHA256校验。包内BUILD-INFO绑定源码d01ccc42bbe6795c216afae37dd0e53128ab58d9，完整ZIP的13,068个成员已逐项CRC/SHA核验。下载合并脚本、清单与实际运行证据随发布提供；Windows/4060及实际CUDA仍未验收。
+547或5000均不是穷举全部20655内部keyforms。完整41310源键格、7轴实际MOC表、Root27与H0恒等由独立源/二进制证书核验；这不构成专有Core全程序形式化证明。
 
-## 用户已确认与仍需外部验证
+## 性能与真实边界
 
-- 已确认 Windows10/11、RTX4060/32GB；具体 CPU、显存、驱动和动态性能待诊断。Win CUDA 模型推理是否真实 offload 待测，ASR 默认 CPU、包内没有 cuDNN9。
-- 已确认 Bili 用当前官方接口，用户有可管理房间；本机 roomID/应用密钥/主播身份码及真实连接、重连结果未提供。回复当前只本机预览，不默认公开播出。
-- 已接受微信 ClawBot + 音频文件，原生语音条为可选且当前不支持。真实账号版本、私聊、文字/文件送达与恢复仍待指定测试授权和实际证据。
-- 已明确 Live2D 仅本机开发评估许可同意，不重复问这项同意。公开发布、Expandable 适用类别/许可/样例分发尚未确认；默认源码/常规包不包含 Core/Framework。
-- 角色视觉与合法声音、自然聊天及长期关系需要 E5 用户接受。合法样例是基准材料，不能冒充已经达到参考图或指定角色画质。
+32次预热后5000次纯Core.update：p50 0.2ms、p95 0.4ms、最大14.7ms，Linux共享AMD EPYC/Chrome asm.js。此范围不包含GPU绘制、AI或音频，不等于FPS或Windows/4060数据。
 
-## 下一步及验收标准
+真实CPU语音恢复轮单次首次文字49.54秒、回复完成62.314秒、观察到语音RMS69.621秒；峰值进程RSS约5.37GiB。冷启动/共享CPU与本地提供方成本包含其中，未测多轮p95，不能称已达到实时交流目标。GPU profile已提供但Windows CUDA/offload仍需实机确认。
 
-root/frontend/QA 已收口 R08 和 Live2D 本机真实检查；desktop 在源码冻结后同步候选并产出完整清单/哈希；QA 复跑最终全量和受影响本机回归，更新[总台账](../../review/completion-status.json)。随后在用户 Windows 上记录 CPU/显存/驱动、启动/退出、数据重启、麦克风/TTS、DPI/穿透/恢复和 CUDA 实际运行，再在明确授权的私聊和直播间做最小真实互通。质量和性能需同一素材/模型配置、记录完整进程树并测多轮延迟/帧时间，当前单次 Linux 数据不足以定 p95 或最终阈值。
+第一次真实语音因环境重置在口型截图后中断，保留原WAV/三图/视频，没有最终stop报告，不能算PASS；第二次是独立目录中的完整恢复验证，不能宣称只调用过一次。WAV独立提供，Playwright屏幕录像没有系统音轨；机械播放回执不证明真人听见。
 
-发生缺依赖、损坏包、超预算或提供方失败时保留当前形象/关系数据，明确报错，允许退回旧修订、PNG、CPU 或文字；不静默下载、切在线 ASR、登录或发送。生产/公开部署和发布 vendor 运行时没有自动授权。
+## 保留的外部验收
 
-运行操作见[应用说明](../../app/README.md)；剩余负责人、依赖及条件七天行动见[执行看板](../planning/execution-board.md)。这份记录替代旧 PNG 交付口径描述当前批次，历史报告继续保留其原始范围。
+- Windows10/11启动退出、驱动/VC、CPU/CUDA真实推理、多屏DPI/穿透与游戏场景、4060显存与延迟。
+- 用户实际5英寸显示、摄像头/眼动与远场麦克风；声明有设备不等于已实测。
+- 微信ClawBot文字/音频文件送达、Bili Open Live真实房间/重连；模块和本机模拟通过不等于账号联通。无实际登录、发信或公开播出。
+- 官方Cubism Editor/Animator GUI打开CMO3/CAN3、用户对画风、声音与长期关系体验的接受。
+
+遇到失败保留当前角色与聊天，支持形象重载、修订回退、CPU或文字路径。没有因开发授权购买服务、分发SDK、静默切在线ASR或操作真实账号。当前台账见[completion-status](../../review/completion-status.json)。

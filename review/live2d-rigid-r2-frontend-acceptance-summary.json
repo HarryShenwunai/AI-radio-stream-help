@@ -1,0 +1,241 @@
+{
+  "observed_at": "2026-11-13T05:00:38.948439+00:00",
+  "status": "passed_frontend_actual_r2_acceptance_pending_independent_provider_and_owner_release",
+  "production_sources_modified_this_run": false,
+  "model": {
+    "model3_sha256": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "moc_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "actual_core": {
+      "core_version": 83951616,
+      "moc_version": 5,
+      "consistency": 1,
+      "parameters": 41,
+      "drawables": 42,
+      "canvasInfo": {
+        "width": 1536,
+        "height": 2048,
+        "originX": 768,
+        "originY": 1024,
+        "ppu": 1536
+      }
+    },
+    "single_visible_cup_no_helpers_contract_version": 1
+  },
+  "runtime_directory": "/workspace/.live2d/owner-generated-runtime-check",
+  "sealed5000_input_sha256": "243ae53faad169f4b02ce73e1cd5912e9ec7710c3aa63221220e845faf83f057",
+  "results": {
+    "full_actual_raw_core_and_product_adapter_checks": {
+      "reviewed_contract_and_exact_final_export_binding": "passed",
+      "real_core_consistency_actual_ranges_triangles_landmarks": "passed",
+      "same_pose_repeated_actual_core_exact_geometry_opacity_negative": "passed",
+      "detached_cup_visible_only_hides_cup_no_hand_finger_torso_change": "passed",
+      "cup_xy_nonaliased_rotation_only_change_actual_cup_and_visible_pixels": "passed",
+      "ten_actual_fingers_deform_visibly_with_fixed_roots_other_parts_exact": "passed",
+      "reviewed_torso_points_owned_by_actual_textured_torso_not_arm_or_cuff": "passed",
+      "detached_arm_hand_motion_leaves_cup_and_semantic_torso_exact": "passed",
+      "held_body_breath_extreme_combinations_keep_both_actual_grip_contacts": "passed",
+      "strong_actual_geometry_grip_unknown_id_negative_controls": "passed",
+      "authored_hold_detach_wave_empty_hands_actions_real_core_and_gl": "passed",
+      "current_studio_real_import_preview_declared_action_controls_dispose_focus": "passed",
+      "javascript_runtime": "passed"
+    },
+    "raw_and_product_547_max_grip_source_px": {
+      "raw": 0.5083161260466045,
+      "product": 0.5083161260466045
+    },
+    "actual5000_grip_source_px": 0.6785883196328265,
+    "actual5000_grip_failures": 0,
+    "actual5000_shape": {
+      "affine": {
+        "0": 2.8077890372711892e-05,
+        "50": 4.4658493500971464e-05,
+        "90": 5.533374617235432e-05,
+        "95": 5.907000620914462e-05,
+        "99": 6.725853468024866e-05,
+        "100": 8.569116124003843e-05
+      },
+      "similarity": {
+        "0": 2.861784514399027e-05,
+        "50": 4.921481229833707e-05,
+        "90": 6.347717274695297e-05,
+        "95": 6.880292543823175e-05,
+        "99": 8.113694872972474e-05,
+        "100": 0.00010626277318283761
+      }
+    },
+    "positive_scale_min": 0.7050656571086614,
+    "root27_shape": {
+      "affine": {
+        "0": 0.0,
+        "50": 8.019267410556661e-05,
+        "90": 9.066825586526757e-05,
+        "95": 9.192884493726632e-05,
+        "99": 0.00010010260717384603,
+        "100": 0.00010282003541914905
+      },
+      "similarity": {
+        "0": 0.0,
+        "50": 8.488472321505682e-05,
+        "90": 9.181074741716256e-05,
+        "95": 9.930859217531648e-05,
+        "99": 0.00011031261479980939,
+        "100": 0.00011342840812466209
+      }
+    },
+    "finger_count": 10,
+    "finger_min_nonrigid_bend_degrees": 15.050470737182252,
+    "finger_max_root_drift_source_px": 0.0,
+    "finger_min_visible_pixel_change": 40,
+    "actual_mainstage_actions_checks": {
+      "real_import_activate_same_original_model": "passed",
+      "actual_studio_natural_scene_selection_escape_focus": "passed",
+      "actual_hold_empty_wave_detach_core_parameters_and_gl": "passed",
+      "single_mainstage_canvas": "passed",
+      "mainstage_reset_restores_actual_hand_cup_defaults": "passed",
+      "mobile_keyboard_escape_and_composer": "passed",
+      "role_change_removes_old_actions": "passed",
+      "static_module_http200_javascript_current_sha": "passed",
+      "helpers_always_opacity0_on_actual_core_samples": "passed"
+    },
+    "actual_mainstage_expression_checks": {
+      "actual_mainstage_expression_core_and_visible_gl": "passed",
+      "actual_reset_clears_expression_and_same_name_reselects": "passed",
+      "expression_only_model_exposes_mainstage_entry": "passed"
+    },
+    "core_update_timing": {
+      "sample_count": 5000,
+      "warmup_updates": 32,
+      "p50_ms": 0.20000000298023224,
+      "p95_ms": 0.4000000059604645,
+      "p99_ms": 0.5,
+      "max_ms": 14.700000002980232,
+      "timer_step_estimate_ms": 0.09999999403953552,
+      "engine": "owner-installed official Core asm.js fallback in Chromium (WebAssembly locally disabled as in application loader)",
+      "browser_version": "156.0.8078.79",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "reported_cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "reported_logical_cpu_count": 5,
+      "process_cpu_affinity_count": 5,
+      "browser_reported_hardware_threads": 5,
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "windows_executed": false,
+      "render_or_fps_measurement": false,
+      "timed_region": "model.update only; excludes parameter writes, vertex extraction, JS/Python transport and GPU rendering",
+      "reference_30fps_frame_budget_ms": 33.333333333333336,
+      "p95_fraction_of_30fps_entire_frame_budget": 0.012000000178813933,
+      "p95_exceeds_entire_30fps_frame_budget": false,
+      "caveat": "Shared executor and timer quantization; zero-ms samples mean below timer resolution, not free computation."
+    }
+  },
+  "report_bindings": {
+    "hand-cup-rigid-r2-v1-full": {
+      "path": "review/hand-cup-rigid-r2-v1-full.json",
+      "sha256": "3f497dae00845575c947e70bd0b95a95e1e8e2b334c42ea1c8d7b2505f49dd60",
+      "status": "passed",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-actual5000-grip-asm": {
+      "path": "review/hand-cup-rigid-r2-actual5000-grip-asm.json",
+      "sha256": "5b2222a263047088f92e8f9680854583731ba17e2242d6b57f46d75fcef7de99",
+      "status": "passed_actual_core_held5000_grips_only",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-shape5000": {
+      "path": "review/hand-cup-rigid-r2-shape5000.json",
+      "sha256": "1d0dff9a9a795327bcbc07053ae3fcc57d62ce9f45e22aed42e24ca6b5c0eae1",
+      "status": "passed_declared_geometry_limits",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-root-combinations-shape": {
+      "path": "review/hand-cup-rigid-r2-root-combinations-shape.json",
+      "sha256": "257b8e67b0cc5b3dc2d843945634123c254c0a36a581fb6a9072f977b56f68a1",
+      "status": "passed_declared_geometry_limits",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-actual-axis-retention": {
+      "path": "review/hand-cup-rigid-r2-actual-axis-retention.json",
+      "sha256": "0893a1ee5bf214aafd18e245b58caa833cf31355c02b4bf0214477c9205bfbc1",
+      "status": "passed",
+      "sources_unchanged": true
+    },
+    "live2d-rigid-r2-mainstage-actions-ui": {
+      "path": "review/live2d-rigid-r2-mainstage-actions-ui.json",
+      "sha256": "2b9ef57cf296778d42568c83f4c45e3070995051746d99eb8dd50cda0f21568a",
+      "status": "captured_actual_mainstage_pending_human_art_review",
+      "sources_unchanged": true
+    },
+    "live2d-rigid-r2-mainstage-expression-controls": {
+      "path": "review/live2d-rigid-r2-mainstage-expression-controls.json",
+      "sha256": "48a71b9ed4777e4d880159ad0a4aac1940b4d2c7c9e7248d50a005af68c6cbdd",
+      "status": "passed_real_mainstage_expression_controls",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-old-worst-pose-visual": {
+      "path": "review/hand-cup-rigid-r2-old-worst-pose-visual.json",
+      "sha256": "8ec058d536df44cdeb6260886e2c44b15ded145a5895d9f61120f79bbe830ca3",
+      "status": "captured_affine_worst_pose_for_human_review",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-action-midpoints": {
+      "path": "review/hand-cup-rigid-r2-action-midpoints.json",
+      "sha256": "6a6feec660b1a45ce7e992b91e6bc6c5a263ae2c54977738d3b1d27f67e98580",
+      "status": "captured_actual_action_midpoints_for_human_review",
+      "sources_unchanged": true
+    },
+    "hand-cup-rigid-r2-action-midpoint-shape-analysis": {
+      "path": "review/hand-cup-rigid-r2-action-midpoint-shape-analysis.json",
+      "sha256": "a8c12a7bc77f2656af2194925d90254160e34d9e9b5f3af6d0bc0563174c165c",
+      "status": "passed_captured_visible_action_frame_shape",
+      "sources_unchanged": true
+    }
+  },
+  "all_reports_source_stable": true,
+  "videos": [
+    {
+      "path": "dist/hand-cup-rigid-r2-v1-full/video/page@1c0f6e84e8bb31d2d8cd5d2883fbf60a.webm",
+      "bytes": 90924302,
+      "sha256": "bb3b0b1c80fe87693e0eed8f79e401d6d88d0271e63c129a1e548005e07c81c8",
+      "diagnostic_static_or_paused": false
+    },
+    {
+      "path": "dist/live2d-rigid-r2-mainstage-actions-ui/video/page@51c24c39bf558839240ad4383fa5d595.webm",
+      "bytes": 8041497,
+      "sha256": "3c0865d3e6f5ddf6f948358922d7ed840caa4e8250e37bc7fde5a17b931c65a0",
+      "diagnostic_static_or_paused": false
+    },
+    {
+      "path": "dist/live2d-rigid-r2-mainstage-expression-controls/video/page@3f3bef4c47e15175faf9da0a796b0298.webm",
+      "bytes": 4436271,
+      "sha256": "f5ad0e5467a05b255f5aa5855aaf74d1b2f3a839906d261e16af8fc49a540b1b",
+      "diagnostic_static_or_paused": false
+    },
+    {
+      "path": "dist/hand-cup-rigid-r2-old-worst-pose-visual/video/page@b262d62002d4569e22a3408f195ac768.webm",
+      "bytes": 2070248,
+      "sha256": "b0a23af9467e44169ad17ce680cbbf891747ccc566accd36864ab8269eb4e1e7",
+      "diagnostic_static_or_paused": true
+    },
+    {
+      "path": "dist/hand-cup-rigid-r2-action-midpoints/video/page@252efbc34f17c641a32f8a87339ec1fd.webm",
+      "bytes": 7008024,
+      "sha256": "e60b221498493488dc4888722bb822b6339435ea4f68be8f34dc424cb37b80e5",
+      "diagnostic_static_or_paused": true
+    }
+  ],
+  "important_limits": [
+    "547 is the full selected min/default/max corner grid (486) plus 61 seed9426 interior samples, NOT all 20655 internal keyforms. The separately sealed5000 dataset measures actual held grip and shape.",
+    "Seven-axis exporter static loss warning was retained. Actual binary parse, axis effects and actual Core5000 consumption separately verify this export; parameter existence alone was not counted.",
+    "Original quick5000 loader mode was not explicitly forced; final grip report uses the same explicit asm.js fallback wrapper as production and reproduced identical max error.",
+    "Action midpoint images use test-only actual-renderer pause at observed model time; mainstage action video separately records normal unpaused playback.",
+    "No Windows/4060/5-inch physical hardware run, professional eye tracking, official Cubism Editor GUI reopen, artistic end-user approval or SDK redistribution authorization is claimed.",
+    "Independent true local Qwen/Kokoro/audio-to-Core run remains pending the QA agent and parent release decision."
+  ],
+  "screenshots": [
+    "dist/live2d-rigid-r2-mainstage-actions-ui/01-morning-hold.png",
+    "dist/live2d-rigid-r2-mainstage-actions-ui/02-forest-empty_hands.png",
+    "dist/live2d-rigid-r2-mainstage-actions-ui/03-evening-wave.png",
+    "dist/live2d-rigid-r2-mainstage-actions-ui/04-forest-detach.png",
+    "dist/hand-cup-rigid-r2-old-worst-pose-visual/worst-body-only-held-center-close.png"
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "status": "verified_real_internal_Breath_half_key_missing_from_old_810",
+  "date_utc": "2026-11-13",
+  "formal_frozen_source": {
+    "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/character.psd2live",
+    "sha256": "1b9f50d26e0e86172f2e231ce72d7d7a10fc483889a0f7a6e019bf0bb4c8c769"
+  },
+  "full_true_body_axis_keys": {
+    "ParamBodyAngleX": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "ParamBodyAngleY": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "ParamBodyLean": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "ParamProportion": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "ParamBodyAngleZ": [
+      -10.0,
+      0.0,
+      10.0
+    ],
+    "ParamBreath": [
+      0.0,
+      0.5,
+      1.0
+    ]
+  },
+  "global_Breath_parameter": {
+    "min": 0.0,
+    "default": 0.0,
+    "max": 1.0,
+    "explicit_parameter_keys": null,
+    "note": "Read directly from persisted final PRIO frame; global min/default/max dedup is[0,1]and does not enumerate actual deformer geometry domain."
+  },
+  "original_warp_cell_shapes": [
+    {
+      "id": "DeformBodyXY",
+      "axes": [
+        {
+          "parameter": "ParamBodyAngleX",
+          "keys": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        {
+          "parameter": "ParamBodyAngleY",
+          "keys": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        }
+      ],
+      "cells": 9,
+      "source_prio_sha256": "4d233abe6b3241e4637d27bda2ccbedf4610bef907aa28ed87056f87ad48d03f"
+    },
+    {
+      "id": "DeformBodyLean",
+      "axes": [
+        {
+          "parameter": "ParamBodyLean",
+          "keys": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        {
+          "parameter": "ParamProportion",
+          "keys": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        }
+      ],
+      "cells": 9,
+      "source_prio_sha256": "afb1f0835d589a946b9bb16d66439719c681530f044ca114c86c401aa2e5c7c4"
+    },
+    {
+      "id": "DeformBodyZBreath",
+      "axes": [
+        {
+          "parameter": "ParamBodyAngleZ",
+          "keys": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        {
+          "parameter": "ParamBreath",
+          "keys": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "cells": 9,
+      "source_prio_sha256": "a27dc18088e0567b2df3171eabf98a796bfe3f2773ed136c266f4b7ad7266bc1"
+    }
+  ],
+  "old_real_core_fit_table": {
+    "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/cup-clean-lean810-recipe.actual-core-samples.json",
+    "sha256": "ab350d9325ce478f8ab423dec0000d0905cc5fd970154e9a39717370eab4d734",
+    "declared_axes": [
+      {
+        "id": "ParamBodyAngleX",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "index": 32,
+        "keys": [
+          -10,
+          0,
+          10
+        ]
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "index": 33,
+        "keys": [
+          -10,
+          0,
+          10
+        ]
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "index": 34,
+        "keys": [
+          -10,
+          0,
+          10
+        ]
+      },
+      {
+        "id": "ParamBodyLean",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "index": 35,
+        "keys": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ]
+      },
+      {
+        "id": "ParamProportion",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "index": 36,
+        "keys": [
+          -10,
+          0,
+          10
+        ]
+      },
+      {
+        "id": "ParamBreath",
+        "min": 0,
+        "default": 0,
+        "max": 1,
+        "index": 37,
+        "keys": [
+          0,
+          1
+        ]
+      }
+    ],
+    "actual_sample_count": 810,
+    "actual_sampled_keys": {
+      "ParamBodyAngleX": [
+        -10,
+        0,
+        10
+      ],
+      "ParamBodyAngleY": [
+        -10,
+        0,
+        10
+      ],
+      "ParamBodyLean": [
+        -10,
+        -5,
+        0,
+        5,
+        10
+      ],
+      "ParamProportion": [
+        -10,
+        0,
+        10
+      ],
+      "ParamBodyAngleZ": [
+        -10,
+        0,
+        10
+      ],
+      "ParamBreath": [
+        0,
+        1
+      ]
+    },
+    "actual_Breath_value_counts": {
+      "0": 405,
+      "1": 405
+    },
+    "actual_missing_original_keys": {
+      "ParamBodyAngleX": [],
+      "ParamBodyAngleY": [],
+      "ParamBodyLean": [],
+      "ParamProportion": [],
+      "ParamBodyAngleZ": [],
+      "ParamBreath": [
+        0.5
+      ]
+    },
+    "actual_unique_cartesian_states": 810
+  },
+  "complete_real_internal_grid": {
+    "axes": {
+      "ParamBodyAngleX": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyAngleY": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyLean": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamProportion": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyAngleZ": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBreath": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    "cartesian_states": 729
+  },
+  "complete_internal_grid_plus_Lean5": {
+    "axes": {
+      "ParamBodyAngleX": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyAngleY": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyLean": [
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0
+      ],
+      "ParamProportion": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBodyAngleZ": [
+        -10.0,
+        0.0,
+        10.0
+      ],
+      "ParamBreath": [
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    "cartesian_states": 1215,
+    "Breath_half_new_grid_states": 405
+  },
+  "similarity_representation_math": {
+    "closure": "Use a fixed physical cup rest frame z and each grid key f_k(z)=a_k*z+b_k, a_k,b_k complex. Multilinear interpolation with common scalar weights produces a=sum(w*a_k),b=sum(w*b_k), so remains a similarity in exact arithmetic. This preserves shape class but does not establish contact fitting error.",
+    "four_point_warp_condition": "All four controls must be generated from the SAME complex similarity applied to one fixed physical rest rectangle, not independently fitted control corners. Aspect ratio belongs to physical rest frame, not naked unitUV. Parent below RootManual must have no Rotation; RootManual true rigid scale1 above keeps similarity class.",
+    "degen_check": "Convex mixtures of complex a can approach0, so measure min abs(a), winding/collapse and true Core best similarity residual rather than assuming nondegenerate.",
+    "runtime_limit": "Float32 roundoff can slightly break mathematical corner identities; real Core grid+unseen offkey +GL still required.",
+    "sampling_limit": "Including missing Breath.5 corrects a verified omission; it does not prove six-axis palm responses are piecewise multilinear because Body hierarchy and RotationWorld probing compose nonlinearly."
+  },
+  "not_performed": [
+    "New source fit or mesh/graph edits",
+    "New Core simulation,export,grid acceptance",
+    "Source/MOC/UI/production mutation"
+  ]
+}

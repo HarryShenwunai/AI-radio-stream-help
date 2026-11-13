@@ -1,0 +1,25 @@
+{
+  "date_utc": "2026-11-12T23:27:01Z",
+  "removed": [
+    {
+      "task_owned_build_scratch": "native",
+      "logical_bytes": 365092834
+    },
+    {
+      "task_owned_build_scratch": "pyinstaller",
+      "logical_bytes": 122730620
+    }
+  ],
+  "freed_filesystem_bytes": 491474944,
+  "free_bytes": 1032179712,
+  "active_native_executables_before": [],
+  "preserved": [
+    "Windows published base package and staging",
+    "model weights",
+    "user data",
+    "original artwork",
+    "actual Core source/export evidence and failed model snapshots",
+    "PowerShell parser and current test environments"
+  ],
+  "scope": "Obsolete task-owned Linux PyInstaller build scratch; current target is Windows and source update; no program execution from these paths was active."
+}

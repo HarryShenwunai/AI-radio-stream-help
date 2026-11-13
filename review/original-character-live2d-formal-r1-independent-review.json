@@ -1,0 +1,67 @@
+{
+  "observed_at": "2026-11-13T02:36:42.981601+00:00",
+  "status": "technical_subgates_passed_cup_shape_failed_normal_body_domain",
+  "model": ".build/original-character-rig-formal-r1/export/character.model3.json",
+  "qa_source_stable": true,
+  "technical_core_report": "review/original-character-live2d-formal-final-core-gl.json",
+  "technical_checks_passed": [
+    "official_consistency_and_parameter_geometry",
+    "actual_webgl_original_export",
+    "real_framework_physics_to_core_geometry",
+    "sidecar_no_operation_negative_control",
+    "all_real_expressions_change_declared_core_parameters_and_geometry",
+    "all_real_motions_change_core_parameters_and_geometry",
+    "required_parameters_have_actual_visible_pixel_effects",
+    "combined_joint_poses_rendered_for_independent_art_review"
+  ],
+  "actual_core_evaluations_at_last_parameter": 2378,
+  "actual_parameter_pixel_sweeps": 13,
+  "actual_expressions": 4,
+  "actual_motions": 8,
+  "cloth": {
+    "report": "review/original-character-live2d-formal-final-cloth-folds.json",
+    "finite_unique_poses": 34,
+    "winding_flips_all": 0,
+    "max_edge_ratio": 1.222722490262611
+  },
+  "neutral_face": {
+    "report": "review/original-character-live2d-formal-final-neutral-face.json",
+    "actual_eye_open": [
+      1,
+      1
+    ],
+    "actual_mouth_open": 0,
+    "actual_mouth_form": 0,
+    "no_point65_parameter_pin": true,
+    "observation": "Authored EyeOpen1 yields restrained half-lid using rebuilt original eye alpha mesh; old iris-fragment eyelash artifact no longer observed at neutral."
+  },
+  "same_source_binding": "review/original-character-live2d-formal-source-binding-independent.json",
+  "unresolved_cup_shape": {
+    "initial_observation": "Cup rim visibly waves at opposing shoulder/elbow corners under Hold1. Initial possibility of contradictory independent arm pose does not excuse normal-domain artifacts.",
+    "normal_domain_measurement_attribution": "Root/frontend actual Core probe; independently read source-bound report, not re-executed here",
+    "report": "review/hand-cup-formal-r1-body-affine-residuals.json",
+    "source_stable_in_report": true,
+    "cases": 1000,
+    "domain": "Six actual Body/Breath parameters with all six arm/forearm/hand parameters zero",
+    "best_rest_affine_fit_per_pose_max_errors_source_px": {
+      "0": 1.309536241723448,
+      "50": 8.395999044425794,
+      "90": 13.662576945647153,
+      "95": 15.302593731665855,
+      "99": 18.4104157480212,
+      "100": 25.444747180902976
+    },
+    "baseline_repeat_exact": true,
+    "conclusion": "Precise grip contact does not prove a rigid-looking cup. Normal-domain cup distortion remains a blocking artwork/rigging issue.",
+    "pending_fix": "Source-authoring structural similarity FollowWarp with proper internal BodyZ/Breath cells; not yet exported/passed."
+  },
+  "actual_final_provider_invoked": false,
+  "not_proven": [
+    "Final corrected-cup MOC",
+    "Final full hand/cup report on corrected model",
+    "True Qwen/Kokoro/Audio/Core chain",
+    "User E5 art acceptance",
+    "Official Editor reopen",
+    "Windows/4060"
+  ]
+}

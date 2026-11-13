@@ -1,0 +1,104 @@
+{
+  "frozen_at": "2026-11-13T00:57:29.396924+00:00",
+  "status": "production_control_fix_frozen_final_rig_not_accepted",
+  "adapter_version": "0.2.2",
+  "scope": "restores actual motion-saved defaults; clears/reselects SDK expression state; cancels late controls after real resource delay, asset reload and reset",
+  "production_changed_for_this_fix": [
+    "frontend/live2d-renderer.mjs",
+    "app/static/live2d-renderer.js"
+  ],
+  "sources": {
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+  },
+  "test_files": {
+    "tests/test_live2d_adapter_ui.mjs": "1aea1a344f81990c1e6bc69155a076a4787197a6563ec2873757bbb1036cbb2d",
+    "tests/live2d_studio_motion_reset_check.py": "45adf8ab61d32b41acb0b3aaec4c0285ebceb5da9453a0eae2e7919b98377ec9",
+    "tests/live2d_async_control_race_check.py": "ac46857c11af5bdf86f2a5c3607d8d09377d45a32e4352c7eac9a4bb7d5000fa"
+  },
+  "checks": {
+    "live2d-studio-reset-v022.json": {
+      "status": "passed",
+      "checks": {
+        "actual_studio_motion_finished_and_saved_empty_hands_parameters": "passed",
+        "real_reset_stops_motion_and_restores_all_actual_defaults_and_geometry": "passed",
+        "preview_never_activates_and_closes_with_focus": "passed"
+      },
+      "sha256": "4df15f3d20b0a0de533593a3dd78fbe6b32dc88cc043ae11fc33648d52364e1d"
+    },
+    "live2d-expression-clear-v022.json": {
+      "status": "passed",
+      "checks": {
+        "actual_expression_choose_clear_reselect": "passed"
+      },
+      "sha256": "44e611dfc6952e7ad063e8cc667c484b0a1ae92a1416685e162e6acfb23b33ed"
+    },
+    "live2d-real-delayed-expression-load-green.json": {
+      "status": "passed",
+      "checks": {
+        "actual_delayed_expression_cancels_without_cache_motion_or_error": "passed"
+      },
+      "sha256": "9b47d083a01790ccf1c5887e17b26f87ecd8ebb3c9c1d1f6aa6eb1072ca40aba"
+    },
+    "live2d-real-delayed-expression-reset-green.json": {
+      "status": "passed",
+      "checks": {
+        "actual_delayed_expression_cancels_without_cache_motion_or_error": "passed"
+      },
+      "sha256": "99678ce8629036ff12215316a212d8358f801777f6faaaacc5685993745b0baa"
+    }
+  },
+  "frontend_node": {
+    "passed": 88,
+    "failed": 0,
+    "skipped": 0,
+    "artifact": "review/live2d-control-fix-node-tests.tap"
+  },
+  "videos": [
+    {
+      "path": "/workspace/dist/live2d-studio-reset-v022-visible-preview/video/page@62a6793a7399a5e543d64baf11ad96c7.webm",
+      "duration": "16.440000",
+      "size": "1471714",
+      "contains_system_audio": false
+    },
+    {
+      "path": "/workspace/dist/live2d-expression-clear-v022-visible-preview/video/page@944763879325f7d95e7e81e7709171be.webm",
+      "duration": "11.520000",
+      "size": "962138",
+      "contains_system_audio": false
+    },
+    {
+      "path": "/workspace/dist/live2d-real-delayed-expression-load-green/video/page@9aeae9eb064e35715f953acab2c5717e.webm",
+      "duration": "12.760000",
+      "size": "1398331",
+      "contains_system_audio": false
+    },
+    {
+      "path": "/workspace/dist/live2d-real-delayed-expression-reset-green/video/page@3eaa51069d6afa7eb5f6d5d4b690d653.webm",
+      "duration": "11.920000",
+      "size": "1297898",
+      "contains_system_audio": false
+    }
+  ],
+  "runtime": {
+    "path": "/workspace/.live2d/owner-generated-runtime-check",
+    "observed_core_sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "owner_built_bundle_sha256": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "limits": [
+    "candidate7 used only as rejected-art runtime fixture",
+    "final hand-cup model, main-stage/two-scene demonstration and true provider Audio remain pending",
+    "actual real SDK delay produced cancellation errors, not observed cross-role state pollution; successful-late-result cross-model side effect was reproduced in E1 controlled SDK tests",
+    "the first reset green attempt used a pre-click Core marker; retained red, corrected post-click wait and old-reset-branch counterfactual revalidated",
+    "Linux Chromium only, not Windows/4060 acceptance"
+  ],
+  "negative_evidence": [
+    "review/live2d-studio-authored-motion-reset-red.json",
+    "review/live2d-studio-reset-instrument-marker-red.json",
+    "review/live2d-studio-legacy-reset-postframe-negative.json",
+    "review/live2d-studio-expression-clear-reselect-red.json",
+    "review/live2d-real-delayed-expression-load-red.json",
+    "review/live2d-real-delayed-expression-reset-red.json"
+  ],
+  "visual_review": "Actual restored-cup and completed-empty-hands previews inspected; technical rejected-art fixture, not final stage demonstration."
+}

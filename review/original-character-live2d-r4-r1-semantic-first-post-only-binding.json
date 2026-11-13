@@ -1,0 +1,831 @@
+{
+  "status": "bounded_semantic_and_detached_cup_checks_passed",
+  "scope": "Actual Core rest triangles/UVs + actual atlas alpha; three reviewed source ownership points; 32 arm/hand/finger extremes and 27 detached cup ROOT corners, exact protected torso geometry and palm isolation; NOT held grip/glue or art acceptance",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.moc3": "63d0d048eec66c988d8217678259fa5f473de6157ba764eaaed58855af7d4930",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers.json": "49337688af42d4737bceece10c45a7b535cf977d16a389e8e979c51c97de9ae9",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/r4-r1-rest-core-snapshot.json": "e1981e42f5394623be91e075029863d94de4ced9dcf30bec1e525e00a7632829",
+    "/workspace/AI-radio-stream-help/tests/live2d_semantic_ownership_check.py": "649a90da107fd1d3900647ce2e32e1a142c439af285322e7e9e93c4f4a25b3d0",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.4096/texture_00.png": "bf51fc0ea2dec7b6471b88ea30a69670d1e91ebb2b87c768288e6afcd7bd0b0c"
+  },
+  "sources_unchanged": null,
+  "probes": [
+    {
+      "name": "central_abdomen",
+      "sourceCanvas": [
+        840,
+        1570
+      ],
+      "expectedCoreMesh": "ArtMeshTopwear",
+      "expectedCoreAtlasAlpha": 253.0,
+      "forbiddenCoreAtlasAlpha": {
+        "upperarm-r": 0,
+        "upperarm-l": 0,
+        "forearm-r": 0,
+        "forearm-l": 0,
+        "cuff-front-r": 0,
+        "cuff-front-l": 0
+      },
+      "allActualOwners": [
+        {
+          "id": "ArtMeshTopwear",
+          "name": "topwear",
+          "samples": [
+            {
+              "triangleOffset": 2517,
+              "indices": [
+                638,
+                669,
+                613
+              ],
+              "weights": [
+                0.04153722218646153,
+                0.15772537733135666,
+                0.8007374004821819
+              ],
+              "uv": [
+                0.17065499042409962,
+                0.6193723038631794
+              ],
+              "effectiveAtlasAlpha": 253.0
+            }
+          ],
+          "maxEffectiveAlpha": 253.0
+        }
+      ],
+      "actualTriangleAnchor": {
+        "name": "central_abdomen",
+        "meshId": "ArtMeshTopwear",
+        "indices": [
+          638,
+          669,
+          613
+        ],
+        "weights": [
+          0.04153722218646153,
+          0.15772537733135666,
+          0.8007374004821819
+        ],
+        "sourceCanvas": [
+          840,
+          1570
+        ]
+      }
+    },
+    {
+      "name": "lower_torso",
+      "sourceCanvas": [
+        800,
+        1700
+      ],
+      "expectedCoreMesh": "ArtMeshTopwear",
+      "expectedCoreAtlasAlpha": 253.0,
+      "forbiddenCoreAtlasAlpha": {
+        "upperarm-r": 0,
+        "upperarm-l": 0,
+        "forearm-r": 0,
+        "forearm-l": 0,
+        "cuff-front-r": 0,
+        "cuff-front-l": 0
+      },
+      "allActualOwners": [
+        {
+          "id": "ArtMeshTopwear",
+          "name": "topwear",
+          "samples": [
+            {
+              "triangleOffset": 2694,
+              "indices": [
+                689,
+                626,
+                606
+              ],
+              "weights": [
+                0.3774665986919236,
+                0.4672229275368207,
+                0.15531047377125562
+              ],
+              "uv": [
+                0.16088368302896144,
+                0.5876317436392665
+              ],
+              "effectiveAtlasAlpha": 253.0
+            }
+          ],
+          "maxEffectiveAlpha": 253.0
+        }
+      ],
+      "actualTriangleAnchor": {
+        "name": "lower_torso",
+        "meshId": "ArtMeshTopwear",
+        "indices": [
+          689,
+          626,
+          606
+        ],
+        "weights": [
+          0.3774665986919236,
+          0.4672229275368207,
+          0.15531047377125562
+        ],
+        "sourceCanvas": [
+          800,
+          1700
+        ]
+      }
+    },
+    {
+      "name": "lower_chest",
+      "sourceCanvas": [
+        860,
+        1500
+      ],
+      "expectedCoreMesh": "ArtMeshTopwear",
+      "expectedCoreAtlasAlpha": 253.0,
+      "forbiddenCoreAtlasAlpha": {
+        "upperarm-r": 0,
+        "upperarm-l": 0,
+        "forearm-r": 0,
+        "forearm-l": 0,
+        "cuff-front-r": 0,
+        "cuff-front-l": 0
+      },
+      "allActualOwners": [
+        {
+          "id": "ArtMeshTopwear",
+          "name": "topwear",
+          "samples": [
+            {
+              "triangleOffset": 1893,
+              "indices": [
+                590,
+                666,
+                669
+              ],
+              "weights": [
+                0.34279919473800097,
+                0.3660076828293886,
+                0.2911931224326105
+              ],
+              "uv": [
+                0.17553312858074946,
+                0.6364770761058032
+              ],
+              "effectiveAtlasAlpha": 253.0
+            }
+          ],
+          "maxEffectiveAlpha": 253.0
+        }
+      ],
+      "actualTriangleAnchor": {
+        "name": "lower_chest",
+        "meshId": "ArtMeshTopwear",
+        "indices": [
+          590,
+          666,
+          669
+        ],
+        "weights": [
+          0.34279919473800097,
+          0.3660076828293886,
+          0.2911931224326105
+        ],
+        "sourceCanvas": [
+          860,
+          1500
+        ]
+      }
+    }
+  ],
+  "wrong_forbidden_owner_assignment_rejected": true,
+  "actual_core_operations": {
+    "armRows": [
+      {
+        "parameter": "ParamFingerThumbR",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerR6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerThumbR",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerR6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerRingR",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerR4"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerRingR",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerR4"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerMiddleR",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerR3"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerMiddleR",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerR3"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerLittleR",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerR5"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerLittleR",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerR5"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerIndexR",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerR2"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerIndexR",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerR2"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamHandR",
+        "value": -10,
+        "changedDrawables": [
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamHandR",
+        "value": 10,
+        "changedDrawables": [
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamForearmR",
+        "value": -6,
+        "changedDrawables": [
+          "ArtMeshLayerR",
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6",
+          "ArtMeshLayerR8"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamForearmR",
+        "value": 6,
+        "changedDrawables": [
+          "ArtMeshLayerR",
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6",
+          "ArtMeshLayerR8"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamArmR",
+        "value": -4,
+        "changedDrawables": [
+          "ArtMeshLayerR",
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6",
+          "ArtMeshLayerR8",
+          "ArtMeshLayerR9"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamArmR",
+        "value": 4,
+        "changedDrawables": [
+          "ArtMeshLayerR",
+          "ArtMeshHandwearR",
+          "ArtMeshLayerR2",
+          "ArtMeshLayerR3",
+          "ArtMeshLayerR4",
+          "ArtMeshLayerR5",
+          "ArtMeshLayerR6",
+          "ArtMeshLayerR8",
+          "ArtMeshLayerR9"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerThumbL",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerL5"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerThumbL",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerL5"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerRingL",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerL2"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerRingL",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerL2"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerMiddleL",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerL3"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerMiddleL",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerL3"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerLittleL",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerL6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerLittleL",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerL6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerIndexL",
+        "value": -12,
+        "changedDrawables": [
+          "ArtMeshLayerL4"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamFingerIndexL",
+        "value": 12,
+        "changedDrawables": [
+          "ArtMeshLayerL4"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamHandL",
+        "value": -10,
+        "changedDrawables": [
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamHandL",
+        "value": 10,
+        "changedDrawables": [
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamForearmL",
+        "value": -6,
+        "changedDrawables": [
+          "ArtMeshLayerL",
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6",
+          "ArtMeshLayerL8"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamForearmL",
+        "value": 6,
+        "changedDrawables": [
+          "ArtMeshLayerL",
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6",
+          "ArtMeshLayerL8"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamArmL",
+        "value": -4,
+        "changedDrawables": [
+          "ArtMeshLayerL",
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6",
+          "ArtMeshLayerL8",
+          "ArtMeshLayerL9"
+        ],
+        "maxProtectedMotion": 0
+      },
+      {
+        "parameter": "ParamArmL",
+        "value": 4,
+        "changedDrawables": [
+          "ArtMeshLayerL",
+          "ArtMeshHandwearL",
+          "ArtMeshLayerL2",
+          "ArtMeshLayerL3",
+          "ArtMeshLayerL4",
+          "ArtMeshLayerL5",
+          "ArtMeshLayerL6",
+          "ArtMeshLayerL8",
+          "ArtMeshLayerL9"
+        ],
+        "maxProtectedMotion": 0
+      }
+    ],
+    "cupRows": [
+      {
+        "x": -500,
+        "y": -500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": -500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": -500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 0,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 0,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 0,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": -500,
+        "y": 500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": -500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": -500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": -500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "rotation": 0,
+        "changedDrawables": [],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 0,
+        "y": 500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": -500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": -500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": -500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 0,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 0,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 0,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 500,
+        "rotation": -45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 500,
+        "rotation": 0,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      },
+      {
+        "x": 500,
+        "y": 500,
+        "rotation": 45,
+        "changedDrawables": [
+          "ArtMeshLayer"
+        ],
+        "palmsUnchanged": true
+      }
+    ],
+    "cupVisibility": [
+      {
+        "value": 0,
+        "cupOpacity": 0,
+        "geometryChanged": []
+      },
+      {
+        "value": 1,
+        "cupOpacity": 1,
+        "geometryChanged": []
+      }
+    ],
+    "baselineAnchors": [
+      {
+        "name": "central_abdomen",
+        "xy": [
+          840,
+          1570
+        ]
+      },
+      {
+        "name": "lower_torso",
+        "xy": [
+          800,
+          1700
+        ]
+      },
+      {
+        "name": "lower_chest",
+        "xy": [
+          860,
+          1500
+        ]
+      }
+    ],
+    "cupHoldParameterPresent": false
+  },
+  "not_proven": [
+    "CupHold/grip coupling",
+    "Cuff/shoulder/elbow seams or occlusion",
+    "All parameter combinations or continuous motions",
+    "Texture alpha interpretation at deformed non-rest points",
+    "Human/user art acceptance"
+  ],
+  "source_binding_limitation": "Initial harness draft captured hashes only after execution; cannot establish pre/post stability. Superseded by rerun with hashes captured before Core/alpha execution."
+}

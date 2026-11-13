@@ -1,0 +1,320 @@
+{
+  "observed_at": "2026-11-13T01:41:40.881096+00:00",
+  "scope": "actual Core default render order, not an artistic or whole-model acceptance",
+  "sources_before": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.moc3": "5954d589f5e81cbefca10e8807fcd8a78389a3b60f44fd6b011a0f25c8ca491d",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/.build/final-live2d-delivery/check-underlay-order.py": "12d39b344810b25d09fa8c8bb4ab7ca3c4018c706051d910999074c83931d037"
+  },
+  "sources_after": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.moc3": "5954d589f5e81cbefca10e8807fcd8a78389a3b60f44fd6b011a0f25c8ca491d",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/.build/final-live2d-delivery/check-underlay-order.py": "12d39b344810b25d09fa8c8bb4ab7ca3c4018c706051d910999074c83931d037"
+  },
+  "sources_unchanged": true,
+  "drawables": [
+    {
+      "id": "ArtMeshBackHair",
+      "index": 41,
+      "drawOrder": 10,
+      "renderOrder": 0,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshTopwear2",
+      "index": 40,
+      "drawOrder": 20,
+      "renderOrder": 1,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshLayerR9",
+      "index": 39,
+      "drawOrder": 30,
+      "renderOrder": 2,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL9",
+      "index": 38,
+      "drawOrder": 40,
+      "renderOrder": 3,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshImage",
+      "index": 42,
+      "drawOrder": 45,
+      "renderOrder": 4,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshTopwear",
+      "index": 37,
+      "drawOrder": 50,
+      "renderOrder": 5,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR8",
+      "index": 36,
+      "drawOrder": 60,
+      "renderOrder": 6,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL8",
+      "index": 35,
+      "drawOrder": 70,
+      "renderOrder": 7,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshFace",
+      "index": 34,
+      "drawOrder": 80,
+      "renderOrder": 8,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyewhiteR",
+      "index": 33,
+      "drawOrder": 90,
+      "renderOrder": 9,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyewhiteL",
+      "index": 32,
+      "drawOrder": 100,
+      "renderOrder": 10,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshIridesR",
+      "index": 31,
+      "drawOrder": 110,
+      "renderOrder": 11,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshIridesL",
+      "index": 30,
+      "drawOrder": 120,
+      "renderOrder": 12,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyelashR",
+      "index": 29,
+      "drawOrder": 130,
+      "renderOrder": 13,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyelashL",
+      "index": 28,
+      "drawOrder": 140,
+      "renderOrder": 14,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR7",
+      "index": 27,
+      "drawOrder": 150,
+      "renderOrder": 15,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL7",
+      "index": 26,
+      "drawOrder": 160,
+      "renderOrder": 16,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyebrowR",
+      "index": 25,
+      "drawOrder": 170,
+      "renderOrder": 17,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshEyebrowL",
+      "index": 24,
+      "drawOrder": 180,
+      "renderOrder": 18,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshMouth",
+      "index": 23,
+      "drawOrder": 190,
+      "renderOrder": 19,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshTongue",
+      "index": 22,
+      "drawOrder": 200,
+      "renderOrder": 20,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshToothT",
+      "index": 21,
+      "drawOrder": 210,
+      "renderOrder": 21,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshLayer3",
+      "index": 20,
+      "drawOrder": 220,
+      "renderOrder": 22,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshLayer2",
+      "index": 19,
+      "drawOrder": 230,
+      "renderOrder": 23,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshMouthClose",
+      "index": 18,
+      "drawOrder": 240,
+      "renderOrder": 24,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshFrontHair3",
+      "index": 17,
+      "drawOrder": 250,
+      "renderOrder": 25,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshFrontHair2",
+      "index": 16,
+      "drawOrder": 260,
+      "renderOrder": 26,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshFrontHair",
+      "index": 15,
+      "drawOrder": 270,
+      "renderOrder": 27,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR6",
+      "index": 14,
+      "drawOrder": 280,
+      "renderOrder": 28,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL6",
+      "index": 13,
+      "drawOrder": 290,
+      "renderOrder": 29,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayer",
+      "index": 12,
+      "drawOrder": 300,
+      "renderOrder": 30,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL5",
+      "index": 11,
+      "drawOrder": 310,
+      "renderOrder": 31,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL4",
+      "index": 10,
+      "drawOrder": 320,
+      "renderOrder": 32,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL3",
+      "index": 9,
+      "drawOrder": 330,
+      "renderOrder": 33,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL2",
+      "index": 8,
+      "drawOrder": 340,
+      "renderOrder": 34,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR5",
+      "index": 7,
+      "drawOrder": 350,
+      "renderOrder": 35,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR4",
+      "index": 6,
+      "drawOrder": 360,
+      "renderOrder": 36,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR3",
+      "index": 5,
+      "drawOrder": 370,
+      "renderOrder": 37,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR2",
+      "index": 4,
+      "drawOrder": 380,
+      "renderOrder": 38,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshHandwearR",
+      "index": 3,
+      "drawOrder": 390,
+      "renderOrder": 39,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshHandwearL",
+      "index": 2,
+      "drawOrder": 400,
+      "renderOrder": 40,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR",
+      "index": 1,
+      "drawOrder": 410,
+      "renderOrder": 41,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL",
+      "index": 0,
+      "drawOrder": 420,
+      "renderOrder": 42,
+      "opacity": 1
+    }
+  ]
+}

@@ -595,5 +595,203 @@
     "sha256": "918099432ed4bb4facf2b035e8ad7f1f0ffa64981eb5e9b0ab4cc9346673c472",
     "zip_test_passed": true,
     "sdk_or_vendor_models_bundled": false
+  },
+  "current_original_live2d_review": {
+    "observed_at": "2026-11-13T05:12:23.987137+00:00",
+    "overall": "LOCAL_TECHNICAL_VERIFIED_EXTERNAL_USER_GATES_PENDING",
+    "primary_visual_target": "Original full-rig 2D Live2D; rejected 3D excluded",
+    "actual_original_exports_and_official_core": true,
+    "candidate7_art_status": "rejected cloth spikes/folds at declared joint combinations",
+    "latest_body_branch": {
+      "model": ".build/original-character-rig-r5/export-cloth-continuous/character.model3.json",
+      "finite_unique_joint_samples": 34,
+      "winding_flips": 0,
+      "max_edge_ratio": 1.2227188126875201,
+      "visible_extreme_gaps_still_rejected": true,
+      "cup_hold_present": false,
+      "independent_review": "review/original-character-live2d-continuous-cloth-independent-review.json",
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "final_full_rig_accepted": false,
+    "true_qwen_kokoro_final_live2d_run": {
+      "status": "LOCAL_VERIFIED_SECOND_RECOVERY_COMPLETE",
+      "actual_provider_invoked": true,
+      "actual_invocation_count": 2,
+      "complete_attempt_count": 1,
+      "first_attempt": {
+        "status": "ENVIRONMENT_INTERRUPTED_NO_FINAL_REPORT",
+        "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final",
+        "observation": "review/real-live2d-rigid-r2-interrupted-observation.json",
+        "not_counted_as_passed": true
+      },
+      "second_recovery": {
+        "status": "passed",
+        "report": "review/real-live2d-rigid-r2-companion.json",
+        "independent_review": "review/real-live2d-rigid-r2-independent-final-review.json",
+        "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2",
+        "log": ".build/final-real-live2d-r2.log",
+        "seven_checks_passed": true,
+        "source_files_current_no_drift": 112,
+        "models_mocked": false,
+        "browser_external_requests": 0,
+        "memory_mode": "off",
+        "stop_seconds": 0.793,
+        "stop_limit_seconds": 2,
+        "actual_analyser_rms": 0.049648863927899245,
+        "actual_core_mouth_causal_drawables": 6,
+        "next_prompt_assistant_entries": [],
+        "actual_receipt_status": "stopped",
+        "wav_path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-kokoro-response.wav",
+        "wav_sha256": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f",
+        "wav_seconds": 5.716625,
+        "video_path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-qwen-kokoro-original-live2d-stop.webm",
+        "video_sha256": "1b48122c43ac621f5b86e310419cdb6936833a2fce83cd41e40defded6d1722f",
+        "video_audio_streams": 0,
+        "single_observation_not_p95": true,
+        "first_text_seconds": 49.54,
+        "reply_seconds": 62.314,
+        "first_observed_audio_rms_seconds": 69.621,
+        "python_process_max_rss_kib": 5631388
+      },
+      "offline_flags": {
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "HF_HUB_DISABLE_TELEMETRY": "1"
+      },
+      "windows_rtx4060_or_user_E5_verified": false
+    },
+    "unpassed": [
+      "Windows10/11 RTX4060 real hardware",
+      "Actual human microphone/ASR",
+      "Real Bilibili/WeChat account interoperability",
+      "User E5 natural chat/voice/art acceptance and long-term consistency"
+    ],
+    "historical_results_scope": "Original requirements/engineering_gates/real_model_single_observation fields below retain their recorded 2026-11-12 sources; do not apply them to current changed original Live2D/product sources.",
+    "latest_body_diagnostic_revision": {
+      "model": ".build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.model3.json",
+      "review": "review/original-character-live2d-underfill-correct-base-independent-review.json",
+      "root_internal_clothing_baseline_accepted": true,
+      "user_E5_accepted": false,
+      "source_psd_final_replay_pending": true,
+      "remaining_transparent_wedge": "Connected outer silhouette armpit air retained by root visual decision, not automatically rejected from alpha counts",
+      "actual_provider_invoked": false,
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "formal_same_source_model": {
+      "model": ".build/original-character-rig-formal-r1/export/character.model3.json",
+      "review": "review/original-character-live2d-formal-r1-independent-review.json",
+      "actual_42_source_png_and_psd_project_binding_passed": true,
+      "fresh_eye_mesh_neutral_actual_eye1_passed": true,
+      "cloth34_core_folds_zero": true,
+      "core_gl_sidecar_subgates_passed": true,
+      "cup_shape_in_normal_body_domain_failed": true,
+      "corrected_model_pending": true,
+      "actual_provider_invoked": false,
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "current_public_source_quality": {
+      "report": "review/quality-gate-live2d-delivery-final.json",
+      "report_sha256": "e495171f12d59a1a38508142b87f15704fa3f8d55a9154f6de1fae1ecc43c3c4",
+      "observed_at": "2026-11-13T04:28:07.176980+00:00",
+      "passed": true,
+      "source_stable_during_checks": true,
+      "source_snapshot_commit": "084aaf222b54e1828595bde82fc07c58acbb6075",
+      "source_files_rechecked_current": 327,
+      "source_files_rechecked_current_no_drift": true,
+      "counts": {
+        "python": 780,
+        "python_skipped": 0,
+        "frontend_node": 111,
+        "desktop_python": 9,
+        "desktop_node": 27
+      },
+      "does_not_verify": [
+        "Final rig shape/grip",
+        "True provider with this model",
+        "Windows/4060",
+        "Real accounts",
+        "User E5"
+      ]
+    },
+    "current_rigid_r2_model": {
+      "model": ".build/original-character-rig-formal-r1/export-rigid-cup/character.model3.json",
+      "moc_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+      "moc_bytes": 4769536,
+      "actual_drawables": 42,
+      "actual_parameters": 41,
+      "actual_source_project_sha256": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+      "actual_core_gl_report": "review/original-character-live2d-rigid-r2-core-gl.json",
+      "actual_core_gl_technical_checks_passed": 8,
+      "source_stable_during_actual_core_gl": true,
+      "cloth_report": "review/original-character-live2d-rigid-r2-cloth-folds.json",
+      "cloth_unique_poses": 34,
+      "cloth_all_winding_flips": 0,
+      "cloth_max_edge_ratio": 1.222722490262611,
+      "actual_gl_parameter_sweeps": 13,
+      "actual_expressions": 4,
+      "actual_motions": 8,
+      "actual_core_evaluations_at_last_parameter": 2378,
+      "javascript_errors": [],
+      "neutral_face_report": "review/original-character-live2d-rigid-r2-neutral-face.json",
+      "neutral_actual_eye_open": [
+        1,
+        1
+      ],
+      "neutral_actual_mouth_open": 0,
+      "neutral_actual_mouth_form": 0,
+      "root_internal_three_picture_review": "Root viewed actual r2 neutral full/face and MouthOpenYmax; no obvious new gross damage noted. Not user E5.",
+      "pending": [
+        "Windows/4060 target-device verification",
+        "Real microphone/account tests",
+        "User E5 art and voice acceptance"
+      ],
+      "r1_old_cup_distortion_remains_historical_failed_evidence": true,
+      "fresh_full_hand_cup_and5000_passed": true,
+      "final_complete_technical_review": "review/real-live2d-rigid-r2-independent-final-review.json",
+      "reported_shape_and_grip": {
+        "full_hand_cup_checks": 13,
+        "actual_selected_cartesian_poses": 486,
+        "additional_selected_off_key": 61,
+        "not_exhaustive_20655_core_states": true,
+        "independent5000_grip_cases": 5000,
+        "max_grip_error_source_px": 0.6785883196328265,
+        "shape5000_cases": 5000,
+        "max_affine_shape_residual_source_px": 8.569116124003843e-05,
+        "max_similarity_shape_residual_source_px": 0.00010626277318283761,
+        "shape_limit_source_px": 0.5,
+        "actual_mainstage_ui_checks": 9,
+        "actual_expression_ui_checks": 3,
+        "qa_core_gl_checks": 8,
+        "qa_cloth_poses": 34
+      },
+      "real_provider_recovery_passed": true
+    },
+    "current_candidate_artifacts": {
+      "report": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-report.json",
+      "packager_status": "candidate",
+      "packager_core_passed": false,
+      "packager_full_character_claimed": false,
+      "runtime_zip": {
+        "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip",
+        "bytes": 11017918,
+        "sha256": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e",
+        "independent_zip_model_moc_contract_binding_passed": true
+      },
+      "source_zip": {
+        "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-source.zip",
+        "bytes": 345553022,
+        "sha256": "1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc",
+        "verification_attribution": "Actual developer packager and root freeze record; QA did not repeat whole345MB CRC sweep"
+      },
+      "meaning": "Format/source packaging gates are distinct from actual Core/model, art and target device gates."
+    },
+    "unverified_scope_dependent": [
+      "Official Editor CMO3 reopen/equivalent export not verified; not automatically a new required software runtime gate."
+    ],
+    "final_full_rig_technical_acceptance_passed": true,
+    "final_full_rig_user_E5_accepted": false
   }
 }

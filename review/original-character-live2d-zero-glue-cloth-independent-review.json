@@ -1,0 +1,42 @@
+{
+  "status": "body_only_extreme_gap_art_rejected",
+  "model": ".build/original-character-rig-r5/export-cloth-zero-glue-effects/character.model3.json",
+  "actual_reports": [
+    "review/original-character-live2d-zero-glue-cloth-folds.json",
+    "review/original-character-live2d-zero-glue-cloth-gl.json"
+  ],
+  "sources_stable_during_each_run": true,
+  "finite_samples": 34,
+  "cloth_winding_flips": 0,
+  "max_edge_ratio": 1.2227188126875201,
+  "visual_review": "Actual opposite-shoulders-min-elbows-min still shows long exposed background band below left screen forearm and right triangular inner gap. Not accepted.",
+  "readonly_image_comparison_to_prior_continuous": {
+    "opposite-shoulders-min-elbows-min.png": "all RGBA pixels exactly equal",
+    "original-neutral.png": "max channel difference 1",
+    "ParamForearmR-max.png": "max channel difference 1",
+    "cause_of_1_quantization_difference": "unknown, not treated as geometry change proof"
+  },
+  "rest_snapshot": {
+    "path": ".build/original-character-rig-r5/cloth-zero-glue-rest-core-snapshot.json",
+    "bytes": 622757,
+    "sha256": "e877631623765381ee5cd18216d2955507e836d98792aa4dc119251f91f7b30a"
+  },
+  "not_proven": [
+    "All continuous states",
+    "CupHold/4 actions/final rig",
+    "Final art acceptance",
+    "True provider end-to-end",
+    "Windows/4060"
+  ],
+  "actual_provider_invoked": false,
+  "actual_dual_moc_comparison": {
+    "report": "review/original-character-live2d-continuous-vs-zero-glue-core.json",
+    "finite_poses": 35,
+    "sources_stable": true,
+    "exact_same": false,
+    "max_coordinate_difference_source_px": 0.0833587646484375,
+    "opacity_difference": 0,
+    "changed_mesh_count": 4,
+    "interpretation": "Small real Core differences exist, including neutral; zero weights did not fix visible large gaps. No claim that authoring glue has zero effect or root cause identified."
+  }
+}

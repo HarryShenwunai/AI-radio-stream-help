@@ -1,0 +1,567 @@
+{
+  "observed_at": "2026-11-13T03:01:53.690603+00:00",
+  "scope": "Only frozen retired 2D candidate1/2/3 PNG copies; exact-size/SHA identity, every path and byte retained; formal current source, generated originals, runtime exports, user data, weights and base archives untouched",
+  "free_bytes_before": 524050432,
+  "free_bytes_after": 564588544,
+  "actual_freed_bytes": 40538112,
+  "linked_files": [
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/coherentReference.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/body/coherentReference.png",
+      "bytes": 1379474,
+      "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/00-back-hair.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/00-back-hair.png",
+      "bytes": 1385792,
+      "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/07-face.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/04-face.png",
+      "bytes": 456313,
+      "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/08-eyewhite-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/05-eyewhite-r.png",
+      "bytes": 10343,
+      "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/09-eyewhite-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/06-eyewhite-l.png",
+      "bytes": 10099,
+      "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/10-iris-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/07-iris-r.png",
+      "bytes": 9080,
+      "sha256": "1af70380005de2e5a2e7842fc2764f46d81ac34dfe07c4140db415529d167dbc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/11-iris-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/08-iris-l.png",
+      "bytes": 8984,
+      "sha256": "76ffef4fd2ac8971b3c34b3e0fdb692a0b9c370b09a8e5b4c702e1e1eb34d17f"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/12-eyelash-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/09-eyelash-r.png",
+      "bytes": 5278,
+      "sha256": "6212f872ff5881817e1c858cbf206c4c37da169d65eb5e1689d668d6fb0a44fb"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/13-eyelash-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/10-eyelash-l.png",
+      "bytes": 5378,
+      "sha256": "b796d8af7fa8462fab56cb42c514c4d4e63066134bdad7ffa5228a06eb0824e0"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/14-lower-eyelash-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/11-lower-eyelash-r.png",
+      "bytes": 3929,
+      "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/15-lower-eyelash-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/12-lower-eyelash-l.png",
+      "bytes": 3943,
+      "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/16-eyebrow-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/13-eyebrow-r.png",
+      "bytes": 6457,
+      "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/17-eyebrow-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/14-eyebrow-l.png",
+      "bytes": 5898,
+      "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/18-mouth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/15-mouth.png",
+      "bytes": 9053,
+      "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/19-upper-teeth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/16-upper-teeth.png",
+      "bytes": 4946,
+      "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/20-tongue.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/17-tongue.png",
+      "bytes": 4453,
+      "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/21-upper-lip.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/18-upper-lip.png",
+      "bytes": 5307,
+      "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/22-lower-lip.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/19-lower-lip.png",
+      "bytes": 6828,
+      "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/23-mouth-close.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/20-mouth-close.png",
+      "bytes": 8743,
+      "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/24-front-hair-1.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/21-front-hair-1.png",
+      "bytes": 775732,
+      "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/25-front-hair-3.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/22-front-hair-3.png",
+      "bytes": 510198,
+      "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/26-front-hair-2.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/23-front-hair-2.png",
+      "bytes": 759168,
+      "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/27-finger-thumb-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/24-finger-thumb-r.png",
+      "bytes": 6743,
+      "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/28-finger-little-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/25-finger-little-l.png",
+      "bytes": 5843,
+      "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/29-cup.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/26-cup.png",
+      "bytes": 136311,
+      "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/30-finger-thumb-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/27-finger-thumb-l.png",
+      "bytes": 11099,
+      "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/31-finger-index-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/28-finger-index-l.png",
+      "bytes": 8874,
+      "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/32-finger-middle-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/29-finger-middle-l.png",
+      "bytes": 9303,
+      "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/33-finger-ring-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/30-finger-ring-l.png",
+      "bytes": 7674,
+      "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/34-finger-little-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/31-finger-little-r.png",
+      "bytes": 8015,
+      "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/35-finger-ring-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/32-finger-ring-r.png",
+      "bytes": 9789,
+      "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/36-finger-middle-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/33-finger-middle-r.png",
+      "bytes": 9658,
+      "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/37-finger-index-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/34-finger-index-r.png",
+      "bytes": 9735,
+      "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/body/hiddenTorso.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/body/torso.png",
+      "bytes": 846535,
+      "sha256": "68f692ea436b3753f2fc5451d31c0324d365f1dcb3504d5a38bfa2018a1c4c24"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/hands/coherentReference.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/body/coherentReference.png",
+      "bytes": 1379474,
+      "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/hands/cup.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/cup.png",
+      "bytes": 1091697,
+      "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/hands/viewerLeft.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/viewerLeft.png",
+      "bytes": 1549423,
+      "sha256": "950006520ac6c3ac243dbd80d689c6d4ca8879b67fea9c33d071c333c6ff0e7c"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/hands/viewerRight.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/viewerRight.png",
+      "bytes": 1669137,
+      "sha256": "0013b861e9b867ebf392c40181214c6afe2f58683d115a420ab981ff58efec29"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/back.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/back.png",
+      "bytes": 2075368,
+      "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/eyes.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/eyes.png",
+      "bytes": 1543063,
+      "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/face.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/face.png",
+      "bytes": 1062256,
+      "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/frontCenter.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontCenter.png",
+      "bytes": 384257,
+      "sha256": "797eafadc64653db62bacf7027fd32ec932ca6863fecf242a67c752db701d952"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/frontLeft.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontLeft.png",
+      "bytes": 396835,
+      "sha256": "2df1ef8b79783d0a6969405e7012bbe0947b9ae12e8cfbd59e1cc969285d578b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/frontRight.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontRight.png",
+      "bytes": 272464,
+      "sha256": "4650c9cfcda3e09c7eb2dcba9509642eb6e1545e761dde1a0b1a5f7f51268851"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/head/mouth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/mouth.png",
+      "bytes": 1355459,
+      "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/00-back-hair.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/00-back-hair.png",
+      "bytes": 1385792,
+      "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/07-face.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/04-face.png",
+      "bytes": 456313,
+      "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/08-eyewhite-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/05-eyewhite-r.png",
+      "bytes": 10343,
+      "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/09-eyewhite-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/06-eyewhite-l.png",
+      "bytes": 10099,
+      "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/10-iris-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/07-iris-r.png",
+      "bytes": 9080,
+      "sha256": "1af70380005de2e5a2e7842fc2764f46d81ac34dfe07c4140db415529d167dbc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/11-iris-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/08-iris-l.png",
+      "bytes": 8984,
+      "sha256": "76ffef4fd2ac8971b3c34b3e0fdb692a0b9c370b09a8e5b4c702e1e1eb34d17f"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/12-eyelash-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/09-eyelash-r.png",
+      "bytes": 5278,
+      "sha256": "6212f872ff5881817e1c858cbf206c4c37da169d65eb5e1689d668d6fb0a44fb"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/13-eyelash-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/10-eyelash-l.png",
+      "bytes": 5378,
+      "sha256": "b796d8af7fa8462fab56cb42c514c4d4e63066134bdad7ffa5228a06eb0824e0"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/14-lower-eyelash-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/11-lower-eyelash-r.png",
+      "bytes": 3929,
+      "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/15-lower-eyelash-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/12-lower-eyelash-l.png",
+      "bytes": 3943,
+      "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/16-eyebrow-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/13-eyebrow-r.png",
+      "bytes": 6457,
+      "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/17-eyebrow-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/14-eyebrow-l.png",
+      "bytes": 5898,
+      "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/18-mouth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/15-mouth.png",
+      "bytes": 9053,
+      "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/19-upper-teeth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/16-upper-teeth.png",
+      "bytes": 4946,
+      "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/20-tongue.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/17-tongue.png",
+      "bytes": 4453,
+      "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/21-upper-lip.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/18-upper-lip.png",
+      "bytes": 5307,
+      "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/22-lower-lip.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/19-lower-lip.png",
+      "bytes": 6828,
+      "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/23-mouth-close.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/20-mouth-close.png",
+      "bytes": 8743,
+      "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/24-front-hair-1.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/21-front-hair-1.png",
+      "bytes": 775732,
+      "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/25-front-hair-3.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/22-front-hair-3.png",
+      "bytes": 510198,
+      "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/26-front-hair-2.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/23-front-hair-2.png",
+      "bytes": 759168,
+      "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/27-finger-thumb-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/24-finger-thumb-r.png",
+      "bytes": 6743,
+      "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/28-finger-little-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/25-finger-little-l.png",
+      "bytes": 5843,
+      "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/29-cup.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/26-cup.png",
+      "bytes": 136311,
+      "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/30-finger-thumb-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/27-finger-thumb-l.png",
+      "bytes": 11099,
+      "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/31-finger-index-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/28-finger-index-l.png",
+      "bytes": 8874,
+      "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/32-finger-middle-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/29-finger-middle-l.png",
+      "bytes": 9303,
+      "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/33-finger-ring-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/30-finger-ring-l.png",
+      "bytes": 7674,
+      "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/34-finger-little-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/31-finger-little-r.png",
+      "bytes": 8015,
+      "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/35-finger-ring-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/32-finger-ring-r.png",
+      "bytes": 9789,
+      "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/36-finger-middle-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/33-finger-middle-r.png",
+      "bytes": 9658,
+      "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/37-finger-index-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/layers/34-finger-index-r.png",
+      "bytes": 9735,
+      "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/38-hand-r.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/38-hand-r.png",
+      "bytes": 45306,
+      "sha256": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers/39-hand-l.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers/39-hand-l.png",
+      "bytes": 37165,
+      "sha256": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/body/coherentBody.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/body/coherentBody.png",
+      "bytes": 1397256,
+      "sha256": "142296e0ecd0a9776b6f481cff62646b9ae4b5ccef1e12c8423baccad73776b0"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/body/hiddenTorso.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/body/torso.png",
+      "bytes": 846535,
+      "sha256": "68f692ea436b3753f2fc5451d31c0324d365f1dcb3504d5a38bfa2018a1c4c24"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/hands/coherentReference.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/body/coherentReference.png",
+      "bytes": 1379474,
+      "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/hands/cup.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/cup.png",
+      "bytes": 1091697,
+      "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/hands/extendedPalms.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/sources/hands/extendedPalms.png",
+      "bytes": 1792603,
+      "sha256": "0a51d8f87dd7bf4efc451c63eb483d63d5e31bb53f8b85525190ad8e88ddf1ae"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/hands/viewerLeft.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/viewerLeft.png",
+      "bytes": 1549423,
+      "sha256": "950006520ac6c3ac243dbd80d689c6d4ca8879b67fea9c33d071c333c6ff0e7c"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/hands/viewerRight.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/hands/viewerRight.png",
+      "bytes": 1669137,
+      "sha256": "0013b861e9b867ebf392c40181214c6afe2f58683d115a420ab981ff58efec29"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/back.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/back.png",
+      "bytes": 2075368,
+      "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/eyes.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/eyes.png",
+      "bytes": 1543063,
+      "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/face.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/face.png",
+      "bytes": 1062256,
+      "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/frontCenter.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontCenter.png",
+      "bytes": 384257,
+      "sha256": "797eafadc64653db62bacf7027fd32ec932ca6863fecf242a67c752db701d952"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/frontLeft.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontLeft.png",
+      "bytes": 396835,
+      "sha256": "2df1ef8b79783d0a6969405e7012bbe0947b9ae12e8cfbd59e1cc969285d578b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/frontRight.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/frontRight.png",
+      "bytes": 272464,
+      "sha256": "4650c9cfcda3e09c7eb2dcba9509642eb6e1545e761dde1a0b1a5f7f51268851"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/sources/head/mouth.png",
+      "canonical": "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate1/sources/head/mouth.png",
+      "bytes": 1355459,
+      "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc"
+    }
+  ]
+}

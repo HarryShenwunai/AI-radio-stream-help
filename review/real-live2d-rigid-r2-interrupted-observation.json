@@ -1,0 +1,118 @@
+{
+  "observed_at": "2026-11-13T05:05:55.545078+00:00",
+  "status": "INTERRUPTED_NO_FINAL_ACCEPTANCE_REPORT",
+  "first_actual_invocation": true,
+  "actual_provider_invoked": true,
+  "models_mocked": false,
+  "source_harness": "tests/real_live2d_companion_browser_check.py",
+  "source_harness_sha256": "da763ddaaddbb0e2a80b62b5c454700e5b821b987b0d5ed13fc8384fa4333566",
+  "original_exec_session_id": 54197,
+  "process_state_after_environment_recovery": "Exact harness process absent on ps; tool session had previously returned running. No completed report.",
+  "planned_output_report": "review/real-live2d-rigid-r2-companion-browser-check.json",
+  "planned_output_report_exists": false,
+  "standalone_log_file": null,
+  "log_scope": "Original stdout/stderr remained tool PTY output, not redirected to a file.",
+  "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final",
+  "media_files": [
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/01-final-original-rig-ready.png",
+      "bytes": 1506681,
+      "sha256": "af0ced46896a7f584882bfc71db01465aa97df8244455afecfa3021542fed684",
+      "mtime_utc": "2026-11-13T05:00:31.770200+00:00"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/02-actual-qwen-stream.png",
+      "bytes": 1508525,
+      "sha256": "77e0aeb1272caee1d2088d0919eeabb9daea54c75c8559d6cd7ed109d484c871",
+      "mtime_utc": "2026-11-13T05:01:36.882739+00:00"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/03-actual-kokoro-live2d-mouth.png",
+      "bytes": 1509642,
+      "sha256": "f3dbd8e5e374b3c7618443f663f4a846bd8658408965a5ce66a0a836cba7a1e4",
+      "mtime_utc": "2026-11-13T05:01:58.840423+00:00"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/actual-kokoro-response.wav",
+      "bytes": 274442,
+      "sha256": "a8f020b980940604c6e18464471c4fb9aa52f51a2e36b5778b10f73c18f98ffc",
+      "mtime_utc": "2026-11-13T05:01:57.747482+00:00"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/raw-video/page@e37e5185e11d27d6148a9eb83088e09e.webm",
+      "bytes": 11813273,
+      "sha256": "0d25c8b951002e27fa02d8e1d643e522895b92a3cf1f879fc7bb0206ae0ba878",
+      "mtime_utc": "2026-11-13T05:02:01.219252+00:00"
+    }
+  ],
+  "actual_wav": {
+    "frames": 137199,
+    "rate": 24000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "duration_seconds": 5.716625,
+    "normalized_rms": 0.07492942545730794,
+    "peak_pcm16": 14223
+  },
+  "videos": [
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final/raw-video/page@e37e5185e11d27d6148a9eb83088e09e.webm",
+      "bytes": 11813273,
+      "sha256": "0d25c8b951002e27fa02d8e1d643e522895b92a3cf1f879fc7bb0206ae0ba878",
+      "ffprobe_exit_code": 0,
+      "ffprobe_stderr": "",
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 1000
+          }
+        ],
+        "format": {
+          "duration": "95.880000",
+          "size": "11813273"
+        }
+      }
+    }
+  ],
+  "evidence_unchanged_during_readonly_inspection": true,
+  "observed_completed_artifacts": [
+    "01-final-original-rig-ready.png",
+    "02-actual-qwen-stream.png",
+    "03-actual-kokoro-live2d-mouth.png",
+    "actual-kokoro-response.wav"
+  ],
+  "source_flow_inference": "Unmodified harness writes03 after actual Audio/Analyser and mouth counterfactual assertions. Numeric proof/latency object was not persisted before environment loss; this inference is not a substitute for a complete machine report.",
+  "not_confirmed": [
+    "Final stop<=2s result",
+    "Persisted stopped receipt and unheard-tail prompt guard",
+    "End-of-run source stability",
+    "Clean browser/server shutdown",
+    "Final overall acceptance"
+  ],
+  "known_execution_environment": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_DISABLE_TELEMETRY": "1",
+    "PLAYWRIGHT_BROWSERS_PATH": "/workspace/.cache/playwright",
+    "microphone_used": false,
+    "models": "Existing local Qwen/Kokoro only",
+    "browser_nonloopback_requests": "Blocked by frozen harness"
+  },
+  "recovery_attempt": {
+    "owner": "root",
+    "exec_session_id": 65365,
+    "status": "running_when_observation_recorded",
+    "output_report": "review/real-live2d-rigid-r2-companion.json",
+    "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2",
+    "log": ".build/final-real-live2d-r2.log",
+    "separate_output_paths": true,
+    "no_third_attempt_started_by_qa": true
+  },
+  "no_user_data_or_active_root_data_moved": true,
+  "interpretation": "First real provider run was interrupted by environment reset; second run is an explicitly labelled recovery validation, not a first/only invocation. No partial artifacts marked passed."
+}

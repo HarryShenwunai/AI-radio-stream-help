@@ -1,0 +1,3832 @@
+{
+  "status": "actual_core_cloth_fold_metrics_measured_not_art_pass",
+  "scope": "Real authored joint extremes; all declared cloth triangle areas/winding/edge stretches vs actual default pose. Areas ignore sub.01 sourcepx2 numerical debris; examples capped30 but counts complete. Texture alpha/occlusion not measured.",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-cup/character.model3.json": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-cup/character.moc3": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-cup/character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_fold_check.py": "7fb28adcde7e0f70d6e4012cc5099f0d8853ec996812465bc148b12efe7dcc61",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02"
+  },
+  "sources_unchanged": true,
+  "drawable_names": {
+    "ArtMeshLayerL": "cuff-front-l",
+    "ArtMeshLayerR": "cuff-front-r",
+    "ArtMeshLayerL8": "forearm-l",
+    "ArtMeshLayerR8": "forearm-r",
+    "ArtMeshTopwear": "topwear",
+    "ArtMeshLayerL9": "upperarm-l",
+    "ArtMeshLayerR9": "upperarm-r",
+    "ArtMeshTopwear2": "topwear-backfill"
+  },
+  "measurement": {
+    "ppu": 1536,
+    "coreVersion": 83951616,
+    "parameters": [
+      {
+        "id": "ParamCupHold",
+        "min": 0,
+        "default": 1,
+        "max": 1
+      },
+      {
+        "id": "ParamCupVisible",
+        "min": 0,
+        "default": 1,
+        "max": 1
+      },
+      {
+        "id": "ParamCupRotation",
+        "min": -45,
+        "default": 0,
+        "max": 45
+      },
+      {
+        "id": "ParamCupY",
+        "min": -500,
+        "default": 0,
+        "max": 500
+      },
+      {
+        "id": "ParamCupX",
+        "min": -500,
+        "default": 0,
+        "max": 500
+      },
+      {
+        "id": "ParamFingerThumbR",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerRingR",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerMiddleR",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerLittleR",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerIndexR",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamHandR",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamForearmR",
+        "min": -6,
+        "default": 0,
+        "max": 6
+      },
+      {
+        "id": "ParamArmR",
+        "min": -4,
+        "default": 0,
+        "max": 4
+      },
+      {
+        "id": "ParamFingerThumbL",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerRingL",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerMiddleL",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerLittleL",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamFingerIndexL",
+        "min": -12,
+        "default": 0,
+        "max": 12
+      },
+      {
+        "id": "ParamHandL",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamForearmL",
+        "min": -6,
+        "default": 0,
+        "max": 6
+      },
+      {
+        "id": "ParamArmL",
+        "min": -4,
+        "default": 0,
+        "max": 4
+      },
+      {
+        "id": "ParamAngleX",
+        "min": -45,
+        "default": 0,
+        "max": 45
+      },
+      {
+        "id": "ParamAngleY",
+        "min": -30,
+        "default": 0,
+        "max": 30
+      },
+      {
+        "id": "ParamAngleZ",
+        "min": -30,
+        "default": 0,
+        "max": 30
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "min": 0,
+        "default": 1,
+        "max": 1
+      },
+      {
+        "id": "ParamEyeROpen",
+        "min": 0,
+        "default": 1,
+        "max": 1
+      },
+      {
+        "id": "ParamEyeBallX",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamEyeBallY",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamBrowLY",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamBrowRY",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamMouthForm",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "min": 0,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamBodyLean",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamProportion",
+        "min": -10,
+        "default": 0,
+        "max": 10
+      },
+      {
+        "id": "ParamBreath",
+        "min": 0,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamHairFront",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      },
+      {
+        "id": "ParamHairBack",
+        "min": -1,
+        "default": 0,
+        "max": 1
+      }
+    ],
+    "poses": [
+      {
+        "parameter": "ParamArmL",
+        "value": -4,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000031860105627,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000102689632255,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0570388663919417,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamArmL",
+        "value": 4,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000024889372043,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.000008218236734,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0501251655909063,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamArmR",
+        "value": -4,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000070727735648,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000314892649358,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.148371964735936,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamArmR",
+        "value": 4,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000051704861315,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000602691501133,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.1447954889366834,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamForearmL",
+        "value": -6,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0114207837102533,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.081923320797077,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamForearmL",
+        "value": 6,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0159423174848152,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0812680711823146,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamForearmR",
+        "value": -6,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0028354925750615,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2143095182230543,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "parameter": "ParamForearmR",
+        "value": 6,
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0027463198289104,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2227213351159885,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "L-shoulder-min-elbow-min",
+        "parameters": {
+          "ParamArmL": -4,
+          "ParamForearmL": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0114219351127072,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0819225901431857,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0570388663919417,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "L-shoulder-min-elbow-max",
+        "parameters": {
+          "ParamArmL": -4,
+          "ParamForearmL": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0159416994172157,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0812682264800846,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0570388663919417,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "L-shoulder-max-elbow-min",
+        "parameters": {
+          "ParamArmL": 4,
+          "ParamForearmL": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0114200735383052,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0819230638026585,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0501251655909063,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "L-shoulder-max-elbow-max",
+        "parameters": {
+          "ParamArmL": 4,
+          "ParamForearmL": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0159422041084654,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0812678293689395,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0501251655909063,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "R-shoulder-min-elbow-min",
+        "parameters": {
+          "ParamArmR": -4,
+          "ParamForearmR": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0028363029484628,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2143076503129708,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.148371964735936,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "R-shoulder-min-elbow-max",
+        "parameters": {
+          "ParamArmR": -4,
+          "ParamForearmR": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0027441099155223,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2227211913327056,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.148371964735936,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "R-shoulder-max-elbow-min",
+        "parameters": {
+          "ParamArmR": 4,
+          "ParamForearmR": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0028347621898213,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.214309961961681,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.1447954889366834,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "R-shoulder-max-elbow-max",
+        "parameters": {
+          "ParamArmR": 4,
+          "ParamForearmR": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0027435591470708,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.222722490262611,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.1447954889366834,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "opposite-shoulders-min-elbows-min",
+        "parameters": {
+          "ParamArmL": -4,
+          "ParamArmR": 4,
+          "ParamForearmL": -6,
+          "ParamForearmR": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0114219351127072,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0027435591470708,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0819225901431857,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.222722490262611,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0570388663919417,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.1447954889366834,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "opposite-shoulders-min-elbows-max",
+        "parameters": {
+          "ParamArmL": -4,
+          "ParamArmR": 4,
+          "ParamForearmL": 6,
+          "ParamForearmR": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0159416994172157,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0028347621898213,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0812682264800846,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.214309961961681,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0570388663919417,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.1447954889366834,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "opposite-shoulders-max-elbows-min",
+        "parameters": {
+          "ParamArmL": 4,
+          "ParamArmR": -4,
+          "ParamForearmL": -6,
+          "ParamForearmR": 6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0114200735383052,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0027441099155223,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0819230638026585,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2227211913327056,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0501251655909063,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.148371964735936,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "opposite-shoulders-max-elbows-max",
+        "parameters": {
+          "ParamArmL": 4,
+          "ParamArmR": -4,
+          "ParamForearmL": 6,
+          "ParamForearmR": -6
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0159422041084654,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0028363029484628,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0812678293689395,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.2143076503129708,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0501251655909063,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.148371964735936,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamArmL-min",
+        "parameters": {
+          "ParamArmL": -1.48
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.000003041669998,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000058451249096,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0211731923131726,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamArmL-max",
+        "parameters": {
+          "ParamArmL": 1.48
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000027891609817,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000081421960496,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0184380666307442,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamArmR-min",
+        "parameters": {
+          "ParamArmR": -1.48
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000049450164175,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000406761306673,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0544674570127344,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamArmR-max",
+        "parameters": {
+          "ParamArmR": 1.48
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000070418331675,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0000128643961932,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0535664706518377,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamForearmL-min",
+        "parameters": {
+          "ParamForearmL": -2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0042317349093266,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0302099667108702,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamForearmL-max",
+        "parameters": {
+          "ParamForearmL": 2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0057827110867248,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0297179107736927,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamForearmR-min",
+        "parameters": {
+          "ParamForearmR": -2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010403443666498,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.078652211717926,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-ParamForearmR-max",
+        "parameters": {
+          "ParamForearmR": 2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010310617152511,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0804202671319862,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-L-opposed--1",
+        "parameters": {
+          "ParamArmL": -1.24,
+          "ParamForearmL": 2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.005785846135661,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.02971853840156,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.017746868825524,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-L-opposed-1",
+        "parameters": {
+          "ParamArmL": 1.24,
+          "ParamForearmL": -2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0042303802924268,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0302090824342294,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0154378603492447,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-R-opposed--1",
+        "parameters": {
+          "ParamArmR": -1.24,
+          "ParamForearmR": 2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010313956610246,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0804175744193494,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0455909055219512,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-R-opposed-1",
+        "parameters": {
+          "ParamArmR": 1.24,
+          "ParamForearmR": -2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010391304614426,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.078651672718705,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0448775122229876,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-bilateral-opposed--1",
+        "parameters": {
+          "ParamArmL": -1.24,
+          "ParamArmR": 1.24,
+          "ParamForearmL": 2.2199999999999998,
+          "ParamForearmR": -2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.005785846135661,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010391304614426,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.02971853840156,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.078651672718705,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.017746868825524,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0448775122229876,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      },
+      {
+        "name": "interior-bilateral-opposed-1",
+        "parameters": {
+          "ParamArmL": 1.24,
+          "ParamArmR": -1.24,
+          "ParamForearmL": -2.2199999999999998,
+          "ParamForearmR": 2.2199999999999998
+        },
+        "cloth": [
+          {
+            "id": "ArtMeshLayerL",
+            "opacity": 1,
+            "analyzedTriangles": 71,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0042303802924268,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR",
+            "opacity": 1,
+            "analyzedTriangles": 72,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0010313956610246,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL8",
+            "opacity": 1,
+            "analyzedTriangles": 406,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0302090824342294,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR8",
+            "opacity": 1,
+            "analyzedTriangles": 556,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0804175744193494,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "opacity": 1,
+            "analyzedTriangles": 1015,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerL9",
+            "opacity": 1,
+            "analyzedTriangles": 299,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0154378603492447,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshLayerR9",
+            "opacity": 1,
+            "analyzedTriangles": 450,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1.0455909055219512,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          },
+          {
+            "id": "ArtMeshTopwear2",
+            "opacity": 1,
+            "analyzedTriangles": 1216,
+            "windingFlipCount": 0,
+            "collapsedCount": 0,
+            "restDegenerateBecameLargeCount": 0,
+            "maxEdgeStretchRatio": 1,
+            "first30Flips": [],
+            "first30Collapsed": [],
+            "first30Emerging": []
+          }
+        ]
+      }
+    ]
+  },
+  "not_proven": [
+    "Human artwork acceptance",
+    "Flipped triangles are visible after alpha/masks",
+    "Continuous joint state space or all animation frames"
+  ]
+}

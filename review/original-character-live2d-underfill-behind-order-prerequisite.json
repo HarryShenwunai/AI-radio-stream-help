@@ -1,0 +1,41 @@
+{
+  "status": "failed",
+  "scope": "Prerequisite predicate on independent actual Core snapshot, before any repeated GL review",
+  "actual_snapshot": ".build/original-character-rig-r5/underfill-aa-behind-rest-core-snapshot.json",
+  "actual_snapshot_sha256": "ff5e19b28b9bf128882abacb7b9c5928ecb004f3461ccc2e2600fe063b5630b7",
+  "snapshot_sources_stable": true,
+  "checks": {
+    "old_opacity_zero": true,
+    "new_opacity_one": true,
+    "new_draw_order_is_20": false,
+    "new_render_order_precedes_both_upperarms": false
+  },
+  "actual_rows": [
+    {
+      "id": "ArtMeshTopwear2",
+      "drawOrder": 20,
+      "renderOrder": 1,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshImage",
+      "drawOrder": 45,
+      "renderOrder": 4,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL9",
+      "drawOrder": 40,
+      "renderOrder": 3,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR9",
+      "drawOrder": 30,
+      "renderOrder": 2,
+      "opacity": 1
+    }
+  ],
+  "consequence": "GL rerun deferred because the intended sorting change is absent in actual Core. Prior visual output remains relevant; no new art acceptance.",
+  "source_requests_do_not_substitute_for_actual_export": true
+}

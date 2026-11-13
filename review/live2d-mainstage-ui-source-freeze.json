@@ -1,0 +1,47 @@
+{
+  "frozen_at": "2026-11-13T02:24:07.696218+00:00",
+  "status": "mainstage_ui_frozen_final_formal_full_core_gate_running",
+  "production_sources": {
+    "app/static/stage-actions.js": "563de0c3ba1fc0331d0d519e76210c845f7ee4578aab3621761d0f26b8ce63fa",
+    "app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "app/static/index.html": "52bea74fbf7089c53a83308aa3fb645b343a3ccf3063772e8a9e5d32d2668db1",
+    "app/static/style.css": "e4cc2bda9aac009aa3dd3ce6cd6145ef00dafedc28e55d24cc9e0cc921308021"
+  },
+  "test_sources": {
+    "tests/test_stage_actions_ui.mjs": "4a9a56e280765a2b43002b834c2dc2be3a2918c84b24022d8bc1ac4b2628db47"
+  },
+  "node_tests": {
+    "total": 108,
+    "pass": 108,
+    "failed": 0,
+    "skipped": 0,
+    "tap": "review/stage-actions-node-tests.tap"
+  },
+  "actual_evidence": {
+    "review/live2d-formal-mainstage-actions-ui.json": {
+      "sha256": "af100795bef0349ca5383a6a4689e51e645023803e701ab38387de38cf80ed87",
+      "status": "captured_actual_mainstage_pending_human_art_review"
+    },
+    "review/live2d-mainstage-motion-failure-red.json": {
+      "sha256": "ae2e92e00dac9a5051d2286fc8893173395929454da3ec824e28b1f398b5e168",
+      "status": "failed_real_transient_motion_not_recoverable_by_retry"
+    },
+    "review/live2d-mainstage-motion-failure-recovery-green.json": {
+      "sha256": "42268dbfc0b0f4a471e880990278253c12f56b9ce4daad2267a9a80332c480c3",
+      "status": "passed_real_reload_recovery"
+    }
+  },
+  "adapter_unchanged": {
+    "frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+  },
+  "performance": "No new RAF/timer/canvas/audio owner. State/render callbacks refresh bounded actual model motion controls. Explicit recovery rebuilds current model only after user click. Normal successful action dismisses chooser.",
+  "scope": "Real active-model main-stage user actions, model-derived names/indices, identity+appearance guard, keyboard nonmodal chooser, actual pose reset and SDK failure-cache recovery. No automatic-chat hand action claim.",
+  "release_requirement": "New exact /stage-actions.js server whitelist and updater PROGRAM_FILES supplied by root; old backend binaries serving fixed whitelist cannot consume a static-only patch.",
+  "not_proven": [
+    "final formal full Core contract still running",
+    "final formal human art acceptance",
+    "Windows/4060 execution and performance",
+    "final real Qwen/Kokoro voice chain belongs independent QA"
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "date_utc": "2026-11-12T22:18:37.848718+00:00",
+  "scope": "independent first-party psd2live source investigation and original multilayer geometric export tested with actual owner-installed official Cubism Core; no product edits",
+  "upstream_source_commit": "067ded459b6ed1b7e0d1566ce7b1fd04223bee06",
+  "actually_executed_tool": "psd2live v3.6.7 Linux x64 via private Java21 CLI",
+  "original_rig_export_feasible": true,
+  "user_reference_artwork_completed": false,
+  "all_user_goals_completed": false,
+  "verified": {
+    "source_code": [
+      "Moc3Target lowers RigIR and builds real MOC/texture/sidecars",
+      "Moc3Export performs real geometry/parameter/keyform lowering with explicit loss notices",
+      "CoreCheckTool uses official consistency API, but skips without configured native Core"
+    ],
+    "original_core": {
+      "report": "review/original-live2d-core-v2.json",
+      "status": "passed",
+      "checks": {
+        "official_consistency_and_parameter_geometry": "passed",
+        "actual_webgl_original_export": "passed",
+        "real_framework_physics_to_core_geometry": "passed",
+        "sidecar_no_operation_negative_control": "passed",
+        "all_real_expressions_change_declared_core_parameters_and_geometry": "passed",
+        "all_real_motions_change_core_parameters_and_geometry": "passed",
+        "required_parameters_have_actual_visible_pixel_effects": "passed"
+      },
+      "sources_unchanged": true,
+      "source_file_count": 23,
+      "core_version": 83951616,
+      "highest_supported_moc": 5,
+      "visible_parameter_sweeps": [
+        {
+          "id": "ParamAngleX",
+          "changedPixels": 49987,
+          "bounds": [
+            275,
+            413,
+            629,
+            812
+          ],
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": "ParamEyeLOpen",
+          "changedPixels": 2519,
+          "bounds": [
+            483,
+            591,
+            545,
+            636
+          ],
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": "ParamEyeROpen",
+          "changedPixels": 2516,
+          "bounds": [
+            355,
+            591,
+            417,
+            636
+          ],
+          "width": 900,
+          "height": 900
+        },
+        {
+          "id": "ParamMouthOpenY",
+          "changedPixels": 2538,
+          "bounds": [
+            412,
+            488,
+            484,
+            534
+          ],
+          "width": 900,
+          "height": 900
+        }
+      ],
+      "no_operation_control": {
+        "parameterChanges": 0,
+        "geometryChanges": 0,
+        "frames": 60
+      }
+    },
+    "observed_negative": {
+      "report": "review/original-live2d-core-visibility-v1.json",
+      "status": "failed",
+      "reason": "Required parameter only moves hidden geometry / no actual visible pixel effect: ParamEyeLOpen, ParamEyeROpen, ParamMouthOpenY",
+      "sources_unchanged": true,
+      "same_harness_sha": true
+    }
+  },
+  "credible_unverified": [
+    "upstream total test count and broad Cubism3.0–5.3 coverage",
+    "official Cubism Editor reopen/edit fidelity for emitted CMO3",
+    "automatic artwork splitting beyond explicitly tested source layers"
+  ],
+  "inferences": [
+    "first reusable path is genuine layered artwork -> private psd2live/Umamo export -> real Core/visible geometry gates; reference artwork quality remains a separate gate"
+  ],
+  "unknown_or_pending": [
+    "user reference artwork completed independent layers, occlusion paint and final visual acceptance",
+    "product Audio/RMS -> actual Core mouth and visible vertices; frontend is separately testing this",
+    "Windows10/11 RTX4060 performance and physical tracking",
+    "official Editor CMO3 actual reopen/edit",
+    "Core/framework publication permission; local evaluation acceptance does not imply redistribution authorization"
+  ],
+  "evidence": {
+    "v2": "/workspace/dist/evidence-original-live2d-core/visible-v2",
+    "v1_visible_failure": "/workspace/dist/evidence-original-live2d-core/visibility-v1",
+    "first_harness_failure": "review/original-live2d-core-initial-harness-red.json"
+  },
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/AI-radio-stream-help/tests/live2d_original_core_check.py --model .build/original-live2d-fixture-v2/export/TEST_ONLY_original_layers.model3.json --runtime-dir /workspace/.live2d/runtime --provenance .build/original-live2d-fixture-v2/TEST_ONLY_layers.json --source-psd .build/original-live2d-fixture-v2/TEST_ONLY_original_layers.psd --require-parameter ParamAngleX --require-parameter ParamEyeLOpen --require-parameter ParamEyeROpen --require-parameter ParamMouthOpenY --require-physics --require-expression --require-motion --output review/original-live2d-core-v2.json --evidence-dir /workspace/dist/evidence-original-live2d-core/visible-v2",
+  "source_access_date": "2026-11-12",
+  "sources": [
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/README.md",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/targets/cubism/src/main/kotlin/io/github/psd2live/targets/cubism/Moc3Target.kt",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/umamo/src/main/kotlin/org/umamo/interop/moc3/export/Moc3Export.kt",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/umamo/src/main/kotlin/org/umamo/format/moc3/moc/MocVersion.kt",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/src/test/kotlin/io/github/psd2live/tools/CubismCoreCheckTool.kt",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/src/main/kotlin/io/github/psd2live/ExportCli.kt",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/docs/zh/spec/RUNTIME_EXPORT_ARCHITECTURE_AND_GAPS.md",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/docs/zh/spec/PSD_LAYER_SPEC.md",
+      "kind": "primary_source_fixed_commit"
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/067ded459b6ed1b7e0d1566ce7b1fd04223bee06/docs/zh/STATUS.md",
+      "kind": "primary_source_fixed_commit"
+    }
+  ]
+}

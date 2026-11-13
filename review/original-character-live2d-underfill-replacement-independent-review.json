@@ -1,0 +1,73 @@
+{
+  "observed_at": "2026-11-13T01:38:43.022625+00:00",
+  "status": "partial_coverage_improvement_not_art_accepted",
+  "model": ".build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.model3.json",
+  "project": ".build/original-character-rig-r5/authoring/underfill-aa-replacement-probe.psd2live",
+  "source_psd_status": "Ancestor PSD only; new underlay exists in authored probe project. Final same-source PSD replay pending.",
+  "reports": {
+    "opacity": "review/original-character-live2d-underfill-replacement-opacity.json",
+    "cloth_core": "review/original-character-live2d-underfill-replacement-cloth-folds.json",
+    "actual_gl": "review/original-character-live2d-underfill-replacement-cloth-gl.json",
+    "actual_right_gap_gl_alpha": "review/original-character-live2d-single-replacement-right-gap-actual-alpha.json"
+  },
+  "sources_stable_each_run": true,
+  "opacity_verified": {
+    "parameter": "ParamBreath",
+    "values": [
+      0,
+      0.37,
+      1
+    ],
+    "old_ArtMeshTopwear2": 0,
+    "new_ArtMeshImage": 1
+  },
+  "cloth_samples": 34,
+  "winding_flips": 0,
+  "max_edge_ratio": 1.2227188126875201,
+  "visual_inspection": "Left long background slit filled. Right lower inner-arm transparent wedge reduced but not eliminated; hard sleeve/torso cut/material continuity still needs art review. No automatic whole-art PASS.",
+  "earlier_visual_overstatement_corrected": "Initially reported dual-underlay right triangular gap filled; closer view and actual readPixels alpha show residual transparent samples. Earlier whole-fill claim withdrawn, retained for correction trace.",
+  "actual_framebuffer_alpha_at_reviewed_rows": {
+    "x_range": [
+      580,
+      654
+    ],
+    "y_top_left": [
+      750,
+      755,
+      760,
+      765,
+      770,
+      775,
+      780
+    ],
+    "before_zero_alpha_counts": [
+      24,
+      29,
+      31,
+      34,
+      36,
+      36,
+      31
+    ],
+    "single_replacement_zero_alpha_counts": [
+      2,
+      9,
+      16,
+      24,
+      32,
+      36,
+      31
+    ],
+    "caveat": "Finite reviewed row samples include adjacent exterior silhouette; transparency itself is not automatically an unwanted seam. Actual image must distinguish internal wedge from natural outline."
+  },
+  "initial_dual_probe_correction": "Source visible false plus exportHiddenDrawables still yielded old and new opacity1. Do not use the dual-probe coverage as proof of single replacement. Actual opacity-key replacement independently tested next.",
+  "not_proven": [
+    "Final source PSD reconstruction",
+    "All continuous states/frames",
+    "Final eye/lip/source rebuild",
+    "Same-MOC full hand/cup and actions",
+    "User art acceptance",
+    "True Qwen/Kokoro Live2D provider chain",
+    "Windows/4060"
+  ]
+}

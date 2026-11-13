@@ -1,0 +1,311 @@
+{
+  "observed_at": "2026-11-13T03:13:05.047133+00:00",
+  "status": "partial_checks_passed_full_acceptance_blocked",
+  "scope": "Partial real-Core and product-adapter probe of intermediate candidate; not final full character acceptance",
+  "checks": {
+    "actual_product_import_runtime_and_independent_consistent_core": "passed",
+    "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+    "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+    "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed",
+    "true_child_follow_scale_transmits_with_outer_root_rotation_and_only_cup_changes": "passed",
+    "javascript_runtime": "passed"
+  },
+  "full_acceptance": "BLOCKED",
+  "artwork_accepted": false,
+  "windows_executed": false,
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.moc3": "279797ee99fda8dacd942094c040091165873c944e313273cc8c066fc94d6a7d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.4096/texture_00.png": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/rigid-follow-identity-minimal-contract.json": "19755975b34f276a92c746d8e3a0ff7c5a135686f6324c8a0eb0aec971d2ebd6",
+    "/workspace/AI-radio-stream-help/.build/rigid_follow_sparse_scale_product.py": "ac44dedaca307bc4f82eccc71483dfe6e94580741b640bcd68ddcf7b230deff6",
+    "/workspace/AI-radio-stream-help/tests/live2d_cup_geometry.py": "c0f38a1e6e112410f87472f36d8095a46765478cd3adb03684dbfa2f6a409dba",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "7202bf8169c73c6c31fd3a87b0f4f90f350b7618a2c2c048fc54d9cbb52a5e88",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "b74801ba9be9b7f3d9c13ab30b518d588a478cfbf5094d2e5a709c4dd69a7d1f",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "371eec1589e6e96a475d3b254809b3645dacf326b29c05dfa1408543ab55fe4a",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "42ac3c34e26b0e7986f72c1a9341363d0daeb4a859b6ec52dcab68b750378082",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "blocked_items": [
+    "Final root/joint/tip curl contract not yet evaluated",
+    "Both final held grip contracts and Body/Breath compensation not yet accepted",
+    "Full held/detach/wave/empty_hands authored actions not yet accepted",
+    "Human artwork acceptance and Windows execution not tested"
+  ],
+  "actual_core": {
+    "version": 83951616,
+    "consistency": 1,
+    "parameters": 41,
+    "drawables": 42,
+    "canvasInfo": {
+      "width": 1536,
+      "height": 2048,
+      "originX": 768,
+      "originY": 1024,
+      "ppu": 1536
+    }
+  },
+  "visibility_pixels": {
+    "error": 0,
+    "opaque": 206246,
+    "colored": 205632,
+    "changed": 6272,
+    "width": 1000,
+    "height": 665
+  },
+  "transforms": [
+    {
+      "parameter": "ParamCupX",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14228
+    },
+    {
+      "parameter": "ParamCupY",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14082
+    },
+    {
+      "parameter": "ParamCupRotation",
+      "values": [
+        -45,
+        45
+      ],
+      "pixels": 6462
+    }
+  ],
+  "explicit_additional_reviewed_body_owners": [],
+  "semantic_supports": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            711,
+            627,
+            689
+          ],
+          "weights": [
+            0.025468626527883884,
+            0.9560684378140861,
+            0.018462935658030033
+          ],
+          "uv": [
+            0.17065553692846713,
+            0.6193943031389589
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 4
+        }
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            701,
+            642,
+            620
+          ],
+          "weights": [
+            0.07245252229869546,
+            0.5548837985574085,
+            0.372663679143896
+          ],
+          "uv": [
+            0.16088054189441559,
+            0.5876433363970613
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 4
+        }
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            534,
+            694,
+            706
+          ],
+          "weights": [
+            0.2197821365801545,
+            0.7067084892008584,
+            0.07350937421898718
+          ],
+          "uv": [
+            0.17553456898789735,
+            0.6364653840360276
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 4
+        }
+      ]
+    }
+  ],
+  "semantic_owners": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    }
+  ],
+  "scale_transmission": [
+    {
+      "body_x": -10,
+      "expected": 0.9,
+      "fits": {
+        "raw": {
+          "similarity_scale": 0.8999999289545921,
+          "max_source_px": 4.198413392679822e-05,
+          "matrix_3x2": [
+            [
+              0.8999999289545921,
+              -4.831986854636441e-09
+            ],
+            [
+              4.831986854636441e-09,
+              0.8999999289545921
+            ],
+            [
+              89.14014411092222,
+              118.51195593400348
+            ]
+          ]
+        },
+        "product": {
+          "similarity_scale": 0.8999999289545921,
+          "max_source_px": 4.198413392679822e-05,
+          "matrix_3x2": [
+            [
+              0.8999999289545921,
+              -4.831986854636441e-09
+            ],
+            [
+              4.831986854636441e-09,
+              0.8999999289545921
+            ],
+            [
+              89.14014411092222,
+              118.51195593400348
+            ]
+          ]
+        }
+      },
+      "visible_only_cup_pixels": 5824
+    },
+    {
+      "body_x": 10,
+      "expected": 1.1,
+      "fits": {
+        "raw": {
+          "similarity_scale": 1.099999999951247,
+          "max_source_px": 4.382405683666446e-05,
+          "matrix_3x2": [
+            [
+              1.099999999951247,
+              1.6242515678244042e-09
+            ],
+            [
+              -1.6242515678244042e-09,
+              1.099999999951247
+            ],
+            [
+              -89.14008300129456,
+              -118.51188398634804
+            ]
+          ]
+        },
+        "product": {
+          "similarity_scale": 1.099999999951247,
+          "max_source_px": 4.382405683666446e-05,
+          "matrix_3x2": [
+            [
+              1.099999999951247,
+              1.6242515678244042e-09
+            ],
+            [
+              -1.6242515678244042e-09,
+              1.099999999951247
+            ],
+            [
+              -89.14008300129456,
+              -118.51188398634804
+            ]
+          ]
+        }
+      },
+      "visible_only_cup_pixels": 6351
+    }
+  ],
+  "page_errors": [],
+  "sources_unchanged": true
+}

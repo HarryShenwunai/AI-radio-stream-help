@@ -1,0 +1,286 @@
+{
+  "observed_at": "2026-11-13T02:11:32.371686+00:00",
+  "status": "captured_actual_mainstage_pending_human_art_review",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.model3.json": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.moc3": "b5d4b5ec3db0a6d08e8385006f20687ac37a3c15f5b84fdd88ea03c2f5f72751",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.4096/texture_00.png": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.cdi3.json": "16c773e0bb7afc2ce4bdd4b9d7cbabebeb7c4eb360bc0cfcc94548489ec8b0ef",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.motion.motion3.json": "1ff8a784604767eb3b9e2bcf40928122796e4bc1978ac31cf2185352c5ae3ca8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.motion2.motion3.json": "35a23d2c76321d2654113dbe08fc9dd6ae817272336b51170bfbb5a34bb29dfd",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.motion3.motion3.json": "18d23b6922a2596b3516442d31ab63323b22e61f56d1f7b31c431a4b88d739eb",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-native-glue-hand-actions/character.motion4.motion3.json": "1504c21f97f59c2b628c6bc2f91e555cd1f3ff266873e26b95e49d6e965f958a",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/native-glue-hand-actions-functional-contract.json": "395fcaf0c027e110e6154a5f0608b538e38beb422774e5757c23eb6cdfe7955f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/native-glue-hand-actions-landmarks.json": "20a5ef41a731771b6de5074aef07af31dbf5ea32cbce6974c39fc4e635989a5d",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate3/layers.json": "e290fd8c40260641a721a6c7e59e7e0bcf049b6c38536dda195d210b85343a5d",
+    "/workspace/AI-radio-stream-help/.build/final_live2d_mainstage_scenes.py": "78ce1f7cdcf6e1e2a0a989277a78dc12163a606b697694ed4a76cb969ae7db82",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "7202bf8169c73c6c31fd3a87b0f4f90f350b7618a2c2c048fc54d9cbb52a5e88",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "b74801ba9be9b7f3d9c13ab30b518d588a478cfbf5094d2e5a709c4dd69a7d1f",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "371eec1589e6e96a475d3b254809b3645dacf326b29c05dfa1408543ab55fe4a",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "42ac3c34e26b0e7986f72c1a9341363d0daeb4a859b6ec52dcab68b750378082",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "38e08a2d43e0ea264525ed04344dd9fd16920ee94ac68b5372eac1cf914b55e4",
+    "/workspace/AI-radio-stream-help/app/static/style.css": "e4cc2bda9aac009aa3dd3ce6cd6145ef00dafedc28e55d24cc9e0cc921308021",
+    "/workspace/AI-radio-stream-help/app/static/stage-actions.js": "beca235756c613d0bc76775836de79e40afad80271bcceb50f7cb34c5a44a64b",
+    "/workspace/AI-radio-stream-help/app/static/index.html": "52bea74fbf7089c53a83308aa3fb645b343a3ccf3063772e8a9e5d32d2668db1",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "checks": {
+    "real_import_activate_same_original_model": "passed",
+    "actual_studio_natural_scene_selection_escape_focus": "passed",
+    "actual_hold_empty_wave_detach_core_parameters_and_gl": "passed",
+    "single_mainstage_canvas": "passed",
+    "mobile_keyboard_escape_and_composer": "passed",
+    "role_change_removes_old_actions": "passed",
+    "static_module_http200_javascript_current_sha": "passed",
+    "helpers_always_opacity0_on_actual_core_samples": "passed"
+  },
+  "scenes": [
+    {
+      "environment": "morning",
+      "role": "hold",
+      "screenshot": "/workspace/AI-radio-stream-help/dist/live2d-mainstage-actions-technical-ui-rerun/01-morning-hold.png",
+      "sha256": "addefce111771198302b979f034894b04fbf4c2ec76b083f1a2ce10348c4b14d",
+      "actual_parameters": {
+        "ParamCupHold": 1,
+        "ParamCupVisible": 1,
+        "ParamCupX": 0,
+        "ParamCupY": 0,
+        "ParamCupRotation": 0,
+        "ParamArmL": 0,
+        "ParamArmR": 0,
+        "ParamForearmL": 0,
+        "ParamForearmR": 0,
+        "ParamHandL": 0,
+        "ParamHandR": 0,
+        "ParamFingerThumbL": 0,
+        "ParamFingerIndexL": 0,
+        "ParamFingerMiddleL": 0,
+        "ParamFingerRingL": 0,
+        "ParamFingerLittleL": 0,
+        "ParamFingerThumbR": 0,
+        "ParamFingerIndexR": 0,
+        "ParamFingerMiddleR": 0,
+        "ParamFingerRingR": 0,
+        "ParamFingerLittleR": 0
+      },
+      "gl": {
+        "error": 0,
+        "opaque": 206264,
+        "colored": 205642,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      },
+      "helpers_invisible": true,
+      "actual_core_evaluations": 122
+    },
+    {
+      "environment": "forest",
+      "role": "empty_hands",
+      "screenshot": "/workspace/AI-radio-stream-help/dist/live2d-mainstage-actions-technical-ui-rerun/02-forest-empty_hands.png",
+      "sha256": "5093e31ec4c25bb23c6591ff46b41fa16227fada1a9e661ed2aa28757dab955b",
+      "actual_parameters": {
+        "ParamCupHold": 0,
+        "ParamCupVisible": 0,
+        "ParamCupX": 240,
+        "ParamCupY": 320,
+        "ParamCupRotation": 0,
+        "ParamArmL": 0,
+        "ParamArmR": 0,
+        "ParamForearmL": 0,
+        "ParamForearmR": 0,
+        "ParamHandL": 4,
+        "ParamHandR": -4,
+        "ParamFingerThumbL": -8,
+        "ParamFingerIndexL": -8,
+        "ParamFingerMiddleL": -8,
+        "ParamFingerRingL": -8,
+        "ParamFingerLittleL": -8,
+        "ParamFingerThumbR": -8,
+        "ParamFingerIndexR": -8,
+        "ParamFingerMiddleR": -8,
+        "ParamFingerRingR": -8,
+        "ParamFingerLittleR": -8
+      },
+      "gl": {
+        "error": 0,
+        "opaque": 206264,
+        "colored": 205642,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      },
+      "helpers_invisible": true,
+      "actual_core_evaluations": 239
+    },
+    {
+      "environment": "evening",
+      "role": "wave",
+      "screenshot": "/workspace/AI-radio-stream-help/dist/live2d-mainstage-actions-technical-ui-rerun/03-evening-wave.png",
+      "sha256": "3d6a280999805dbe5de48767b369114845d6e27048a692f2936591fd7cd010d6",
+      "actual_parameters": {
+        "ParamCupHold": 0,
+        "ParamCupVisible": 0,
+        "ParamCupX": 240,
+        "ParamCupY": 320,
+        "ParamCupRotation": 0,
+        "ParamArmL": 0,
+        "ParamArmR": 3,
+        "ParamForearmL": 0,
+        "ParamForearmR": 3,
+        "ParamHandL": 4,
+        "ParamHandR": 4,
+        "ParamFingerThumbL": -8,
+        "ParamFingerIndexL": -8,
+        "ParamFingerMiddleL": -8,
+        "ParamFingerRingL": -8,
+        "ParamFingerLittleL": -8,
+        "ParamFingerThumbR": -10,
+        "ParamFingerIndexR": -10,
+        "ParamFingerMiddleR": -10,
+        "ParamFingerRingR": -10,
+        "ParamFingerLittleR": -10
+      },
+      "gl": {
+        "error": 0,
+        "opaque": 208738,
+        "colored": 208112,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      },
+      "helpers_invisible": true,
+      "actual_core_evaluations": 359
+    },
+    {
+      "environment": "forest",
+      "role": "detach",
+      "screenshot": "/workspace/AI-radio-stream-help/dist/live2d-mainstage-actions-technical-ui-rerun/04-forest-detach.png",
+      "sha256": "c15e58ef04e2a74dde9dcbbe39ca3204288b9861b16515e6e48f891f33214cc5",
+      "actual_parameters": {
+        "ParamCupHold": 0,
+        "ParamCupVisible": 1,
+        "ParamCupX": 240,
+        "ParamCupY": 120,
+        "ParamCupRotation": 12,
+        "ParamArmL": 2,
+        "ParamArmR": -2,
+        "ParamForearmL": 3,
+        "ParamForearmR": -3,
+        "ParamHandL": 4,
+        "ParamHandR": -4,
+        "ParamFingerThumbL": -8,
+        "ParamFingerIndexL": -8,
+        "ParamFingerMiddleL": -8,
+        "ParamFingerRingL": -8,
+        "ParamFingerLittleL": -8,
+        "ParamFingerThumbR": -8,
+        "ParamFingerIndexR": -8,
+        "ParamFingerMiddleR": -8,
+        "ParamFingerRingR": -8,
+        "ParamFingerLittleR": -8
+      },
+      "gl": {
+        "error": 0,
+        "opaque": 202637,
+        "colored": 201998,
+        "changed": 0,
+        "width": 1000,
+        "height": 665
+      },
+      "helpers_invisible": true,
+      "actual_core_evaluations": 468
+    }
+  ],
+  "page_errors": [],
+  "artwork_accepted": false,
+  "scope": "Actual application main stage, actual Studio environment choices and real authored motion/Core/GL. Actual main-stage model-derived buttons trigger each motion; programmatic parameter writes only establish declared starting poses. No automatic-chat hand-motion/Windows/real audio claim.",
+  "module_http": {
+    "status": 200,
+    "content_type": "text/javascript",
+    "sha256": "beca235756c613d0bc76775836de79e40afad80271bcceb50f7cb34c5a44a64b"
+  },
+  "actual": {
+    "moc_consistency": 1,
+    "core_version": 83951616,
+    "drawables": 44,
+    "parameters": 41
+  },
+  "mobile_keyboard": {
+    "width": 390,
+    "nonmodal_composer_available": true,
+    "target_sizes": [
+      {
+        "label": "返回陪伴",
+        "width": 50,
+        "height": 40
+      },
+      {
+        "label": "Idle",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "Blink",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "Nod",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "Shake",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "接杯",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "移开杯子",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "招手",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "空手",
+        "width": 129,
+        "height": 40
+      },
+      {
+        "label": "恢复姿态",
+        "width": 266,
+        "height": 40
+      }
+    ],
+    "escape_focus_restored": true
+  },
+  "role_change_closed_old_actions": true,
+  "sources_unchanged": true
+}

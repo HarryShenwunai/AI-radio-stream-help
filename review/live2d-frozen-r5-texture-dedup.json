@@ -1,0 +1,158 @@
+{
+  "utc": "2026-11-13T02:13:04.145644+00:00",
+  "scope": "Only frozen old r5 export texture atlases; formal/source art/PSD/evidence/user data untouched",
+  "atomic_method": "verified temp hardlink then os.replace",
+  "files_replaced": 21,
+  "logical_duplicate_bytes": 202374813,
+  "filesystem_available_delta_bytes": 202444800,
+  "all_paths_and_bytes_retained": true,
+  "records": [
+    {
+      "path": ".build/original-character-rig-r5/export-backfill/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-candidate7/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-clean-2axis/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-cloth-continuous/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-cloth-zero-glue-effects/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-cup-clean-lean810/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-cup-direct-original-bodyz-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-face-mouth-06/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-face-mouth-08/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-glue/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-hold/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-hold-fixed/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-identity-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-native-glue-hand-actions/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-native-glue-helper-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-native-glue-shared-root-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-small-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-small-scale-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export/character.4096/texture_00.png",
+      "bytes": 9441796,
+      "sha256": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export-underfill-aa-behind-all-cloth/character.4096/texture_00.png",
+      "bytes": 10807495,
+      "sha256": "8614d9992b61ccf6e84736744fffab768305405de083c94231a24828ddd2a096",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-underfill-aa-footprint-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export-underfill-aa-behind-all-cloth/character.4096/texture_00.png",
+      "bytes": 10807495,
+      "sha256": "8614d9992b61ccf6e84736744fffab768305405de083c94231a24828ddd2a096",
+      "post_same_inode": true
+    },
+    {
+      "path": ".build/original-character-rig-r5/export-underfill-aa-replacement-probe/character.4096/texture_00.png",
+      "retained_canonical": ".build/original-character-rig-r5/export-underfill-aa-behind-all-cloth/character.4096/texture_00.png",
+      "bytes": 10807495,
+      "sha256": "8614d9992b61ccf6e84736744fffab768305405de083c94231a24828ddd2a096",
+      "post_same_inode": true
+    }
+  ]
+}

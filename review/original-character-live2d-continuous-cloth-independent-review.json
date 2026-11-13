@@ -1,0 +1,55 @@
+{
+  "observed_at": "2026-11-13T00:46:04.167603+00:00",
+  "status": "partial_technical_improvement_art_endpoint_gaps_still_rejected",
+  "model": "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-cloth-continuous/character.model3.json",
+  "actual_core_reports": [
+    "review/original-character-live2d-continuous-cloth-joint-folds.json",
+    "review/original-character-live2d-continuous-cloth-interior-folds.json"
+  ],
+  "actual_gl_reports": [
+    "review/original-character-live2d-continuous-cloth-joint-gl.json",
+    "review/original-character-live2d-continuous-cloth-interior-gl.json"
+  ],
+  "source_stable_each_run": true,
+  "measurements": {
+    "single_joint_extremes": 8,
+    "same_side_combination_corners": 8,
+    "opposite_bilateral_extreme_samples": 4,
+    "additional_off_key_samples": 14,
+    "cloth_winding_flips_at_all_samples": 0,
+    "extreme_max_edge_stretch": 1.2227188126875201,
+    "off_key_max_edge_stretch": 1.0804159166130378
+  },
+  "visual_inspection": [
+    {
+      "image": "dist/evidence-original-character-live2d-continuous-cloth/joint-endpoints-and-combinations/opposite-shoulders-min-elbows-min.png",
+      "finding": "Jagged triangular spikes gone; long exposed background band below left screen forearm and triangular gap below right screen inner arm remain."
+    },
+    {
+      "image": "dist/evidence-original-character-live2d-continuous-cloth/joint-endpoints-and-combinations/ParamForearmR-max.png",
+      "finding": "Small lower inner-edge background slit and hard cut remain."
+    },
+    {
+      "image": "dist/evidence-original-character-live2d-continuous-cloth/joint-interiors/interior-bilateral-opposed-1.png",
+      "finding": "No comparable long exposed background gap visible at this finite off-key sample; not all-state proof."
+    }
+  ],
+  "raw_rest_snapshot": {
+    "file": ".build/original-character-rig-r5/cloth-continuous-rest-core-snapshot.json",
+    "bytes": 622743,
+    "sha256": "a5a3bc33c8815b25bfd5108e41b7262dd5975bff58ffa7227dc559dfb4e73b8a"
+  },
+  "unresolved": [
+    "Inter-mesh overlap/seam coverage at large authored joint combinations",
+    "CupHold not present in this body-only branch",
+    "Final four hand/cup actions and true Qwen/Kokoro end-to-end",
+    "Final human artwork acceptance",
+    "Windows/4060"
+  ],
+  "no_provider_or_accounts_invoked": true,
+  "limitations": [
+    "Finite 34 joint samples, not continuous topology proof",
+    "Core winding/edge metrics do not automatically prove visible alpha seam correctness",
+    "Actual GL inspected separately; videos have no audio"
+  ]
+}

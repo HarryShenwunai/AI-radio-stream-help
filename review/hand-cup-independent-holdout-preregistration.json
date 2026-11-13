@@ -1,0 +1,14 @@
+{
+  "sealed_at": "2026-11-13T00:59:53.072088+00:00",
+  "status": "sealed_before_first_validation",
+  "path": "/workspace/AI-radio-stream-help/.build/hand-cup-independent-seed-1618033988-512.json",
+  "sha256": "7ef9d926bde0a2c68d8acce1347f880118bcb27021d5a52a7ee5f0dcae07158a",
+  "seed": 1618033988,
+  "count": 512,
+  "range_source": {
+    "path": "/workspace/AI-radio-stream-help/review/hand-cup-r5-full-held-grid-and-interpolation.json",
+    "sha256": "02729ba16a1576891e34793ddbfe4ca0804c2307f2e1d6b6cf11342ba4dc1316"
+  },
+  "grid_choice_preceded_this_dataset": true,
+  "untouched_heldout_claim_expires_if_used_for_tuning": true
+}

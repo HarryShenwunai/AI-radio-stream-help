@@ -1,0 +1,162 @@
+{
+  "observed_at": "2026-11-13T04:48:22.153603+00:00",
+  "status": "passed",
+  "scope": "Actual Core seven-axis effect/ROOT diagnostic. Not full artwork/geometry acceptance. Parameter existence alone is not counted as an effect.",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-cup/character.model3.json": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-cup/character.moc3": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "/workspace/AI-radio-stream-help/.build/rigid_cup_axis_retention_check.py": "9690afb3eb5fcb49db9953f5e0a58f11e5e270c70bc2538bc5b9f48bb116519d",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "sources_unchanged": true,
+  "checks": {
+    "all_six_body_axes_real_cup_and_palm_effect": true,
+    "hold_zero_cup_exact_root": true,
+    "hold_real_effect_in_nondefault_pose": true
+  },
+  "measurement": {
+    "core_version": 83951616,
+    "moc_consistency": 1,
+    "parameters": 41,
+    "drawables": 42,
+    "cases": [
+      {
+        "id": "ParamBodyAngleX",
+        "value": -10,
+        "cup_delta_source_px": 59.82651615142822,
+        "palm_deltas_source_px": [
+          66.89094257354736,
+          43.920799255371094
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 59.82651615142822
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "value": 10,
+        "cup_delta_source_px": 72.43955898284912,
+        "palm_deltas_source_px": [
+          76.49380874633789,
+          27.282371520996094
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 72.43955898284912
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "value": -10,
+        "cup_delta_source_px": 10.993606567382812,
+        "palm_deltas_source_px": [
+          7.451545715332031,
+          8.230430603027344
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 10.993606567382812
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "value": 10,
+        "cup_delta_source_px": 10.346969604492188,
+        "palm_deltas_source_px": [
+          7.6532135009765625,
+          8.229927062988281
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 10.346969604492188
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "value": -10,
+        "cup_delta_source_px": 21.273676872253418,
+        "palm_deltas_source_px": [
+          17.26361846923828,
+          12.562889099121094
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 21.273676872253418
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "value": 10,
+        "cup_delta_source_px": 20.545927047729492,
+        "palm_deltas_source_px": [
+          16.56598663330078,
+          12.745399475097656
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 20.545927047729492
+      },
+      {
+        "id": "ParamBodyLean",
+        "value": -10,
+        "cup_delta_source_px": 18.7027587890625,
+        "palm_deltas_source_px": [
+          14.608818054199219,
+          3.5816116333007812
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 18.7027587890625
+      },
+      {
+        "id": "ParamBodyLean",
+        "value": 10,
+        "cup_delta_source_px": 120.9052734375,
+        "palm_deltas_source_px": [
+          111.7276611328125,
+          73.66767883300781
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 120.9052734375
+      },
+      {
+        "id": "ParamProportion",
+        "value": -10,
+        "cup_delta_source_px": 41.394996643066406,
+        "palm_deltas_source_px": [
+          29.04119110107422,
+          33.300384521484375
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 41.394996643066406
+      },
+      {
+        "id": "ParamProportion",
+        "value": 10,
+        "cup_delta_source_px": 40.10270690917969,
+        "palm_deltas_source_px": [
+          28.492881774902344,
+          32.74974060058594
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 40.10270690917969
+      },
+      {
+        "id": "ParamBreath",
+        "value": 0,
+        "cup_delta_source_px": 0,
+        "palm_deltas_source_px": [
+          0,
+          0
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 0
+      },
+      {
+        "id": "ParamBreath",
+        "value": 1,
+        "cup_delta_source_px": 24.755393743515015,
+        "palm_deltas_source_px": [
+          16.568824768066406,
+          17.020591735839844
+        ],
+        "hold0_root_delta_source_px": 0,
+        "hold_effect_source_px": 24.755393743515015
+      }
+    ]
+  }
+}

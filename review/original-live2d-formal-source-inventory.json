@@ -1,0 +1,733 @@
+{
+  "observed_at": "2026-11-13T01:59:53.486070+00:00",
+  "scope": "art-only inventory before final model freeze; not a final package or rig acceptance",
+  "primary_manifest": {
+    "path": ".build/original-character-art-formal-r1/layers.json",
+    "sha256": "f8b5aae4de8626c02009df204052bd9418d7b73ceaa5fb7057459953165c1d1e"
+  },
+  "exact_part_layout_replayable": true,
+  "selected_png_and_part_manifest_bytes": 37781690,
+  "entries": [
+    {
+      "path": ".build/original-character-art-formal-r1/layers/00-back-hair.png",
+      "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+      "bytes": 1385792,
+      "relative": "layers/00-back-hair.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/01-topwear-backfill.png",
+      "sha256": "0f065c6050cedc3c9e76ad9331bb6577ada9abe945b89c998afdd51bfdb4eabd",
+      "bytes": 1207307,
+      "relative": "layers/01-topwear-backfill.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/02-upperarm-r.png",
+      "sha256": "86908f2949bbec98dc0e9b63b947f22a45ef6be4678439fdf9c1e0e1bff3b87a",
+      "bytes": 451589,
+      "relative": "layers/02-upperarm-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/03-upperarm-l.png",
+      "sha256": "91967a70d5dc2b808b3e450de9adfaf5f298fff8d44f794f388be68539f83d8f",
+      "bytes": 254913,
+      "relative": "layers/03-upperarm-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/04-topwear.png",
+      "sha256": "acfcd1a48de14e563e413a510b6de031f22e56b5329433ff09d4ad6783585007",
+      "bytes": 1374685,
+      "relative": "layers/04-topwear.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/05-forearm-r.png",
+      "sha256": "9401c6514d0cbd6bd8d26fbb398209589d723bad2b9bc26649deffede2802e48",
+      "bytes": 527924,
+      "relative": "layers/05-forearm-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/06-forearm-l.png",
+      "sha256": "de17c3ce6762c9a2e06bc8e88cf7c70bc94fe8817ed8e7a09675c1171db9bc8a",
+      "bytes": 399328,
+      "relative": "layers/06-forearm-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/07-face.png",
+      "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+      "bytes": 456313,
+      "relative": "layers/07-face.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/08-eyewhite-r.png",
+      "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+      "bytes": 10343,
+      "relative": "layers/08-eyewhite-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/09-eyewhite-l.png",
+      "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+      "bytes": 10099,
+      "relative": "layers/09-eyewhite-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/10-iris-r.png",
+      "sha256": "956d21cb7976859c6be5f4976b690c38fbc58cce06fe8a0a3315b5bc9f382ede",
+      "bytes": 8926,
+      "relative": "layers/10-iris-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/11-iris-l.png",
+      "sha256": "a44d4deecafb3853ec6dc90339423bd8536d0776a390efde07f4aa3ecc5145da",
+      "bytes": 8731,
+      "relative": "layers/11-iris-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/12-eyelash-r.png",
+      "sha256": "b55107b7cfae0629490a00cfc7626d207fdb3efda3f85f9456a3176776525610",
+      "bytes": 8588,
+      "relative": "layers/12-eyelash-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/13-eyelash-l.png",
+      "sha256": "9a306a012239ba97a932d4bd68faf6291d96c33dbc728e8f65ae853d187e077f",
+      "bytes": 8706,
+      "relative": "layers/13-eyelash-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/14-lower-eyelash-r.png",
+      "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+      "bytes": 3929,
+      "relative": "layers/14-lower-eyelash-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/15-lower-eyelash-l.png",
+      "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+      "bytes": 3943,
+      "relative": "layers/15-lower-eyelash-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/16-eyebrow-r.png",
+      "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+      "bytes": 6457,
+      "relative": "layers/16-eyebrow-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/17-eyebrow-l.png",
+      "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+      "bytes": 5898,
+      "relative": "layers/17-eyebrow-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/18-mouth.png",
+      "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+      "bytes": 9053,
+      "relative": "layers/18-mouth.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/19-upper-teeth.png",
+      "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+      "bytes": 4946,
+      "relative": "layers/19-upper-teeth.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/20-tongue.png",
+      "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+      "bytes": 4453,
+      "relative": "layers/20-tongue.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/21-upper-lip.png",
+      "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+      "bytes": 5307,
+      "relative": "layers/21-upper-lip.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/22-lower-lip.png",
+      "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+      "bytes": 6828,
+      "relative": "layers/22-lower-lip.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/23-mouth-close.png",
+      "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+      "bytes": 8743,
+      "relative": "layers/23-mouth-close.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/24-front-hair-1.png",
+      "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+      "bytes": 775732,
+      "relative": "layers/24-front-hair-1.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/25-front-hair-3.png",
+      "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+      "bytes": 510198,
+      "relative": "layers/25-front-hair-3.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/26-front-hair-2.png",
+      "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+      "bytes": 759168,
+      "relative": "layers/26-front-hair-2.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/27-finger-thumb-r.png",
+      "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+      "bytes": 6743,
+      "relative": "layers/27-finger-thumb-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/28-finger-little-l.png",
+      "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+      "bytes": 5843,
+      "relative": "layers/28-finger-little-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/29-cup.png",
+      "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+      "bytes": 136311,
+      "relative": "layers/29-cup.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/30-finger-thumb-l.png",
+      "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+      "bytes": 11099,
+      "relative": "layers/30-finger-thumb-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/31-finger-index-l.png",
+      "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+      "bytes": 8874,
+      "relative": "layers/31-finger-index-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/32-finger-middle-l.png",
+      "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+      "bytes": 9303,
+      "relative": "layers/32-finger-middle-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/33-finger-ring-l.png",
+      "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+      "bytes": 7674,
+      "relative": "layers/33-finger-ring-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/34-finger-little-r.png",
+      "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+      "bytes": 8015,
+      "relative": "layers/34-finger-little-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/35-finger-ring-r.png",
+      "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+      "bytes": 9789,
+      "relative": "layers/35-finger-ring-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/36-finger-middle-r.png",
+      "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+      "bytes": 9658,
+      "relative": "layers/36-finger-middle-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/37-finger-index-r.png",
+      "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+      "bytes": 9735,
+      "relative": "layers/37-finger-index-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/38-hand-r.png",
+      "sha256": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+      "bytes": 45306,
+      "relative": "layers/38-hand-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/39-hand-l.png",
+      "sha256": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+      "bytes": 37165,
+      "relative": "layers/39-hand-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/40-cuff-front-r.png",
+      "sha256": "1c866d139a7db8509f079664bcb3b6356212ccbd35a64dc977e5da1f146dbaa5",
+      "bytes": 41355,
+      "relative": "layers/40-cuff-front-r.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/layers/41-cuff-front-l.png",
+      "sha256": "9588fa51eef61399986317735c72d9e27d58300ecd6aa237c7cff02e6d472566",
+      "bytes": 48187,
+      "relative": "layers/41-cuff-front-l.png",
+      "kind": "main-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/part-manifest.json",
+      "sha256": "0cc0f325bc3a67689b8f99944e73980ec483e872c9e85f4ef550737da780ffd7",
+      "bytes": 16459,
+      "relative": "sources/head/part-manifest.json",
+      "kind": "part-manifest"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/00-back-hair.png",
+      "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+      "bytes": 1385792,
+      "relative": "sources/head/layers/00-back-hair.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/01-face.png",
+      "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+      "bytes": 456313,
+      "relative": "sources/head/layers/01-face.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/02-eyewhite-r.png",
+      "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+      "bytes": 10343,
+      "relative": "sources/head/layers/02-eyewhite-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/03-eyewhite-l.png",
+      "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+      "bytes": 10099,
+      "relative": "sources/head/layers/03-eyewhite-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/04-iris-r.png",
+      "sha256": "956d21cb7976859c6be5f4976b690c38fbc58cce06fe8a0a3315b5bc9f382ede",
+      "bytes": 8926,
+      "relative": "sources/head/layers/04-iris-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/05-iris-l.png",
+      "sha256": "a44d4deecafb3853ec6dc90339423bd8536d0776a390efde07f4aa3ecc5145da",
+      "bytes": 8731,
+      "relative": "sources/head/layers/05-iris-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/06-eyelash-r.png",
+      "sha256": "b55107b7cfae0629490a00cfc7626d207fdb3efda3f85f9456a3176776525610",
+      "bytes": 8588,
+      "relative": "sources/head/layers/06-eyelash-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/07-eyelash-l.png",
+      "sha256": "9a306a012239ba97a932d4bd68faf6291d96c33dbc728e8f65ae853d187e077f",
+      "bytes": 8706,
+      "relative": "sources/head/layers/07-eyelash-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/08-lower-eyelash-r.png",
+      "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+      "bytes": 3929,
+      "relative": "sources/head/layers/08-lower-eyelash-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/09-lower-eyelash-l.png",
+      "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+      "bytes": 3943,
+      "relative": "sources/head/layers/09-lower-eyelash-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/10-eyebrow-r.png",
+      "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+      "bytes": 6457,
+      "relative": "sources/head/layers/10-eyebrow-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/11-eyebrow-l.png",
+      "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+      "bytes": 5898,
+      "relative": "sources/head/layers/11-eyebrow-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/12-mouth.png",
+      "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+      "bytes": 9053,
+      "relative": "sources/head/layers/12-mouth.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/13-upper-teeth.png",
+      "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+      "bytes": 4946,
+      "relative": "sources/head/layers/13-upper-teeth.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/14-tongue.png",
+      "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+      "bytes": 4453,
+      "relative": "sources/head/layers/14-tongue.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/15-upper-lip.png",
+      "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+      "bytes": 5307,
+      "relative": "sources/head/layers/15-upper-lip.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/16-lower-lip.png",
+      "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+      "bytes": 6828,
+      "relative": "sources/head/layers/16-lower-lip.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/17-mouth-close.png",
+      "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+      "bytes": 8743,
+      "relative": "sources/head/layers/17-mouth-close.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/18-front-hair-1.png",
+      "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+      "bytes": 775732,
+      "relative": "sources/head/layers/18-front-hair-1.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/19-front-hair-3.png",
+      "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+      "bytes": 510198,
+      "relative": "sources/head/layers/19-front-hair-3.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/20-front-hair-2.png",
+      "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+      "bytes": 759168,
+      "relative": "sources/head/layers/20-front-hair-2.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/face.png",
+      "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0",
+      "bytes": 1062256,
+      "relative": "sources/head/sources/face.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/back.png",
+      "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2",
+      "bytes": 2075368,
+      "relative": "sources/head/sources/back.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontLeft.png",
+      "sha256": "2df1ef8b79783d0a6969405e7012bbe0947b9ae12e8cfbd59e1cc969285d578b",
+      "bytes": 396835,
+      "relative": "sources/head/sources/frontLeft.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontCenter.png",
+      "sha256": "797eafadc64653db62bacf7027fd32ec932ca6863fecf242a67c752db701d952",
+      "bytes": 384257,
+      "relative": "sources/head/sources/frontCenter.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontRight.png",
+      "sha256": "4650c9cfcda3e09c7eb2dcba9509642eb6e1545e761dde1a0b1a5f7f51268851",
+      "bytes": 272464,
+      "relative": "sources/head/sources/frontRight.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/eyes.png",
+      "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576",
+      "bytes": 1543063,
+      "relative": "sources/head/sources/eyes.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/mouth.png",
+      "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc",
+      "bytes": 1355459,
+      "relative": "sources/head/sources/mouth.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/part-manifest.json",
+      "sha256": "5671304f7aec97aa2b5bee876d4febad5c6c5a0312244c30526dae61c07796c9",
+      "bytes": 22469,
+      "relative": "sources/body/part-manifest.json",
+      "kind": "part-manifest"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/topwear-backfill.png",
+      "sha256": "0f065c6050cedc3c9e76ad9331bb6577ada9abe945b89c998afdd51bfdb4eabd",
+      "bytes": 1207307,
+      "relative": "sources/body/layers/topwear-backfill.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/upperarm-r.png",
+      "sha256": "86908f2949bbec98dc0e9b63b947f22a45ef6be4678439fdf9c1e0e1bff3b87a",
+      "bytes": 451589,
+      "relative": "sources/body/layers/upperarm-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/upperarm-l.png",
+      "sha256": "91967a70d5dc2b808b3e450de9adfaf5f298fff8d44f794f388be68539f83d8f",
+      "bytes": 254913,
+      "relative": "sources/body/layers/upperarm-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/topwear.png",
+      "sha256": "acfcd1a48de14e563e413a510b6de031f22e56b5329433ff09d4ad6783585007",
+      "bytes": 1374685,
+      "relative": "sources/body/layers/topwear.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/forearm-r.png",
+      "sha256": "9401c6514d0cbd6bd8d26fbb398209589d723bad2b9bc26649deffede2802e48",
+      "bytes": 527924,
+      "relative": "sources/body/layers/forearm-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/forearm-l.png",
+      "sha256": "de17c3ce6762c9a2e06bc8e88cf7c70bc94fe8817ed8e7a09675c1171db9bc8a",
+      "bytes": 399328,
+      "relative": "sources/body/layers/forearm-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/cuff-front-r.png",
+      "sha256": "1c866d139a7db8509f079664bcb3b6356212ccbd35a64dc977e5da1f146dbaa5",
+      "bytes": 41355,
+      "relative": "sources/body/layers/cuff-front-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/cuff-front-l.png",
+      "sha256": "9588fa51eef61399986317735c72d9e27d58300ecd6aa237c7cff02e6d472566",
+      "bytes": 48187,
+      "relative": "sources/body/layers/cuff-front-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/original_coherentBody.png",
+      "sha256": "142296e0ecd0a9776b6f481cff62646b9ae4b5ccef1e12c8423baccad73776b0",
+      "bytes": 1397256,
+      "relative": "sources/body/sources/original-coherentBody.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/original_hiddenTorso.png",
+      "sha256": "68f692ea436b3753f2fc5451d31c0324d365f1dcb3504d5a38bfa2018a1c4c24",
+      "bytes": 846535,
+      "relative": "sources/body/sources/original-hiddenTorso.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/underfill_aaOriginal.png",
+      "sha256": "5962338a1323e6bd0f406f18c669197a50558f9ffaee5a6cc4d96ae773a70881",
+      "bytes": 1212006,
+      "relative": "sources/body/sources/underfill-aaOriginal.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/underfill_aaExistingLayout.png",
+      "sha256": "b4c1f8d9ae12add9181d9576051721a4a3d47d571de4156075311407344baccc",
+      "bytes": 2463393,
+      "relative": "sources/body/sources/underfill-aaExistingLayout.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/part-manifest.json",
+      "sha256": "63896b305be954b098058f1b17f38f13a133cfdb51c6e66767ed01b56940b013",
+      "bytes": 25624,
+      "relative": "sources/hands/part-manifest.json",
+      "kind": "part-manifest"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/02-finger-thumb-r.png",
+      "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+      "bytes": 6743,
+      "relative": "sources/hands/layers/02-finger-thumb-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/03-finger-little-l.png",
+      "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+      "bytes": 5843,
+      "relative": "sources/hands/layers/03-finger-little-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/04-cup.png",
+      "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+      "bytes": 136311,
+      "relative": "sources/hands/layers/04-cup.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/05-finger-thumb-l.png",
+      "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+      "bytes": 11099,
+      "relative": "sources/hands/layers/05-finger-thumb-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/06-finger-index-l.png",
+      "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+      "bytes": 8874,
+      "relative": "sources/hands/layers/06-finger-index-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/07-finger-middle-l.png",
+      "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+      "bytes": 9303,
+      "relative": "sources/hands/layers/07-finger-middle-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/08-finger-ring-l.png",
+      "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+      "bytes": 7674,
+      "relative": "sources/hands/layers/08-finger-ring-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/09-finger-little-r.png",
+      "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+      "bytes": 8015,
+      "relative": "sources/hands/layers/09-finger-little-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/10-finger-ring-r.png",
+      "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+      "bytes": 9789,
+      "relative": "sources/hands/layers/10-finger-ring-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/11-finger-middle-r.png",
+      "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+      "bytes": 9658,
+      "relative": "sources/hands/layers/11-finger-middle-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/12-finger-index-r.png",
+      "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+      "bytes": 9735,
+      "relative": "sources/hands/layers/12-finger-index-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/00-hand-r.png",
+      "sha256": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+      "bytes": 45306,
+      "relative": "sources/hands/layers/00-hand-r.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/01-hand-l.png",
+      "sha256": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+      "bytes": 37165,
+      "relative": "sources/hands/layers/01-hand-l.png",
+      "kind": "part-layer"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/extendedPalms.png",
+      "sha256": "0a51d8f87dd7bf4efc451c63eb483d63d5e31bb53f8b85525190ad8e88ddf1ae",
+      "bytes": 1792603,
+      "relative": "sources/hands/sources/extendedPalms.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/viewerLeft.png",
+      "sha256": "950006520ac6c3ac243dbd80d689c6d4ca8879b67fea9c33d071c333c6ff0e7c",
+      "bytes": 1549423,
+      "relative": "sources/hands/sources/viewerLeft.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/viewerRight.png",
+      "sha256": "0013b861e9b867ebf392c40181214c6afe2f58683d115a420ab981ff58efec29",
+      "bytes": 1669137,
+      "relative": "sources/hands/sources/viewerRight.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/cup.png",
+      "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102",
+      "bytes": 1091697,
+      "relative": "sources/hands/sources/cup.png",
+      "kind": "part-original"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/coherentReference.png",
+      "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf",
+      "bytes": 1379474,
+      "relative": "sources/hands/sources/coherentReference.png",
+      "kind": "part-original"
+    }
+  ]
+}

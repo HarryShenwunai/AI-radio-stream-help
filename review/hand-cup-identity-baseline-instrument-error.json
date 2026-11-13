@@ -1,0 +1,6 @@
+{
+  "status": "incorrect_baseline_rejected",
+  "observed_at": "2026-11-13T02:54:31.933148+00:00",
+  "error": "old r5/export-cloth-continuous has different EyelashL topology; compare aborted, not a product failure",
+  "corrected_baseline": ".build/original-character-rig-formal-r1/export-cloth-continuous/character.model3.json"
+}

@@ -1,0 +1,89 @@
+{
+  "status": "READ_ONLY_API_AND_MATHEMATICAL_DESIGN_REVIEW",
+  "verified_primary_source_facts": [
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/application/WorkspaceDocumentEdits.kt#L93",
+      "source_file_sha256": "5211d615a5b33947f3bf34365b5efc361d191d74f6046298372c5311441f5651",
+      "line_span": [
+        93,
+        94
+      ],
+      "fact": "rig_deform maps the entire request changes array to one journal edit array.",
+      "access_date_utc": "2026-11-13",
+      "verification": "Read official raw source at actual runtime release commit supplied by author; no checkout, binary modification or write to running project."
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/application/WorkspaceHost.kt#L1112",
+      "source_file_sha256": "62e0e3b11bfbed90bec7131acb915a6889afdd9f5fa95c860be60e3c1c01e7ad",
+      "line_span": [
+        1112,
+        1132
+      ],
+      "fact": "authorRig passes entire edits to executeJournal while holding edit mutex.",
+      "access_date_utc": "2026-11-13",
+      "verification": "Read official raw source at actual runtime release commit supplied by author; no checkout, binary modification or write to running project."
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/application/WorkspaceDocumentCommands.kt#L161",
+      "source_file_sha256": "1e51f6bef000ebadcbe5a53f482596420938ae0d9e61de4232463ba23a3833f7",
+      "line_span": [
+        161,
+        191
+      ],
+      "fact": "executeCandidate prepares and normalizes the complete journal candidate before one geometry gate and atomic commit. checkGeometry explicitly sets blockFoldovers=false.",
+      "access_date_utc": "2026-11-13",
+      "verification": "Read official raw source at actual runtime release commit supplied by author; no checkout, binary modification or write to running project."
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigAuthoringJournal.kt#L125",
+      "source_file_sha256": "0b9e66547b0cb9b1f337024f24aafa46439770c02ddbe7c97e88dd635fd82b83",
+      "line_span": [
+        125,
+        180
+      ],
+      "fact": "Commands evaluate sequentially against current model; each deform reads current geometry, transforms it, then records/applies it. No per-command fold safety gate in this loop.",
+      "access_date_utc": "2026-11-13",
+      "verification": "Read official raw source at actual runtime release commit supplied by author; no checkout, binary modification or write to running project."
+    },
+    {
+      "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigGeometryTools.kt#L212",
+      "source_file_sha256": "efd167707e5417ab42964f3da40f84d56b06b0f5fdced07ed35f6e77ec27ce91",
+      "line_span": [
+        212,
+        333
+      ],
+      "fact": "Each change uses immutable bounds of current geometry for all its operations; translate scales delta by those bounds; selection weights use normalized rest domain; weighted rotation blends displacement rather than scaling the angle.",
+      "access_date_utc": "2026-11-13",
+      "verification": "Read official raw source at actual runtime release commit supplied by author; no checkout, binary modification or write to running project."
+    }
+  ],
+  "cached_public_release_schema": {
+    "path": "/workspace/AI-radio-stream-help/.build/live2d-toolchain-research/op-rig_deform.json",
+    "sha256": "549ab37b71e232a74fe2abfe18a50f8b1749a7445d4fce465aebf6b418d0e445",
+    "max_changes": 128,
+    "max_operations_per_change": 16,
+    "max_landmarks_per_operation": 16,
+    "limitation": "Author is independently rechecking current live workspace_get_operation; cached schema is not substituted for dynamic discovery."
+  },
+  "recommended_realization": {
+    "field": "One common source-canvas F across coincident seam points; shoulder transition120px and elbow160px. Same exact field for every affected owner; distal all hands/fingers weight1 independently measured on old Core rest.",
+    "existing_hierarchy": "Retain current hierarchy; set q_at_key=P_at_key^-1 F(P_rest*q_rest). Keep topwear untouched to preserve abdomen. Use full parent inverse and include all directly bound key axes.",
+    "point_batches": "At public16operations x16landmarks cap, split >256 vertices across two changes in the same atomic rig_deform request. Offline simulate completed first change, recompute full current geometry bounds for second change, then submit both together. Exact per-vertex from/to anchors with selection.indices; no independently normalized brush falloff.",
+    "shared_parent_warp": "Feasible alternative if a single warp parents the intended pieces and provides the same canvas map; disable/compensate corresponding old rotation to avoid double motion. Put torso outside its scope or give protected support a real identity region. Current parent insertion has known project key-grid preservation risk, so no hierarchy mutation authorized by this review.",
+    "strict_followup": "Compare author indices/world rest arrays with actual Core order before applying. Re-export new MOC, verify0 winding flips/collapses, stretch, seam barycentric error, exact3 protected points, off-key and simultaneous axis poses, then inspect GL screenshots. Geometry API acceptance alone is insufficient."
+  },
+  "delivered_math_targets": {
+    "file": "/workspace/AI-radio-stream-help/.build/cloth-continuity-design-old-glue/old-glue-continuous-targets.json",
+    "sha256": "767f0f8d21746477a76623b5ce9ce2f98371d27fed56d48f260d74e1146f5807",
+    "kind": "Target geometry preflight using genuine old Core rest arrays, not newly evaluated Core.",
+    "summary": "/workspace/AI-radio-stream-help/.build/cloth-continuity-design-old-glue/summary.json"
+  },
+  "pitfalls_for_handoff": [
+    "Actual release bfadd834 source checked; master067ded matching relevant core files does not justify substituting master in future API reviews.",
+    "Public rig_deform16ops/16landmarks differs from internal transform32ops/64landmarks; query current schema.",
+    "Entire changes request is atomically compiled then final geometry checked, but second change sees first change geometry/bounds.",
+    "Release geometry gate explicitly does not block foldovers and only evaluates parent-local geometry; actual Core geometric quality must be independently checked.",
+    "Common canvas field cannot be replaced by equal normalized brush params across meshes with different bounds.",
+    "Equal vertex counts do not prove author/Core index order."
+  ]
+}

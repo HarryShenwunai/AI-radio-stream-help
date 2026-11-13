@@ -1,0 +1,72 @@
+{
+  "observed_at": "2026-11-12T23:25:58.490219+00:00",
+  "status": "instrument_ready_full_rig_blocked",
+  "production_changed_for_this_task": false,
+  "unit_detector_tests": {
+    "passed": 18,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -p test_hand_cup_acceptance.py -v",
+    "scope": "explicitly synthetic instrument positives/negatives, not artwork acceptance"
+  },
+  "reports": {
+    "hand-cup-candidate-r1-probe.json": {
+      "status": "partial_checks_passed_full_acceptance_blocked",
+      "checks": {
+        "actual_product_import_runtime_and_independent_consistent_core": "passed",
+        "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+        "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+        "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed",
+        "javascript_runtime": "passed"
+      },
+      "sources_unchanged": true,
+      "report_sha256": "57f14acd3680bd1668829644858b9dcbe1d13d4eec04d80ea3e6768dfe49271a"
+    },
+    "hand-cup-r1-hinge-negative.json": {
+      "status": "failed",
+      "checks": {
+        "actual_product_import_runtime_and_independent_consistent_core": "passed",
+        "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+        "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+        "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed"
+      },
+      "sources_unchanged": true,
+      "report_sha256": "a14b75a0b7afc7ef4da6ffe1bdfbc266984316764843b9769a35bc057da25040"
+    },
+    "hand-cup-r3b-curl-probe.json": {
+      "status": "partial_checks_passed_full_acceptance_blocked",
+      "checks": {
+        "actual_product_import_runtime_and_independent_consistent_core": "passed",
+        "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+        "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+        "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed",
+        "ten_real_fingers_nonrigid_joint_curl_fixed_roots_non_target_exact_visible": "passed",
+        "javascript_runtime": "passed"
+      },
+      "sources_unchanged": true,
+      "report_sha256": "e3be0f9d1be3257535cdcbcff8e29d6f047df30ba8fd684c4e674e34ea7f91f6"
+    }
+  },
+  "sources": {
+    "tests/hand_cup_browser.mjs": "7b95787ffdf348d9d90513b479fd45222b056c99ad5f11f515557d73fbc68e02",
+    "tests/hand_cup_candidate_check.py": "fef90ab8d246d623e93fad2c6748bb0d5d5150a78bad319e63938953e16a4f03",
+    "tests/hand_cup_contract.py": "473a0d2d8c1ace540a04ab5e90640738668f37bd72f628d01e652f031f61239e",
+    "tests/hand_cup_measurements.py": "68fc4679ed55a62ae88dadba788149eda8fc31d7aa9b2b2c4f7c176512c9ad2f",
+    "tests/hand_cup_metamorphic_check.py": "d41071f5ce0c2000dbb328930d55f995b7a016b13e2294c9f93f5c10f850814e",
+    "tests/test_hand_cup_acceptance.py": "1d6ea07b8092754a7e7acd2a22363f42dce36f6365b13c22f263a0cefca7046a",
+    "docs/implementation/live2d-hand-cup-acceptance.md": "28a96089b5f130cd2cc6f2ad1a165f39003fe8965e5661f8569bea80794bab23"
+  },
+  "full_acceptance": "BLOCKED",
+  "pending": [
+    "final actual CupHold=0/1 and both source-alpha-supported grips",
+    "final Body/Breath held finite sweep within 1 source px",
+    "final arm/hand/glue preserving approved torso points",
+    "four authored hold/detach/wave/empty_hands motions/expressions and real Studio activation path",
+    "final unified body/wrist artwork, human review, Windows/4060, official Editor reopening"
+  ],
+  "limitations": [
+    "Linux Chromium SwiftShader only",
+    "screen recordings do not contain system audio",
+    "r1/r3b are intermediate original models; no art completion claim",
+    "no Core/framework distribution authorization inferred"
+  ]
+}

@@ -1,0 +1,1561 @@
+{
+  "status": "passed",
+  "started_utc": "2026-11-12T22:48:35Z",
+  "scope": "original export + real owner-installed official Core; direct raw geometry and actual software WebGL; no product adapter",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.cmo3": "2b93fe8f87f0844016865995d298f865b8503bbf9bfd840b0ebd38d48f7369da",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.psd2live.json": "716693a5ff918ca0b6f2ffce3b9893cf9b18df7d9da0ad6fde5dfc45319a8e5d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.moc3": "9f9d9b929b0b72b83a7add055564622ee25c6cf3b87881d084a04fc5326348f2",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.can3": "d49d6203e021a1ae5fcb4cd5f7015c4f912cd774e35244dbeed653b0bbfdcaa8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.cdi3.json": "aad46f5fabccf8a52b0356f892927240689787a81d2b088a956ba096f66e057a",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.4096/texture_00.png": "0faeadbd890f371048b924d22671c69f838fe91cb5708ef8060653246c50e567",
+    "/workspace/AI-radio-stream-help/review/live2d-character-r3-visual-rois.json": "c61c0c34e01f2738b9f412d186f42c300e96a7f0ce8a261dac56b2a2f3c7abcd",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/authoring/character-mouth-r3.psd2live": "d2f82434b9f6d15b338c90b05971fe2e6f17bf578409747ecd4bccaa3a7a468c",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/character.psd": "54db40b3a4e8d2cb89c01e79dd439b3a90579d7a75c2e94f7e8023fb985f20ef",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-r3/layers.json": "64c183edb7cb9c00989996e502fa85781c5dac8d0cbfad76b95f39a3363f400b",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "000dfbe5f15fc612448e076b3dca1151926e91f5b2542beab403b69b56bb53bd",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/runtime/revisions/3d6764b4-53b8-4bd3-888c-db4d7491cf04/script.js": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204"
+  },
+  "provenance": {
+    "format": "original-live2d-layers-v1",
+    "revision": 3,
+    "canvas": {
+      "width": 1536,
+      "height": 2048
+    },
+    "purpose": "Independent generated artwork assembled for an original Cubism rig; art and rig acceptance pending",
+    "art_method": "imagegen creates and repaints independent parts; this script extracts atlas cells and authors neutral placement",
+    "body_scope": "Coherent bust holding a mug. Body mesh supports authored breathing and body motion. No independent finger/arm/sipping gestures claimed.",
+    "quality_accepted": false,
+    "sources": {
+      "face": {
+        "file": "sources/face.png",
+        "generated_image": "exec-583b92a4-b4e7-4a2d-919b-8c2cafb50251.png",
+        "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0",
+        "width": 1070,
+        "height": 1470
+      },
+      "body": {
+        "file": "sources/body.png",
+        "generated_image": "exec-f2e6bcf0-997b-4742-a582-b61503265ca6.png",
+        "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf",
+        "width": 1070,
+        "height": 1470
+      },
+      "back": {
+        "file": "sources/back.png",
+        "generated_image": "exec-71361f4b-1aaa-4d53-add3-fb86392b27b1.png",
+        "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2",
+        "width": 1198,
+        "height": 1313
+      },
+      "front": {
+        "file": "sources/front.png",
+        "generated_image": "exec-e65bd132-7066-4b7c-8421-43b09c497768.png",
+        "sha256": "b41d3e4ee6e84eb05b6765e7f833133c194e0fa2ffe8d2515b6f1bdeb9648613",
+        "width": 1920,
+        "height": 819
+      },
+      "eyes": {
+        "file": "sources/eyes.png",
+        "generated_image": "exec-4592f4be-d9f0-4255-aac0-6a3544a96fd2.png",
+        "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576",
+        "width": 1024,
+        "height": 1536
+      },
+      "mouth": {
+        "file": "sources/mouth.png",
+        "generated_image": "exec-ea88a197-e86e-492c-8a93-db1b41273d32.png",
+        "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc",
+        "width": 1536,
+        "height": 1024
+      },
+      "sleeves": {
+        "file": "sources/sleeves.png",
+        "generated_image": "exec-f0254475-1298-4f43-8ac1-4bb2580ae6f1.png",
+        "sha256": "2d0ff6e8de182a0fe6fc584b284f672137aef167a2698cbe7d51d1aa3e1c8739",
+        "width": 1774,
+        "height": 887
+      },
+      "hands": {
+        "file": "sources/hands.png",
+        "generated_image": "exec-1ac20332-a976-466b-9194-7360d9b9735a.png",
+        "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102",
+        "width": 2172,
+        "height": 724
+      }
+    },
+    "layers": [
+      {
+        "name": "back hair",
+        "file": "layers/00-back-hair.png",
+        "x": 360,
+        "y": 25,
+        "visible": true,
+        "source": "back",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1198,
+          "height": 1313
+        },
+        "source_alpha_bounds": {
+          "left": 16,
+          "top": 19,
+          "width": 1180,
+          "height": 1228
+        },
+        "width": 940,
+        "height": 920,
+        "sha256": "7864b881d26392d9c6a82a87572b0c55f0e55510258623bb476d7caa002dd3c6"
+      },
+      {
+        "name": "topwear",
+        "file": "layers/01-topwear.png",
+        "x": 40,
+        "y": 650,
+        "visible": true,
+        "source": "body",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 29,
+          "top": 509,
+          "width": 1012,
+          "height": 961
+        },
+        "width": 1450,
+        "height": 1360,
+        "sha256": "dd189e3ddc14bcccc6aa8f6e13895a34b8497745c47cea30e40260d101a082e1"
+      },
+      {
+        "name": "face",
+        "file": "layers/02-face.png",
+        "x": 540,
+        "y": 145,
+        "visible": true,
+        "source": "face",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 75,
+          "top": 19,
+          "width": 903,
+          "height": 1154
+        },
+        "width": 600,
+        "height": 670,
+        "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a"
+      },
+      {
+        "name": "eyewhite-r",
+        "file": "layers/03-eyewhite-r.png",
+        "x": 741,
+        "y": 505,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 105,
+          "top": 128,
+          "width": 312,
+          "height": 136
+        },
+        "width": 128,
+        "height": 53,
+        "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4"
+      },
+      {
+        "name": "eyewhite-l",
+        "file": "layers/04-eyewhite-l.png",
+        "x": 939,
+        "y": 503,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 93,
+          "top": 128,
+          "width": 311,
+          "height": 136
+        },
+        "width": 126,
+        "height": 52,
+        "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb"
+      },
+      {
+        "name": "iris-r",
+        "file": "layers/05-iris-r.png",
+        "x": 789,
+        "y": 501,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 181,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "width": 58,
+        "height": 58,
+        "sha256": "1af70380005de2e5a2e7842fc2764f46d81ac34dfe07c4140db415529d167dbc"
+      },
+      {
+        "name": "iris-l",
+        "file": "layers/06-iris-l.png",
+        "x": 972,
+        "y": 498,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 139,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "width": 58,
+        "height": 58,
+        "sha256": "76ffef4fd2ac8971b3c34b3e0fdb692a0b9c370b09a8e5b4c702e1e1eb34d17f"
+      },
+      {
+        "name": "eyelash-r",
+        "file": "layers/07-eyelash-r.png",
+        "x": 737,
+        "y": 492,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 73,
+          "top": 0,
+          "width": 360,
+          "height": 267
+        },
+        "width": 137,
+        "height": 42,
+        "sha256": "6212f872ff5881817e1c858cbf206c4c37da169d65eb5e1689d668d6fb0a44fb"
+      },
+      {
+        "name": "eyelash-l",
+        "file": "layers/08-eyelash-l.png",
+        "x": 935,
+        "y": 490,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 0,
+          "width": 356,
+          "height": 268
+        },
+        "width": 137,
+        "height": 42,
+        "sha256": "b796d8af7fa8462fab56cb42c514c4d4e63066134bdad7ffa5228a06eb0824e0"
+      },
+      {
+        "name": "lower eyelash-r",
+        "file": "layers/09-lower-eyelash-r.png",
+        "x": 742,
+        "y": 541,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 129,
+          "top": 150,
+          "width": 279,
+          "height": 80
+        },
+        "width": 128,
+        "height": 22,
+        "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d"
+      },
+      {
+        "name": "lower eyelash-l",
+        "file": "layers/10-lower-eyelash-l.png",
+        "x": 940,
+        "y": 539,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 101,
+          "top": 150,
+          "width": 276,
+          "height": 76
+        },
+        "width": 126,
+        "height": 22,
+        "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc"
+      },
+      {
+        "name": "eyebrow-r",
+        "file": "layers/11-eyebrow-r.png",
+        "x": 738,
+        "y": 454,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 72,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "width": 132,
+        "height": 28,
+        "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d"
+      },
+      {
+        "name": "eyebrow-l",
+        "file": "layers/12-eyebrow-l.png",
+        "x": 943,
+        "y": 450,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "width": 129,
+        "height": 28,
+        "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756"
+      },
+      {
+        "name": "mouth",
+        "file": "layers/13-mouth.png",
+        "x": 843,
+        "y": 707,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 215,
+          "top": 127,
+          "width": 406,
+          "height": 120
+        },
+        "width": 126,
+        "height": 43,
+        "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83"
+      },
+      {
+        "name": "upper teeth",
+        "file": "layers/14-upper-teeth.png",
+        "x": 855,
+        "y": 708,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 124,
+          "top": 157,
+          "width": 388,
+          "height": 71
+        },
+        "width": 105,
+        "height": 20,
+        "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df"
+      },
+      {
+        "name": "tongue",
+        "file": "layers/15-tongue.png",
+        "x": 869,
+        "y": 733,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 278,
+          "top": 142,
+          "width": 253,
+          "height": 99
+        },
+        "width": 79,
+        "height": 21,
+        "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61"
+      },
+      {
+        "name": "upper lip",
+        "file": "layers/16-upper-lip.png",
+        "x": 834,
+        "y": 694,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 144,
+          "top": 140,
+          "width": 528,
+          "height": 90
+        },
+        "width": 145,
+        "height": 23,
+        "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783"
+      },
+      {
+        "name": "lower lip",
+        "file": "layers/17-lower-lip.png",
+        "x": 834,
+        "y": 739,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 63,
+          "top": 136,
+          "width": 510,
+          "height": 130
+        },
+        "width": 145,
+        "height": 25,
+        "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef"
+      },
+      {
+        "name": "closed mouth",
+        "file": "layers/18-closed-mouth.png",
+        "x": 834,
+        "y": 696,
+        "visible": false,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 85,
+          "top": 153,
+          "width": 474,
+          "height": 61
+        },
+        "width": 145,
+        "height": 42,
+        "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca"
+      },
+      {
+        "name": "front hair 1",
+        "file": "layers/19-front-hair-1.png",
+        "x": 350,
+        "y": 25,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 41,
+          "top": 4,
+          "width": 549,
+          "height": 805
+        },
+        "width": 570,
+        "height": 790,
+        "sha256": "da35ccc39758c3ec4220095bc7c3c892e1cd71e1834104ad2bbdf5e56722233f"
+      },
+      {
+        "name": "front hair 2",
+        "file": "layers/20-front-hair-2.png",
+        "x": 560,
+        "y": 20,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 640,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 59,
+          "top": 47,
+          "width": 539,
+          "height": 550
+        },
+        "width": 650,
+        "height": 610,
+        "sha256": "4bada00218ff659a1d4d61e437c63c25688fc37dffdbbbf3cc4c88de1ceab1fd"
+      },
+      {
+        "name": "front hair 3",
+        "file": "layers/21-front-hair-3.png",
+        "x": 1040,
+        "y": 80,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 1280,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 107,
+          "top": 0,
+          "width": 494,
+          "height": 808
+        },
+        "width": 300,
+        "height": 730,
+        "sha256": "60894ffc21332e559bdb707e3e782db95ad1fe12c8f1e594a8362aa969c10603"
+      }
+    ]
+  },
+  "checks": {
+    "official_consistency_and_parameter_geometry": "passed",
+    "actual_webgl_original_export": "passed",
+    "required_parameters_have_actual_visible_pixel_effects": "passed",
+    "export_specific_reviewed_anatomy_rois": "passed"
+  },
+  "not_proven": [
+    "user artwork likeness/production art quality",
+    "Windows/4060/physical camera",
+    "official Editor CMO3 reopen/edit",
+    "SDK publication rights",
+    "all exports/parameters",
+    "Audio RMS/lip-sync through the product adapter",
+    "real-time frame rate or performance; sidecars use fixed 1/60s simulation"
+  ],
+  "acceptance_complete": false,
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/AI-radio-stream-help/tests/live2d_original_core_check.py --probe-pixels --product-adapter app/static/live2d-renderer.js --visual-rois review/live2d-character-r3-visual-rois.json --model .build/original-character-rig-r3/export-mouth-r3/character.model3.json --runtime-dir /workspace/.live2d/runtime --provenance .build/original-character-art-r3/layers.json --source-psd .build/original-character-rig-r3/character.psd --source-project .build/original-character-rig-r3/authoring/character-mouth-r3.psd2live --require-parameter ParamMouthOpenY --require-parameter ParamMouthForm --require-parameter ParamEyeLOpen --require-parameter ParamEyeROpen --require-parameter ParamEyeBallX --require-parameter ParamEyeBallY --output review/original-character-live2d-mouth-r3-pixel-probe.json --evidence-dir /workspace/dist/evidence-original-character-live2d-r3/mouth-r3",
+  "export_family_files": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.cmo3": "2b93fe8f87f0844016865995d298f865b8503bbf9bfd840b0ebd38d48f7369da",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.psd2live.json": "716693a5ff918ca0b6f2ffce3b9893cf9b18df7d9da0ad6fde5dfc45319a8e5d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.moc3": "9f9d9b929b0b72b83a7add055564622ee25c6cf3b87881d084a04fc5326348f2",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.can3": "d49d6203e021a1ae5fcb4cd5f7015c4f912cd774e35244dbeed653b0bbfdcaa8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.cdi3.json": "aad46f5fabccf8a52b0356f892927240689787a81d2b088a956ba096f66e057a",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.4096/texture_00.png": "0faeadbd890f371048b924d22671c69f838fe91cb5708ef8060653246c50e567"
+  },
+  "model3_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r3/character.model3.json",
+  "source_psd_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/character.psd",
+  "source_project_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/authoring/character-mouth-r3.psd2live",
+  "visual_rois": {
+    "scope": "Export-specific r3 neutral placement in this harness 900x900 framebuffer, WebGL bottom-left origin. Generous fixed mouth area selected from actual original CLI Core neutral/endpoint captures, not an automatic anatomy detector; not for arbitrary user avatars.",
+    "stage": [
+      900,
+      900
+    ],
+    "parameters": {
+      "ParamMouthOpenY": [
+        450,
+        540,
+        565,
+        610
+      ],
+      "ParamMouthForm": [
+        450,
+        540,
+        565,
+        610
+      ]
+    }
+  },
+  "raw_core": {
+    "coreVersion": 83951616,
+    "latestMocVersion": 5,
+    "header": [
+      77,
+      79,
+      67,
+      51,
+      5,
+      0,
+      0,
+      0
+    ],
+    "consistency": 1,
+    "parameters": [
+      {
+        "id": "ParamAngleX",
+        "min": -45,
+        "default": 0,
+        "max": 45,
+        "geometry": {
+          "coordinates": 22363,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamAngleY",
+        "min": -30,
+        "default": 0,
+        "max": 30,
+        "geometry": {
+          "coordinates": 22364,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamAngleZ",
+        "min": -30,
+        "default": 0,
+        "max": 30,
+        "geometry": {
+          "coordinates": 22364,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "min": 0,
+        "default": 1,
+        "max": 1,
+        "geometry": {
+          "coordinates": 190,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshEyelashL",
+            "ArtMeshEyewhiteL"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeROpen",
+        "min": 0,
+        "default": 1,
+        "max": 1,
+        "geometry": {
+          "coordinates": 198,
+          "drawables": [
+            "ArtMeshLayerR",
+            "ArtMeshEyelashR",
+            "ArtMeshEyewhiteR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallX",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBrowLY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 48,
+          "drawables": [
+            "ArtMeshEyebrowL"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBrowRY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 46,
+          "drawables": [
+            "ArtMeshEyebrowR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamMouthForm",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 138,
+          "drawables": [
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshMouth"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "min": 0,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 166,
+          "drawables": [
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshMouth"
+          ]
+        },
+        "opacityChanges": 2
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 24168,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 23612,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 22914,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyLean",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 24168,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamProportion",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 23613,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBreath",
+        "min": 0,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 23462,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshTopwear",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHairFront",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 19452,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHairBack",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 950,
+          "drawables": [
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      }
+    ],
+    "drawables": [
+      {
+        "id": "ArtMeshFrontHair",
+        "vertexCount": 715,
+        "indexCount": 2484,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair2",
+        "vertexCount": 7975,
+        "indexCount": 26826,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair3",
+        "vertexCount": 1036,
+        "indexCount": 3687,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayer2",
+        "vertexCount": 27,
+        "indexCount": 75,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayer3",
+        "vertexCount": 26,
+        "indexCount": 72,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshToothT",
+        "vertexCount": 30,
+        "indexCount": 108,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshTongue",
+        "vertexCount": 18,
+        "indexCount": 48,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshMouth",
+        "vertexCount": 30,
+        "indexCount": 96,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowL",
+        "vertexCount": 24,
+        "indexCount": 66,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowR",
+        "vertexCount": 23,
+        "indexCount": 63,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL",
+        "vertexCount": 40,
+        "indexCount": 114,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR",
+        "vertexCount": 42,
+        "indexCount": 120,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashL",
+        "vertexCount": 23,
+        "indexCount": 63,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashR",
+        "vertexCount": 24,
+        "indexCount": 66,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshIridesL",
+        "vertexCount": 19,
+        "indexCount": 60,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshIridesR",
+        "vertexCount": 19,
+        "indexCount": 60,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshEyewhiteL",
+        "vertexCount": 32,
+        "indexCount": 108,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyewhiteR",
+        "vertexCount": 33,
+        "indexCount": 111,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFace",
+        "vertexCount": 571,
+        "indexCount": 2886,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshTopwear",
+        "vertexCount": 902,
+        "indexCount": 4167,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshBackHair",
+        "vertexCount": 475,
+        "indexCount": 2592,
+        "texture": 0,
+        "maskCount": 0
+      }
+    ],
+    "partCount": 7,
+    "noop": {
+      "coordinates": 0,
+      "drawables": []
+    }
+  },
+  "render": {
+    "productTextureHook": true,
+    "pixels": {
+      "colored": 352380,
+      "transparent": 455934,
+      "error": 0,
+      "width": 900,
+      "height": 900
+    },
+    "textureCount": 1,
+    "physicsAvailable": true,
+    "expressions": [
+      "Smile",
+      "Sad",
+      "Angry",
+      "Surprised"
+    ]
+  },
+  "sidecars": {},
+  "visible_parameter_sweeps": [
+    {
+      "id": "ParamMouthOpenY",
+      "changedPixels": 1334,
+      "outsideROIPixels": 0,
+      "declaredROI": [
+        450,
+        540,
+        565,
+        610
+      ],
+      "bounds": [
+        479,
+        554,
+        536,
+        588
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 5,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 21,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 4,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    },
+    {
+      "id": "ParamMouthForm",
+      "changedPixels": 496,
+      "outsideROIPixels": 0,
+      "declaredROI": [
+        450,
+        540,
+        565,
+        610
+      ],
+      "bounds": [
+        479,
+        563,
+        536,
+        582
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 7,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 19,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 6,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    },
+    {
+      "id": "ParamEyeLOpen",
+      "changedPixels": 876,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        521,
+        643,
+        572,
+        665
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 9,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 19,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 8,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    },
+    {
+      "id": "ParamEyeROpen",
+      "changedPixels": 875,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        440,
+        643,
+        492,
+        664
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 11,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 19,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 10,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    },
+    {
+      "id": "ParamEyeBallX",
+      "changedPixels": 1002,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        455,
+        644,
+        561,
+        665
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 13,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 19,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 12,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    },
+    {
+      "id": "ParamEyeBallY",
+      "changedPixels": 827,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        459,
+        644,
+        557,
+        665
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 15,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6419820785522461,
+        "maxCoordinate": 0.6503914594650269,
+        "visibleDrawables": 19,
+        "opaquePixels": 352380
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 14,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6419820785522461,
+          "maxCoordinate": 0.6503914594650269,
+          "visibleDrawables": 19,
+          "opaquePixels": 352380
+        }
+      }
+    }
+  ],
+  "javascript_errors": [],
+  "browser_warnings": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:33759/model/character.4096/texture_00.png"
+    }
+  ],
+  "sources_unchanged_during_checks": true,
+  "evidence_dir": "/workspace/dist/evidence-original-character-live2d-r3/mouth-r3"
+}
