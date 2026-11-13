@@ -1,0 +1,20 @@
+{
+  "id": 17,
+  "title": "Fail malformed UTF-8 reply streams instead of displaying replacement characters",
+  "branch": "fix/audit-17-sse-strict-utf8",
+  "scope": "tests/test_character_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit17",
+    "tests/test_character_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/companion-core.js": "6ba9ed05279e8ba9611b16a74dfac37e82cbc6119466e1444b453aa7ba061cad"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
