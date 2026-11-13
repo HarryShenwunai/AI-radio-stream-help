@@ -17,6 +17,7 @@ window.CompanionCore=(()=>{
    emit('invalidate',{reason,previous,current:scope()});change();
   }
   async function api(path,data,options={}){
+   if(disposed)throw new Error('此页面已经关闭。');
    const stamp=scope(),character=options.character_id||stamp.character_id;
    let payload=data===undefined?undefined:{...data};
    if(payload&&!path.startsWith('characters/')&&character&&payload.expected_character_id===undefined)payload.expected_character_id=character;
@@ -51,7 +52,7 @@ window.CompanionCore=(()=>{
    finally{mutating=false;change();}
   }
   async function send(text,{retryId=null}={}){
-   text=String(text||'').trim();if(!text||chat||mutating||state?.model_busy)return false;
+   text=String(text||'').trim();if(disposed||!state||!text||chat||mutating||state?.model_busy)return false;
    emit('media-stop',{reason:'new-message'});const stamp=scope(),requestId=retryId===null&&failed?.text===text?failed.requestId:makeId(),controller=new AbortController();
    chat={requestId,generationId:'',text:'',sourceText:text,status:'sending',stopping:false,controller};failed=null;drafts.set(stamp.character_id,'');change();let finished=false;
    const live=()=>current(stamp)&&chat?.requestId===requestId;

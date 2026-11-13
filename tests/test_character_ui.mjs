@@ -56,3 +56,5 @@ test('audit16 object deltas cannot become visible chat text',async()=>{const wir
 test('audit17 malformed UTF8 stream is rejected',async()=>{const bytes=Buffer.concat([Buffer.from('data: {"type":"delta","text":"'),Buffer.from([255]),Buffer.from('"}\n\ndata: {"type":"done"}\n\n')]);const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(bytes)):Promise.resolve(response(state())));assert.equal(await h.core.send('hello'),false);});
 
 test('audit18 parse failure cancels the still-open response stream',async()=>{let cancelled=0;const stream=new ReadableStream({start(c){c.enqueue(new TextEncoder().encode('data: {bad}\n\n'));},cancel(){cancelled++;}});const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(stream)):Promise.resolve(response(state())));await h.core.send('hello');assert.equal(cancelled,1);});
+
+test('audit19 disposed core rejects new network work',async()=>{const h=harness();h.core.dispose();assert.equal(await h.core.send('after dispose'),false);await assert.rejects(h.core.api('settings',{}));assert.equal(h.calls.length,0);});
