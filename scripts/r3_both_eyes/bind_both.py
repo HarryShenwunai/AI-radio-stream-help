@@ -1,7 +1,11 @@
 from pathlib import Path
-import sys,json,numpy as np
+import sys,json,argparse,numpy as np
 from scipy.interpolate import PchipInterpolator
-P=Path(__file__).resolve().parents[2]/'.build/r3-both-eyes';sys.path.insert(0,str(P.parent/'r3-upper-authoring'))
+DEFAULT=Path(__file__).resolve().parents[2]/'.build/r3-both-eyes'
+parser=argparse.ArgumentParser(description='Bind and export the existing R3 dual-eye rig in a selected workspace.')
+parser.add_argument('--work-dir',type=Path,default=DEFAULT)
+parser.add_argument('--client-dir',type=Path,default=DEFAULT.parent/'r3-upper-authoring')
+args=parser.parse_args();P=args.work_dir.resolve();sys.path.insert(0,str(args.client_dir.resolve()))
 from local_client import session
 m=json.loads((P/'mesh-map.json').read_text());configs=json.loads((P/'eyes.json').read_text())
 with session() as c:

@@ -1,7 +1,11 @@
 from pathlib import Path
-import json,threading,http.server,functools,base64
+import json,threading,http.server,functools,base64,argparse
 from playwright.sync_api import sync_playwright
-P=Path(__file__).resolve().parents[2]/'.build/r3-both-eyes'
+DEFAULT=Path(__file__).resolve().parents[2]/'.build/r3-both-eyes'
+parser=argparse.ArgumentParser(description='Verify actual Core poses and record the held-cup dual-eye model.')
+parser.add_argument('--work-dir',type=Path,default=DEFAULT)
+parser.add_argument('--transparent-stage',action='store_true')
+args=parser.parse_args();P=args.work_dir.resolve()
 class Quiet(http.server.SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 http=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Quiet,directory=str(P)));threading.Thread(target=http.serve_forever,daemon=True).start()
@@ -23,6 +27,11 @@ with sync_playwright() as pw:
  held=[n for n in mesh_map if n.startswith(('Near_','Far_','Sleeve_')) or n=='Cup']
  assert all(not any(x['name'] in held for x in row['changed']) for row in report['checks'])
  assert report['irisMaskCounts']==[1,1]
+ if args.transparent_stage:
+  opacity=page.evaluate('''(names)=>{const core=window.reviewModel.internalModel.coreModel;window.drawPose({});const ids=Array.from(core.getModel().drawables.ids);return Object.fromEntries(['Background_and_hidden_body','Steam'].map(name=>[name,core.getDrawableOpacity(ids.indexOf(names[name]))]));}''',mesh_map)
+  assert opacity['Background_and_hidden_body']==0,opacity
+  assert 0<opacity['Steam']<=.15,opacity
+  report['stage_opacities']=opacity
  assert any(row['pose']=={'ParamBreath':1} and [x['name'] for x in row['changed']]==['Torso'] for row in report['checks'])
  assert any(row['pose']=={'ParamEyeBallX':1,'ParamEyeBallY':0} and set(x['name'] for x in row['changed'])=={'LIris','RIris'} for row in report['checks'])
  frames=P/'frames';frames.mkdir(exist_ok=True)

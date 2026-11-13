@@ -1,0 +1,46 @@
+{
+  "identity": {
+    "model_sha256": "79cf076a27cfeda1412641471da7d1a648aee1eea6d074c804c12e059564cca1",
+    "moc_sha256": "42ec0b0dc87261b7648239d956be4d85a2329299a90e5620e09e4040aaf3944e",
+    "moc_source": ".build/r3-transparent-stage/runtime/original.moc3"
+  },
+  "import_check": {
+    "passed": true,
+    "method": "actual_AssetStore.import_live2d",
+    "scope": "format_and_normalization_only",
+    "core_execution_performed": false,
+    "core_consistency_verified": false,
+    "playability_verified": false,
+    "art_acceptance_verified": false,
+    "capabilities_declared": {
+      "live2d": true,
+      "static": false,
+      "talk": true,
+      "blink": false,
+      "expressions": [],
+      "motion_groups": [
+        "Idle"
+      ]
+    }
+  },
+  "windows_tested": false,
+  "editor_reopened": false,
+  "viewerex_tested": false,
+  "packages": [
+    {
+      "name": "R3-Transparent-Companion.zip",
+      "bytes": 8960336,
+      "sha256": "c55a8f8b67b4b0a81f98294e8007fa65409ceb19bca1b208c65925d6750d6850"
+    },
+    {
+      "name": "R3-Transparent-Viewer.zip",
+      "bytes": 8962007,
+      "sha256": "50135e4c17e93c1364635201d17ac038f3162615a84b5b862f256aee87385849"
+    },
+    {
+      "name": "R3-Transparent-Editable.zip",
+      "bytes": 35562046,
+      "sha256": "3c028c019692637a9bf14ffc1584ea617337db9fd06069f177b457b661adc265"
+    }
+  ]
+}

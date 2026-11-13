@@ -1,0 +1,8 @@
+{
+  "full_regression_commit": "d1eaa27a91e16cb9a96a009a59eff6d637a053f2",
+  "actual_browser_commit": "87b4ba974d4ea3bdf4f89abd75edf768f6e8d153",
+  "changed_since_full_regression": [
+    "tests/browser_audit.py"
+  ],
+  "validation": "Browser synchronization change passed lint, compilation and all 8 actual app checks; application code unchanged."
+}
