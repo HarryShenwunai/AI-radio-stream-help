@@ -141,7 +141,7 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
         for node in ast.walk(tree):
             if not isinstance(node, ast.Call):continue
             refs = call_names(node, bindings)
-            bare_execution = isinstance(node.func, ast.Name) and bool(refs & EXECUTION_CALLS)
+            bare_execution = bool(refs & EXECUTION_CALLS) and (isinstance(node.func, ast.Name) or "builtins" in refs)
             if bare_execution or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen"}:
                 failures.append(Violation("A03", path, node.lineno, "Role asset parser may execute code or contact a service"))
     for path in ADVICE:
@@ -155,7 +155,7 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
         for node in ast.walk(tree):
             if not isinstance(node, ast.Call):continue
             refs = call_names(node, bindings)
-            if ((isinstance(node.func, ast.Name) and bool(refs & (EXECUTION_CALLS | {"open"})))
+            if (((isinstance(node.func, ast.Name) or "builtins" in refs) and bool(refs & (EXECUTION_CALLS | {"open"})))
                     or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen"}):
                 failures.append(Violation("A07", path, node.lineno, "Assistance may only parse supplied data and use its scoped ledger; executable tools are forbidden"))
     server = trees.get("app/server.py")

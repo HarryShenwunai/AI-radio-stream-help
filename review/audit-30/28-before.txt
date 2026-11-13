@@ -1,0 +1,17 @@
+
+F
+======================================================================
+FAIL: test_audit28_qualified_eval_cannot_bypass_boundary (test_architecture_rules.QualifiedExecutionContractTests.test_audit28_qualified_eval_cannot_bypass_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 162, in test_audit28_qualified_eval_cannot_bypass_boundary
+    self.sources[architecture.ASSETS[0]]+='\nimport builtins\ndef unsafe(value):\n return builtins.eval(value)\n';self.reject('A03')
+                                                                                                                  ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 35, in reject
+    self.assertIn(rule, {failure.rule for failure in self.violations()})
+AssertionError: 'A03' not found in set()
+
+----------------------------------------------------------------------
+Ran 1 test in 0.209s
+
+FAILED (failures=1)

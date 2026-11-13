@@ -156,3 +156,9 @@ class MissingConnectionContractTests(ArchitectureMutationTests):
  def test_audit27_missing_connection_fields_is_rejected(self):
   tree=self.server();tree.body=[n for n in tree.body if not isinstance(n,ast.Assign) or not any(isinstance(t,ast.Name) and t.id=='CONNECTION_FIELDS' for t in n.targets)];self.save(tree);self.reject('A02')
 
+
+class QualifiedExecutionContractTests(ArchitectureMutationTests):
+ def test_audit28_qualified_eval_cannot_bypass_boundary(self):
+  self.sources[architecture.ASSETS[0]]+='\nimport builtins\ndef unsafe(value):\n return builtins.eval(value)\n';self.reject('A03')
+  self.sources[architecture.ADVICE[0]]+='\nimport builtins\ndef unsafe(value):\n return builtins.exec(value)\n';self.reject('A07')
+
