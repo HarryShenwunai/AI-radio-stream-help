@@ -46,3 +46,5 @@ test('audit11 missing renderer registration does not poison retries',async()=>{c
 test('audit12 empty state URLs never fetch the document as a texture',async()=>{const h=sceneHarness(),asset=pack();asset.states.idle.url='';assert.equal(await h.scene.sync(spec(asset)),false);assert.equal(h.calls.some(x=>x.url===''),false);assert.equal(h.states.at(-1).state,'error');});
 
 test('audit13 invalidated refresh cannot permanently block polling',async()=>{const late=deferred();let reads=0;const h=harness(()=>++reads===1?late.promise:Promise.resolve(response(state())));const first=h.core.refresh();h.core.invalidate('test');late.resolve(response(state()));await first;await h.core.refresh();assert.equal(reads,2);});
+
+test('audit14 duplicate SSE done cannot produce duplicate spoken answers',async()=>{const event={type:'done',message:{id:1,role:'assistant',text:'one',kind:'chat'}},wire='data: '+JSON.stringify(event)+'\n\n';const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(wire+wire)):Promise.resolve(response(state())));let answers=0;h.core.on('answer',()=>answers++);await h.core.send('hello');assert.equal(answers,1);});

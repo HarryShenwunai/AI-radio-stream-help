@@ -61,7 +61,7 @@ window.CompanionCore=(()=>{
     if(!response.ok){const error=await response.json();throw new Error(error.error||'对话未能开始。');}if(!response.body)throw new Error('当前浏览器不支持流式回复。');
     const reader=response.body.getReader(),decoder=new TextDecoder();let buffer='';
     async function event(data){
-     if(!live())return;
+     if(!live()||finished)return;
      if(data.type==='meta'){chat.generationId=typeof data.generation_id==='string'?data.generation_id:'';if(data.user&&!state.messages.some(item=>item.id===data.user.id))state.messages.push(data.user);if(chat.stopping)await stopChat();}
      else if(data.type==='status'){if(data.replace)chat.text='';chat.status='adjusting';}
      else if(data.type==='delta'){chat.text+=data.text||'';chat.status='replying';}

@@ -1,0 +1,29 @@
+✖ audit14 duplicate SSE done cannot produce duplicate spoken answers (7.487982ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.741784
+
+✖ failing tests:
+
+test at tests/test_character_ui.mjs:50:1
+✖ audit14 duplicate SSE done cannot produce duplicate spoken answers (7.487982ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_character_ui.mjs:50:414)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
