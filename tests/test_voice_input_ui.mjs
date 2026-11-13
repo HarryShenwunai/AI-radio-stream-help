@@ -47,3 +47,5 @@ test('hidden input cannot acquire a microphone and late hidden output is discard
 test('repeated starts do not open more than one microphone',async()=>{
  const permission=deferred(),h=harness({permission});const first=h.input.start();await tick();await h.input.start();permission.resolve(h.stream);await first;assert.equal(h.mediaCalls,1);assert.equal(h.recorders.length,1);h.input.cancel();
 });
+
+test('audit01 stale recorder stop preserves the new recording',async()=>{const h=harness();await h.input.start();const old=h.recorders[0].onstop;h.input.cancel();await h.input.start();const count=h.track.stopped;old();await tick();assert.equal(h.track.stopped,count);assert.equal(h.input.phase,'recording');h.input.stop();await tick();assert.equal(h.recorders[1].state,'inactive');});
