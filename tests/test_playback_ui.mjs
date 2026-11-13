@@ -57,3 +57,5 @@ test('bounded exhaustive Audio event sequences never emit two terminal states or
 });
 
 test('audit04 duplicate system start cannot reset elapsed time',async()=>{const h=harness(),p=h.create({...meta(),duration_seconds:null});p.startSystem();h.advance(2000);p.startSystem();h.advance(4000);await p.complete();assert.equal(h.calls[0].body.position_seconds,4);assert.equal(h.timers.length,1);});
+
+test('audit05 caller mutation cannot change receipt owner or nonce',async()=>{const h=harness(),m=meta(),p=h.create(m);m.character_id='role-B';m.nonce='changed';await p.stop();assert.equal(h.calls[0].body.character_id,'role-A');assert.equal(h.calls[0].body.nonce,'n'.repeat(32));});
