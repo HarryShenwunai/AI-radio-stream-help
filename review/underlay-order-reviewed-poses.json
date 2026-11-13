@@ -1,0 +1,50 @@
+{
+  "purpose": "Same two opposed extreme review poses for draw-order-only underlay revision; not automatic art acceptance",
+  "poses": [
+    {
+      "name": "opposite-shoulders-min-elbows-min",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamArmR": 4,
+        "ParamForearmL": -6,
+        "ParamForearmR": 6
+      }
+    },
+    {
+      "name": "opposite-shoulders-max-elbows-max",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamArmR": -4,
+        "ParamForearmL": 6,
+        "ParamForearmR": -6
+      }
+    }
+  ],
+  "alpha_probe_rows": [
+    {
+      "y": 750,
+      "start_x": 580,
+      "end_x": 654
+    },
+    {
+      "y": 755,
+      "start_x": 580,
+      "end_x": 654
+    },
+    {
+      "y": 760,
+      "start_x": 580,
+      "end_x": 654
+    },
+    {
+      "y": 765,
+      "start_x": 580,
+      "end_x": 654
+    },
+    {
+      "y": 770,
+      "start_x": 580,
+      "end_x": 654
+    }
+  ]
+}

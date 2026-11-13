@@ -1,0 +1,88 @@
+{
+  "scope": "Independent actual rendered r3 character review; no rejected 3D; technical pixel change is separate from art acceptance",
+  "overall_character_acceptance": "pending_final_art_and_full_body_scope",
+  "original_cli": {
+    "technical_reports": [
+      "review/original-character-live2d-r3-core.json",
+      "review/original-character-live2d-r3-pixel-probe.json",
+      "review/original-character-live2d-r3-core-diagnostics.json"
+    ],
+    "observations": [
+      "Actual neutral renders the character, but mouth includes multiple straight segmented line artifacts",
+      "Actual isolated eyes and mouth visibly animate",
+      "Long sidecar sequence hits deleted-texture WebGL INVALID_OPERATION, independently reproduced with accelerated real GC"
+    ]
+  },
+  "mouth_r1": {
+    "technical_report": "review/original-character-live2d-mouth-r1-pixel-probe.json",
+    "technical_status": "pixel effects pass; NOT artwork acceptance",
+    "art_status": "rejected",
+    "observations": [
+      "Neutral upper lip rendered on forehead above brows; lower lip rendered on collar",
+      "MouthOpen maximum upper lip rendered between eyes, lower lip rendered near mug opening",
+      "MouthOpen changed pixel bbox [477,436,537,689] exceeds reviewed mouth framebuffer ROI [450,540,565,610]"
+    ],
+    "cause_status": "parent/local-vs-canvas keyform units suspected; not yet proven by independent source coordinate conversion",
+    "images": {
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r1/original-neutral.png": "2b09c39dacc9c8af7e0737a0460744388c6e4b9493f5eca75f4e4ae82ed0d687",
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r1/ParamMouthOpenY-max.png": "688ad829bc266c7061d18d83fcf391cf431135e5da9514940fd29aa4b7266a1a",
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r1/ParamEyeBallY-max.png": "c3ad79d8a31e12203b230d2dd1e02827832717effa42e52991f6354909eee0d4",
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r1/ParamMouthForm-min.png": "f3492b5a91530010424172e3fa7edd911e482982a58479975004158d1abee5ad"
+    }
+  },
+  "mouth_r2": {
+    "technical_report": "review/original-character-live2d-mouth-r2-pixel-probe.json",
+    "technical_status": "passed",
+    "sources_unchanged": true,
+    "art_status": "rejected_pending_lip_cavity_registration",
+    "observations": [
+      "Neutral upper/lower lips returned to the mouth region; no forehead/collar displacement",
+      "Open-mouth endpoint visually shows separated lip/cavity contours; initial 5–9 screenshot-pixel estimate measured contour centers and was withdrawn",
+      "Actual Core geometric envelope gaps at Open1/Form0 are upper3.5895/lower2.3853 source pixels, approximately1.49/0.99 stage pixels at the uniform850/2048 fit; this does NOT inspect texture-alpha boundaries",
+      "Gaze and blink still have actual visible effects; technical pixel/ROI pass does not certify reference art quality"
+    ],
+    "images": {
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r2/original-neutral.png": "e0f66f9c2a441436d8fae56d95f26b81aaa4895442c9d0fd9684c26ff3dabc51",
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r2/ParamMouthOpenY-max.png": "e4e619921540e2b080e1c92e06d93b5a72eccd6813351547328f75d891db2289",
+      "/workspace/dist/evidence-original-character-live2d-r3/mouth-r2/ParamMouthForm-min.png": "af493c4ade9b9b5a6dbe2c9092d8745eff20b671baedbe17834ba8fc8c0d828b"
+    },
+    "next": "Separate revision matching source lip positions to actual Core cavity boundary, preserving this red visual evidence",
+    "measurement_report": "review/original-character-live2d-mouth-r2-registration.json",
+    "correction": "Do not hold open-state lips at neutral translation based on the withdrawn visual estimate: that can obscure the cavity. Author is making a small envelope/alpha-guided revision."
+  },
+  "latest_revision": "mouth-r3",
+  "mouth_r3": {
+    "technical_full_report": "review/original-character-live2d-mouth-r3-full-core.json",
+    "technical_status": "passed",
+    "sources_unchanged": true,
+    "source_file_count": 24,
+    "art_status": "candidate_not_final_owner_acceptance",
+    "scope": "Coherent original bust; independent eyes/mouth/head, body/hair motion and physics; no independent hand/cup/sipping claim",
+    "observations": [
+      "Neutral/eye/gaze/turn/tilt endpoints actually inspected",
+      "No forehead/collar lip displacement",
+      "Open lip/cavity outlines closer after small registration correction; human reference-art quality remains separate"
+    ],
+    "evidence_dir": "/workspace/dist/evidence-original-character-live2d-r3/mouth-r3-full",
+    "video": {
+      "path": "/workspace/dist/evidence-original-character-live2d-r3/mouth-r3-full/original-core.webm",
+      "sha256": "889706a8bed645a9df88c102949082f04c4cf79fb35f4365e2a0956225fbdd19",
+      "ffprobe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp8",
+            "width": 800,
+            "height": 690
+          }
+        ],
+        "format": {
+          "duration": "64.400000"
+        }
+      },
+      "audio_track": false,
+      "note": "Actual browser execution recording; sidecars are fixed-step simulation, not real-time performance or voice evidence"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "date_utc": "2026-11-12T23:48:30.444565+00:00",
+  "status": "harness_prepared_not_real_provider_executed",
+  "harness": "/workspace/AI-radio-stream-help/tests/real_live2d_companion_browser_check.py",
+  "harness_sha256": "da763ddaaddbb0e2a80b62b5c454700e5b821b987b0d5ed13fc8384fa4333566",
+  "python_compile": true,
+  "embedded_js_syntax": {
+    "AUDIO_OBSERVATION": true,
+    "MOUTH_PROOF": true
+  },
+  "existing_modules_found_without_loading_weights": {
+    "llama_cpp": true,
+    "kokoro_onnx": true,
+    "onnxruntime": true,
+    "playwright": true
+  },
+  "existing_assets": [
+    {
+      "file": "/workspace/companion/models/qwen3-4b-instruct-2507-q4_k_m.gguf",
+      "exists": true,
+      "bytes": 2497280736
+    },
+    {
+      "file": "/workspace/companion/voices/kokoro-v1.0.onnx",
+      "exists": true,
+      "bytes": 325505369
+    },
+    {
+      "file": "/workspace/companion/voices/voices-v1.0.bin",
+      "exists": true,
+      "bytes": 28214398
+    }
+  ],
+  "new_owner_runtime_records_hash_checked": [
+    {
+      "kind": "core",
+      "file": "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js",
+      "bytes": 207155,
+      "sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f"
+    },
+    {
+      "kind": "bundle",
+      "file": "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js",
+      "bytes": 1183739,
+      "sha256": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+    }
+  ],
+  "provider_start_path": "Unique import of actual app/server.py; isolated DATA; engine local; CPU; existing Qwen4B GGUF + actual synthesize/Kokoro; no generate/synthesize replacement",
+  "actual_provider_invoked": false,
+  "waiting_for": [
+    "Final original full-rig ZIP",
+    "SHA-bound final functional contract and actual Core landmark file",
+    "Actual complete stable hand/cup acceptance PASS with new owner runtime",
+    "Frozen source before ONE real-provider browser run"
+  ],
+  "stop_budget_seconds": 2,
+  "counterfactual": "All actual head/body/breath/physics Core inputs held fixed; only actual LipSync IDs replaced with defaults in independent real Core; whole-model exact0 is not used",
+  "voice_conditions": "Package idle/expression paused for causal voice observation; natural breath/blink/physics enabled, no parameter pins",
+  "screen_recording_audio_track": false,
+  "real_kokoro_wav_preserved_separately": true,
+  "test_results_not_claimed": [
+    "Real Qwen/Kokoro/Live2D on final full rig",
+    "Final artwork acceptance",
+    "Windows4060"
+  ],
+  "temporary_data_cleanup": "HTTP server/browser stopped before isolated DATA cleanup, including failed runs",
+  "served_artifact_proof": "Browser computes SHA256 of actual imported MOC resource bytes and requires final accepted MOC hash before actual Core evaluation",
+  "actual_native_import_preflight": {
+    "status": "passed",
+    "linux_packages": {
+      "llama-cpp-python": "0.3.36",
+      "kokoro-onnx": "0.6.1",
+      "onnxruntime": "1.31.1",
+      "misaki": "0.9.4"
+    },
+    "onnx_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "weights_loaded": false,
+    "generation_or_synthesis_called": false,
+    "download_or_rebuild": false,
+    "windows_dll_touched": false,
+    "initial_onnx_warning_observed": "Failed to persist telemetry device ID; using an in-memory identifier",
+    "warning_scope": "Import-time warning; no audio/input/weights were used, not evidence of audio transmission. disable_telemetry_events called before any session/inference."
+  },
+  "clean_pose": "Uses actual product reset-to-authored-defaults (new reset fix), then pauses idle/expression only; no persistent manual parameter pins",
+  "provider_selection_verified_from_actual_load_model": {
+    "selection": "app.MODEL = QUALITY_MODEL when existing; load_model passes str(MODEL) directly to llama_cpp.Llama",
+    "actual_expected_model": "/workspace/companion/models/qwen3-4b-instruct-2507-q4_k_m.gguf",
+    "model_loaded_for_this_check": false
+  },
+  "latest_test_only_binding_change": "Hashes shared joint-poses helper transitively imported by independent Core helper; no provider execution.",
+  "last_preparation_review_utc": "2026-11-13T00:42:49.346641+00:00",
+  "last_test_only_voice_capture_correction": "RMS, actual Core snapshot, and mouth-only counterfactual captured atomically in one browser callback after actual WAV save; no AI/audio replacement and no provider invocation.",
+  "all_inline_browser_evaluate_and_wait_callbacks_node_syntax_checked": 23,
+  "current_frontend_freeze_for_pending_run": {
+    "report": "review/live2d-frontend-control-fix-freeze.json",
+    "version": "0.2.2",
+    "files": {
+      "frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+      "app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+    },
+    "not_independent_true_provider_or_final_art_test": true
+  },
+  "independent_execution_of_reset_regression": {
+    "report": "review/live2d-studio-motion-reset-independent-execution.json",
+    "status": "passed",
+    "source_stable": true,
+    "scope": "Independently executed authored harness using actual candidate7 as functional fixture; not independent detector design or art acceptance",
+    "actual_provider_invoked": false
+  }
+}

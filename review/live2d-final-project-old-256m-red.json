@@ -1,0 +1,17 @@
+{
+  "format": "final-project-256m-limit-red-v1",
+  "generated_at": "2026-11-13T04:22:25.862120+00:00",
+  "scope": "Actual final authoring project outer-file size gate only; no final character/Core verdict.",
+  "project_path": ".build/original-character-rig-formal-r1/authoring/rigid-cup-character.psd2live",
+  "project_sha256_before": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+  "project_sha256_after": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+  "project_bytes": 281235238,
+  "old_limit_bytes": 268435456,
+  "outcome": {
+    "rejected": true,
+    "error": "source_not_regular_or_over_budget: .build/original-character-rig-formal-r1/authoring/rigid-cup-character.psd2live"
+  },
+  "packager_source_sha256": "c6e63afc925319559deb45794e40a1ad38be00a41a678c69006a2c897d82ee2e",
+  "seconds": 0.182,
+  "peak_rss_kib": 11392
+}

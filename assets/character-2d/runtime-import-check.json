@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "actual_runtime_import": true,
+  "format": "png-states",
+  "width": 1070,
+  "height": 1470,
+  "total_bytes_normalized": 7119507,
+  "total_pixels": 6291600,
+  "capabilities": {
+    "static": true,
+    "talk": true,
+    "blink": true,
+    "talk_blink": true
+  },
+  "fixture_only": false,
+  "art_quality_accepted": false,
+  "live2d": false
+}

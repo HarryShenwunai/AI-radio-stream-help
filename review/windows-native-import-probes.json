@@ -1,0 +1,21 @@
+{
+  "kind": "Windows native module import under Wine only",
+  "observed_at": "2026-11-12T13:58:08.370027+00:00",
+  "checks": {
+    "numpy": {
+      "timeout_seconds": 20,
+      "stdout": "start numpy\nWineDbg attached to pid 0020\n",
+      "stderr": "wine: Call from 00006FFFFF3FCF77 to unimplemented function ucrtbase.dll.crealf, aborting\nwine: Unimplemented function ucrtbase.dll.crealf called at address 00006FFFFF3FCF77 (thread 0024), starting debugger...\n"
+    },
+    "llama_cpp": {
+      "timeout_seconds": 20,
+      "stdout": "start llama_cpp\nWineDbg attached to pid 0020\n",
+      "stderr": "wine: Call from 00006FFFFF3FCF77 to unimplemented function ucrtbase.dll.crealf, aborting\nwine: Unimplemented function ucrtbase.dll.crealf called at address 00006FFFFF3FCF77 (thread 0024), starting debugger...\n"
+    },
+    "onnxruntime": {
+      "timeout_seconds": 20,
+      "stdout": "start onnxruntime\nWineDbg attached to pid 0020\n",
+      "stderr": "wine: Call from 00006FFFFF3FCF77 to unimplemented function ucrtbase.dll.crealf, aborting\nwine: Unimplemented function ucrtbase.dll.crealf called at address 00006FFFFF3FCF77 (thread 0024), starting debugger...\n"
+    }
+  }
+}

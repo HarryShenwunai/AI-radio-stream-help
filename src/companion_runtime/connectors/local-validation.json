@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-11-12T15:23:17.233024+00:00",
+  "kind": "local protocol and policy validation; not live-account acceptance",
+  "passed": true,
+  "tests_run": 34,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "command": "PYTHONPATH=src:/workspace/.cache/connector-deps python -m unittest discover -s tests -p test_connectors.py -v",
+  "last_run_seconds": 0.296,
+  "execution": "approved outside socket-restricted sandbox; all listening endpoints literal 127.0.0.1, ephemeral ports",
+  "dependencies": {
+    "aiohttp": "3.14.4",
+    "Brotli": "1.2.0 workspace-only optional test dependency"
+  },
+  "real_io": [
+    "OpenLive-like local HTTP HMAC/MD5 authentication",
+    "binary WebSocket auth body preserved and acknowledged",
+    "disconnect/reconnect, duplicated and wrong-room events",
+    "project and WS heartbeats, end cleanup",
+    "bounded zlib/Brotli decoding and expansion bomb rejection",
+    "plugin stdlib HTTP inbound/claim/audio/ack roundtrip",
+    "bridge close revocation and bounded post-restart orphan WAV cleanup"
+  ],
+  "substitutions": [
+    "Bilibili platform is a loopback protocol mock",
+    "AstrBot API/Context is an explicit shim; Comp.File captured locally, never sent externally"
+  ],
+  "not_tested": [
+    "Bilibili production account/room/app admission",
+    "real installed AstrBot SDK and weixin_oc account",
+    "WeChat delivery or native voice",
+    "public output/OBS/broadcast",
+    "Windows account runtime and ACL",
+    "production p95/CPU/RSS"
+  ],
+  "self_review_fixed": [
+    "Official auth_body was initially rewritten to protover2; corrected to exact original body and bounded Brotli1.2 before final validation",
+    "Private WAV files now mode0700 directory/0600 file on POSIX, with symlink/size/hash/WAV checks and cancel/ACK/TTL cleanup",
+    "Non-ASCII bearer header now fails with fixed auth error, not compare_digest TypeError"
+  ],
+  "independent_reviewer": false,
+  "source_sha256": {
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "plugins/astrbot_companion_bridge/main.py": "af46157e0f4af8d26b03ba99ab66d087e96ff3d9dff27365de0c626fd75d79b6",
+    "tests/test_connectors.py": "7e8dfb71c4ea3bc4edd3ed7cb1c6ac622524bb91049d814bbd52f991c24a746d"
+  }
+}

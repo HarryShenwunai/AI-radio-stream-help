@@ -1,0 +1,6 @@
+{
+  "owner_origin": {"type":"string","description":"绑定主人私聊的完整 unified_msg_origin","default":""},
+  "bridge_url": {"type":"string","description":"同机后端，仅 http://127.0.0.1:端口","default":"http://127.0.0.1:8765"},
+  "bridge_token": {"type":"string","description":"独立桥接配对令牌，不是模型密钥或微信凭证","default":""},
+  "enable_send": {"type":"bool","description":"允许领取后端获主人授权的固定私聊回复；默认关闭","default":false}
+}

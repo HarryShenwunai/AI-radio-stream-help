@@ -1,0 +1,632 @@
+{
+  "document_id": "CHARACTER-IMPORT-BENCHMARK-001",
+  "date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "planned import validation and self-service benchmark; no importer or runtime tests executed",
+  "test_count": 28,
+  "tests_executed": 0,
+  "fixtures_prepared": 0,
+  "candidate_tiers_are_project_proposals_not_vendor_standards": true,
+  "data_boundary": {
+    "appearance_change": "same profile, new asset revision; preserve permitted context",
+    "independent_character_change": "different profile; relationship memory and prompts isolated by default",
+    "runtime_existing_gap": "SQLite currently global without character_profile_id; Scope only channel/session"
+  },
+  "numeric_performance_limits": {
+    "status": "TBD",
+    "basis": "target device, selected runtime and authorized representative fixtures; compressed size alone insufficient"
+  },
+  "candidate_invariants": {
+    "unauthorized_cross_profile_canary_leaks": 0,
+    "stale_audio_or_motion_activations": 0,
+    "package_root_escape_writes": 0,
+    "unapproved_network_or_code_execution": 0,
+    "source_edits_for_documented_supported_import": 0
+  },
+  "candidates_not_yet_user_acceptance_thresholds": true,
+  "fixture_sources": [
+    {
+      "id": "F-C0",
+      "capability": "C0",
+      "description": "Self-authored transparent PNG geometry with varied aspect ratio",
+      "source_requirement": "original synthetic non-character asset",
+      "prepared": false
+    },
+    {
+      "id": "F-C1",
+      "capability": "C1",
+      "description": "Self-authored idle/blink/talk state shapes; optional states missing variant",
+      "source_requirement": "original synthetic non-character assets",
+      "prepared": false
+    },
+    {
+      "id": "F-C2",
+      "capability": "C2",
+      "description": "Pinned, explicitly permitted official Live2D runtime sample",
+      "source_requirement": "license checked before download/run/distribution; no sample acquired",
+      "prepared": false
+    },
+    {
+      "id": "F-C3",
+      "capability": "C3",
+      "description": "Independently authored permitted model with non-default parameter IDs/ranges",
+      "source_requirement": "creator authorization and runtime compatibility recorded; not acquired",
+      "prepared": false
+    },
+    {
+      "id": "F-NEG",
+      "capability": "boundary",
+      "description": "Local mutations of owned/authorized fixtures, including malformed paths and dependencies",
+      "source_requirement": "no untrusted executable asset; not yet generated",
+      "prepared": false
+    },
+    {
+      "id": "F-ID",
+      "capability": "identity",
+      "description": "Two synthetic independent profiles and a same-profile appearance revision using canary facts",
+      "source_requirement": "no real conversations or private facts",
+      "prepared": false
+    },
+    {
+      "id": "F-LOAD",
+      "capability": "resource",
+      "description": "Parametric dimensions/counts/ratios around selected limits",
+      "source_requirement": "synthetic data; limits established before generating stress fixtures",
+      "prepared": false
+    },
+    {
+      "id": "F-OPTIONAL",
+      "capability": "future",
+      "description": "Unsupported/future renderer/version manifest",
+      "source_requirement": "synthetic declaration; no VRM or other runtime downloaded",
+      "prepared": false
+    }
+  ],
+  "tests": [
+    {
+      "id": "CI-01",
+      "capability": "C0",
+      "fixtures": [
+        "F-C0"
+      ],
+      "type": "valid",
+      "scenario": "Import new static PNG through supported self-service path",
+      "expected_result": "Preview and enable without source changes; capability clearly static",
+      "metrics": [
+        "selection_to_preview",
+        "source_edits"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-02",
+      "capability": "C1",
+      "fixtures": [
+        "F-C1"
+      ],
+      "type": "valid",
+      "scenario": "Import arbitrary state names through UI mapping",
+      "expected_result": "Map declared states, playback drives talk, stop returns neutral",
+      "metrics": [
+        "mapping_success",
+        "old_state_activations"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-03",
+      "capability": "C1",
+      "fixtures": [
+        "F-C1"
+      ],
+      "type": "boundary",
+      "scenario": "Import missing optional blink/talk state",
+      "expected_result": "Use documented neutral fallback; do not block basic chat or pretend missing animation",
+      "metrics": [
+        "fallback_status"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-04",
+      "capability": "C2",
+      "fixtures": [
+        "F-C2"
+      ],
+      "type": "valid",
+      "scenario": "Load supported pinned Live2D runtime package",
+      "expected_result": "Resolve local dependencies and actually render; shape validation alone insufficient",
+      "metrics": [
+        "load_status",
+        "renderer_errors"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-05",
+      "capability": "C3",
+      "fixtures": [
+        "F-C3"
+      ],
+      "type": "valid",
+      "scenario": "Use second independent model with custom parameter IDs and numeric ranges",
+      "expected_result": "Discover/map parameters within application; no filename/character-name hardcoding",
+      "metrics": [
+        "source_edits",
+        "mapping_success"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-06",
+      "capability": "generality",
+      "fixtures": [
+        "F-C0",
+        "F-C2",
+        "F-C3"
+      ],
+      "type": "boundary",
+      "scenario": "Introduce held-out valid package after implementation freeze",
+      "expected_result": "Supported path works or failure recorded in compatibility matrix",
+      "metrics": [
+        "self_service_completion"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-07",
+      "capability": "structure",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "failure",
+      "scenario": "Malformed JSON, duplicate keys, false extension and invalid model entrypoint",
+      "expected_result": "Reject deterministically without replacing current character",
+      "metrics": [
+        "reason_code",
+        "active_revision_before_after"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-08",
+      "capability": "dependencies",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "failure",
+      "scenario": "Missing texture/moc/motion, corrupt decodable content or circular dependency",
+      "expected_result": "Distinguish blocking missing dependency from optional capability fallback",
+      "metrics": [
+        "dependency_graph_result"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-09",
+      "capability": "versions",
+      "fixtures": [
+        "F-NEG",
+        "F-OPTIONAL"
+      ],
+      "type": "boundary",
+      "scenario": "Unsupported model/runtime/schema/renderer version",
+      "expected_result": "Reject or isolate supported downgrade only when explicitly verified; no false support claim",
+      "metrics": [
+        "compatibility_result"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-10",
+      "capability": "parameters",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "boundary",
+      "scenario": "Nonfinite/reversed parameter range, unsupported or absent mouth mapping",
+      "expected_result": "Validate numeric bounds; neutral fallback when allowed; do not drive unrelated controls",
+      "metrics": [
+        "mapping_result"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-11",
+      "capability": "path",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "failure",
+      "scenario": "Relative traversal, absolute/drive/UNC paths, Unicode/case collisions and duplicate archive entries",
+      "expected_result": "No write/read outside package root and no conflicting overwrite",
+      "metrics": [
+        "filesystem_side_effects"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-12",
+      "capability": "links",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "failure",
+      "scenario": "Symlink/hardlink escape, remote URI or data reference requiring network",
+      "expected_result": "Reject external resolution and unsafe links; no network request",
+      "metrics": [
+        "network_requests",
+        "package_escape_writes"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-13",
+      "capability": "code",
+      "fixtures": [
+        "F-NEG"
+      ],
+      "type": "failure",
+      "scenario": "Executable script/plugin, privilege claim or credentials in package manifest",
+      "expected_result": "Do not execute, elevate or install capability; explain unsupported data",
+      "metrics": [
+        "code_or_tool_side_effects"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-14",
+      "capability": "archive_resource",
+      "fixtures": [
+        "F-LOAD"
+      ],
+      "type": "boundary",
+      "scenario": "Archive expansion, excessive entries/depth/compression ratio around chosen limits",
+      "expected_result": "Abort before resource budget violation; old package remains active; later normal import works",
+      "metrics": [
+        "bytes_read_written",
+        "elapsed",
+        "peak_resources"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-15",
+      "capability": "image_resource",
+      "fixtures": [
+        "F-LOAD"
+      ],
+      "type": "boundary",
+      "scenario": "Small compressed image with huge dimensions and multiple decoded textures",
+      "expected_result": "Bound decoded pixels/texture resources, not only upload size; abort and release staging",
+      "metrics": [
+        "decoded_pixel_estimate",
+        "peak_ram_vram"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-16",
+      "capability": "renderer_resource",
+      "fixtures": [
+        "F-LOAD"
+      ],
+      "type": "boundary",
+      "scenario": "Complex mesh/physics and concurrent current-plus-preview loading",
+      "expected_result": "Enforce preview/load budget without killing active model; expose observed compatibility",
+      "metrics": [
+        "frame_time",
+        "cpu_gpu",
+        "peak_ram_vram"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-17",
+      "capability": "cancel",
+      "fixtures": [
+        "F-C0",
+        "F-C2"
+      ],
+      "type": "failure",
+      "scenario": "Cancel while copying, extracting, loading and previewing",
+      "expected_result": "No partial activation; bounded cleanup; current revision unchanged",
+      "metrics": [
+        "cancel_to_no_more_writes",
+        "temp_files"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-18",
+      "capability": "transaction",
+      "fixtures": [
+        "F-C0",
+        "F-C2"
+      ],
+      "type": "failure",
+      "scenario": "Disk full, process interruption or validation/load error during update",
+      "expected_result": "Old valid revision remains usable; next launch resolves transaction deterministically",
+      "metrics": [
+        "active_revision_before_after",
+        "recovery_result"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-19",
+      "capability": "dedupe",
+      "fixtures": [
+        "F-C0",
+        "F-C2"
+      ],
+      "type": "boundary",
+      "scenario": "Import identical package again and update existing revision",
+      "expected_result": "Stable content identity or explicit new revision; no silent destructive overwrite",
+      "metrics": [
+        "revision_count",
+        "content_hash"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-20",
+      "capability": "identity",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "valid",
+      "scenario": "Change appearance within same character profile",
+      "expected_result": "Keep permitted identity/conversation; stop old revision callbacks; no accidental new personality",
+      "metrics": [
+        "profile_id",
+        "asset_revision",
+        "retained_context"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-21",
+      "capability": "identity",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "failure",
+      "scenario": "Switch between independent character profiles with distinct canary facts",
+      "expected_result": "No unauthorized cross-profile prompt/history/memory/task content",
+      "metrics": [
+        "canary_leaks",
+        "db_scope"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-22",
+      "capability": "media",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "failure",
+      "scenario": "Switch/delete during TTS download, playback, motion or expression callback",
+      "expected_result": "Old generation or asset revision cannot resume sound/motion; one audio owner",
+      "metrics": [
+        "stale_media_actions",
+        "duplicate_playback"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-23",
+      "capability": "delete",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "boundary",
+      "scenario": "Delete current/non-current package with separate preserve/delete relationship-data choice",
+      "expected_result": "Operate only within confirmed scope; deactivate removed revision; original project files untouched",
+      "metrics": [
+        "delete_scope",
+        "missing_resources_handling"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-24",
+      "capability": "restore",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "failure",
+      "scenario": "Restore old backup after deletion/forgetting or package revision replacement",
+      "expected_result": "Do not revive forgotten facts/removed output; missing assets remain explicit",
+      "metrics": [
+        "forgotten_canary_reappearance",
+        "restored_revision"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-25",
+      "capability": "desktop",
+      "fixtures": [
+        "F-C0",
+        "F-C2",
+        "F-C3"
+      ],
+      "type": "boundary",
+      "scenario": "Small window, mixed DPI, alpha edges, click-through and focus changes",
+      "expected_result": "Visible character and usable input/stop; no asset-specific focus or hit-test traps",
+      "metrics": [
+        "task_completion",
+        "focus_steals",
+        "hit_test_errors"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-26",
+      "capability": "lifetime",
+      "fixtures": [
+        "F-C0",
+        "F-C2",
+        "F-C3"
+      ],
+      "type": "boundary",
+      "scenario": "Repeat switch/preview/delete/hide/restore and compare full process tree",
+      "expected_result": "No retained old audio/texture/timer growth; report stable-window resource trends",
+      "metrics": [
+        "objects",
+        "temp_storage",
+        "ram_vram_trend"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-27",
+      "capability": "rights",
+      "fixtures": [
+        "F-C0",
+        "F-C2",
+        "F-C3"
+      ],
+      "type": "boundary",
+      "scenario": "Source/license metadata present, missing, conflicting or restrictive",
+      "expected_result": "Display declared rights separately from verification; no automatic upload/public sharing",
+      "metrics": [
+        "source_record",
+        "prohibited_network_actions"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    },
+    {
+      "id": "CI-28",
+      "capability": "privacy",
+      "fixtures": [
+        "F-ID"
+      ],
+      "type": "failure",
+      "scenario": "Malicious persona/config tries to grant tools or access public/private channel data",
+      "expected_result": "Character content never grants OS/tools/channel authorization",
+      "metrics": [
+        "privilege_escalations",
+        "cross_channel_leaks"
+      ],
+      "status": "NOT_RUN",
+      "actual_result": null,
+      "observed_at": null,
+      "artifacts": []
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html",
+      "access_date": "2026-11-12",
+      "kind": "primary security guidance read; no project runtime verification"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/zipfile.html",
+      "access_date": "2026-11-12",
+      "kind": "primary standard-library documentation read; no project runtime verification"
+    },
+    {
+      "path": "app/server.py",
+      "access_date": "2026-11-12",
+      "kind": "local static review: single global schema and generation-bound speech"
+    },
+    {
+      "path": "src/companion_runtime/lifecycle.py",
+      "access_date": "2026-11-12",
+      "kind": "local static review: channel/session scope"
+    }
+  ],
+  "unresolved": [
+    "First-release supported format/version list",
+    "Target OS and hardware",
+    "Renderer and host compatibility",
+    "Authorized independent assets and distribution permissions",
+    "Actual self-service user task results",
+    "Resource limits and fail-safe cancellation behavior",
+    "Cloud sharing requirement and scope"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": {
+    "actual_74_operation_package_apply": true,
+    "cpu_and_cuda_actual_sources_and_source_ids_match": true,
+    "repeat_is_idempotent": true,
+    "rollback_restores_original_metadata_host_and_sources": true,
+    "reapply_after_rollback": true,
+    "native_library_unchanged": true,
+    "synthetic_user_data_unchanged": true,
+    "hardlinked_original_base_unmodified": true
+  },
+  "source_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "archive_sha256": "3c6ecbe09c925e27710d66316beef45cd8b2dd3eb959ce06fc83590263099dc9",
+  "operations": 74,
+  "seconds": 8.594,
+  "scope": "Real published-base files and exact final update package; Linux hardlink fixture; no Windows executable or DLL was run.",
+  "windows_application_verified": false,
+  "reproduce_script_sha256": "bdb334b3e72bb7f795f9c0247bedefedde94e09b524ec3d4dbdd979523c4c8b0",
+  "reproduce_script": "from pathlib import Path\nimport sys, os, json, hashlib, shutil, zipfile, time\n\nrepo=Path('/workspace/AI-radio-stream-help')\nsys.path.insert(0,str(repo/'scripts'))\nfrom app_update import execute\n\nbase=repo/'.build/desktop/character-windows312-x64'\nwork=repo/'.build/packaged-app-update-smoke'\nif work.exists():raise SystemExit('Refusing to overwrite previous smoke evidence')\nwork.mkdir()\ntarget=work/'target';folder=work/'update'\narchive=Path('/workspace/dist/companion-update-0.5.0-dev2-ui2d.zip')\nstarted=time.monotonic()\ndef sha(path):\n h=hashlib.sha256()\n with path.open('rb') as source:\n  while block:=source.read(1024*1024):h.update(block)\n return h.hexdigest()\n\ncritical=[Path('resources/backend/app/server.py'),Path('resources/backend/runtime-profile-manifest.json'),\n Path('resources/backend-profiles/cuda/app/server.py'),Path('resources/backend-profiles/cuda/runtime-profile-manifest.json'),Path('resources/app/main.cjs'),Path('BUILD-INFO.json')]\nbefore={str(p):sha(base/p) for p in critical}\nshutil.copytree(base,target,copy_function=os.link)\nwith zipfile.ZipFile(archive) as bundle:\n for name in bundle.namelist():\n  p=Path(name)\n  if p.is_absolute() or '..' in p.parts or '\\\\' in name:raise ValueError('Unsafe archive member')\n bundle.extractall(folder)\nsentinel=target/'local-user-data-sentinel.txt'\nsentinel.write_text('SYNTHETIC_USER_DATA_MUST_REMAIN_UNCHANGED')\nnative=next((target/'resources/backend').rglob('llama.dll'))\nnative_sha=sha(native)\nchecks={}\none=execute(target,folder);assert one['status']=='applied';checks['actual_74_operation_package_apply']=True\nm=json.loads((folder/'app-update-manifest.json').read_text())\nfor name in ['resources/backend','resources/backend-profiles/cuda']:\n p=json.loads((target/name/'runtime-profile-manifest.json').read_text())\n assert p['source_id']==m['new_source_id']\n assert (target/name/'app/server.py').read_bytes()==(repo/'app/server.py').read_bytes()\nchecks['cpu_and_cuda_actual_sources_and_source_ids_match']=True\nassert execute(target,folder)['status']=='already_applied';checks['repeat_is_idempotent']=True\nassert execute(target,folder,rollback=True)['status']=='rolled_back'\nassert {str(p):sha(target/p) for p in critical}==before;checks['rollback_restores_original_metadata_host_and_sources']=True\nassert execute(target,folder)['status']=='applied';checks['reapply_after_rollback']=True\nassert sha(native)==native_sha;checks['native_library_unchanged']=True\nassert sentinel.read_text()=='SYNTHETIC_USER_DATA_MUST_REMAIN_UNCHANGED';checks['synthetic_user_data_unchanged']=True\nassert {str(p):sha(base/p) for p in critical}==before;checks['hardlinked_original_base_unmodified']=True\nreport={'passed':True,'checks':checks,'source_commit':m['new_source_commit'],'archive_sha256':sha(archive),\n 'operations':len(m['files']),'seconds':round(time.monotonic()-started,3),\n 'scope':'Real published-base files and exact final update package; Linux hardlink fixture; no Windows executable or DLL was run.',\n 'windows_application_verified':False,'reproduce_script_sha256':sha(Path(__file__)), 'reproduce_script':Path(__file__).read_text()}\n(repo/'review/packaged-app-update-check.json').write_text(json.dumps(report,indent=2)+'\\n')\nprint(json.dumps({k:v for k,v in report.items() if k!='reproduce_script'}))\n"
+}

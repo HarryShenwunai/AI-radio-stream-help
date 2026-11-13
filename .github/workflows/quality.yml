@@ -1,0 +1,49 @@
+name: Engineering quality gates
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements-quality.txt
+            requirements-dev.txt
+            app/requirements-core.txt
+            src/companion_runtime/connectors/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install development checks and lightweight test dependencies
+        run: python -m pip install -r requirements-quality.txt -r requirements-dev.txt -r app/requirements-core.txt -r src/companion_runtime/connectors/requirements.txt
+      - name: Run lint, types, architecture mutations and regressions
+        run: python scripts/quality_gate.py --full
+      - name: Preserve machine-readable check evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: engineering-quality-evidence
+          path: |
+            review/quality-gate.json
+            review/quality-gate-logs/
+            review/character-regression.json
+          if-no-files-found: warn
+          retention-days: 7

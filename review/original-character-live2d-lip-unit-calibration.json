@@ -1,0 +1,652 @@
+{
+  "status": "failed",
+  "started_utc": "2026-11-12T22:38:37Z",
+  "scope": "original export + real owner-installed official Core; direct raw geometry and actual software WebGL; no product adapter",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.cmo3": "7465c44841972ad975773d1a80d67b123b0e85ba99c26c785fdfc1d59bc48a97",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.psd2live.json": "d0d726634b967e35fe36ebd45229eb19a59600f611133ed08ad6eee381c88641",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.moc3": "8be6ecc17db5400e8c64ccded92b9fcf8b6933853e1c96604a45c4b9c0c0a8ea",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.can3": "43a7fa241667af1da60b68d181b963f67baa42419956b835d40dfee32d5906f2",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.cdi3.json": "dfbe046fa31aaa07749a0d2e4e09e782a38863f384c153857c1cec6c4ce25edc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.4096/texture_00.png": "0faeadbd890f371048b924d22671c69f838fe91cb5708ef8060653246c50e567",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/authoring/coordinate-calibration.psd2live": "b6f4120785bc308d7ba849b7e2eb1fb61ea52748ce6c67ec2c72ee9f5a36c7f8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/character.psd": "54db40b3a4e8d2cb89c01e79dd439b3a90579d7a75c2e94f7e8023fb985f20ef",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-r3/layers.json": "64c183edb7cb9c00989996e502fa85781c5dac8d0cbfad76b95f39a3363f400b",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "11cf429ea7b61e2e4d1665d693027ccd71ab43317173571c2fa6f00797d5dcb8",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/runtime/revisions/3d6764b4-53b8-4bd3-888c-db4d7491cf04/script.js": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149"
+  },
+  "provenance": {
+    "format": "original-live2d-layers-v1",
+    "revision": 3,
+    "canvas": {
+      "width": 1536,
+      "height": 2048
+    },
+    "purpose": "Independent generated artwork assembled for an original Cubism rig; art and rig acceptance pending",
+    "art_method": "imagegen creates and repaints independent parts; this script extracts atlas cells and authors neutral placement",
+    "body_scope": "Coherent bust holding a mug. Body mesh supports authored breathing and body motion. No independent finger/arm/sipping gestures claimed.",
+    "quality_accepted": false,
+    "sources": {
+      "face": {
+        "file": "sources/face.png",
+        "generated_image": "exec-583b92a4-b4e7-4a2d-919b-8c2cafb50251.png",
+        "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0",
+        "width": 1070,
+        "height": 1470
+      },
+      "body": {
+        "file": "sources/body.png",
+        "generated_image": "exec-f2e6bcf0-997b-4742-a582-b61503265ca6.png",
+        "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf",
+        "width": 1070,
+        "height": 1470
+      },
+      "back": {
+        "file": "sources/back.png",
+        "generated_image": "exec-71361f4b-1aaa-4d53-add3-fb86392b27b1.png",
+        "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2",
+        "width": 1198,
+        "height": 1313
+      },
+      "front": {
+        "file": "sources/front.png",
+        "generated_image": "exec-e65bd132-7066-4b7c-8421-43b09c497768.png",
+        "sha256": "b41d3e4ee6e84eb05b6765e7f833133c194e0fa2ffe8d2515b6f1bdeb9648613",
+        "width": 1920,
+        "height": 819
+      },
+      "eyes": {
+        "file": "sources/eyes.png",
+        "generated_image": "exec-4592f4be-d9f0-4255-aac0-6a3544a96fd2.png",
+        "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576",
+        "width": 1024,
+        "height": 1536
+      },
+      "mouth": {
+        "file": "sources/mouth.png",
+        "generated_image": "exec-ea88a197-e86e-492c-8a93-db1b41273d32.png",
+        "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc",
+        "width": 1536,
+        "height": 1024
+      },
+      "sleeves": {
+        "file": "sources/sleeves.png",
+        "generated_image": "exec-f0254475-1298-4f43-8ac1-4bb2580ae6f1.png",
+        "sha256": "2d0ff6e8de182a0fe6fc584b284f672137aef167a2698cbe7d51d1aa3e1c8739",
+        "width": 1774,
+        "height": 887
+      },
+      "hands": {
+        "file": "sources/hands.png",
+        "generated_image": "exec-1ac20332-a976-466b-9194-7360d9b9735a.png",
+        "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102",
+        "width": 2172,
+        "height": 724
+      }
+    },
+    "layers": [
+      {
+        "name": "back hair",
+        "file": "layers/00-back-hair.png",
+        "x": 360,
+        "y": 25,
+        "visible": true,
+        "source": "back",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1198,
+          "height": 1313
+        },
+        "source_alpha_bounds": {
+          "left": 16,
+          "top": 19,
+          "width": 1180,
+          "height": 1228
+        },
+        "width": 940,
+        "height": 920,
+        "sha256": "7864b881d26392d9c6a82a87572b0c55f0e55510258623bb476d7caa002dd3c6"
+      },
+      {
+        "name": "topwear",
+        "file": "layers/01-topwear.png",
+        "x": 40,
+        "y": 650,
+        "visible": true,
+        "source": "body",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 29,
+          "top": 509,
+          "width": 1012,
+          "height": 961
+        },
+        "width": 1450,
+        "height": 1360,
+        "sha256": "dd189e3ddc14bcccc6aa8f6e13895a34b8497745c47cea30e40260d101a082e1"
+      },
+      {
+        "name": "face",
+        "file": "layers/02-face.png",
+        "x": 540,
+        "y": 145,
+        "visible": true,
+        "source": "face",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 75,
+          "top": 19,
+          "width": 903,
+          "height": 1154
+        },
+        "width": 600,
+        "height": 670,
+        "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a"
+      },
+      {
+        "name": "eyewhite-r",
+        "file": "layers/03-eyewhite-r.png",
+        "x": 741,
+        "y": 505,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 105,
+          "top": 128,
+          "width": 312,
+          "height": 136
+        },
+        "width": 128,
+        "height": 53,
+        "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4"
+      },
+      {
+        "name": "eyewhite-l",
+        "file": "layers/04-eyewhite-l.png",
+        "x": 939,
+        "y": 503,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 93,
+          "top": 128,
+          "width": 311,
+          "height": 136
+        },
+        "width": 126,
+        "height": 52,
+        "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb"
+      },
+      {
+        "name": "iris-r",
+        "file": "layers/05-iris-r.png",
+        "x": 789,
+        "y": 501,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 181,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "width": 58,
+        "height": 58,
+        "sha256": "1af70380005de2e5a2e7842fc2764f46d81ac34dfe07c4140db415529d167dbc"
+      },
+      {
+        "name": "iris-l",
+        "file": "layers/06-iris-l.png",
+        "x": 972,
+        "y": 498,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 139,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "width": 58,
+        "height": 58,
+        "sha256": "76ffef4fd2ac8971b3c34b3e0fdb692a0b9c370b09a8e5b4c702e1e1eb34d17f"
+      },
+      {
+        "name": "eyelash-r",
+        "file": "layers/07-eyelash-r.png",
+        "x": 737,
+        "y": 492,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 73,
+          "top": 0,
+          "width": 360,
+          "height": 267
+        },
+        "width": 137,
+        "height": 42,
+        "sha256": "6212f872ff5881817e1c858cbf206c4c37da169d65eb5e1689d668d6fb0a44fb"
+      },
+      {
+        "name": "eyelash-l",
+        "file": "layers/08-eyelash-l.png",
+        "x": 935,
+        "y": 490,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 0,
+          "width": 356,
+          "height": 268
+        },
+        "width": 137,
+        "height": 42,
+        "sha256": "b796d8af7fa8462fab56cb42c514c4d4e63066134bdad7ffa5228a06eb0824e0"
+      },
+      {
+        "name": "lower eyelash-r",
+        "file": "layers/09-lower-eyelash-r.png",
+        "x": 742,
+        "y": 541,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 129,
+          "top": 150,
+          "width": 279,
+          "height": 80
+        },
+        "width": 128,
+        "height": 22,
+        "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d"
+      },
+      {
+        "name": "lower eyelash-l",
+        "file": "layers/10-lower-eyelash-l.png",
+        "x": 940,
+        "y": 539,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 101,
+          "top": 150,
+          "width": 276,
+          "height": 76
+        },
+        "width": 126,
+        "height": 22,
+        "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc"
+      },
+      {
+        "name": "eyebrow-r",
+        "file": "layers/11-eyebrow-r.png",
+        "x": 738,
+        "y": 454,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 72,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "width": 132,
+        "height": 28,
+        "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d"
+      },
+      {
+        "name": "eyebrow-l",
+        "file": "layers/12-eyebrow-l.png",
+        "x": 943,
+        "y": 450,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "width": 129,
+        "height": 28,
+        "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756"
+      },
+      {
+        "name": "mouth",
+        "file": "layers/13-mouth.png",
+        "x": 843,
+        "y": 707,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 215,
+          "top": 127,
+          "width": 406,
+          "height": 120
+        },
+        "width": 126,
+        "height": 43,
+        "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83"
+      },
+      {
+        "name": "upper teeth",
+        "file": "layers/14-upper-teeth.png",
+        "x": 855,
+        "y": 708,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 124,
+          "top": 157,
+          "width": 388,
+          "height": 71
+        },
+        "width": 105,
+        "height": 20,
+        "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df"
+      },
+      {
+        "name": "tongue",
+        "file": "layers/15-tongue.png",
+        "x": 869,
+        "y": 733,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 278,
+          "top": 142,
+          "width": 253,
+          "height": 99
+        },
+        "width": 79,
+        "height": 21,
+        "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61"
+      },
+      {
+        "name": "upper lip",
+        "file": "layers/16-upper-lip.png",
+        "x": 834,
+        "y": 694,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 144,
+          "top": 140,
+          "width": 528,
+          "height": 90
+        },
+        "width": 145,
+        "height": 23,
+        "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783"
+      },
+      {
+        "name": "lower lip",
+        "file": "layers/17-lower-lip.png",
+        "x": 834,
+        "y": 739,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 63,
+          "top": 136,
+          "width": 510,
+          "height": 130
+        },
+        "width": 145,
+        "height": 25,
+        "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef"
+      },
+      {
+        "name": "closed mouth",
+        "file": "layers/18-closed-mouth.png",
+        "x": 834,
+        "y": 696,
+        "visible": false,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 85,
+          "top": 153,
+          "width": 474,
+          "height": 61
+        },
+        "width": 145,
+        "height": 42,
+        "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca"
+      },
+      {
+        "name": "front hair 1",
+        "file": "layers/19-front-hair-1.png",
+        "x": 350,
+        "y": 25,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 41,
+          "top": 4,
+          "width": 549,
+          "height": 805
+        },
+        "width": 570,
+        "height": 790,
+        "sha256": "da35ccc39758c3ec4220095bc7c3c892e1cd71e1834104ad2bbdf5e56722233f"
+      },
+      {
+        "name": "front hair 2",
+        "file": "layers/20-front-hair-2.png",
+        "x": 560,
+        "y": 20,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 640,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 59,
+          "top": 47,
+          "width": 539,
+          "height": 550
+        },
+        "width": 650,
+        "height": 610,
+        "sha256": "4bada00218ff659a1d4d61e437c63c25688fc37dffdbbbf3cc4c88de1ceab1fd"
+      },
+      {
+        "name": "front hair 3",
+        "file": "layers/21-front-hair-3.png",
+        "x": 1040,
+        "y": 80,
+        "visible": true,
+        "source": "front",
+        "source_cell": {
+          "left": 1280,
+          "top": 0,
+          "width": 640,
+          "height": 819
+        },
+        "source_alpha_bounds": {
+          "left": 107,
+          "top": 0,
+          "width": 494,
+          "height": 808
+        },
+        "width": 300,
+        "height": 730,
+        "sha256": "60894ffc21332e559bdb707e3e782db95ad1fe12c8f1e594a8362aa969c10603"
+      }
+    ]
+  },
+  "checks": {},
+  "not_proven": [
+    "user artwork likeness/production art quality",
+    "Windows/4060/physical camera",
+    "official Editor CMO3 reopen/edit",
+    "SDK publication rights",
+    "all exports/parameters",
+    "Audio RMS/lip-sync through the product adapter",
+    "real-time frame rate or performance; sidecars use fixed 1/60s simulation"
+  ],
+  "acceptance_complete": false,
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/AI-radio-stream-help/tests/live2d_original_core_check.py --model .build/original-character-rig-r3/export-unit-calibration/character.model3.json --runtime-dir /workspace/.live2d/runtime --provenance .build/original-character-art-r3/layers.json --source-psd .build/original-character-rig-r3/character.psd --source-project .build/original-character-rig-r3/authoring/coordinate-calibration.psd2live --output review/original-character-live2d-lip-unit-calibration.json --evidence-dir /workspace/dist/evidence-original-character-live2d-r3/lip-unit-calibration --probe-pixels --require-parameter ParamLipCalibration",
+  "export_family_files": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.cmo3": "7465c44841972ad975773d1a80d67b123b0e85ba99c26c785fdfc1d59bc48a97",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.psd2live.json": "d0d726634b967e35fe36ebd45229eb19a59600f611133ed08ad6eee381c88641",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.moc3": "8be6ecc17db5400e8c64ccded92b9fcf8b6933853e1c96604a45c4b9c0c0a8ea",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.can3": "43a7fa241667af1da60b68d181b963f67baa42419956b835d40dfee32d5906f2",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.cdi3.json": "dfbe046fa31aaa07749a0d2e4e09e782a38863f384c153857c1cec6c4ce25edc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.4096/texture_00.png": "0faeadbd890f371048b924d22671c69f838fe91cb5708ef8060653246c50e567"
+  },
+  "model3_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-unit-calibration/character.model3.json",
+  "source_psd_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/character.psd",
+  "source_project_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/authoring/coordinate-calibration.psd2live",
+  "visual_rois": {},
+  "error": "Page.evaluate: Error: Calibration is not symmetric around default: {\"parameter\":\"ParamLipCalibration\",\"target\":\"ArtMeshLayer3\",\"values\":{\"min\":-1,\"default\":0,\"max\":1},\"canvasInfo\":{\"CanvasWidth\":1536,\"CanvasHeight\":2048,\"CanvasOriginX\":768,\"CanvasOriginY\":1024,\"PixelsPerUnit\":1536},\"changedDrawables\":[\"ArtMeshLayer3\"],\"otherDrawablesChanged\":[],\"maxSymmetryError\":0.000015422701835632324,\"centroids\":{\"min\":[0.08988447129153289,0.2068097207408685],\"default\":[0.08988627820060803,0.20667824206443933],\"max\":[0.08988813525782181,0.20654320487609276]},\"coordinates\":{\"min\":[0.08169596642255783,0.21435992419719696,0.08881205320358276,0.21344128251075745,0.09555914252996445,0.21322603523731232,0.10280928015708923,0.2146194577217102,0.1093590259552002,0.212676540017128,0.11553502082824707,0.20977360010147095,0.12179221212863922,0.20699496567249298,0.12916678190231323,0.2053714394569397,0.13512930274009705,0.2019110918045044,0.12818029522895813,0.2027396261692047,0.12071086466312408,0.2032221555709839,0.11328823864459991,0.20432138442993164,0.10590087622404099,0.2048666626214981,0.09855597466230392,0.20433443784713745,0.09104441851377487,0.20386148989200592,0.08370640873908997,0.20483867824077606,0.07638321816921234,0.20473796129226685,0.06898855417966843,0.2038045972585678,0.06148039177060127,0.20308531820774078,0.05401691049337387,0.20313668251037598,0.0468386635184288,0.20254510641098022,0.04789270460605621,0.20428456366062164,0.054948125034570694,0.20576773583889008,0.06181475892663002,0.2069094479084015,0.06857308745384216,0.20989786088466644,0.07481397688388824,0.21232469379901886],\"default\":[0.08169765770435333,0.21423672139644623,0.08881373703479767,0.2133180797100067,0.09556084126234055,0.21310284733772278,0.10281097143888474,0.21449626982212067,0.10936114192008972,0.21252255141735077,0.11553671211004257,0.20965039730072021,0.12179391086101532,0.20687177777290344,0.12916848063468933,0.20524825155735016,0.13513100147247314,0.20178791880607605,0.12818197906017303,0.20261643826961517,0.12071256339550018,0.20309896767139435,0.11329035460948944,0.2041674107313156,0.10590299218893051,0.20471270382404327,0.09855808317661285,0.20418043434619904,0.09104611724615097,0.20373831689357758,0.08370810002088547,0.20471549034118652,0.07638490945100784,0.2046147882938385,0.06899024546146393,0.20368143916130066,0.0614825114607811,0.20293129980564117,0.0540190264582634,0.20298269391059875,0.046840354800224304,0.20242193341255188,0.04789482057094574,0.20413058996200562,0.054949820041656494,0.20564454793930054,0.06181645393371582,0.20678626000881195,0.06857477873563766,0.2097746729850769,0.07481566816568375,0.21220149099826813],\"max\":[0.08169934153556824,0.2141135334968567,0.0888158529996872,0.21316412091255188,0.09556253254413605,0.21297965943813324,0.10281309485435486,0.21434229612350464,0.10936283320188522,0.21239936351776123,0.1155388280749321,0.209496408700943,0.12179602682590485,0.20671780407428741,0.12917059659957886,0.20509424805641174,0.13513311743736267,0.20163393020629883,0.12818410992622375,0.20246243476867676,0.12071467190980911,0.20294499397277832,0.11329205334186554,0.20404422283172607,0.10590468347072601,0.20458947122097015,0.09855978935956955,0.2040572464466095,0.09104780852794647,0.20361511409282684,0.08370979875326157,0.20459231734275818,0.07638660073280334,0.20449158549308777,0.06899236887693405,0.20352743566036224,0.0614842064678669,0.20280811190605164,0.0540207214653492,0.20285950601100922,0.046842049807310104,0.20229873061180115,0.04789651185274124,0.20400740206241608,0.054951515048742294,0.2055213451385498,0.06181814894080162,0.20666305720806122,0.06857647001743317,0.20965147018432617,0.07481778413057327,0.2120475172996521]}}\n    at eval (eval at evaluate (:311:30), <anonymous>:49:38)\n    at async <anonymous>:337:30",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py\", line 186, in main\n    report['raw_core'] = page.evaluate(RAW_CHECK, {'modelURL': model_url, 'required': args.require_parameter})\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 9385, in evaluate\n    self._sync(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 472, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 345, in evaluate\n    await self._channel.send(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: Error: Calibration is not symmetric around default: {\"parameter\":\"ParamLipCalibration\",\"target\":\"ArtMeshLayer3\",\"values\":{\"min\":-1,\"default\":0,\"max\":1},\"canvasInfo\":{\"CanvasWidth\":1536,\"CanvasHeight\":2048,\"CanvasOriginX\":768,\"CanvasOriginY\":1024,\"PixelsPerUnit\":1536},\"changedDrawables\":[\"ArtMeshLayer3\"],\"otherDrawablesChanged\":[],\"maxSymmetryError\":0.000015422701835632324,\"centroids\":{\"min\":[0.08988447129153289,0.2068097207408685],\"default\":[0.08988627820060803,0.20667824206443933],\"max\":[0.08988813525782181,0.20654320487609276]},\"coordinates\":{\"min\":[0.08169596642255783,0.21435992419719696,0.08881205320358276,0.21344128251075745,0.09555914252996445,0.21322603523731232,0.10280928015708923,0.2146194577217102,0.1093590259552002,0.212676540017128,0.11553502082824707,0.20977360010147095,0.12179221212863922,0.20699496567249298,0.12916678190231323,0.2053714394569397,0.13512930274009705,0.2019110918045044,0.12818029522895813,0.2027396261692047,0.12071086466312408,0.2032221555709839,0.11328823864459991,0.20432138442993164,0.10590087622404099,0.2048666626214981,0.09855597466230392,0.20433443784713745,0.09104441851377487,0.20386148989200592,0.08370640873908997,0.20483867824077606,0.07638321816921234,0.20473796129226685,0.06898855417966843,0.2038045972585678,0.06148039177060127,0.20308531820774078,0.05401691049337387,0.20313668251037598,0.0468386635184288,0.20254510641098022,0.04789270460605621,0.20428456366062164,0.054948125034570694,0.20576773583889008,0.06181475892663002,0.2069094479084015,0.06857308745384216,0.20989786088466644,0.07481397688388824,0.21232469379901886],\"default\":[0.08169765770435333,0.21423672139644623,0.08881373703479767,0.2133180797100067,0.09556084126234055,0.21310284733772278,0.10281097143888474,0.21449626982212067,0.10936114192008972,0.21252255141735077,0.11553671211004257,0.20965039730072021,0.12179391086101532,0.20687177777290344,0.12916848063468933,0.20524825155735016,0.13513100147247314,0.20178791880607605,0.12818197906017303,0.20261643826961517,0.12071256339550018,0.20309896767139435,0.11329035460948944,0.2041674107313156,0.10590299218893051,0.20471270382404327,0.09855808317661285,0.20418043434619904,0.09104611724615097,0.20373831689357758,0.08370810002088547,0.20471549034118652,0.07638490945100784,0.2046147882938385,0.06899024546146393,0.20368143916130066,0.0614825114607811,0.20293129980564117,0.0540190264582634,0.20298269391059875,0.046840354800224304,0.20242193341255188,0.04789482057094574,0.20413058996200562,0.054949820041656494,0.20564454793930054,0.06181645393371582,0.20678626000881195,0.06857477873563766,0.2097746729850769,0.07481566816568375,0.21220149099826813],\"max\":[0.08169934153556824,0.2141135334968567,0.0888158529996872,0.21316412091255188,0.09556253254413605,0.21297965943813324,0.10281309485435486,0.21434229612350464,0.10936283320188522,0.21239936351776123,0.1155388280749321,0.209496408700943,0.12179602682590485,0.20671780407428741,0.12917059659957886,0.20509424805641174,0.13513311743736267,0.20163393020629883,0.12818410992622375,0.20246243476867676,0.12071467190980911,0.20294499397277832,0.11329205334186554,0.20404422283172607,0.10590468347072601,0.20458947122097015,0.09855978935956955,0.2040572464466095,0.09104780852794647,0.20361511409282684,0.08370979875326157,0.20459231734275818,0.07638660073280334,0.20449158549308777,0.06899236887693405,0.20352743566036224,0.0614842064678669,0.20280811190605164,0.0540207214653492,0.20285950601100922,0.046842049807310104,0.20229873061180115,0.04789651185274124,0.20400740206241608,0.054951515048742294,0.2055213451385498,0.06181814894080162,0.20666305720806122,0.06857647001743317,0.20965147018432617,0.07481778413057327,0.2120475172996521]}}\n    at eval (eval at evaluate (:311:30), <anonymous>:49:38)\n    at async <anonymous>:337:30\n",
+  "javascript_errors": [],
+  "browser_warnings": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "sources_unchanged_during_checks": true,
+  "evidence_dir": "/workspace/dist/evidence-original-character-live2d-r3/lip-unit-calibration"
+}

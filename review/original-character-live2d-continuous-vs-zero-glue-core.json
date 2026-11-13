@@ -1,0 +1,1170 @@
+{
+  "status": "actual_same_topology_core_comparison_measured",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-cloth-continuous/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-cloth-zero-glue-effects/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-cloth-continuous/character.moc3": "a112853f268bd91fb5eb8992aa9aa6b456a0e2f68ec57416eee0c8251718ae0c",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-cloth-zero-glue-effects/character.moc3": "900fb0ef7f51efd9266c01e6b1229c8bd345d2c4b820aebbbac35416190cf6e6",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/tests/live2d_core_candidate_compare.py": "0ae9c389649756d7ca26c9b5a120b0714f41cc1a1c062bc58a589bfa19be9087",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02"
+  },
+  "sources_unchanged": true,
+  "poses": [
+    {
+      "name": "actual-defaults",
+      "parameters": {},
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamForearmR-min",
+      "parameters": {
+        "ParamForearmR": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 15,
+          "maxCoordinateDifferenceSourcePx": 6.866455078125e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamForearmR-max",
+      "parameters": {
+        "ParamForearmR": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamArmR-min",
+      "parameters": {
+        "ParamArmR": -4
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.000640869140625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 6.29425048828125e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamArmR-max",
+      "parameters": {
+        "ParamArmR": 4
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 39,
+          "maxCoordinateDifferenceSourcePx": 0.0005035400390625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 21,
+          "maxCoordinateDifferenceSourcePx": 5.7220458984375e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamForearmL-min",
+      "parameters": {
+        "ParamForearmL": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 8,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamForearmL-max",
+      "parameters": {
+        "ParamForearmL": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamArmL-min",
+      "parameters": {
+        "ParamArmL": -4
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.00020599365234375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "ParamArmL-max",
+      "parameters": {
+        "ParamArmL": 4
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 8,
+          "maxCoordinateDifferenceSourcePx": 0.00018310546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 2.288818359375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "L-shoulder-min-elbow-min",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamForearmL": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0001373291015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "L-shoulder-min-elbow-max",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamForearmL": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.00018310546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "L-shoulder-max-elbow-min",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamForearmL": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.00018310546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 2.288818359375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "L-shoulder-max-elbow-max",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamForearmL": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.0001373291015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 2.288818359375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "R-shoulder-min-elbow-min",
+      "parameters": {
+        "ParamArmR": -4,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 40,
+          "maxCoordinateDifferenceSourcePx": 0.0005950927734375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 6.29425048828125e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "R-shoulder-min-elbow-max",
+      "parameters": {
+        "ParamArmR": -4,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 38,
+          "maxCoordinateDifferenceSourcePx": 0.0005950927734375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 6.29425048828125e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "R-shoulder-max-elbow-min",
+      "parameters": {
+        "ParamArmR": 4,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 37,
+          "maxCoordinateDifferenceSourcePx": 0.000457763671875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 21,
+          "maxCoordinateDifferenceSourcePx": 5.7220458984375e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "R-shoulder-max-elbow-max",
+      "parameters": {
+        "ParamArmR": 4,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 36,
+          "maxCoordinateDifferenceSourcePx": 0.000457763671875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 21,
+          "maxCoordinateDifferenceSourcePx": 5.7220458984375e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "opposite-shoulders-min-elbows-min",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamArmR": 4,
+        "ParamForearmL": -6,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0001373291015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 36,
+          "maxCoordinateDifferenceSourcePx": 0.000457763671875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 21,
+          "maxCoordinateDifferenceSourcePx": 5.7220458984375e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "opposite-shoulders-min-elbows-max",
+      "parameters": {
+        "ParamArmL": -4,
+        "ParamArmR": 4,
+        "ParamForearmL": 6,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.00018310546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 37,
+          "maxCoordinateDifferenceSourcePx": 0.000457763671875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 4.57763671875e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 21,
+          "maxCoordinateDifferenceSourcePx": 5.7220458984375e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "opposite-shoulders-max-elbows-min",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamArmR": -4,
+        "ParamForearmL": -6,
+        "ParamForearmR": 6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.00018310546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 38,
+          "maxCoordinateDifferenceSourcePx": 0.0005950927734375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 2.288818359375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 6.29425048828125e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "opposite-shoulders-max-elbows-max",
+      "parameters": {
+        "ParamArmL": 4,
+        "ParamArmR": -4,
+        "ParamForearmL": 6,
+        "ParamForearmR": -6
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.0001373291015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 40,
+          "maxCoordinateDifferenceSourcePx": 0.0005950927734375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 7,
+          "maxCoordinateDifferenceSourcePx": 2.288818359375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 23,
+          "maxCoordinateDifferenceSourcePx": 6.29425048828125e-05,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamArmL-min",
+      "parameters": {
+        "ParamArmL": -1.48
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 8,
+          "maxCoordinateDifferenceSourcePx": 0.00011444091796875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.00222015380859375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamArmL-max",
+      "parameters": {
+        "ParamArmL": 1.48
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 0.0001373291015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0021915435791015625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamArmR-min",
+      "parameters": {
+        "ParamArmR": -1.48
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 40,
+          "maxCoordinateDifferenceSourcePx": 0.00066375732421875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 31,
+          "maxCoordinateDifferenceSourcePx": 0.006969451904296875,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamArmR-max",
+      "parameters": {
+        "ParamArmR": 1.48
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 40,
+          "maxCoordinateDifferenceSourcePx": 0.0008697509765625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 31,
+          "maxCoordinateDifferenceSourcePx": 0.006969451904296875,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamForearmL-min",
+      "parameters": {
+        "ParamForearmL": -2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.001190185546875,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamForearmL-max",
+      "parameters": {
+        "ParamForearmL": 2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.0010986328125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamForearmR-min",
+      "parameters": {
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00537872314453125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-ParamForearmR-max",
+      "parameters": {
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00531005859375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-L-opposed--1",
+      "parameters": {
+        "ParamArmL": -1.24,
+        "ParamForearmL": 2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.0010986328125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.00162506103515625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-L-opposed-1",
+      "parameters": {
+        "ParamArmL": 1.24,
+        "ParamForearmL": -2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.00128173828125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 27,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.001590728759765625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 32,
+          "maxCoordinateDifferenceSourcePx": 0.07929039001464844,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-R-opposed--1",
+      "parameters": {
+        "ParamArmR": -1.24,
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00501251220703125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 31,
+          "maxCoordinateDifferenceSourcePx": 0.00510406494140625,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-R-opposed-1",
+      "parameters": {
+        "ParamArmR": 1.24,
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 9,
+          "maxCoordinateDifferenceSourcePx": 9.1552734375e-05,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00510406494140625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.0833587646484375,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 29,
+          "maxCoordinateDifferenceSourcePx": 0.005069732666015625,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-bilateral-opposed--1",
+      "parameters": {
+        "ParamArmL": -1.24,
+        "ParamArmR": 1.24,
+        "ParamForearmL": 2.2199999999999998,
+        "ParamForearmR": -2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.0010986328125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00510406494140625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.00162506103515625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 29,
+          "maxCoordinateDifferenceSourcePx": 0.005069732666015625,
+          "opacityDifference": 0
+        }
+      ]
+    },
+    {
+      "name": "interior-bilateral-opposed-1",
+      "parameters": {
+        "ParamArmL": 1.24,
+        "ParamArmR": -1.24,
+        "ParamForearmL": -2.2199999999999998,
+        "ParamForearmR": 2.2199999999999998
+      },
+      "changedDrawables": [
+        {
+          "id": "ArtMeshLayerL8",
+          "exactDifferentCoordinates": 12,
+          "maxCoordinateDifferenceSourcePx": 0.00128173828125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR8",
+          "exactDifferentCoordinates": 42,
+          "maxCoordinateDifferenceSourcePx": 0.00501251220703125,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerL9",
+          "exactDifferentCoordinates": 10,
+          "maxCoordinateDifferenceSourcePx": 0.001590728759765625,
+          "opacityDifference": 0
+        },
+        {
+          "id": "ArtMeshLayerR9",
+          "exactDifferentCoordinates": 31,
+          "maxCoordinateDifferenceSourcePx": 0.00510406494140625,
+          "opacityDifference": 0
+        }
+      ]
+    }
+  ],
+  "all_exact_same": false,
+  "not_proven": [
+    "Continuous state space",
+    "Authoring glue mechanism or why exports agree",
+    "Pixel/texture equivalence",
+    "Art acceptance"
+  ]
+}

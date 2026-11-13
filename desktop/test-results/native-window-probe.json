@@ -1,0 +1,57 @@
+{
+  "observed_at": "2026-11-12T13:22:56.839725+00:00",
+  "scope": "packaged Electron host on private Xvfb plus xfwm4 compositor and XTest; synthetic local page",
+  "checks": [
+    {
+      "name": "xfwm4 compositor owns X11 selection",
+      "result": "passed"
+    },
+    {
+      "name": "background test window receives initial focus",
+      "result": "passed"
+    },
+    {
+      "name": "passive compact startup preserves external keyboard focus",
+      "result": "passed"
+    },
+    {
+      "name": "transparent window reveals underlying test background",
+      "result": "passed"
+    },
+    {
+      "name": "normal pointer hit reaches character window",
+      "result": "passed"
+    },
+    {
+      "name": "actual XTest pointer click passes to underlying window",
+      "result": "passed"
+    },
+    {
+      "name": "pointer input recovers after explicit restore",
+      "result": "passed"
+    },
+    {
+      "name": "explicit expand can take input focus",
+      "result": "passed"
+    },
+    {
+      "name": "collapse releases input focus to background",
+      "result": "passed"
+    }
+  ],
+  "model_or_microphone_tests": 0,
+  "limitations": [
+    "Only this Linux X11/xfwm4 configuration",
+    "No Windows/macOS, Wayland or fullscreen game validation",
+    "No user character art or actual backend/model in this probe"
+  ],
+  "transparent_area_observed_rgb": [
+    51,
+    102,
+    51
+  ],
+  "focus_after_collapse": 10485761,
+  "background_window_id": 10485761,
+  "electron_window_id": 12582915,
+  "passed": true
+}

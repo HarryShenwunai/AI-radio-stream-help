@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "scope": "Exact published Windows-base bytes, minimal disposable copies, actual final-artifact execute/apply/repeat/rollback and loopback copied-backend routes on Linux. No Windows cmd/exe/DLL, GPU, model inference or media capture execution.",
+  "checks": {
+    "exact_base_archive_sha": true,
+    "actual_artifact_sha": true,
+    "real_commit_matches_artifact": true,
+    "minimal_exactbase_old_state": true,
+    "actual_execute_apply": true,
+    "both_profiles_new_hashes_source_ids": true,
+    "repeat_is_idempotent": true,
+    "actual_copied_cpu_cuda_backend_routes_and_owner_setup_load": true,
+    "actual_execute_rollback": true,
+    "every_operation_original_sha_restored": true,
+    "all_selected_original_base_inputs_unchanged": true,
+    "synthetic_model_and_owner_data_unchanged": true,
+    "original_base_archive_still_exact": true
+  },
+  "base_archive_sha256": "92d3e858cb93471b1fe4e633e2b5328aa43dc178f325a9bfa65ca62d1405b7e3",
+  "update_archive_sha256": "d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6",
+  "source_commit": "084aaf222b54e1828595bde82fc07c58acbb6075",
+  "source_id": "d26a131ef7e7f19ac30c60b6cb767debaacbdb06ff0284b8ca49db78b632dc98",
+  "operations": 82,
+  "copied_files": 92,
+  "copied_bytes": 4376827,
+  "readonly_native_hardlinks": 22,
+  "profile_probes": [
+    {
+      "profile": "/workspace/AI-radio-stream-help/.build/final-app-update-proof/exactbase-run2/target/resources/backend",
+      "version": "0.5.0-dev3",
+      "actual_backend_routes": {
+        "/stage-actions.js": {
+          "status": 200,
+          "sha256": "e5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8",
+          "bytes": 4796
+        },
+        "/stage-actions.js.not-allowed": {
+          "status": 404,
+          "sha256": "e3ebaa16dd9d9b9fc107c42183fb6cf9d22927e1af03dbbdfa0ccc38e4e4ac31",
+          "bytes": 9
+        }
+      },
+      "owner_helper_loaded": true,
+      "owner_lock_verified": true,
+      "owner_setup_without_ack_refused": true,
+      "network_download_performed": false
+    },
+    {
+      "profile": "/workspace/AI-radio-stream-help/.build/final-app-update-proof/exactbase-run2/target/resources/backend-profiles/cuda",
+      "version": "0.5.0-dev3",
+      "actual_backend_routes": {
+        "/stage-actions.js": {
+          "status": 200,
+          "sha256": "e5813ca2874931452384618d8380a39f5e4d88743b57c84631f4e797daaef5f8",
+          "bytes": 4796
+        },
+        "/stage-actions.js.not-allowed": {
+          "status": 404,
+          "sha256": "e3ebaa16dd9d9b9fc107c42183fb6cf9d22927e1af03dbbdfa0ccc38e4e4ac31",
+          "bytes": 9
+        }
+      },
+      "owner_helper_loaded": true,
+      "owner_lock_verified": true,
+      "owner_setup_without_ack_refused": true,
+      "network_download_performed": false
+    }
+  ],
+  "script_sha256": "099785263ce5455060b339ff70a0d289af269da1e3385b3fc2b3cef9fcb98124",
+  "seconds": 19.149,
+  "windows_execution_verified": false,
+  "downloads_performed": false,
+  "original_base_modified": false,
+  "disposable_target_removed_after_test": true,
+  "generated_at": "2026-11-13T03:38:01.344034+00:00",
+  "update_archive_bytes": 7026261,
+  "reproduce_script": "\"\"\"Private release evidence runner; not shipped. Linux filesystem, never Windows.\n\nRun only after root supplies the real committed update ZIP and trusted SHA.\nCopies just writable source/metadata; readonly native inputs use hard links.\n\"\"\"\nfrom __future__ import annotations\nimport argparse\nimport contextlib\nimport hashlib\nimport http.client\nimport importlib.util\nimport io\nimport json\nimport os\nfrom pathlib import Path, PurePosixPath\nimport shutil\nimport stat\nimport subprocess\nimport sys\nimport tempfile\nimport threading\nimport time\nimport zipfile\n\nBASE_SHA='92d3e858cb93471b1fe4e633e2b5328aa43dc178f325a9bfa65ca62d1405b7e3'\n\ndef sha(path):\n    with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()\n\ndef safe(root,name):\n    if not isinstance(name,str) or not name or any(c in name for c in '\\\\:') or PurePosixPath(name).is_absolute() or any(p in {'','.','..'} for p in name.split('/')):raise ValueError('unsafe input path')\n    p=root\n    for part in name.split('/'):\n        p=p/part\n        if p.is_symlink():raise ValueError('input symlink rejected')\n    return p\n\ndef load(name,file):\n    spec=importlib.util.spec_from_file_location(name,file);module=importlib.util.module_from_spec(spec);sys.modules[name]=module;spec.loader.exec_module(module);return module\n\ndef probe(profile,update):\n    sys.path.insert(0,str(profile/'src'));sys.path.insert(0,str(update))\n    app=load('exactbase_app',profile/'app/server.py')\n    setup=load('setup_live2d_owner',update/'setup_live2d_owner.py');lock=setup.read_lock()\n    assert setup.selected_packages(lock,'win32-x64')\n    failure=io.StringIO()\n    with contextlib.redirect_stderr(failure):\n        try:setup.main(['install','--application-root',str(profile.parents[1])])\n        except SystemExit as error:assert error.code==2\n        else:raise AssertionError('owner setup must refuse absent acknowledgements')\n    assert 'acknowledgement' in failure.getvalue()\n    server=app.ThreadingHTTPServer(('127.0.0.1',0),app.Handler);worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()\n    results={}\n    try:\n        for path,wanted in [('/stage-actions.js',200),('/stage-actions.js.not-allowed',404)]:\n            connection=http.client.HTTPConnection('127.0.0.1',server.server_port,timeout=8)\n            connection.request('GET',path);response=connection.getresponse();body=response.read();connection.close()\n            assert response.status==wanted,(path,response.status)\n            if wanted==200:assert body==(profile/'app/static/stage-actions.js').read_bytes()\n            results[path]={'status':response.status,'sha256':hashlib.sha256(body).hexdigest(),'bytes':len(body)}\n    finally:server.shutdown();server.server_close();worker.join(timeout=5)\n    print(json.dumps({'profile':str(profile),'version':app.VERSION,'actual_backend_routes':results,'owner_helper_loaded':True,'owner_lock_verified':True,'owner_setup_without_ack_refused':True,'network_download_performed':False}))\n\ndef main(args):\n    started=time.monotonic();assert not args.work_root.exists(),'Use a fresh, disposable work path'\n    assert not args.report.exists(),'Do not overwrite evidence'\n    assert sha(args.base_archive)==BASE_SHA,'Wrong original base archive'\n    assert sha(args.update_zip)==args.expected_update_sha,'Wrong update artifact'\n    args.work_root.mkdir(parents=True);update=args.work_root/'update';target=args.work_root/'target';update.mkdir();target.mkdir()\n    try:\n        with zipfile.ZipFile(args.update_zip) as archive:\n            infos=archive.infolist();assert len(infos)<=512\n            assert sum(i.file_size for i in infos)<=96*1024*1024\n            names=set()\n            for info in infos:\n                output=safe(update,info.filename);mode=stat.S_IFMT(info.external_attr>>16)\n                assert not info.is_dir() and mode in {0,stat.S_IFREG} and not info.flag_bits&1\n                assert info.filename.casefold() not in names;names.add(info.filename.casefold())\n                output.parent.mkdir(parents=True,exist_ok=True)\n                with archive.open(info) as source,output.open('xb') as dest:shutil.copyfileobj(source,dest,1024*1024)\n        sys.path.insert(0,str(update));updater=load('app_update',update/'app_update.py')\n        manifest=updater.load_update(update)\n        assert manifest['base_archive_sha256']==BASE_SHA\n        assert manifest['new_source_commit']==args.expected_source_commit\n        copy_paths={op['target'] for op in manifest['files'] if op['old_sha256'] is not None}\n        needed=set(copy_paths)|{'companion-desktop.exe','resources/backend/python/python.exe'}\n        for prefix in updater.PROFILES.values():\n            profile=json.loads(safe(args.base_root,prefix+'/runtime-profile-manifest.json').read_bytes())\n            needed.update(prefix+'/'+name for name in profile['source_files'])\n            copy_paths.update(prefix+'/'+name for name in profile['source_files'])\n            needed.update(prefix+'/'+name for name in profile['critical_files'])\n        original={};copied=linked=copy_bytes=0\n        for name in sorted(needed):\n            source=safe(args.base_root,name);destination=safe(target,name)\n            assert source.is_file();original[name]=sha(source);destination.parent.mkdir(parents=True,exist_ok=True)\n            if name in copy_paths or source.suffix in {'.py','.json','.txt','.cjs','.js','.css','.html'}:\n                shutil.copy2(source,destination);copied+=1;copy_bytes+=source.stat().st_size\n            else:os.link(source,destination);linked+=1\n        sentinels={target/'owner-data/private-role-sentinel.sqlite':b'SYNTHETIC PRIVATE DATA DO NOT CHANGE',target/'models/unchanged-model-sentinel.gguf':b'SYNTHETIC MODEL SENTINEL NO INFERENCE'}\n        for path,data in sentinels.items():path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)\n        expected_old={op['target']:op['old_sha256'] for op in manifest['files']}\n        updater.verify_state(target,manifest,'old')\n        checks={'exact_base_archive_sha':True,'actual_artifact_sha':True,'real_commit_matches_artifact':True,'minimal_exactbase_old_state':True}\n        applied=updater.execute(target,update);assert applied['status']=='applied';checks['actual_execute_apply']=True\n        updater.verify_state(target,manifest,'new');checks['both_profiles_new_hashes_source_ids']=True\n        assert updater.execute(target,update)['status']=='already_applied';checks['repeat_is_idempotent']=True\n        package=json.loads((target/'resources/app/package.json').read_bytes());assert package['version']=='0.5.0-dev3' and package['name']=='companion-desktop-runtime' and package['main']=='main.cjs'\n        probes=[]\n        for name,prefix in updater.PROFILES.items():\n            environment={**os.environ,'COMPANION_DATA':str(args.work_root/('http-data-'+name)),'PYTHONDONTWRITEBYTECODE':'1','HF_HUB_OFFLINE':'1','TRANSFORMERS_OFFLINE':'1'}\n            result=subprocess.run([sys.executable,str(Path(__file__).resolve()),'--probe-profile',str(target/prefix),'--update-root',str(update)],capture_output=True,text=True,env=environment,timeout=45)\n            assert result.returncode==0,result.stderr;probes.append(json.loads(result.stdout))\n        checks['actual_copied_cpu_cuda_backend_routes_and_owner_setup_load']=True\n        assert updater.execute(target,update,rollback=True)['status']=='rolled_back';updater.verify_state(target,manifest,'old');checks['actual_execute_rollback']=True\n        assert {name:updater.file_hash(safe(target,name)) for name in expected_old}==expected_old;checks['every_operation_original_sha_restored']=True\n        assert {name:sha(safe(args.base_root,name)) for name in original}==original;checks['all_selected_original_base_inputs_unchanged']=True\n        assert all(path.read_bytes()==data for path,data in sentinels.items());checks['synthetic_model_and_owner_data_unchanged']=True\n        assert sha(args.base_archive)==BASE_SHA;checks['original_base_archive_still_exact']=True\n        report={'passed':True,'scope':'Exact published Windows-base bytes, minimal disposable copies, actual final-artifact execute/apply/repeat/rollback and loopback copied-backend routes on Linux. No Windows cmd/exe/DLL, GPU, model inference or media capture execution.','checks':checks,'base_archive_sha256':BASE_SHA,'update_archive_sha256':args.expected_update_sha,'source_commit':args.expected_source_commit,'source_id':manifest['new_source_id'],'operations':len(manifest['files']),'copied_files':copied,'copied_bytes':copy_bytes,'readonly_native_hardlinks':linked,'profile_probes':probes,'script_sha256':sha(Path(__file__)),'seconds':round(time.monotonic()-started,3),'windows_execution_verified':False,'downloads_performed':False,'original_base_modified':False,'disposable_target_removed_after_test':True}\n        args.report.parent.mkdir(parents=True,exist_ok=True);args.report.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\\n');print(json.dumps(report,ensure_ascii=False))\n    except BaseException as error:\n        failure=args.report.with_suffix('.failure.json');failure.parent.mkdir(parents=True,exist_ok=True);failure.write_text(json.dumps({'passed':False,'error':str(error),'windows_execution_verified':False,'script_sha256':sha(Path(__file__))},indent=2)+'\\n');raise\n    finally:\n        # Only this invocation's fresh disposable target/update; never base/user data.\n        shutil.rmtree(args.work_root)\n\nif __name__=='__main__':\n    if '--probe-profile' in sys.argv:\n        p=argparse.ArgumentParser();p.add_argument('--probe-profile',type=Path,required=True);p.add_argument('--update-root',type=Path,required=True);a=p.parse_args();probe(a.probe_profile,a.update_root)\n    else:\n        p=argparse.ArgumentParser();p.add_argument('--base-archive',type=Path,required=True);p.add_argument('--base-root',type=Path,required=True);p.add_argument('--update-zip',type=Path,required=True);p.add_argument('--expected-update-sha',required=True);p.add_argument('--expected-source-commit',required=True);p.add_argument('--work-root',type=Path,required=True);p.add_argument('--report',type=Path,required=True);main(p.parse_args())\n",
+  "initial_environment_failure_report": "review/app-source-update-dev3-exactbase-check.failure.json",
+  "loopback_permission": "Initial sandbox EPERM preserved; same script rerun with approved escalated loopback socket permission; no source or test gates weakened."
+}

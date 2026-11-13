@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-11-12T15:36:04.227100+00:00",
+  "scope": "actual loopback application HTTP -> real faster-whisper tiny CPU; local Kokoro synthetic WAV input",
+  "windows_or_rtx4060_verified": false,
+  "microphone_used": false,
+  "human_quality_accepted": false,
+  "passed": true,
+  "result": {
+    "text": "您好今天我们一起学习",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.5,
+        "text": "您好今天我们一起学习"
+      }
+    ],
+    "duration_seconds": 2.683291666666667,
+    "language": "zh",
+    "elapsed_seconds": 1.7472550949896686,
+    "backend": "faster-whisper",
+    "device": "cpu",
+    "character_id": "7b2479a6-f3e0-4162-9170-e54ce1b00f3d",
+    "operation_id": "real-http-asr"
+  },
+  "http_elapsed_seconds": 1.762,
+  "wav_bytes": 128842,
+  "wav_sha256": "05e9dd2b32b99354787a59bbb2d47ca619ed1fc737352a538a7fc96122e6581d",
+  "transcript_not_persisted": true,
+  "llm_or_tts_invocations": 0,
+  "asr_status": {
+    "backend": "faster-whisper",
+    "dependency_installed": true,
+    "model_present": true,
+    "ready": true,
+    "loaded": false,
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "local_only": true,
+    "recording_uploaded_to_cloud": false,
+    "max_audio_seconds": 60,
+    "max_audio_bytes": 6000000,
+    "ready_meaning": "dependencies and model files present; loaded indicates actual model creation",
+    "versions": {
+      "faster-whisper": "1.2.1",
+      "ctranslate2": "4.9.0",
+      "av": "16.1.0"
+    },
+    "processing": false
+  }
+}

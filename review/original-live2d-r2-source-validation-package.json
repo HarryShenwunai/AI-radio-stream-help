@@ -1,0 +1,8 @@
+{
+  "file": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-source-validation.zip",
+  "bytes": 49477803,
+  "sha256": "ae2e9a61d05e5c475541e7673cf820e5f57c3d374b9cbcd5bdfc40df8cadde41",
+  "source_files": 26,
+  "vendor_or_model_weights_included": false,
+  "scope": "source/export/real negative-control proof only"
+}

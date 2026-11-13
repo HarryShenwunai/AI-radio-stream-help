@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-12",
+  "version": "0.3.0-dev1",
+  "status": "passed",
+  "browser": "Chromium /usr/bin/chromium, headless",
+  "model": "local mock streaming provider; no model quality evaluation",
+  "audio": "real 24kHz mono PCM WAV; 440Hz synthetic test tone; TTS replaced by controlled local fixture",
+  "autoplay": "test launch permits autoplay; default-browser autoplay restrictions are not validated",
+  "new_integration_scope": "local application, HTTP, browser media lifecycle only; no Zerolan/Bilibili/AR/MC runtime connection",
+  "checks": {
+    "modes_and_memory_preference_persist": "passed",
+    "http_tokens_stop_no_partial_commit": "passed",
+    "retry_without_duplicates": "passed",
+    "provider_failure_and_recovery": "passed",
+    "network_failure_preserves_unsent_draft": "passed",
+    "xss_text_rendering": "passed",
+    "task_delay_and_complete": "passed",
+    "origin_and_session_checks": "passed",
+    "layout_1440_390_360_and_mobile_voice": "passed",
+    "real_wav_audio_clock_and_stop": "passed",
+    "stopped_delayed_wav_does_not_play": "passed",
+    "new_chat_aborts_stale_generation_audio_and_server_discards_it": "passed"
+  },
+  "javascript_errors": [],
+  "synthetic_synthesis_calls": 4,
+  "synthetic_wav_bytes": 240044,
+  "audio_discarded_server_audit_count": 1,
+  "screenshot_visual_inspection": {
+    "desktop": "viewed; complete local application layout",
+    "mobile": "viewed; 360px layout complete with scrollable transcript"
+  }
+}

@@ -1,0 +1,25 @@
+Original 2D character asset — project authoring notice
+
+This character was created for this project from the user's supplied visual
+references, using generated original artwork, independent RGBA layers and a
+Cubism-compatible mesh/parameter rig. No named human illustrator is claimed.
+The original chat reference attachments are not redistributed in this package.
+The selected source manifests record the generated-image identifiers and SHA-256
+of each actual source image and layer. Historical failed revisions are excluded.
+
+Runtime package: the selected model3/MOC3, textures, physics, expressions and
+motions only. It contains no Live2D Core, Cubism Framework, official sample
+character, downloaded authoring executable, model weight or user conversation.
+Owner-installed compatible Live2D runtime components retain their own terms.
+
+Authoring tool used: PSD2Live 3.6.7.
+https://github.com/tsunehimatoi/psd2live
+The authoring executable is not included. The source package contains the
+selected layered PSD, PSD2Live project, CMO3 and optional CAN3 files so the
+character can be inspected and edited with compatible tools.
+Official Cubism Editor/Animator reopening is a separate verification step;
+exported file headers alone do not establish that verification.
+
+Application and project authoring scripts: GPL-3.0 as recorded in app/LICENSE
+and the repository NOTICE.md. This notice does not assign CC0 or invent an
+additional license for third-party references or runtime components.

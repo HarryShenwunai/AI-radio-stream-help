@@ -1,0 +1,37 @@
+✔ camera and microphone each require a new native decision; checks never reuse grants (3.168718ms)
+✔ foreign windows, origins, frames and unsupported permission scopes are rejected before prompting (1.415714ms)
+✔ permission confirmation cannot outlive hiding, navigating, destroying or replacing the owner (1.122813ms)
+✔ parallel permission requests cannot create stacked dialogs or take over a pending request (0.435908ms)
+✔ screen sharing rejects absent gesture, audio, foreign origin/frame before enumerating (0.82271ms)
+✔ main UI display permission and display handler always deny legacy and standard desktop capture (0.657ms)
+✔ timed-out media and display requests terminate once and ignore later approvals (31.225483ms)
+✔ owner path uses the exact Electron userData supplied by the host, without guessing APPDATA (1.514895ms)
+✔ relative overrides are resolved against the actual backend working directory (0.205309ms)
+✔ explicit data/runtime overrides do not leak other environment variables (0.164618ms)
+✔ runtime selection is CPU by default and never accepts arbitrary paths (2.840903ms)
+✔ CUDA profiles must match the CPU application source and interpreter (3.550643ms)
+✔ native source selection creates a separate sandboxed local window without starting capture (9.368927ms)
+✔ isolated capture grants only its exact packaged main frame, video-only and actual chosen source (1.241882ms)
+✔ dedicated window blocks network, arbitrary local files, popups and subframe navigation (4.519684ms)
+✔ returned frames are bounded, single-inflight and never issued to a stale capture id (1.968228ms)
+✔ hiding the main owner destroys its capture owner and invalidates frames (0.667166ms)
+✔ minimizing either owner or hiding the local capture preview stops capture (1.557859ms)
+✔ late stop from an older capture cannot stop the new owner (1.395104ms)
+✔ cancel and disappearing source cannot fall back to the first display (1.053158ms)
+✔ single active capture prevents duplicate render owners (0.620867ms)
+✔ only explicit local backend origins are accepted (0.997964ms)
+✔ returning from display output preserves visible bounds after monitor removal or resolution changes (0.92194ms)
+✔ navigation never leaves the paired page (0.239361ms)
+✔ bridge payload is typed and cannot invoke arbitrary host methods (0.248184ms)
+✔ compact and expanded bounds stay inside normal and small monitors (0.345191ms)
+✔ Windows assembly rejects ELF, truncated files and x86 PE without executing artifacts (1.817721ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 174.34784
+
+STDERR:

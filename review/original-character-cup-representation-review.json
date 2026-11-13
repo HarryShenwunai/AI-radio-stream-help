@@ -1,0 +1,692 @@
+{
+  "status": "READ_ONLY_STRUCTURAL_ALTERNATIVE_REVIEW_NOT_IMPLEMENTED",
+  "date_utc": "2026-11-13",
+  "verified_facts": {
+    "actual_live_workspace_state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+    "live_mesh_parent_axes": {
+      "mesh:ArtMeshHandwearR": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "mesh:ArtMeshHandwearR",
+        "name": "hand-r",
+        "parent": "OriginalWristR",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "draw_order": 390.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "blend_mode": "Normal",
+          "masked_by": [],
+          "invert_mask": false,
+          "culling": false,
+          "selectable": true,
+          "user_data": ""
+        },
+        "forms": 1,
+        "axes": {},
+        "channels": [],
+        "inherited": [
+          {
+            "target": "rotation:OriginalWristR",
+            "name": "OriginalWristR",
+            "parameters": [
+              "ParamHandR"
+            ]
+          },
+          {
+            "target": "rotation:OriginalElbowR",
+            "name": "OriginalElbowR",
+            "parameters": [
+              "ParamForearmR"
+            ]
+          },
+          {
+            "target": "rotation:OriginalShoulderR",
+            "name": "OriginalShoulderR",
+            "parameters": [
+              "ParamArmR"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyZBreath",
+            "name": "Body Z / Breath",
+            "parameters": [
+              "ParamBodyAngleZ",
+              "ParamBreath"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "mesh:ArtMeshHandwearL": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "mesh:ArtMeshHandwearL",
+        "name": "hand-l",
+        "parent": "OriginalWristL",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "draw_order": 400.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "blend_mode": "Normal",
+          "masked_by": [],
+          "invert_mask": false,
+          "culling": false,
+          "selectable": true,
+          "user_data": ""
+        },
+        "forms": 1,
+        "axes": {},
+        "channels": [],
+        "inherited": [
+          {
+            "target": "rotation:OriginalWristL",
+            "name": "OriginalWristL",
+            "parameters": [
+              "ParamHandL"
+            ]
+          },
+          {
+            "target": "rotation:OriginalElbowL",
+            "name": "OriginalElbowL",
+            "parameters": [
+              "ParamForearmL"
+            ]
+          },
+          {
+            "target": "rotation:OriginalShoulderL",
+            "name": "OriginalShoulderL",
+            "parameters": [
+              "ParamArmL"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyZBreath",
+            "name": "Body Z / Breath",
+            "parameters": [
+              "ParamBodyAngleZ",
+              "ParamBreath"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "rotation:OriginalWristR": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "rotation:OriginalWristR",
+        "name": "OriginalWristR",
+        "parent": "OriginalElbowR",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "selectable": true
+        },
+        "forms": 3,
+        "axes": {
+          "ParamHandR": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        "channels": [],
+        "inherited": [
+          {
+            "target": "rotation:OriginalElbowR",
+            "name": "OriginalElbowR",
+            "parameters": [
+              "ParamForearmR"
+            ]
+          },
+          {
+            "target": "rotation:OriginalShoulderR",
+            "name": "OriginalShoulderR",
+            "parameters": [
+              "ParamArmR"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyZBreath",
+            "name": "Body Z / Breath",
+            "parameters": [
+              "ParamBodyAngleZ",
+              "ParamBreath"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "rotation:OriginalElbowR": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "rotation:OriginalElbowR",
+        "name": "OriginalElbowR",
+        "parent": "OriginalShoulderR",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "selectable": true
+        },
+        "forms": 3,
+        "axes": {
+          "ParamForearmR": [
+            -6.0,
+            0.0,
+            6.0
+          ]
+        },
+        "channels": [],
+        "inherited": [
+          {
+            "target": "rotation:OriginalShoulderR",
+            "name": "OriginalShoulderR",
+            "parameters": [
+              "ParamArmR"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyZBreath",
+            "name": "Body Z / Breath",
+            "parameters": [
+              "ParamBodyAngleZ",
+              "ParamBreath"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "rotation:OriginalShoulderR": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "rotation:OriginalShoulderR",
+        "name": "OriginalShoulderR",
+        "parent": "DeformBodyZBreath",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "selectable": true
+        },
+        "forms": 3,
+        "axes": {
+          "ParamArmR": [
+            -4.0,
+            0.0,
+            4.0
+          ]
+        },
+        "channels": [],
+        "inherited": [
+          {
+            "target": "warp:DeformBodyZBreath",
+            "name": "Body Z / Breath",
+            "parameters": [
+              "ParamBodyAngleZ",
+              "ParamBreath"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "warp:DeformBodyZBreath": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "warp:DeformBodyZBreath",
+        "name": "Body Z / Breath",
+        "parent": "DeformBodyLean",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quad": true,
+          "selectable": true
+        },
+        "forms": 9,
+        "axes": {
+          "ParamBodyAngleZ": [
+            -10.0,
+            0.0,
+            10.0
+          ],
+          "ParamBreath": [
+            0.0,
+            0.5,
+            1.0
+          ]
+        },
+        "channels": [],
+        "inherited": [
+          {
+            "target": "warp:DeformBodyLean",
+            "name": "Body Lean / Proportion",
+            "parameters": [
+              "ParamBodyLean",
+              "ParamProportion"
+            ]
+          },
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "warp:DeformBodyLean": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "warp:DeformBodyLean",
+        "name": "Body Lean / Proportion",
+        "parent": "DeformBodyXY",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quad": true,
+          "selectable": true
+        },
+        "forms": 9,
+        "axes": {
+          "ParamBodyLean": [
+            -10.0,
+            0.0,
+            10.0
+          ],
+          "ParamProportion": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        "channels": [],
+        "inherited": [
+          {
+            "target": "warp:DeformBodyXY",
+            "name": "Body XY",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyAngleY"
+            ]
+          }
+        ]
+      },
+      "warp:DeformBodyXY": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "warp:DeformBodyXY",
+        "name": "Body XY",
+        "visible": true,
+        "part": "PartBody",
+        "static": {
+          "opacity": 1.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quad": true,
+          "selectable": true
+        },
+        "forms": 9,
+        "axes": {
+          "ParamBodyAngleX": [
+            -10.0,
+            0.0,
+            10.0
+          ],
+          "ParamBodyAngleY": [
+            -10.0,
+            0.0,
+            10.0
+          ]
+        },
+        "channels": [],
+        "inherited": []
+      },
+      "mesh:ArtMeshLayer": {
+        "scope": "object",
+        "state": "5f412683-e095-4caa-856d-497834a036d3:13:10",
+        "project_id": "65f80f6b-98a3-4bba-b678-930df87f21b1",
+        "history_node_id": "history-d2884c46-a1d3-426d-bc75-ca5d5a6a9f1c",
+        "target": "mesh:ArtMeshLayer",
+        "name": "cup",
+        "parent": "OriginalCupManualWarp",
+        "visible": true,
+        "part": "PartExtra",
+        "static": {
+          "opacity": 1.0,
+          "draw_order": 300.0,
+          "multiply_color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "screen_color": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "blend_mode": "Normal",
+          "masked_by": [],
+          "invert_mask": false,
+          "culling": false,
+          "selectable": true,
+          "user_data": ""
+        },
+        "forms": 1,
+        "axes": {},
+        "channels": [
+          {
+            "channel": "opacity",
+            "value": "1.0",
+            "axes": {
+              "ParamCupVisible": [
+                0.0,
+                1.0
+              ]
+            }
+          }
+        ],
+        "inherited": [
+          {
+            "target": "warp:OriginalCupManualWarp",
+            "name": "Independent cup transforms",
+            "parameters": [
+              "ParamCupX",
+              "ParamCupY",
+              "ParamCupRotation"
+            ]
+          },
+          {
+            "target": "warp:OriginalCupHoldFollow",
+            "name": "Direct affine cup body follow",
+            "parameters": [
+              "ParamBodyAngleX",
+              "ParamBodyLean",
+              "ParamCupHold"
+            ]
+          },
+          {
+            "target": "rotation:OriginalCupRoot",
+            "name": "Constant independent cup root",
+            "parameters": []
+          }
+        ]
+      }
+    },
+    "object_paste_description": "Paste copies of objects, as Cubism's copy and paste: meshes, warp and rotation deformers with their descendants, parts with their contents, and parameters. Copies keep keyforms, blend shapes, masks, paths, vertex groups and the glue between copied meshes, share the original's texture and layer, and reference other copies in place of their originals; a copied parameter is a new axis with the original's range and no keyforms. Swings, simulations and interior effects are not copied. New IDs are fixed when the paste is recorded and returned in ids; the deform paths copied with the meshes in paths. One undoable history edit.",
+    "object_paste_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque state from workspace_inspect or the preceding result. Includes load generation and durable version; history node IDs are not state tokens."
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Copied objects as kind:id (mesh, warp, rotation, part, parameter). A deformer brings its descendant deformers and meshes, a part its child parts, meshes and the deformers organized in it."
+        },
+        "parent": {
+          "type": "string",
+          "minLength": 1,
+          "description": "warp:ID, rotation:ID or root: the deformer the pasted meshes and deformers hang under. Meshes keep where they show (space canvas); deformers keep their local geometry. Default: the originals' parent."
+        },
+        "part": {
+          "type": "string",
+          "minLength": 1,
+          "description": "part:ID or root: where the pasted objects sit in the parts tree. Default: right after each original."
+        },
+        "parameter_group": {
+          "type": "string",
+          "minLength": 1,
+          "description": "param_group:ID or root for pasted parameters. Default: right after each original."
+        },
+        "ids": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "New IDs by source kind:id, fixed in advance. Others are the source ID with _copy, then _copy_2, ... - the first one free."
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "description": "Unique request ID. Retry unchanged arguments with this ID to recover the same result; use a new ID for a new attempt."
+        },
+        "project_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Current project_id from workspace_inspect; null only when no project is loaded."
+        }
+      },
+      "required": [
+        "state",
+        "sources",
+        "request_id",
+        "project_id"
+      ]
+    },
+    "release_source": {
+      "RigObjectPaste.kt": {
+        "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigObjectPaste.kt",
+        "sha256": "a4aeeb62becb88da44860864aaa6c60935f7b3152c8ddae49c1d2bf5f1bace49"
+      },
+      "RigMeshDuplication.kt": {
+        "url": "https://github.com/tsunehimatoi/psd2live/blob/bfadd8343774d5b6208146060c4fa175d84a0f4f/src/main/kotlin/io/github/psd2live/core/RigMeshDuplication.kt",
+        "sha256": "9d077eeb9905aec0ff63539118dfab4c59b6100fcdd4950cc43c3138243753e4"
+      }
+    },
+    "current_test_contract": {
+      "group_syntax": "tests/hand_cup_contract.py64 permits nonempty distinct list cup IDs, but behavior below is stronger than just list syntax.",
+      "visibility": "tests/hand_cup_metamorphic_check.py227-230 requires every cup-group mesh visible>0 in detached shown state then0 when hidden.",
+      "detached_root": "tests/hand_cup_measurements.py196 requires complete vertices+opacity of every cup-group mesh unchanged under Body/Breath in Hold0, including opacity0 meshes. A hidden held instance inherited from body violates this.",
+      "hold_no_visibility_switch": "tests/hand_cup_measurements.py198 explicitly requires each cup mesh opacity identical and>0 between Hold0/Hold1, to reject substituting a visibility switch for real coupling."
+    }
+  },
+  "mathematical_inference": {
+    "conditional_validity": "If neutral source input points of held-cup and palms coincide under the same BodyXY->BodyLean->BodyZBreath map, all shoulder/elbow/wrist inputs remain neutral, and no extra mesh-local Body shapes exist, inherited continuous body mapping removes the need to fit composed six-axis outputs. Live palm axes are empty and the required common chain was observed.",
+    "mesh_barycentric_caveat": "Warp acts on mesh vertices. Equal rest barycentric positions in differently tessellated meshes need not remain equal under nonlinear warp. Insert same contact positions as actual vertices in cup and both palms and rebind actual Core triangles; keep1px tolerance.",
+    "rotation_chain_caveat": "Default joint chains neutralized in rest are a precondition. If either arm/wrist moves while Hold1, body-only held-cup parent cannot follow both hands.",
+    "nonrigid_cup": "Sharing spatially nonlinear body warp may deform cup itself. It preserves common points, not rigid physical cup shape; actual GL artwork review required."
+  },
+  "copy_api_assessment": {
+    "supported": "object_paste copies mesh, shares original texture/layer, preserves keyforms and references, optional explicit parent does canvas-space bind.",
+    "not_equivalent": "mesh_duplicate only transfers topology to an already existing target mesh and samples its own artwork; not object creation.",
+    "audit_required": "Actual new MOC must prove source texture/UV preservation, correct rest placement, intended parent scope and no copied stale Hold fitting grid/manual artifacts."
+  },
+  "risks": {
+    "linear_crossfade": "Two opacity branches alphaHeld=h and alphaFree=1-h create separated ghost cups when poses differ; even perfectly coincident opaque cups composite to alpha=1-h(1-h), only0.75 at h0.5.",
+    "hard_switch": "Requires same world position/shape at handoff to avoid a jump and explicit handling of arbitrary intermediate Hold values. Ordinary Cubism interpolated opacity curves are continuous; narrow key intervals are not exact discrete semantics. Existing authored hold transitions are continuous, so do not silently relabel them discrete.",
+    "manual_controls": "X/Y/rotation must target both cup representations without touching noncup meshes. Held parent may scale/rotate local translation; document actual units and measure source-pixel behavior.",
+    "performance": "One extra drawable using shared texture avoids a new source image/atlas copy by API design, but hidden mesh can still incur Core deformation work. No frame-time benchmark performed."
+  },
+  "recommendation": "Feasible alternate representation, but incompatible with current explicit single-cup coupling assertions. Do not substitute it and call old contract passed. If root deliberately versions representation semantics, retain1px grips, noncup exact0, raw/product real Core probes and add active-cup uniqueness, switch continuity and invisible branch invariants. No current thresholds/tests modified.",
+  "unchanged_thresholds": {
+    "grip_source_pixels": 1,
+    "finger_root_source_pixels": 0.5,
+    "non_target_geometry_opacity": "exact0"
+  },
+  "operations_performed": "Only read-only live workspace_inspect/workspace_get_operation/workspace_list_operations and official source reads; no edit, new mesh, source, MOC or production mutation."
+}

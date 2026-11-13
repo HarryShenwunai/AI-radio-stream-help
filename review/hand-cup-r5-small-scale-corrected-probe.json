@@ -1,0 +1,512 @@
+{
+  "observed_at": "2026-11-12T23:56:23.759559+00:00",
+  "status": "failed",
+  "checks": {
+    "real_new_core_cuphold_default_ranges_and_fresh_alpha_supported_grip_triangles": "passed"
+  },
+  "scope": "partial real raw-Core and product held/detached finite Cartesian plus off-key interpolation test",
+  "full_acceptance": "BLOCKED",
+  "artwork_accepted": false,
+  "windows_executed": false,
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.moc3": "45c77d5efb3c773811f0eeb9325006ed738f9b96e20c2a7700c830ded4fdadf9",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.4096/texture_00.png": "1b588719c23c7798f87b74b641e2a824d797c69bdfc41b5da18bc11a2889864f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-small-scale-probe/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/r5-grip-landmark-contract.json": "22fd89c67eebda4fab303136b19bbe73491659f48f461bcde395daacae259ed6",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_hold_candidate_check.py": "aa5785956fc0bd47deb9fe66851ac452ac34c3845dbc14aea40b194219379def",
+    "/workspace/AI-radio-stream-help/scripts/avatar_live2d_contract.py": "c2e017722142824b418600c288488fb2e4d9b27344acbc5603bea240e56df521",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "261c8550391da022e4d09498a00fd26dd47f9e70915153bb70f07dd4300b333c",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "a2860fdb1043da85c2439bc775383412d47103bab7010f7e58ea4ecf798da5ec",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "3e733af9e5e39366671bdab0d0d88c669b74c79ffad04b48c2b8b92af4e47925",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "89e88edae0933cee15d1298e23bf3a0d4a3cfad48770e3fb32a09c72b8c07337",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "/workspace/AI-radio-stream-help/.build/hand-cup-small-axis-values.json": "cc4d250a6a83e11dd38e1c73f04a25f07431d47316e8ea7bccc9fe6c158328d6"
+  },
+  "page_errors": [],
+  "pending": [
+    "final unified artist-reviewed body/wrist/source",
+    "four complete authored hand/cup actions",
+    "actual final Studio action flow",
+    "human art acceptance, Windows/4060, official Editor reopening"
+  ],
+  "default_body_hold_mode_diagnostics": {
+    "0": {
+      "ArtMeshHandwearL": {
+        "bbox_source_px": [
+          917.9186553955078,
+          1157.6602745056152,
+          1048.0562438964844,
+          1339.5971755981445
+        ],
+        "centroid_source_px": [
+          985.0281020110508,
+          1248.284931470763
+        ],
+        "opacity": 1
+      },
+      "ArtMeshHandwearR": {
+        "bbox_source_px": [
+          684.9379405975342,
+          1135.9892272949219,
+          828.5799751281738,
+          1367.7740173339844
+        ],
+        "centroid_source_px": [
+          755.1221532968375,
+          1245.6266796405498
+        ],
+        "opacity": 1
+      },
+      "ArtMeshLayer": {
+        "bbox_source_px": [
+          745.9423370361328,
+          1039.1205749511719,
+          1036.859390258789,
+          1331.117057800293
+        ],
+        "centroid_source_px": [
+          893.3008060826884,
+          1180.394643449164
+        ],
+        "opacity": 1
+      }
+    },
+    "1": {
+      "ArtMeshHandwearL": {
+        "bbox_source_px": [
+          917.9186553955078,
+          1157.6602745056152,
+          1048.0562438964844,
+          1339.5971755981445
+        ],
+        "centroid_source_px": [
+          985.0281020110508,
+          1248.284931470763
+        ],
+        "opacity": 1
+      },
+      "ArtMeshHandwearR": {
+        "bbox_source_px": [
+          684.9379405975342,
+          1135.9892272949219,
+          828.5799751281738,
+          1367.7740173339844
+        ],
+        "centroid_source_px": [
+          755.1221532968375,
+          1245.6266796405498
+        ],
+        "opacity": 1
+      },
+      "ArtMeshLayer": {
+        "bbox_source_px": [
+          745.9423370361328,
+          1039.1205749511719,
+          1036.859390258789,
+          1331.117057800293
+        ],
+        "centroid_source_px": [
+          893.3008060826884,
+          1180.394643449164
+        ],
+        "opacity": 1
+      }
+    }
+  },
+  "actual_default_parameters": {
+    "ParamCupHold": 1,
+    "ParamCupVisible": 1,
+    "ParamCupRotation": 0,
+    "ParamCupY": 0,
+    "ParamCupX": 0,
+    "ParamFingerThumbR": 0,
+    "ParamFingerRingR": 0,
+    "ParamFingerMiddleR": 0,
+    "ParamFingerLittleR": 0,
+    "ParamFingerIndexR": 0,
+    "ParamHandR": 0,
+    "ParamForearmR": 0,
+    "ParamArmR": 0,
+    "ParamFingerThumbL": 0,
+    "ParamFingerRingL": 0,
+    "ParamFingerMiddleL": 0,
+    "ParamFingerLittleL": 0,
+    "ParamFingerIndexL": 0,
+    "ParamHandL": 0,
+    "ParamForearmL": 0,
+    "ParamArmL": 0,
+    "ParamAngleX": 0,
+    "ParamAngleY": 0,
+    "ParamAngleZ": 0,
+    "ParamEyeLOpen": 1,
+    "ParamEyeROpen": 1,
+    "ParamEyeBallX": 0,
+    "ParamEyeBallY": 0,
+    "ParamEyeBallForm": 0,
+    "ParamBrowLY": 0,
+    "ParamBrowRY": 0,
+    "ParamMouthForm": 0,
+    "ParamMouthOpenY": 0,
+    "ParamBodyAngleX": 0,
+    "ParamBodyAngleY": 0,
+    "ParamBodyAngleZ": 0,
+    "ParamBodyLean": 0,
+    "ParamProportion": 0,
+    "ParamBreath": 0,
+    "ParamHairFront": 0,
+    "ParamHairBack": 0
+  },
+  "actual_default": {
+    "core_version": 83951616,
+    "moc_version": 5,
+    "consistency": 1,
+    "parameters": 41,
+    "drawables": 42,
+    "cup_hold": {
+      "id": "ParamCupHold",
+      "min": 0,
+      "default": 1,
+      "max": 1,
+      "value": 1
+    },
+    "source_grip_support": [
+      {
+        "source_point": [
+          788.5,
+          1195.5
+        ],
+        "supports": [
+          {
+            "id": "ArtMeshHandwearR",
+            "triangle": [
+              55,
+              64,
+              58
+            ],
+            "weights": [
+              0.39468717550153226,
+              0.4795272201620327,
+              0.1257856043364351
+            ],
+            "uv": [
+              0.9420165681996767,
+              0.9117432296934134
+            ],
+            "alpha": 253,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 38
+          },
+          {
+            "id": "ArtMeshLayer",
+            "triangle": [
+              148,
+              129,
+              131
+            ],
+            "weights": [
+              0.5272993742931557,
+              0.2931011685362305,
+              0.17959945717061382
+            ],
+            "uv": [
+              0.9271240326871604,
+              0.9610596549799468
+            ],
+            "alpha": 253,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 29
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "triangle": [
+              643,
+              569,
+              672
+            ],
+            "weights": [
+              0.36103825597464495,
+              0.1912233941110292,
+              0.4477383499143258
+            ],
+            "uv": [
+              0.1580810459986771,
+              0.7108055601701141
+            ],
+            "alpha": 253,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 4
+          }
+        ]
+      },
+      {
+        "source_point": [
+          1001.5,
+          1217.5
+        ],
+        "supports": [
+          {
+            "id": "ArtMeshHandwearL",
+            "triangle": [
+              46,
+              51,
+              6
+            ],
+            "weights": [
+              0.7685200691001446,
+              0.21013621842855718,
+              0.021343712471298237
+            ],
+            "uv": [
+              0.9732665853081341,
+              0.9117431990965214
+            ],
+            "alpha": 253,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 39
+          },
+          {
+            "id": "ArtMeshLayerL3",
+            "triangle": [
+              1,
+              19,
+              0
+            ],
+            "weights": [
+              0.5998351578384556,
+              0.16677076223966777,
+              0.23339407992187658
+            ],
+            "uv": [
+              0.9774170334717225,
+              0.8155518698180986
+            ],
+            "alpha": 252,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 32
+          },
+          {
+            "id": "ArtMeshLayerL5",
+            "triangle": [
+              11,
+              12,
+              18
+            ],
+            "weights": [
+              0.46101471262800026,
+              0.439470674152426,
+              0.09951461321957378
+            ],
+            "uv": [
+              0.9310303152156694,
+              0.8453370347999074
+            ],
+            "alpha": 255,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 30
+          },
+          {
+            "id": "ArtMeshLayer",
+            "triangle": [
+              32,
+              115,
+              116
+            ],
+            "weights": [
+              0.13608770324962594,
+              0.08645907029215824,
+              0.7774532264582158
+            ],
+            "uv": [
+              0.9791259762629897,
+              0.9556885625629227
+            ],
+            "alpha": 255,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 29
+          },
+          {
+            "id": "ArtMeshTopwear",
+            "triangle": [
+              516,
+              602,
+              582
+            ],
+            "weights": [
+              0.23667179182562526,
+              0.4482377131879239,
+              0.31509049498645086
+            ],
+            "uv": [
+              0.2100888093109332,
+              0.7054641758550418
+            ],
+            "alpha": 253,
+            "opacity": 1,
+            "mask_count": 0,
+            "render_order": 4
+          }
+        ]
+      }
+    ]
+  },
+  "held_sweep": {
+    "actual_cartesian_states": 4,
+    "additional_off_key_states": 7,
+    "seed": 9426,
+    "complete_authored_axis_grid": false,
+    "levels": {
+      "ParamBodyAngleX": [
+        0,
+        1
+      ],
+      "ParamBreath": [
+        0,
+        0.1
+      ]
+    },
+    "off_key_parameters": [
+      {
+        "ParamBodyAngleX": 0.75,
+        "ParamBreath": 0.05
+      },
+      {
+        "ParamBodyAngleX": 0.25,
+        "ParamBreath": 0.07500000000000001
+      },
+      {
+        "ParamBodyAngleX": 0.25,
+        "ParamBreath": 0.05
+      },
+      {
+        "ParamBodyAngleX": 0.5,
+        "ParamBreath": 0.05
+      },
+      {
+        "ParamBodyAngleX": 0.75,
+        "ParamBreath": 0.025
+      },
+      {
+        "ParamBodyAngleX": 0.5,
+        "ParamBreath": 0.025
+      },
+      {
+        "ParamBodyAngleX": 0.25,
+        "ParamBreath": 0.025
+      }
+    ],
+    "completed_states": 9,
+    "worst_grip_error_source_px": {
+      "raw": 0.0036456065557095474,
+      "product": 0.0036456065557095474
+    },
+    "detached_worst_grip_error_source_px": {
+      "raw": 6.74163265930366,
+      "product": 6.74163265930366
+    },
+    "measured_hand_grip_displacement_source_px": {
+      "raw": {
+        "ParamBreath": 1.8159886452931817,
+        "ParamBodyAngleX": 6.5743207402938415
+      },
+      "product": {
+        "ParamBreath": 1.8159886452931817,
+        "ParamBodyAngleX": 6.5743207402938415
+      }
+    },
+    "scope": "explicit PARTIAL preflight grid, not the full authored range plus fixed-seed off-key samples; not a continuous proof",
+    "last_parameters": {
+      "ParamBodyAngleX": 0.5,
+      "ParamBreath": 0.025
+    },
+    "last_grip_errors": {
+      "raw": [
+        {
+          "cup_landmark": "grip_r_cup",
+          "hand_landmark": "grip_r_palm",
+          "error_source_px": 0.0025263320696040175,
+          "tolerance_source_px": 1
+        },
+        {
+          "cup_landmark": "grip_l_cup",
+          "hand_landmark": "grip_l_palm",
+          "error_source_px": 0.003482959844253716,
+          "tolerance_source_px": 1
+        }
+      ],
+      "product": [
+        {
+          "cup_landmark": "grip_r_cup",
+          "hand_landmark": "grip_r_palm",
+          "error_source_px": 0.0025263320696040175,
+          "tolerance_source_px": 1
+        },
+        {
+          "cup_landmark": "grip_l_cup",
+          "hand_landmark": "grip_l_palm",
+          "error_source_px": 0.003482959844253716,
+          "tolerance_source_px": 1
+        }
+      ]
+    },
+    "last_detached_grip_errors": {
+      "raw": [
+        {
+          "cup_landmark": "grip_r_cup",
+          "hand_landmark": "grip_r_palm",
+          "error_source_px": 3.3034981682201257,
+          "tolerance_source_px": 1
+        },
+        {
+          "cup_landmark": "grip_l_cup",
+          "hand_landmark": "grip_l_palm",
+          "error_source_px": 1.7129931887294365,
+          "tolerance_source_px": 1
+        }
+      ],
+      "product": [
+        {
+          "cup_landmark": "grip_r_cup",
+          "hand_landmark": "grip_r_palm",
+          "error_source_px": 3.3034981682201257,
+          "tolerance_source_px": 1
+        },
+        {
+          "cup_landmark": "grip_l_cup",
+          "hand_landmark": "grip_l_palm",
+          "error_source_px": 1.7129931887294365,
+          "tolerance_source_px": 1
+        }
+      ]
+    }
+  },
+  "error": "CupHold0 is not independent of Body/Breath; detached cup must remain ROOT",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/hand_cup_hold_candidate_check.py\", line 126, in main\n    measure_held_sweep(pose,contract,landmarks,parameters,report['held_sweep'],args.interior_count,sample_grid=sample_grid)\n  File \"/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py\", line 196, in measure_held_sweep\n    assert all(a[mid]['vertices']==b[mid]['vertices'] and a[mid]['opacity']==b[mid]['opacity'] for mid in cup), 'CupHold0 is not independent of Body/Breath; detached cup must remain ROOT'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: CupHold0 is not independent of Body/Breath; detached cup must remain ROOT\n",
+  "sources_unchanged": true
+}

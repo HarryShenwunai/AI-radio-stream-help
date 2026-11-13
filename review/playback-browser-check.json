@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "scope": "real Chromium HTMLAudio and actual playback routes/SQLite/prompt filtering; synthetic 4s tone, fake LLM; not proof of human hearing",
+  "checks": {
+    "baseline_message_is_eligible_before_audio": "passed",
+    "real_stop_acknowledges_position_without_inventing_heard_text": "passed",
+    "next_model_prompt_excludes_unconfirmed_assistant_tail": "passed",
+    "full_text_stays_visible_in_chat": "passed",
+    "actual_audio_end_confirms_the_whole_synthesized_message": "passed",
+    "completed_message_is_available_to_next_model_turn": "passed",
+    "javascript_runtime": "passed"
+  },
+  "external_connections": 0,
+  "video": "/workspace/.live2d/evaluation/playback/receipt-flow.webm",
+  "receipts_without_credentials": [
+    {
+      "status": "playing",
+      "position_seconds": 0,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "playing",
+      "position_seconds": 0.941573,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "stopped",
+      "position_seconds": 1.411742,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "playing",
+      "position_seconds": 0,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "playing",
+      "position_seconds": 1.012814,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "playing",
+      "position_seconds": 2.076422,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "playing",
+      "position_seconds": 3.138918,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    },
+    {
+      "status": "completed",
+      "position_seconds": 4,
+      "duration_seconds": 4,
+      "character_id": "68baa26c-4e7d-4bc6-a5c9-eed70dc89ac1",
+      "appearance_id": null,
+      "message_id": 3
+    }
+  ],
+  "javascript_errors": []
+}

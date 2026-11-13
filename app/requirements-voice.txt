@@ -1,0 +1,2 @@
+# Kept separate from optional CUDA/model runtimes; consumes local PCM WAV.
+-r requirements-asr.txt

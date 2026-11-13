@@ -1,0 +1,136 @@
+{
+  "observed_at": "2026-11-12T13:08:56.807355+00:00",
+  "reviewer": "independent character QA agent; did not modify reviewed application sources",
+  "status": "PNG_SCOPE_VERIFIED_WITH_LIMITATIONS",
+  "scope": "First local, self-service static PNG-state character implementation; not complete project acceptance",
+  "independently_executed": [
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_assets.py -v",
+      "passed": 24,
+      "elapsed_seconds": 0.074,
+      "evidence": "/workspace/research/character-assets-independent.log",
+      "kind": "real Pillow decoding, filesystem, corruption and failure-path module tests"
+    },
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_characters.py -v",
+      "passed": 24,
+      "elapsed_seconds": 0.314,
+      "evidence": "/workspace/research/character-store-independent.log",
+      "kind": "real SQLite, migration/WAL, identity isolation and filesystem module tests"
+    },
+    {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_character_http.py -v",
+      "passed": 22,
+      "elapsed_seconds": 13.819,
+      "evidence": "/workspace/research/character-http-independent.log",
+      "kind": "actual HTTP routes and real SQLite/PNG; fake text synthesis and audio"
+    },
+    {
+      "command": "node tests/test_character_ui.mjs",
+      "passed": 18,
+      "evidence": "/workspace/research/character-node-ui-independent.log",
+      "kind": "shipped JavaScript executed against controlled browser primitives"
+    },
+    {
+      "command": "node tests/test_voice_ui.mjs",
+      "passed": 8,
+      "evidence": "/workspace/research/character-node-voice-independent.log",
+      "kind": "shipped JavaScript playback/abort race regression; controlled Audio"
+    },
+    {
+      "command": "python tests/character_browser_check.py",
+      "passed": 15,
+      "evidence": "review/character-browser.json",
+      "kind": "actual Chromium, actual file chooser upload, decoded PNG rendering, local HTTP, HTMLAudio test tone, two browser views, responsive checks"
+    }
+  ],
+  "findings": [
+    {
+      "id": "QA-01",
+      "severity": "high functional",
+      "issue": "CSP img-src rejected blob URLs, so actual local file preview stayed blank. Header-only mocks did not catch it.",
+      "fix": "Root added blob: only to img-src; script-src retained restrictions.",
+      "state": "fixed and actual Chromium reverified",
+      "evidence": "csp_allows_local_blob_image_preview and real_file_upload_preview_without_activation; original failure /workspace/research/character-browser-failure-1.json"
+    },
+    {
+      "id": "QA-02",
+      "severity": "high functional",
+      "issue": "Appearance revision Use buttons stayed disabled after activation because the asset list rendered while charactersBusy was true and was not refreshed when busy ended.",
+      "fix": "Frontend refreshes appearance controls when busy changes and retains current-revision guard; regression added.",
+      "state": "fixed and actual Chromium rollback reverified",
+      "evidence": "second_revision_and_user_rollback; original failure /workspace/research/character-browser-failure-2.json"
+    },
+    {
+      "id": "QA-03",
+      "severity": "medium migration",
+      "issue": "Legacy names accepted by the old application can exceed the new catalog limit or contain control characters, preventing migrated initialization.",
+      "fix": "Root normalizes only migrated-copy name to safe catalog name and logs audit, retaining original legacy source.",
+      "state": "fixed and actual HTTP plus SHA256 preservation reverified",
+      "evidence": "test_legacy_unsupported_name_is_normalized_without_touching_source"
+    },
+    {
+      "id": "QA-04",
+      "severity": "high credentials",
+      "discovered_by": "root implementation review",
+      "issue": "A global API key combined with per-identity provider settings could pair credentials with the wrong provider after switching identities.",
+      "fix": "Shared connection configuration, credential digest consistency guard, explicit replacement/clear on host change and stale snapshot refusal.",
+      "state": "root fix independently verified",
+      "evidence": "three loopback-provider tests: shared connection persists across role switch/reinit; stale snapshot409 produces zero requests; valid snapshot sends only matching fake key; partial-key-write503 produces zero requests"
+    }
+  ],
+  "coverage": {
+    "identity": "Independent chat/memory/task/personality DBs; same identity appearance preserves relationships; archive/restore/delete and last identity guards; stale expected_character_id409; malicious names displayed as text.",
+    "asset": "Actual static PNG import, four states, preview not activation, explicit activation, second independent synthetic file/revision rollback, active revision deletion guard, foreign identity asset refusal, metadata removal, resource authorization/path traversal, invalid/oversized/incorrect-field upload preservation.",
+    "asynchrony": "Old generation/request reuse, switch during generation or synthesis, deleted profile during synthesis, frontend epoch invalidation, role draft separation, single audio owner and old callbacks, stop/role-switch mouth reset.",
+    "migration": "Actual legacy source file SHA256 unchanged after migration, writing migrated DB and reinit; WAL and rollback failure paths in module tests.",
+    "credentials": "Only fake test keys and loopback providers; no external account or model calls.",
+    "browser": "Chromium at1440/390/360 CSS-pixel widths: no document horizontal overflow; actual file uploads and HTMLAudio advanced; JS runtime errors zero; local screenshot artifacts visually inspected."
+  },
+  "not_claimed": [
+    "The prior 28-item multi-format import specification is not all passed by these PNG subset tests; its NOT_RUN entries remain historical until separately mapped and tested.",
+    "No Live2D SDK/Core, model3.json loading, VRM, third-party character package compatibility or licensing acceptance.",
+    "No real voice/model quality, long-term persona/relationship quality, microphone capture or paid provider use.",
+    "No native desktop shell/window controls, installation, Windows/macOS, GPU, full-screen game or multi-monitor validation by this agent.",
+    "No target user hardware measurements, p95 import/switch latency, RSS/GPU/background energy budget or performance release acceptance. Test elapsed times are not product performance.",
+    "No destructive power-loss stress, exhaustive platform fault injection, remote syncing, public sharing, Bilibili/WeChat/Zerolan execution or deployment.",
+    "Real HTMLAudio lifecycle used a generated440Hz WAV with autoplay explicitly allowed at test launch; default browser autoplay restrictions and sound quality are not validated.",
+    "Artwork is synthetic geometric PNG fixtures; no claim that these are finished anime character artwork or a general multi-format holdout corpus."
+  ],
+  "remaining_checks": [
+    {
+      "item": "PNG color profiles",
+      "state": "known limitation",
+      "detail": "Metadata/ICC/gAMA stripped without source color-space conversion. Advise sRGB8bit sources; wide-gamut visual fidelity needs separate support/verification."
+    },
+    {
+      "item": "HTTP upload cancellation",
+      "state": "not fully verified",
+      "detail": "Module cancel_event rollback is tested; closing a browser request may leave a completed inactive revision. Current appearance remains preserved, but socket-disconnect cancellation is not proven."
+    },
+    {
+      "item": "Native desktop and packaging",
+      "state": "out of independent QA scope",
+      "detail": "Another agent/root must report actual host and packaged binary checks separately."
+    }
+  ],
+  "authorization": "Only isolated temporary data, local loopback services, local Chrome and local report/screenshot files. No purchase, deploy, account connection, outbound message, GitHub commit/push or production data modification.",
+  "environment": {
+    "python": "3.12.14",
+    "pillow": "13.0.0",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)"
+  },
+  "source_sha256": {
+    "app/server.py": "d4eee0a1b282755680fe8543fda4bf72e1aad685ef0c4ff39d03c7f10d117961",
+    "app/static/app.js": "1f9d342f0e8ede57367381459b3ff096da3927119ff1e859acf6233fa41a77a0",
+    "app/static/index.html": "37c4d314e650a16dc1a95dc2f022f9d8df433d7c9600a8048a4c0f18752b9c21",
+    "app/static/style.css": "39fd8781f2d32c38df844f219a21ae5d8dc1f2d975cc879f47ed8ac31a2003fd",
+    "src/companion_runtime/assets.py": "d835cdee20f27bebb5727f32788e61e46dbb703ccc040ab0191b5bcd23db3ecf",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/character_browser_check.py": "3c8eadc0a48307b68828383fc784e68b47640a40e50396798cb1dacc0cd96d78",
+    "tests/test_character_ui.mjs": "ff32935f00fdf20da5807ef31b7d67a0f03bc02a0d277e5939ddc8d9e6845690",
+    "tests/test_voice_ui.mjs": "6cf19ee3f026f0cc4e0aeae61f9d4b3e8365cff44a3251a470bd6d947bbc6f17"
+  },
+  "final_frontend_chrome_rerun_at": "2026-11-12T14:02:48.017947+00:00"
+}

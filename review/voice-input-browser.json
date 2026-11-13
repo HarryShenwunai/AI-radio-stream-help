@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "checks": {
+    "local_input_is_default": "passed",
+    "actual_mediarecorder_decode_resample_and_pcm_upload": "passed",
+    "recognition_fills_draft_without_sending_chat": "passed",
+    "native_hidden_recording_is_cancelled_without_upload": "passed",
+    "javascript_runtime": "passed"
+  },
+  "real_microphone": false,
+  "asr_model": "fixture only",
+  "external_connections": 0,
+  "pcm_observation": {
+    "rate": 16000,
+    "channels": 1,
+    "width": 2,
+    "frames": 27840,
+    "duration": 1.74,
+    "peak": 2030
+  },
+  "javascript_errors": []
+}

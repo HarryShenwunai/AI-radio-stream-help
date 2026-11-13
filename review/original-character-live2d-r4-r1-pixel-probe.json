@@ -1,0 +1,3705 @@
+{
+  "status": "passed",
+  "started_utc": "2026-11-12T23:07:31Z",
+  "scope": "original export + real owner-installed official Core; direct raw geometry and actual software WebGL; no product adapter",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cmo3": "55e1c9674b1617b8aa94e44fac37b5f8b18906cfa93c62108d288597c37b0db8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.psd2live.json": "e3f8efd9103a776690bb8609b7fad3690bd50bbc1ae7fde896ef9c2e770856e5",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.moc3": "63d0d048eec66c988d8217678259fa5f473de6157ba764eaaed58855af7d4930",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.can3": "5dc2787754a0b7478bf02e983eb469a67b4c4d76e961ee466cef0050947b0ec7",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.4096/texture_00.png": "bf51fc0ea2dec7b6471b88ea30a69670d1e91ebb2b87c768288e6afcd7bd0b0c",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/authoring/character-rig-r1.psd2live": "501203f083847edfd0ee6d272c984cc252fdb9d809fced3bcfbe10de7e97d0d8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/character.psd": "2b01192a93c2de498e29d1dece025aac03abb53b8afb827e7bfb632bfb1a7604",
+    "/workspace/AI-radio-stream-help/.build/original-character-art-r4-candidate2/layers.json": "49337688af42d4737bceece10c45a7b535cf977d16a389e8e979c51c97de9ae9",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "000dfbe5f15fc612448e076b3dca1151926e91f5b2542beab403b69b56bb53bd",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/runtime/revisions/3d6764b4-53b8-4bd3-888c-db4d7491cf04/script.js": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204"
+  },
+  "provenance": {
+    "format": "original-live2d-layers-v1",
+    "revision": "r4",
+    "canvas": {
+      "width": 1536,
+      "height": 2048
+    },
+    "provenance": [
+      {
+        "part": "head",
+        "manifest_sha256": "69803de1172a52a7915efbfd453b26d2099a99c63f4ea837827af83c36f22b44",
+        "layers": 21,
+        "original_sources": {
+          "face": {
+            "file": "sources/face.png",
+            "width": 1070,
+            "height": 1470,
+            "generated_image": "exec-583b92a4-b4e7-4a2d-919b-8c2cafb50251.png",
+            "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0"
+          },
+          "back": {
+            "file": "sources/back.png",
+            "width": 1198,
+            "height": 1313,
+            "generated_image": "exec-71361f4b-1aaa-4d53-add3-fb86392b27b1.png",
+            "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2"
+          },
+          "frontLeft": {
+            "file": "sources/frontLeft.png",
+            "width": 1070,
+            "height": 1470,
+            "generated_image": "exec-778fad51-261b-4232-94b6-3687891f64f3.png",
+            "sha256": "2df1ef8b79783d0a6969405e7012bbe0947b9ae12e8cfbd59e1cc969285d578b"
+          },
+          "frontCenter": {
+            "file": "sources/frontCenter.png",
+            "width": 1070,
+            "height": 1470,
+            "generated_image": "exec-65852dac-c0bc-45b4-9b48-e603f33a6002.png",
+            "sha256": "797eafadc64653db62bacf7027fd32ec932ca6863fecf242a67c752db701d952"
+          },
+          "frontRight": {
+            "file": "sources/frontRight.png",
+            "width": 1070,
+            "height": 1470,
+            "generated_image": "exec-b76cec1a-3394-481f-a0d9-abb7719cbe33.png",
+            "sha256": "4650c9cfcda3e09c7eb2dcba9509642eb6e1545e761dde1a0b1a5f7f51268851"
+          },
+          "eyes": {
+            "file": "sources/eyes.png",
+            "width": 1024,
+            "height": 1536,
+            "generated_image": "exec-4592f4be-d9f0-4255-aac0-6a3544a96fd2.png",
+            "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576"
+          },
+          "mouth": {
+            "file": "sources/mouth.png",
+            "width": 1536,
+            "height": 1024,
+            "generated_image": "exec-ea88a197-e86e-492c-8a93-db1b41273d32.png",
+            "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc"
+          }
+        }
+      },
+      {
+        "part": "body",
+        "manifest_sha256": "d4e4dc95fbb1d77e3448683f4cd50394a7ecb0a0071dfc2e48959043e0c0edc1",
+        "layers": 8,
+        "original_sources": {
+          "coherentBody": {
+            "file": "sources/coherent-empty-body.png",
+            "generated_image": "exec-122aa5bb-f263-4f79-9bca-844eaf3c3d37.png",
+            "sha256": "142296e0ecd0a9776b6f481cff62646b9ae4b5ccef1e12c8423baccad73776b0",
+            "width": 1070,
+            "height": 1470
+          },
+          "hiddenTorso": {
+            "file": "sources/hidden-torso-source.png",
+            "generated_image": "exec-ade190fa-7107-46be-87dd-7d55c4c11ae4.png",
+            "sha256": "68f692ea436b3753f2fc5451d31c0324d365f1dcb3504d5a38bfa2018a1c4c24",
+            "width": 1070,
+            "height": 1470
+          }
+        }
+      },
+      {
+        "part": "hands",
+        "manifest_sha256": "63896b305be954b098058f1b17f38f13a133cfdb51c6e66767ed01b56940b013",
+        "layers": 13,
+        "original_sources": {
+          "extendedPalms": {
+            "file": "sources/extendedPalms.png",
+            "generated_image": "exec-d3bb9484-bb50-46cb-a6b3-0aa71acf5179.png",
+            "sha256": "0a51d8f87dd7bf4efc451c63eb483d63d5e31bb53f8b85525190ad8e88ddf1ae",
+            "width": 1536,
+            "height": 1024,
+            "alpha0_pixels": 934455,
+            "alpha_ge8_pixels": 623132,
+            "not_a_rig_layer": false
+          },
+          "viewerLeft": {
+            "file": "sources/viewerLeft.png",
+            "generated_image": "exec-08efe181-8354-4426-9a17-7042d9890f67.png",
+            "sha256": "950006520ac6c3ac243dbd80d689c6d4ca8879b67fea9c33d071c333c6ff0e7c",
+            "width": 1536,
+            "height": 1024,
+            "alpha0_pixels": 1253945,
+            "alpha_ge8_pixels": 271402,
+            "not_a_rig_layer": false
+          },
+          "viewerRight": {
+            "file": "sources/viewerRight.png",
+            "generated_image": "exec-e6b49824-1d7f-4595-9db6-9d33d581303f.png",
+            "sha256": "0013b861e9b867ebf392c40181214c6afe2f58683d115a420ab981ff58efec29",
+            "width": 1536,
+            "height": 1024,
+            "alpha0_pixels": 1134787,
+            "alpha_ge8_pixels": 368198,
+            "not_a_rig_layer": false
+          },
+          "cup": {
+            "file": "sources/cup.png",
+            "generated_image": "exec-1ac20332-a976-466b-9194-7360d9b9735a.png",
+            "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102",
+            "width": 2172,
+            "height": 724,
+            "alpha0_pixels": 975908,
+            "alpha_ge8_pixels": 567577,
+            "not_a_rig_layer": false
+          },
+          "coherentReference": {
+            "file": "sources/coherentReference.png",
+            "generated_image": "exec-f2e6bcf0-997b-4742-a582-b61503265ca6.png",
+            "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf",
+            "width": 1070,
+            "height": 1470,
+            "alpha0_pixels": 847549,
+            "alpha_ge8_pixels": 717370,
+            "not_a_rig_layer": true
+          }
+        }
+      }
+    ],
+    "layers": [
+      {
+        "name": "back hair",
+        "file": "layers/00-back-hair.png",
+        "x": 315,
+        "y": 0,
+        "width": 900,
+        "height": 860,
+        "visible": true,
+        "source": "back",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1198,
+          "height": 1313
+        },
+        "source_alpha_bounds": {
+          "left": 16,
+          "top": 19,
+          "width": 1180,
+          "height": 1228
+        },
+        "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+        "part": "head"
+      },
+      {
+        "name": "topwear-backfill",
+        "file": "layers/01-topwear-backfill.png",
+        "x": 213,
+        "y": 762,
+        "width": 926,
+        "height": 1064,
+        "visible": false,
+        "source": "hiddenTorso",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 227,
+          "top": 765,
+          "width": 908,
+          "height": 1060
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": null,
+        "extraction": "imagegen source restricted to sleeve-covered coordinates",
+        "sha256": "d9ddaacd92d5cebf17efa6e4a98c1e510951577cd3944b0911a4e4a9cb18a677",
+        "part": "body"
+      },
+      {
+        "name": "upperarm-r",
+        "file": "layers/02-upperarm-r.png",
+        "x": 0,
+        "y": 148,
+        "width": 511,
+        "height": 1372,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 50,
+          "top": 758,
+          "width": 461,
+          "height": 760
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            340,
+            0
+          ],
+          [
+            365,
+            850
+          ],
+          [
+            350,
+            965
+          ],
+          [
+            170,
+            1175
+          ],
+          [
+            0,
+            1180
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "8b0a03895ef3b21cfd27c5f14040019619881a2ea8773bf019de6c92efea6780",
+        "part": "body"
+      },
+      {
+        "name": "upperarm-l",
+        "file": "layers/03-upperarm-l.png",
+        "x": 1036,
+        "y": 134,
+        "width": 423,
+        "height": 1436,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 1036,
+          "top": 894,
+          "width": 420,
+          "height": 673
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            790,
+            0
+          ],
+          [
+            1070,
+            0
+          ],
+          [
+            1070,
+            1195
+          ],
+          [
+            900,
+            1170
+          ],
+          [
+            790,
+            960
+          ],
+          [
+            740,
+            760
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "93c900d82a00dc57cd2d8e13df96457bd1caac185487f0a3ee2cae09f21484f2",
+        "part": "body"
+      },
+      {
+        "name": "topwear",
+        "file": "layers/04-topwear.png",
+        "x": 143,
+        "y": 13,
+        "width": 1322,
+        "height": 1995,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 153,
+          "top": 665,
+          "width": 1083,
+          "height": 1343
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": null,
+        "extraction": "exact complement of the six ordered sleeve/cuff polygons",
+        "sha256": "2555696e4807707b363cf4681a33e3ced8f73a13f4c5b73f15e64f6c793714e3",
+        "part": "body"
+      },
+      {
+        "name": "forearm-r",
+        "file": "layers/05-forearm-r.png",
+        "x": 41,
+        "y": 1225,
+        "width": 775,
+        "height": 608,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 45,
+          "top": 1225,
+          "width": 771,
+          "height": 606
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            0,
+            1140
+          ],
+          [
+            330,
+            955
+          ],
+          [
+            382,
+            956
+          ],
+          [
+            419,
+            982
+          ],
+          [
+            439,
+            960
+          ],
+          [
+            456,
+            916
+          ],
+          [
+            500,
+            911
+          ],
+          [
+            552,
+            944
+          ],
+          [
+            583,
+            982
+          ],
+          [
+            569,
+            1049
+          ],
+          [
+            540,
+            1100
+          ],
+          [
+            494,
+            1155
+          ],
+          [
+            408,
+            1228
+          ],
+          [
+            320,
+            1282
+          ],
+          [
+            200,
+            1335
+          ],
+          [
+            110,
+            1345
+          ],
+          [
+            0,
+            1290
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "47673b0abdbbd6cb7c12dd31951852bda87b20858ab6a81dfb97ea7d7d61cfed",
+        "part": "body"
+      },
+      {
+        "name": "forearm-l",
+        "file": "layers/06-forearm-l.png",
+        "x": 893,
+        "y": 1231,
+        "width": 565,
+        "height": 617,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": null,
+        "rig_bounds": {
+          "left": 893,
+          "top": 1231,
+          "width": 562,
+          "height": 614
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            638,
+            963
+          ],
+          [
+            660,
+            944
+          ],
+          [
+            703,
+            927
+          ],
+          [
+            747,
+            915
+          ],
+          [
+            775,
+            918
+          ],
+          [
+            785,
+            932
+          ],
+          [
+            791,
+            967
+          ],
+          [
+            798,
+            1010
+          ],
+          [
+            830,
+            1005
+          ],
+          [
+            855,
+            1020
+          ],
+          [
+            900,
+            1025
+          ],
+          [
+            960,
+            1080
+          ],
+          [
+            1044,
+            1160
+          ],
+          [
+            1025,
+            1265
+          ],
+          [
+            965,
+            1335
+          ],
+          [
+            900,
+            1360
+          ],
+          [
+            825,
+            1330
+          ],
+          [
+            760,
+            1250
+          ],
+          [
+            710,
+            1180
+          ],
+          [
+            674,
+            1110
+          ],
+          [
+            641,
+            1070
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "2f1f36a493912a0e98e806b5c7666e62b92a606b2f86294a9f2eec20a7689a0d",
+        "part": "body"
+      },
+      {
+        "name": "face",
+        "file": "layers/07-face.png",
+        "x": 525,
+        "y": 100,
+        "width": 600,
+        "height": 670,
+        "visible": true,
+        "source": "face",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 75,
+          "top": 19,
+          "width": 903,
+          "height": 1154
+        },
+        "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+        "part": "head"
+      },
+      {
+        "name": "eyewhite-r",
+        "file": "layers/08-eyewhite-r.png",
+        "x": 717,
+        "y": 460,
+        "width": 128,
+        "height": 53,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 105,
+          "top": 128,
+          "width": 312,
+          "height": 136
+        },
+        "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+        "part": "head"
+      },
+      {
+        "name": "eyewhite-l",
+        "file": "layers/09-eyewhite-l.png",
+        "x": 881,
+        "y": 458,
+        "width": 126,
+        "height": 52,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 0,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 93,
+          "top": 128,
+          "width": 311,
+          "height": 136
+        },
+        "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+        "part": "head"
+      },
+      {
+        "name": "iris-r",
+        "file": "layers/10-iris-r.png",
+        "x": 765,
+        "y": 458,
+        "width": 58,
+        "height": 58,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 181,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "sha256": "1af70380005de2e5a2e7842fc2764f46d81ac34dfe07c4140db415529d167dbc",
+        "part": "head"
+      },
+      {
+        "name": "iris-l",
+        "file": "layers/11-iris-l.png",
+        "x": 914,
+        "y": 455,
+        "width": 58,
+        "height": 58,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 307,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 139,
+          "top": 116,
+          "width": 192,
+          "height": 191
+        },
+        "sha256": "76ffef4fd2ac8971b3c34b3e0fdb692a0b9c370b09a8e5b4c702e1e1eb34d17f",
+        "part": "head"
+      },
+      {
+        "name": "eyelash-r",
+        "file": "layers/12-eyelash-r.png",
+        "x": 713,
+        "y": 453,
+        "width": 137,
+        "height": 42,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 73,
+          "top": 0,
+          "width": 360,
+          "height": 267
+        },
+        "sha256": "6212f872ff5881817e1c858cbf206c4c37da169d65eb5e1689d668d6fb0a44fb",
+        "part": "head"
+      },
+      {
+        "name": "eyelash-l",
+        "file": "layers/13-eyelash-l.png",
+        "x": 877,
+        "y": 451,
+        "width": 137,
+        "height": 42,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 614,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 0,
+          "width": 356,
+          "height": 268
+        },
+        "sha256": "b796d8af7fa8462fab56cb42c514c4d4e63066134bdad7ffa5228a06eb0824e0",
+        "part": "head"
+      },
+      {
+        "name": "lower eyelash-r",
+        "file": "layers/14-lower-eyelash-r.png",
+        "x": 718,
+        "y": 496,
+        "width": 128,
+        "height": 22,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 129,
+          "top": 150,
+          "width": 279,
+          "height": 80
+        },
+        "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+        "part": "head"
+      },
+      {
+        "name": "lower eyelash-l",
+        "file": "layers/15-lower-eyelash-l.png",
+        "x": 882,
+        "y": 494,
+        "width": 126,
+        "height": 22,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 921,
+          "width": 512,
+          "height": 307
+        },
+        "source_alpha_bounds": {
+          "left": 101,
+          "top": 150,
+          "width": 276,
+          "height": 76
+        },
+        "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+        "part": "head"
+      },
+      {
+        "name": "eyebrow-r",
+        "file": "layers/16-eyebrow-r.png",
+        "x": 714,
+        "y": 409,
+        "width": 132,
+        "height": 28,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 0,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 72,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+        "part": "head"
+      },
+      {
+        "name": "eyebrow-l",
+        "file": "layers/17-eyebrow-l.png",
+        "x": 885,
+        "y": 405,
+        "width": 129,
+        "height": 28,
+        "visible": true,
+        "source": "eyes",
+        "source_cell": {
+          "left": 512,
+          "top": 1228,
+          "width": 512,
+          "height": 308
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 95,
+          "width": 358,
+          "height": 90
+        },
+        "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+        "part": "head"
+      },
+      {
+        "name": "mouth",
+        "file": "layers/18-mouth.png",
+        "x": 815,
+        "y": 662,
+        "width": 126,
+        "height": 43,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 215,
+          "top": 127,
+          "width": 406,
+          "height": 120
+        },
+        "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+        "part": "head"
+      },
+      {
+        "name": "upper teeth",
+        "file": "layers/19-upper-teeth.png",
+        "x": 827,
+        "y": 663,
+        "width": 105,
+        "height": 20,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 0,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 124,
+          "top": 157,
+          "width": 388,
+          "height": 71
+        },
+        "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+        "part": "head"
+      },
+      {
+        "name": "tongue",
+        "file": "layers/20-tongue.png",
+        "x": 841,
+        "y": 688,
+        "width": 79,
+        "height": 21,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 278,
+          "top": 142,
+          "width": 253,
+          "height": 99
+        },
+        "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+        "part": "head"
+      },
+      {
+        "name": "upper lip",
+        "file": "layers/21-upper-lip.png",
+        "x": 806,
+        "y": 649,
+        "width": 145,
+        "height": 23,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 0,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 144,
+          "top": 140,
+          "width": 528,
+          "height": 90
+        },
+        "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+        "part": "head"
+      },
+      {
+        "name": "lower lip",
+        "file": "layers/22-lower-lip.png",
+        "x": 806,
+        "y": 694,
+        "width": 145,
+        "height": 25,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 341,
+          "width": 768,
+          "height": 341
+        },
+        "source_alpha_bounds": {
+          "left": 63,
+          "top": 136,
+          "width": 510,
+          "height": 130
+        },
+        "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+        "part": "head"
+      },
+      {
+        "name": "mouth close",
+        "file": "layers/23-mouth-close.png",
+        "x": 806,
+        "y": 651,
+        "width": 145,
+        "height": 42,
+        "visible": true,
+        "source": "mouth",
+        "source_cell": {
+          "left": 768,
+          "top": 682,
+          "width": 768,
+          "height": 342
+        },
+        "source_alpha_bounds": {
+          "left": 85,
+          "top": 153,
+          "width": 474,
+          "height": 61
+        },
+        "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+        "part": "head"
+      },
+      {
+        "name": "front hair 1",
+        "file": "layers/24-front-hair-1.png",
+        "x": 283,
+        "y": 0,
+        "width": 542,
+        "height": 881,
+        "visible": true,
+        "source": "frontLeft",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 202,
+          "top": 0,
+          "width": 387,
+          "height": 629
+        },
+        "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+        "part": "head"
+      },
+      {
+        "name": "front hair 3",
+        "file": "layers/25-front-hair-3.png",
+        "x": 769,
+        "y": 45,
+        "width": 430,
+        "height": 834,
+        "visible": true,
+        "source": "frontRight",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 549,
+          "top": 32,
+          "width": 307,
+          "height": 596
+        },
+        "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+        "part": "head"
+      },
+      {
+        "name": "front hair 2",
+        "file": "layers/26-front-hair-2.png",
+        "x": 368,
+        "y": 7,
+        "width": 692,
+        "height": 795,
+        "visible": true,
+        "source": "frontCenter",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 1070,
+          "height": 1470
+        },
+        "source_alpha_bounds": {
+          "left": 263,
+          "top": 5,
+          "width": 494,
+          "height": 568
+        },
+        "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+        "part": "head"
+      },
+      {
+        "name": "finger-thumb-r",
+        "file": "layers/27-finger-thumb-r.png",
+        "x": 787,
+        "y": 1098,
+        "width": 45,
+        "height": 99,
+        "visible": true,
+        "source": "viewerLeft",
+        "source_cell": {
+          "left": 512,
+          "top": 0,
+          "width": 512,
+          "height": 560
+        },
+        "source_alpha_bounds": {
+          "left": 127,
+          "top": 94,
+          "width": 302,
+          "height": 338
+        },
+        "resize_before_rotation": {
+          "width": 45,
+          "height": 99
+        },
+        "rotation_degrees": 0,
+        "draw_order": 24,
+        "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 762,
+            "y": 1120
+          },
+          "requested_delta": {
+            "x": 25.2,
+            "y": -22.4
+          },
+          "actual_integer_delta": {
+            "x": 25,
+            "y": -22
+          },
+          "integer_quantization_error": {
+            "x": -0.1999999999999993,
+            "y": 0.3999999999999986
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "hand-r",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-little-l",
+        "file": "layers/28-finger-little-l.png",
+        "x": 973,
+        "y": 1265,
+        "width": 76,
+        "height": 64,
+        "visible": true,
+        "source": "viewerRight",
+        "source_cell": {
+          "left": 1024,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 110,
+          "top": 162,
+          "width": 297,
+          "height": 221
+        },
+        "resize_before_rotation": {
+          "width": 69,
+          "height": 55
+        },
+        "rotation_degrees": -8,
+        "draw_order": 25,
+        "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 987,
+            "y": 1247
+          },
+          "requested_delta": {
+            "x": -14,
+            "y": 18.2
+          },
+          "actual_integer_delta": {
+            "x": -14,
+            "y": 18
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": -0.1999999999999993
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "hand-l",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "cup",
+        "file": "layers/29-cup.png",
+        "x": 745,
+        "y": 1038,
+        "width": 293,
+        "height": 295,
+        "visible": true,
+        "source": "cup",
+        "source_cell": {
+          "left": 724,
+          "top": 0,
+          "width": 724,
+          "height": 724
+        },
+        "source_alpha_bounds": {
+          "left": 115,
+          "top": 68,
+          "width": 603,
+          "height": 577
+        },
+        "resize_before_rotation": {
+          "width": 293,
+          "height": 295
+        },
+        "rotation_degrees": 0,
+        "draw_order": 40,
+        "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 745,
+            "y": 1038
+          },
+          "requested_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "actual_integer_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "anatomical_side": null,
+        "semantic_parent": "ROOT",
+        "note": "Independent movable cup mesh, never baked into torso or a hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-thumb-l",
+        "file": "layers/30-finger-thumb-l.png",
+        "x": 942,
+        "y": 1122,
+        "width": 68,
+        "height": 123,
+        "visible": true,
+        "source": "viewerRight",
+        "source_cell": {
+          "left": 512,
+          "top": 0,
+          "width": 512,
+          "height": 560
+        },
+        "source_alpha_bounds": {
+          "left": 79,
+          "top": 58,
+          "width": 333,
+          "height": 440
+        },
+        "resize_before_rotation": {
+          "width": 68,
+          "height": 123
+        },
+        "rotation_degrees": 0,
+        "draw_order": 45,
+        "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 956,
+            "y": 1104
+          },
+          "requested_delta": {
+            "x": -14,
+            "y": 18.2
+          },
+          "actual_integer_delta": {
+            "x": -14,
+            "y": 18
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": -0.1999999999999993
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "hand-l",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-index-l",
+        "file": "layers/31-finger-index-l.png",
+        "x": 942,
+        "y": 1162,
+        "width": 104,
+        "height": 88,
+        "visible": true,
+        "source": "viewerRight",
+        "source_cell": {
+          "left": 1024,
+          "top": 0,
+          "width": 512,
+          "height": 560
+        },
+        "source_alpha_bounds": {
+          "left": 48,
+          "top": 67,
+          "width": 392,
+          "height": 370
+        },
+        "resize_before_rotation": {
+          "width": 95,
+          "height": 77
+        },
+        "rotation_degrees": -7,
+        "draw_order": 46,
+        "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 956,
+            "y": 1144
+          },
+          "requested_delta": {
+            "x": -14,
+            "y": 18.2
+          },
+          "actual_integer_delta": {
+            "x": -14,
+            "y": 18
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": -0.1999999999999993
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "hand-l",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-middle-l",
+        "file": "layers/32-finger-middle-l.png",
+        "x": 953,
+        "y": 1207,
+        "width": 106,
+        "height": 89,
+        "visible": true,
+        "source": "viewerRight",
+        "source_cell": {
+          "left": 0,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 54,
+          "top": 38,
+          "width": 426,
+          "height": 386
+        },
+        "resize_before_rotation": {
+          "width": 97,
+          "height": 78
+        },
+        "rotation_degrees": -7,
+        "draw_order": 47,
+        "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 967,
+            "y": 1189
+          },
+          "requested_delta": {
+            "x": -14,
+            "y": 18.2
+          },
+          "actual_integer_delta": {
+            "x": -14,
+            "y": 18
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": -0.1999999999999993
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "hand-l",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-ring-l",
+        "file": "layers/33-finger-ring-l.png",
+        "x": 959,
+        "y": 1238,
+        "width": 95,
+        "height": 79,
+        "visible": true,
+        "source": "viewerRight",
+        "source_cell": {
+          "left": 512,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 93,
+          "top": 89,
+          "width": 359,
+          "height": 320
+        },
+        "resize_before_rotation": {
+          "width": 86,
+          "height": 68
+        },
+        "rotation_degrees": -8,
+        "draw_order": 48,
+        "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 973,
+            "y": 1220
+          },
+          "requested_delta": {
+            "x": -14,
+            "y": 18.2
+          },
+          "actual_integer_delta": {
+            "x": -14,
+            "y": 18
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": -0.1999999999999993
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "hand-l",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-little-r",
+        "file": "layers/34-finger-little-r.png",
+        "x": 719,
+        "y": 1215,
+        "width": 110,
+        "height": 64,
+        "visible": true,
+        "source": "viewerLeft",
+        "source_cell": {
+          "left": 1024,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 118,
+          "top": 169,
+          "width": 275,
+          "height": 143
+        },
+        "resize_before_rotation": {
+          "width": 103,
+          "height": 47
+        },
+        "rotation_degrees": 10,
+        "draw_order": 60,
+        "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+        "finger_root_refit": {
+          "source_anchor": {
+            "x": 1166,
+            "y": 837
+          },
+          "normalized_cropped_anchor": {
+            "x": 0.08727272727272728,
+            "y": 0.7552447552447552
+          },
+          "previous_resize": {
+            "width": 120,
+            "height": 42
+          },
+          "previous_position": {
+            "x": 693,
+            "y": 1240
+          },
+          "preserved_target_anchor": {
+            "x": 704.8636007951254,
+            "y": 1272.957093929087
+          },
+          "anchor_is_approximate_anatomical_guide": true,
+          "actual_target_anchor": {
+            "x": 730.0517561691328,
+            "y": 1251.4323077577938
+          },
+          "rounding_error_pixels": {
+            "x": 0.18815537400735138,
+            "y": 0.47521382870672824
+          },
+          "previous_target_anchor": {
+            "x": 704.8636007951254,
+            "y": 1272.957093929087
+          },
+          "requested_new_target_anchor": {
+            "x": 730.0636007951255,
+            "y": 1250.557093929087
+          }
+        },
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 694,
+            "y": 1237
+          },
+          "requested_delta": {
+            "x": 25.2,
+            "y": -22.4
+          },
+          "actual_integer_delta": {
+            "x": 25,
+            "y": -22
+          },
+          "integer_quantization_error": {
+            "x": -0.1999999999999993,
+            "y": 0.3999999999999986
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "hand-r",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-ring-r",
+        "file": "layers/35-finger-ring-r.png",
+        "x": 731,
+        "y": 1182,
+        "width": 131,
+        "height": 82,
+        "visible": true,
+        "source": "viewerLeft",
+        "source_cell": {
+          "left": 512,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 77,
+          "top": 140,
+          "width": 375,
+          "height": 180
+        },
+        "resize_before_rotation": {
+          "width": 122,
+          "height": 54
+        },
+        "rotation_degrees": 14,
+        "draw_order": 61,
+        "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+        "finger_root_refit": {
+          "source_anchor": {
+            "x": 621,
+            "y": 838
+          },
+          "normalized_cropped_anchor": {
+            "x": 0.08533333333333333,
+            "y": 0.7666666666666667
+          },
+          "previous_resize": {
+            "width": 141,
+            "height": 49
+          },
+          "previous_position": {
+            "x": 704,
+            "y": 1207
+          },
+          "preserved_target_anchor": {
+            "x": 718.6076367069261,
+            "y": 1246.5338414314183
+          },
+          "anchor_is_approximate_anatomical_guide": true,
+          "actual_target_anchor": {
+            "x": 743.9297107748796,
+            "y": 1224.733591041251
+          },
+          "rounding_error_pixels": {
+            "x": 0.32207406795350835,
+            "y": 0.1997496098326792
+          },
+          "previous_target_anchor": {
+            "x": 718.6076367069261,
+            "y": 1246.5338414314183
+          },
+          "requested_new_target_anchor": {
+            "x": 743.8076367069261,
+            "y": 1224.1338414314182
+          }
+        },
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 706,
+            "y": 1204
+          },
+          "requested_delta": {
+            "x": 25.2,
+            "y": -22.4
+          },
+          "actual_integer_delta": {
+            "x": 25,
+            "y": -22
+          },
+          "integer_quantization_error": {
+            "x": -0.1999999999999993,
+            "y": 0.3999999999999986
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "hand-r",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-middle-r",
+        "file": "layers/36-finger-middle-r.png",
+        "x": 741,
+        "y": 1148,
+        "width": 138,
+        "height": 86,
+        "visible": true,
+        "source": "viewerLeft",
+        "source_cell": {
+          "left": 0,
+          "top": 560,
+          "width": 512,
+          "height": 464
+        },
+        "source_alpha_bounds": {
+          "left": 38,
+          "top": 101,
+          "width": 454,
+          "height": 217
+        },
+        "resize_before_rotation": {
+          "width": 128,
+          "height": 55
+        },
+        "rotation_degrees": 15,
+        "draw_order": 62,
+        "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+        "finger_root_refit": {
+          "source_anchor": {
+            "x": 66,
+            "y": 824
+          },
+          "normalized_cropped_anchor": {
+            "x": 0.06167400881057269,
+            "y": 0.7511520737327189
+          },
+          "previous_resize": {
+            "width": 150,
+            "height": 50
+          },
+          "previous_position": {
+            "x": 715,
+            "y": 1173
+          },
+          "preserved_target_anchor": {
+            "x": 727.2412937215056,
+            "y": 1211.6126465447348
+          },
+          "anchor_is_approximate_anatomical_guide": true,
+          "actual_target_anchor": {
+            "x": 752.2308677169302,
+            "y": 1189.8214544350892
+          },
+          "rounding_error_pixels": {
+            "x": -0.010426004575379011,
+            "y": 0.20880789035436464
+          },
+          "previous_target_anchor": {
+            "x": 727.2412937215056,
+            "y": 1211.6126465447348
+          },
+          "requested_new_target_anchor": {
+            "x": 752.4412937215056,
+            "y": 1189.2126465447348
+          }
+        },
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 716,
+            "y": 1170
+          },
+          "requested_delta": {
+            "x": 25.2,
+            "y": -22.4
+          },
+          "actual_integer_delta": {
+            "x": 25,
+            "y": -22
+          },
+          "integer_quantization_error": {
+            "x": -0.1999999999999993,
+            "y": 0.3999999999999986
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "hand-r",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "finger-index-r",
+        "file": "layers/37-finger-index-r.png",
+        "x": 746,
+        "y": 1110,
+        "width": 134,
+        "height": 90,
+        "visible": true,
+        "source": "viewerLeft",
+        "source_cell": {
+          "left": 1024,
+          "top": 0,
+          "width": 512,
+          "height": 560
+        },
+        "source_alpha_bounds": {
+          "left": 53,
+          "top": 143,
+          "width": 412,
+          "height": 232
+        },
+        "resize_before_rotation": {
+          "width": 123,
+          "height": 60
+        },
+        "rotation_degrees": 15,
+        "draw_order": 63,
+        "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+        "finger_root_refit": {
+          "source_anchor": {
+            "x": 1120,
+            "y": 335
+          },
+          "normalized_cropped_anchor": {
+            "x": 0.10436893203883495,
+            "y": 0.8275862068965517
+          },
+          "previous_resize": {
+            "width": 145,
+            "height": 55
+          },
+          "previous_position": {
+            "x": 719,
+            "y": 1135
+          },
+          "preserved_target_anchor": {
+            "x": 735.9250061880531,
+            "y": 1183.055774759483
+          },
+          "anchor_is_approximate_anatomical_guide": true,
+          "actual_target_anchor": {
+            "x": 760.9083842987368,
+            "y": 1161.3906254622675
+          },
+          "rounding_error_pixels": {
+            "x": -0.01662188931629771,
+            "y": 0.3348507027844789
+          },
+          "previous_target_anchor": {
+            "x": 735.9250061880531,
+            "y": 1183.055774759483
+          },
+          "requested_new_target_anchor": {
+            "x": 761.1250061880531,
+            "y": 1160.655774759483
+          }
+        },
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 721,
+            "y": 1132
+          },
+          "requested_delta": {
+            "x": 25.2,
+            "y": -22.4
+          },
+          "actual_integer_delta": {
+            "x": 25,
+            "y": -22
+          },
+          "integer_quantization_error": {
+            "x": -0.1999999999999993,
+            "y": 0.3999999999999986
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "hand-r",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "hand-r",
+        "file": "layers/38-hand-r.png",
+        "x": 684,
+        "y": 1135,
+        "width": 145,
+        "height": 233,
+        "visible": true,
+        "source": "extendedPalms",
+        "source_cell": {
+          "left": 0,
+          "top": 0,
+          "width": 768,
+          "height": 1024
+        },
+        "source_alpha_bounds": {
+          "left": 45,
+          "top": 74,
+          "width": 722,
+          "height": 898
+        },
+        "resize_before_rotation": {
+          "width": 145,
+          "height": 233
+        },
+        "rotation_degrees": 0,
+        "draw_order": 80,
+        "sha256": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 684,
+            "y": 1135
+          },
+          "requested_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "actual_integer_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "anatomical_side": "right",
+        "semantic_parent": "corresponding-forearm",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "hand-l",
+        "file": "layers/39-hand-l.png",
+        "x": 918,
+        "y": 1157,
+        "width": 131,
+        "height": 183,
+        "visible": true,
+        "source": "extendedPalms",
+        "source_cell": {
+          "left": 768,
+          "top": 0,
+          "width": 768,
+          "height": 1024
+        },
+        "source_alpha_bounds": {
+          "left": 90,
+          "top": 69,
+          "width": 644,
+          "height": 825
+        },
+        "resize_before_rotation": {
+          "width": 131,
+          "height": 183
+        },
+        "rotation_degrees": 0,
+        "draw_order": 81,
+        "sha256": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+        "finger_root_refit": null,
+        "hand_pose_adjustment": {
+          "previous_position": {
+            "x": 918,
+            "y": 1157
+          },
+          "requested_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "actual_integer_delta": {
+            "x": 0,
+            "y": 0
+          },
+          "integer_quantization_error": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "anatomical_side": "left",
+        "semantic_parent": "corresponding-forearm",
+        "note": "Independently painted palm/finger texture, not a duplicated whole hand.",
+        "part": "hands"
+      },
+      {
+        "name": "cuff-front-r",
+        "file": "layers/40-cuff-front-r.png",
+        "x": 623,
+        "y": 1278,
+        "width": 180,
+        "height": 97,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": "forearm-r",
+        "rig_bounds": {
+          "left": 623,
+          "top": 1278,
+          "width": 180,
+          "height": 97
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            455,
+            948
+          ],
+          [
+            478,
+            975
+          ],
+          [
+            506,
+            994
+          ],
+          [
+            535,
+            1001
+          ],
+          [
+            558,
+            998
+          ],
+          [
+            574,
+            987
+          ],
+          [
+            570,
+            1004
+          ],
+          [
+            552,
+            1015
+          ],
+          [
+            531,
+            1018
+          ],
+          [
+            500,
+            1012
+          ],
+          [
+            470,
+            992
+          ],
+          [
+            445,
+            960
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "623bddee6da32eeda484647853a09d891d92211795b6d9cf769c827df1a26007",
+        "part": "body"
+      },
+      {
+        "name": "cuff-front-l",
+        "file": "layers/41-cuff-front-l.png",
+        "x": 889,
+        "y": 1261,
+        "width": 208,
+        "height": 88,
+        "visible": true,
+        "source": "coherentBody",
+        "parent_part": "forearm-l",
+        "rig_bounds": {
+          "left": 889,
+          "top": 1261,
+          "width": 208,
+          "height": 88
+        },
+        "rig_bounds_alpha_threshold": 8,
+        "rig_bounds_coordinate_space": "target canvas pixels; texture remains unmodified",
+        "source_polygon": [
+          [
+            642,
+            968
+          ],
+          [
+            663,
+            982
+          ],
+          [
+            691,
+            982
+          ],
+          [
+            722,
+            972
+          ],
+          [
+            751,
+            957
+          ],
+          [
+            777,
+            936
+          ],
+          [
+            784,
+            950
+          ],
+          [
+            760,
+            975
+          ],
+          [
+            729,
+            989
+          ],
+          [
+            694,
+            999
+          ],
+          [
+            660,
+            998
+          ],
+          [
+            635,
+            982
+          ]
+        ],
+        "extraction": "exclusive ordered polygon region",
+        "sha256": "109fbd38960c3cbae20f86990830bbd5c6603f53aa26381334f89659e885d01a",
+        "part": "body"
+      }
+    ],
+    "rig_anchors": {
+      "shoulder_r": {
+        "source": {
+          "x": 361.0919,
+          "y": 717.125
+        },
+        "target": {
+          "x": 505.5287,
+          "y": 953.975
+        },
+        "defined_from": "Midpoint of longest alpha>=8 actually shared ownership-boundary run; source-pixel support sampled every <=0.25px, both sides checked.",
+        "source_segment": [
+          [
+            340,
+            0
+          ],
+          [
+            365,
+            850
+          ]
+        ],
+        "supported_t": [
+          0.6873529411764706,
+          1
+        ],
+        "owners": [
+          "upperarm-r",
+          "topwear"
+        ],
+        "meaning": "Deterministic authored partition/glue pivot, not an automatically measured human bone joint."
+      },
+      "shoulder_l": {
+        "source": {
+          "x": 742.8207,
+          "y": 717.125
+        },
+        "target": {
+          "x": 1039.949,
+          "y": 953.975
+        },
+        "defined_from": "Midpoint of longest alpha>=8 actually shared ownership-boundary run; source-pixel support sampled every <=0.25px, both sides checked.",
+        "source_segment": [
+          [
+            790,
+            0
+          ],
+          [
+            740,
+            760
+          ]
+        ],
+        "supported_t": [
+          0.8871710526315789,
+          1
+        ],
+        "owners": [
+          "upperarm-l",
+          "topwear"
+        ],
+        "meaning": "Deterministic authored partition/glue pivot, not an automatically measured human bone joint."
+      },
+      "elbow_r": {
+        "source": {
+          "x": 183.25,
+          "y": 1037.2689
+        },
+        "target": {
+          "x": 256.55,
+          "y": 1402.1765
+        },
+        "defined_from": "Midpoint of longest alpha>=8 actually shared ownership-boundary run; source-pixel support sampled every <=0.25px, both sides checked.",
+        "source_segment": [
+          [
+            0,
+            1140
+          ],
+          [
+            330,
+            955
+          ]
+        ],
+        "supported_t": [
+          0.11060606060606061,
+          1
+        ],
+        "owners": [
+          "upperarm-r",
+          "forearm-r"
+        ],
+        "meaning": "Deterministic authored partition/glue pivot, not an automatically measured human bone joint."
+      },
+      "elbow_l": {
+        "source": {
+          "x": 930,
+          "y": 1052.5
+        },
+        "target": {
+          "x": 1302,
+          "y": 1423.5
+        },
+        "defined_from": "Midpoint of longest alpha>=8 actually shared ownership-boundary run; source-pixel support sampled every <=0.25px, both sides checked.",
+        "source_segment": [
+          [
+            900,
+            1025
+          ],
+          [
+            960,
+            1080
+          ]
+        ],
+        "supported_t": [
+          0,
+          1
+        ],
+        "owners": [
+          "upperarm-l",
+          "forearm-l"
+        ],
+        "meaning": "Deterministic authored partition/glue pivot, not an automatically measured human bone joint."
+      }
+    },
+    "body_anchors": {
+      "viewer_left_cuff_center": {
+        "source": {
+          "x": 518,
+          "y": 958
+        },
+        "target": {
+          "x": 725.2,
+          "y": 1291.2
+        }
+      },
+      "viewer_right_cuff_center": {
+        "source": {
+          "x": 710,
+          "y": 953
+        },
+        "target": {
+          "x": 994,
+          "y": 1284.2
+        }
+      },
+      "viewer_left_wrist_front_lip": {
+        "source": {
+          "x": 518,
+          "y": 997
+        },
+        "target": {
+          "x": 725.2,
+          "y": 1345.8
+        }
+      },
+      "viewer_right_wrist_front_lip": {
+        "source": {
+          "x": 710,
+          "y": 976
+        },
+        "target": {
+          "x": 994,
+          "y": 1316.4
+        }
+      },
+      "viewer_left_cuff_rim_start": {
+        "source": {
+          "x": 458,
+          "y": 917
+        },
+        "target": {
+          "x": 641.2,
+          "y": 1233.8
+        }
+      },
+      "viewer_left_cuff_rim_end": {
+        "source": {
+          "x": 580,
+          "y": 995
+        },
+        "target": {
+          "x": 812,
+          "y": 1343
+        }
+      },
+      "viewer_right_cuff_rim_start": {
+        "source": {
+          "x": 638,
+          "y": 966
+        },
+        "target": {
+          "x": 893.2,
+          "y": 1302.4
+        }
+      },
+      "viewer_right_cuff_rim_end": {
+        "source": {
+          "x": 780,
+          "y": 924
+        },
+        "target": {
+          "x": 1092,
+          "y": 1243.6
+        }
+      },
+      "viewer_left_shoulder": {
+        "source": {
+          "x": 280,
+          "y": 590
+        },
+        "target": {
+          "x": 392,
+          "y": 776
+        }
+      },
+      "viewer_right_shoulder": {
+        "source": {
+          "x": 790,
+          "y": 700
+        },
+        "target": {
+          "x": 1106,
+          "y": 930
+        }
+      },
+      "viewer_left_elbow_glue": {
+        "source": {
+          "x": 190,
+          "y": 1160
+        },
+        "target": {
+          "x": 266,
+          "y": 1574
+        }
+      },
+      "viewer_right_elbow_glue": {
+        "source": {
+          "x": 940,
+          "y": 1190
+        },
+        "target": {
+          "x": 1316,
+          "y": 1616
+        }
+      }
+    },
+    "semantic_probes": [
+      {
+        "name": "central_abdomen",
+        "x": 840,
+        "y": 1570,
+        "expected_layer": "topwear",
+        "forbidden_layers": [
+          "upperarm-r",
+          "upperarm-l",
+          "forearm-r",
+          "forearm-l",
+          "cuff-front-r",
+          "cuff-front-l"
+        ],
+        "review_basis": "Root inspected the unified empty-body source and its anatomical region. Independent actual-alpha sampling found topwear alpha=253 and all visible arm/cuff layers alpha=0 at these exact source-canvas points. This is a source ownership constraint; actual Core proof is still required.",
+        "reviewed_body_manifest_sha256": "d4e4dc95fbb1d77e3448683f4cd50394a7ecb0a0071dfc2e48959043e0c0edc1",
+        "core_verified": false
+      },
+      {
+        "name": "lower_torso",
+        "x": 800,
+        "y": 1700,
+        "expected_layer": "topwear",
+        "forbidden_layers": [
+          "upperarm-r",
+          "upperarm-l",
+          "forearm-r",
+          "forearm-l",
+          "cuff-front-r",
+          "cuff-front-l"
+        ],
+        "review_basis": "Root inspected the unified empty-body source and its anatomical region. Independent actual-alpha sampling found topwear alpha=253 and all visible arm/cuff layers alpha=0 at these exact source-canvas points. This is a source ownership constraint; actual Core proof is still required.",
+        "reviewed_body_manifest_sha256": "d4e4dc95fbb1d77e3448683f4cd50394a7ecb0a0071dfc2e48959043e0c0edc1",
+        "core_verified": false
+      },
+      {
+        "name": "lower_chest",
+        "x": 860,
+        "y": 1500,
+        "expected_layer": "topwear",
+        "forbidden_layers": [
+          "upperarm-r",
+          "upperarm-l",
+          "forearm-r",
+          "forearm-l",
+          "cuff-front-r",
+          "cuff-front-l"
+        ],
+        "review_basis": "Root inspected the unified empty-body source and its anatomical region. Independent actual-alpha sampling found topwear alpha=253 and all visible arm/cuff layers alpha=0 at these exact source-canvas points. This is a source ownership constraint; actual Core proof is still required.",
+        "reviewed_body_manifest_sha256": "d4e4dc95fbb1d77e3448683f4cd50394a7ecb0a0071dfc2e48959043e0c0edc1",
+        "core_verified": false
+      }
+    ],
+    "purpose": "Original editable character source with independently painted head, arms, palms, ten fingers and detachable cup",
+    "source_only": true,
+    "is_exported_live2d": false,
+    "quality_accepted": false,
+    "required_runtime_checks": [
+      "Official Core consistency and actual deforming meshes",
+      "Head XYZ and eyes/blinks/gaze",
+      "Audio mouth open/form and expressions",
+      "Breath/body and hair physics",
+      "Arm/hand and each finger deformation",
+      "Independent cup visibility/XY/rotation, unchanged palms when detached",
+      "Held cup and complete empty-hand poses",
+      "Actual rendered screenshots/video and long texture lifecycle"
+    ],
+    "not_claimed": [
+      "This texture assembly is not a MOC3, a Cubism project or runtime evidence",
+      "Independent source files do not prove natural motion or production art quality"
+    ]
+  },
+  "checks": {
+    "official_consistency_and_parameter_geometry": "passed",
+    "actual_webgl_original_export": "passed",
+    "required_parameters_have_actual_visible_pixel_effects": "passed"
+  },
+  "not_proven": [
+    "user artwork likeness/production art quality",
+    "Windows/4060/physical camera",
+    "official Editor CMO3 reopen/edit",
+    "SDK publication rights",
+    "all exports/parameters",
+    "Audio RMS/lip-sync through the product adapter",
+    "real-time frame rate or performance; sidecars use fixed 1/60s simulation"
+  ],
+  "acceptance_complete": false,
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/AI-radio-stream-help/tests/live2d_original_core_check.py --probe-pixels --product-adapter app/static/live2d-renderer.js --model .build/original-character-rig-r4/export-r1/character.model3.json --runtime-dir /workspace/.live2d/runtime --provenance .build/original-character-art-r4-candidate2/layers.json --source-psd .build/original-character-rig-r4/character.psd --source-project .build/original-character-rig-r4/authoring/character-rig-r1.psd2live --require-parameter ParamAngleX --require-parameter ParamEyeLOpen --require-parameter ParamEyeROpen --require-parameter ParamMouthOpenY --output review/original-character-live2d-r4-r1-pixel-probe.json --evidence-dir /workspace/dist/evidence-original-character-live2d-r4/rig-r1",
+  "export_family_files": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cmo3": "55e1c9674b1617b8aa94e44fac37b5f8b18906cfa93c62108d288597c37b0db8",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.psd2live.json": "e3f8efd9103a776690bb8609b7fad3690bd50bbc1ae7fde896ef9c2e770856e5",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.moc3": "63d0d048eec66c988d8217678259fa5f473de6157ba764eaaed58855af7d4930",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.can3": "5dc2787754a0b7478bf02e983eb469a67b4c4d76e961ee466cef0050947b0ec7",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.4096/texture_00.png": "bf51fc0ea2dec7b6471b88ea30a69670d1e91ebb2b87c768288e6afcd7bd0b0c"
+  },
+  "model3_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json",
+  "source_psd_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/character.psd",
+  "source_project_file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/authoring/character-rig-r1.psd2live",
+  "visual_rois": {},
+  "raw_core": {
+    "coreVersion": 83951616,
+    "latestMocVersion": 5,
+    "header": [
+      77,
+      79,
+      67,
+      51,
+      5,
+      0,
+      0,
+      0
+    ],
+    "consistency": 1,
+    "parameters": [
+      {
+        "id": "ParamCupVisible",
+        "min": 0,
+        "default": 1,
+        "max": 1,
+        "geometry": {
+          "coordinates": 0,
+          "drawables": []
+        },
+        "opacityChanges": 1
+      },
+      {
+        "id": "ParamCupRotation",
+        "min": -45,
+        "default": 0,
+        "max": 45,
+        "geometry": {
+          "coordinates": 308,
+          "drawables": [
+            "ArtMeshLayer"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamCupY",
+        "min": -500,
+        "default": 0,
+        "max": 500,
+        "geometry": {
+          "coordinates": 154,
+          "drawables": [
+            "ArtMeshLayer"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamCupX",
+        "min": -500,
+        "default": 0,
+        "max": 500,
+        "geometry": {
+          "coordinates": 154,
+          "drawables": [
+            "ArtMeshLayer"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerThumbR",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 48,
+          "drawables": [
+            "ArtMeshLayerR6"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerRingR",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 56,
+          "drawables": [
+            "ArtMeshLayerR4"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerMiddleR",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 54,
+          "drawables": [
+            "ArtMeshLayerR3"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerLittleR",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 46,
+          "drawables": [
+            "ArtMeshLayerR5"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerIndexR",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 56,
+          "drawables": [
+            "ArtMeshLayerR2"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHandR",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 390,
+          "drawables": [
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerR6"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamForearmR",
+        "min": -6,
+        "default": 0,
+        "max": 6,
+        "geometry": {
+          "coordinates": 1204,
+          "drawables": [
+            "ArtMeshLayerR",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerR6",
+            "ArtMeshLayerR8"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamArmR",
+        "min": -4,
+        "default": 0,
+        "max": 4,
+        "geometry": {
+          "coordinates": 1740,
+          "drawables": [
+            "ArtMeshLayerR",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerR6",
+            "ArtMeshLayerR8",
+            "ArtMeshLayerR9"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerThumbL",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 56,
+          "drawables": [
+            "ArtMeshLayerL5"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerRingL",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 50,
+          "drawables": [
+            "ArtMeshLayerL2"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerMiddleL",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 58,
+          "drawables": [
+            "ArtMeshLayerL3"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerLittleL",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 42,
+          "drawables": [
+            "ArtMeshLayerL6"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamFingerIndexL",
+        "min": -12,
+        "default": 0,
+        "max": 12,
+        "geometry": {
+          "coordinates": 56,
+          "drawables": [
+            "ArtMeshLayerL4"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHandL",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 368,
+          "drawables": [
+            "ArtMeshHandwearL",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamForearmL",
+        "min": -6,
+        "default": 0,
+        "max": 6,
+        "geometry": {
+          "coordinates": 1060,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshHandwearL",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerL8"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamArmL",
+        "min": -4,
+        "default": 0,
+        "max": 4,
+        "geometry": {
+          "coordinates": 1470,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshHandwearL",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerL9"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamAngleX",
+        "min": -45,
+        "default": 0,
+        "max": 45,
+        "geometry": {
+          "coordinates": 6438,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamAngleY",
+        "min": -30,
+        "default": 0,
+        "max": 30,
+        "geometry": {
+          "coordinates": 6438,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamAngleZ",
+        "min": -30,
+        "default": 0,
+        "max": 30,
+        "geometry": {
+          "coordinates": 6438,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "min": 0,
+        "default": 1,
+        "max": 1,
+        "geometry": {
+          "coordinates": 190,
+          "drawables": [
+            "ArtMeshLayerL7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyewhiteL"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeROpen",
+        "min": 0,
+        "default": 1,
+        "max": 1,
+        "geometry": {
+          "coordinates": 198,
+          "drawables": [
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashR",
+            "ArtMeshEyewhiteR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallX",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 76,
+          "drawables": [
+            "ArtMeshIridesL",
+            "ArtMeshIridesR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBrowLY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 48,
+          "drawables": [
+            "ArtMeshEyebrowL"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBrowRY",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 46,
+          "drawables": [
+            "ArtMeshEyebrowR"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamMouthForm",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 60,
+          "drawables": [
+            "ArtMeshMouth"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "min": 0,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 60,
+          "drawables": [
+            "ArtMeshMouth"
+          ]
+        },
+        "opacityChanges": 6
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 11082,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 10541,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 10037,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBodyLean",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 11082,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamProportion",
+        "min": -10,
+        "default": 0,
+        "max": 10,
+        "geometry": {
+          "coordinates": 10542,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamBreath",
+        "min": 0,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 10424,
+          "drawables": [
+            "ArtMeshLayerL",
+            "ArtMeshLayerR",
+            "ArtMeshHandwearL",
+            "ArtMeshHandwearR",
+            "ArtMeshLayerR2",
+            "ArtMeshLayerR3",
+            "ArtMeshLayerR4",
+            "ArtMeshLayerR5",
+            "ArtMeshLayerL2",
+            "ArtMeshLayerL3",
+            "ArtMeshLayerL4",
+            "ArtMeshLayerL5",
+            "ArtMeshLayerL6",
+            "ArtMeshLayerR6",
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3",
+            "ArtMeshMouthClose",
+            "ArtMeshLayer2",
+            "ArtMeshLayer3",
+            "ArtMeshToothT",
+            "ArtMeshTongue",
+            "ArtMeshMouth",
+            "ArtMeshEyebrowL",
+            "ArtMeshEyebrowR",
+            "ArtMeshLayerL7",
+            "ArtMeshLayerR7",
+            "ArtMeshEyelashL",
+            "ArtMeshEyelashR",
+            "ArtMeshIridesL",
+            "ArtMeshIridesR",
+            "ArtMeshEyewhiteL",
+            "ArtMeshEyewhiteR",
+            "ArtMeshFace",
+            "ArtMeshLayerL8",
+            "ArtMeshLayerR8",
+            "ArtMeshTopwear",
+            "ArtMeshLayerL9",
+            "ArtMeshLayerR9",
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHairFront",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 3468,
+          "drawables": [
+            "ArtMeshFrontHair",
+            "ArtMeshFrontHair2",
+            "ArtMeshFrontHair3"
+          ]
+        },
+        "opacityChanges": 0
+      },
+      {
+        "id": "ParamHairBack",
+        "min": -1,
+        "default": 0,
+        "max": 1,
+        "geometry": {
+          "coordinates": 950,
+          "drawables": [
+            "ArtMeshBackHair"
+          ]
+        },
+        "opacityChanges": 0
+      }
+    ],
+    "drawables": [
+      {
+        "id": "ArtMeshLayerL",
+        "vertexCount": 47,
+        "indexCount": 135,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR",
+        "vertexCount": 44,
+        "indexCount": 126,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshHandwearL",
+        "vertexCount": 53,
+        "indexCount": 177,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshHandwearR",
+        "vertexCount": 65,
+        "indexCount": 219,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR2",
+        "vertexCount": 28,
+        "indexCount": 78,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR3",
+        "vertexCount": 27,
+        "indexCount": 75,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR4",
+        "vertexCount": 28,
+        "indexCount": 78,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR5",
+        "vertexCount": 23,
+        "indexCount": 63,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL2",
+        "vertexCount": 25,
+        "indexCount": 69,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL3",
+        "vertexCount": 29,
+        "indexCount": 84,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL4",
+        "vertexCount": 28,
+        "indexCount": 78,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL5",
+        "vertexCount": 28,
+        "indexCount": 78,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayer",
+        "vertexCount": 154,
+        "indexCount": 564,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL6",
+        "vertexCount": 21,
+        "indexCount": 57,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR6",
+        "vertexCount": 24,
+        "indexCount": 66,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair",
+        "vertexCount": 784,
+        "indexCount": 2937,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair2",
+        "vertexCount": 475,
+        "indexCount": 2592,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFrontHair3",
+        "vertexCount": 475,
+        "indexCount": 2592,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshMouthClose",
+        "vertexCount": 29,
+        "indexCount": 81,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayer2",
+        "vertexCount": 27,
+        "indexCount": 75,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayer3",
+        "vertexCount": 26,
+        "indexCount": 72,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshToothT",
+        "vertexCount": 30,
+        "indexCount": 108,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshTongue",
+        "vertexCount": 18,
+        "indexCount": 48,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshMouth",
+        "vertexCount": 30,
+        "indexCount": 96,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowL",
+        "vertexCount": 24,
+        "indexCount": 66,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyebrowR",
+        "vertexCount": 23,
+        "indexCount": 63,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL7",
+        "vertexCount": 40,
+        "indexCount": 114,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR7",
+        "vertexCount": 42,
+        "indexCount": 120,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashL",
+        "vertexCount": 23,
+        "indexCount": 63,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyelashR",
+        "vertexCount": 24,
+        "indexCount": 66,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshIridesL",
+        "vertexCount": 19,
+        "indexCount": 60,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshIridesR",
+        "vertexCount": 19,
+        "indexCount": 60,
+        "texture": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "ArtMeshEyewhiteL",
+        "vertexCount": 32,
+        "indexCount": 108,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshEyewhiteR",
+        "vertexCount": 33,
+        "indexCount": 111,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshFace",
+        "vertexCount": 571,
+        "indexCount": 2886,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL8",
+        "vertexCount": 299,
+        "indexCount": 1164,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR8",
+        "vertexCount": 363,
+        "indexCount": 1446,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshTopwear",
+        "vertexCount": 717,
+        "indexCount": 2844,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerL9",
+        "vertexCount": 205,
+        "indexCount": 765,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshLayerR9",
+        "vertexCount": 268,
+        "indexCount": 1080,
+        "texture": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "ArtMeshBackHair",
+        "vertexCount": 475,
+        "indexCount": 2592,
+        "texture": 0,
+        "maskCount": 0
+      }
+    ],
+    "partCount": 7,
+    "noop": {
+      "coordinates": 0,
+      "drawables": []
+    }
+  },
+  "render": {
+    "productTextureHook": true,
+    "pixels": {
+      "colored": 336079,
+      "transparent": 468137,
+      "error": 0,
+      "width": 900,
+      "height": 900
+    },
+    "textureCount": 1,
+    "physicsAvailable": true,
+    "expressions": [
+      "Smile",
+      "Sad",
+      "Angry",
+      "Surprised"
+    ]
+  },
+  "sidecars": {},
+  "visible_parameter_sweeps": [
+    {
+      "id": "ParamAngleX",
+      "changedPixels": 116126,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        246,
+        509,
+        637,
+        875
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 5,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6412708163261414,
+        "maxCoordinate": 0.6676360964775085,
+        "visibleDrawables": 36,
+        "opaquePixels": 334967
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 4,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6412708163261414,
+          "maxCoordinate": 0.6666908264160156,
+          "visibleDrawables": 36,
+          "opaquePixels": 340195
+        }
+      }
+    },
+    {
+      "id": "ParamEyeLOpen",
+      "changedPixels": 824,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        497,
+        662,
+        547,
+        684
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 7,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6412708163261414,
+        "maxCoordinate": 0.6666672229766846,
+        "visibleDrawables": 36,
+        "opaquePixels": 336079
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 6,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6412708163261414,
+          "maxCoordinate": 0.6666672229766846,
+          "visibleDrawables": 36,
+          "opaquePixels": 336079
+        }
+      }
+    },
+    {
+      "id": "ParamEyeROpen",
+      "changedPixels": 846,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        430,
+        661,
+        482,
+        683
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 9,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6412708163261414,
+        "maxCoordinate": 0.6666672229766846,
+        "visibleDrawables": 36,
+        "opaquePixels": 336079
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 8,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6412708163261414,
+          "maxCoordinate": 0.6666672229766846,
+          "visibleDrawables": 36,
+          "opaquePixels": 336079
+        }
+      }
+    },
+    {
+      "id": "ParamMouthOpenY",
+      "changedPixels": 1205,
+      "outsideROIPixels": null,
+      "declaredROI": null,
+      "bounds": [
+        466,
+        577,
+        524,
+        604
+      ],
+      "width": 900,
+      "height": 900,
+      "health": {
+        "glError": 0,
+        "contextLost": false,
+        "coreEvaluations": 11,
+        "nonfiniteCoordinates": 0,
+        "minCoordinate": -0.6412708163261414,
+        "maxCoordinate": 0.6666672229766846,
+        "visibleDrawables": 40,
+        "opaquePixels": 336079
+      },
+      "minimum": {
+        "width": 900,
+        "height": 900,
+        "health": {
+          "glError": 0,
+          "contextLost": false,
+          "coreEvaluations": 10,
+          "nonfiniteCoordinates": 0,
+          "minCoordinate": -0.6412708163261414,
+          "maxCoordinate": 0.6666672229766846,
+          "visibleDrawables": 36,
+          "opaquePixels": 336079
+        }
+      }
+    }
+  ],
+  "javascript_errors": [],
+  "browser_warnings": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:38363/model/character.4096/texture_00.png"
+    }
+  ],
+  "sources_unchanged_during_checks": true,
+  "evidence_dir": "/workspace/dist/evidence-original-character-live2d-r4/rig-r1"
+}

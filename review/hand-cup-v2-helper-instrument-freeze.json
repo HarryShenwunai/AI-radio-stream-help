@@ -1,0 +1,58 @@
+{
+  "frozen_at": "2026-11-13T01:51:34.839585+00:00",
+  "status": "v2_test_instrument_frozen_not_final_character_acceptance",
+  "production_unchanged": {
+    "frontend/live2d-renderer.mjs": "15e22067490763cd34c701729a96fcf04949c66c11e57000699a601db2bc74be",
+    "app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+  },
+  "test_sources": {
+    "tests/hand_cup_contract.py": "371eec1589e6e96a475d3b254809b3645dacf326b29c05dfa1408543ab55fe4a",
+    "tests/hand_cup_measurements.py": "42ac3c34e26b0e7986f72c1a9341363d0daeb4a859b6ec52dcab68b750378082",
+    "tests/hand_cup_browser.mjs": "b74801ba9be9b7f3d9c13ab30b518d588a478cfbf5094d2e5a709c4dd69a7d1f",
+    "tests/hand_cup_metamorphic_check.py": "7202bf8169c73c6c31fd3a87b0f4f90f350b7618a2c2c048fc54d9cbb52a5e88",
+    "tests/test_hand_cup_acceptance.py": "1a1b2002c0ee60e9a1a91dd3c390629677eb35311c87786fd3ed8026c475a977"
+  },
+  "instrument_unit_cases": {
+    "acceptance": 30,
+    "prio_reader": 4,
+    "multilinear": 3,
+    "total": 37,
+    "result": "passed",
+    "skip": 0
+  },
+  "critical_ruff": "passed",
+  "browser_module_node_syntax": "passed",
+  "evidence": {
+    "review/hand-cup-native-glue-helper-counterfactual-seed512.json": {
+      "sha256": "a3f7c7ffeaf474b389fb00b88aeac3b81023d9064e9236cfdc52d8929b23b502",
+      "status": "measured_counterfactual_within_budget_not_full_acceptance"
+    },
+    "review/hand-cup-native-glue-helper-product-probe.json": {
+      "sha256": "a42ac99809622ce4f98c53083bd3ba016b0513c8a86ac720e6ba902a680fb65e",
+      "status": "passed_limited_mechanism_not_final_acceptance"
+    },
+    "review/hand-cup-native-glue-shared-root-seed512.json": {
+      "sha256": "2935d954452d0b76e4dff0ef5a42444c075ec69305fcfda46ca0dbc534075d0b",
+      "status": "measured_counterfactual_within_budget_not_full_acceptance"
+    },
+    "review/hand-cup-native-glue-shared-root-seed1000.json": {
+      "sha256": "f2a8609f7ac9139db355c9eddf1271dbfe768e9fa5c714f1cb1323d3d099489c",
+      "status": "measured_counterfactual_within_budget_not_full_acceptance"
+    },
+    "review/hand-cup-native-glue-shared-root-product-probe.json": {
+      "sha256": "d055a1136ddb356c5313e499f32d5cd2605baed94fa925a7f4342625ebdb46c3",
+      "status": "failed"
+    },
+    "review/hand-cup-native-glue-shared-root-v2-product-probe.json": {
+      "sha256": "90137e3c4258f946b6f9699b1804043a8e1321b41a6b9e966c3faabdf95a7ade",
+      "status": "passed_limited_mechanism_not_final_acceptance"
+    }
+  },
+  "semantics_change": "v1 negative retained; v2 explicitly permits exactly two source-bound opacity0 technical cup helper meshes in cup transforms/parent limb inheritance; all physical noncup invariants remain exact. Hold0 active ROOT and Hold0/1 helper geometry invariance unchanged; grip1px/root.5px unchanged.",
+  "not_proven": [
+    "final complete hand/finger/motion same-model contract",
+    "art acceptance/new head/underlay",
+    "real Qwen/Kokoro with final model",
+    "Windows/4060/5inch performance"
+  ]
+}

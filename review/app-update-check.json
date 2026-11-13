@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "scope": "Real temporary filesystem/Linux Git checks: desktop package version/identity/entry and apply/rollback/source provenance, every write-failure recovery, optional addon and opt-in owner setup. No Windows native execution.",
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_sha256": {
+    "scripts/app_update.py": "94105a0cc8b6f53639d1e23038e9e7b1fa3ca58a8ca04abb9000e0fff6a569ea",
+    "scripts/build_app_update.py": "526f4fd48f79523c9c095ba554d9ee92d65646ac99fb96d208bea4396bd58941",
+    "scripts/ui_update.py": "a8cef7e40886b265769f0bac0c3611bafe3405b068419abe48c1166812c39ef7",
+    "scripts/setup_live2d_owner.py": "5e6d02d59923210ffde04392c935d8c70e791440dfdf925db1b44c9986640423",
+    "scripts/live2d-owner-packages.json": "65e66fc7151e519afc938fcdfdbac46898f4bf47fb6f6ea54e68547b59666671",
+    "scripts/setup-live2d-owner.cmd": "9e7b8b7609f07f3d176c765951e6eb5ce133efac1f62bc5859274c24e3cc4ae0",
+    "desktop/package.json": "27bd00cb82cb1a696645b5955fbed09eb2af4baf6823bc4d53c85970cc6f9931",
+    "app/server.py": "d92578befd8598999073d0eb2209668b48d831f6ea28c56ba23159ed9c76156d",
+    "tests/test_app_update.py": "a76914de2284c9fbc9673d2f1d823fdf717270ad165e58189f2402bbe6a1626b",
+    "tests/test_app_update_commit.py": "5307822b4cf47a4cd38b7606124af7447ded34325c9605cf44aa3723c124603c",
+    "tests/test_live2d_owner_setup.py": "bf593298dd1a0450826f33273ac884a835b6d315754f2d0841441dffd9ad5620",
+    "docs/implementation/desktop-capture-and-update.md": "4abb83e6313a7d77abbc79b9d9f19c1b65390704a6c0ec959ac270ae0b9b69ed",
+    "scripts/tracking_addon.py": "3e5c1cb54e4ef12276e3778979eb919468ac706f172beec43923faee77f9c077",
+    "tests/test_tracking_addon_installer.py": "66f1e2f8c78fbd5d140afc2a4be4dfbd8e1290e0e255098eb004fb64910925b7"
+  },
+  "sources_unchanged_during_checks": true,
+  "elapsed_seconds": 8.045,
+  "native_windows_verified": false,
+  "signed": false,
+  "detailed_report": "review/desktop-version-update-check.json"
+}

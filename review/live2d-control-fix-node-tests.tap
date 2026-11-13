@@ -1,0 +1,538 @@
+TAP version 13
+# Subtest: ordinary writes bind current role; character management keeps explicit target
+ok 1 - ordinary writes bind current role; character management keeps explicit target
+  ---
+  duration_ms: 36.814432
+  type: 'test'
+  ...
+# Subtest: real playback state alone cannot claim open mouth before RMS exists
+ok 2 - real playback state alone cannot claim open mouth before RMS exists
+  ---
+  duration_ms: 5.59082
+  type: 'test'
+  ...
+# Subtest: role switching keeps separate drafts and clears media
+ok 3 - role switching keeps separate drafts and clears media
+  ---
+  duration_ms: 2.913182
+  type: 'test'
+  ...
+# Subtest: late state request cannot restore old role
+ok 4 - late state request cannot restore old role
+  ---
+  duration_ms: 2.312247
+  type: 'test'
+  ...
+# Subtest: late old SSE cannot inject text into the new identity
+ok 5 - late old SSE cannot inject text into the new identity
+  ---
+  duration_ms: 6.583738
+  type: 'test'
+  ...
+# Subtest: huge PNG dimensions reject before preview allocation
+ok 6 - huge PNG dimensions reject before preview allocation
+  ---
+  duration_ms: 0.841589
+  type: 'test'
+  ...
+# Subtest: valid PNG preflight returns real header dimensions
+ok 7 - valid PNG preflight returns real header dimensions
+  ---
+  duration_ms: 0.310518
+  type: 'test'
+  ...
+# Subtest: inconsistent state dimensions reject the whole local preview set
+ok 8 - inconsistent state dimensions reject the whole local preview set
+  ---
+  duration_ms: 0.393173
+  type: 'test'
+  ...
+# Subtest: server rejection does not replace active appearance
+ok 9 - server rejection does not replace active appearance
+  ---
+  duration_ms: 2.028449
+  type: 'test'
+  ...
+# Subtest: old-role mutation result is rejected before presentation success
+ok 10 - old-role mutation result is rejected before presentation success
+  ---
+  duration_ms: 1.728476
+  type: 'test'
+  ...
+# Subtest: appearance revision stops audio without discarding role draft
+ok 11 - appearance revision stops audio without discarding role draft
+  ---
+  duration_ms: 1.961788
+  type: 'test'
+  ...
+# Subtest: foreign newer media claim stops local audio, own claim is ignored
+ok 12 - foreign newer media claim stops local audio, own claim is ignored
+  ---
+  duration_ms: 1.871512
+  type: 'test'
+  ...
+# Subtest: older media claims cannot mute newer local playback
+ok 13 - older media claims cannot mute newer local playback
+  ---
+  duration_ms: 1.814777
+  type: 'test'
+  ...
+# Subtest: four states fetch/decode only once across speech and blinks
+ok 14 - four states fetch/decode only once across speech and blinks
+  ---
+  duration_ms: 4.142957
+  type: 'test'
+  ...
+# Subtest: decoded PNG becomes ready without ever using a fixed avatar
+ok 15 - decoded PNG becomes ready without ever using a fixed avatar
+  ---
+  duration_ms: 1.608395
+  type: 'test'
+  ...
+# Subtest: PNG scale updates the actual image transform without re-fetch
+ok 16 - PNG scale updates the actual image transform without re-fetch
+  ---
+  duration_ms: 2.051093
+  type: 'test'
+  ...
+# Subtest: hidden free releases cached URLs and refuses late decodes
+ok 17 - hidden free releases cached URLs and refuses late decodes
+  ---
+  duration_ms: 1.848117
+  type: 'test'
+  ...
+# Subtest: RMS silence keeps mouth closed, voice opens, silence closes again
+ok 18 - RMS silence keeps mouth closed, voice opens, silence closes again
+  ---
+  duration_ms: 2.146407
+  type: 'test'
+  ...
+# Subtest: stop returns to idle immediately and ends audio analysis
+ok 19 - stop returns to idle immediately and ends audio analysis
+  ---
+  duration_ms: 2.219437
+  type: 'test'
+  ...
+# Subtest: VRM malformed header and oversize are rejected before network upload
+ok 20 - VRM malformed header and oversize are rejected before network upload
+  ---
+  duration_ms: 0.328155
+  type: 'test'
+  ...
+# Subtest: model renderer readiness is a real boundary before preview ready
+ok 21 - model renderer readiness is a real boundary before preview ready
+  ---
+  duration_ms: 19.322626
+  type: 'test'
+  ...
+# Subtest: failed model preview never becomes ready or starts a frame loop
+ok 22 - failed model preview never becomes ready or starts a frame loop
+  ---
+  duration_ms: 2.280148
+  type: 'test'
+  ...
+# Subtest: preview cancelled during model load cannot revive after role invalidation
+ok 23 - preview cancelled during model load cannot revive after role invalidation
+  ---
+  duration_ms: 4.818886
+  type: 'test'
+  ...
+# Subtest: native hidden model frees ownership and blocks a late load
+ok 24 - native hidden model frees ownership and blocks a late load
+  ---
+  duration_ms: 1.541204
+  type: 'test'
+  ...
+# Subtest: missing Live2D runtime fetches no vendor scripts
+ok 25 - missing Live2D runtime fetches no vendor scripts
+  ---
+  duration_ms: 1.467874
+  type: 'test'
+  ...
+# Subtest: Core without separately installed framework remains unavailable
+ok 26 - Core without separately installed framework remains unavailable
+  ---
+  duration_ms: 1.125487
+  type: 'test'
+  ...
+# Subtest: a newer preview disposes a late earlier renderer
+ok 27 - a newer preview disposes a late earlier renderer
+  ---
+  duration_ms: 2.232566
+  type: 'test'
+  ...
+# Subtest: optional blink timers clear on hide and decode cache clears on dispose
+ok 28 - optional blink timers clear on hide and decode cache clears on dispose
+  ---
+  duration_ms: 1.712863
+  type: 'test'
+  ...
+# Subtest: PNG package extracts only states/regions, never attacker identity or permission fields
+ok 29 - PNG package extracts only states/regions, never attacker identity or permission fields
+  ---
+  duration_ms: 0.575698
+  type: 'test'
+  ...
+# Subtest: PNG package rejects missing idle, unknown states and mismatched dimensions
+ok 30 - PNG package rejects missing idle, unknown states and mismatched dimensions
+  ---
+  duration_ms: 0.277368
+  type: 'test'
+  ...
+# Subtest: mount is inert; opening a purpose flow only reads status
+ok 31 - mount is inert; opening a purpose flow only reads status
+  ---
+  duration_ms: 7.081889
+  type: 'test'
+  ...
+# Subtest: one-time pairing token appears only after configure and clears on close
+ok 32 - one-time pairing token appears only after configure and clears on close
+  ---
+  duration_ms: 2.159576
+  type: 'test'
+  ...
+# Subtest: automatic replies require explicit confirmation before any write
+ok 33 - automatic replies require explicit confirmation before any write
+  ---
+  duration_ms: 1.554614
+  type: 'test'
+  ...
+# Subtest: current-role private previews alone render and approval can be refused
+ok 34 - current-role private previews alone render and approval can be refused
+  ---
+  duration_ms: 4.0847
+  type: 'test'
+  ...
+# Subtest: late configure cannot reveal a token after role changes
+ok 35 - late configure cannot reveal a token after role changes
+  ---
+  duration_ms: 1.661917
+  type: 'test'
+  ...
+# Subtest: late status cannot paint private content after role change
+ok 36 - late status cannot paint private content after role change
+  ---
+  duration_ms: 1.118547
+  type: 'test'
+  ...
+# Subtest: Bili connection is explicit; secret fields clear after attempted connection
+ok 37 - Bili connection is explicit; secret fields clear after attempted connection
+  ---
+  duration_ms: 2.646751
+  type: 'test'
+  ...
+# Subtest: hidden flows do not poll and clear credentials on close
+ok 38 - hidden flows do not poll and clear credentials on close
+  ---
+  duration_ms: 10.778122
+  type: 'test'
+  ...
+# Subtest: pause uses cancellation endpoint without a fake delivered claim
+ok 39 - pause uses cancellation endpoint without a fake delivered claim
+  ---
+  duration_ms: 2.709626
+  type: 'test'
+  ...
+# Subtest: native pause cleanup works while browser visibility is unchanged and unknown codes stay internal
+ok 40 - native pause cleanup works while browser visibility is unchanged and unknown codes stay internal
+  ---
+  duration_ms: 2.182411
+  type: 'test'
+  ...
+# Subtest: every model3 resource retains its authenticated character scope
+ok 41 - every model3 resource retains its authenticated character scope
+  ---
+  duration_ms: 2.167368
+  type: 'test'
+  ...
+# Subtest: unmapped paths and external resources are rejected before invoking any runtime
+ok 42 - unmapped paths and external resources are rejected before invoking any runtime
+  ---
+  duration_ms: 0.838624
+  type: 'test'
+  ...
+# Subtest: model-authored audio never acquires another playback owner
+ok 43 - model-authored audio never acquires another playback owner
+  ---
+  duration_ms: 0.365881
+  type: 'test'
+  ...
+# Subtest: an absent owner-installed Core/framework fails closed before WebGL creation
+ok 44 - an absent owner-installed Core/framework fails closed before WebGL creation
+  ---
+  duration_ms: 0.350138
+  type: 'test'
+  ...
+# Subtest: same-origin resources cannot cross asset or role boundaries
+ok 45 - same-origin resources cannot cross asset or role boundaries
+  ---
+  duration_ms: 0.372211
+  type: 'test'
+  ...
+# Subtest: observed Core maximum rejects newer MOC before GPU allocation
+ok 46 - observed Core maximum rejects newer MOC before GPU allocation
+  ---
+  duration_ms: 0.338921
+  type: 'test'
+  ...
+# Subtest: a setter without actual start/stop lipsync APIs is incompatible
+ok 47 - a setter without actual start/stop lipsync APIs is incompatible
+  ---
+  duration_ms: 0.275165
+  type: 'test'
+  ...
+# Subtest: bounded controls reject NaN, infinity, unknown authority and invalid motion indexes
+ok 48 - bounded controls reject NaN, infinity, unknown authority and invalid motion indexes
+  ---
+  duration_ms: 0.561106
+  type: 'test'
+  ...
+# Subtest: custom controls accept only bounded data entries without authority or duplicate IDs
+ok 49 - custom controls accept only bounded data entries without authority or duplicate IDs
+  ---
+  duration_ms: 0.592083
+  type: 'test'
+  ...
+# Subtest: active textures use current Pixi getGlSource rather than the obsolete touched flag
+ok 50 - active textures use current Pixi getGlSource rather than the obsolete touched flag
+  ---
+  duration_ms: 0.98123
+  type: 'test'
+  ...
+# Subtest: a recreated managed texture invalidates stale wrapper handles without disabling GC
+ok 51 - a recreated managed texture invalidates stale wrapper handles without disabling GC
+  ---
+  duration_ms: 0.329757
+  type: 'test'
+  ...
+# Subtest: reset restores SDK-motion-saved values that never entered any manual control map
+ok 52 - reset restores SDK-motion-saved values that never entered any manual control map
+  ---
+  duration_ms: 2.53347
+  type: 'test'
+  ...
+# Subtest: clearing selected expression invalidates a reserved load and allows the same expression again
+ok 53 - clearing selected expression invalidates a reserved load and allows the same expression again
+  ---
+  duration_ms: 0.345521
+  type: 'test'
+  ...
+# Subtest: an old expression result cannot overwrite or stop a newly loaded model
+ok 54 - an old expression result cannot overwrite or stop a newly loaded model
+  ---
+  duration_ms: 4.504152
+  type: 'test'
+  ...
+# Subtest: reset supersedes an in-flight expression even if its SDK promise later succeeds
+ok 55 - reset supersedes an in-flight expression even if its SDK promise later succeeds
+  ---
+  duration_ms: 0.794558
+  type: 'test'
+  ...
+# Subtest: a complete Audio receipt requires observed end position and retains the bound duration
+ok 56 - a complete Audio receipt requires observed end position and retains the bound duration
+  ---
+  duration_ms: 8.911118
+  type: 'test'
+  ...
+# Subtest: stopping captures the current position before cleanup and seals late ended callbacks
+ok 57 - stopping captures the current position before cleanup and seals late ended callbacks
+  ---
+  duration_ms: 1.440032
+  type: 'test'
+  ...
+# Subtest: progress uploads are throttled to about one second
+ok 58 - progress uploads are throttled to about one second
+  ---
+  duration_ms: 1.456877
+  type: 'test'
+  ...
+# Subtest: early ended cannot confirm an unplayed tail
+ok 59 - early ended cannot confirm an unplayed tail
+  ---
+  duration_ms: 1.743719
+  type: 'test'
+  ...
+# Subtest: terminal keepalive is immediate and older queued progress cannot revive playback
+ok 60 - terminal keepalive is immediate and older queued progress cannot revive playback
+  ---
+  duration_ms: 7.605849
+  type: 'test'
+  ...
+# Subtest: unknown system duration is only confirmed by real completion elapsed time
+ok 61 - unknown system duration is only confirmed by real completion elapsed time
+  ---
+  duration_ms: 1.273941
+  type: 'test'
+  ...
+# Subtest: cancel before system start reports stopped zero and late completion cannot confirm
+ok 62 - cancel before system start reports stopped zero and late completion cannot confirm
+  ---
+  duration_ms: 1.184746
+  type: 'test'
+  ...
+# Subtest: system playback over the 180 second bound remains conservatively unconfirmed
+ok 63 - system playback over the 180 second bound remains conservatively unconfirmed
+  ---
+  duration_ms: 1.072327
+  type: 'test'
+  ...
+# Subtest: a failed terminal request is not described as confirmed playback
+ok 64 - a failed terminal request is not described as confirmed playback
+  ---
+  duration_ms: 1.635887
+  type: 'test'
+  ...
+# Subtest: malformed header metadata is rejected before any receipt request
+ok 65 - malformed header metadata is rejected before any receipt request
+  ---
+  duration_ms: 2.21507
+  type: 'test'
+  ...
+# Subtest: bounded exhaustive Audio event sequences never emit two terminal states or confirm an early end
+ok 66 - bounded exhaustive Audio event sequences never emit two terminal states or confirm an early end
+  ---
+  duration_ms: 403.333116
+  type: 'test'
+  ...
+# Subtest: PCM WAV encoding produces mono 16k PCM16 and clamps samples
+ok 67 - PCM WAV encoding produces mono 16k PCM16 and clamps samples
+  ---
+  duration_ms: 4.075245
+  type: 'test'
+  ...
+# Subtest: unready local ASR does not request a microphone or fallback online
+ok 68 - unready local ASR does not request a microphone or fallback online
+  ---
+  duration_ms: 1.304216
+  type: 'test'
+  ...
+# Subtest: explicit recording stop sends only scoped PCM and fills draft without chat
+ok 69 - explicit recording stop sends only scoped PCM and fills draft without chat
+  ---
+  duration_ms: 25.308011
+  type: 'test'
+  ...
+# Subtest: the 60 second timer stops recording and uploads only once
+ok 70 - the 60 second timer stops recording and uploads only once
+  ---
+  duration_ms: 16.721345
+  type: 'test'
+  ...
+# Subtest: cancel while microphone permission is pending stops every late track
+ok 71 - cancel while microphone permission is pending stops every late track
+  ---
+  duration_ms: 1.55846
+  type: 'test'
+  ...
+# Subtest: cancelled local transcription cannot inject a late result after role switch
+ok 72 - cancelled local transcription cannot inject a late result after role switch
+  ---
+  duration_ms: 12.691087
+  type: 'test'
+  ...
+# Subtest: hidden input cannot acquire a microphone and late hidden output is discarded
+ok 73 - hidden input cannot acquire a microphone and late hidden output is discarded
+  ---
+  duration_ms: 11.888646
+  type: 'test'
+  ...
+# Subtest: repeated starts do not open more than one microphone
+ok 74 - repeated starts do not open more than one microphone
+  ---
+  duration_ms: 1.642086
+  type: 'test'
+  ...
+# Subtest: stop aborts pending TTS and suppresses a provider which ignores abort
+ok 75 - stop aborts pending TTS and suppresses a provider which ignores abort
+  ---
+  duration_ms: 26.492358
+  type: 'test'
+  ...
+# Subtest: stop during response body download never creates or plays late audio
+ok 76 - stop during response body download never creates or plays late audio
+  ---
+  duration_ms: 5.393903
+  type: 'test'
+  ...
+# Subtest: cached old Audio callbacks cannot clear or revoke a newer playback
+ok 77 - cached old Audio callbacks cannot clear or revoke a newer playback
+  ---
+  duration_ms: 1.508996
+  type: 'test'
+  ...
+# Subtest: generation stop mutes before failed backend cancellation and blocks late audio
+ok 78 - generation stop mutes before failed backend cancellation and blocks late audio
+  ---
+  duration_ms: 1.381994
+  type: 'test'
+  ...
+# Subtest: voice stop captures receipt and pauses audio before a later backend cancellation
+ok 79 - voice stop captures receipt and pauses audio before a later backend cancellation
+  ---
+  duration_ms: 1.405609
+  type: 'test'
+  ...
+# Subtest: new chat invalidates old speech and emits the actual SSE generation for automatic reading
+ok 80 - new chat invalidates old speech and emits the actual SSE generation for automatic reading
+  ---
+  duration_ms: 4.462178
+  type: 'test'
+  ...
+# Subtest: sample keeps text payload; historical reading uses only message ID
+ok 81 - sample keeps text payload; historical reading uses only message ID
+  ---
+  duration_ms: 1.725301
+  type: 'test'
+  ...
+# Subtest: stopped system callbacks cannot change fresh playback state
+ok 82 - stopped system callbacks cannot change fresh playback state
+  ---
+  duration_ms: 1.104365
+  type: 'test'
+  ...
+# Subtest: tracked system speech preserves exact text and confirms only observed completion
+ok 83 - tracked system speech preserves exact text and confirms only observed completion
+  ---
+  duration_ms: 1.116964
+  type: 'test'
+  ...
+# Subtest: late system metadata is stopped under original role without speaking
+ok 84 - late system metadata is stopped under original role without speaking
+  ---
+  duration_ms: 1.075541
+  type: 'test'
+  ...
+# Subtest: received header is stopped while audio body is still downloading
+ok 85 - received header is stopped while audio body is still downloading
+  ---
+  duration_ms: 4.420465
+  type: 'test'
+  ...
+# Subtest: stop captures actual position before media resource is cleared
+ok 86 - stop captures actual position before media resource is cleared
+  ---
+  duration_ms: 0.954499
+  type: 'test'
+  ...
+# Subtest: native hide denies new and late speech even while document remains visible
+ok 87 - native hide denies new and late speech even while document remains visible
+  ---
+  duration_ms: 0.776431
+  type: 'test'
+  ...
+# Subtest: long-lived role receipt notes retain at most 256 newest entries
+ok 88 - long-lived role receipt notes retain at most 256 newest entries
+  ---
+  duration_ms: 1.291928
+  type: 'test'
+  ...
+1..88
+# tests 88
+# suites 0
+# pass 88
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 599.604338

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "source": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp8",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1000,
+        "nb_read_frames": "772"
+      }
+    ],
+    "format": {
+      "duration": "30.880000"
+    }
+  },
+  "output": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1000,
+        "nb_read_frames": "772"
+      }
+    ],
+    "format": {
+      "duration": "30.880000"
+    }
+  },
+  "output_sha256": "e16607fe245dc2e7d68527cc2b9531ca7ec803c106c54a59a8532abf136033cf",
+  "frames_preserved": true,
+  "system_audio_track": false,
+  "actual_kokoro_wav_separate": true,
+  "scope": "Codec conversion of the original actual app recording; no fabricated frames or added soundtrack."
+}

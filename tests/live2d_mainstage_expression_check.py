@@ -1,0 +1,43 @@
+"""Original final-candidate main-stage scene/action evidence; no art/Windows claim.
+
+Uses real Studio scene selection, actual current application model/action API,
+real installed SDK/Core/GL. Never produces a synthetic product screenshot.
+"""
+import argparse,base64,datetime,json,os,struct,sys,traceback
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'tests'))
+from hand_cup_metamorphic_check import HOOK,OWN,PRODUCT,archive,runtime_files,runtime_binding_files,recorded_browser,sha,write_report
+from hand_cup_contract import validate
+from hand_cup_measurements import assert_hidden_helpers,assert_grips,by_id
+from test_character_http import CharacterHTTPTests
+from playwright.sync_api import sync_playwright
+p=argparse.ArgumentParser()
+for key in ('model','contract','landmarks','source-manifest','runtime-dir','output','evidence-dir'):p.add_argument('--'+key,required=True)
+a=p.parse_args();model=Path(a.model).resolve();cp=Path(a.contract).resolve();lp=Path(a.landmarks).resolve();source=Path(a.source_manifest).resolve();rt=Path(a.runtime_dir).resolve();evidence=Path(a.evidence_dir).resolve();evidence.mkdir(parents=True,exist_ok=True)
+c=json.loads(cp.read_text());landmarks=json.loads(lp.read_text());validate(c,landmarks);moc=model.parent/json.loads(model.read_text())['FileReferences']['Moc'];bindings={'model3_sha256':model,'moc3_sha256':moc,'landmarks_sha256':lp,'source_manifest_sha256':source}
+for key,path in bindings.items():assert sha(path)==c['model_binding'][key],('Actual final source binding mismatch',key)
+files=runtime_files(model);paths=files+[cp,lp,source,Path(__file__).resolve()]+[ROOT/x for x in OWN+PRODUCT]+[ROOT/'app/static/studio.js',ROOT/'app/static/style.css',ROOT/'app/static/stage-actions.js',ROOT/'app/static/index.html']+runtime_binding_files(rt);os.environ['COMPANION_LIVE2D_RUNTIME']=str(rt)
+r={'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'running','sources':{str(p):sha(p)for p in paths},'checks':{},'scenes':[],'page_errors':[],'artwork_accepted':False,'scope':'Actual application main stage, actual Studio environment choices and real authored motion/Core/GL. Actual main-stage model-derived buttons trigger each motion; programmatic parameter writes only establish declared starting poses. No automatic-chat hand-motion/Windows/real audio claim.'};f=None
+try:
+ f=CharacterHTTPTests('test_new_identity_has_separate_memories_chat_tasks_and_personality');f.setUp()
+ with sync_playwright()as pw,recorded_browser(pw,evidence)as(_,context,page):
+  page.add_init_script(HOOK);page.on('pageerror',lambda e:r['page_errors'].append(str(e)));base='http://127.0.0.1:'+str(f.server.server_port);module=page.request.get(base+'/stage-actions.js');assert module.ok;assert 'javascript'in module.headers.get('content-type','');r['module_http']={'status':module.status,'content_type':module.headers['content-type'],'sha256':__import__('hashlib').sha256(module.body()).hexdigest()};assert r['module_http']['sha256']==sha(ROOT/'app/static/stage-actions.js');page.goto(base);page.wait_for_function('()=>CompanionApp.core.get().state!==null');role=page.evaluate('()=>CompanionApp.core.scope().character_id');headers={'X-Companion':'local-app'}
+  response=page.request.post(base+'/api/characters/assets/import',headers=headers,data={'character_id':role,'format':'live2d','model':{'filename':'original-final-candidate.zip','data_base64':base64.b64encode(archive(model,files)).decode()}});assert response.ok,response.text();asset=response.json()['asset'];response=page.request.post(base+'/api/characters/assets/activate',headers=headers,data={'character_id':role,'asset_id':asset['id']});assert response.ok,response.text();page.evaluate('()=>CompanionApp.core.refresh(true)');page.wait_for_function('()=>CompanionApp.scene.ready&&CompanionApp.scene.getDiagnostics().coreEvaluations>2',timeout=60000);page.evaluate((ROOT/'tests/hand_cup_browser.mjs').read_text());actual=page.evaluate('a=>__handCup.init(a)',asset);page.evaluate('ids=>__handCup.setHiddenHelpers(ids)',c['meshes'].get('cup_helpers',[]));r['actual']={'moc_consistency':actual['mocConsistency'],'core_version':actual['coreVersion'],'drawables':len(actual['rest']['drawables']),'parameters':len(actual['rest']['parameters'])}
+  actions={x['role']:x for x in c['actions']}
+  baseline=page.evaluate('value=>__handCup.productPose(value,true)',{});name=page.evaluate('()=>CompanionApp.scene.getDiagnostics().expressions[0]');assert name;r['expression_name']=name;page.evaluate('()=>__handCup.pixels("expression-neutral")')
+  def choose_expression():
+   page.locator('#open-stage-actions').click();page.locator('[data-flow=stage-actions] [data-expression-name]').filter(has_text=name).click();page.wait_for_function('name=>{const d=CompanionApp.scene.getDiagnostics();return d.currentExpression===name&&d.parameters.some(p=>p.id==="ParamMouthForm"&&Math.abs(p.value-1)<.01);}',arg=name,timeout=15000);assert page.locator('[data-flow=stage-actions]').count()==0
+  choose_expression();first=page.evaluate('()=>__handCup.productSnapshot()');delta=page.evaluate('()=>__handCup.pixels(null,"expression-neutral")');assert delta['error']==0 and delta['changed']>0;page.screenshot(path=str(evidence/'01-mainstage-expression-selected.png'));r['first_selection']={'current_expression':page.evaluate('()=>CompanionApp.scene.getDiagnostics().currentExpression'),'real_mouth_form':next(p['value']for p in first['parameters']if p['id']=='ParamMouthForm'),'actual_gl_changed':delta['changed']}
+  page.locator('#open-stage-actions').click();page.locator('#stage-reset-pose').click();page.wait_for_function('()=>{const d=CompanionApp.scene.getDiagnostics();return d.currentExpression===null&&d.parameters.some(p=>p.id==="ParamMouthForm"&&p.value===p.default);}',timeout=15000);page.screenshot(path=str(evidence/'02-mainstage-expression-cleared-by-reset.png'));choose_expression();page.screenshot(path=str(evidence/'03-mainstage-same-expression-reselected.png'));r['same_expression_reselected_after_real_ui_clear']=True
+  response=page.request.post(base+'/api/characters/create',headers=headers,data={'name':'仅表情模型验收'});assert response.ok;page.evaluate('()=>CompanionApp.core.refresh(true)');role2=page.evaluate('()=>CompanionApp.core.scope().character_id');import io,zipfile
+  setting=json.loads(model.read_text());setting['FileReferences'].pop('Motions',None);buf=io.BytesIO()
+  with zipfile.ZipFile(buf,'w',zipfile.ZIP_DEFLATED)as z:
+   for path in files:
+    z.writestr(path.relative_to(model.parent).as_posix(),json.dumps(setting).encode()if path==model else path.read_bytes())
+  response=page.request.post(base+'/api/characters/assets/import',headers=headers,data={'character_id':role2,'format':'live2d','model':{'filename':'expression-only-original-derived.zip','data_base64':base64.b64encode(buf.getvalue()).decode()}});assert response.ok,response.text();asset2=response.json()['asset'];response=page.request.post(base+'/api/characters/assets/activate',headers=headers,data={'character_id':role2,'asset_id':asset2['id']});assert response.ok;page.evaluate('()=>CompanionApp.core.refresh(true)');page.wait_for_function('()=>CompanionApp.scene.ready&&Object.keys(CompanionApp.scene.getDiagnostics().motions).length===0',timeout=60000);assert page.locator('#open-stage-actions').is_visible();page.locator('#open-stage-actions').click();assert page.locator('[data-flow=stage-actions] [data-motion-group]').count()==0;assert page.locator('[data-flow=stage-actions] [data-expression-name]').count()>0;page.screenshot(path=str(evidence/'04-expression-only-real-model-menu.png'));page.keyboard.press('Escape');r['expression_only_actual_same_moc_derivative']={'motions':0,'expressions':page.evaluate('()=>CompanionApp.scene.getDiagnostics().expressions'),'derivation':'model3 removed Motions only; same original MOC/texture/expression bytes, technical fixture not final export'}
+  assert not r['page_errors'];r['checks']={'actual_mainstage_expression_core_and_visible_gl':'passed','actual_reset_clears_expression_and_same_name_reselects':'passed','expression_only_model_exposes_mainstage_entry':'passed'};r['status']='passed_real_mainstage_expression_controls';page.evaluate('()=>__handCup.dispose()')
+except Exception as e:r.update(status='failed',error=str(e),traceback=traceback.format_exc())
+finally:
+ if f:f.tearDown()
+ r['sources_unchanged']=all(Path(p).exists()and sha(Path(p))==v for p,v in r['sources'].items());write_report(a.output,r)
+print(json.dumps({'status':r['status'],'scenes':len(r['scenes']),'source_stable':r['sources_unchanged'],'error':r.get('error')}))

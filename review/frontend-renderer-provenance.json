@@ -1,0 +1,69 @@
+{
+  "observed_at": "2026-11-12T16:36:25.135644+00:00",
+  "owner": "frontend implementation agent",
+  "source_frozen": true,
+  "dependencies": {
+    "three": "0.180.0",
+    "@pixiv/three-vrm": "3.5.5",
+    "esbuild": "0.25.12"
+  },
+  "optional_owner_only_runtime": {
+    "@jannchie/pixi-live2d-display": "1.4.0",
+    "pixi.js": "8.23.0",
+    "included_in_default_distribution": false,
+    "core_downloaded": true,
+    "real_live2d_playback": "ACTUAL_CORE_HARU_12_AND_HIYORI_HOLDOUT_12_PASSED",
+    "permission_scope": "explicitly authorized local development evaluation only; vendor artifacts/model footage outside repository/default distribution",
+    "publication_permission_verified": false
+  },
+  "sha256": {
+    "app/static/app.js": "86ccdda665c4e8b590195c9949da465d0019002454fb6cbbcdcaa86738a06805",
+    "app/static/index.html": "431ba13159d07b42ef41c602468f933691497735d1a196b3a88f691ac2b71532",
+    "app/static/style.css": "08390c645a415fb0dc8ae1fdfe1edef47b87dc8bd7847e4c05424bdcf51c4589",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "frontend/renderer.mjs": "7857f9bda9a9847024d7a44c0fea3d12b80e7b42aa9d97e581dcf7ccb460df92",
+    "frontend/live2d-renderer.mjs": "a228f250192e49fa8573db88686fb9d705c8ee331257dec652063577d76d1ddc",
+    "frontend/build.mjs": "05a2b03d8efe9b551557ccf1c80776df0da5dbd83677c245d8427c097c6253fa",
+    "frontend/build-live2d-runtime.mjs": "a752e16a502caba984e413a1274083d7460785bc1a2d78e1df6a5daa62b36278",
+    "frontend/package.json": "eaa230d8acd744fc484641dcc3bd2c4e6d71db857b7a55e29a756f4f0f14eadd",
+    "frontend/package-lock.json": "2ac7b99a633cafd7c12813dfc1cc84bd3f76e4eb60814ce27a3b10b15340066a",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "tests/live2d_browser_check.py": "fb528961658a2fedd4a1071aab2f58feace2798bbb12f2521458d7b0d1e65d33",
+    "tests/playback_browser_check.py": "88c59f98b438e62a0bb5ef28f4260fd6113737e990151e5e5b6cb4b713118a09",
+    "tests/test_playback_ui.mjs": "8f5b57caa5bc357e810867a2912bc1e78d27cbe958d10c82876f745fc262db0e",
+    "tests/test_voice_ui.mjs": "812f59fc1ab7ea194e53d84cb23a419d190fa8c787c907dff726190e176740c3",
+    "tests/test_live2d_adapter_ui.mjs": "c06b90b99cd171ab8bc2b4f2f26ef5cab33154348e591a7100cf5e153e43ea10"
+  },
+  "actually_executed": {
+    "node_character_ui": 28,
+    "node_voice_playback_ui": 13,
+    "node_voice_input_ui": 8,
+    "node_live2d_adapter_safety": 6,
+    "chrome_png_existing": 15,
+    "chrome_png_blink": 5,
+    "chrome_local_recording_synthetic": 5,
+    "chrome_connector_integration_no_send": 6,
+    "node_receipt_controller": 11,
+    "bounded_controller_event_paths": 625,
+    "chrome_real_live2d_haru": 12,
+    "chrome_real_live2d_hiyori_holdout": 12,
+    "chrome_real_audio_receipt_context": 7
+  },
+  "independent_vrm_followup": "See review/vrm-browser-check.json; independent QA owns its final result, do not infer success from this source manifest.",
+  "final_frozen_source_browser_rerun": "Existing PNG 15 and synthetic recorder 5 rerun on final frozen source; both passed.",
+  "private_video_evidence": {
+    "haru": "/workspace/.live2d/evaluation/haru/acceptance.webm",
+    "hiyori": "/workspace/.live2d/evaluation/hiyori-holdout/acceptance.webm",
+    "receipt": "/workspace/.live2d/evaluation/playback/receipt-flow.webm",
+    "red_transparency": "/workspace/.live2d/evaluation/before-transparency-fix/acceptance.webm",
+    "csp_failure_reproduction": "/workspace/.live2d/evaluation/before-worker-reproduction/acceptance.webm"
+  },
+  "verification_limits": [
+    "Bounded event exploration is not a full program or OS formal proof",
+    "Video/samples are local evaluation only, not public/default distribution",
+    "Windows/RTX4060 and reference artwork acceptance remain unverified"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "observed_at": "2026-11-13T04:44:01.673262+00:00",
+  "scope": "Source, exporter roundtrip, MOC binding preservation and engineering proof. Full native Core/UI/provider acceptance is delivered separately and not inferred by this source index.",
+  "moc_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+  "evidence": [
+    {
+      "path": "review/quality-gate-live2d-delivery-final.json",
+      "sha256": "e495171f12d59a1a38508142b87f15704fa3f8d55a9154f6de1fae1ecc43c3c4"
+    },
+    {
+      "path": "review/live2d-final-project-size-and-format-preflight.json",
+      "sha256": "e57c02879049c7530fae266bb991b4fdcc490e79ecbc116ffc7cc83be833007a"
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/readonly-ir-review/rigid-cup-final-independent-source-review.json",
+      "sha256": "6722360340574d0d8d1768ed7d985474e6170e259c2e6f351edec923edbd3604"
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/readonly-ir-review/rigid-cup-final-actual-source-certificate.json",
+      "sha256": "594240ae8892e7f4eca2594de257dbf1ed2135f7dee25aa21d81e92c1e69e717"
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/readonly-ir-review/rigid-cup-actual-moc-binding-columns.json",
+      "sha256": "0b74a955fbe8f9df2e930e8c3950850c9c7961a119a20b6d87d230792f7087d4"
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/final-rigid-export-cli6g.actual.json",
+      "sha256": "c0799dc0bc3dde59f7f71720589b917f3d943a016249222145360a5367637e95"
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/final-rigid-cmo3-cli6g.actual.json",
+      "sha256": "d32e888883130084f3d0a37be03c55d62d69353e6673770787624b10521e79ee"
+    }
+  ],
+  "native_full_or_user_acceptance_claimed_by_this_index": false
+}

@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-11-12T23:27:58.133192+00:00",
+  "status": "BLOCKED",
+  "checks": {},
+  "negative_controls": {},
+  "scope": "Actual owner-installed Core and production adapter; finite declared hand/cup poses, exact non-target geometry/opacity, real GL visibility, reviewed texture ownership.",
+  "artwork_accepted": false,
+  "windows_executed": false,
+  "not_proven": [
+    "human art acceptance",
+    "all continuous parameter combinations",
+    "official Editor reopening",
+    "Windows/4060",
+    "physical hardware"
+  ],
+  "error": "requires an explicit hand/cup metamorphic contract",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py\", line 120, in run\n    validate(contract, landmarks)\n  File \"/workspace/AI-radio-stream-help/tests/hand_cup_contract.py\", line 16, in validate\n    raise ValueError('requires an explicit hand/cup metamorphic contract')\nValueError: requires an explicit hand/cup metamorphic contract\n"
+}

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "scope": "Real SHA-locked 2049-file Windows addon v2 extraction/verification on Linux filesystem; did not execute PE/DLL or detect user hardware",
+  "archive_sha256": "342b3a47ea978a78888bac3bac1d4e2bf88aaf7e7101e0ece07d3dc0850658b1",
+  "archive_bytes": 84268648,
+  "manifest_raw_sha256": "6d94f6587ae9d8c519ff04f9ab4855a2ee11cd062e6346c1eb9c9213d0986e29",
+  "manifest_semantic_sha256": "57732e6d5d4438de178eb9fe58c60f32fafd12a6dadf02bb8c45c3d1c18a1ffa",
+  "install": {
+    "status": "installed",
+    "path": "resources/optional/tracking",
+    "windows_execution_verified": false,
+    "old_profile_native_files_modified": false,
+    "physical_gaze_verified": false
+  },
+  "repeat": {
+    "status": "already_installed",
+    "windows_execution_verified": false
+  },
+  "disable": {
+    "status": "disabled",
+    "backup": "resources/optional/tracking-disabled-57732e6d5d4438de",
+    "windows_execution_verified": false
+  },
+  "elapsed_seconds": 5.035,
+  "windows_execution_verified": false,
+  "source_sha256": {
+    "scripts/tracking_addon.py": "68064f1c4e6dd781b9703f549d77680d32d504fc62fbdc610d14cf320945b671"
+  }
+}

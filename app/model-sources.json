@@ -1,0 +1,16 @@
+{
+  "access_date": "2026-11-12",
+  "base_model": {
+    "url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "license_observed": "apache-2.0",
+    "model_card_sha256": "8e3dd0c3b5b11897cc71092ccfe517bb7a9783479baa3665aad73c8d1a2041cd"
+  },
+  "quantized_model": {
+    "url": "https://huggingface.co/bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF",
+    "revision": "ae44f08e1392f39c0e474af10c3ff8355c8b6688",
+    "sha256_verified_against": "Hugging Face files API lfs.sha256",
+    "official_qwen_quantization": false
+  },
+  "status": "License and non-thinking mode are model-card statements; runtime behavior evaluated separately in test-results."
+}

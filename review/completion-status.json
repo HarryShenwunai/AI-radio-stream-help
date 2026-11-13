@@ -1,0 +1,797 @@
+{
+  "observed_at": "2026-11-12T16:40:13.134531+00:00",
+  "baseline_commit": "6fc3dd36d7df28b93903edac934b1d258d7b9b53",
+  "overall": "NOT_COMPLETE",
+  "all_user_required_gates_passed": false,
+  "completion_percentage": null,
+  "percentage_reason": "Different evidence layers and unrun target/account/quality gates must not be reduced to a misleading percentage.",
+  "evidence_layers": {
+    "E0": "design/source",
+    "E1": "module or controlled primitive",
+    "E2": "actual local HTTP/files/SQLite",
+    "E3": "actual browser or local application",
+    "E4": "actual target machine/provider/account",
+    "E5": "user quality acceptance"
+  },
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "Windows10/11可运行",
+      "required": true,
+      "status": "BLOCKED_EXTERNAL",
+      "owner": "desktopHost+用户",
+      "unpassed_gates": [
+        "windows_native_build",
+        "windows_clean_launch",
+        "windows_lifecycle"
+      ],
+      "evidence": [
+        "review/windows-local-build-preflight.json",
+        "review/windows-build-blocker.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R02",
+      "title": "自助PNG与独立身份",
+      "required": true,
+      "status": "LOCAL_VERIFIED",
+      "owner": "root+QA",
+      "unpassed_gates": [
+        "windows_png_flow",
+        "new_module_regression"
+      ],
+      "evidence": [
+        "review/character-implementation-review.json",
+        "review/character-browser.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R03",
+      "title": "自助动态VRM",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "pngAgent+frontend+root+QA",
+      "unpassed_gates": [
+        "windows_vrm",
+        "target_gpu_compatibility",
+        "real_asset_quality"
+      ],
+      "evidence": [
+        "review/vrm-browser-check.json",
+        "review/real-companion-browser-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R04",
+      "title": "高质量角色表现",
+      "required": true,
+      "status": "NOT_ACCEPTED",
+      "owner": "frontend+用户",
+      "unpassed_gates": [
+        "legal_quality_asset",
+        "same_asset_visual_review",
+        "rtx4060_frame_times",
+        "user_visual_acceptance"
+      ],
+      "evidence": [
+        "docs/design/visual-quality-target.md"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R05",
+      "title": "自然聊天与角色一致",
+      "required": true,
+      "status": "NOT_ACCEPTED",
+      "owner": "voiceAgent+root+用户",
+      "unpassed_gates": [
+        "30_scenario_memory_off_comparison",
+        "quality_threshold_freeze",
+        "user_dialogue_acceptance"
+      ],
+      "evidence": [
+        "review/character-native-check.json",
+        "review/real-companion-browser-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R06",
+      "title": "自然中文语音",
+      "required": true,
+      "status": "PARTIAL",
+      "owner": "voiceAgent+desktopHost+用户",
+      "unpassed_gates": [
+        "windows_actual_tts_playback",
+        "100_round_voice_latency",
+        "voice_quality_acceptance"
+      ],
+      "evidence": [
+        "review/character-native-check.json",
+        "review/real-companion-browser-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R07",
+      "title": "本地ASR与轮次",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "voiceAgent+frontend+root",
+      "unpassed_gates": [
+        "human_speech_accuracy",
+        "windows_mic_permission",
+        "target_voice_round_latency"
+      ],
+      "evidence": [
+        "review/voice-real-smoke.json",
+        "review/asr-http-real-check.json",
+        "review/vrm-browser-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R08",
+      "title": "可打断与晚到拒绝",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "音频各层+QA",
+      "unpassed_gates": [
+        "windows_100_interruptions",
+        "target_p95_stop_latency"
+      ],
+      "evidence": [
+        "review/character-browser.json",
+        "review/character-native-check.json",
+        "/workspace/research/playback-integration-final.log",
+        "review/real-companion-browser-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R09",
+      "title": "记忆可关及关系控制",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "root+QA",
+      "unpassed_gates": [
+        "all_ingress_memory_off",
+        "forgotten_not_restored",
+        "public_private_canaries"
+      ],
+      "evidence": [
+        "review/character-implementation-review.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R10",
+      "title": "主动联系可控",
+      "required": true,
+      "status": "PARTIAL",
+      "owner": "root+catalogAgent",
+      "unpassed_gates": [
+        "quiet_hours_timezone",
+        "rate_and_unanswered_controls",
+        "disable_clears_late_outbound",
+        "specific_channel_authorization"
+      ],
+      "evidence": [],
+      "complete": false
+    },
+    {
+      "id": "R11",
+      "title": "哔哩哔哩官方接入与弹幕",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "catalogAgent+root+用户",
+      "unpassed_gates": [
+        "actual_official_room_credentials",
+        "real_platform_ingress_reconnect",
+        "actual_public_output_acceptance"
+      ],
+      "evidence": [
+        "src/companion_runtime/connectors/README.md"
+      ],
+      "complete": false,
+      "selected_route": "Current official OpenLive; third-party danmaku software interop only if separately requested."
+    },
+    {
+      "id": "R12",
+      "title": "微信ClawBot文字与音频文件",
+      "required": true,
+      "status": "BLOCKED_EXTERNAL",
+      "owner": "catalogAgent+用户",
+      "unpassed_gates": [
+        "actual_clawbot_account_and_adapter_version",
+        "actual_text_and_audio_file_delivery",
+        "authorized_owned_test_conversation"
+      ],
+      "evidence": [
+        "src/companion_runtime/connectors/README.md"
+      ],
+      "complete": false,
+      "optional_not_supported": [
+        "native_wechat_voice_bubble",
+        "inbound_native_audio"
+      ],
+      "scope_decision": "User explicitly accepted ClawBot plus audio-file attachment; native voice is no longer required."
+    },
+    {
+      "id": "R13",
+      "title": "4060/32GB资源与并发",
+      "required": true,
+      "status": "BLOCKED_EXTERNAL",
+      "owner": "desktopHost+QA+用户",
+      "unpassed_gates": [
+        "hardware_probe",
+        "30_min_target_resource_run",
+        "whole_process_rss_vram",
+        "cpu_cuda_mode_evidence"
+      ],
+      "evidence": [],
+      "complete": false
+    },
+    {
+      "id": "R14",
+      "title": "安全恢复与完整交付",
+      "required": true,
+      "status": "IN_PROGRESS",
+      "owner": "全体+QA",
+      "unpassed_gates": [
+        "new_ingress_privacy",
+        "new_asset_rollback",
+        "dependency_license_resolution",
+        "verified_complete_windows_package",
+        "no_duplicate_after_restart"
+      ],
+      "evidence": [
+        "review/character-implementation-review.json",
+        "review/license-collection-check.json"
+      ],
+      "complete": false
+    },
+    {
+      "id": "R15",
+      "title": "自助Live2D运行包",
+      "required": true,
+      "status": "LOCAL_VERIFIED_PARTIAL",
+      "owner": "catalogAgent+frontend+QA",
+      "unpassed_gates": [
+        "windows_live2d_lifecycle",
+        "arbitrary_cubism_export_compatibility",
+        "target_resource_acceptance"
+      ],
+      "evidence": [
+        "review/vrm-browser-check.json",
+        "review/live2d-independent-browser.json",
+        "review/live2d-hiyori-holdout.json"
+      ],
+      "complete": false,
+      "local_evaluation_terms_accepted": true,
+      "public_distribution_or_expandable_permission_granted": false
+    }
+  ],
+  "scope_notes": [
+    {
+      "item": "Live2D",
+      "state": "FORMAL_TARGET_RETAINED_LOCAL_EVALUATION_AUTHORIZED",
+      "reason": "Earlier formal target retained alongsideVRM. User explicitly accepted localCore/framework evaluation; publishing andExpandable permissions remain separate."
+    },
+    {
+      "item": "AR",
+      "state": "OPTIONAL_RESEARCH_CANDIDATE",
+      "reason": "Revised plan P6 optional; no new authorization to use camera/device or make core scope."
+    },
+    {
+      "item": "MC",
+      "state": "OPTIONAL_RESEARCH_CANDIDATE",
+      "reason": "Revised plan P7 optional; upstream comparison does not require connecting a game server."
+    },
+    {
+      "item": "Public character market/cloud sync/automatic rigging",
+      "state": "OUTSIDE_CONFIRMED_CORE"
+    }
+  ],
+  "external_blockers": [
+    {
+      "id": "B-WINDOWS",
+      "required_inputs": [
+        "actual local build/test reports from the available Windows computer",
+        "hardware probe CPU/GPU/VRAM/driver/OS build"
+      ],
+      "affects": [
+        "R01",
+        "R02",
+        "R03",
+        "R06",
+        "R07",
+        "R08",
+        "R13",
+        "R14"
+      ]
+    },
+    {
+      "id": "B-QUALITY",
+      "required_inputs": [
+        "legally runnable quality dynamic asset and fixed comparison scene",
+        "user visual/voice/dialogue assessment"
+      ],
+      "affects": [
+        "R04",
+        "R05",
+        "R06"
+      ]
+    },
+    {
+      "id": "B-BILI",
+      "required_inputs": [
+        "actual roomID (user confirmed manageable room)",
+        "current official appID/accessKey/secret/anchorCode as applicable via local owner UI",
+        "specific allowed account test actions"
+      ],
+      "affects": [
+        "R11"
+      ],
+      "not_required_for_selected_route": "A third-party danmaku software name/version unless that separate compatibility is also requested."
+    },
+    {
+      "id": "B-WECHAT",
+      "required_inputs": [
+        "actual ClawBot account/adapter version and usable eligible integration",
+        "owned test conversation and credentials",
+        "explicit text/audio-file test send authorization for that target"
+      ],
+      "affects": [
+        "R12"
+      ]
+    }
+  ],
+  "current_task_tests_executed": [
+    {
+      "name": "import_and_missing_live2d_runtime_http",
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_completion_http.py -v",
+      "passed": 9,
+      "elapsed_seconds": 5.145,
+      "layer": "E2",
+      "models": "original synthetic VRM0/1 and structure-only MOC3 ZIP, not a playable Live2D model",
+      "evidence": "/workspace/research/completion-http-run.log"
+    },
+    {
+      "name": "application_asr_runtime_http",
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_asr_integration_http.py -v",
+      "passed": 9,
+      "elapsed_seconds": 5.014,
+      "layer": "E2",
+      "models": "real WAV validation, fake recognizer deliberately ignoring cancellation",
+      "evidence": "/workspace/research/asr-integration-http-run.log"
+    },
+    {
+      "name": "application_platform_boundaries_http",
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_platform_integration_http.py -v",
+      "passed": 10,
+      "elapsed_seconds": 9.946,
+      "layer": "E2",
+      "models": "local adapter and fake inference; real HTTP/SQLite/generation approvals; zero real account connection/send",
+      "evidence": "/workspace/research/platform-integration-http-run.log"
+    },
+    {
+      "name": "real_chromium_vrm_ui",
+      "command": "python tests/vrm_browser_check.py",
+      "passed": 19,
+      "layer": "E3",
+      "models": "actual SwiftShader framebuffer, original syntheticVRM0/1; fakeLLM/TTS+actual440Hz WAV; microphone/browser ASR capture stubbed",
+      "evidence": "review/vrm-browser-check.json"
+    },
+    {
+      "name": "real_application_asr_http",
+      "passed": true,
+      "layer": "E4_provider_on_linux_only",
+      "models": "actual faster-whisper tinyCPU and existing Kokoro-synthetic2.683sec WAV; no real microphone",
+      "elapsed_seconds": 1.762,
+      "evidence": "review/asr-http-real-check.json"
+    },
+    {
+      "name": "playback_context_integration_http",
+      "passed": 15,
+      "layer": "E2",
+      "evidence": "/workspace/research/playback-integration-final.log",
+      "not_human_playback_attention_proof": true,
+      "elapsed_seconds": 8.559,
+      "command": "PYTHONPATH=tests python -m unittest test_playback_integration_http -v"
+    },
+    {
+      "name": "selected_context_prompt_capacity",
+      "command": "PYTHONPATH=tests python -m unittest test_prompt_budget -v",
+      "passed": 3,
+      "elapsed_seconds": 0.134,
+      "layer": "E1_code_bound",
+      "models": "deterministic fake tokenizer, not actual GGUF tokenization",
+      "evidence": "/workspace/research/prompt-budget-final.log"
+    },
+    {
+      "name": "authorized_core_independent_browser",
+      "command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright python tests/live2d_browser_check.py --model-zip /workspace/.live2d/fixtures/haru-visual-evaluation.zip --runtime-dir /workspace/.live2d/runtime --label haru-independent --output review/live2d-independent-browser.json",
+      "passed": 12,
+      "layer": "E3",
+      "models": "actual authorized Core/framework and official Haru local evaluation asset; real SwiftShader WebGL/HTMLAudio with synthetic WAV",
+      "evidence": "review/live2d-independent-browser.json",
+      "sdk_and_model_public_distribution_authorized": false
+    },
+    {
+      "name": "actual_qwen_kokoro_vrm_audio_stop_context",
+      "command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright COMPANION_MODELS=/workspace/companion/models COMPANION_VOICES=/workspace/companion/voices /workspace/companion/.venv/bin/python tests/real_companion_browser_check.py",
+      "passed": 6,
+      "layer": "E3_and_actual_local_provider_on_linux",
+      "models_mocked": false,
+      "source_changed_during_run": false,
+      "evidence": "review/real-companion-browser-check.json",
+      "video": "/workspace/dist/evidence-companion-real-20261112-163732/actual-app-process.webm",
+      "artifact_archive": "/workspace/dist/evidence-companion-real-20261112-163732.zip",
+      "screen_recording_audio_track": false,
+      "response_wav": "/workspace/dist/evidence-companion-real-20261112-163732/actual-kokoro-response.wav",
+      "windows_or_rtx4060_verified": false,
+      "human_quality_accepted": false
+    }
+  ],
+  "historical_tests_are_not_new_feature_acceptance": true,
+  "must_not_equate": [
+    "synthetic geometry with accepted artwork",
+    "SwiftShader with RTX4060 quality/performance",
+    "Linux or Wine with actual Windows acceptance",
+    "mock/replay callbacks with actual Bilibili/WeChat",
+    "one real output with naturalness acceptance",
+    "all unit tests passing with all user requirements complete"
+  ],
+  "sources": [
+    {
+      "path": "docs/planning/revised-plan.md",
+      "accessed_on": "2026-11-12",
+      "sha256": "6e0a9c6d730d1292d752d5fd1e50a837b9d9e7232210ad37259f4af5de5d9bba"
+    },
+    {
+      "path": "docs/planning/self-service-characters-plan.md",
+      "accessed_on": "2026-11-12",
+      "sha256": "e1e4bb0ad1f43f5d5bda443cbcba106f0d518cf9e7d2d70ce59d2e02550c927a"
+    },
+    {
+      "path": "docs/design/visual-quality-target.md",
+      "accessed_on": "2026-11-12",
+      "sha256": "274d47d75b4d3ec1b240d35015a2701eb97485afe989a63d8cb40952536607bc"
+    },
+    {
+      "path": "docs/planning/completion-ledger.md",
+      "accessed_on": "2026-11-12",
+      "sha256": "670e9d81f3d6eef9dd6503a862d575b2fba26eaa4e911ee74dc50f9896dccc6c"
+    },
+    {
+      "path": "review/character-native-check.json",
+      "accessed_on": "2026-11-12",
+      "sha256": "73fc979f40dbfdda41f090ee0831192ca9cc95d018bf167ca1c577821f8fc6a7"
+    },
+    {
+      "path": "review/character-browser.json",
+      "accessed_on": "2026-11-12",
+      "sha256": "8ffdb67ca4339fe56d05f614932c0e6013e04099ea14ed88dd52f5f2fac33de6"
+    }
+  ],
+  "findings": [
+    {
+      "id": "C-QA-01",
+      "issue": "Failed VRM preview resumed an empty RAF loop after load error.",
+      "state": "fixed_and_real_chromium_verified",
+      "evidence": "renderer_failure_keeps_current_asset_and_stops_render_loop"
+    },
+    {
+      "id": "C-QA-02",
+      "issue": "Invalid ASR CPU/float16 and CUDA/int8 pairs were accepted and could break status/transcription.",
+      "state": "fixed_after_real_http_red_green",
+      "evidence": "tests/test_asr_integration_http.py; /workspace/research/voice-http-invalid-asr-combinations-red.log"
+    },
+    {
+      "id": "C-QA-03",
+      "issue": "Restoring WeChat auto-approve after restart conflicted with default-preview safety policy.",
+      "state": "fixed_and_real_http_verified",
+      "evidence": "test_repairing_revokes_old_token_and_restart_returns_to_preview"
+    },
+    {
+      "id": "C-QA-04",
+      "issue": "Live2D runtime reason code and ASR precision controls needed user-facing mapping/linkage.",
+      "state": "fixed_and_real_chromium_verified",
+      "evidence": "actual_asr_device_select_keeps_precision_compatible; missing_live2d_runtime_blocks_activation_without_loading_core_or_changing_vrm"
+    },
+    {
+      "id": "C-QA-05",
+      "issue": "Historical late TTS and stale generation stop could retire newer playback; request-order reservation and scoped accepted-only cancellation now protect it.",
+      "state": "fixed_and_independent_15_http_regression_verified",
+      "affects": "R08",
+      "evidence": [
+        "/workspace/research/playback-late-history-red.log",
+        "/workspace/research/playback-stale-generation-stop-red.log",
+        "/workspace/research/playback-integration-final.log"
+      ]
+    },
+    {
+      "id": "C-QA-06",
+      "issue": "Public generation originally used process STOP only; connector stop/private takeover could not cancel it.",
+      "state": "fixed_and_three_actual_http_cases_verified",
+      "evidence": "test_platform_integration_http.py stop/priority/uncooperative-timeout tests",
+      "note": "Configured local preview TTL30 is a candidate engineering tradeoff, not a platform SLA."
+    }
+  ],
+  "test_material_corrections": [
+    "Original syntheticVRM1 initially putCC0 in licenseUrl; real three-vrm rejected it. Corrected normative licenseUrl withCC0 in otherLicenseUrl; kept renderer-reject fixture and error/activation guard test.",
+    "Playwright OPTION.is_disabled inside LABEL retargets to enabled SELECT; reproduced without app. Tests use actual option.disabled&&matches(:disabled) plus correct value/default and saved backend state.",
+    "Imported unittest TestCase class initially duplicated old22tests; changed to module import and recorded exact9new cases after resource regression.",
+    "Two agents collided on tests/test_voice_http.py. Kept voice-agent transport file; restored application9cases to owned tests/test_asr_integration_http.py.",
+    "Recording inference venv requires existing PLAYWRIGHT_BROWSERS_PATH for ffmpeg; wrong home failed before inference.",
+    "After stop, aborted Playwright Response.body was empty; fetching BlobURL was then correctly blocked by app CSP. Final harness retains the original Blob reference at createObjectURL and reads arrayBuffer without relaxing CSP. Both failed capture attempts retained in /workspace/research, not represented as product failures."
+  ],
+  "confirmed_user_decisions_2026_11_12": [
+    "Windows10/11 target and user-reportedRTX4060/32GB",
+    "ClawBot with audio-file attachment accepted instead of requiring nativeWeChat voice",
+    "A manageable Bilibili room exists; no roomID/key or real connection result yet",
+    "Live2DCore/framework local evaluation terms explicitly accepted; public release/Expandable not authorized"
+  ],
+  "resolved_counterexamples": [
+    {
+      "name": "late_historical_tts_cannot_supersede_newer_playback_receipt",
+      "reproduce": "PYTHONPATH=src python -m unittest discover -s tests -p test_playback_integration_http.py -k late_historical -v",
+      "actual": {
+        "old_response_status": 200,
+        "new_completed_accepted": false,
+        "new_completed_stale": true
+      },
+      "expected": {
+        "old_response_status": 409,
+        "new_completed_accepted": true
+      },
+      "evidence": "/workspace/research/playback-late-history-red.log",
+      "affects": [
+        "R08"
+      ],
+      "state": "fixed_and_independent_regression_passed",
+      "green_evidence": "/workspace/research/playback-integration-final.log"
+    },
+    {
+      "name": "stale_generation_stop_must_not_invalidate_newer_playback",
+      "state": "fixed_and_independent_regression_passed",
+      "red_evidence": "/workspace/research/playback-stale-generation-stop-red.log",
+      "green_evidence": "/workspace/research/playback-integration-final.log"
+    }
+  ],
+  "open_counterexamples": [],
+  "engineering_gates": {
+    "full_report": "review/quality-gate.json",
+    "full_passed": true,
+    "source_stable_during_full": true,
+    "post_harness_report": "review/quality-gate-post-harness.json",
+    "post_harness_passed": true,
+    "only_change_after_full": "tests/real_companion_browser_check.py evidence capture, product code unchanged",
+    "scope": "automated source/type/architecture/tests and bounded finite-state checks, not all user acceptance gates"
+  },
+  "real_model_single_observation": {
+    "first_text_or_error_seconds": 22.754,
+    "reply_seconds": 24.862,
+    "first_observed_audio_rms_seconds": 30.898,
+    "observed_stop_seconds": 0.127,
+    "max_rss_kib_linux_process": 5546508,
+    "actual_audio_receipt": {
+      "status": "stopped",
+      "position_seconds": 0.533333,
+      "duration_seconds": 2.656,
+      "confirmed_text": "",
+      "evidence": "client_owner_reported_playback_not_human_attention",
+      "reason": "client_stopped"
+    },
+    "not_p95_or_target_hardware": true
+  },
+  "artifact_archive": {
+    "path": "/workspace/dist/evidence-companion-real-20261112-163732.zip",
+    "bytes": 2912812,
+    "sha256": "918099432ed4bb4facf2b035e8ad7f1f0ffa64981eb5e9b0ab4cc9346673c472",
+    "zip_test_passed": true,
+    "sdk_or_vendor_models_bundled": false
+  },
+  "current_original_live2d_review": {
+    "observed_at": "2026-11-13T05:12:23.987137+00:00",
+    "overall": "LOCAL_TECHNICAL_VERIFIED_EXTERNAL_USER_GATES_PENDING",
+    "primary_visual_target": "Original full-rig 2D Live2D; rejected 3D excluded",
+    "actual_original_exports_and_official_core": true,
+    "candidate7_art_status": "rejected cloth spikes/folds at declared joint combinations",
+    "latest_body_branch": {
+      "model": ".build/original-character-rig-r5/export-cloth-continuous/character.model3.json",
+      "finite_unique_joint_samples": 34,
+      "winding_flips": 0,
+      "max_edge_ratio": 1.2227188126875201,
+      "visible_extreme_gaps_still_rejected": true,
+      "cup_hold_present": false,
+      "independent_review": "review/original-character-live2d-continuous-cloth-independent-review.json",
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "final_full_rig_accepted": false,
+    "true_qwen_kokoro_final_live2d_run": {
+      "status": "LOCAL_VERIFIED_SECOND_RECOVERY_COMPLETE",
+      "actual_provider_invoked": true,
+      "actual_invocation_count": 2,
+      "complete_attempt_count": 1,
+      "first_attempt": {
+        "status": "ENVIRONMENT_INTERRUPTED_NO_FINAL_REPORT",
+        "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2-20261113-final",
+        "observation": "review/real-live2d-rigid-r2-interrupted-observation.json",
+        "not_counted_as_passed": true
+      },
+      "second_recovery": {
+        "status": "passed",
+        "report": "review/real-live2d-rigid-r2-companion.json",
+        "independent_review": "review/real-live2d-rigid-r2-independent-final-review.json",
+        "evidence_directory": "/workspace/dist/evidence-real-live2d-rigid-r2",
+        "log": ".build/final-real-live2d-r2.log",
+        "seven_checks_passed": true,
+        "source_files_current_no_drift": 112,
+        "models_mocked": false,
+        "browser_external_requests": 0,
+        "memory_mode": "off",
+        "stop_seconds": 0.793,
+        "stop_limit_seconds": 2,
+        "actual_analyser_rms": 0.049648863927899245,
+        "actual_core_mouth_causal_drawables": 6,
+        "next_prompt_assistant_entries": [],
+        "actual_receipt_status": "stopped",
+        "wav_path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-kokoro-response.wav",
+        "wav_sha256": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f",
+        "wav_seconds": 5.716625,
+        "video_path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-qwen-kokoro-original-live2d-stop.webm",
+        "video_sha256": "1b48122c43ac621f5b86e310419cdb6936833a2fce83cd41e40defded6d1722f",
+        "video_audio_streams": 0,
+        "single_observation_not_p95": true,
+        "first_text_seconds": 49.54,
+        "reply_seconds": 62.314,
+        "first_observed_audio_rms_seconds": 69.621,
+        "python_process_max_rss_kib": 5631388
+      },
+      "offline_flags": {
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "HF_HUB_DISABLE_TELEMETRY": "1"
+      },
+      "windows_rtx4060_or_user_E5_verified": false
+    },
+    "unpassed": [
+      "Windows10/11 RTX4060 real hardware",
+      "Actual human microphone/ASR",
+      "Real Bilibili/WeChat account interoperability",
+      "User E5 natural chat/voice/art acceptance and long-term consistency"
+    ],
+    "historical_results_scope": "Original requirements/engineering_gates/real_model_single_observation fields below retain their recorded 2026-11-12 sources; do not apply them to current changed original Live2D/product sources.",
+    "latest_body_diagnostic_revision": {
+      "model": ".build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.model3.json",
+      "review": "review/original-character-live2d-underfill-correct-base-independent-review.json",
+      "root_internal_clothing_baseline_accepted": true,
+      "user_E5_accepted": false,
+      "source_psd_final_replay_pending": true,
+      "remaining_transparent_wedge": "Connected outer silhouette armpit air retained by root visual decision, not automatically rejected from alpha counts",
+      "actual_provider_invoked": false,
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "formal_same_source_model": {
+      "model": ".build/original-character-rig-formal-r1/export/character.model3.json",
+      "review": "review/original-character-live2d-formal-r1-independent-review.json",
+      "actual_42_source_png_and_psd_project_binding_passed": true,
+      "fresh_eye_mesh_neutral_actual_eye1_passed": true,
+      "cloth34_core_folds_zero": true,
+      "core_gl_sidecar_subgates_passed": true,
+      "cup_shape_in_normal_body_domain_failed": true,
+      "corrected_model_pending": true,
+      "actual_provider_invoked": false,
+      "historical_only": true,
+      "superseded_by": "current_rigid_r2_model"
+    },
+    "current_public_source_quality": {
+      "report": "review/quality-gate-live2d-delivery-final.json",
+      "report_sha256": "e495171f12d59a1a38508142b87f15704fa3f8d55a9154f6de1fae1ecc43c3c4",
+      "observed_at": "2026-11-13T04:28:07.176980+00:00",
+      "passed": true,
+      "source_stable_during_checks": true,
+      "source_snapshot_commit": "084aaf222b54e1828595bde82fc07c58acbb6075",
+      "source_files_rechecked_current": 327,
+      "source_files_rechecked_current_no_drift": true,
+      "counts": {
+        "python": 780,
+        "python_skipped": 0,
+        "frontend_node": 111,
+        "desktop_python": 9,
+        "desktop_node": 27
+      },
+      "does_not_verify": [
+        "Final rig shape/grip",
+        "True provider with this model",
+        "Windows/4060",
+        "Real accounts",
+        "User E5"
+      ]
+    },
+    "current_rigid_r2_model": {
+      "model": ".build/original-character-rig-formal-r1/export-rigid-cup/character.model3.json",
+      "moc_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+      "moc_bytes": 4769536,
+      "actual_drawables": 42,
+      "actual_parameters": 41,
+      "actual_source_project_sha256": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+      "actual_core_gl_report": "review/original-character-live2d-rigid-r2-core-gl.json",
+      "actual_core_gl_technical_checks_passed": 8,
+      "source_stable_during_actual_core_gl": true,
+      "cloth_report": "review/original-character-live2d-rigid-r2-cloth-folds.json",
+      "cloth_unique_poses": 34,
+      "cloth_all_winding_flips": 0,
+      "cloth_max_edge_ratio": 1.222722490262611,
+      "actual_gl_parameter_sweeps": 13,
+      "actual_expressions": 4,
+      "actual_motions": 8,
+      "actual_core_evaluations_at_last_parameter": 2378,
+      "javascript_errors": [],
+      "neutral_face_report": "review/original-character-live2d-rigid-r2-neutral-face.json",
+      "neutral_actual_eye_open": [
+        1,
+        1
+      ],
+      "neutral_actual_mouth_open": 0,
+      "neutral_actual_mouth_form": 0,
+      "root_internal_three_picture_review": "Root viewed actual r2 neutral full/face and MouthOpenYmax; no obvious new gross damage noted. Not user E5.",
+      "pending": [
+        "Windows/4060 target-device verification",
+        "Real microphone/account tests",
+        "User E5 art and voice acceptance"
+      ],
+      "r1_old_cup_distortion_remains_historical_failed_evidence": true,
+      "fresh_full_hand_cup_and5000_passed": true,
+      "final_complete_technical_review": "review/real-live2d-rigid-r2-independent-final-review.json",
+      "reported_shape_and_grip": {
+        "full_hand_cup_checks": 13,
+        "actual_selected_cartesian_poses": 486,
+        "additional_selected_off_key": 61,
+        "not_exhaustive_20655_core_states": true,
+        "independent5000_grip_cases": 5000,
+        "max_grip_error_source_px": 0.6785883196328265,
+        "shape5000_cases": 5000,
+        "max_affine_shape_residual_source_px": 8.569116124003843e-05,
+        "max_similarity_shape_residual_source_px": 0.00010626277318283761,
+        "shape_limit_source_px": 0.5,
+        "actual_mainstage_ui_checks": 9,
+        "actual_expression_ui_checks": 3,
+        "qa_core_gl_checks": 8,
+        "qa_cloth_poses": 34
+      },
+      "real_provider_recovery_passed": true
+    },
+    "current_candidate_artifacts": {
+      "report": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-report.json",
+      "packager_status": "candidate",
+      "packager_core_passed": false,
+      "packager_full_character_claimed": false,
+      "runtime_zip": {
+        "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip",
+        "bytes": 11017918,
+        "sha256": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e",
+        "independent_zip_model_moc_contract_binding_passed": true
+      },
+      "source_zip": {
+        "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-source.zip",
+        "bytes": 345553022,
+        "sha256": "1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc",
+        "verification_attribution": "Actual developer packager and root freeze record; QA did not repeat whole345MB CRC sweep"
+      },
+      "meaning": "Format/source packaging gates are distinct from actual Core/model, art and target device gates."
+    },
+    "unverified_scope_dependent": [
+      "Official Editor CMO3 reopen/equivalent export not verified; not automatically a new required software runtime gate."
+    ],
+    "final_full_rig_technical_acceptance_passed": true,
+    "final_full_rig_user_E5_accepted": false
+  }
+}

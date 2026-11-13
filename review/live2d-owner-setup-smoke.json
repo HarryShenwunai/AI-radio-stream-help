@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "scope": "Current source Linux dev smoke: all cached archives reverified, native Linux esbuild, real official Core HTTPS installer and reversible complete pair; no Windows execution",
+  "runtime_packages": 13,
+  "npm_archives_verified": 15,
+  "fresh_http_download_report": "review/live2d-owner-setup-fresh-http-check.json",
+  "build": {
+    "bundle": "/workspace/.live2d/owner-setup/final-smoke/build/owner-live2d-runtime.js",
+    "sha256": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "bytes": 1183739,
+    "download_bytes": 28770632,
+    "unpacked_bytes": 101252580,
+    "native_builder_platform": "linux-x64",
+    "native_builder_version": "0.25.12",
+    "npm_lifecycle_scripts_executed": false,
+    "node_required": false,
+    "windows_application_execution_verified": false
+  },
+  "runtime_status_before_restore": {
+    "available": true,
+    "core_available": true,
+    "bundle_available": true,
+    "renderer_available": true,
+    "core_url": "/live2d-core.js",
+    "runtime_url": "/live2d-runtime.js",
+    "core_version": null,
+    "cleanup_pending": false,
+    "artifacts": {
+      "core": {
+        "available": true,
+        "sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+        "source_type": "official_https",
+        "pin_kind": "observed_sha256",
+        "installed_at": "2026-11-12T22:46:13.791653+00:00"
+      },
+      "bundle": {
+        "available": true,
+        "sha256": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+        "source_type": "owner_local_bundle",
+        "pin_kind": "owner_expected_sha256",
+        "installed_at": "2026-11-12T22:46:12.521799+00:00"
+      }
+    },
+    "official_published_digest": false,
+    "runtime_execution_verified": false,
+    "publication_permission_verified": false,
+    "reason": null,
+    "license_links": [
+      "https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html",
+      "https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html",
+      "https://www.live2d.com/en/sdk/license/expandable/"
+    ]
+  },
+  "runtime_fingerprint": {
+    "bundle.json": "9b73ced216bb3d950fdc996f48fc8340ccc1b37e9a47c9bbb6146989955a0870",
+    "core.json": "6bf10db703609de0413d897a5793e1ad4a0c04b4ef9daa09c359bf74c449f749",
+    "revisions/77100390-8a80-4863-b4ad-a47db1f5fa65/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "revisions/77100390-8a80-4863-b4ad-a47db1f5fa65/record.json": "81e3a91c52d7bd7d874dad74fa2bb84bf5e71c25a854f743036b20a01634f6eb",
+    "revisions/1bb8f76b-157e-4e48-acce-32d8adc994ca/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "revisions/1bb8f76b-157e-4e48-acce-32d8adc994ca/record.json": "9409f53b843c3a9e366f3a41f7a2b6a3fe2ab0d94da59f9090b5c907bf118566"
+  },
+  "restore": {
+    "status": "restored",
+    "runtime_root": "/workspace/.live2d/owner-setup/final-smoke/live2d-runtime"
+  },
+  "source_sha256": {
+    "scripts/setup_live2d_owner.py": "5e6d02d59923210ffde04392c935d8c70e791440dfdf925db1b44c9986640423",
+    "scripts/live2d-owner-packages.json": "65e66fc7151e519afc938fcdfdbac46898f4bf47fb6f6ea54e68547b59666671",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530"
+  },
+  "sources_unchanged_during_checks": true,
+  "elapsed_seconds": 5.468,
+  "vendor_bytes_in_public_package": false,
+  "windows_native_execution_verified": false,
+  "official_published_core_digest": false
+}

@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-11-12T20:53:38.432325+00:00",
+  "scope": "Real isolated loopback owner HTTP restore regression, including transaction rollback; no external model",
+  "tests_run": 2,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "elapsed_seconds": 1.254,
+  "source_stable": true,
+  "source_before": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "tests/test_rebuild_http.py": "bdf056e0a8321303bc97712d75c4b1d7c7b378a44475e1c4af5e73b072b0ed5d"
+  },
+  "source_after": {
+    "app/server.py": "4ac4d67523dc57b3060b6f354b84e1b23e294810002d55766850fcecef35c66c",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "tests/test_rebuild_http.py": "bdf056e0a8321303bc97712d75c4b1d7c7b378a44475e1c4af5e73b072b0ed5d"
+  },
+  "cases": [
+    "Empty backup cancels previous confirmed schedule, repeated confirm409",
+    "Task backup creates paused task without old assistance association, previous binding historical only",
+    "Nested invalid JSON status triggers in-transaction failure and complete task/message/memory/proposal/event rollback"
+  ],
+  "log": "review/rebuild-restore-regression-tests.txt"
+}

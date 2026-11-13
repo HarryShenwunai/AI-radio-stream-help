@@ -1,0 +1,111 @@
+{
+  "access_date": "2026-11-12",
+  "sources": [
+    {
+      "url": "https://www.live2d.com/en/sdk/download/web/",
+      "access_date": "2026-11-12",
+      "access": "read-only legal/document text; no SDK agreement accepted"
+    },
+    {
+      "url": "https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html",
+      "access_date": "2026-11-12",
+      "access": "read-only legal/document text; no SDK agreement accepted"
+    },
+    {
+      "url": "https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html",
+      "access_date": "2026-11-12",
+      "access": "read-only legal/document text; no SDK agreement accepted"
+    },
+    {
+      "url": "https://www.live2d.com/en/sdk/license/expandable/",
+      "access_date": "2026-11-12",
+      "access": "read-only legal/document text; no SDK agreement accepted"
+    },
+    {
+      "url": "https://github.com/guansss/pixi-live2d-display/blob/master/README.md",
+      "git_blob_sha": "1e5c394058d0e61a1e96a8bfc35afb5976304e27",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Live2D/CubismWebSamples/blob/develop/README.md",
+      "git_blob_sha": "4f42a8e1d21d17ddda1c9be02e4042669b988c96",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Live2D/CubismWebFramework/blob/develop/LICENSE.md",
+      "git_blob_sha": "bd0be75fcb069330a86ed9eeee73b56c2056e044",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Live2D/CubismWebSamples/blob/develop/CHANGELOG.md",
+      "git_blob_sha": "ea1485d67f1e11c73fcb499d5618a21cb1c0960d",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Jannchie/pixi-live2d-display/blob/master/README.md",
+      "git_blob_sha": "b3a856bf9cf4c77ba81ff1cd11403d2978f4c123",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Jannchie/pixi-live2d-display/blob/master/package.json",
+      "git_blob_sha": "9534595cdc236cb9dd309aeb69bbf7e0a450299f",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/Jannchie/pixi-live2d-display/blob/master/LICENSE",
+      "git_blob_sha": "dbc2166d21b6a33224e40c41714f58974b9e40bc",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/omniwaifu/pixi-live2d5/blob/master/README.md",
+      "git_blob_sha": "6cd4bdb369753f0bd05716167a7e4afe28c6b4b7",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/naari3/pixi-live2d-display/blob/master/README.md",
+      "git_blob_sha": "35c413b0430ccf9c6066476922bce5043a5eeef2",
+      "access_date": "2026-11-12"
+    },
+    {
+      "url": "https://github.com/omniwaifu/pixi-live2d5/blob/master/scripts/setup.js",
+      "git_blob_sha": "4091e4d1782b645d89aebab5d9b57fd37faa8908",
+      "access_date": "2026-11-12",
+      "verified": "Archivechecksum explicitly locally observed, not published by Live2D; setup not run"
+    }
+  ],
+  "official_core_metadata_only": {
+    "method": "HEAD",
+    "url": "https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js",
+    "status": 200,
+    "content_type": "text/javascript; charset=utf-8",
+    "digest_header_found": false,
+    "body_retrieved": false
+  },
+  "fact_types": {
+    "verified": [
+      "Official Core and Framework use separate Live2D licenses",
+      "Official Core download/use constitutes acceptance; no agreement accepted in this work",
+      "Official samples changelog latest first entry 5-r.5 dated2026-04-02",
+      "Jannchie1.4.0 README Cubism2.1/4 APIs, cubism4 supports3/4; peerPixi8; no verifiedCubism5 new features"
+    ],
+    "credible_not_runtime_verified": [
+      "naari3 fork Cubism5 claim",
+      "omniwaifu R5/Core6.0.1/WebGL2/13shader claim"
+    ],
+    "inference": [
+      "This self-upload avatar product likely falls within Expandable Application category; professional/Live2D confirmation needed"
+    ],
+    "unknown": [
+      "Official published CoreSHA256 not found; zero vendor-published digest claim",
+      "Actual hosted latest Core version and compatibility",
+      "Owner local evaluation consent and publication permission"
+    ]
+  },
+  "decision": "Owner-confirmed fixed-HTTPS retrieval or explicitly trusted local SDK with expected SHA; store observed provenance, never claim vendor-published hash; no libraries fetched or executed in current work",
+  "subsequent_authorized_local_evaluation": {
+    "record": "live2d-local-evaluation.json",
+    "core_fetched_after_owner_confirmation": true,
+    "vendor_code_in_repository": false,
+    "publication_permission_verified": false
+  }
+}

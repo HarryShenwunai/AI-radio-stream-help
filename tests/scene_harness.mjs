@@ -1,0 +1,15 @@
+import fs from'node:fs';import vm from'node:vm';
+export function sceneHarness({fetcher,modelFactory,api}={}){
+ const calls=[],revoked=[],urls=[],raf=new Map(),timers=new Map(),states=[],models=[],scripts=[];let id=0,amplitude=0,contexts=0,closedContexts=0;
+ const image={hidden:true,dataset:{},style:{},removeAttribute(name){if(name==='src')delete this.src;}},container={hidden:false,children:[],replaceChildren(...n){this.children=n;},append(n){this.children.push(n);}};
+ const U=class extends URL{};U.createObjectURL=()=>{const value='blob:image-'+urls.length;urls.push(value);return value;};U.revokeObjectURL=value=>revoked.push(value);
+ class Image{naturalWidth=96;naturalHeight=160;async decode(){}}
+ class Context{constructor(){contexts++;this.destination={};}createMediaElementSource(){return {connect(){},disconnect(){}};}createAnalyser(){return {fftSize:512,connect(){},disconnect(){},getByteTimeDomainData(samples){for(let i=0;i<samples.length;i++)samples[i]=128+(i%2?amplitude:-amplitude);}};}async close(){closedContexts++;}async resume(){}}
+ const defaultModel=()=>({load:async()=>true,setScale(){},setHidden(){},setExpanded(){},setSpeaking(){},setAudio(){},getStats:()=>({state:'ready',frames:1}),dispose(){this.disposed=true;}});
+ const win={AudioContext:Context,CompanionVrm:{create:options=>{const value=(modelFactory||defaultModel)(options);models.push(value);return value;}}};
+ const context={window:win,location:{href:'http://127.0.0.1:4444/',origin:'http://127.0.0.1:4444'},URL:U,Image,Uint8Array,AbortController,Blob,performance:{now:()=>0},setTimeout:fn=>{const own=++id;timers.set(own,fn);return own;},clearTimeout:own=>timers.delete(own),requestAnimationFrame:fn=>{const own=++id;raf.set(own,fn);return own;},cancelAnimationFrame:own=>raf.delete(own),fetch:async(url,options={})=>{calls.push({url,...options});return fetcher?fetcher(url,options):{ok:true,blob:async()=>new Blob(['png'])};},document:{createElement:()=>({remove(){}}),head:{append(script){scripts.push(script.src);queueMicrotask(()=>script.onload?.());}}}};
+ vm.createContext(context);vm.runInContext(fs.readFileSync(new URL('../app/static/scene-controller.js',import.meta.url),'utf8'),context);const scene=win.CompanionScene.create({container,image,api:api||(async()=>({available:false})),onState:value=>states.push(value)});
+ return {scene,context,calls,revoked,urls,raf,timers,states,models,scripts,image,container,setAmplitude:value=>amplitude=value,frame(time){const callbacks=[...raf.values()];raf.clear();for(const callback of callbacks)callback(time);},blink(){const item=[...timers.entries()][0];if(item){timers.delete(item[0]);item[1]();}},get contexts(){return contexts;},get closedContexts(){return closedContexts;}};
+}
+export function pack(format='png-states',id='asset-A'){return {id,format,states:Object.fromEntries(['idle','talk','blink','talk_blink'].map(name=>[name,{url:'/api/assets/'+id+'/'+name+'.png?character_id=role-A'}])),model:{url:'/api/assets/'+id+'/model.vrm?character_id=role-A'}};}
+export const spec=asset=>({character_id:'role-A',epoch:0,asset,scale:100});

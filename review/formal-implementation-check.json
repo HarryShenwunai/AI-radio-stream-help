@@ -1,0 +1,93 @@
+{
+  "observed_at": "2026-11-12T16:34:14.814184+00:00",
+  "kind": "actual Python implementation, controlled thread schedules and exhaustive bounded action words",
+  "tests_run": 7,
+  "passed": true,
+  "source_changed_during_check": false,
+  "elapsed_seconds": 25.727,
+  "playback": {
+    "alphabet": [
+      "playing",
+      "completed",
+      "stopped",
+      "new",
+      "switch",
+      "old_end",
+      "bad_nonce",
+      "bad_scope",
+      "bad_owner",
+      "bad_appearance",
+      "wrong_message"
+    ],
+    "traces": 161051,
+    "operations": 805255,
+    "max_depth": 5,
+    "all_shorter_words_checked_as_prefixes": true,
+    "nonce_values_are_random_but_action_words_are_deterministic": true,
+    "merge_persistence_permutations_checked": 6,
+    "real_sqlite_persistence_permutations_checked": 6
+  },
+  "actual_scheduler_cases": [
+    {
+      "edge": "admission",
+      "negative_control": false,
+      "source_sha256": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+      "removed_dispatch_lines": [],
+      "private_status": 200,
+      "observed_public_error": {
+        "type": "AppError",
+        "status": 409
+      },
+      "passed": true
+    },
+    {
+      "edge": "cleanup",
+      "negative_control": false,
+      "source_sha256": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+      "removed_dispatch_lines": [],
+      "private_status": 200,
+      "observed_public_error": null,
+      "passed": true
+    },
+    {
+      "edge": "admission",
+      "negative_control": true,
+      "source_sha256": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+      "removed_dispatch_lines": [
+        718
+      ],
+      "private_status": 409,
+      "observed_public_error": null,
+      "passed": true
+    },
+    {
+      "edge": "cleanup",
+      "negative_control": true,
+      "source_sha256": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+      "removed_dispatch_lines": [
+        744
+      ],
+      "private_status": 409,
+      "observed_public_error": null,
+      "passed": true
+    }
+  ],
+  "source_sha256_before": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "tests/test_formal_boundaries.py": "d2aded289a186faad27eed2b3a37841885a1ee335ee0d7fcbce5edc3b34b7dd3"
+  },
+  "source_sha256_after": {
+    "app/server.py": "15cba5c98d7dfb8a2f9dd94180c022dc0aa2486eea9d841b8e1751366f317c7c",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "tests/test_formal_boundaries.py": "d2aded289a186faad27eed2b3a37841885a1ee335ee0d7fcbce5edc3b34b7dd3"
+  },
+  "log": "review/formal-models/logs/implementation.txt",
+  "scope_limits": [
+    "Bounded 11-action alphabet to depth five, not all Python executions.",
+    "The two legacy negative controls transform only an in-memory AST copy of one mutex boundary; production source is unchanged.",
+    "No real LLM, sound hardware, WebGL, account, external message, Windows or CUDA tested.",
+    "This is not proof that a human heard or understood playback."
+  ],
+  "reproduce": "python review/formal-models/run_implementation.py"
+}

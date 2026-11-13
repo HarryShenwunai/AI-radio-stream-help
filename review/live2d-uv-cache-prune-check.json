@@ -1,0 +1,27 @@
+{
+  "observed_at": "2026-11-13T03:05:07.950308+00:00",
+  "scope": "uv own cache prune only, never package/model/user data deletion",
+  "command": [
+    "uv",
+    "cache",
+    "prune",
+    "--ci",
+    "--cache-dir",
+    "/workspace/.cache/uv",
+    "--no-python-downloads",
+    "--offline"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "Pruning cache at: /workspace/.cache/uv\nRemoved 7678 files (200.7MiB)\n",
+  "runtime_before": {
+    "files": 7243,
+    "tree_sha256": "65b4b6c698895ece528261de996deef855708982559bf66d1654f502ae013bef"
+  },
+  "runtime_after": {
+    "files": 7243,
+    "tree_sha256": "65b4b6c698895ece528261de996deef855708982559bf66d1654f502ae013bef"
+  },
+  "runtime_code_and_native_bytes_unchanged": true,
+  "freed_bytes": 210849792
+}

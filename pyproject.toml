@@ -1,0 +1,27 @@
+[tool.ruff]
+target-version = "py311"
+extend-exclude = [".build", ".cache", ".run", "node_modules", "docs/history"]
+
+[tool.ruff.lint]
+# Critical runtime errors. Formatting/style are intentionally not release gates.
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = [
+  "src/companion_runtime/lifecycle.py",
+  "src/companion_runtime/live.py",
+  "src/companion_runtime/zerolan.py",
+  "src/companion_runtime/http_payload.py",
+  "src/companion_runtime/assistance.py",
+  "src/companion_runtime/devices.py",
+  "src/companion_runtime/perception.py",
+  "src/companion_runtime/preference_learning.py",
+  "src/companion_runtime/perception_tracking.py",
+  "src/companion_runtime/perception_optional.py",
+]
+follow_imports = "normal"
+mypy_path = "src"
+cache_dir = ".build/mypy-cache"
+show_error_codes = true

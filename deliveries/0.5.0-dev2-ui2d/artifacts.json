@@ -1,0 +1,64 @@
+{
+  "artifacts": [
+    {
+      "name": "companion-update-0.5.0-dev2-ui2d.zip",
+      "bytes": 6988799,
+      "sha256": "3c6ecbe09c925e27710d66316beef45cd8b2dd3eb959ce06fc83590263099dc9"
+    },
+    {
+      "name": "character-2d.companion.json",
+      "bytes": 10389100,
+      "sha256": "022bfce5b6e323947efa97b43aa459a852dc42a6adb59d8dc96da2c861bab043"
+    },
+    {
+      "name": "tracking-addon-cp312-win-x64-v3.zip",
+      "bytes": 83452536,
+      "sha256": "4b3f763179bf771cd8466082114f9f9e4c87c0aab0d7caaacdab2fd705fccf21"
+    },
+    {
+      "name": "uiux-2026-independent-evidence.zip",
+      "bytes": 30615229,
+      "sha256": "96591147afea93159b1e6ee6a8350293b4c3cc10fae8e18aa21074afbe860316"
+    },
+    {
+      "name": "evidence-native-capture-20261112-final.zip",
+      "bytes": 611345,
+      "sha256": "062390dc325353929cde64ef940b0fe5ae667b0a89e44729469b3b227617ada0"
+    },
+    {
+      "name": "companion-2d-actual-run.mp4",
+      "bytes": 1676157,
+      "sha256": "e16607fe245dc2e7d68527cc2b9531ca7ec803c106c54a59a8532abf136033cf"
+    },
+    {
+      "name": "companion-2d-actual-response.wav",
+      "bytes": 127532,
+      "sha256": "824b91ad98ca38d2e51d9e789f94aaaa60380d8b21f4e0e861def50bb78d121d"
+    },
+    {
+      "name": "companion-2d-preview.png",
+      "bytes": 1434861,
+      "sha256": "741a4bbe0a655f24b39203eb66ca72ea8af6a2493f23e6d6744a48d54487a540"
+    },
+    {
+      "name": "companion-2d-delivery.html",
+      "bytes": 2059772,
+      "sha256": "474a5274b3b3c8ec57fb7528cda5b04533b6204537499197afa61628d4ccf826"
+    },
+    {
+      "name": "companion-2d-delivery.pdf",
+      "bytes": 2882212,
+      "sha256": "66c66035ecb63b32edeedc8f6ea8e10b793638671ec6e255998cdb06e41e876a"
+    },
+    {
+      "name": "START-HERE-2D.txt",
+      "bytes": 2843,
+      "sha256": "c889b095992863d4a56a1274157e0dd8abd361b880f12af829a2e259247bf86f"
+    },
+    {
+      "name": "VERIFICATION-2D.json",
+      "bytes": 2616,
+      "sha256": "212b851576f6afce98523f356363288808ac9e82d646d1a281993cbcd68b3895"
+    }
+  ]
+}

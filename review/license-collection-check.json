@@ -1,0 +1,34 @@
+{
+  "observed_at": "2026-11-12T13:48:44.605013+00:00",
+  "scope": "Local Linux collector preparation; not Windows build verification",
+  "unit_tests_passed": 6,
+  "actual_collection": {
+    "distributions_count": 131,
+    "with_notice_files": 131,
+    "with_issues": 1,
+    "total_copied_bytes": 2042302
+  },
+  "issues": [
+    {
+      "name": "setuptools",
+      "issues": [
+        {
+          "source": "setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE",
+          "reason": "notice source is not a regular file below package root"
+        }
+      ]
+    }
+  ],
+  "proof_inventory": ".build/license-collection-proof-v2/inventory.json",
+  "notes": [
+    "No external requests, environment variables, credentials or user data read by the collector.",
+    "Metadata and notice files collected from package distribution records with traversal and symlink boundary checks.",
+    "PEP639 dist-info/licenses and older dist-info notice layouts both resolved.",
+    "Missing source notices remain visible in inventory; no legal-completeness claim.",
+    "Windows build execution is blocked before a runner starts; see windows-build-blocker.json."
+  ],
+  "source_sha256": {
+    "scripts/collect_dependency_licenses.py": "44299391535462cb8b47f4bfc9f941e95f747284bb237f3de4b401762842fd33",
+    "tests/test_dependency_licenses.py": "a339cf1d8ccb1c8351697a878844c5c4cc345d110f0de2e22c246eb959b864ab"
+  }
+}

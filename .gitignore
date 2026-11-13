@@ -29,3 +29,16 @@ Library/
 Temp/
 build/
 dist/
+
+# Isolated local runs and optional assets are never published.
+.run/
+**/models/
+**/voices/
+*.part
+
+.build/
+*.AppImage
+**/.cache/
+
+# Downloaded third-party role assets are local evaluation inputs, not source.
+research/vrm-fixtures/*.vrm

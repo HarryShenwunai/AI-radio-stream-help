@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "actual_invalid_commit": "f3e4b1071d6ac2f735f01cfdbfb5bd9ef3d43120",
+  "exit_code": 2,
+  "artifact_created": false,
+  "output_directory_created": false,
+  "stderr": "usage: build_app_update.py [-h] --base-package BASE_PACKAGE [--source SOURCE]\n                           --source-commit SOURCE_COMMIT --update-id UPDATE_ID\n                           --validation-report VALIDATION_REPORT --output\n                           OUTPUT\nbuild_app_update.py: error: Requested Git commit/repository is unavailable; refusing to publish a source label\n",
+  "current_head": "f3e4b105cfc96e6ef3f412c57de5809de7acf53a",
+  "source_sha256": {
+    "scripts/build_app_update.py": "f3dcc8326f3331745b6b534ec43c3ea49f07d6dfb32b31180209ed70f9129d75",
+    "tests/test_app_update_commit.py": "461d3f3039eea1f9dd01f41b4f0dbcf705d036a3c41219a1fa4030897f8ce7b6"
+  }
+}

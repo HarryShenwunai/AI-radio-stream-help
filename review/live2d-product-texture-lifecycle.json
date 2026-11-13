@@ -1,0 +1,98 @@
+{
+  "observed_at": "2026-11-12T22:35:51.676737+00:00",
+  "status": "passed",
+  "scope": "actual product adapter, owner Cubism/Pixi, original authored 4096 atlas debug export; real WebGL GC and wall-clock endurance",
+  "artwork_accepted": false,
+  "gc_disabled": false,
+  "checks": {
+    "actual_4k_authored_texture_is_visible": "passed",
+    "active_4k_texture_refreshed_unused_real_texture_collected": "passed",
+    "no_deleted_handle_binding_after_real_gc": "passed",
+    "unloaded_texture_reuploads_and_replaces_stale_wrapper_handle": "passed",
+    "default_gc_policy_over_60_seconds_preserves_real_visible_pixels": "passed",
+    "pause_disposes_canvas_and_gpu_texture": "passed",
+    "restore_recreates_valid_model_and_texture": "passed",
+    "javascript_runtime": "passed"
+  },
+  "sources": {
+    "frontend/live2d-renderer.mjs": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+    "app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005"
+  },
+  "accelerated_gc": {
+    "gcEnabled": true,
+    "aged": 5176.70000000298,
+    "afterRender": 6261.899999991059,
+    "lastUsedRefreshed": true,
+    "activeHandleAlive": true,
+    "unusedHandleAlive": false,
+    "width": 4096,
+    "height": 4096
+  },
+  "stale_handle_recovery": {
+    "oldDeleted": true,
+    "newAlive": true,
+    "newHandle": true,
+    "error": 0
+  },
+  "wall_clock_samples": [
+    {
+      "wall_seconds": 1.002,
+      "frames": 63,
+      "alpha": 157584,
+      "colored": 157321,
+      "error": 0
+    },
+    {
+      "wall_seconds": 10.118,
+      "frames": 268,
+      "alpha": 156079,
+      "colored": 155820,
+      "error": 0
+    },
+    {
+      "wall_seconds": 19.306,
+      "frames": 502,
+      "alpha": 155867,
+      "colored": 155606,
+      "error": 0
+    },
+    {
+      "wall_seconds": 28.442,
+      "frames": 719,
+      "alpha": 156478,
+      "colored": 156224,
+      "error": 0
+    },
+    {
+      "wall_seconds": 37.546,
+      "frames": 958,
+      "alpha": 157964,
+      "colored": 157709,
+      "error": 0
+    },
+    {
+      "wall_seconds": 46.683,
+      "frames": 1199,
+      "alpha": 155915,
+      "colored": 155647,
+      "error": 0
+    },
+    {
+      "wall_seconds": 55.757,
+      "frames": 1452,
+      "alpha": 156222,
+      "colored": 155961,
+      "error": 0
+    },
+    {
+      "wall_seconds": 64.977,
+      "frames": 1681,
+      "alpha": 156457,
+      "colored": 156159,
+      "error": 0
+    }
+  ],
+  "wall_clock_seconds": 66.276,
+  "page_errors": []
+}

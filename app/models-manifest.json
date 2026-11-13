@@ -1,0 +1,25 @@
+[
+  {
+    "path": "models/qwen3-4b-instruct-2507-q4_k_m.gguf",
+    "bytes": 2497280736,
+    "sha256": "2fde00ce69dd4899c70d020845e2638353015bba0fdf161b3eb965f2bca4464e",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "quantized_by": "bartowski",
+    "source": "https://huggingface.co/bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF/tree/ae44f08e1392f39c0e474af10c3ff8355c8b6688",
+    "license": "Apache-2.0"
+  },
+  {
+    "path": "voices/kokoro-v1.0.onnx",
+    "bytes": 325505369,
+    "sha256": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a",
+    "source": "https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1",
+    "license": "Apache-2.0"
+  },
+  {
+    "path": "voices/voices-v1.0.bin",
+    "bytes": 28214398,
+    "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+    "source": "https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.1",
+    "license": "Apache-2.0"
+  }
+]

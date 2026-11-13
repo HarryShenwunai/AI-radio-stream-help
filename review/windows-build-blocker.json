@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-11-12T13:42:37Z",
+  "run_id": 43229621691,
+  "source_commit": "5e47fa134fd32c0f50f3d0b60fb7f44ad67181ef",
+  "run_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/actions/runs/43229621691",
+  "job_id": 131221129796,
+  "job_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/actions/runs/43229621691/job/131221129796",
+  "annotation_source": "https://api.github.com/repos/HarryShenwunai/AI-radio-stream-help/check-runs/131221129796/annotations",
+  "annotation": "The job was not started because your account is locked due to a billing issue.",
+  "annotation_verified_by": "Root agent read the public API annotation; this agent independently read the same exact annotation in the public Actions run HTML and verified jobs response with runner_id=0, empty runner_name and zero steps.",
+  "local_html_evidence": "/workspace/research/windows-run-43229621691.html",
+  "github_reported_conclusion": "failure",
+  "build_verification_status": "PENDING_RUNNER_ACCESS",
+  "windows_compilation_started": false,
+  "windows_tests_executed": 0,
+  "offline_job_conclusion": "skipped",
+  "log_fetch_result": "Dedicated job log tool returned HTTP404 Azure BlobNotFound because no runner log was created.",
+  "response": "No billing/account changes, purchase, workflow rerun or claim of Windows compile/test success. Windows package verification remains pending; local preparation can continue."
+}

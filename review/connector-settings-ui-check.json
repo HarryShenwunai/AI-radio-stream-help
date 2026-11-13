@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-12",
+  "scope": "Connector settings component with fake API and minimal DOM; no platform contact",
+  "evidence_level": "E1 controlled DOM fixture",
+  "command": "node tests/test_connector_settings_ui.mjs",
+  "tests_passed": 10,
+  "tests_failed": 0,
+  "checks": [
+    "No connection on mount",
+    "Explicit automatic reply consent",
+    "Role-bound approval and private-preview filter",
+    "One-time token reveal/copy; no storage",
+    "Late token/status ignored after role reset",
+    "Real Bili connect requires confirmation",
+    "Bili output labeled local preview, never delivered",
+    "Hidden view does not poll; token cleared",
+    "Pause automatic send endpoint and accurate result message",
+    "Native host pause clears one-time token immediately even when document.hidden=false",
+    "Known Bili states map to Chinese; internal error codes not displayed"
+  ],
+  "not_run": [
+    "Real AstrBot login/pairing/send",
+    "Real WeChat native voice",
+    "Real Bili OpenLive credentials/connection",
+    "Public broadcast",
+    "Human acceptance"
+  ],
+  "source_sha256": {
+    "app/static/connectors-ui.js": "8962ac62c0bb17851fc37e25e8aa591e7172dca7e6d1326e84a1220d9a9ba68f",
+    "tests/test_connector_settings_ui.mjs": "5fe31c67106cb6a5885e6da9fb400366af28525767623d097662793e9dfed9fe"
+  },
+  "integration_dependencies": [
+    "Parent server static whitelist",
+    "Frontend index script after app.js",
+    "Frontend adoptState calls resetCharacter on actual identity change",
+    "/api/connectors/wechat/stop disables auto approval before cancelling pending items"
+  ],
+  "performance": "Status polls every 5 seconds only when connector view is visible and document/native host visible. No model or platform connection on mount. Status/event lists limited locally to 20/30 cards."
+}

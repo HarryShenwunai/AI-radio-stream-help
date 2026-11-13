@@ -1,0 +1,72 @@
+{
+  "status": "review_candidate_not_user_accepted",
+  "source": "original R3 master, unchanged hands and cup",
+  "eyes": [
+    "L",
+    "R"
+  ],
+  "layers_per_eye": [
+    "Sclera",
+    "Iris",
+    "Lid",
+    "Foreground"
+  ],
+  "gaze_canvas_px": {
+    "L": [
+      3.5,
+      1.8
+    ],
+    "R": [
+      3.2,
+      1.6
+    ]
+  },
+  "previous_gaze_canvas_px": [
+    1.1,
+    0.55
+  ],
+  "core_pose_count": 46,
+  "blink_frames": 21,
+  "iris_mask_counts": [
+    1,
+    1
+  ],
+  "fixed_meshes": [
+    "Far_palm",
+    "Far_little",
+    "Far_ring",
+    "Far_middle",
+    "Far_index",
+    "Near_palm",
+    "Near_little",
+    "Near_ring",
+    "Near_middle",
+    "Near_index",
+    "Near_thumb",
+    "Cup",
+    "Sleeve_near",
+    "Sleeve_far"
+  ],
+  "javascript_errors": [],
+  "tests": {
+    "motion": 2,
+    "adapter": 15
+  },
+  "visual_review": "Inspected neutral, partial/full close, reopen and both gaze extremes. Restored original visible iris pixels over completed iris underpainting; softened eyelid edges and matched fringe shadow. This remains a restrained frontal gaze rig, not a large-angle eye/head reconstruction. Hair overlaps the left eye in the original and remains in foreground.",
+  "artifacts": ".build/r3-both-eyes",
+  "user_accepted": false,
+  "windows_device_tested": false,
+  "detail_refinement": {
+    "iris_aperture_follows_each_lid": true,
+    "eased_tracks": [
+      "ParamEyeLOpen",
+      "ParamEyeROpen",
+      "ParamEyeBallX",
+      "ParamEyeBallY",
+      "ParamAngleZ"
+    ],
+    "core_pose_count": 46,
+    "blink_frame_count": 21,
+    "status": "review_candidate"
+  }
+}

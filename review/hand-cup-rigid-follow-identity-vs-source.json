@@ -1,0 +1,95 @@
+{
+  "observed_at": "2026-11-13T02:54:33.362077+00:00",
+  "status": "measured_actual_identity_source_comparison_not_scale_or_hold_acceptance",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-cloth-continuous/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-identity/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-cloth-continuous/character.moc3": "10e60b71906bebf589598d20a39dabc8a4da804208f1a1f3562bdd2d038eb401",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export-rigid-follow-identity/character.moc3": "68bb367bcd1d4f21e4103f05e40b0cc950fb07eb226d7b22815673aa51647db8",
+    "/workspace/AI-radio-stream-help/.build/rigid_follow_identity_raw_comparison.py": "583261d4b3a063bb40162fecdc057da5054e431613e914a0eb3e175b24879337",
+    "/workspace/.live2d/owner-generated-runtime-check/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/bundle.json": "08e1c78e95c9f8a5eed462ab78e11322c6cf7eee23d6ee52c83aa42147eb28a9",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/record.json": "10dd91dc8b505478302d392ebd48d6b1b7ffd166951de3d6c563f6a23921182c",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d"
+  },
+  "sources_unchanged": true,
+  "measurements": [
+    {
+      "parameters": {},
+      "cup": {
+        "max_source_coordinate_diff": 0.019472122192382812,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupX": -500
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.019472122192382812,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupX": 500
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.019472122192382812,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupY": -500
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.0194549560546875,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupY": 500
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.019500732421875,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupRotation": -45
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.02142333984375,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    },
+    {
+      "parameters": {
+        "ParamCupRotation": 45
+      },
+      "cup": {
+        "max_source_coordinate_diff": 0.02140045166015625,
+        "opacity_diff": 0
+      },
+      "noncup_max_source_coordinate_diff": 0,
+      "changed_noncup": []
+    }
+  ]
+}

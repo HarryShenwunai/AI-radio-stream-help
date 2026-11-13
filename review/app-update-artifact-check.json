@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "bytes": 6988799,
+  "sha256": "3c6ecbe09c925e27710d66316beef45cd8b2dd3eb959ce06fc83590263099dc9",
+  "operations": 74,
+  "crc_passed": true,
+  "rejected_3d_or_vendor_or_models_present": false,
+  "windows_execution_verified": false
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12",
+  "artifact": "self-service-characters-plan.html",
+  "checks": [
+    {
+      "width": 1440,
+      "document_overflow": false
+    },
+    {
+      "width": 390,
+      "document_overflow": false
+    }
+  ],
+  "title": "自助角色系统 · 研究与执行计划",
+  "svg_count": 8,
+  "javascript_errors": [],
+  "pdf_pages": 9,
+  "pdf_visual_review": "artist, effort and budget/risk pages inspected; tables complete",
+  "ste_warnings": 0,
+  "application_source_modified": false,
+  "new_import_runtime_tests_executed": 0,
+  "plan_sha256": "e1e4bb0ad1f43f5d5bda443cbcba106f0d518cf9e7d2d70ce59d2e02550c927a"
+}

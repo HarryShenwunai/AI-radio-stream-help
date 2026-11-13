@@ -1,0 +1,48 @@
+{
+  "removed_task_scratch": [
+    {
+      "path": "cache",
+      "logical_bytes": 33255616
+    },
+    {
+      "path": "linux-build-smoke/node_modules",
+      "logical_bytes": 101252580
+    },
+    {
+      "path": "fresh-http-smoke/cache",
+      "logical_bytes": 28770632
+    },
+    {
+      "path": "fresh-http-smoke/build/node_modules",
+      "logical_bytes": 101252580
+    },
+    {
+      "path": "final-smoke/build/node_modules",
+      "logical_bytes": 101252580
+    },
+    {
+      "path": "windows-binary-audit",
+      "logical_bytes": 10617862
+    },
+    {
+      "path": "esbuild.tgz",
+      "logical_bytes": 30947
+    },
+    {
+      "path": "esbuild-win32-x64.tgz",
+      "logical_bytes": 4484984
+    },
+    {
+      "path": "esbuild-linux-x64.tgz",
+      "logical_bytes": 4395720
+    }
+  ],
+  "logical_bytes_removed": 385313501,
+  "free_bytes_before": 901632000,
+  "free_bytes_after": 1322569728,
+  "observed_free_byte_increase": 420937728,
+  "original_installed_runtime_tree_sha256": "bbaf9cad3c077d4d287759f52558216e0ffbc72a86f8487fe7c0407fae1475e0",
+  "original_installed_runtime_unchanged": true,
+  "original_vendor_and_npm_cache_touched": false,
+  "preserved": "Source locks/reports, small built bundles and NOTICE, small local restore records, original .live2d/runtime/vendor/npm-cache"
+}

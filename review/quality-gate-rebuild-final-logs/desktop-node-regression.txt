@@ -1,0 +1,34 @@
+✔ camera and microphone each require a new native decision; checks never reuse grants (2.780983ms)
+✔ foreign windows, origins, frames and unsupported permission scopes are rejected before prompting (1.41862ms)
+✔ permission confirmation cannot outlive hiding, navigating, destroying or replacing the owner (0.765845ms)
+✔ parallel permission requests cannot create stacked dialogs or take over a pending request (0.462217ms)
+✔ screen sharing rejects absent gesture, audio, foreign origin/frame before enumerating (0.856281ms)
+✔ main UI display permission and display handler always deny legacy and standard desktop capture (2.747524ms)
+✔ timed-out media and display requests terminate once and ignore later approvals (31.075961ms)
+✔ runtime selection is CPU by default and never accepts arbitrary paths (2.216843ms)
+✔ CUDA profiles must match the CPU application source and interpreter (1.671861ms)
+✔ native source selection creates a separate sandboxed local window without starting capture (11.326622ms)
+✔ isolated capture grants only its exact packaged main frame, video-only and actual chosen source (3.659539ms)
+✔ dedicated window blocks network, arbitrary local files, popups and subframe navigation (1.886625ms)
+✔ returned frames are bounded, single-inflight and never issued to a stale capture id (3.299486ms)
+✔ hiding the main owner destroys its capture owner and invalidates frames (0.600726ms)
+✔ minimizing either owner or hiding the local capture preview stops capture (2.852222ms)
+✔ late stop from an older capture cannot stop the new owner (1.48556ms)
+✔ cancel and disappearing source cannot fall back to the first display (0.950504ms)
+✔ single active capture prevents duplicate render owners (0.836352ms)
+✔ only explicit local backend origins are accepted (1.280061ms)
+✔ returning from display output preserves visible bounds after monitor removal or resolution changes (1.590389ms)
+✔ navigation never leaves the paired page (0.301254ms)
+✔ bridge payload is typed and cannot invoke arbitrary host methods (0.190217ms)
+✔ compact and expanded bounds stay inside normal and small monitors (0.191439ms)
+✔ Windows assembly rejects ELF, truncated files and x86 PE without executing artifacts (1.886455ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.167242
+
+STDERR:

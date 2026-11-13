@@ -1,0 +1,38 @@
+{
+  "scope": "Real isolated loopback Handler integration; synthetic advice/vision replies, not semantic/physical/Windows acceptance",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "elapsed_seconds": 18.708,
+  "source_stable": true,
+  "source_before": {
+    "app/server.py": "f6ce8c80e2d73624d4e69dc52d863e7e9d3decef307f9effa7462859f7d82498",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/test_rebuild_http.py": "378096f8f3c6109d977f7e4f2e86ad766b982929a44e630d7bd3ce28ff422cb2"
+  },
+  "source_after": {
+    "app/server.py": "f6ce8c80e2d73624d4e69dc52d863e7e9d3decef307f9effa7462859f7d82498",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/test_rebuild_http.py": "378096f8f3c6109d977f7e4f2e86ad766b982929a44e630d7bd3ce28ff422cb2"
+  },
+  "log": "review/rebuild-http-tests.txt",
+  "copied_to_review_at_utc": "2026-11-12T19:54:14.190344+00:00",
+  "current_source_sha256_at_copy": {
+    "app/server.py": "f6ce8c80e2d73624d4e69dc52d863e7e9d3decef307f9effa7462859f7d82498",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "tests/test_character_http.py": "5f4cc19e743d9782cfb5f4bc57c12bce60ae428b6de6a115e8b0608d82fcdbea",
+    "tests/test_rebuild_http.py": "378096f8f3c6109d977f7e4f2e86ad766b982929a44e630d7bd3ce28ff422cb2"
+  },
+  "matches_current_source_at_copy": true,
+  "redaction_review": "Log inspected: unittest test names/results only; no credentials, headers, user data or fixture secrets printed."
+}

@@ -1,0 +1,1077 @@
+{
+  "date": "2026-11-12T22:07:27.496472+00:00",
+  "status": "failed",
+  "scope": "real installed Core/Framework + official Haru local evaluation; synthetic WAV through real Audio/analyser; Core parameters and drawable vertex digest, not app mouth stats",
+  "original_character_complete": false,
+  "SDK_or_sample_redistribution_authorized": false,
+  "checks": {
+    "real_core_consistent_moc_textures_and_drawables": "passed",
+    "real_audio_enables_core_lipsync_parameter_and_changes_geometry": "passed",
+    "stop_disables_lipsync_and_restores_core_parameter_and_geometry": "passed",
+    "head_control_changes_actual_core_parameter_and_geometry": "passed",
+    "gaze_control_changes_actual_core_parameter_and_geometry": "passed"
+  },
+  "sources": {
+    "frontend/live2d-renderer.mjs": "e7936dc87e50659b77e21e31d3ee6a6747a64956272dc0858e717edfe84026c3",
+    "app/static/live2d-renderer.js": "14ab66faa880036c3569888f77ac47482e371351c3423fa612b9aa40cce3772d",
+    "app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005"
+  },
+  "loaded_core": {
+    "state": "ready",
+    "available": true,
+    "coreVersion": 83951616,
+    "mocConsistencyChecked": true,
+    "lipSyncEnabled": false,
+    "lipSyncValue": 0,
+    "parameters": [
+      {
+        "id": "ParamAngleX",
+        "index": 0,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamAngleY",
+        "index": 1,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamAngleZ",
+        "index": 2,
+        "min": -30,
+        "max": 30,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamTere",
+        "index": 3,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamFaceForm",
+        "index": 4,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "index": 5,
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "value": null
+      },
+      {
+        "id": "ParamEyeLSmile",
+        "index": 6,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeROpen",
+        "index": 7,
+        "min": 0,
+        "max": 2,
+        "default": 1,
+        "value": null
+      },
+      {
+        "id": "ParamEyeRSmile",
+        "index": 8,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeForm",
+        "index": 9,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "index": 10,
+        "min": -1,
+        "max": 0,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamTear",
+        "index": 11,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallX",
+        "index": 12,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamEyeBallY",
+        "index": 13,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowLY",
+        "index": 14,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowRY",
+        "index": 15,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowLX",
+        "index": 16,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowRX",
+        "index": 17,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowLAngle",
+        "index": 18,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowRAngle",
+        "index": 19,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowLForm",
+        "index": 20,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBrowRForm",
+        "index": 21,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamMouthForm",
+        "index": 22,
+        "min": -1,
+        "max": 1,
+        "default": 1,
+        "value": null
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "index": 23,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamScarf",
+        "index": 24,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "index": 25,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "index": 26,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "index": 27,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBodyUpper",
+        "index": 28,
+        "min": -10,
+        "max": 10,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBreath",
+        "index": 29,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamBustY",
+        "index": 30,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamArmLA",
+        "index": 31,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamArmRA",
+        "index": 32,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamArmLB",
+        "index": 33,
+        "min": -1,
+        "max": 5,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamArmRB",
+        "index": 34,
+        "min": -1,
+        "max": 5,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHandChangeR",
+        "index": 35,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHandAngleR",
+        "index": 36,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHandDhangeL",
+        "index": 37,
+        "min": 0,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHandAngleL",
+        "index": 38,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHairFront",
+        "index": 39,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHairSide",
+        "index": 40,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      },
+      {
+        "id": "ParamHairBack",
+        "index": 41,
+        "min": -1,
+        "max": 1,
+        "default": 0,
+        "value": null
+      }
+    ],
+    "physics": {
+      "available": true,
+      "enabled": true
+    },
+    "automatic": {
+      "blink": true,
+      "breath": true,
+      "idleMotion": true
+    },
+    "expressions": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08"
+    ],
+    "motions": {
+      "Idle": 2,
+      "TapBody": 4
+    },
+    "drawableCount": 84,
+    "textureCount": 2,
+    "drawables": [
+      {
+        "id": "D_PSD_20",
+        "vertexCount": 54,
+        "vertexDigest": "222a6d31",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_18",
+        "vertexCount": 51,
+        "vertexDigest": "73937a4e",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_19",
+        "vertexCount": 37,
+        "vertexDigest": "a680f06b",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_71",
+        "vertexCount": 41,
+        "vertexDigest": "94762bff",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_81",
+        "vertexCount": 55,
+        "vertexDigest": "afc2cb20",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_23",
+        "vertexCount": 51,
+        "vertexDigest": "0c6e6438",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_22",
+        "vertexCount": 41,
+        "vertexDigest": "16eee297",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_17",
+        "vertexCount": 47,
+        "vertexDigest": "77bea416",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_67",
+        "vertexCount": 62,
+        "vertexDigest": "d2d77836",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_21",
+        "vertexCount": 55,
+        "vertexDigest": "256f6430",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_10",
+        "vertexCount": 45,
+        "vertexDigest": "408cca53",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_09",
+        "vertexCount": 48,
+        "vertexDigest": "bbfc89d8",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_08",
+        "vertexCount": 37,
+        "vertexDigest": "523b54b4",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_13",
+        "vertexCount": 42,
+        "vertexDigest": "e9aed8db",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_12",
+        "vertexCount": 55,
+        "vertexDigest": "cd7dd550",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_11",
+        "vertexCount": 38,
+        "vertexDigest": "579f3b82",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_16",
+        "vertexCount": 58,
+        "vertexDigest": "885cde8c",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_15",
+        "vertexCount": 42,
+        "vertexDigest": "3b8c00eb",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_14",
+        "vertexCount": 81,
+        "vertexDigest": "2822c5c8",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_05",
+        "vertexCount": 44,
+        "vertexDigest": "f427ace8",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_02",
+        "vertexCount": 72,
+        "vertexDigest": "ba65db85",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_01",
+        "vertexCount": 72,
+        "vertexDigest": "34d0b3e4",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_00",
+        "vertexCount": 74,
+        "vertexDigest": "858f9b9a",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_27",
+        "vertexCount": 36,
+        "vertexDigest": "91f8adc5",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_26",
+        "vertexCount": 25,
+        "vertexDigest": "918e4071",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_25",
+        "vertexCount": 33,
+        "vertexDigest": "d6fbdc55",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_24",
+        "vertexCount": 42,
+        "vertexDigest": "ac68a862",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_07",
+        "vertexCount": 65,
+        "vertexDigest": "2a6939bb",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_06",
+        "vertexCount": 42,
+        "vertexDigest": "17cd60ca",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_70",
+        "vertexCount": 10,
+        "vertexDigest": "8caf58a8",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_68",
+        "vertexCount": 9,
+        "vertexDigest": "39e14312",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_73",
+        "vertexCount": 7,
+        "vertexDigest": "f59042a2",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_72",
+        "vertexCount": 7,
+        "vertexDigest": "cf2524dc",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_69",
+        "vertexCount": 9,
+        "vertexDigest": "2d24f145",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_66",
+        "vertexCount": 13,
+        "vertexDigest": "fcebc1ce",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_65",
+        "vertexCount": 35,
+        "vertexDigest": "4f49cf80",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_64",
+        "vertexCount": 22,
+        "vertexDigest": "7b80609a",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_63",
+        "vertexCount": 20,
+        "vertexDigest": "bccf2054",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_03",
+        "vertexCount": 51,
+        "vertexDigest": "6c65eb7a",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_77",
+        "vertexCount": 29,
+        "vertexDigest": "146a7939",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_76",
+        "vertexCount": 28,
+        "vertexDigest": "bc5f30bb",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_78",
+        "vertexCount": 305,
+        "vertexDigest": "8d96d627",
+        "opacity": 1.0000499486923218,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_74",
+        "vertexCount": 36,
+        "vertexDigest": "2f1350e5",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_75",
+        "vertexCount": 35,
+        "vertexDigest": "35bd20a1",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_29",
+        "vertexCount": 30,
+        "vertexDigest": "561a6aff",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_28",
+        "vertexCount": 28,
+        "vertexDigest": "549a9778",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_34",
+        "vertexCount": 13,
+        "vertexDigest": "ad342344",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_33",
+        "vertexCount": 75,
+        "vertexDigest": "97df3695",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_32",
+        "vertexCount": 57,
+        "vertexDigest": "bfa487f4",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_31",
+        "vertexCount": 26,
+        "vertexDigest": "7b386db0",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_80",
+        "vertexCount": 31,
+        "vertexDigest": "277dff99",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_79",
+        "vertexCount": 33,
+        "vertexDigest": "a4d12e92",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_44",
+        "vertexCount": 7,
+        "vertexDigest": "c9ccf86d",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_43",
+        "vertexCount": 8,
+        "vertexDigest": "210360a0",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_42",
+        "vertexCount": 8,
+        "vertexDigest": "46bf9eab",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_41",
+        "vertexCount": 7,
+        "vertexDigest": "9834690d",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_40",
+        "vertexCount": 24,
+        "vertexDigest": "fbf85018",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_39",
+        "vertexCount": 27,
+        "vertexDigest": "4af0d911",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_62",
+        "vertexCount": 12,
+        "vertexDigest": "98e73d4b",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_61",
+        "vertexCount": 11,
+        "vertexDigest": "71533a3f",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_60",
+        "vertexCount": 11,
+        "vertexDigest": "45ad4990",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_59",
+        "vertexCount": 11,
+        "vertexDigest": "0c657bba",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_57",
+        "vertexCount": 20,
+        "vertexDigest": "1c304610",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_55",
+        "vertexCount": 7,
+        "vertexDigest": "d2e457ac",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_58",
+        "vertexCount": 19,
+        "vertexDigest": "321e037f",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_56",
+        "vertexCount": 7,
+        "vertexDigest": "831400f0",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_53",
+        "vertexCount": 32,
+        "vertexDigest": "d583f7ca",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_51",
+        "vertexCount": 50,
+        "vertexDigest": "b199ce01",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_49",
+        "vertexCount": 16,
+        "vertexDigest": "75fd8ea6",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_47",
+        "vertexCount": 19,
+        "vertexDigest": "fc8733b1",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_45",
+        "vertexCount": 21,
+        "vertexDigest": "35763d0e",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_54",
+        "vertexCount": 29,
+        "vertexDigest": "d8b731c5",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_52",
+        "vertexCount": 44,
+        "vertexDigest": "51ce2ef5",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_50",
+        "vertexCount": 17,
+        "vertexDigest": "bc4d5346",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_48",
+        "vertexCount": 17,
+        "vertexDigest": "4dc8af5e",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_46",
+        "vertexCount": 21,
+        "vertexDigest": "a523e600",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_38",
+        "vertexCount": 27,
+        "vertexDigest": "e6942722",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_37",
+        "vertexCount": 29,
+        "vertexDigest": "e1fb39d7",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 1
+      },
+      {
+        "id": "D_PSD_35",
+        "vertexCount": 78,
+        "vertexDigest": "b62448ea",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_36",
+        "vertexCount": 79,
+        "vertexDigest": "c33af3b0",
+        "opacity": 0,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_30",
+        "vertexCount": 66,
+        "vertexDigest": "87ac76c9",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "D_PSD_04",
+        "vertexCount": 162,
+        "vertexDigest": "d504002c",
+        "opacity": 1,
+        "textureIndex": 0,
+        "maskCount": 0
+      },
+      {
+        "id": "HitArea",
+        "vertexCount": 4,
+        "vertexDigest": "dfed8174",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      },
+      {
+        "id": "HitArea2",
+        "vertexCount": 4,
+        "vertexDigest": "71bde62b",
+        "opacity": 1,
+        "textureIndex": 1,
+        "maskCount": 0
+      }
+    ],
+    "drawablesTruncated": false
+  },
+  "audio_lip_geometry": {
+    "baseline": 0,
+    "active": 0.3496248722076416,
+    "changed_drawables": [
+      "D_PSD_33",
+      "D_PSD_32",
+      "D_PSD_31"
+    ]
+  },
+  "error": "",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/AI-radio-stream-help/tests/live2d_controls_browser_check.py\", line 30, in main\n    page.evaluate('name=>CompanionApp.scene.applyControls({expression:name})',start['expressions'][0]);page.wait_for_timeout(300);expression=diag();assert values(expression)!=basevalues;report['checks']['declared_expression_loads_and_changes_core_parameters']='passed';page.evaluate('()=>CompanionApp.scene.applyControls({expression:null})')\n                                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "page_errors": []
+}

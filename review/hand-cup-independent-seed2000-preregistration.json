@@ -1,0 +1,10 @@
+{
+  "path": "/workspace/AI-radio-stream-help/.build/hand-cup-independent-seed-5772156649-2000.json",
+  "sha256": "4efde166dccf820595c54448f58ba08915f626a711e94c724351475b99fdf065",
+  "seed": 5772156649,
+  "count": 2000,
+  "sealed_at": "2026-11-13T02:42:56.747689+00:00",
+  "prior_pose_overlap": 0,
+  "selected_grid_states": 3645,
+  "status": "sealed_before_first_evaluation"
+}

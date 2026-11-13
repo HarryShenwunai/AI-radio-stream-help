@@ -1,0 +1,39 @@
+{
+  "status": "technical preview; visual approval pending",
+  "duration": 12.630099999999628,
+  "samples": 630,
+  "javascript_errors": [],
+  "cup_range": [
+    0,
+    0
+  ],
+  "breath_range": [
+    0,
+    0.9999938607215881
+  ],
+  "geometry": {
+    "held_meshes_unchanged": [
+      "ArtMeshLayer6",
+      "ArtMeshLayer7",
+      "ArtMeshLayer8",
+      "ArtMeshLayer9",
+      "ArtMeshLayer10",
+      "ArtMeshLayer11",
+      "ArtMeshLayer12",
+      "ArtMeshLayer13",
+      "ArtMeshLayer14",
+      "ArtMeshLayer15",
+      "ArtMeshLayer16",
+      "ArtMeshLayer17",
+      "ArtMeshLayer18",
+      "ArtMeshLayer19"
+    ],
+    "head_geometry_changes": true,
+    "breath_only_torso": true
+  },
+  "visual_findings": [
+    "Half-blink opacity overlay visibly ghosts open iris and closed eyelash; unresolved.",
+    "Small head tilt checked at both signs; no obvious neck-collar gap at inspected endpoints.",
+    "No independent iris/sclera/eyelid masks exist; gaze not implemented."
+  ]
+}

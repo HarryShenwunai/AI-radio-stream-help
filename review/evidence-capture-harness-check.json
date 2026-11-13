@@ -1,0 +1,7 @@
+{
+  "scope": "capture harness only, real app CSP and synthetic WAV; no inference",
+  "status": "passed",
+  "preserved_bytes": 192044,
+  "csp_relaxed": false,
+  "network_blob_fetch": false
+}

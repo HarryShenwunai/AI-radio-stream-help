@@ -1,0 +1,40 @@
+{
+  "format": "live2d-offline-project-budget-check-v1",
+  "generated_at": "2026-11-13T04:14:54.903317+00:00",
+  "passed": true,
+  "sources_stable": true,
+  "source_sha256": {
+    "scripts/package_live2d_character.py": "c6e63afc925319559deb45794e40a1ad38be00a41a678c69006a2c897d82ee2e",
+    "tests/test_package_live2d_character.py": "5365d9599fb77ee4c25ee1b641311b61f87ef859cebb5f9d4dbc02175d995388",
+    "docs/implementation/package-live2d-character.md": "c1e8378fd59df681dfd9c683eba9b1e5e7f460748ba727fbfd8a7ebb7041def8"
+  },
+  "test_count": 33,
+  "seconds": 1.229,
+  "checks": [
+    {
+      "name": "unittest",
+      "exit_code": 0,
+      "test_count": 33,
+      "stdout": "",
+      "stderr": "test_a_different_embedded_psd_is_not_accepted_as_the_same_source_project (test_package_live2d_character.CharacterPackageTests.test_a_different_embedded_psd_is_not_accepted_as_the_same_source_project) ... ok\ntest_acceptance_binds_real_moc_and_evidence_without_deciding_that_it_passed (test_package_live2d_character.CharacterPackageTests.test_acceptance_binds_real_moc_and_evidence_without_deciding_that_it_passed) ... ok\ntest_acceptance_for_a_different_moc_or_changed_evidence_is_rejected (test_package_live2d_character.CharacterPackageTests.test_acceptance_for_a_different_moc_or_changed_evidence_is_rejected) ... ok\ntest_exclusive_publish_race_preserves_the_other_file_and_removes_only_our_link (test_package_live2d_character.CharacterPackageTests.test_exclusive_publish_race_preserves_the_other_file_and_removes_only_our_link) ... ok\ntest_explicit_optional_can3_is_preserved_only_in_source_zip (test_package_live2d_character.CharacterPackageTests.test_explicit_optional_can3_is_preserved_only_in_source_zip) ... ok\ntest_explicit_original_png_and_submanifest_are_preserved_without_collecting_neighbors (test_package_live2d_character.CharacterPackageTests.test_explicit_original_png_and_submanifest_are_preserved_without_collecting_neighbors) ... ok\ntest_external_traversal_and_windows_alias_references_are_rejected (test_package_live2d_character.CharacterPackageTests.test_external_traversal_and_windows_alias_references_are_rejected) ... ok\ntest_forbidden_source_directory_and_symlink_are_rejected (test_package_live2d_character.CharacterPackageTests.test_forbidden_source_directory_and_symlink_are_rejected) ... ok\ntest_known_official_model_digest_is_rejected_even_after_renaming (test_package_live2d_character.CharacterPackageTests.test_known_official_model_digest_is_rejected_even_after_renaming) ... ok\ntest_moc_or_source_hash_drift_rejects_before_any_outputs (test_package_live2d_character.CharacterPackageTests.test_moc_or_source_hash_drift_rejects_before_any_outputs) ... ok\ntest_no_recursive_export_directory_collection_or_unlisted_source_extras (test_package_live2d_character.CharacterPackageTests.test_no_recursive_export_directory_collection_or_unlisted_source_extras) ... ok\ntest_non_prio_binary_cannot_be_hidden_as_a_rig_object (test_package_live2d_character.CharacterPackageTests.test_non_prio_binary_cannot_be_hidden_as_a_rig_object) ... ok\ntest_optional_can3_rejects_wrong_suffix_and_invalid_header (test_package_live2d_character.CharacterPackageTests.test_optional_can3_rejects_wrong_suffix_and_invalid_header) ... ok\ntest_optional_can3_sha_drift_is_rejected (test_package_live2d_character.CharacterPackageTests.test_optional_can3_sha_drift_is_rejected) ... ok\ntest_preexisting_outputs_are_never_replaced (test_package_live2d_character.CharacterPackageTests.test_preexisting_outputs_are_never_replaced) ... ok\ntest_runtime_reference_and_source_pin_sets_must_match_exactly (test_package_live2d_character.CharacterPackageTests.test_runtime_reference_and_source_pin_sets_must_match_exactly) ... ok\ntest_source_archive_aliases_cannot_overwrite_the_pinned_layer_manifest (test_package_live2d_character.CharacterPackageTests.test_source_archive_aliases_cannot_overwrite_the_pinned_layer_manifest) ... ok\ntest_source_change_during_zip_write_cannot_create_a_success_receipt (test_package_live2d_character.CharacterPackageTests.test_source_change_during_zip_write_cannot_create_a_success_receipt) ... ok\ntest_source_png_cannot_just_be_an_executable_with_a_png_extension (test_package_live2d_character.CharacterPackageTests.test_source_png_cannot_just_be_an_executable_with_a_png_extension) ... ok\ntest_spec_and_output_directory_symlinks_are_rejected (test_package_live2d_character.CharacterPackageTests.test_spec_and_output_directory_symlinks_are_rejected) ... ok\ntest_two_zip_receipts_and_real_assetstore_format_check_never_claim_playability (test_package_live2d_character.CharacterPackageTests.test_two_zip_receipts_and_real_assetstore_format_check_never_claim_playability) ... ok\ntest_vendor_payload_cannot_be_hidden_inside_the_psd2live_project (test_package_live2d_character.CharacterPackageTests.test_vendor_payload_cannot_be_hidden_inside_the_psd2live_project) ... ok\ntest_aggregate_over_2g_fails_from_metadata_without_a_giant_file (test_package_live2d_character.ProjectJournalBudgetTests.test_aggregate_over_2g_fails_from_metadata_without_a_giant_file) ... ok\ntest_content_address_does_not_replace_the_independent_manifest_hash (test_package_live2d_character.ProjectJournalBudgetTests.test_content_address_does_not_replace_the_independent_manifest_hash) ... ok\ntest_content_addressed_journal_above_8m_and_at_exact_64m_passes (test_package_live2d_character.ProjectJournalBudgetTests.test_content_addressed_journal_above_8m_and_at_exact_64m_passes) ... ok\ntest_external_json_and_selected_source_limits_remain_unchanged (test_package_live2d_character.ProjectJournalBudgetTests.test_external_json_and_selected_source_limits_remain_unchanged) ... ok\ntest_history_revision_wrong_prefix_and_hash_shape_are_rejected (test_package_live2d_character.ProjectJournalBudgetTests.test_history_revision_wrong_prefix_and_hash_shape_are_rejected) ... ok\ntest_journal_filename_must_match_actual_content_even_when_manifest_hash_matches (test_package_live2d_character.ProjectJournalBudgetTests.test_journal_filename_must_match_actual_content_even_when_manifest_hash_matches) ... ok\ntest_journal_one_byte_over_64m_fails (test_package_live2d_character.ProjectJournalBudgetTests.test_journal_one_byte_over_64m_fails) ... ok\ntest_member_crc_failure_is_still_detected (test_package_live2d_character.ProjectJournalBudgetTests.test_member_crc_failure_is_still_detected) ... ok\ntest_nonjournal_json_above_8m_does_not_receive_the_exception (test_package_live2d_character.ProjectJournalBudgetTests.test_nonjournal_json_above_8m_does_not_receive_the_exception) ... ok\ntest_observed_history_revision_ids_do_not_assume_payload_content_addressing (test_package_live2d_character.ProjectJournalBudgetTests.test_observed_history_revision_ids_do_not_assume_payload_content_addressing) ... ok\ntest_similar_prefix_and_malformed_hash_cannot_obtain_journal_budget (test_package_live2d_character.ProjectJournalBudgetTests.test_similar_prefix_and_malformed_hash_cannot_obtain_journal_budget) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 1.074s\n\nOK\n"
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    }
+  ],
+  "actual_project_preflight": "review/live2d-packager-rolling-c-budget-preflight.json",
+  "preserved_red_reports": [
+    "review/live2d-packager-c15360-old-budget-red.json",
+    "review/live2d-packager-rolling-c-budget-preflight-red.json"
+  ],
+  "actual_history_format_observation": "review/live2d-project-history-revision-format-observation.json",
+  "software_artifact_unchanged": {
+    "sha256": "d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6",
+    "bytes": 7026261
+  },
+  "scope": "Maintainer offline packaging only. No production, uploader, owner helper or source updater change. Actual rolling project preflight is not final character/Core/editor/visual acceptance."
+}

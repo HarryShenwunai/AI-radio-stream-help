@@ -1,0 +1,670 @@
+{
+  "status": "expected_rigid_counterexample_reproduced",
+  "scope": "Actual official Core, min/max versus DEFAULT shape, rigid Procrustes fit + pair distances + actual pinned triangle and exact non-target vertices/opacity; no GL/art acceptance",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.moc3": "63d0d048eec66c988d8217678259fa5f473de6157ba764eaaed58855af7d4930",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r1/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/complete-source-r5-mouth-curl-recipe.json": "9d3d6fa8ee5392a97fa985fa941e0fc593260f647a1d738a6dc24e7ea4f404c6",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/tests/live2d_finger_nonrigid_check.py": "d8066e9a541908d451987f7bc3c954892930f2502e30188f79a4d6c3533d17e3",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "3c3ca517988df4ce126ad9bd664fee67a0302f755a7d3669e2ef9137bc2fcdc2"
+  },
+  "sources_unchanged": true,
+  "source_pixel_numerical_detection_floor": 0.001,
+  "measurement": {
+    "ppu": 1536,
+    "rows": [
+      {
+        "name": "finger-index-r",
+        "mesh": "ArtMeshLayerR2",
+        "parameter": "ParamFingerIndexR",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          21,
+          22,
+          24,
+          25,
+          26,
+          27
+        ],
+        "pinnedRootIndices": [
+          19,
+          20,
+          23
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.1281506510570978e-05,
+            "maxPairDistanceDeltaSourcePx": 1.581081645340987e-05,
+            "rootMaxDriftSourcePx": 2.902079073202584,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.1110353875469577e-05,
+            "maxPairDistanceDeltaSourcePx": 1.5429662193255922e-05,
+            "rootMaxDriftSourcePx": 2.9020801943457317,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-middle-r",
+        "mesh": "ArtMeshLayerR3",
+        "parameter": "ParamFingerMiddleR",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          20,
+          21,
+          23,
+          24,
+          25,
+          26
+        ],
+        "pinnedRootIndices": [
+          18,
+          19,
+          22
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.5172979069394883e-05,
+            "maxPairDistanceDeltaSourcePx": 2.3085140176792862e-05,
+            "rootMaxDriftSourcePx": 3.7460322823713605,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.1835654646863117e-05,
+            "maxPairDistanceDeltaSourcePx": 1.825095269314403e-05,
+            "rootMaxDriftSourcePx": 3.7460304611125466,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-ring-r",
+        "mesh": "ArtMeshLayerR4",
+        "parameter": "ParamFingerRingR",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          24,
+          25,
+          26,
+          27
+        ],
+        "pinnedRootIndices": [
+          19,
+          22,
+          23
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.2111919466699332e-05,
+            "maxPairDistanceDeltaSourcePx": 1.8437409929461523e-05,
+            "rootMaxDriftSourcePx": 2.781650154623632,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.7047994387165615e-05,
+            "maxPairDistanceDeltaSourcePx": 2.456412042572964e-05,
+            "rootMaxDriftSourcePx": 2.7816581874681834,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-little-r",
+        "mesh": "ArtMeshLayerR5",
+        "parameter": "ParamFingerLittleR",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          15,
+          16,
+          19,
+          20,
+          21,
+          22
+        ],
+        "pinnedRootIndices": [
+          14,
+          17,
+          18
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.7324379395787348e-05,
+            "maxPairDistanceDeltaSourcePx": 2.7733894178538776e-05,
+            "rootMaxDriftSourcePx": 2.9762441822578656,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.9494860690517385e-05,
+            "maxPairDistanceDeltaSourcePx": 2.0906097434547632e-05,
+            "rootMaxDriftSourcePx": 2.9762285428334256,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-ring-l",
+        "mesh": "ArtMeshLayerL2",
+        "parameter": "ParamFingerRingL",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "pinnedRootIndices": [
+          7,
+          8,
+          11
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.995454626788103e-05,
+            "maxPairDistanceDeltaSourcePx": 3.287122706829848e-05,
+            "rootMaxDriftSourcePx": 2.984329208117033,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 2.3031080597050474e-05,
+            "maxPairDistanceDeltaSourcePx": 4.0867541255096285e-05,
+            "rootMaxDriftSourcePx": 2.984342024962153,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-middle-l",
+        "mesh": "ArtMeshLayerL3",
+        "parameter": "ParamFingerMiddleL",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          13,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "pinnedRootIndices": [
+          10,
+          14,
+          28
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 2.2951564699781515e-05,
+            "maxPairDistanceDeltaSourcePx": 4.415569607285619e-05,
+            "rootMaxDriftSourcePx": 3.040373081149495,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 2.0053156041442452e-05,
+            "maxPairDistanceDeltaSourcePx": 3.4265866911908915e-05,
+            "rootMaxDriftSourcePx": 3.040366051734458,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-index-l",
+        "mesh": "ArtMeshLayerL4",
+        "parameter": "ParamFingerIndexL",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "pinnedRootIndices": [
+          8,
+          9,
+          13
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.9404918986839683e-05,
+            "maxPairDistanceDeltaSourcePx": 3.4222123229898926e-05,
+            "rootMaxDriftSourcePx": 3.988314763645249,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 2.3985727900271614e-05,
+            "maxPairDistanceDeltaSourcePx": 3.417926371263036e-05,
+            "rootMaxDriftSourcePx": 3.9883370701765033,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-thumb-l",
+        "mesh": "ArtMeshLayerL5",
+        "parameter": "ParamFingerThumbL",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          14,
+          15,
+          16,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "pinnedRootIndices": [
+          12,
+          13,
+          17
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 2.475070765011754e-05,
+            "maxPairDistanceDeltaSourcePx": 3.708582262618165e-05,
+            "rootMaxDriftSourcePx": 2.644813925415628,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.6557432053907033e-05,
+            "maxPairDistanceDeltaSourcePx": 3.2255384861734626e-05,
+            "rootMaxDriftSourcePx": 2.644821415772474,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-little-l",
+        "mesh": "ArtMeshLayerL6",
+        "parameter": "ParamFingerLittleL",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "pinnedRootIndices": [
+          6,
+          7,
+          10
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 2.0235750970052635e-05,
+            "maxPairDistanceDeltaSourcePx": 3.234943993746242e-05,
+            "rootMaxDriftSourcePx": 3.0375071967728724,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 2.341315518770123e-05,
+            "maxPairDistanceDeltaSourcePx": 4.351113497769177e-05,
+            "rootMaxDriftSourcePx": 3.037487750396406,
+            "nonTargetChanged": []
+          }
+        ]
+      },
+      {
+        "name": "finger-thumb-r",
+        "mesh": "ArtMeshLayerR6",
+        "parameter": "ParamFingerThumbR",
+        "values": [
+          -12,
+          12
+        ],
+        "selected_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "pinnedRootIndices": [
+          10,
+          13,
+          14
+        ],
+        "rootsAreActualTriangle": true,
+        "states": [
+          {
+            "value": -12,
+            "bestRigidFitMaxResidualSourcePx": 1.1397550658287236e-05,
+            "maxPairDistanceDeltaSourcePx": 1.880996877723362e-05,
+            "rootMaxDriftSourcePx": 2.293057991967503,
+            "nonTargetChanged": []
+          },
+          {
+            "value": 12,
+            "bestRigidFitMaxResidualSourcePx": 1.0749029877681517e-05,
+            "maxPairDistanceDeltaSourcePx": 1.9100574759178812e-05,
+            "rootMaxDriftSourcePx": 2.2930610163703657,
+            "nonTargetChanged": []
+          }
+        ]
+      }
+    ]
+  },
+  "failures": [
+    {
+      "finger": "finger-index-r",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-index-r",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-middle-r",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-middle-r",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-ring-r",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-ring-r",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-little-r",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-little-r",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-ring-l",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-ring-l",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-middle-l",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-middle-l",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-index-l",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-index-l",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-thumb-l",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-thumb-l",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-little-l",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-little-l",
+      "kind": "pinned_actual_root_triangle_moves"
+    },
+    {
+      "finger": "finger-thumb-r",
+      "kind": "requires_true_nonrigid_shape"
+    },
+    {
+      "finger": "finger-thumb-r",
+      "kind": "pinned_actual_root_triangle_moves"
+    }
+  ],
+  "expected_old_rigid_negative": true,
+  "not_proven": [
+    "Visible finger curvature through actual GL",
+    "Palm/finger alpha contact",
+    "Human finger/hand artwork quality",
+    "Full action/CupHold/glue acceptance"
+  ]
+}

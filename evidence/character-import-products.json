@@ -1,0 +1,108 @@
+{
+  "access_date": "2026-11-12",
+  "timezone": "Europe/London",
+  "scope": "Official documentation research only; no UI/runtime changes or importer implementation",
+  "user_goal": "Anime desktop companionship with self-service user-imported characters, not a fixed character roster",
+  "missing_prior_material": "ui-references-2026.html absent in workspace; existing local research and supplied/official URLs used",
+  "runtime_import_tests_executed": 0,
+  "prices_verified": false,
+  "visual_review_executed_by_this_agent": false,
+  "no_login_purchase_download_execution_or_publication": true,
+  "sources": [
+    {
+      "id": "VTS-IMPORT",
+      "url": "https://github.com/DenchiSoft/VTubeStudio/wiki/Loading-your-own-Models",
+      "source_updated_at": "2025-08-11",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "完整Live2D运行包与标准参数Auto-Setup；非标准ID需手工配置"
+    },
+    {
+      "id": "VTS-PARAMS",
+      "url": "https://github.com/DenchiSoft/VTubeStudio/wiki/VTS-Model-Settings",
+      "source_updated_at": "2026-04-11",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "模型设置、待机动作、参数范围与可能的多写入覆盖"
+    },
+    {
+      "id": "VTS-SHARING",
+      "url": "https://github.com/DenchiSoft/VTubeStudio/wiki/Workshop",
+      "source_updated_at": "2022-04-18",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "公开分享是独立流程，展示上传文件并提示源文件风险"
+    },
+    {
+      "id": "NIZIMA-IMPORT",
+      "url": "https://docs.nizimalive.com/en/tutorials/how-to-add-live2d-model/",
+      "source_updated_at": "11/06/2024 (source literal; date order not independently resolved)",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "模型列表添加model3.json、切换与缺缩略图显示"
+    },
+    {
+      "id": "NIZIMA-LIPSYNC",
+      "url": "https://docs.nizimalive.com/en/tutorials/lip-sync/",
+      "source_updated_at": "11/06/2024 (source literal; date order not independently resolved)",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "口型参数映射与Mac条件说明"
+    },
+    {
+      "id": "VEADO-MINI",
+      "url": "https://veado.tube/docs/usage/mini/",
+      "source_updated_at": null,
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "当前手册指mini2.2，图片状态槽及.veado保存/加载"
+    },
+    {
+      "id": "AIRI-MANUAL",
+      "url": "https://airi.moeru.ai/docs/en/docs/manual/tamagotchi/setup-and-use/",
+      "source_updated_at": "2026-10-28",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "手册对应0.13.0；选择器Import、完整Live2D ZIP及可用增强由包内资产决定"
+    },
+    {
+      "id": "AIRI-CONFIG",
+      "url": "https://airi.moeru.ai/docs/en/docs/manual/config/",
+      "source_updated_at": "2026-10-28",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "当前ZIP导入忽略VTS items_pinned_to_model.json；不沿旧翻译页要求手工删除"
+    },
+    {
+      "id": "OLV-LIVE2D",
+      "url": "https://docs.llmvtuber.com/docs/user-guide/live2d/",
+      "source_updated_at": null,
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "放目录、编辑model_dict与角色配置；文档声明Cubism3到5、增强映射可选"
+    },
+    {
+      "id": "CUBISM-TYPES",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/file-type-and-extension/",
+      "source_updated_at": "2026-10-13",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "工程文件和运行资产文件类型分别说明"
+    },
+    {
+      "id": "CUBISM-EXPORT",
+      "url": "https://docs.live2d.com/en/cubism-editor-manual/export-moc3-motion3-files/",
+      "source_updated_at": "2026-10-13",
+      "evidence_type": "official documentation text read; product behavior not runtime tested",
+      "summary": "运行包基础导出与目标SDK版本选择"
+    }
+  ],
+  "proposed_benchmark_status": "NOT_RUN",
+  "proposed_scope": "Raster image states plus version-pinned Live2D runtime bundles; other formats and public/cloud sharing separately evaluated",
+  "pitfalls": [
+    "Current veadotube mini manual saves .veado; do not assume all legacy .veadomini instructions match 2.2",
+    "VTS standard parameter IDs permit auto setup; unknown IDs/ranges require mapping",
+    "OpenVTuber configuration editing is not an end-user import wizard",
+    "AIRI current config differs from old translated ZIP metadata advice",
+    "Local import permission does not grant public sharing or art-source redistribution",
+    "A plain illustration does not automatically become a rigged Live2D model",
+    "Web internal reference IDs unexpectedly resolved to unrelated earlier pages once; repeated checks used full source URLs"
+  ],
+  "unresolved": [
+    "Target runtime and SDK compatibility matrix",
+    "Actual user-provided model/asset quality",
+    "Artist and rigging budget and rights",
+    "Target device performance",
+    "Whether upload also means cloud sync or public sharing"
+  ]
+}

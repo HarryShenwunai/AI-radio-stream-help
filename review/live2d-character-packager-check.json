@@ -1,0 +1,64 @@
+{
+  "format": "original-live2d-packager-check-v1",
+  "generated_at": "2026-11-13T00:28:23.702840+00:00",
+  "status": "PASS",
+  "test_count": 22,
+  "elapsed_seconds": 0.645,
+  "source_hashes": {
+    "scripts/package_live2d_character.py": "e983964b0e57f71b6fd60c8a8a6eb197320410d5e033e98370edd593c166956d",
+    "tests/test_package_live2d_character.py": "66f7994e29c1e3b9802af58c9c748d70e6fe5dc623f5ab8a07e97deec999e0b4",
+    "docs/implementation/package-live2d-character.md": "d79a7689667c608f7347c11d7c5fe913e62e0878e72743f6f7f3cc219bc7f19f"
+  },
+  "sources_stable": true,
+  "checks": [
+    {
+      "name": "unittest",
+      "exit_code": 0,
+      "test_count": 22,
+      "stdout": "",
+      "stderr": "test_a_different_embedded_psd_is_not_accepted_as_the_same_source_project (test_package_live2d_character.CharacterPackageTests.test_a_different_embedded_psd_is_not_accepted_as_the_same_source_project) ... ok\ntest_acceptance_binds_real_moc_and_evidence_without_deciding_that_it_passed (test_package_live2d_character.CharacterPackageTests.test_acceptance_binds_real_moc_and_evidence_without_deciding_that_it_passed) ... ok\ntest_acceptance_for_a_different_moc_or_changed_evidence_is_rejected (test_package_live2d_character.CharacterPackageTests.test_acceptance_for_a_different_moc_or_changed_evidence_is_rejected) ... ok\ntest_exclusive_publish_race_preserves_the_other_file_and_removes_only_our_link (test_package_live2d_character.CharacterPackageTests.test_exclusive_publish_race_preserves_the_other_file_and_removes_only_our_link) ... ok\ntest_explicit_optional_can3_is_preserved_only_in_source_zip (test_package_live2d_character.CharacterPackageTests.test_explicit_optional_can3_is_preserved_only_in_source_zip) ... ok\ntest_explicit_original_png_and_submanifest_are_preserved_without_collecting_neighbors (test_package_live2d_character.CharacterPackageTests.test_explicit_original_png_and_submanifest_are_preserved_without_collecting_neighbors) ... ok\ntest_external_traversal_and_windows_alias_references_are_rejected (test_package_live2d_character.CharacterPackageTests.test_external_traversal_and_windows_alias_references_are_rejected) ... ok\ntest_forbidden_source_directory_and_symlink_are_rejected (test_package_live2d_character.CharacterPackageTests.test_forbidden_source_directory_and_symlink_are_rejected) ... ok\ntest_known_official_model_digest_is_rejected_even_after_renaming (test_package_live2d_character.CharacterPackageTests.test_known_official_model_digest_is_rejected_even_after_renaming) ... ok\ntest_moc_or_source_hash_drift_rejects_before_any_outputs (test_package_live2d_character.CharacterPackageTests.test_moc_or_source_hash_drift_rejects_before_any_outputs) ... ok\ntest_no_recursive_export_directory_collection_or_unlisted_source_extras (test_package_live2d_character.CharacterPackageTests.test_no_recursive_export_directory_collection_or_unlisted_source_extras) ... ok\ntest_non_prio_binary_cannot_be_hidden_as_a_rig_object (test_package_live2d_character.CharacterPackageTests.test_non_prio_binary_cannot_be_hidden_as_a_rig_object) ... ok\ntest_optional_can3_rejects_wrong_suffix_and_invalid_header (test_package_live2d_character.CharacterPackageTests.test_optional_can3_rejects_wrong_suffix_and_invalid_header) ... ok\ntest_optional_can3_sha_drift_is_rejected (test_package_live2d_character.CharacterPackageTests.test_optional_can3_sha_drift_is_rejected) ... ok\ntest_preexisting_outputs_are_never_replaced (test_package_live2d_character.CharacterPackageTests.test_preexisting_outputs_are_never_replaced) ... ok\ntest_runtime_reference_and_source_pin_sets_must_match_exactly (test_package_live2d_character.CharacterPackageTests.test_runtime_reference_and_source_pin_sets_must_match_exactly) ... ok\ntest_source_archive_aliases_cannot_overwrite_the_pinned_layer_manifest (test_package_live2d_character.CharacterPackageTests.test_source_archive_aliases_cannot_overwrite_the_pinned_layer_manifest) ... ok\ntest_source_change_during_zip_write_cannot_create_a_success_receipt (test_package_live2d_character.CharacterPackageTests.test_source_change_during_zip_write_cannot_create_a_success_receipt) ... ok\ntest_source_png_cannot_just_be_an_executable_with_a_png_extension (test_package_live2d_character.CharacterPackageTests.test_source_png_cannot_just_be_an_executable_with_a_png_extension) ... ok\ntest_spec_and_output_directory_symlinks_are_rejected (test_package_live2d_character.CharacterPackageTests.test_spec_and_output_directory_symlinks_are_rejected) ... ok\ntest_two_zip_receipts_and_real_assetstore_format_check_never_claim_playability (test_package_live2d_character.CharacterPackageTests.test_two_zip_receipts_and_real_assetstore_format_check_never_claim_playability) ... ok\ntest_vendor_payload_cannot_be_hidden_inside_the_psd2live_project (test_package_live2d_character.CharacterPackageTests.test_vendor_payload_cannot_be_hidden_inside_the_psd2live_project) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.145s\n\nOK\n"
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_help",
+      "exit_code": 0,
+      "test_count": null,
+      "stdout": "usage: package_live2d_character.py [-h] --root ROOT --spec SPEC --output-dir\n                                   OUTPUT_DIR\n\nPackage explicitly pinned original Live2D runtime and editable sources.\nPublishing tool only. It never downloads dependencies, runs Core, exports a\nrig, or upgrades a candidate to an accepted/full character. The format check\nuses the real application's AssetStore; a synthetic MOC envelope can pass that\ncheck.\n\noptions:\n  -h, --help            show this help message and exit\n  --root ROOT\n  --spec SPEC\n  --output-dir OUTPUT_DIR\n",
+      "stderr": ""
+    },
+    {
+      "name": "real_cli_synthetic_candidate_with_optional_can3",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "{\"status\": \"candidate\", \"runtime_zip\": {\"name\": \"fixture-only-candidate-runtime.zip\", \"bytes\": 2359, \"sha256\": \"605306602ff8fe08ae3d6df3fee061952f356cdb14ca21baecdd61bed1991e55\"}, \"source_zip\": {\"name\": \"fixture-only-candidate-source.zip\", \"bytes\": 7175, \"sha256\": \"8084e6c4c092ba59a8ed8680e0a06b6a371c27e8d60d5b87493cacf7b120205c\"}, \"core_passed_by_packager\": false, \"format_validation\": {\"passed\": true, \"method\": \"actual_AssetStore.import_live2d\", \"scope\": \"format_and_normalization_only\", \"core_execution_performed\": false, \"core_consistency_verified\": false, \"playability_verified\": false, \"art_acceptance_verified\": false, \"capabilities_declared\": {\"live2d\": true, \"static\": false, \"talk\": true, \"blink\": true, \"expressions\": [\"own-expression\"], \"motion_groups\": [\"Idle\"]}}}\n",
+      "stderr": ""
+    },
+    {
+      "name": "real_cli_refuses_existing_outputs",
+      "exit_code": 2,
+      "passed": true,
+      "existing_bytes_unchanged": true,
+      "stderr": "{\"error\": \"output_exists_refusing_overwrite\", \"published_as_full\": false}\n"
+    }
+  ],
+  "actual_can3_header_observation": {
+    "path": ".build/original-character-rig-r5/export-candidate7/character.can3",
+    "bytes": 253306,
+    "sha256": "ecefeec42f78770019e1931e86b68acaa6c98919fcc1b6a37546bcda50acc18f",
+    "first_four_bytes": "CAFF",
+    "packaged": false
+  },
+  "limitations": [
+    "Synthetic headers and tiny PNGs only: not an actual playable character or Editor source.",
+    "The actual AssetStore import checks only format/normalization.",
+    "The observed candidate7 CAN3 was read for header verification only, not packaged or opened in Animator.",
+    "No actual r4/r5 character packaged while authoring remains mutable.",
+    "No Core execution, official Editor/Animator reopening, visual acceptance, Windows execution or external publication performed."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "observed_at": "2026-11-12T15:39:53.376163+00:00",
+  "passed": true,
+  "tests_run": 20,
+  "errors": [],
+  "failures": [],
+  "skipped": [],
+  "last_run_seconds": 0.652,
+  "command": "PYTHONPATH=src python -m unittest discover -s tests -p test_live2d_runtime.py -v",
+  "execution": "approved outside socket-restricted sandbox for one literal127.0.0.1 HTTP fixture",
+  "fixtures": "synthetic original strings declaring placeholder globals; never real Cubism/Core/Framework/wrapper code",
+  "network": "Fixed-official dispatch remapped to loopback in test only; SSLContext CERT_REQUIRED/check_hostname tested structurally, no official HTTPS Core body fetched",
+  "real_sdk_downloaded": false,
+  "real_sdk_executed": false,
+  "owner_license_accepted": false,
+  "publication_permission_verified": false,
+  "runtime_rendering_verified": false,
+  "independent_review": false,
+  "verified_behaviors": [
+    "owner gates precede networking",
+    "fixed official URL; all redirects rejected; originalbytes preserved",
+    "bounded download and truncated/HTML rejection",
+    "SDK selectedCore only, no otherJS extraction, centraldirectory bounded before ZipFile allocation",
+    "expected/observed digest provenance and no vendor-published checksum claim",
+    "per-read SHA/source declaration checks, symlink refusal and privatePOSIX modes",
+    "atomic update rollback, twoactiveartifact retention, removal preserves unrelateddata",
+    "missingCore/renderer status performs no IO mutation/network"
+  ],
+  "source_sha256": {
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "scripts/install_live2d_runtime.py": "c36b977b8d7ab4f4651b78f8c4b004955e6992328c831903f8b57a9927e7a1ce",
+    "tests/test_live2d_runtime.py": "12919f2a2b83db5e1c673f8aa29a4939e50a902d15eb24ebb13130f6c65eaa0e",
+    "docs/implementation/live2d-runtime.md": "744a94323ca52df7135283416de6b4ed15d3eb6c13e84feedb7e24d759a36f42"
+  },
+  "scope_note": "This report records the initial synthetic installer suite; subsequent owner-authorized actual runtime supply and playback evidence is separate in live2d-local-evaluation.json and review/live2d-browser-check.json."
+}

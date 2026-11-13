@@ -1,0 +1,24 @@
+{
+  "mode": "offline_synthetic",
+  "platform_connected": false,
+  "rate_per_second": 200,
+  "simulated_seconds": 60,
+  "consumer": "at most one dequeued event per synthetic second; no inference or playback",
+  "stats": {
+    "submitted": 12000,
+    "accepted": 1604,
+    "dequeued": 60,
+    "duplicate": 0,
+    "expired": 0,
+    "expired_queued": 1344,
+    "full": 10396,
+    "dedupe_full": 0,
+    "invalid": 0,
+    "wrong_room": 0,
+    "max_queue_depth": 200,
+    "queue_depth": 200,
+    "dedupe_entries": 1604,
+    "admission_coverage": 0.13366666666666666,
+    "dequeue_coverage": 0.005
+  }
+}

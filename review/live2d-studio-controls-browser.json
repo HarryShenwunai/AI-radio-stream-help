@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-12T22:45:31.438408+00:00",
+  "status": "passed",
+  "scope": "real Studio/HTTP/file upload/Cubism Core with independent geometric MOC",
+  "artwork_accepted": false,
+  "checks": {
+    "current_studio_real_moc_preview_does_not_activate": "passed",
+    "keyboard_head_control_changes_real_core_value": "passed",
+    "declared_expression_selector_calls_real_model": "passed",
+    "motion_button_can_replay_without_false_loading_error": "passed",
+    "escape_disposes_real_preview_and_restores_focus": "passed",
+    "javascript_runtime": "passed"
+  },
+  "sources": {
+    "app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204"
+  },
+  "page_errors": []
+}

@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-11-13T04:28:05.372254+00:00",
+  "scope": "local regression, character catalog/assets, isolated HTTP and protocol checks",
+  "tests_run": 780,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "elapsed_seconds": 115.113,
+  "passed": true,
+  "upstream_or_platform_tests_executed": 0,
+  "does_not_verify": [
+    "Zerolan deployment",
+    "real live room",
+    "user hardware",
+    "AR or MC execution",
+    "long-term character quality"
+  ]
+}

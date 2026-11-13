@@ -1,0 +1,60 @@
+{
+  "observed_at": "2026-11-12",
+  "sources": [
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/bilibili-openplatform/OpenLive_CSharpDemo/blob/main/OpenBLive/Runtime/Utilities/SignUtility.cs",
+      "git_blob_sha": "df8954e99ca9b0c929839cd02ab0d74f9ba275d8"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/bilibili-openplatform/OpenLive_CSharpDemo/blob/main/OpenBLive/Client/Data/AppStartInfo.cs",
+      "git_blob_sha": "16948b3c52cb16f9cced200780ee98572aa1db20"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/AstrBotDevs/AstrBot/blob/master/astrbot/core/platform/sources/weixin_oc/weixin_oc_adapter.py",
+      "git_blob_sha": "daceeac70028b3e5cfed2c587d13fe42a747dfc8"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/AstrBotDevs/AstrBot/blob/master/docs/zh/dev/star/guides/send-message.md",
+      "git_blob_sha": "4f8924398aa970004516af4c7ea9a4f5ae8e986c"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/AstrBotDevs/AstrBot/blob/master/astrbot/core/platform/sources/weixin_oc/weixin_oc_event.py",
+      "git_blob_sha": "84a19a9e7bff52d5e501883ff241236858baa375"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/google/brotli/blob/master/python/_brotli.c",
+      "git_blob_sha": "88a4a9aa8cf186dde0b8bef7dbbc5c8824c0dd4d",
+      "verified": "Decompressor.process accepts output_buffer_limit; no unbounded fallback"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/xfgryujk/blivedm/blob/dev/blivedm/clients/open_live.py",
+      "git_blob_sha": "15bbcd2e5ca783d58f3d9d6d813d7ab1a52c8efa",
+      "reused_snapshot": "/workspace/research/bilibili/evidence/blivedm-open-client.txt"
+    },
+    {
+      "access_date": "2026-11-12",
+      "url": "https://github.com/xfgryujk/blivedm/blob/dev/blivedm/clients/ws_base.py",
+      "git_blob_sha": "a7213a1e8e3aa625956a9d01c9a017496dd76b93",
+      "reused_snapshot": "/workspace/research/bilibili/evidence/blivedm-websocket.txt"
+    }
+  ],
+  "verified_facts": [
+    "OpenLive requires owner credentials/app/anchor code; HTTP HMAC-SHA256 canonical sorted headers and body MD5",
+    "Official auth_body must be forwarded unchanged",
+    "Official game heartbeat comments specify 20–60 seconds; implementation default20",
+    "AstrBot weixin_oc send_by_session supports Plain/Image/Video/File; Record is not an outbound case",
+    "Wechat context token missing/expired can prevent sending; API completion is not a human delivery receipt"
+  ],
+  "unknowns": [
+    "Real owner account availability, permission/app review/pricing",
+    "Current production OpenLive endpoints/WS server compatibility for owner account",
+    "AstrBot plugin in real installed SDK and account runtime; no account login or outbound send tested"
+  ]
+}

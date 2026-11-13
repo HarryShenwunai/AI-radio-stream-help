@@ -1,0 +1,406 @@
+{
+  "status": "measured_not_art_acceptance",
+  "date_utc": "2026-11-12T22:46:45Z",
+  "scope": "Actual official Core parameter corners -> real source-canvas mesh bounds; no GL/wrapper, no image edits",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r2/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r3/export-mouth-r2/character.moc3": "6921429ed152206b533a0cac8a46a9908704b4f3663af918723d02e23f259c6b",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/AI-radio-stream-help/tests/live2d_mouth_registration_check.py": "1df6a5c5d19df0f923adf8c5a4470bfcef6b1dbebebadc67c7f81464bf82f5d7"
+  },
+  "sources_unchanged": true,
+  "measurement": {
+    "canvasInfo": {
+      "width": 1536,
+      "height": 2048,
+      "originX": 768,
+      "originY": 1024,
+      "ppu": 1536
+    },
+    "states": [
+      {
+        "open": 0,
+        "form": -1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              853.3273773193359,
+              730.5302276611328,
+              958.7801628112793,
+              734.8629379272461
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              840.1087646484375,
+              704.2783966064453,
+              975.7231979370117,
+              725.83251953125
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.4202461242676,
+              730.0811157226562,
+              977.3332672119141,
+              752.2230987548828
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 4.6977081298828125,
+        "lowerLipToCavitySourcePixelGap": -4.781822204589844,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 0,
+        "form": 0,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              848.9391918182373,
+              726.7206268310547,
+              963.0779113769531,
+              734.1204223632812
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              840.0807952880859,
+              704.2783966064453,
+              975.6952285766602,
+              723.7984466552734
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.3864231109619,
+              727.6212997436523,
+              977.2994384765625,
+              752.2230987548828
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 2.92218017578125,
+        "lowerLipToCavitySourcePixelGap": -6.499122619628906,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 0,
+        "form": 1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              844.5510177612305,
+              722.9112091064453,
+              967.363037109375,
+              733.5589294433594
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              840.0469665527344,
+              704.2783966064453,
+              975.6620635986328,
+              721.3859176635742
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.3460884094238,
+              724.6884536743164,
+              977.2591094970703,
+              752.2230987548828
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 1.5252914428710938,
+        "lowerLipToCavitySourcePixelGap": -8.870475769042969,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 0.5,
+        "form": -1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              850.8334579467773,
+              721.115104675293,
+              961.2924957275391,
+              742.2679748535156
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.9747657775879,
+              694.557373046875,
+              975.5895309448242,
+              716.1114959716797
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.5825519561768,
+              741.8835220336914,
+              977.4955444335938,
+              764.001838684082
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 5.003608703613281,
+        "lowerLipToCavitySourcePixelGap": -0.38445281982421875,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 0.5,
+        "form": 0,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              846.4352645874023,
+              720.3557205200195,
+              965.5675964355469,
+              741.4806213378906
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.9467849731445,
+              694.557373046875,
+              975.5615386962891,
+              714.0774230957031
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.5487289428711,
+              739.4236831665039,
+              977.4617385864258,
+              764.001838684082
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 6.278297424316406,
+        "lowerLipToCavitySourcePixelGap": -2.0569381713867188,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 0.5,
+        "form": 1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              842.0371284484863,
+              718.4915008544922,
+              969.8552627563477,
+              740.8149185180664
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.9132881164551,
+              694.557373046875,
+              975.5280532836914,
+              711.6412506103516
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.5080680847168,
+              736.4671936035156,
+              977.4210662841797,
+              764.001838684082
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 6.850250244140625,
+        "lowerLipToCavitySourcePixelGap": -4.347724914550781,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 1,
+        "form": -1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              848.3395614624023,
+              708.7676391601562,
+              963.7922058105469,
+              749.8639678955078
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.8407554626465,
+              684.8363494873047,
+              975.4558410644531,
+              706.390495300293
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.7448577880859,
+              753.6859283447266,
+              977.6578674316406,
+              775.7805786132812
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 2.3771438598632812,
+        "lowerLipToCavitySourcePixelGap": 3.82196044921875,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 1,
+        "form": 0,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              843.9187660217285,
+              707.9459533691406,
+              968.0698471069336,
+              748.8407974243164
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.812780380249,
+              684.8363494873047,
+              975.4278717041016,
+              704.3564224243164
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.7110290527344,
+              751.2261123657227,
+              977.6240386962891,
+              775.7805786132812
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 3.5895309448242188,
+        "lowerLipToCavitySourcePixelGap": 2.38531494140625,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      },
+      {
+        "open": 1,
+        "form": 1,
+        "meshes": [
+          {
+            "id": "ArtMeshMouth",
+            "sourceCanvasXY": [
+              839.5105934143066,
+              706.9870071411133,
+              972.3348999023438,
+              748.0660095214844
+            ],
+            "opacity": 1,
+            "vertexCount": 30
+          },
+          {
+            "id": "ArtMeshLayer3",
+            "sourceCanvasXY": [
+              839.7796096801758,
+              684.8363494873047,
+              975.39404296875,
+              701.8965606689453
+            ],
+            "opacity": 1,
+            "vertexCount": 26
+          },
+          {
+            "id": "ArtMeshLayer2",
+            "sourceCanvasXY": [
+              835.6700477600098,
+              748.2459564208984,
+              977.5830688476562,
+              775.7805786132812
+            ],
+            "opacity": 1,
+            "vertexCount": 27
+          }
+        ],
+        "upperLipToCavitySourcePixelGap": 5.090446472167969,
+        "lowerLipToCavitySourcePixelGap": 0.1799468994140625,
+        "note": "Positive gap means geometric envelopes separated; negative means overlap. This does not inspect texture alpha and is not automatic art acceptance."
+      }
+    ]
+  },
+  "not_proven": [
+    "Texture-alpha lip/cavity registration",
+    "Human artwork acceptance",
+    "Lip movement has correct artistic shape"
+  ]
+}

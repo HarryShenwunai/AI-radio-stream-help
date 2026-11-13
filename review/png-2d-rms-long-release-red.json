@@ -1,0 +1,4571 @@
+{
+  "observed_at": "2026-11-12T20:31:08.883370+00:00",
+  "status": "initial_capture_with_high_rate_release_counterexample",
+  "scope": "actual app HTTP/SQLite/PNG normalization + real Chromium 4-state cache and actual HTMLAudio/RMS, fake text/TTS provider returning fixed9sec4Hz test WAV",
+  "final_ui_freeze": false,
+  "artwork_modified": false,
+  "real_model_or_microphone": false,
+  "human_visual_acceptance": false,
+  "layered_rig_or_live2d_verified": false,
+  "source_sha_before": {
+    "app/server.py": "409f6a2d5fc9f4f85b7cc289e71d79bd2ea9e6af217215170744c522863c3ce2",
+    "app/static/app.js": "a1d39a8ea1e5b7887bbc9fe1e2001fdce97f3a312c5b3dd6896ed70eb2c3af25",
+    "app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "app/static/conversation-view.js": "f53ace4b6066acf3895d1c762146b8ead7eb2180b87637ce53eddc1acf75a472",
+    "app/static/desktop.css": "0a8463866a864d451c723befe7b3a9bd460b573ea99d8309d247fbd93a954c2e",
+    "app/static/desktop.js": "5c541e3211c74c7c08823962dfbb553c2eb3769d9d95fe6ceb9db21ff1033039",
+    "app/static/index.html": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+    "app/static/layered-2d-renderer.js": "e2a12b8fd5ddc40c02c1b634f5415fc87c11e1e8650f99961d79cee18bfae9db",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/privacy-flow.js": "2e9312caee67bd147cd40e72e47a32da99690705c9e0dac01a30921a10525039",
+    "app/static/scene-controller.js": "5493cfe8645372e1a58c3f6d1d026d5f28293cf101d002ec13042407986acd01",
+    "app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "app/static/studio.js": "1659de9004abdf6f7720ae86459a2a3eed8cdbf1596269c374161886d657009c",
+    "app/static/style.css": "879a556d0321ff41fb843d9afcc0bedef78ac457c71fbbbb1e7415f9b35455ae",
+    "app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "093ac5b209b81b179bb3a232671aae94bd7c9e5072fcb3b0e8503afd1b1c835e",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/layered_2d_assets.py": "18b96c75256d86c612d16fa4b20b3bfa0c9252de8fd8d032e1f5fa575c0efb26",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_addon_build.py": "ae52d495cf69a50466907107a9bef9affbe25e9494a7871f9362f0cdf9a612b9",
+    "src/companion_runtime/perception_optional.py": "045366778a36433b319346df5a1b236e4f47a60af67cfca3fa49092e657f74a3",
+    "src/companion_runtime/perception_tracking.py": "b2911b3e4adf2d63966521930c1e26de205f3e8b6a8af3f74fd0e429cc0f2b7b",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "asset_sha_before": {
+    "idle": "0d8a7f2d121f7fdd1a934694c2de191ec3ea75c1d76d5721d91f24436e9a9663",
+    "talk": "115fe20535710c1567eae6f0d446026313f4e206ec6c7e4a07bb4e27c1a00a03",
+    "blink": "60cb569bace4ab6c8bc7f0d653bf4074638d4450452c3510b48ffda7ea9b2f32",
+    "talk_blink": "9171f1cb2fda3d191c34a928ad580a55ad1857b3391d451456248eaa2be69317"
+  },
+  "checks": {
+    "actual_four_file_upload_and_preview_not_active": "passed",
+    "explicit_enable_preloads_and_decodes_four_actual_states": "passed",
+    "server_normalization_preserves_all_source_rgba_pixels": "passed",
+    "actual_htmlaudio_rms_switches_and_stop_returns_closed_mouth_idle": "passed",
+    "actual_audio_contains_closed_and_open_mouth_plus_natural_blink": "weak_initial_check_included_cold_start_not_internal_silence",
+    "no_png_refetch_during_audio_blink_or_stop": "passed",
+    "same_dimensions_no_dom_frame_jump": "passed"
+  },
+  "javascript_errors": [],
+  "limits": [
+    "UI source is still being changed by its owner; source changes invalidate final acceptance",
+    "PNG whole-frame changes can alter hair/clothes even if DOM bounds remain fixed",
+    "UI CSS reduced-motion used to isolate frame geometry; source blink/RMS continue",
+    "Actual screen video has no audio track; synthetic test WAV separately supplied"
+  ],
+  "initial_scene_stats": {
+    "state": "ready",
+    "cacheSize": 4,
+    "requestCount": 4,
+    "mouth": 0,
+    "audioAnalysis": false,
+    "format": "png-states"
+  },
+  "normalized_pixel_equality": {
+    "idle": true,
+    "talk": true,
+    "blink": true,
+    "talk_blink": true
+  },
+  "playing_scene_stats": {
+    "state": "ready",
+    "cacheSize": 4,
+    "requestCount": 4,
+    "mouth": 1,
+    "audioAnalysis": true,
+    "format": "png-states"
+  },
+  "actual_media_trace": [
+    {
+      "at": 5434.399999991059,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5454.899999991059,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5522.899999991059,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": 0,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": 0.012059,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5556.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.035324,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5574.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.054986,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5594.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.069387,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5614.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.092197,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5634.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.108215,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5654.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.129566,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5674.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.150857,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5694.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.172189,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5714.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.19347,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5734.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.209466,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5754.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.230721,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5774.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.252117,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5794.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.268131,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5814.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.289504,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5834.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.310755,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5854.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.332126,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5874.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.353469,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5894.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.369439,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5914.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.390819,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5934.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.412121,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5954.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.433509,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5974.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.449553,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 5994.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.470856,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6014.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.492141,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6034.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.513452,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6054.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.529493,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6074.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.550821,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6094.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.565347,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6114.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.593375,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6134.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.614838,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6154.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.630877,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6174.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.652183,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6194.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.668098,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6214.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.689468,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6234.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.710785,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6254.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.732135,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6274.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.753451,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6294.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.774773,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6314.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.790816,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6334.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.805333,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6354.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.828155,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6374.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.849537,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6394.29999999702,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.870919,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.892253,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6434.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 0.913388,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6454.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.929497,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6474.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.950849,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6494.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.972265,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6514.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 0.988167,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.009498,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6554.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.030847,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6574.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.052133,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6594.5999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.073999,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6614.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.089491,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6634.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.110856,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6654.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.132181,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6674.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.153544,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6694.5999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.169791,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6714.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.190836,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6734.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.212186,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6754.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.228182,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6774.5999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.249793,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6794.5,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.271093,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6814.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.292171,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6834.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.313484,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6854.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.334786,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6874.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.350814,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6894.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.372103,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6914.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.388346,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6934.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.409486,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6954.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.430805,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6974.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.452156,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 6994.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.473637,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7014.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.489468,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7034.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.51077,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7054.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.532135,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7074.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.54814,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7094.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.569579,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7114.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.590802,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7134.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.612112,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7154.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.633456,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7174.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.649489,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7194.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.670739,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7214.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.692116,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7234.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.713472,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7254.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.729511,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7274.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.750786,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7294.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.772176,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7314.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.793497,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7334.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.809525,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7354.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.830821,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7374.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.852119,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7394.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.87358,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.894881,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7434.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.910033,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7454.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.932133,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7474.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.948094,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7494.399999991059,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.969636,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7514.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 1.990815,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.012124,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7554.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.033457,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7574.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.054788,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7594.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.070885,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7614.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.092127,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7634.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.108126,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7654.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.129434,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7674.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.1508,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7694.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.172236,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7714.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.193433,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7734.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.209445,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7754.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.230785,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7774.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.252128,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7794.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.268239,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7814.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.289481,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7834.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.3108,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7854.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.332144,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7874.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.35346,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7894.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.369626,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7914.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.390797,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7934.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.41213,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7954.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.43343,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7974.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.449448,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 7994.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.470854,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8014.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.492164,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8034.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.508129,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8054.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.529465,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8074.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.550799,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8094.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.572234,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8114.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.593472,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8134.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.614796,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8154.0999999940395,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.630788,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8174.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.652168,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8194.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.668225,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8214.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.689464,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8234.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.710808,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8254.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.732102,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8274.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.753484,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8294.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.769534,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8314.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.790783,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8334.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.812108,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8354.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.828145,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8374.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.849522,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8394.5,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.871179,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.891967,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8434.29999999702,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.913627,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8454.39999999106,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.928773,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8474.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.950884,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8494.29999999702,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 2.97237,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8514.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 2.986667,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.00947,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8554.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.03085,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8574.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.052135,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8594.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.07361,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8614.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.089542,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8634.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.110848,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8654.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.131934,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8674.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.153523,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8694.39999999106,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.174982,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8714.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.19082,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8734.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.212114,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8754.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.228142,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8774.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.249472,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8794.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.270837,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8814.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.292111,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8834.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.313463,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8854.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.334801,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8874.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.350805,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8894.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.372205,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8914.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.388164,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8934.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.409455,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8954.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.430774,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8974.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.452117,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 8995.699999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.475031,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9014.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.48945,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9034.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.510809,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9054.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.532169,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9074.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.548169,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9094.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.569513,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9114.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.59079,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9134.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.61208,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9154.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.633442,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9174.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.649443,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9194.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.67077,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9214.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.692094,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9234.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.713478,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9254.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.729408,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9274.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.750011,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9294.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.772184,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9314.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.788141,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9334.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.809473,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9354.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.830771,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9374.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.852139,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9394.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.873547,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.894721,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9434.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.910766,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9454.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.932094,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9474.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.948037,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9494.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.96961,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9514.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 3.990802,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.01215,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9554.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.033486,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9574.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.04946,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9594.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.070767,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9614.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.092162,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9634.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.108146,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9654.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.129444,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9674.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.150939,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9694.39999999106,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.172397,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9714.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.19343,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9734.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.209451,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9754.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.230808,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9774.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.252152,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9794.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.2735,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9814.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.289483,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9834.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.310818,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9854.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.332121,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9874.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.353455,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9894.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.369422,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9914.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.390782,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9934.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.412098,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9954.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.433454,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9974.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.454806,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 9994.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.470787,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10014.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.492124,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10034.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.508151,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10054.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.529491,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10074.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.550814,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10094.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.572147,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10114.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.586667,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10134.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.614778,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10154.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.630866,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10174.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.652206,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10194.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.668229,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10214.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.689517,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10234.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.710802,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10254.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.73215,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10274.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.753477,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10294.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.769426,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10314.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.790838,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10334.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.812125,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10354.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.828145,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10374.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.849517,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10394.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.870787,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.892132,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10434.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.913389,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10454.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 4.929489,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10474.29999999702,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 4.950845,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10494.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 4.972282,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10514.39999999106,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 4.993714,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10534.199999988079,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 5.009339,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10554.29999999702,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 5.030908,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10574.09999999404,
+      "src": "blob:http://127.0.0.1:42185/5fef0391-50d1-4d3f-9e2c-06e52a8d0772",
+      "mouth": 1,
+      "audio": 5.052156,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10594.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.068101,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10614.59999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.089794,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10634.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.110853,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10654.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.132092,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10674.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.153445,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10694.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.174831,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10714.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.190772,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10734.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.212121,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10754.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.228092,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10774.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.249478,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10794.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.270824,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10814.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.29215,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10834.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.313444,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10854.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.329581,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10874.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.350824,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10894.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.372272,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10914.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.38818,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10934.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.409515,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10954.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.430783,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10974.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.452172,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 10994.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.473389,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11014.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.489476,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11034.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.510802,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11054.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.532122,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11074.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.55349,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11094.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.569401,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11114.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.590823,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11134.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.612145,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11154.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.633477,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11174.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.64951,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11194.5,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.671148,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11214.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.692156,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11234.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.7134,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11254.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.734794,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11274.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.750851,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11294.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.772064,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11314.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.788142,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11334.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.809471,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11354.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.830799,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11374.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.852161,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11394,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.873418,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11414.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.894808,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11434.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.910797,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11454.5,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.932143,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11474.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.94814,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11494.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.969453,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11514.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 5.990576,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11534.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.012108,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11554.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.033416,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11574.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.049431,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11594,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.070665,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11614.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.092159,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11634.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.108117,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11654.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.129472,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11674.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.150736,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11694.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.172116,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11714.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.193494,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11734.199999988079,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.209184,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11754.5,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.231081,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11774.29999999702,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.252191,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11794.5,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.273844,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11814.09999999404,
+      "src": "blob:http://127.0.0.1:42185/a211fbbe-dd30-4450-b894-b050571c5a2c",
+      "mouth": 1,
+      "audio": 6.289463,
+      "playing": true,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11846.29999999702,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11854.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11874.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11894.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11914.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11934.29999999702,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11954.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11974.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 11994.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 12014.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 12034.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 12054.09999999404,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 12074.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    },
+    {
+      "at": 12094.199999988079,
+      "src": "blob:http://127.0.0.1:42185/1d92f26c-053f-49ec-b394-167b0a4afac5",
+      "mouth": 0,
+      "audio": null,
+      "playing": false,
+      "box": {
+        "x": 220,
+        "y": 105,
+        "width": 1000,
+        "height": 1373.828125
+      }
+    }
+  ],
+  "unique_state_blob_urls_observed": 3,
+  "asset_requests_during_actual_playback_and_stop": 0,
+  "dom_geometry_ranges": {
+    "x": {
+      "min": 220,
+      "max": 220,
+      "range": 0
+    },
+    "y": {
+      "min": 105,
+      "max": 105,
+      "range": 0
+    },
+    "width": {
+      "min": 1000,
+      "max": 1000,
+      "range": 0
+    },
+    "height": {
+      "min": 1373.828125,
+      "max": 1373.828125,
+      "range": 0.0
+    }
+  },
+  "final_scene_stats": {
+    "state": "ready",
+    "cacheSize": 4,
+    "requestCount": 4,
+    "mouth": 0,
+    "audioAnalysis": false,
+    "format": "png-states"
+  },
+  "source_sha_after": {
+    "app/server.py": "409f6a2d5fc9f4f85b7cc289e71d79bd2ea9e6af217215170744c522863c3ce2",
+    "app/static/app.js": "a1d39a8ea1e5b7887bbc9fe1e2001fdce97f3a312c5b3dd6896ed70eb2c3af25",
+    "app/static/assistance-view.js": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+    "app/static/avatar.svg": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+    "app/static/companion-core.js": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+    "app/static/connection-flow.js": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+    "app/static/connectors-ui.js": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+    "app/static/conversation-view.js": "f53ace4b6066acf3895d1c762146b8ead7eb2180b87637ce53eddc1acf75a472",
+    "app/static/desktop.css": "0a8463866a864d451c723befe7b3a9bd460b573ea99d8309d247fbd93a954c2e",
+    "app/static/desktop.js": "5c541e3211c74c7c08823962dfbb553c2eb3769d9d95fe6ceb9db21ff1033039",
+    "app/static/index.html": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+    "app/static/layered-2d-renderer.js": "e2a12b8fd5ddc40c02c1b634f5415fc87c11e1e8650f99961d79cee18bfae9db",
+    "app/static/live2d-renderer.js": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+    "app/static/playback-receipts.js": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+    "app/static/privacy-flow.js": "2e9312caee67bd147cd40e72e47a32da99690705c9e0dac01a30921a10525039",
+    "app/static/scene-controller.js": "5493cfe8645372e1a58c3f6d1d026d5f28293cf101d002ec13042407986acd01",
+    "app/static/sound-flow.js": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+    "app/static/speech-controller.js": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+    "app/static/studio.js": "1659de9004abdf6f7720ae86459a2a3eed8cdbf1596269c374161886d657009c",
+    "app/static/style.css": "879a556d0321ff41fb843d9afcc0bedef78ac457c71fbbbb1e7415f9b35455ae",
+    "app/static/ui-kit.js": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+    "app/static/voice-input.js": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+    "app/static/vrm-renderer.js": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+    "src/companion_runtime/__init__.py": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a",
+    "src/companion_runtime/assets.py": "093ac5b209b81b179bb3a232671aae94bd7c9e5072fcb3b0e8503afd1b1c835e",
+    "src/companion_runtime/assistance.py": "3ccda2637a16adfeb7d7bc32b298d6990495cbe15d347251a37b6b29fb0fd395",
+    "src/companion_runtime/characters.py": "2bb918708c9f58f8bc9b24b69a5365977291b6a550ff464ac06465c8688af0c6",
+    "src/companion_runtime/connectors/__init__.py": "928f20f1e64143dbf1e2833ba34819fd8feb92ddb9ba72ca80143a70ca544395",
+    "src/companion_runtime/connectors/__main__.py": "a7cdb0316d31020cddc579d727da2ddd5ef5fc7597d5c680af4994e7d4030352",
+    "src/companion_runtime/connectors/bilibili.py": "0f5bf3dc5ecdd269fde92297187ac002159a6f73ce5014c6b6439145f26cca15",
+    "src/companion_runtime/connectors/wechat.py": "d709f1eb8603b390b8c1af815ee8371fa34f84ee827f332cad9139503451ea83",
+    "src/companion_runtime/conversation.py": "932a380b04bc05c2e351923f96097013d7c27d8efe2d451e848f947fceb0a75c",
+    "src/companion_runtime/device_diagnostics.py": "b78f9e5d4ccce1f1420e80de73c128c1e30fa6aff4820625938483d06ca0040f",
+    "src/companion_runtime/devices.py": "260fddb7113c867182340ebc8cddb8dfc619939ca2aaca4f1c80a886dbccc8e4",
+    "src/companion_runtime/http_payload.py": "1c9f3701ca69d76be6d8818e59e076718486f8b1cd0de455a7fb687bcbe2f54d",
+    "src/companion_runtime/integration_service.py": "cbffdf05a0d4d08647a3f7382d95a8a4f81c48ef0f8fd779f4553ed96cc883ce",
+    "src/companion_runtime/layered_2d_assets.py": "18b96c75256d86c612d16fa4b20b3bfa0c9252de8fd8d032e1f5fa575c0efb26",
+    "src/companion_runtime/lifecycle.py": "76aaabaeecb395b7c7bcdb26f272b5646fdbed2c442afb5a02bd779ba62e813d",
+    "src/companion_runtime/live.py": "98cf098f6ab863a9547d4824e7767fa567bec0c8eed9b3360d322aa6baa74a04",
+    "src/companion_runtime/live2d_assets.py": "b88851eb46f563a6a5d9e644c50fe99892778da8a09523bc80aedb5cb9661ba2",
+    "src/companion_runtime/live2d_runtime.py": "da80a37b44c3995d8d5f2346828e6f0abae895fd0890c6d06d9bd9dcd1d59530",
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_addon_build.py": "ae52d495cf69a50466907107a9bef9affbe25e9494a7871f9362f0cdf9a612b9",
+    "src/companion_runtime/perception_optional.py": "045366778a36433b319346df5a1b236e4f47a60af67cfca3fa49092e657f74a3",
+    "src/companion_runtime/perception_tracking.py": "b2911b3e4adf2d63966521930c1e26de205f3e8b6a8af3f74fd0e429cc0f2b7b",
+    "src/companion_runtime/playback.py": "3d69e96f7ae870273bc477c73598b7158b41174f8a0feb031b9d341ffaf46d51",
+    "src/companion_runtime/preference_learning.py": "47d61b7b48c0b78c808cb130006655247840d7891b72e8a05040d28a526ba06a",
+    "src/companion_runtime/runtime_settings.py": "32405b03566e373bcd3bbd9aadffc6bea65098e170dc98aa47d5f31f85abe000",
+    "src/companion_runtime/voice.py": "4d80205bdc1fbfec6802f514118ae67b9a4f53bc6822212ef4db410bbde29594",
+    "src/companion_runtime/vrm_assets.py": "02022f829c24a6c83926771e7c14dcfd7443cdf1aa0bf06c9303e2a833f7f835",
+    "src/companion_runtime/zerolan.py": "2be413ce76c6d77f89eb5b40d2945a6752b9bb08d1525ee383ec7b8a051bd27c"
+  },
+  "source_changed_during_run": false,
+  "asset_sha_after": {
+    "idle": "0d8a7f2d121f7fdd1a934694c2de191ec3ea75c1d76d5721d91f24436e9a9663",
+    "talk": "115fe20535710c1567eae6f0d446026313f4e206ec6c7e4a07bb4e27c1a00a03",
+    "blink": "60cb569bace4ab6c8bc7f0d653bf4074638d4450452c3510b48ffda7ea9b2f32",
+    "talk_blink": "9171f1cb2fda3d191c34a928ad580a55ad1857b3391d451456248eaa2be69317"
+  },
+  "asset_sources_unchanged": true,
+  "artifacts": [
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/04-actual-stopped-idle-stage.png",
+      "bytes": 1624490,
+      "sha256": "6db9871c291d3a798b34702b5b539fc8fed8be179898ebd81bc2846b785fca9c"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/synthetic-cadence.wav",
+      "bytes": 432044,
+      "sha256": "0c0cb03fb42c84b58b432f1859b27ae79c4f9dd9e1f6de16dc460fd6d3e6dfd5"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/03-actual-audio-rms-2d-stage.png",
+      "bytes": 1597223,
+      "sha256": "d883a681506f1bbfb84731b19299618c7a7c990040c5f056915d5582a6197749"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/02-actual-2d-idle-stage.png",
+      "bytes": 1622778,
+      "sha256": "fc2034b463a05069e721d73ebedf6e293c5cd96ba4d1139cedd84dba4fc13f1c"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/01-actual-four-state-preview.png",
+      "bytes": 786610,
+      "sha256": "b506580798c507e65294f95789f0234bb10a7e6812a28d569f8a4b289f49376b"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/actual-app-2d-rms-cache-stop.webm",
+      "bytes": 1421896,
+      "sha256": "ffecd951b7ab6b95d2d8e2b671b39c20f5d3d80f0f84888662aa2ca7fdf25ddf"
+    },
+    {
+      "path": "/workspace/dist/uiux-2026/2d-actual-stage/raw-video/page@ed1498e07b8a528aebc4492cbbf702dc.webm",
+      "bytes": 1421896,
+      "sha256": "ffecd951b7ab6b95d2d8e2b671b39c20f5d3d80f0f84888662aa2ca7fdf25ddf"
+    }
+  ],
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright python tests/png_2d_stage_check.py",
+  "recorded_trace_counterexample": {
+    "scope": "property reanalysis of previously captured real app trace, not a second app run",
+    "window_seconds": [
+      0.5,
+      5
+    ],
+    "actual_mouth_values": [
+      1
+    ],
+    "expected_mouth_values": [
+      0,
+      1
+    ],
+    "notes": "125ms voiced/125ms silent synthetic envelope; old smoothing did not release during internal silence."
+  }
+}

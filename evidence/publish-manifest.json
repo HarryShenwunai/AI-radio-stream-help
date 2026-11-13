@@ -1,26 +1,116 @@
 {
   "date": "2026-11-12",
-  "scope": "design research and sanitized historical prototype evidence; not application runtime",
+  "scope": "approved phase-one local code, research and sanitized execution evidence; no runtime data or assets",
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 263,
-      "sha256": "a0066f77335dfc2f7e292063b1d961e470af9d2d6578a96a15cbb908da7379ed"
+      "bytes": 362,
+      "sha256": "094b040a4a01d89894fe7b0fde087f651202183ca3ab484f54d8c5ce1358c9b0"
     },
     {
       "path": "HANDOFF.MD",
-      "bytes": 3293,
-      "sha256": "ae9290ba74abb8e65cdd81ae67bd3653eaa180d01c5f7d56b19dc06076ceeca8"
+      "bytes": 4686,
+      "sha256": "83693eb65b404a956899605b6abd407b04b9aad2629008019388c1829328d0fd"
     },
     {
       "path": "NOTICE.md",
-      "bytes": 1268,
-      "sha256": "5c9f562d316bfd76f511f56061d45039821bda56f9f5fc64188c8619dfa6445d"
+      "bytes": 1554,
+      "sha256": "8cd6a137ee3b236f38304858ead44c0dab99b90b0f9c652b7d4fc292204dff26"
     },
     {
       "path": "README.md",
-      "bytes": 2873,
-      "sha256": "7642e419fe9f2223f71402167267c80bd00d4a520d63b2db8d4c7e1766129b92"
+      "bytes": 3637,
+      "sha256": "0d3a79ee9541cf82d9235af89306cc8b06c7602fdfbb6ec91928f516d32e8f07"
+    },
+    {
+      "path": "app/ATTRIBUTIONS.md",
+      "bytes": 1867,
+      "sha256": "13c2264f52b21686a225c0ffc10c9eb4fe1e7b5e90ed49274efb08396224104d"
+    },
+    {
+      "path": "app/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "app/README.md",
+      "bytes": 1951,
+      "sha256": "b6c003007eefd982d88088036799c917d0ec75c98bf9bccf2518037b593b2b11"
+    },
+    {
+      "path": "app/download_models.py",
+      "bytes": 2559,
+      "sha256": "45d024c92e7dfd4450749622385796064685438c663f180eb069dedcf04e9d39"
+    },
+    {
+      "path": "app/licenses/APACHE-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "app/licenses/KOKORO_MODEL_CARD.md",
+      "bytes": 6348,
+      "sha256": "91dcabced89db6f109b8786642f50402d3ee87450e8189589b6f85520e7f4d78"
+    },
+    {
+      "path": "app/licenses/QWEN3_MODEL_CARD.md",
+      "bytes": 8168,
+      "sha256": "8e3dd0c3b5b11897cc71092ccfe517bb7a9783479baa3665aad73c8d1a2041cd"
+    },
+    {
+      "path": "app/licenses/QWEN3_QUANT_CARD.md",
+      "bytes": 13946,
+      "sha256": "139ebb15c2601ca66b0d2820127b1bfaf491b084a582f9fa08286ba7daeeea82"
+    },
+    {
+      "path": "app/model-sources.json",
+      "bytes": 715,
+      "sha256": "5f4089c08c60db81364fb876bb801d2925e96b87944338d23a35cd7820e7e744"
+    },
+    {
+      "path": "app/models-manifest.json",
+      "bytes": 959,
+      "sha256": "15bc29ac8bc8fb7f2403f678c0f077450654d537a319fa363c0a169532ef2619"
+    },
+    {
+      "path": "app/requirements.txt",
+      "bytes": 62,
+      "sha256": "5525e60dc9b4be88965691edf1eb1173bae19bc4310665983844f48c433086aa"
+    },
+    {
+      "path": "app/server.py",
+      "bytes": 52058,
+      "sha256": "3518df4d333bc63bdb5cf7e94387af980e2e002c8b54d4562b15866ef89447d3"
+    },
+    {
+      "path": "app/static/app.js",
+      "bytes": 24501,
+      "sha256": "4e0a13bd3bdcdd4bd4a529ef056946d0d4be6d594784b81ea9ab516107be741d"
+    },
+    {
+      "path": "app/static/avatar.svg",
+      "bytes": 3750,
+      "sha256": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2"
+    },
+    {
+      "path": "app/static/index.html",
+      "bytes": 7988,
+      "sha256": "4f5da0be562a30f499ac64a9eaaaa5a1c9c2cfc9f33e513e73edb4f092a6e2ed"
+    },
+    {
+      "path": "app/static/style.css",
+      "bytes": 12579,
+      "sha256": "dab38f97f9d6c39b4b0632fa86a2238892b7eb33a94930632bd21791c5b3380c"
+    },
+    {
+      "path": "app/test_app.py",
+      "bytes": 16184,
+      "sha256": "f2879a7f711cf24f17b27a19d3607e0cfb671e51f15d335e5f23af84f889c3a7"
+    },
+    {
+      "path": "app/test_stream_http.py",
+      "bytes": 5502,
+      "sha256": "d5aaa14f52f20b9566e0edf02bad141232427228760f649e9aadbc5ac517b930"
     },
     {
       "path": "contracts/interaction-v1.schema.json",
@@ -34,13 +124,13 @@
     },
     {
       "path": "docs/design/architecture.md",
-      "bytes": 6329,
-      "sha256": "d1533d3ac1b02ad5cd5eee3db779a29821b6048cc412f8240b09fa2ac90f7e07"
+      "bytes": 6429,
+      "sha256": "d5f8344e351acb0c72480ec4dde586a2467bccdf7ab761b5c975cbcb5b2a5e2d"
     },
     {
       "path": "docs/design/current-state.md",
-      "bytes": 2706,
-      "sha256": "9a7a02e9f8431e5c8b27f0a58d660bd8d325d8e20fe2c6b47b4e62b5d3704f1c"
+      "bytes": 2835,
+      "sha256": "17a790492ae175d39b4b876c194d58c475e9ebbab0ad5df4aa673a9f39d324ea"
     },
     {
       "path": "docs/history/bilibili-plan.md",
@@ -51,6 +141,11 @@
       "path": "docs/history/bilibili-traceability.csv",
       "bytes": 444,
       "sha256": "d0e6404b63dd3b68ca04310d6d3d1b3e3d30e2f7a845ab066e7c43da9654f3b2"
+    },
+    {
+      "path": "docs/history/design-publish-manifest-20261112.json",
+      "bytes": 6702,
+      "sha256": "b15f35419c7ea7db431d4ec9faeeb022f7109c2146433ceb085039e9256f73f8"
     },
     {
       "path": "docs/history/ieee-plan.md",
@@ -123,9 +218,39 @@
       "sha256": "fd2ab5e6bcbe48d33b4df5ba54864c9aaed31d01eefa858e4d27508006b08b6e"
     },
     {
+      "path": "docs/implementation/independent-review.md",
+      "bytes": 4185,
+      "sha256": "f2cc0e7a66d52b651f9ff0749a49b8e399a1178d273b46b500b0d6a21b784abd"
+    },
+    {
+      "path": "docs/implementation/lifecycle.md",
+      "bytes": 3292,
+      "sha256": "7a54ffec03cb7f9b3b5c20bdb7deebd5a53a388e232b29c3d8229116d855305b"
+    },
+    {
+      "path": "docs/implementation/live-replay.md",
+      "bytes": 6589,
+      "sha256": "39a3ccc995f464121dedf1b86d220441d62be4f6d41bafdb2e2134fd0747146a"
+    },
+    {
+      "path": "docs/implementation/voice-ui.md",
+      "bytes": 3246,
+      "sha256": "379dbe832ee40ad8e467bd2f22f24f7f870aa06cb0170c200f66b90c38b68cec"
+    },
+    {
+      "path": "docs/implementation/zerolan-compatibility.md",
+      "bytes": 7392,
+      "sha256": "e0cbea3dfe3fb75ae62f8770c0a7c7693a071b23222286ac1ff525684468dea8"
+    },
+    {
+      "path": "docs/planning/execution-board.md",
+      "bytes": 5124,
+      "sha256": "209061e26df314a0bb84a8f54869fdbae18882354849aa6e2f58cab19ecdd413"
+    },
+    {
       "path": "docs/planning/revised-plan.md",
-      "bytes": 17421,
-      "sha256": "cbc548a5be5eeaf700ea2538c5ef4796829bae08b3540343d0ae1bea7926bcab"
+      "bytes": 17636,
+      "sha256": "abfd49d9a8278ac856eeb58918e532aa27315ab16de453b7e89f51aec3d99251"
     },
     {
       "path": "docs/report/comparison.html",
@@ -173,14 +298,44 @@
       "sha256": "3308690df28ac31b62e4838b06801e989a381e3b4afb2ebb4803516317036901"
     },
     {
+      "path": "requirements-dev.txt",
+      "bytes": 101,
+      "sha256": "a10c6273152bc13b20cbbf00953e367180cca5e39e5d22310d8e6873eba8dc80"
+    },
+    {
       "path": "review/check_design.py",
-      "bytes": 4217,
-      "sha256": "c7301f12cadcc14783d01f6e6435b2d05cfe402d6cf82502907f9c1a0d7fe43f"
+      "bytes": 4528,
+      "sha256": "c4672b70bc0d5a8c23581204633eae41a3b8515bca60bb293df38eab5487b7c7"
     },
     {
       "path": "review/design-review.json",
-      "bytes": 2393,
-      "sha256": "5373fd0e4439a1ea86154283f2299f0cb5f62d3227376507ad2ead86989828e7"
+      "bytes": 2517,
+      "sha256": "6f14d01f42fb3494e94425100cc99e31f34d87a961f2a162c6f61103efc85917"
+    },
+    {
+      "path": "review/phase1-browser.json",
+      "bytes": 1472,
+      "sha256": "5b7e959d73cf61864d4d1fa551e9806ac38dad3b3b3ffb94d4b46b1021519212"
+    },
+    {
+      "path": "review/phase1-independent-review.json",
+      "bytes": 7662,
+      "sha256": "21cbbb73c7269b59f6e19add5ddd0aacb93ba42f69f3dd67e871554834563858"
+    },
+    {
+      "path": "review/phase1-live-replay.json",
+      "bytes": 596,
+      "sha256": "ea764d3f50eb39fe4568554a9fc212508775d59ca2f14cc700ded6e614151cd0"
+    },
+    {
+      "path": "review/phase1-real-smoke.json",
+      "bytes": 707,
+      "sha256": "fc16370c49e5a4db8c51a4b7de786776b46b32d06f751b55c88a14cfc9c09f40"
+    },
+    {
+      "path": "review/phase1-tests.json",
+      "bytes": 454,
+      "sha256": "93ad871261216f99c967e39326e0168ffda973f77ad8645d36376534dae93764"
     },
     {
       "path": "review/report-browser-check.json",
@@ -189,14 +344,80 @@
     },
     {
       "path": "review/test-specifications.json",
-      "bytes": 1976,
-      "sha256": "ac19ba067201c1e567439eee4531460241c09f51e052262ab229785dc2ce3c05"
+      "bytes": 2172,
+      "sha256": "b412381b671f1330c6d4a69b2accbfa6a92540fc6e17def47cc9b9a110bbd425"
     },
     {
       "path": "review/traceability.csv",
       "bytes": 396,
       "sha256": "8f5f15f13a2d0de1e91ddacf2dbc217859e1d751c5fb7a1cf01b09d610c7a569"
+    },
+    {
+      "path": "run.py",
+      "bytes": 242,
+      "sha256": "3e9ea5fc0c395d021f7578c17b3c075d19f839961a8a1259958c160672546622"
+    },
+    {
+      "path": "scripts/check.py",
+      "bytes": 1448,
+      "sha256": "83f67599cb026f5ea27d4abb7a3c0abe36d1cee7fdeca5cb56c3e25a0eb29e1d"
+    },
+    {
+      "path": "scripts/real_smoke.py",
+      "bytes": 4032,
+      "sha256": "1fb5af793c5d4bf09544932b6e526a7e7ccadc5c4d294266396f6719e0ab0416"
+    },
+    {
+      "path": "src/companion_runtime/__init__.py",
+      "bytes": 75,
+      "sha256": "ba101d5cd82516d01c1c76ad95ded91fe2b043b9eb0b04cb0b4d23f3478a639a"
+    },
+    {
+      "path": "src/companion_runtime/lifecycle.py",
+      "bytes": 9480,
+      "sha256": "1b308e269439420231cd69dcdaea69626acdcfaaa89066c5d90a93726c447dcc"
+    },
+    {
+      "path": "src/companion_runtime/live.py",
+      "bytes": 10669,
+      "sha256": "ceefd7b437a4c4716b4a76b50f4eeef247992066f815a43a095c8aaaef5b0594"
+    },
+    {
+      "path": "src/companion_runtime/zerolan.py",
+      "bytes": 11806,
+      "sha256": "dcbe99b817a1cf778a2516db25e27d5553189e6ce5845fa0b2a36c0d9a00854f"
+    },
+    {
+      "path": "tests/phase1_browser_check.py",
+      "bytes": 16218,
+      "sha256": "f3a335586008e840c75e051c301b1a7e464fb6b6d828cf69c9aefd4c12476f3c"
+    },
+    {
+      "path": "tests/test_lifecycle.py",
+      "bytes": 8634,
+      "sha256": "6543575aa59fe8fd73c96ad9f21c9cbd6894d89ea1fcb0dc795d2076fb320776"
+    },
+    {
+      "path": "tests/test_live.py",
+      "bytes": 11349,
+      "sha256": "9630771657ae04085cd0f1031cb27bfb5bb360590506236b7ec071854b194565"
+    },
+    {
+      "path": "tests/test_phase1_http.py",
+      "bytes": 13986,
+      "sha256": "ed467b8e874131b433ca6cafe5fcbb2b2c9260dfd7caedc572a8f023f9e3a360"
+    },
+    {
+      "path": "tests/test_voice_ui.mjs",
+      "bytes": 8142,
+      "sha256": "6cf19ee3f026f0cc4e0aeae61f9d4b3e8365cff44a3251a470bd6d947bbc6f17"
+    },
+    {
+      "path": "tests/test_zerolan.py",
+      "bytes": 10765,
+      "sha256": "1c34f2aac669c63f99155fb3e4c457878a6d802ee15b2057308953a70508c3dc"
     }
   ],
-  "excluded": "Git metadata and this manifest itself"
+  "excluded": "Git metadata, ignored runtime files and this manifest itself",
+  "design_baseline_commit": "d12b9dd8c3fafd976eb090d60825bc0868e038a2"
 }

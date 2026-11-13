@@ -1,0 +1,19 @@
+{
+  "retrieved_utc": "2026-11-12",
+  "model": {
+    "repository": "Systran/faster-whisper-tiny",
+    "revision": "d90ca5fe260221311c53c58e660288d3deb8d356",
+    "card": "https://huggingface.co/Systran/faster-whisper-tiny/raw/d90ca5fe260221311c53c58e660288d3deb8d356/README.md",
+    "declared_license": "mit"
+  },
+  "original_model_license": {
+    "repository": "openai/whisper",
+    "commit": "6e3be77e1a105e59086e3e21ff5f609fd6fa89a5",
+    "source": "https://raw.githubusercontent.com/openai/whisper/6e3be77e1a105e59086e3e21ff5f609fd6fa89a5/LICENSE"
+  },
+  "scope": "Source notices captured; not a complete legal review of all application dependencies.",
+  "files_sha256": {
+    "FASTER-WHISPER-TINY_MODEL_CARD.md": "29fb8444a02c1f133ab7e538525aa478ff68845964f21cf42500842b0e4a7b20",
+    "OPENAI-WHISPER-MIT-LICENSE.txt": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d"
+  }
+}

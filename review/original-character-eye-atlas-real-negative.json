@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-11-13T02:00:38.063Z",
+  "scope": "Actual source atlas cut negative and source-output overwrite refusal; not a model/visual pass",
+  "actual_source_sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576",
+  "actual_source_unchanged": true,
+  "checks": {
+    "oldUniform": {
+      "accepted": false,
+      "cell": {
+        "left": 0,
+        "top": 614,
+        "width": 512,
+        "height": 307
+      },
+      "error": "Atlas cell cuts visible artwork: actual upper lash {\"top\":41,\"bottom\":0,\"left\":0,\"right\":0}. Select actual transparent gutters; do not assume evenly spaced rows."
+    },
+    "actualGutters": {
+      "accepted": true,
+      "cell": {
+        "left": 0,
+        "top": 685,
+        "width": 512,
+        "height": 275
+      },
+      "check": {
+        "alpha_threshold": 8,
+        "visible_boundary_pixels": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        }
+      }
+    }
+  },
+  "frozen_output_overwrite": {
+    "refused": true,
+    "exit_code": 1,
+    "manifest_unchanged": true,
+    "manifest_sha256": "0cc0f325bc3a67689b8f99944e73980ec483e872c9e85f4ef550737da780ffd7"
+  }
+}

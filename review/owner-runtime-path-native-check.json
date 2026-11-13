@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "scope": "Real Linux Electron readonly CLI; no Windows execution",
+  "checks": [
+    {
+      "overrides": {},
+      "passed": true,
+      "output": {
+        "schema_version": 1,
+        "data_root": "/tmp/owner-runtime-path-gtrc3ir5/用户 profile/profile-data",
+        "live2d_runtime_root": "/tmp/owner-runtime-path-gtrc3ir5/用户 profile/profile-data/live2d-runtime",
+        "backend_started": false,
+        "window_count": 0
+      }
+    },
+    {
+      "overrides": {
+        "COMPANION_DATA": "relative profile",
+        "COMPANION_LIVE2D_RUNTIME": "relative runtime"
+      },
+      "passed": true,
+      "output": {
+        "schema_version": 1,
+        "data_root": "/workspace/AI-radio-stream-help/relative profile",
+        "live2d_runtime_root": "/workspace/AI-radio-stream-help/relative runtime",
+        "backend_started": false,
+        "window_count": 0
+      }
+    }
+  ],
+  "source_sha256": {
+    "desktop/main.cjs": "c7f389774a428374344e9d64a25cf9c04d8b27676b09d6823fb5ecdcf1a923e5",
+    "desktop/owner-runtime-path.cjs": "97bf38e7893c0a9ecc5640ab9aee4f7a2eb107c9910ddb8a9de64a3f49f9eac1"
+  },
+  "sources_unchanged_during_checks": true
+}

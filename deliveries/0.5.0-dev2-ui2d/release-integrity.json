@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-12T21:42:40.253461+00:00",
+  "passed": true,
+  "release_id": 443529317,
+  "draft": true,
+  "source_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "assets": 13,
+  "mismatches": [],
+  "sha256_and_sizes_verified": true
+}

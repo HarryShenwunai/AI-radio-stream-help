@@ -1,0 +1,143 @@
+{
+  "format": "original-character-authored-root-control-combinations-v1",
+  "scope": "This original model actual RootXY\u00b1500 and nonaliased rotation\u00b145; other models must supply their own actual parameter IDs/ranges",
+  "held_sweep": {
+    "off_key_parameters": [
+      {
+        "ParamCupX": -500,
+        "ParamCupY": -500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": -500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": -500,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 0,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 0,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 0,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": -500,
+        "ParamCupY": 500,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": -500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": -500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": -500,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 0,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 0,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 0,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 0,
+        "ParamCupY": 500,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": -500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": -500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": -500,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 0,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 0,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 0,
+        "ParamCupRotation": 45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 500,
+        "ParamCupRotation": -45
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 500,
+        "ParamCupRotation": 0
+      },
+      {
+        "ParamCupX": 500,
+        "ParamCupY": 500,
+        "ParamCupRotation": 45
+      }
+    ]
+  }
+}

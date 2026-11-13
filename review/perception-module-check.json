@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "source_stable": true,
+  "source_sha256": {
+    "src/companion_runtime/perception.py": "5e0e4b8ac628188c5d54e3fbd4582445930a295502f7d2c8691e86a2f16a6b35",
+    "src/companion_runtime/perception_addon_build.py": "783b24d722a43cc919207960eea0adc9ab7f070e141dd7722d41e9a16b3ff240",
+    "src/companion_runtime/perception_optional.py": "d127e69cb97cbef770559a3985c9bf14b91d75167eeb5e796b7969a0524f976c",
+    "src/companion_runtime/perception_tracking.py": "c5e9a69272c6584b8dafefc8849b02fc052568ed802d6c7509c870a39033ebae",
+    "tests/test_perception.py": "3950c37a41e8d0407417c4016d16957be66bca853e0d5e195c98d32bd35bb24d",
+    "tests/test_perception_addon_import.py": "492d7148d048eaf3839465907b30fd049cbb169d7b6bf771a5de60a11f0d0da6",
+    "tests/test_perception_addon_real.py": "3cfc6187e867bdd67594e2b8d151545eed2af65b9597563d55e20db28b1bbb08",
+    "tests/test_perception_http.py": "114fe9b494f25575a83ad64348f190e010107dc32f39419775f2b6ff4a7abbc8",
+    "tests/test_perception_optional.py": "3f8fca6cecf0395c8aa6da56073af0c54f3792286442eb930ed1eacfaf87a8a4",
+    "tests/test_perception_provider.py": "a7d73f3327e4f684f62dbe4982f0ab790b0725c25e690ac70967532c88a175e9",
+    "tests/test_perception_state_space.py": "789d0326cd6b718870a32ca9f6a5bb2d12976633d865fec1e59dbd4f55af2633",
+    "tests/test_perception_tracking.py": "3af5c63b970d1ebe6eade758ab742aeca1645df10e109a297de5f1e615c51976",
+    "tests/test_perception_tracking_real.py": "531b2490f61991d681ca501e6187d2e228bb086ce2c8f9275399295904fbbf78"
+  },
+  "commands": [
+    {
+      "command": [
+        "/workspace/companion/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_perception*.py"
+      ],
+      "exit_code": 0,
+      "output": "...................................................................................\n----------------------------------------------------------------------\nRan 83 tests in 0.218s\n\nOK\n"
+    },
+    {
+      "command": [
+        ".build/quality-venv/bin/mypy",
+        "--strict",
+        "--python-executable",
+        "/workspace/companion/.venv/bin/python",
+        "src/companion_runtime/perception.py",
+        "src/companion_runtime/perception_tracking.py",
+        "src/companion_runtime/perception_optional.py"
+      ],
+      "exit_code": 0,
+      "output": "Success: no issues found in 3 source files\n"
+    },
+    {
+      "command": [
+        ".build/quality-venv/bin/ruff",
+        "check",
+        "src/companion_runtime/perception.py",
+        "src/companion_runtime/perception_addon_build.py",
+        "src/companion_runtime/perception_optional.py",
+        "src/companion_runtime/perception_tracking.py",
+        "tests/test_perception.py",
+        "tests/test_perception_addon_import.py",
+        "tests/test_perception_addon_real.py",
+        "tests/test_perception_http.py",
+        "tests/test_perception_optional.py",
+        "tests/test_perception_provider.py",
+        "tests/test_perception_state_space.py",
+        "tests/test_perception_tracking.py",
+        "tests/test_perception_tracking_real.py"
+      ],
+      "exit_code": 0,
+      "output": "All checks passed!\n"
+    }
+  ],
+  "elapsed_seconds": 0.545,
+  "scope": "Synthetic boundary tests plus finite real-manager state traces; actual CPU inference/ZIP/pure imports have separate reports; Windows/camera unverified",
+  "bounded_traces": 1296,
+  "bounded_operations": 5184
+}

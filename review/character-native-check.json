@@ -1,0 +1,24 @@
+{
+  "observed_at": "2026-11-12T13:12:00.568534+00:00",
+  "kind": "compiled Linux backend with synthetic data",
+  "platform": "Linux x86_64",
+  "checks": {
+    "compiled_png_preview_activate_and_revision_rollback": "passed",
+    "compiled_identity_isolation_and_return": "passed",
+    "real_local_llm_and_kokoro_in_compiled_backend": "passed",
+    "compiled_cancelled_generation_rejects_late_tts": "passed",
+    "real_generation_cancellation_has_no_partial_commit": "passed",
+    "compiled_restart_preserves_character_assets_and_private_data": "passed"
+  },
+  "model_requested": true,
+  "human_quality_accepted": false,
+  "first_text_seconds": 9.206,
+  "reply_seconds": 15.993,
+  "synthetic_reply": "蓝纸风筝在天上轻轻晃着，像一句安静的话。",
+  "tts_seconds": 3.645,
+  "audio_seconds": 4.821,
+  "sample_rate": 24000,
+  "cancel_seconds": 0.099,
+  "peak_backend_rss_kib": 5568992,
+  "passed": true
+}

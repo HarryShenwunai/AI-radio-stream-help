@@ -1,0 +1,119 @@
+{
+  "status": "PARTIALLY_EXECUTED_WITH_EXPLICIT_UNRUN_DEVICE_AND_PERMISSION_GATES",
+  "basis": "2026-11-12 user device declarations and root clarified contracts; actual new UI/server integration not frozen",
+  "not_target_hardware_acceptance": true,
+  "synthetic_inputs_explicit": true,
+  "cases": [
+    {
+      "id": "D01",
+      "name": "default_present_is_declaration_only",
+      "acceptance": "Fresh isolated profile: all devices declared present; getUserMedia/getDisplayMedia call counts0; UI states distinguish detection/OS permission/activity.",
+      "status": "LOCAL_VERIFIED",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D02",
+      "name": "microphone_absent_preserves_tts",
+      "acceptance": "Start actual MediaRecorder from fixed test WAV, select microphone absent, tracks end; typing and actual test-tone TTS still work.",
+      "status": "PARTIAL_LOCAL",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D03",
+      "name": "camera_absent_does_not_deny_screen",
+      "acceptance": "Camera absent removes camera/gaze capability only; independently consented screen sharing remains available. No claim of physical camera/eye tracking.",
+      "status": "NOT_RUN_CONFIGURED_SCREEN_UI"
+    },
+    {
+      "id": "D04",
+      "name": "auxiliary_display_absent_preserves_pc",
+      "acceptance": "Display refers to optional5-inch device; absent leaves PC character, PCVision choice and ordinary desktop operation available.",
+      "status": "PARTIAL_LOCAL",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D05",
+      "name": "declaring_present_again_never_resumes",
+      "acceptance": "Change absent to present: no automatic media/session start; explicit user action is required; persisted browser permission may be reused by browser, not forcibly re-prompted.",
+      "status": "LOCAL_VERIFIED",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D06",
+      "name": "role_hide_close_cancel_scoped_activity",
+      "acceptance": "Role/appearance change, native hide and privacy-layer close stop the appropriate tracks/session and reject late results.",
+      "status": "PARTIAL_LOCAL",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D07",
+      "name": "denied_permission_is_not_connected",
+      "acceptance": "Deny synthetic permission request: helpful error and inactive state; no connected claim and no cloud fallback.",
+      "status": "NOT_RUN_ACTUAL_PERMISSION_DENIAL"
+    },
+    {
+      "id": "D08",
+      "name": "unconfigured_vision_never_collects",
+      "acceptance": "Vision provider unavailable leaves camera/screen unstarted and explicitly unavailable; current text Qwen is not a VLM.",
+      "status": "LOCAL_VERIFIED",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D09",
+      "name": "preview_is_not_share",
+      "acceptance": "Explicit camera/screen source preview creates no frame inference request until single-frame consent and share action.",
+      "status": "NOT_RUN_CONFIGURED_PREVIEW_SHARE"
+    },
+    {
+      "id": "D10",
+      "name": "single_frame_not_background_capture",
+      "acceptance": "One user share yields one bounded frame; no continuing frame uploads after waiting; stop/role change invalidates server observation.",
+      "status": "NOT_RUN_CONFIGURED_CONTINUING_FRAME_UI"
+    },
+    {
+      "id": "D11",
+      "name": "close_frees_tracks_and_session",
+      "acceptance": "Closing source flow releases real tracks; if a server session exists, stop route is called with original bound scope.",
+      "status": "PARTIAL_LOCAL_INPUT_AND_NATIVE_HIDE",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    },
+    {
+      "id": "D12",
+      "name": "missing_device_is_not_missing_all_inputs",
+      "acceptance": "Microphone, camera and auxiliary display settings are independent; absence cannot silently disable unrelated inputs/output.",
+      "status": "PARTIAL_LOCAL",
+      "evidence": [
+        "review/uiux-2026-after.json",
+        "review/uiux-2026-native.json"
+      ]
+    }
+  ],
+  "scope_limits": [
+    "No physical microphone/camera/display/Windows test",
+    "Synthetic Chrome media sources and controlled VLM/ASR only, clearly labelled",
+    "Native Linux Electron source smoke uses attached backend, not bundled backend spawn",
+    "No account connection or actual outbound platform action"
+  ],
+  "interpretation": "Only completed local behaviors are verified; default declarations and synthetic Chrome media do not establish physical devices, real VLM, native chooser or Windows permission results."
+}

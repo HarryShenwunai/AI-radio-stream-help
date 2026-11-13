@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-12T21:19:32.078681+00:00",
+  "source_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "full_gate_source_commit": "21a268c6e212c6a75008b473a0c183a1725224bd",
+  "source_files": 249,
+  "full_gate_report_sha256": "55eb351687a89576d357fab6d11c375c317dbb6d9c974ca6c7a997e8378192cf",
+  "passed": true,
+  "mismatches": [],
+  "limits": "Byte binding only; not Windows/GPU/accounts/human quality acceptance."
+}

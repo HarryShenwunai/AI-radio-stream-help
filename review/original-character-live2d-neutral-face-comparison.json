@@ -1,0 +1,86 @@
+{
+  "status": "actual_neutral_parameter_probes_captured_not_art_acceptance",
+  "mouth_revisions": [
+    {
+      "geometry_y_scale": 0.4,
+      "report": "review/original-character-live2d-neutral-mouth-04.json",
+      "actual_closed_mouth_bbox_height_source_px": 15.113571166992188
+    },
+    {
+      "geometry_y_scale": 0.6,
+      "report": "review/original-character-live2d-neutral-mouth-06.json",
+      "actual_closed_mouth_bbox_height_source_px": 22.132461547851562
+    },
+    {
+      "geometry_y_scale": 0.8,
+      "report": "review/original-character-live2d-neutral-mouth-08.json",
+      "actual_closed_mouth_bbox_height_source_px": 29.24622344970703
+    }
+  ],
+  "mouth_conditions": {
+    "actual_open": 0,
+    "actual_form": 0,
+    "actual_left_eye": 1,
+    "actual_right_eye": 1,
+    "closed_glyph_opacity": 1,
+    "source_texture_unchanged": true,
+    "actual_uv_atlas_alpha_gt16_texels_each": 1779,
+    "same_fixed_viewport": [
+      1100,
+      950
+    ],
+    "same_real_gl_canvas": [
+      900,
+      900
+    ]
+  },
+  "eye_probes_same_mouth06": [
+    {
+      "requested_eye_open": 0.7,
+      "report": "review/original-character-live2d-mouth06-eye-070.json",
+      "actual_storage": "exact IEEE Float32 representation verified"
+    },
+    {
+      "requested_eye_open": 0.85,
+      "report": "review/original-character-live2d-mouth06-eye-085.json",
+      "actual_storage": "exact IEEE Float32 representation verified"
+    },
+    {
+      "requested_eye_open": 1,
+      "report": "review/original-character-live2d-mouth06-eye-100.json",
+      "actual_storage": "exact IEEE Float32 representation verified"
+    }
+  ],
+  "independent_visual_observations": {
+    "mouth": "06 and 08 visibly thicker than04; source atlas unchanged, actual Core geometry differs; aesthetic selection belongs to root/user",
+    "eyes": ".7 appears distinctly squinted, .85 more restrained,1 most exposed white. Hard outer triangular edges remain to a degree as opening decreases, so excessive default opening is not established as the entire cause."
+  },
+  "source_stable_each_run": true,
+  "failure_retained": [
+    "review/original-character-live2d-mouth06-eye-070-float64-expectation-red.json",
+    "review/original-character-live2d-mouth06-eye-085-float64-expectation-red.json"
+  ],
+  "test_correction": "Original Float64 literal exact check was inappropriate for actual Core Float32 parameter storage. Corrected expected values via IEEE Float32 conversion, keeping exact equality; no tolerance/art threshold/model changes.",
+  "not_proven": [
+    "Art accepted",
+    "Eye-source or eyelid geometry root cause",
+    "Full rig acceptance",
+    "True final provider run",
+    "Windows/4060"
+  ],
+  "source_png_or_moc_modified": false,
+  "new_root_source_investigation": {
+    "attribution": "Root directly inspected source extraction; not independently remeasured in this report",
+    "finding": "Equal five-row split of 1536-high eye atlas cut through iris; upperlash cell contains iris fragment and inflated bbox. Transparent authored boundaries differ from equal rows.",
+    "root_reported_transparent_boundaries_y": [
+      0,
+      350,
+      685,
+      960,
+      1230,
+      1536
+    ],
+    "effect_on_previous_probes": "Retain EyeOpen comparisons as real old-model evidence; do not infer openness is the root cause. Wait corrected head-r3 extraction and new actual MOC for final eye acceptance.",
+    "source_fix_and_new_moc_pending": true
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "accessed_on": "2026-11-12",
+  "records": [
+    {
+      "id": "razer-2026-announcement",
+      "url": "https://www.razer.com/newsroom/product-news/project-ava",
+      "accessed_at": "2026-11-12T18:28:55.778430+00:00",
+      "visual_inspected": false,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256_observed": "e9fdcde890e9c2baa80960ee957056c5e9f5cb1337b77186ef76138868430b80",
+      "available": true,
+      "publication_date": "2026-01-06"
+    },
+    {
+      "id": "ava-platform",
+      "url": "https://www.razer.ai/ava-avatar/",
+      "accessed_at": "2026-11-12T18:28:57.827960+00:00",
+      "visual_inspected": true,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256_observed": "dc3018d8d747371840b2f76ee2e3b89177a2daede66851e5bab337365463966f",
+      "available": true,
+      "visual_scope": "official promotional render, not working hardware or app testing"
+    },
+    {
+      "id": "airi-voice-adr",
+      "url": "https://raw.githubusercontent.com/moeru-ai/airi/v0.14.0/docs/ai/adr/2026-10-29-web-voice-composer-and-call.md",
+      "accessed_at": "2026-11-12T18:28:59.649515+00:00",
+      "visual_inspected": false,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "sha256_observed": "2f95f26cf93d316b771eeddfa9942f92fb1089efb7d50045da8978c88ae4146f",
+      "available": true,
+      "publication_date": "2026-10-29",
+      "scope": "fixed v0.14.0 design record, not current live app usability testing"
+    },
+    {
+      "id": "airi-release",
+      "url": "https://api.github.com/repos/moeru-ai/airi/releases/tags/v0.14.0",
+      "accessed_at": "2026-11-12T18:29:00.508208+00:00",
+      "visual_inspected": false,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256_observed": "dbfbcc69b6e9889515f64408949986b39065c479ff35f72fadfcebf1b8c1c214",
+      "tag": "v0.14.0",
+      "published_at": "2026-10-29T18:31:04Z",
+      "target": "main",
+      "body_sha256": "e9bd537975019babe9beb7a34e908c1575e1184ccb4da191401b6c05d5134ede",
+      "available": true
+    },
+    {
+      "id": "ami-2026-announcement",
+      "url": "https://www.prnewswire.com/news-releases/lepro-unveils-lepro-ami-at-ces-2026-a-desktop-ai-companion-that-feels-in-the-room-302652207.html",
+      "accessed_at": "2026-11-12T18:29:02.329055+00:00",
+      "visual_inspected": false,
+      "status": 200,
+      "content_type": "text/html",
+      "sha256_observed": "1c197b60215f4353db54c9801d80fe0b9ea1ede5f4117e6561b3d86e4cc8283b",
+      "available": true,
+      "publication_date": "2026-01-06"
+    },
+    {
+      "id": "mico-current-status",
+      "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/frequently-asked-questions-about-retired-copilot-features",
+      "accessed_at": "2026-11-12T18:29:02.429929+00:00",
+      "visual_inspected": false,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "sha256_observed": "7dcab0b03f4f725542d4da302a6141064cf01354ddee44f0ad79782e57659196",
+      "available": true
+    },
+    {
+      "id": "airi-current-web-loading",
+      "url": "https://airi.moeru.ai/",
+      "accessed_on": "2026-11-12",
+      "http_status": 200,
+      "loading_overlay_observed": true,
+      "main_interface_visually_reviewed": false,
+      "signed_in": false,
+      "screenshot_sha256": "dc58dd71ddee57451ca28192dde9624a1d24ff0abd31bfaa2fcf9bbe089f8491"
+    },
+    {
+      "id": "airi-archival-manual-image",
+      "url": "https://airi.moeru.ai/docs/en/docs/manual/web/",
+      "document_date": "2026-08-13",
+      "accessed_on": "2026-11-12",
+      "local_path": "docs/research/ui-reference-images/airi-chat.png",
+      "image_visually_inspected": true,
+      "current_v014_ui_proven": false
+    }
+  ],
+  "hashes_are_observed_not_publisher_digests": true
+}

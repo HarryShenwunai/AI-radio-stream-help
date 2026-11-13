@@ -1,0 +1,12 @@
+test_all_action_words_up_to_five_steps_preserve_scope_and_confirmation (formal_boundary_checks.FormalPlaybackImplementationTests.test_all_action_words_up_to_five_steps_preserve_scope_and_confirmation) ... ok
+test_all_persistence_orders_keep_prior_full_confirmation (formal_boundary_checks.FormalPlaybackImplementationTests.test_all_persistence_orders_keep_prior_full_confirmation) ... ok
+test_sqlite_persistence_orders_keep_completed_prefix_after_scope_switch (formal_boundary_checks.FormalPlaybackImplementationTests.test_sqlite_persistence_orders_keep_completed_prefix_after_scope_switch) ... ok
+test_actual_admission_is_atomic_for_private_request (formal_boundary_checks.FormalSourceInterleavingTests.test_actual_admission_is_atomic_for_private_request) ... ok
+test_actual_cleanup_is_atomic_for_private_request (formal_boundary_checks.FormalSourceInterleavingTests.test_actual_cleanup_is_atomic_for_private_request) ... ok
+test_legacy_admission_negative_control_exposes_409 (formal_boundary_checks.FormalSourceInterleavingTests.test_legacy_admission_negative_control_exposes_409) ... ok
+test_legacy_cleanup_negative_control_exposes_409 (formal_boundary_checks.FormalSourceInterleavingTests.test_legacy_cleanup_negative_control_exposes_409) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 25.726s
+
+OK

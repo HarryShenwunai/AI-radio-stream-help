@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-11-13T04:20:52.538900+00:00",
+  "reason": "Remove disposable intermediate rolling B/C only after final full-history authoring archive passes every embedded payload SHA/CRC and original PSD identity. Preserve first A and small actual red IR.",
+  "retained_final": {
+    "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/rigid-cup-character.psd2live",
+    "bytes": 281235238,
+    "sha256": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+    "payloads_verified": 1578,
+    "expanded_bytes": 1496362356
+  },
+  "removed_checkpoints": [
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/rigid-follow-rolling-B.psd2live",
+      "bytes": 199576656,
+      "sha256": "0b411b56bcabce0b0933c32c03b2c565806f290143f89535dbd59c12e67de0dd"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/rigid-follow-rolling-C.psd2live",
+      "bytes": 272333939,
+      "sha256": "8018796864fdec746657896a1d15b00248f95608b21da3f763a8fe6a4f6add14"
+    }
+  ]
+}

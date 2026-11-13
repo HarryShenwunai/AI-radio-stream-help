@@ -1,0 +1,133 @@
+{
+  "observed_at": "2026-11-12T22:50:23+00:00",
+  "status": "FRONTEND_LIVE2D_CANDIDATE_FROZEN",
+  "boundary": "Runtime/control/4K lifecycle fixed; original target artwork/hands/cup rig remains independently evaluated, no commit/push.",
+  "reports": {
+    "review/live2d-controls-core-browser.json": "bbf724c132e0aa0692c3a349011f66357dad15acd6c83883ed95f90a782c8b22",
+    "review/original-live2d-controls-core-browser.json": "3ed304fa3dc514f02d319f9d02a7ad036a4507409e8bfbc8cfbb33735d0aa1dd",
+    "review/live2d-product-texture-lifecycle.json": "96006896e16b6d3b12fef28b460ac524486353096ba2cd79d3ebec779775131d",
+    "review/live2d-studio-controls-browser.json": "0bc09eedd4cae39600a56bfc2b40c0b5ca27451da61e5c82fa4aab8cbbad197e"
+  },
+  "sources": {
+    "frontend/live2d-renderer.mjs": {
+      "sha256": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+      "bytes": 20527
+    },
+    "app/static/scene-evening.png": {
+      "sha256": "590aee7c280802c3076755972d134557b8594774a0e45bc1d2d05997b2852a04",
+      "bytes": 2370799
+    },
+    "app/static/voice-input.js": {
+      "sha256": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+      "bytes": 6496
+    },
+    "app/static/assistance-view.js": {
+      "sha256": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+      "bytes": 7733
+    },
+    "app/static/style.css": {
+      "sha256": "e045152a6e5dc7d4d08dcdbf872a5b332208afe0fa1a521c763d95119b19618b",
+      "bytes": 21415
+    },
+    "app/static/app.js": {
+      "sha256": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+      "bytes": 13221
+    },
+    "app/static/connectors-ui.js": {
+      "sha256": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+      "bytes": 6704
+    },
+    "app/static/scene-morning.png": {
+      "sha256": "473a4f584e8c353e48b3effb031233c4e0755efc2f7358cca6f09ebdd32dbadf",
+      "bytes": 2247194
+    },
+    "app/static/desktop.js": {
+      "sha256": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+      "bytes": 3232
+    },
+    "app/static/conversation-view.js": {
+      "sha256": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+      "bytes": 3039
+    },
+    "app/static/privacy-flow.js": {
+      "sha256": "d3384cb398d30025de537366b6c2ab5595e834fd87eea82049a96572a438f4b4",
+      "bytes": 25684
+    },
+    "app/static/index.html": {
+      "sha256": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+      "bytes": 9074
+    },
+    "app/static/scene-controller.js": {
+      "sha256": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+      "bytes": 12517
+    },
+    "app/static/live2d-renderer.js": {
+      "sha256": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+      "bytes": 16369
+    },
+    "app/static/sound-flow.js": {
+      "sha256": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+      "bytes": 5495
+    },
+    "app/static/companion-core.js": {
+      "sha256": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+      "bytes": 10322
+    },
+    "app/static/speech-controller.js": {
+      "sha256": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+      "bytes": 6511
+    },
+    "app/static/connection-flow.js": {
+      "sha256": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+      "bytes": 4180
+    },
+    "app/static/avatar.svg": {
+      "sha256": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+      "bytes": 3750
+    },
+    "app/static/studio.js": {
+      "sha256": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+      "bytes": 22773
+    },
+    "app/static/playback-receipts.js": {
+      "sha256": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+      "bytes": 3946
+    },
+    "app/static/vrm-renderer.js": {
+      "sha256": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+      "bytes": 721990
+    },
+    "app/static/desktop.css": {
+      "sha256": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+      "bytes": 4194
+    },
+    "app/static/layered-2d-renderer.js": {
+      "sha256": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+      "bytes": 6428
+    },
+    "app/static/scene-forest.png": {
+      "sha256": "27789bdb6f58dacd8131aefff77239c048384890d53c7e10bdfe4448f04dbcda",
+      "bytes": 1822846
+    },
+    "app/static/ui-kit.js": {
+      "sha256": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+      "bytes": 6240
+    },
+    "tests/test_live2d_adapter_ui.mjs": {
+      "sha256": "9173df031fb082e1c2573ba0eb2e8585f16e28f70a201b2a850c6f00298cbb06",
+      "bytes": 5213
+    },
+    "tests/live2d_controls_browser_check.py": {
+      "sha256": "5e60abf9619acfe7af610b943af6e50b73e5a5137467bb85f5892ebd016e4f09",
+      "bytes": 13734
+    },
+    "tests/live2d_texture_lifecycle_browser_check.py": {
+      "sha256": "711c8203fd6377fc2ff99fc9944cbacd0ac5abfb12f7449ebf3f8331be7b9bb2",
+      "bytes": 9033
+    },
+    "tests/live2d_studio_controls_check.py": {
+      "sha256": "3ff34c221cd53ebfd0bc9a1a31887fbb9ad8c3011d9158bbc5125665c0fdde10",
+      "bytes": 4184
+    }
+  }
+}

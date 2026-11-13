@@ -1,0 +1,87 @@
+{
+  "observed_at": "2026-11-12T15:40:04.894267+00:00",
+  "scope": "native Electron window and renderer bridge against local synthetic page on Xvfb",
+  "checks": [
+    {
+      "name": "one native window and compact renderer",
+      "result": "passed"
+    },
+    {
+      "name": "renderer has no Node integration",
+      "result": "passed"
+    },
+    {
+      "name": "preload exposes only limited host operations",
+      "result": "passed"
+    },
+    {
+      "name": "native IPC rejects malformed argument",
+      "result": "passed"
+    },
+    {
+      "name": "compact stop control pauses local media",
+      "result": "passed"
+    },
+    {
+      "name": "expand reuses one native window",
+      "result": "passed"
+    },
+    {
+      "name": "collapse restores compact bounds",
+      "result": "passed"
+    },
+    {
+      "name": "click-through state accepted with timed recovery",
+      "result": "passed"
+    },
+    {
+      "name": "restore clears click-through",
+      "result": "passed"
+    },
+    {
+      "name": "explicit hide stops local media",
+      "result": "passed"
+    },
+    {
+      "name": "hidden native window can recover",
+      "result": "passed"
+    },
+    {
+      "name": "off-origin navigation prevented",
+      "result": "passed"
+    },
+    {
+      "name": "new windows denied",
+      "result": "passed"
+    }
+  ],
+  "actual_microphone_or_model_tests": 0,
+  "limitations": [
+    "No compositor/window-manager user-desktop verification",
+    "No target Windows/macOS or fullscreen game coverage",
+    "No actual underlying-window pointer hit-test",
+    "No model/voice quality test"
+  ],
+  "binary_kind": "development Electron host",
+  "initial_state": {
+    "expanded": false,
+    "clickThrough": false,
+    "recoveryShortcut": "CommandOrControl+Shift+Space",
+    "clickThroughTimeoutSeconds": 60,
+    "trayAvailable": true,
+    "visible": true,
+    "platform": "linux",
+    "focusRestoreAvailable": true,
+    "runtimeProfile": "cpu",
+    "runtimeFallback": null,
+    "windowCount": 1
+  },
+  "compact_ready_seconds_with_cdp": 1.008,
+  "single_process_tree_rss_sum_kib": 521128,
+  "single_process_tree_pss_sum_kib": 230847,
+  "idle_observation_seconds": 5.007,
+  "idle_cpu_percent_one_core": 0.8,
+  "resource_scope": "Single Electron parent/descendant RSS/PSS snapshot and five-second idle CPU interval; RSS can count shared pages repeatedly. Fixture Python/Xvfb excluded, GPU disabled, no LLM/TTS. Not p95, steady workload or target-device budget.",
+  "runtime_version": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) 虚拟陪伴/0.4.0-dev1 Chrome/156.0.8078.96 Electron/45.3.1 Safari/537.36",
+  "passed": true
+}

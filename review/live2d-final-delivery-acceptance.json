@@ -1,0 +1,180 @@
+{
+  "observed_at": "2026-11-13T05:12:02.947001+00:00",
+  "status": "LOCAL_FUNCTIONAL_DELIVERY_PASSED_TARGET_HARDWARE_AND_USER_ACCEPTANCE_PENDING",
+  "model": {
+    "model3_sha256": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+    "moc3_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "source_project_sha256": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+    "art_layers": 42,
+    "actual_meshes": 42,
+    "actual_parameters": 41,
+    "description": "original upper-body anime character with independent hands, ten fingers and a detachable rigid cup"
+  },
+  "software_source_commit": "084aaf222b54e1828595bde82fc07c58acbb6075",
+  "engineering": {
+    "python_tests": 780,
+    "python_skips": 0,
+    "frontend_node_tests": 111,
+    "desktop_python_tests": 9,
+    "desktop_node_tests": 27,
+    "source_stable": true
+  },
+  "native_scope": {
+    "full_functional_gates": 13,
+    "selected_extreme_cases": 486,
+    "off_key_seed9426_cases": 61,
+    "independent_sealed_cases": 5000,
+    "independent_grip_max_source_px": 0.6785883196328265,
+    "authored_keyforms_verified_in_source_and_moc": 41310,
+    "exhaustive_all_keyforms_evaluated_by_native_core": false,
+    "source_certificate_is_not_whole_core_formal_verification": true
+  },
+  "voice": {
+    "complete_recovery_gates": 7,
+    "first_attempt": "real provider invoked, interrupted by environment restart after mouth screenshot; partial media retained, no final PASS report",
+    "second_attempt": "independent evidence directory; complete actual-provider recovery PASS",
+    "stop_seconds": 0.793,
+    "first_text_or_error_seconds": 49.54,
+    "audio_rms_observed_seconds": 69.621,
+    "wav_separate_from_silent_screen_recording": true
+  },
+  "core_update_timing": {
+    "sample_count": 5000,
+    "warmup_updates": 32,
+    "p50_ms": 0.20000000298023224,
+    "p95_ms": 0.4000000059604645,
+    "p99_ms": 0.5,
+    "max_ms": 14.700000002980232,
+    "timer_step_estimate_ms": 0.09999999403953552,
+    "engine": "owner-installed official Core asm.js fallback in Chromium (WebAssembly locally disabled as in application loader)",
+    "browser_version": "156.0.8078.79",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "reported_cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "reported_logical_cpu_count": 5,
+    "process_cpu_affinity_count": 5,
+    "browser_reported_hardware_threads": 5,
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "windows_executed": false,
+    "render_or_fps_measurement": false,
+    "timed_region": "model.update only; excludes parameter writes, vertex extraction, JS/Python transport and GPU rendering",
+    "reference_30fps_frame_budget_ms": 33.333333333333336,
+    "p95_fraction_of_30fps_entire_frame_budget": 0.012000000178813933,
+    "p95_exceeds_entire_30fps_frame_budget": false,
+    "caveat": "Shared executor and timer quantization; zero-ms samples mean below timer resolution, not free computation."
+  },
+  "artifacts": [
+    {
+      "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-runtime.zip",
+      "bytes": 11017918,
+      "sha256": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e"
+    },
+    {
+      "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-candidate-source.zip",
+      "bytes": 345553022,
+      "sha256": "1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc"
+    },
+    {
+      "path": "/workspace/dist/live2d-0.5.0-dev3/original-live2d-r2-source-validation.zip",
+      "bytes": 49477803,
+      "sha256": "ae2e9a61d05e5c475541e7673cf820e5f57c3d374b9cbcd5bdfc40df8cadde41"
+    },
+    {
+      "path": "/workspace/dist/character-app-source-update-0.5.0-dev3.zip",
+      "bytes": 7026261,
+      "sha256": "d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/AI-radio-stream-help/review/quality-gate-live2d-delivery-final.json",
+      "bytes": 60781,
+      "sha256": "e495171f12d59a1a38508142b87f15704fa3f8d55a9154f6de1fae1ecc43c3c4"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-v1-full.json",
+      "bytes": 621089,
+      "sha256": "3f497dae00845575c947e70bd0b95a95e1e8e2b334c42ea1c8d7b2505f49dd60"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-actual5000-grip-asm.json",
+      "bytes": 4789322,
+      "sha256": "5b2222a263047088f92e8f9680854583731ba17e2242d6b57f46d75fcef7de99"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-shape5000.json",
+      "bytes": 15446532,
+      "sha256": "1d0dff9a9a795327bcbc07053ae3fcc57d62ce9f45e22aed42e24ca6b5c0eae1"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-actual-axis-retention.json",
+      "bytes": 5829,
+      "sha256": "0893a1ee5bf214aafd18e245b58caa833cf31355c02b4bf0214477c9205bfbc1"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-root-combinations-shape.json",
+      "bytes": 124775,
+      "sha256": "257b8e67b0cc5b3dc2d843945634123c254c0a36a581fb6a9072f977b56f68a1"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-action-midpoint-shape-analysis.json",
+      "bytes": 92801,
+      "sha256": "a8c12a7bc77f2656af2194925d90254160e34d9e9b5f3af6d0bc0563174c165c"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/hand-cup-rigid-r2-old-worst-pose-visual.json",
+      "bytes": 70516,
+      "sha256": "8ec058d536df44cdeb6260886e2c44b15ded145a5895d9f61120f79bbe830ca3"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/live2d-rigid-r2-mainstage-actions-ui.json",
+      "bytes": 14548,
+      "sha256": "2b9ef57cf296778d42568c83f4c45e3070995051746d99eb8dd50cda0f21568a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/live2d-rigid-r2-mainstage-expression-controls.json",
+      "bytes": 8049,
+      "sha256": "48a71b9ed4777e4d880159ad0a4aac1940b4d2c7c9e7248d50a005af68c6cbdd"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/live2d-rigid-r2-frontend-acceptance-summary.json",
+      "bytes": 11544,
+      "sha256": "a600bffc0518acf9690e0c634fe2f2680296d709d3980fea251c8186c05554c8"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/original-character-live2d-rigid-r2-core-gl.json",
+      "bytes": 166961,
+      "sha256": "168d767ab8fbc7cef39824a296478d424a671a8f805b159c888bc1b0ebe49a0b"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/real-live2d-rigid-r2-companion.json",
+      "bytes": 49313,
+      "sha256": "61ea6b3f4189e68066457aab224e12f310d726a53e0c92f25fdf0b2b7af9c5b4"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/app-source-update-dev3-exactbase-check.json",
+      "bytes": 13751,
+      "sha256": "78ac74fafadb9f768bceb8edc731163cf16938c2c8a8deaf0c147eb7faa4581e"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/live2d-final-project-size-and-format-preflight.json",
+      "bytes": 1781,
+      "sha256": "e57c02879049c7530fae266bb991b4fdcc490e79ecbc116ffc7cc83be833007a"
+    },
+    {
+      "path": "/workspace/AI-radio-stream-help/review/original-live2d-r2-source-validation-package.json",
+      "bytes": 320,
+      "sha256": "78148028125804a190e7bd7f13e072aa211b5bcfa76bc04583deff300093b572"
+    }
+  ],
+  "not_accepted_or_not_verified": [
+    "Windows10/11 native execution and file locking",
+    "RTX4060 GPU offload, memory, end-to-end latency and frame rate",
+    "physical 5-inch display, webcam, eye tracker, far-field microphone",
+    "real WeChat/Bilibili account delivery or live broadcast",
+    "official Cubism Editor/Animator GUI reopening",
+    "user artistic, voice and long-term relationship acceptance"
+  ],
+  "sdk_core_framework_or_weights_redistributed": false,
+  "real_accounts_connected_or_messages_sent": false
+}

@@ -1,0 +1,171 @@
+{
+  "status": "passed_independent_persistent_source_checks_not_Core_or_art_acceptance",
+  "reviewer": "Independent archive decoder; no author requests/live workspace state used as parent evidence.",
+  "final_source": {
+    "source": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/character.psd2live",
+    "source_sha256": "1b9f50d26e0e86172f2e231ce72d7d7a10fc483889a0f7a6e019bf0bb4c8c769",
+    "source_revision": "rig/revisions/revision-2f45f79549e858620dd2679e600048bb8493b63d5ba9a4a0c266434029766fb3.json",
+    "source_revision_sha256": "ff1d7b68f293ddf8dcc7b128b4ea09433679c78826801c6dab07ef1e86590003",
+    "source_unchanged": true
+  },
+  "formal_baseline": {
+    "source": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/cloth-seam-topology.psd2live",
+    "source_sha256": "4a5663f93a0853391c07b8e7948439431c7eeaf4165814dc351433b166aa8d3b",
+    "source_revision": "rig/revisions/revision-92d6f440a8ecc2047b51ae76af3e6099df84a439cb2df5aba528a1c443762df8.json",
+    "source_revision_sha256": "75efde597d4d5229ad99193acfc85b1bf2fcfe009603729a3800d0e84d1e201e",
+    "source_unchanged": true
+  },
+  "embedded_PSD": {
+    "bytes": 47964854,
+    "sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+    "external_psd_sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+    "embedded_equals_external": true
+  },
+  "observed_final_export_binding": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.model3.json": {
+      "sha256": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4",
+      "bytes": 1385
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.moc3": {
+      "sha256": "44a23dc46877108c99000b888650bbb2b57730af1e3f1c3a5ab8c6d26da6c87f",
+      "bytes": 516608
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.cmo3": {
+      "sha256": "794689331a21cc573cccfa79da7bd50b5e8926fabdb78c6e67693a17cbac810e",
+      "bytes": 19675957
+    }
+  },
+  "checks": {
+    "embedded_original_PSD_equals_formal_PSD": true,
+    "six_eyeopen_owners_keys_only_0_1_and_closed0_bitwise_unchanged": true,
+    "six_open1_endpoints_match_emulated_original065_Float32_sample": true,
+    "six_open1_ideal_real065_residuals_within_derived_rounding_budget": true,
+    "iris_Form_and_inherited_Gaze_PRIO_bitwise_unchanged_no_fake_Open_axis": true,
+    "two_helpers_persisted_correct_parent_shared_cup_source_UV_indices_visible_keyed_zero_all_legal_values": true,
+    "two_native_glues_order_first_fullR_second_weightedL_helpers_unmoved": true,
+    "both_glue_intensity_grids_hold0_0_hold1_1": true,
+    "nine_original_parent_nodes_PRIO_bitwise_unchanged_vs_frozen_formal_baseline": true,
+    "copied_body_nodes_rows_columns_axes_parent_chain_correct": true,
+    "copied_Lean_Z_all_local_cells_Float32_bitwise_equal": true,
+    "copied_XY_9cells_exact_emulated_actual_normalized_translate_pipeline": true,
+    "copied_6_rotation_all_local_cells_base_angle_flip_axes_and_parents_exact": true,
+    "native_root_single_active_cup_root_parent_and_all27_centered_S_cells_correct": true
+  },
+  "counts": {
+    "passed": 14,
+    "failed": 0
+  },
+  "eye_open_numeric_residuals": [
+    {
+      "id": "ArtMeshEyewhiteL",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 3.054738045155103e-08
+    },
+    {
+      "id": "ArtMeshEyewhiteR",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 2.9802322394634206e-08
+    },
+    {
+      "id": "ArtMeshEyelashL",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 2.6822090153089118e-08
+    },
+    {
+      "id": "ArtMeshEyelashR",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 3.6507844927702315e-08
+    },
+    {
+      "id": "ArtMeshLayerL7",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 3.5017728813868665e-08
+    },
+    {
+      "id": "ArtMeshLayerR7",
+      "original0_bitwise_unchanged": true,
+      "endpoint1_exact_vs_emulated_Float32_seed": true,
+      "endpoint1_max_abs_diff_vs_ideal_real065_parent_local": 3.874301911233058e-08
+    }
+  ],
+  "XY_rebase_precision": {
+    "max_abs_diff_vs_direct_Float32_source_minus_c_root_pixel_units": 0.0001220703125,
+    "max_abs_diff_vs_emulated_actual_translate_pipeline": 0.0,
+    "note": "XY normalized-delta multiply/add is not bitwise identical to direct subtraction; do not claim mathematical exactness. Complete final arrays preserved in linked raw IR."
+  },
+  "helper_opacity_fact": {
+    "static_opacity_values": [
+      1.0,
+      1.0
+    ],
+    "actual_persisted_CupVisible_range": {
+      "id": "ParamCupVisible",
+      "name": "Cup visible",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 1.0,
+      "blend": false,
+      "repeat": false,
+      "keys": null
+    },
+    "opacity_keys": "Both helpers store exact0 at both0/1 CupVisible endpoints, covering complete authored range; zero blend opacity. Static1 is overridden by complete zero key track.",
+    "not_claimed": "Do not call the static field0."
+  },
+  "glue_summary": [
+    {
+      "id": "OriginalCupAttachmentR",
+      "order": 0,
+      "pair_count": 154,
+      "active_weight_min": 1.0,
+      "active_weight_max": 1.0,
+      "helper_weights": "all0",
+      "hold_intensity": {
+        "0": 0,
+        "1": 1
+      }
+    },
+    {
+      "id": "OriginalCupAttachmentL",
+      "order": 1,
+      "pair_count": 154,
+      "active_weight_min": 0.0,
+      "active_weight_max": 1.0,
+      "helper_weights": "all0",
+      "hold_intensity": {
+        "0": 0,
+        "1": 1
+      }
+    }
+  ],
+  "details": {
+    "full_report": {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/readonly-ir-review/final-formal-source-review-full.json",
+      "sha256": "c4de428a43a225002ff865be9a01be765f7ebe75742c4191831dab1f4d17bac5"
+    },
+    "actual_final_parent_arrays": {
+      "path": "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/readonly-ir-review/final-native-follow-parent-ir.json",
+      "sha256": "26164b12061eb11446745764b7a148e13aaa1cd9fc107bc1e45924c0e6c5163b"
+    }
+  },
+  "method": [
+    "All bitwise statements compare decoded actual Float32 bit patterns, including signed zero. PRIO object SHA verified and mesh/deformer objects fully consumed.",
+    "EyeOpen1 emulated sample uses Float32 alpha=.65, complement1-alpha, base+weighted old deltas then subtracts base, matching the public geometry sampling arithmetic. Ideal-real interpolation is separately compared and never called exact. Units are original parent-local mesh coordinates, not evaluated Core/world pixels.",
+    "Float32 ideal interpolation forward-rounding budget derives gamma6=6u/(1-6u),u=2^-24 plus .65 representation error, with no application acceptance threshold changed.",
+    "Copied XY cells are compared with direct Float32(original-c); author normalized-delta multiply/add may differ by several Float32 ULP. Report actual residual per cell, not claim exact.",
+    "Frame decoded only through complete persisted glue section; remainder not interpreted. Frame SHA verified as complete bytes."
+  ],
+  "review_program_binding": {
+    "mesh_deformer_decoder_sha256": "65a11ecf052ec1e32ebe358aecb3f674239cc8bec2a83c38cb8a8ddcbb3e876f",
+    "initial_review_script_sha256": "50dbb5fea29db8a5ffda5839de8bdd511289b79cf59bc333c35f5b410b9bb69e"
+  },
+  "acceptance_limits": [
+    "This verifies frozen authored source identity and numerical form contents. It does not newly execute Core/GL, hold-grip1px, finger-root.5px, real voice or artwork gates.",
+    "Export file hashes are observed bindings for root/QA to associate with their actual run; this archive review does not independently prove compiler provenance."
+  ],
+  "mutations": "Only new private review JSON outputs; no source PSD/authoring archive/MOC/production/MCP mutation."
+}

@@ -1,0 +1,368 @@
+{
+  "format": "original-live2d-package-spec-v1",
+  "identity": "original-live2d-r2",
+  "origin": "project-original-authoring",
+  "runtime_model": {
+    "path": ".build/original-character-rig-formal-r1/export-rigid-cup/character.model3.json",
+    "sha256": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4"
+  },
+  "runtime_files": {
+    "character.moc3": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+    "character.4096/texture_00.png": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+    "character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "character.motion.motion3.json": "1ff8a784604767eb3b9e2bcf40928122796e4bc1978ac31cf2185352c5ae3ca8",
+    "character.motion2.motion3.json": "35a23d2c76321d2654113dbe08fc9dd6ae817272336b51170bfbb5a34bb29dfd",
+    "character.motion3.motion3.json": "18d23b6922a2596b3516442d31ab63323b22e61f56d1f7b31c431a4b88d739eb",
+    "character.motion4.motion3.json": "1504c21f97f59c2b628c6bc2f91e555cd1f3ff266873e26b95e49d6e965f958a"
+  },
+  "source_manifest": {
+    "path": ".build/original-character-art-formal-r1/layers.json",
+    "sha256": "f8b5aae4de8626c02009df204052bd9418d7b73ceaa5fb7057459953165c1d1e"
+  },
+  "psd": {
+    "path": ".build/original-character-rig-formal-r1/character.psd",
+    "sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342"
+  },
+  "cmo3": {
+    "path": ".build/original-character-rig-formal-r1/editable-rigid-cup/character.cmo3",
+    "sha256": "2d96197124dd9ca8a59da241d349aedc2e38f5348d30413256e25724cc23ec83"
+  },
+  "project": {
+    "path": ".build/original-character-rig-formal-r1/authoring/rigid-cup-character.psd2live",
+    "sha256": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70"
+  },
+  "rig_recipe": {
+    "path": ".build/original-character-rig-formal-r1/reexport-delivered-project.json",
+    "sha256": "b1278a31305806d8a765a1caa9cc367c68bdbc35cf79ff3b668dbdd52f620097"
+  },
+  "notice": {
+    "path": "assets/character-live2d/NOTICE.txt",
+    "sha256": "1a99def554f4daebcb4b1830250ea3068111acec08bf92225dbbfd22638bfd7b"
+  },
+  "original_sources": [
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/00-back-hair.png",
+      "sha256": "6de946cd6a8e3582792084b4e2fbdc5bf8939a838959f793b640f3532a8b657b",
+      "relative": "sources/head/layers/00-back-hair.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/01-face.png",
+      "sha256": "7b7e39e8c619597bc5a14e0d2e099c80b3cc97287b32b01edde1b90b3f7fda1a",
+      "relative": "sources/head/layers/01-face.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/02-eyewhite-r.png",
+      "sha256": "c404428675c6a401dc64d97f9f5877f4ec2a0417987acf06d4fe2528c7e843b4",
+      "relative": "sources/head/layers/02-eyewhite-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/03-eyewhite-l.png",
+      "sha256": "96ff52e4876406de9c471cf47e2fcb6a778cda519c8f3c84e4a1572db4794ecb",
+      "relative": "sources/head/layers/03-eyewhite-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/04-iris-r.png",
+      "sha256": "956d21cb7976859c6be5f4976b690c38fbc58cce06fe8a0a3315b5bc9f382ede",
+      "relative": "sources/head/layers/04-iris-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/05-iris-l.png",
+      "sha256": "a44d4deecafb3853ec6dc90339423bd8536d0776a390efde07f4aa3ecc5145da",
+      "relative": "sources/head/layers/05-iris-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/06-eyelash-r.png",
+      "sha256": "b55107b7cfae0629490a00cfc7626d207fdb3efda3f85f9456a3176776525610",
+      "relative": "sources/head/layers/06-eyelash-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/07-eyelash-l.png",
+      "sha256": "9a306a012239ba97a932d4bd68faf6291d96c33dbc728e8f65ae853d187e077f",
+      "relative": "sources/head/layers/07-eyelash-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/08-lower-eyelash-r.png",
+      "sha256": "1e5ee60b7a55cfce2da54712fc862de20cdcb301da14c09325055343442ab91d",
+      "relative": "sources/head/layers/08-lower-eyelash-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/09-lower-eyelash-l.png",
+      "sha256": "ab705856b8b8efb06c7a3c38f83b167d686d23d495cd282b530df85d213594cc",
+      "relative": "sources/head/layers/09-lower-eyelash-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/10-eyebrow-r.png",
+      "sha256": "495e0a603615ac6cf1cc0fa121c08112645e748f754e297c182f9d5a6703e32d",
+      "relative": "sources/head/layers/10-eyebrow-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/11-eyebrow-l.png",
+      "sha256": "523a4d2cfbaf22faf8b5051a8b33d3987d664c50ab179c606543bf1c5b6ed756",
+      "relative": "sources/head/layers/11-eyebrow-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/12-mouth.png",
+      "sha256": "e875fa0e57f95d51f20f329615e2e2165f50dc8869f5ee936d916804e5e74c83",
+      "relative": "sources/head/layers/12-mouth.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/13-upper-teeth.png",
+      "sha256": "c9238cdfdd467f009aec44b3faf2970d0f15b97b2e34e59750bad7d7b74bb2df",
+      "relative": "sources/head/layers/13-upper-teeth.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/14-tongue.png",
+      "sha256": "b57d3899b38e94996bc493bd88581f25bb76354847a74c49e220010cbac03d61",
+      "relative": "sources/head/layers/14-tongue.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/15-upper-lip.png",
+      "sha256": "008c3d7e18613f6ecf3a3a2842be64a6756e531ad190e0e9793ee4de500ae783",
+      "relative": "sources/head/layers/15-upper-lip.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/16-lower-lip.png",
+      "sha256": "98b927adc83ad7bf386299ec5275481786f6dfa5a20a00aef9333efed73cefef",
+      "relative": "sources/head/layers/16-lower-lip.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/17-mouth-close.png",
+      "sha256": "3817ad277953c1dbcc5779d6abe8503827b09c687772a9eef82679a2dc1052ca",
+      "relative": "sources/head/layers/17-mouth-close.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/18-front-hair-1.png",
+      "sha256": "56e1279935990a2826dbc1d6e3152b16fe90e1064778337ae83d47270797a6c7",
+      "relative": "sources/head/layers/18-front-hair-1.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/19-front-hair-3.png",
+      "sha256": "92a2a5184676da91838a0a7c5542ddfd8a5411b5762db5e7d5c36aa66b7609dc",
+      "relative": "sources/head/layers/19-front-hair-3.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-head-r3-eye-gutters/layers/20-front-hair-2.png",
+      "sha256": "0bb7d94a20938bcc6da39825cc590fba17ef25e270e4a1e6c70442e8e03f2398",
+      "relative": "sources/head/layers/20-front-hair-2.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/face.png",
+      "sha256": "0cefbb888efb5a4b60703f8c30f11b45892cf9564636b8e5f6b71d03e318c0c0",
+      "relative": "sources/head/sources/face.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/back.png",
+      "sha256": "a8d6d6993cffc2aeeb953458a8f427cfe7731abfdf09191b37f07cddcf8799f2",
+      "relative": "sources/head/sources/back.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontLeft.png",
+      "sha256": "2df1ef8b79783d0a6969405e7012bbe0947b9ae12e8cfbd59e1cc969285d578b",
+      "relative": "sources/head/sources/frontLeft.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontCenter.png",
+      "sha256": "797eafadc64653db62bacf7027fd32ec932ca6863fecf242a67c752db701d952",
+      "relative": "sources/head/sources/frontCenter.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/frontRight.png",
+      "sha256": "4650c9cfcda3e09c7eb2dcba9509642eb6e1545e761dde1a0b1a5f7f51268851",
+      "relative": "sources/head/sources/frontRight.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/eyes.png",
+      "sha256": "6a9ff912eb155bbca25d71e42526fb1a2272903e90afec11f4f89f5525aa8576",
+      "relative": "sources/head/sources/eyes.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/mouth.png",
+      "sha256": "4035918c44c8a9f812712cf326565a61d798a48e9404721a608429423a124ffc",
+      "relative": "sources/head/sources/mouth.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/topwear-backfill.png",
+      "sha256": "0f065c6050cedc3c9e76ad9331bb6577ada9abe945b89c998afdd51bfdb4eabd",
+      "relative": "sources/body/layers/topwear-backfill.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/upperarm-r.png",
+      "sha256": "86908f2949bbec98dc0e9b63b947f22a45ef6be4678439fdf9c1e0e1bff3b87a",
+      "relative": "sources/body/layers/upperarm-r.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/upperarm-l.png",
+      "sha256": "91967a70d5dc2b808b3e450de9adfaf5f298fff8d44f794f388be68539f83d8f",
+      "relative": "sources/body/layers/upperarm-l.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/topwear.png",
+      "sha256": "acfcd1a48de14e563e413a510b6de031f22e56b5329433ff09d4ad6783585007",
+      "relative": "sources/body/layers/topwear.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/forearm-r.png",
+      "sha256": "9401c6514d0cbd6bd8d26fbb398209589d723bad2b9bc26649deffede2802e48",
+      "relative": "sources/body/layers/forearm-r.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/forearm-l.png",
+      "sha256": "de17c3ce6762c9a2e06bc8e88cf7c70bc94fe8817ed8e7a09675c1171db9bc8a",
+      "relative": "sources/body/layers/forearm-l.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/cuff-front-r.png",
+      "sha256": "1c866d139a7db8509f079664bcb3b6356212ccbd35a64dc977e5da1f146dbaa5",
+      "relative": "sources/body/layers/cuff-front-r.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-body-r1/layers/cuff-front-l.png",
+      "sha256": "9588fa51eef61399986317735c72d9e27d58300ecd6aa237c7cff02e6d472566",
+      "relative": "sources/body/layers/cuff-front-l.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/original_coherentBody.png",
+      "sha256": "142296e0ecd0a9776b6f481cff62646b9ae4b5ccef1e12c8423baccad73776b0",
+      "relative": "sources/body/sources/original-coherentBody.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/original_hiddenTorso.png",
+      "sha256": "68f692ea436b3753f2fc5451d31c0324d365f1dcb3504d5a38bfa2018a1c4c24",
+      "relative": "sources/body/sources/original-hiddenTorso.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/underfill_aaOriginal.png",
+      "sha256": "5962338a1323e6bd0f406f18c669197a50558f9ffaee5a6cc4d96ae773a70881",
+      "relative": "sources/body/sources/underfill-aaOriginal.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/underfill_aaExistingLayout.png",
+      "sha256": "b4c1f8d9ae12add9181d9576051721a4a3d47d571de4156075311407344baccc",
+      "relative": "sources/body/sources/underfill-aaExistingLayout.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/02-finger-thumb-r.png",
+      "sha256": "da2353fb63287be798acf63481d24eb241e7b09db64e930b3ff3278404cc2622",
+      "relative": "sources/hands/layers/02-finger-thumb-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/03-finger-little-l.png",
+      "sha256": "893316c26e89831c7fbe26833a5a566508b0dc04bcab6e01bb8908800b1ba5f8",
+      "relative": "sources/hands/layers/03-finger-little-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/04-cup.png",
+      "sha256": "901d742b53475cc16815226118a652f11a1bcdcede334d4769e5c85eff812242",
+      "relative": "sources/hands/layers/04-cup.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/05-finger-thumb-l.png",
+      "sha256": "4f4e91c81a9f72211ac892dfa3c2e2b34f2d0224ed79be8ed65f930ae3fe7b7a",
+      "relative": "sources/hands/layers/05-finger-thumb-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/06-finger-index-l.png",
+      "sha256": "4165b466f3ddcffd0be4a74e7bf4dc178c0ac7fb195d358bc8b2cfe2685c67ab",
+      "relative": "sources/hands/layers/06-finger-index-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/07-finger-middle-l.png",
+      "sha256": "a3130ab208a9bf5e5c8800dcedc9107c8066df53d0549a91d1d3c60f1fe4fc48",
+      "relative": "sources/hands/layers/07-finger-middle-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/08-finger-ring-l.png",
+      "sha256": "0675711483797fc49d5d0ee5b0b00a4f681aa39cb7077751a21f9c67902a2d16",
+      "relative": "sources/hands/layers/08-finger-ring-l.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/09-finger-little-r.png",
+      "sha256": "a7c436e9e1919bdaecd964ea197be4221a411e1125b6220aee94363e5f3d086b",
+      "relative": "sources/hands/layers/09-finger-little-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/10-finger-ring-r.png",
+      "sha256": "d345fbc27493a25721de898c243b94556ff99fadea93b260ea0b8ed61abf6e45",
+      "relative": "sources/hands/layers/10-finger-ring-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/11-finger-middle-r.png",
+      "sha256": "756fee40d9a4425511f047fbf3707120a9183ea9a368b561789a379393267c44",
+      "relative": "sources/hands/layers/11-finger-middle-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/12-finger-index-r.png",
+      "sha256": "59ca16d68afad06fcc5e1791d0ce48acae6a70e5ec682d6e1438688e97d2d9ac",
+      "relative": "sources/hands/layers/12-finger-index-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/00-hand-r.png",
+      "sha256": "35b58a4205dec154b45f1a168e31df936c85be110e76836239404e38cee1081a",
+      "relative": "sources/hands/layers/00-hand-r.png"
+    },
+    {
+      "path": ".build/original-character-art-r4-hands-r4/layers/01-hand-l.png",
+      "sha256": "90ead6a0be48dbf9e36090d5aeee46fd5e222f4af4f278a334ff4a7ba58ddebd",
+      "relative": "sources/hands/layers/01-hand-l.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/extendedPalms.png",
+      "sha256": "0a51d8f87dd7bf4efc451c63eb483d63d5e31bb53f8b85525190ad8e88ddf1ae",
+      "relative": "sources/hands/sources/extendedPalms.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/viewerLeft.png",
+      "sha256": "950006520ac6c3ac243dbd80d689c6d4ca8879b67fea9c33d071c333c6ff0e7c",
+      "relative": "sources/hands/sources/viewerLeft.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/viewerRight.png",
+      "sha256": "0013b861e9b867ebf392c40181214c6afe2f58683d115a420ab981ff58efec29",
+      "relative": "sources/hands/sources/viewerRight.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/cup.png",
+      "sha256": "3a108fce03fcbca32a538a5f08dd3b875ff938b403bd26d483b4d6934b8a5102",
+      "relative": "sources/hands/sources/cup.png"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/coherentReference.png",
+      "sha256": "7b86a3fd752386e9195952077ff3715112ea3a2b9edb2ac9846ce21aac7feccf",
+      "relative": "sources/hands/sources/coherentReference.png"
+    }
+  ],
+  "source_manifests": [
+    {
+      "path": ".build/original-character-art-formal-r1/sources/head/part-manifest.json",
+      "sha256": "0cc0f325bc3a67689b8f99944e73980ec483e872c9e85f4ef550737da780ffd7",
+      "relative": "sources/head/part-manifest.json"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/body/part-manifest.json",
+      "sha256": "5671304f7aec97aa2b5bee876d4febad5c6c5a0312244c30526dae61c07796c9",
+      "relative": "sources/body/part-manifest.json"
+    },
+    {
+      "path": ".build/original-character-art-formal-r1/sources/hands/part-manifest.json",
+      "sha256": "63896b305be954b098058f1b17f38f13a133cfdb51c6e66767ed01b56940b013",
+      "relative": "sources/hands/part-manifest.json"
+    }
+  ],
+  "can3": {
+    "path": ".build/original-character-rig-formal-r1/editable-rigid-cup/character.can3",
+    "sha256": "61212226ef95cba5e58d07c46861f3f51dbd4c82b7274f6a1abc3df73892be26"
+  },
+  "acceptance_index": {
+    "path": "review/original-live2d-r2-source-and-export-index.json",
+    "sha256": "a0c09bad87c3e8879f3906a0da797cfe0f43e588275f1b129e6615b7565b7918"
+  }
+}

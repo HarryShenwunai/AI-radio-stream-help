@@ -1,0 +1,145 @@
+{
+  "status": "FRONTEND_CANDIDATE_FROZEN_PENDING_INDEPENDENT_AFTER",
+  "freeze_utc": "2026-11-12T20:45:08+00:00",
+  "boundary": "Only QA-found blocking bug fixes after this snapshot; no deployment or Windows quality claim.",
+  "node_tests": {
+    "actual_runner": "node --test tests/test_*.mjs",
+    "passed": 79,
+    "failed": 0,
+    "skipped": 0
+  },
+  "real_chrome_reports": [
+    "review/png-region-stage-browser.json",
+    "review/layered-2d-stage-browser.json"
+  ],
+  "sources": {
+    "app/static/app.js": {
+      "sha256": "2efa9105266722ceff380fdbcdf5213d3a6eed3989350c63423fbeb0d08c1c7e",
+      "bytes": 13174
+    },
+    "app/static/assistance-view.js": {
+      "sha256": "393a7664f38c5db011ae90f682bdc443bc63e3725575a8e2fa922c5faf9ebd5a",
+      "bytes": 7733
+    },
+    "app/static/avatar.svg": {
+      "sha256": "7e5cb72dbb50cb9804d74f44611a9c46bfdc92807ccd9df96addf738f77d93d2",
+      "bytes": 3750
+    },
+    "app/static/companion-core.js": {
+      "sha256": "d942c9c69f40426e2e7b872d9dbcea9fe339f4ca390fff75a91403f47fcb70fc",
+      "bytes": 10322
+    },
+    "app/static/connection-flow.js": {
+      "sha256": "70b352a1b1ef036fa6ce2b0527f3d5b4d7405db35f7328e5502453224196a63c",
+      "bytes": 4180
+    },
+    "app/static/connectors-ui.js": {
+      "sha256": "1bb1b09d2c3dd92f0ca1665de5cb3a857787fb7951886ff6b1870f6ed780610b",
+      "bytes": 6704
+    },
+    "app/static/conversation-view.js": {
+      "sha256": "1585fec5933cb73db038305ff672e66fa78ee4ca89edc92edc651da438de3d9e",
+      "bytes": 3039
+    },
+    "app/static/desktop.css": {
+      "sha256": "ae4b4aa5f9fda53ac23947c574909e1ef4ea58d08cf56f1f3ac52af51254ec25",
+      "bytes": 4194
+    },
+    "app/static/desktop.js": {
+      "sha256": "16e34d4a2b51b88796214c92d6e8dc15709ab560a89ab65c8a423c542ed31fd5",
+      "bytes": 3232
+    },
+    "app/static/index.html": {
+      "sha256": "48c912fcb84599328776b3dabc254a3352cfd27bbb4c9b0de315cf3aa51519ab",
+      "bytes": 9074
+    },
+    "app/static/layered-2d-renderer.js": {
+      "sha256": "582cf50328eb60f34cf4ced998b781a3c93150e1c97d793f8c4299e8af068c68",
+      "bytes": 6428
+    },
+    "app/static/live2d-renderer.js": {
+      "sha256": "e67d61a92da69d49988c92e977ec5532363e579e98e8740d05bd2378a1f73e32",
+      "bytes": 6916
+    },
+    "app/static/playback-receipts.js": {
+      "sha256": "12e950670ddfbb3558e0a60a38cefc9678d33d46bc941be77d963dd681115adf",
+      "bytes": 3946
+    },
+    "app/static/privacy-flow.js": {
+      "sha256": "acc354510d47de83abfbf93c12e2f7b13c107bd044e926cf30af6badcf025049",
+      "bytes": 25522
+    },
+    "app/static/scene-controller.js": {
+      "sha256": "8cee7f7da4f6008e4e8759628f8dfffd5e33ccae9a2ae21eb00a838af09191fd",
+      "bytes": 12266
+    },
+    "app/static/scene-evening.png": {
+      "sha256": "590aee7c280802c3076755972d134557b8594774a0e45bc1d2d05997b2852a04",
+      "bytes": 2370799
+    },
+    "app/static/scene-forest.png": {
+      "sha256": "27789bdb6f58dacd8131aefff77239c048384890d53c7e10bdfe4448f04dbcda",
+      "bytes": 1822846
+    },
+    "app/static/scene-morning.png": {
+      "sha256": "473a4f584e8c353e48b3effb031233c4e0755efc2f7358cca6f09ebdd32dbadf",
+      "bytes": 2247194
+    },
+    "app/static/sound-flow.js": {
+      "sha256": "2cecdd7ee45371e6e12456fbc5000ece031c7d357dfd5e74219dbcd736f36418",
+      "bytes": 5495
+    },
+    "app/static/speech-controller.js": {
+      "sha256": "2303c77a56fef2fa1f2bfa6099c43845c56d922971a165fcf599a0479122cbea",
+      "bytes": 6511
+    },
+    "app/static/studio.js": {
+      "sha256": "d39e237951e7f1b3be60d65dc14902eca0e06b9c7b5a01ccdc413455941fcdd5",
+      "bytes": 19952
+    },
+    "app/static/style.css": {
+      "sha256": "e045152a6e5dc7d4d08dcdbf872a5b332208afe0fa1a521c763d95119b19618b",
+      "bytes": 21415
+    },
+    "app/static/ui-kit.js": {
+      "sha256": "7f84ea1ac4fee5a11e236c33cf708f136c0429fda62b2268f287cf5ce3a5d074",
+      "bytes": 6240
+    },
+    "app/static/voice-input.js": {
+      "sha256": "687468f552d5817e43f5a7ce1f94eeffaf29f05e6fce46f05ebb36c1e15e756f",
+      "bytes": 6496
+    },
+    "app/static/vrm-renderer.js": {
+      "sha256": "6a5cd0c51993e28a6a15eda839216925b7b05189892073bc067abed8c7735427",
+      "bytes": 721990
+    },
+    "tests/test_character_ui.mjs": {
+      "sha256": "4a4e1dc6254e14045aa2e56fdd516181517b464fbe0e92046afebcb122f279af",
+      "bytes": 11010
+    },
+    "tests/test_voice_ui.mjs": {
+      "sha256": "b64abc126b59080e0c2b5b9e6c8c3efdb35b0731b9e44194cf57b2af584807d6",
+      "bytes": 6338
+    },
+    "tests/test_connector_settings_ui.mjs": {
+      "sha256": "9525bf78c3b95434815875035af7162963faab41fe9b4adb0182894c120b26ea",
+      "bytes": 6795
+    },
+    "tests/ui_rebuild_harness.mjs": {
+      "sha256": "da5201fbd488e00080309eb1110eadcc357899870f9887e521dd6143ce1cb6d2",
+      "bytes": 3747
+    },
+    "tests/scene_harness.mjs": {
+      "sha256": "92c2cee22165358213bdb2a761b5845faac01b08b08b7dcd7413ea2763e70761",
+      "bytes": 3079
+    },
+    "tests/png_region_stage_check.py": {
+      "sha256": "9887eec2a9b165b608b5dd2e1d72d7e27526cf627d3b22a5c9750e4a0b4a5902",
+      "bytes": 6191
+    },
+    "tests/layered_2d_stage_check.py": {
+      "sha256": "613ec8428f369692e1441738d79bc07f72b9f5f0c8afb3fab6c1c4fe7ff24b6a",
+      "bytes": 2637
+    }
+  }
+}

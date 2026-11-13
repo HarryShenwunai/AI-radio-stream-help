@@ -1,0 +1,35 @@
+{
+  "format": "png-states-import-selection",
+  "schema_version": 1,
+  "width": 1070,
+  "height": 1470,
+  "files": {
+    "idle": "idle.png",
+    "talk": "talking.png",
+    "blink": "blink.png",
+    "talk_blink": "talking_blink.png"
+  },
+  "sha256": {
+    "idle": "0d8a7f2d121f7fdd1a934694c2de191ec3ea75c1d76d5721d91f24436e9a9663",
+    "talk": "115fe20535710c1567eae6f0d446026313f4e206ec6c7e4a07bb4e27c1a00a03",
+    "blink": "60cb569bace4ab6c8bc7f0d653bf4074638d4450452c3510b48ffda7ea9b2f32",
+    "talk_blink": "9171f1cb2fda3d191c34a928ad580a55ad1857b3391d451456248eaa2be69317"
+  },
+  "instructions": "Prefer the delivered *.companion.json single-file package: preview in Character Studio, then explicitly activate. This sidecar maps manual PNG imports and their approved eye/mouth regions. The legacy ZIP is only an extraction bundle; it is not a Live2D or layered-2d runtime package.",
+  "animation_regions": {
+    "eyes": {
+      "x": 490,
+      "y": 290,
+      "width": 235,
+      "height": 95,
+      "feather": 10
+    },
+    "mouth": {
+      "x": 550,
+      "y": 430,
+      "width": 135,
+      "height": 70,
+      "feather": 10
+    }
+  }
+}

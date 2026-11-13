@@ -1,0 +1,29 @@
+{
+  "status": "actual_material_probe_not_final_eye_rig",
+  "model": ".build/original-character-rig-r5/export-eye-gutters-source-probe/character.model3.json",
+  "same_material_and_mesh_for_three_probes": true,
+  "probes": [
+    {
+      "requested_eye_open": 0.65,
+      "report": "review/original-character-live2d-eye-gutters-open-065.json"
+    },
+    {
+      "requested_eye_open": 0.75,
+      "report": "review/original-character-live2d-eye-gutters-open-075.json"
+    },
+    {
+      "requested_eye_open": 0.85,
+      "report": "review/original-character-live2d-eye-gutters-open-085.json"
+    }
+  ],
+  "source_stable_each_run": true,
+  "actual_values": "All expected eye values independently converted to IEEE Float32 and compared exact with before-Core values. MouthOpen0/Form0, other defaults.",
+  "visual_observation": ".65 covers iris top most, .75 intermediate, .85 exposes more white. Diagnostic only, no aesthetic selection.",
+  "root_directive": "Final EyeOpen1 key must be authored to natural half-lid; do not pin .75 in production. Rebuild alpha mesh from corrected source in final same-source PSD replay.",
+  "not_proven": [
+    "Final alpha mesh/iris lid registration",
+    "Final art acceptance",
+    "Full-rig true provider test"
+  ],
+  "moc_or_source_images_modified_by_qa": false
+}

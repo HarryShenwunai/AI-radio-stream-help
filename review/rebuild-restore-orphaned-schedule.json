@@ -1,0 +1,100 @@
+{
+  "source_sha256": "edee2c9adfc0583f3ad7537b2d4ed53abf111e06c1faa352a019393139da6424",
+  "setup": "isolated real loopback owner HTTP, no external model",
+  "confirmed_before_restore": {
+    "request_id": "review-restore-schedule",
+    "action_id": "64efda4e-bf00-41b7-a282-4b06d7f54ee0",
+    "role_scope": "bcc592d5-3082-497a-8e4c-a65f625296d6",
+    "kind": "schedule",
+    "summary": "审查夹具提醒",
+    "inputs": {
+      "due_at": "2026-11-12T20:52:57+00:00",
+      "notes": "",
+      "title": "审查夹具提醒"
+    },
+    "permission_scope": "local_schedule",
+    "status": "confirmed",
+    "source_evidence": [
+      {
+        "observed_at": "2026-11-12T20:49:57+00:00",
+        "scope": "explicit_request_only; no saved memory or unrequested screen capture",
+        "sha256": "7bd459dd12d9fd2279a2c21c681d6a6bd370a1be241ed77d8324c9012450be2a",
+        "source": "user_input"
+      }
+    ],
+    "result": {
+      "external_actions": false,
+      "local_schedule_created": true,
+      "task_id": 1
+    },
+    "error": null,
+    "created_at": "2026-11-12T20:49:57+00:00",
+    "updated_at": "2026-11-12T20:49:57+00:00"
+  },
+  "restore_response": {
+    "ok": true,
+    "chat_skipped": false
+  },
+  "tasks_after_restore": [],
+  "proposal_after_restore": {
+    "request_id": "review-restore-schedule",
+    "action_id": "64efda4e-bf00-41b7-a282-4b06d7f54ee0",
+    "role_scope": "bcc592d5-3082-497a-8e4c-a65f625296d6",
+    "kind": "schedule",
+    "summary": "审查夹具提醒",
+    "inputs": {
+      "due_at": "2026-11-12T20:52:57+00:00",
+      "notes": "",
+      "title": "审查夹具提醒"
+    },
+    "permission_scope": "local_schedule",
+    "status": "confirmed",
+    "source_evidence": [
+      {
+        "observed_at": "2026-11-12T20:49:57+00:00",
+        "scope": "explicit_request_only; no saved memory or unrequested screen capture",
+        "sha256": "7bd459dd12d9fd2279a2c21c681d6a6bd370a1be241ed77d8324c9012450be2a",
+        "source": "user_input"
+      }
+    ],
+    "result": {
+      "external_actions": false,
+      "local_schedule_created": true,
+      "task_id": 1
+    },
+    "error": null,
+    "created_at": "2026-11-12T20:49:57+00:00",
+    "updated_at": "2026-11-12T20:49:57+00:00"
+  },
+  "repeat_confirm_after_restore": {
+    "request_id": "review-restore-schedule",
+    "action_id": "64efda4e-bf00-41b7-a282-4b06d7f54ee0",
+    "role_scope": "bcc592d5-3082-497a-8e4c-a65f625296d6",
+    "kind": "schedule",
+    "summary": "审查夹具提醒",
+    "inputs": {
+      "due_at": "2026-11-12T20:52:57+00:00",
+      "notes": "",
+      "title": "审查夹具提醒"
+    },
+    "permission_scope": "local_schedule",
+    "status": "confirmed",
+    "source_evidence": [
+      {
+        "observed_at": "2026-11-12T20:49:57+00:00",
+        "scope": "explicit_request_only; no saved memory or unrequested screen capture",
+        "sha256": "7bd459dd12d9fd2279a2c21c681d6a6bd370a1be241ed77d8324c9012450be2a",
+        "source": "user_input"
+      }
+    ],
+    "result": {
+      "external_actions": false,
+      "local_schedule_created": true,
+      "task_id": 1
+    },
+    "error": null,
+    "created_at": "2026-11-12T20:49:57+00:00",
+    "updated_at": "2026-11-12T20:49:57+00:00"
+  },
+  "reproduced": true
+}

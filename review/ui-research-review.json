@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-12",
+  "scope": "research only; no application UI modifications",
+  "application_and_tests_changed": false,
+  "application_base_commit": "5a3189aba931881a806ca368bedf03c4ae7e63ac",
+  "new_product_runtime_tests": 0,
+  "independent_review": "ui_patterns_review; source/image/runtime distinctions checked",
+  "review_corrections": [
+    "Removed unsupported maximum-work claim for desktop mode",
+    "Corrected compare-before-choice ordering",
+    "Separated screenshot file creation from visual review success",
+    "Applied user selection: anime desktop companionship now primary; stage and messenger are supporting references"
+  ],
+  "research_checks": {
+    "local_links": "passed",
+    "evidence_json": "valid",
+    "reference_image_sha256": "passed"
+  },
+  "report_checks": {
+    "date": "2026-11-12",
+    "artifact": "ui-directions-2026.html",
+    "checks": [
+      {
+        "width": 1440,
+        "document_overflow": false
+      },
+      {
+        "width": 390,
+        "document_overflow": false
+      }
+    ],
+    "title": "二次元桌面陪伴 · 视觉与交互研究",
+    "svg_count": 7,
+    "javascript_errors": []
+  },
+  "pdf_pages": 7,
+  "pdf_visual_review": "Selected desktop example and prototype validation page inspected after user choice; reference figures complete",
+  "render_ste_warnings": 0,
+  "user_direction_choice": "desktop companionship; anime theme; studying or gaming with a small always-present character and on-demand expansion",
+  "unresolved": [
+    "Original supplied ui-references-2026.html missing in workspace",
+    "Kindroid Chrome loading page",
+    "ElevenLabs UI page 403; official source read only",
+    "Actual product interaction, role animation and performance not tested",
+    "Target OS/hardware, desktop host, final character assets and animation parameters unknown"
+  ]
+}

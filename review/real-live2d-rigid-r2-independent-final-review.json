@@ -1,0 +1,211 @@
+{
+  "observed_at": "2026-11-13T05:08:30.510263+00:00",
+  "status": "INDEPENDENT_READONLY_REVIEW_PASSED",
+  "complete_machine_report": "review/real-live2d-rigid-r2-companion.json",
+  "complete_machine_report_sha256": "61ea6b3f4189e68066457aab224e12f310d726a53e0c92f25fdf0b2b7af9c5b4",
+  "complete_attempt_role": "Second recovery validation after environment interrupted first actual call; not a first/only model invocation.",
+  "first_interrupted_attempt": "review/real-live2d-rigid-r2-interrupted-observation.json",
+  "seven_actual_checks_verified": [
+    "final_full_rig_and_new_owner_runtime_source_binding",
+    "actual_final_zip_import_activation_and_official_core_ready",
+    "actual_local_qwen_reply_with_memory_off",
+    "actual_kokoro_audio_analyser_and_causal_core_mouth_geometry",
+    "actual_bounded_stop_neutral_core_mouth_no_late_audio",
+    "unheard_tail_excluded_real_sqlite_receipt_ui_text_preserved",
+    "no_page_exception_or_external_browser_request"
+  ],
+  "actual_provider_source_files_rechecked": 112,
+  "actual_provider_source_files_current_no_drift": true,
+  "public_quality_report": "review/quality-gate-live2d-delivery-final.json",
+  "public_quality_report_sha256": "e495171f12d59a1a38508142b87f15704fa3f8d55a9154f6de1fae1ecc43c3c4",
+  "public_quality_327_source_files_current_no_drift": true,
+  "qa_14_manual_source_freeze_unchanged": true,
+  "media_verified": [
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-kokoro-response.wav",
+      "bytes": 274442,
+      "sha256": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/02-actual-qwen-stream.png",
+      "bytes": 1507379,
+      "sha256": "6ba3a72ca0a417af4c497c9894271deb319783f783982e41547d3949deafe2df"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/03-actual-kokoro-live2d-mouth.png",
+      "bytes": 1507657,
+      "sha256": "0095cc0fc21a738614d0e4d77d1b1ec590bf0a46668c2792f7e6748724dc0981"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/04-actual-stopped-context-safe.png",
+      "bytes": 1510861,
+      "sha256": "f103f5541c5a2d751401eca44e90c375d48680832f5f6d874f919bb5dd04939a"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/01-final-original-rig-ready.png",
+      "bytes": 1506667,
+      "sha256": "5f0e351890a77f8cb30bdd1bc4ae5f83e441536d13e4ca98dfa60f87608fb66c"
+    },
+    {
+      "path": "/workspace/dist/evidence-real-live2d-rigid-r2/actual-qwen-kokoro-original-live2d-stop.webm",
+      "bytes": 10033758,
+      "sha256": "1b48122c43ac621f5b86e310419cdb6936833a2fce83cd41e40defded6d1722f"
+    }
+  ],
+  "wav_independently_parsed": {
+    "frames": 137199,
+    "rate": 24000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "duration_seconds": 5.716625,
+    "normalized_rms": 0.07494886194550562,
+    "peak_pcm16": 14408
+  },
+  "video_independently_probed": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp8",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1000
+      }
+    ],
+    "format": {
+      "duration": "81.640000",
+      "size": "10033758"
+    }
+  },
+  "video_audio_stream_count": 0,
+  "actual_mouth_core_proof": {
+    "coreEvaluations": 595,
+    "lipSyncEnabled": true,
+    "lipParameters": [
+      {
+        "id": "ParamMouthOpenY",
+        "value": 0.06549466401338577,
+        "default": 0
+      }
+    ],
+    "actualMouthEqualsIndependentCoreAtAllActualInputs": true,
+    "changedByMouthOnlyCounterfactual": [
+      "ArtMeshMouthClose",
+      "ArtMeshLayer2",
+      "ArtMeshLayer3",
+      "ArtMeshToothT",
+      "ArtMeshTongue",
+      "ArtMeshMouth"
+    ],
+    "method": "Hold every actual head/body/breath/physics input fixed; set ONLY actual LipSync IDs to defaults in a separate official raw Core instance. Body/breath/physics inputs remain at their actual dynamic values; package idle/expression is paused for voice isolation."
+  },
+  "served_moc_sha256": "6e34e112be84db93e0b9556fe0873ba713ba486f44987bfc96817395be5934bd",
+  "actual_analyser_rms": 0.049648863927899245,
+  "observed_stop_seconds": 0.793,
+  "stop_limit_seconds": 2,
+  "actual_receipt": {
+    "status": "stopped",
+    "position_seconds": 2.048196,
+    "duration_seconds": 5.716625,
+    "confirmed_text": "",
+    "evidence": "client_owner_reported_playback_not_human_attention",
+    "reason": "client_stopped"
+  },
+  "next_prompt_assistant_entries": [],
+  "single_recovery_observation_seconds": {
+    "first_text_or_error_seconds": 49.54,
+    "reply_seconds": 62.314,
+    "audio_rms_observed_seconds": 69.621
+  },
+  "observed_python_process_max_rss_kib_linux": 5631388,
+  "actual_browser_external_requests": [],
+  "scope_limits": [
+    "CPU Linux/software WebGL; not Windows/RTX4060",
+    "This is one completed recovery observation, not p95 or cold-start benchmark",
+    "WAV saved separately; screen video has no audio track",
+    "Actual microphone/human ASR not tested in this run",
+    "Client playback receipt is not proof of human attention",
+    "Natural chat/voice quality and artwork user E5 not accepted by this test",
+    "Real Bilibili/WeChat accounts not exercised"
+  ],
+  "known_execution_environment": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_DISABLE_TELEMETRY": "1",
+    "PLAYWRIGHT_BROWSERS_PATH": "/workspace/.cache/playwright"
+  },
+  "source_py_or_active_data_modified_by_review": false,
+  "related_actual_same_moc_report_bindings": [
+    {
+      "report": "review/hand-cup-rigid-r2-v1-full.json",
+      "sha256": "3f497dae00845575c947e70bd0b95a95e1e8e2b334c42ea1c8d7b2505f49dd60",
+      "status": "passed",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/hand-cup-rigid-r2-actual5000-grip-asm.json",
+      "sha256": "5b2222a263047088f92e8f9680854583731ba17e2242d6b57f46d75fcef7de99",
+      "status": "passed_actual_core_held5000_grips_only",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/hand-cup-rigid-r2-shape5000.json",
+      "sha256": "1d0dff9a9a795327bcbc07053ae3fcc57d62ce9f45e22aed42e24ca6b5c0eae1",
+      "status": "passed_declared_geometry_limits",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/live2d-rigid-r2-mainstage-actions-ui.json",
+      "sha256": "2b9ef57cf296778d42568c83f4c45e3070995051746d99eb8dd50cda0f21568a",
+      "status": "captured_actual_mainstage_pending_human_art_review",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/live2d-rigid-r2-mainstage-expression-controls.json",
+      "sha256": "48a71b9ed4777e4d880159ad0a4aac1940b4d2c7c9e7248d50a005af68c6cbdd",
+      "status": "passed_real_mainstage_expression_controls",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/original-character-live2d-rigid-r2-core-gl.json",
+      "sha256": "168d767ab8fbc7cef39824a296478d424a671a8f805b159c888bc1b0ebe49a0b",
+      "status": "passed",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    },
+    {
+      "report": "review/original-character-live2d-rigid-r2-cloth-folds.json",
+      "sha256": "0b9b62a1cb72f0f4ef069993cd75c883875b32d6bdee27950e3f8e9c40c45a3e",
+      "status": "actual_core_cloth_fold_metrics_measured_not_art_pass",
+      "sources_stable_when_executed": true,
+      "same_actual_moc_sha256_bound": true
+    }
+  ],
+  "actual_complete_rig_technical_evidence": {
+    "full_hand_cup_checks": 13,
+    "actual_selected_cartesian_poses": 486,
+    "additional_selected_off_key": 61,
+    "not_exhaustive_20655_core_states": true,
+    "independent5000_grip_cases": 5000,
+    "max_grip_error_source_px": 0.6785883196328265,
+    "shape5000_cases": 5000,
+    "max_affine_shape_residual_source_px": 8.569116124003843e-05,
+    "max_similarity_shape_residual_source_px": 0.00010626277318283761,
+    "shape_limit_source_px": 0.5,
+    "actual_mainstage_ui_checks": 9,
+    "actual_expression_ui_checks": 3,
+    "qa_core_gl_checks": 8,
+    "qa_cloth_poses": 34
+  },
+  "actual_visual_review_of_recovery_screenshots": {
+    "03-actual-kokoro-live2d-mouth.png": "Viewed actual current scene/model with reply and speaking controls, visible mouth opening.",
+    "04-actual-stopped-context-safe.png": "Viewed same original model after stop, closed mouth/speaking controls gone while complete reply text remains.",
+    "artwork_or_voice_subjective_acceptance": false
+  },
+  "last_reviewed_at": "2026-11-13T05:12:23.987137+00:00"
+}

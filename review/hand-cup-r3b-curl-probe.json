@@ -1,0 +1,442 @@
+{
+  "observed_at": "2026-11-12T23:32:20.159109+00:00",
+  "status": "partial_checks_passed_full_acceptance_blocked",
+  "scope": "Partial real-Core and product-adapter probe of intermediate candidate; not final full character acceptance",
+  "checks": {
+    "actual_product_import_runtime_and_independent_consistent_core": "passed",
+    "cup_visibility_only_cup_changes_actual_raw_product_geometry_opacity_and_pixels": "passed",
+    "cup_xy_rotation_change_only_real_cup_and_actual_pixels": "passed",
+    "reviewed_torso_points_actual_triangles_texture_alpha_exclude_arms": "passed",
+    "ten_real_fingers_nonrigid_joint_curl_fixed_roots_non_target_exact_visible": "passed",
+    "javascript_runtime": "passed"
+  },
+  "full_acceptance": "BLOCKED",
+  "artwork_accepted": false,
+  "windows_executed": false,
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.moc3": "0d9d98493590d4b0fe452e6b809c3ecb04fe89b3d58c3600c553291305e4e0c9",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.4096/texture_00.png": "bf51fc0ea2dec7b6471b88ea30a69670d1e91ebb2b87c768288e6afcd7bd0b0c",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.cdi3.json": "8f106b8dbc02aa745216f156ff63d3c890fc254fb3cbad4b572817faaebb4702",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/export-r3b-curl/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/rig-r1-contract.json": "ac9ee34a3d9d58ba85666b5a480f662424a2861973f37be12b46b1f00c66b0c4",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_candidate_check.py": "19522dccc0aee58b1a6d017518868e44a2ea049b2f26a27bcd2c7d123f5f1547",
+    "/workspace/AI-radio-stream-help/frontend/live2d-renderer.mjs": "c2afccb9d6b1757f814f7b2a7c8106e71fac2496eda490bed0435a5639bc1fb8",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "3c94b227540994871cf7964a95beab80688e1810571eddc5eb9df59b33823204",
+    "/workspace/AI-radio-stream-help/app/static/scene-controller.js": "e29198b158492783990e2f16923f99996fdecea1d38ebb2121763177358f7005",
+    "/workspace/AI-radio-stream-help/app/static/studio.js": "c94a0908673b9b3e993870191c79a31461a367487a062caea5dbeb30dfad2bc3",
+    "/workspace/AI-radio-stream-help/app/static/app.js": "9c3908a723b5ed63bd873116178267271da3141f48287693854e492d5ac61d7f",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_metamorphic_check.py": "4069cef377764388275baa09c0c59d627b755967121725aecce98059ff0e21af",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_browser.mjs": "7b95787ffdf348d9d90513b479fd45222b056c99ad5f11f515557d73fbc68e02",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_contract.py": "e63ba4c5572e59f91418c3ad76e411a509c14dc174ad7e3bae4dac94f94188b8",
+    "/workspace/AI-radio-stream-help/tests/hand_cup_measurements.py": "68fc4679ed55a62ae88dadba788149eda8fc31d7aa9b2b2c4f7c176512c9ad2f",
+    "/workspace/.live2d/runtime/core.json": "728d5a1028f777dec13bd454edb6b25711225f26e7f98363d43a305c089c8f2c",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/record.json": "4e9e96f0d3283ee35a88db0749d7828adae61053f69f4fd411a18165a91d7ba9",
+    "/workspace/.live2d/runtime/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/runtime/bundle.json": "3aea9c5694014dd8448767fdca28d54922071ddec9364d1370cf1f64cf97f6d2",
+    "/workspace/.live2d/runtime/revisions/3d6764b4-53b8-4bd3-888c-db4d7491cf04/record.json": "ba0ad96d051171e9af726bee7f77563782e956dfe9398d6e2695453657408b81",
+    "/workspace/.live2d/runtime/revisions/3d6764b4-53b8-4bd3-888c-db4d7491cf04/script.js": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/r4-r1-landmark-contract.json": "55c2aba9788b163841a8397f6323409b3bbead85ec2c5066b7d806a117516f2d",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r4/r4-r1-joint-landmark-contract.json": "059128cccd206504e4f0fa472b3f99cf627383093aefabcf2cb8b310c5aa31d5"
+  },
+  "blocked_items": [
+    "Actual Core has no CupHold=0/1; held Body/Breath compensation not implemented",
+    "Both final held grip contracts and Body/Breath compensation not yet accepted",
+    "Full held/detach/wave/empty_hands authored actions not yet accepted",
+    "Human artwork acceptance and Windows execution not tested"
+  ],
+  "actual_core": {
+    "version": 83951616,
+    "consistency": 1,
+    "parameters": 40,
+    "drawables": 41,
+    "canvasInfo": {
+      "width": 1536,
+      "height": 2048,
+      "originX": 768,
+      "originY": 1024,
+      "ppu": 1536
+    }
+  },
+  "visibility_pixels": {
+    "error": 0,
+    "opaque": 206247,
+    "colored": 205628,
+    "changed": 6273,
+    "width": 1000,
+    "height": 665
+  },
+  "transforms": [
+    {
+      "parameter": "ParamCupX",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14228
+    },
+    {
+      "parameter": "ParamCupY",
+      "values": [
+        -500,
+        500
+      ],
+      "pixels": 14080
+    },
+    {
+      "parameter": "ParamCupRotation",
+      "values": [
+        -45,
+        45
+      ],
+      "pixels": 6474
+    }
+  ],
+  "semantic_supports": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            638,
+            669,
+            613
+          ],
+          "weights": [
+            0.04153722218646153,
+            0.15772537733135666,
+            0.8007374004821819
+          ],
+          "uv": [
+            0.17065499042409962,
+            0.6193723038631794
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            689,
+            626,
+            606
+          ],
+          "weights": [
+            0.3774665986919232,
+            0.4672229275368207,
+            0.15531047377125606
+          ],
+          "uv": [
+            0.16088368302896144,
+            0.5876317436392666
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "supports": [
+        {
+          "id": "ArtMeshTopwear",
+          "triangle": [
+            590,
+            666,
+            669
+          ],
+          "weights": [
+            0.34279919473800147,
+            0.3660076828293884,
+            0.29119312243261014
+          ],
+          "uv": [
+            0.17553312858074943,
+            0.6364770761058032
+          ],
+          "alpha": 253,
+          "opacity": 1,
+          "mask_count": 0,
+          "render_order": 3
+        }
+      ]
+    }
+  ],
+  "semantic_owners": [
+    {
+      "source_point": [
+        840,
+        1570
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        800,
+        1700
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    },
+    {
+      "source_point": [
+        860,
+        1500
+      ],
+      "actual_alpha_owners": [
+        "ArtMeshTopwear"
+      ]
+    }
+  ],
+  "curl": {
+    "root_budget_source_px": 0.5,
+    "minimum_tip_source_px": 1,
+    "minimum_bend_degrees": 1,
+    "budget_basis": "predeclared instrument thresholds before r3b evaluation; exact non-target meshes and actual visible GL required",
+    "fingers": [
+      {
+        "name": "finger-index-r",
+        "parameter": "ParamFingerIndexR",
+        "mesh": "ArtMeshLayerR2",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 21.20709113613519,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.46442326394711
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 21.20709113613519,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.46442326394711
+          }
+        },
+        "visible_pixels": 252,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-middle-r",
+        "parameter": "ParamFingerMiddleR",
+        "mesh": "ArtMeshLayerR3",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 22.125144261621926,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.517604399957122
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 22.125144261621926,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.517604399957122
+          }
+        },
+        "visible_pixels": 211,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-ring-r",
+        "parameter": "ParamFingerRingR",
+        "mesh": "ArtMeshLayerR4",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 20.54661892164484,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.354780864282787
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 20.54661892164484,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.354780864282787
+          }
+        },
+        "visible_pixels": 166,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-little-r",
+        "parameter": "ParamFingerLittleR",
+        "mesh": "ArtMeshLayerR5",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 16.80615919555676,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.38267334375982
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 16.80615919555676,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.38267334375982
+          }
+        },
+        "visible_pixels": 106,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-ring-l",
+        "parameter": "ParamFingerRingL",
+        "mesh": "ArtMeshLayerL2",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 14.185680275006256,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 16.30376015587808
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 14.185680275006256,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 16.30376015587808
+          }
+        },
+        "visible_pixels": 59,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-middle-l",
+        "parameter": "ParamFingerMiddleL",
+        "mesh": "ArtMeshLayerL3",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 14.7976191054088,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 15.050711006879055
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 14.7976191054088,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 15.050711006879055
+          }
+        },
+        "visible_pixels": 80,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-index-l",
+        "parameter": "ParamFingerIndexL",
+        "mesh": "ArtMeshLayerL4",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 15.716730251375306,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 15.819668865930339
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 15.716730251375306,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 15.819668865930339
+          }
+        },
+        "visible_pixels": 71,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-thumb-l",
+        "parameter": "ParamFingerThumbL",
+        "mesh": "ArtMeshLayerL5",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 20.29589182358498,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.43361852858419
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 20.29589182358498,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.43361852858419
+          }
+        },
+        "visible_pixels": 197,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-little-l",
+        "parameter": "ParamFingerLittleL",
+        "mesh": "ArtMeshLayerL6",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 11.267652119063852,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 16.491917594860126
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 11.267652119063852,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 16.491917594860126
+          }
+        },
+        "visible_pixels": 41,
+        "passes_root_tip_nonrigid_visible": true
+      },
+      {
+        "name": "finger-thumb-r",
+        "parameter": "ParamFingerThumbR",
+        "mesh": "ArtMeshLayerR6",
+        "metrics": {
+          "raw": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 15.130260779009433,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.14188459834014
+          },
+          "product": {
+            "root_drift_source_px": 0.0,
+            "tip_movement_source_px": 15.130260779009433,
+            "palm_seam_source_px": 0.0,
+            "bend_change_degrees": 17.14188459834014
+          }
+        },
+        "visible_pixels": 129,
+        "passes_root_tip_nonrigid_visible": true
+      }
+    ],
+    "failed": []
+  },
+  "page_errors": [],
+  "sources_unchanged": true
+}

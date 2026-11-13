@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "fresh_isolated_environment": "/workspace/AI-radio-stream-help/.build/quality-bootstrap-smoke",
+  "bootstrap_exit_code": 0,
+  "versions": {
+    "ruff": "0.17.4",
+    "mypy": "2.4.1"
+  },
+  "elapsed_seconds": 29.599,
+  "scope": "actual fresh venv creation and official PyPI pinned tooling install, then CLI help only; no product tests"
+}

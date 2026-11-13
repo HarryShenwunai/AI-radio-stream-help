@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-11-13T01:56:28.013974+00:00",
+  "status": "root_internal_clothing_baseline_accepted_final_source_replay_pending",
+  "model": ".build/original-character-rig-r5/export-underfill-aa-correct-base-order/character.model3.json",
+  "actual_snapshot": {
+    "path": ".build/original-character-rig-r5/underfill-aa-correct-base-order-rest-core-snapshot.json",
+    "sha256": "fc6f593418d1929496227ec034d4e66fe3b0a6340e31b560f3ab0c7fb19125ce"
+  },
+  "actual_order_and_opacity": [
+    {
+      "id": "ArtMeshTopwear2",
+      "drawOrder": 20,
+      "renderOrder": 1,
+      "opacity": 0
+    },
+    {
+      "id": "ArtMeshImage",
+      "drawOrder": 25,
+      "renderOrder": 2,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerL9",
+      "drawOrder": 40,
+      "renderOrder": 4,
+      "opacity": 1
+    },
+    {
+      "id": "ArtMeshLayerR9",
+      "drawOrder": 30,
+      "renderOrder": 3,
+      "opacity": 1
+    }
+  ],
+  "prerequisite_order_passed": true,
+  "reports": {
+    "opacity": "review/original-character-live2d-underfill-correct-base-opacity.json",
+    "gl": "review/original-character-live2d-underfill-correct-base-gl.json",
+    "35_pose_geometry_opacity_same": "review/original-character-live2d-underfill-correct-base-geometry-comparison.json"
+  },
+  "sources_stable_each_run": true,
+  "root_internal_visual_decision": {
+    "attribution": "Root independently viewed actual neutral and minimum extreme screenshots, then instructed this record",
+    "accepted_component": "Clothing baseline with underlay behind both upperarms",
+    "basis": [
+      "Covering shoulder paper-patch artifact improved after actual draw25/render2 correction",
+      "Remaining right lower wedge connects to exterior between bent arm and waist, interpreted as natural armpit air",
+      "Do not fill every alpha0 sample into a cape or claim all alpha0 is valid"
+    ],
+    "user_E5_acceptance": false
+  },
+  "retained_evidence": "Prior rejected revisions, exact actual alpha samples and corrected overstatement remain unchanged. No retroactive conversion to green.",
+  "pending": [
+    "Final same-source 42-layer PSD/authoring/MOC replay",
+    "Fresh final 34 cloth poses and actual scene composition",
+    "New eye alpha mesh and authored EyeOpen1 natural shape",
+    "Final full hand/cup actions/independent full acceptance",
+    "True Qwen/Kokoro Live2D chain",
+    "User artwork acceptance",
+    "Windows/4060"
+  ]
+}

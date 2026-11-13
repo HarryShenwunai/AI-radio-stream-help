@@ -1,0 +1,123 @@
+{
+  "observed_at": "2026-11-13T05:28:17.564494+00:00",
+  "release_id": 443847254,
+  "tag": "v0.5.0-dev3-live2d",
+  "draft": false,
+  "assets": [
+    {
+      "name": "character-app-source-update-0.5.0-dev3.zip",
+      "bytes": 7026261,
+      "sha256": "d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/character-app-source-update-0.5.0-dev3.zip"
+    },
+    {
+      "name": "original-live2d-r2-candidate-runtime.zip",
+      "bytes": 11017918,
+      "sha256": "23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-candidate-runtime.zip"
+    },
+    {
+      "name": "original-live2d-r2-candidate-source.zip",
+      "bytes": 345553022,
+      "sha256": "1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-candidate-source.zip"
+    },
+    {
+      "name": "original-live2d-r2-source-validation.zip",
+      "bytes": 49477803,
+      "sha256": "ae2e9a61d05e5c475541e7673cf820e5f57c3d374b9cbcd5bdfc40df8cadde41",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-source-validation.zip"
+    },
+    {
+      "name": "original-live2d-r2-runtime-evidence.zip",
+      "bytes": 201612593,
+      "sha256": "734b0344d07a3c07246b29a7522ed826d1a16607968159392bca990f8f756e41",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-runtime-evidence.zip"
+    },
+    {
+      "name": "original-live2d-r2-candidate-report.json",
+      "bytes": 52855,
+      "sha256": "012e829b5bd3972d9fd81aeddd80785ce696d41fd52fb9e0a8348582f8baa094",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-candidate-report.json"
+    },
+    {
+      "name": "live2d-mainstage-preview.png",
+      "bytes": 1623762,
+      "sha256": "026143b221ea1df27a7a7b1e9d68c4ea95e45865e5e8ea9c409e814c0d2c9d52",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-mainstage-preview.png"
+    },
+    {
+      "name": "live2d-mainstage-actions.webm",
+      "bytes": 8041497,
+      "sha256": "3c0865d3e6f5ddf6f948358922d7ed840caa4e8250e37bc7fde5a17b931c65a0",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-mainstage-actions.webm"
+    },
+    {
+      "name": "live2d-real-voice-stop.webm",
+      "bytes": 10033758,
+      "sha256": "1b48122c43ac621f5b86e310419cdb6936833a2fce83cd41e40defded6d1722f",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-real-voice-stop.webm"
+    },
+    {
+      "name": "live2d-real-voice.wav",
+      "bytes": 274442,
+      "sha256": "fde506f6c832b2127afb751425d774deb56bd63af83f4d44b83bcb459192b14f",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-real-voice.wav"
+    },
+    {
+      "name": "live2d-delivery.html",
+      "bytes": 144480,
+      "sha256": "3e465b15165e09631018c4137f3a6a1bff1f23a9c565fe32c044584d90cea453",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-delivery.html"
+    },
+    {
+      "name": "live2d-delivery.pdf",
+      "bytes": 529866,
+      "sha256": "e220e284ff5d2ec0e92cfe05cd1dbd1659ee44cd7af334516be6ec4c1c2f3bdf",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-delivery.pdf"
+    },
+    {
+      "name": "live2d-final-delivery-acceptance.json",
+      "bytes": 7997,
+      "sha256": "a0a377074eeceb1cc157c0cb14be8ec36a3cf3f488fd16402e0c0b9260287be3",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-final-delivery-acceptance.json"
+    },
+    {
+      "name": "real-live2d-rigid-r2-independent-final-review.json",
+      "bytes": 8763,
+      "sha256": "9643b6caa25111610e05e7ac1daac7273b60dfe7131f7e7b1890b620cab34fb9",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/real-live2d-rigid-r2-independent-final-review.json"
+    },
+    {
+      "name": "real-live2d-rigid-r2-companion.json",
+      "bytes": 49313,
+      "sha256": "61ea6b3f4189e68066457aab224e12f310d726a53e0c92f25fdf0b2b7af9c5b4",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/real-live2d-rigid-r2-companion.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 1511,
+      "sha256": "f6f8f9852eac911071f60540c5da4f4326d0e8bbd2970d3e651853e577357cd6",
+      "server_digest_verified": true,
+      "browser_download_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/SHA256SUMS.txt"
+    }
+  ],
+  "all_selected_assets_verified": true,
+  "published_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d",
+  "published_at": "2026-11-13T05:29:40Z"
+}

@@ -1,0 +1,40 @@
+{
+  "format": "final-project-320m-preflight-v1",
+  "generated_at": "2026-11-13T04:24:02.571804+00:00",
+  "passed": true,
+  "scope": "Actual frozen authoring project file-size pin plus actual complete nested archive manifest/CRC/PSD-identity check. Not whole source-ZIP, Core, official Editor or character visual acceptance.",
+  "project_path": ".build/original-character-rig-formal-r1/authoring/rigid-cup-character.psd2live",
+  "project_sha256_before": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+  "project_sha256_after": "1dd382af309e1ee15292cc628361e93d52bf9d83cf077fec1c5ab96379202d70",
+  "project_source_stable": true,
+  "project_bytes": 281235238,
+  "project_expanded_bytes": 1496362356,
+  "entries": 1579,
+  "largest_json": {
+    "path": "document/nodes/journal/654355ea429fa34e5fe66dc0af1fa6f8199c3b9da6f7f42a9055cfcfcb011199.json",
+    "bytes": 22628330
+  },
+  "embedded_psd_sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+  "checks": {
+    "project_manifest_members_verified": 1578,
+    "project_embedded_psd_matches": true,
+    "project_expanded_bytes": 1496362356,
+    "project_journal_members_verified": 118,
+    "project_largest_journal_bytes": 22628330,
+    "project_budget_scope": "maintainer_offline_source_packaging_only"
+  },
+  "error": null,
+  "seconds": 3.896,
+  "peak_rss_kib": 20816,
+  "source_sha256": "8795cb7c28bb76e4e7df1ea0e978efdbde97131a7a2a5764a74ffee395f486ab",
+  "preserved_old_limit_red": "review/live2d-final-project-old-256m-red.json",
+  "limits": {
+    "explicit_project_field": 335544320,
+    "other_source_file": 268435456,
+    "selected_sources": 536870912,
+    "nested_expanded": 2147483648,
+    "journal": 67108864,
+    "other_json": 8388608
+  },
+  "production_limits_changed": false
+}

@@ -1,0 +1,347 @@
+{
+  "reproduce_command": "PLAYWRIGHT_BROWSERS_PATH=/workspace/.cache/playwright /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/AI-radio-stream-help/tests/live2d_neutral_face_probe.py --model .build/original-character-rig-r5/export-eye-gutters-source-probe/character.model3.json --source-project .build/original-character-rig-r5/authoring/eye-gutters-source-probe.psd2live --runtime-dir /workspace/.live2d/owner-generated-runtime-check --eye-open .85 --output review/original-character-live2d-eye-gutters-open-085.json --evidence-dir /workspace/dist/evidence-original-character-live2d-eye-gutters/open-085",
+  "status": "actual_neutral_evidence_captured_not_art_acceptance",
+  "sources": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.cmo3": "f5e5725185017c2ecad006d03166b637f75194ed0665e177f2d42891b4b4b371",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.nod.motion3.json": "bfd9a247d5ec8479145c2dddfd5fdbf03e1c46df8d7460f07badd146c1e19418",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.sad.exp3.json": "e0f88d2ce01fa6f4718051ec6a15c803d70064011cf370cee15e50bf19978c82",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.surprised.exp3.json": "9b7850b565e3c2edef7534fb62fa364285063c254b76d079328dc8ee747b9097",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.shake.motion3.json": "81f50690b925cab5487c64cd1fc9781485a141f758a1f7085d36f0596bbfe54b",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.smile.exp3.json": "59e6869c12dad404623dc587086b79909262b1d027bdcf1a27a58aa8c2d50377",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.physics3.json": "385846be2c653e6bf3eda4a4e49353ba7c8ea6051a0e88aa86b5e2db749b30e1",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.angry.exp3.json": "98bacc260d618079f916df94f201c22d8ccde920c029c01fc793ae4dd670e756",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.model3.json": "537e36c2338488412f330b659db2a08b437e172cfc02fc2a8fbc0205b0b4ec29",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.blink.motion3.json": "399f91b7bfac0666f589ab7c6daace5e33e5c6d6e7c6e7ca4024b6db48a65110",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.idle.motion3.json": "14674d50d8765df706ac253975629f7cffe97a2442248a41af59f68d9cd3f2dc",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.psd2live.json": "6a399e69d18367395ba388db65b150a66cd0ade977a1d66a3b702190faf24d56",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.moc3": "eb941d705c93d96fbebbe0fccd9d732cfa915516ba7495a0d66d5ed7a06747b0",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.can3": "09ee608408443d95a458e9fc0abf5bb1d0ea2a3ab9a1d57e652d8a542008815f",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.cdi3.json": "8a7632a1066b3b9b9e416fd2d12f42d97c065f71cb41d60adb21a4b7a5f5a138",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.4096/texture_00.png": "9585b2b57ae989d98df3170e105c126091122586f7b398145ead3ef50010a7bd",
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/authoring/eye-gutters-source-probe.psd2live": "de59c969c4078eea97b19c1ea152bb8ecf398b1f0206457e4b55f3d7002867e6",
+    "/workspace/AI-radio-stream-help/tests/live2d_neutral_face_probe.py": "67439289119fec8346588b120c7aef531cea29685ca5f65db176a62f15b0f1e0",
+    "/workspace/AI-radio-stream-help/tests/live2d_original_core_check.py": "973b6567b3cf4b47541b35a6171bf2f3f5803691d28fc0f4bd4f8d819e0100dc",
+    "/workspace/AI-radio-stream-help/tests/live2d_joint_poses.py": "214e4864e8bd34f187f175851512508f008d66ea1530c65210c3c82aa42a9f02",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/820278f4-2f0f-4eae-a8ae-75e7ea899087/script.js": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+    "/workspace/.live2d/owner-generated-runtime-check/revisions/730f576f-4e74-4384-a4f3-6f1f1a4f3417/script.js": "0f9bfd8af46da18bc3ef15d940d96d66a7aedf05e7edfa49911b2a65b0f7f81d",
+    "/workspace/AI-radio-stream-help/app/static/live2d-renderer.js": "06fd4374014c6a89c77af360c453e7bfe60417fd48bbba66d9057d76f0eb5151"
+  },
+  "scope": "Actual default parameters plus explicit reviewed eye-open override pinned immediately before genuine Core update; real transparent WebGL and same fixed 900px camera. No source image edits or AI/audio.",
+  "artwork_accepted": false,
+  "checks": {
+    "actual_neutral_parameters_and_real_gl": "passed"
+  },
+  "page_errors": [],
+  "actual_browser_version": "156.0.8078.79",
+  "actual_viewport": {
+    "width": 1100,
+    "height": 950
+  },
+  "measurement": {
+    "actualParameters": [
+      {
+        "id": "ParamCupHold",
+        "value": 1,
+        "default": 1
+      },
+      {
+        "id": "ParamCupVisible",
+        "value": 1,
+        "default": 1
+      },
+      {
+        "id": "ParamCupRotation",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamCupY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamCupX",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerThumbR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerRingR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerMiddleR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerLittleR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerIndexR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamHandR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamForearmR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamArmR",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerThumbL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerRingL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerMiddleL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerLittleL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamFingerIndexL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamHandL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamForearmL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamArmL",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamAngleX",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamAngleY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamAngleZ",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamEyeLOpen",
+        "value": 0.8500000238418579,
+        "default": 1
+      },
+      {
+        "id": "ParamEyeROpen",
+        "value": 0.8500000238418579,
+        "default": 1
+      },
+      {
+        "id": "ParamEyeBallX",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamEyeBallY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamEyeBallForm",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBrowLY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBrowRY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamMouthForm",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamMouthOpenY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBodyAngleX",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBodyAngleY",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBodyAngleZ",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBodyLean",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamProportion",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamBreath",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamHairFront",
+        "value": 0,
+        "default": 0
+      },
+      {
+        "id": "ParamHairBack",
+        "value": 0,
+        "default": 0
+      }
+    ],
+    "meshes": [
+      {
+        "id": "ArtMeshMouthClose",
+        "sourceCanvasBBox": [
+          817.6210098266602,
+          672.6709136962891,
+          938.800163269043,
+          694.8033752441406
+        ],
+        "opacity": 1,
+        "textureIndex": 0
+      },
+      {
+        "id": "ArtMeshMouth",
+        "sourceCanvasBBox": [
+          820.9579524993896,
+          681.5609588623047,
+          935.0814743041992,
+          689.1743927001953
+        ],
+        "opacity": 0,
+        "textureIndex": 0
+      },
+      {
+        "id": "ArtMeshLayer2",
+        "sourceCanvasBBox": [
+          807.2453727722168,
+          676.3215789794922,
+          949.1548004150391,
+          700.9173126220703
+        ],
+        "opacity": 0,
+        "textureIndex": 0
+      },
+      {
+        "id": "ArtMeshLayer3",
+        "sourceCanvasBBox": [
+          812.2758378982544,
+          668.4208068847656,
+          947.8721580505371,
+          687.9403533935547
+        ],
+        "opacity": 0,
+        "textureIndex": 0
+      }
+    ],
+    "canvasInfo": {
+      "ppu": 1536,
+      "width": 1536,
+      "height": 2048
+    },
+    "actualGL": {
+      "width": 900,
+      "height": 900,
+      "transparentPixels": 468092,
+      "nontransparentPixels": 341908,
+      "error": 0
+    },
+    "coreEvaluations": 7
+  },
+  "explicit_parameter_overrides": {
+    "ParamEyeLOpen": 0.85,
+    "ParamEyeROpen": 0.85
+  },
+  "all_other_parameters_actual_defaults": true,
+  "expected_parameter_values_in_actual_float32_storage": {
+    "ParamMouthOpenY": 0.0,
+    "ParamMouthForm": 0.0,
+    "ParamEyeLOpen": 0.8500000238418579,
+    "ParamEyeROpen": 0.8500000238418579
+  },
+  "closed_mouth_actual_uv_atlas_alpha": {
+    "file": "/workspace/AI-radio-stream-help/.build/original-character-rig-r5/export-eye-gutters-source-probe/character.4096/texture_00.png",
+    "crop_bbox": [
+      3641,
+      1025,
+      3785,
+      1062
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_nonzero_bbox_in_uv_crop": [
+      0,
+      0,
+      144,
+      37
+    ],
+    "alpha_gt_16_texel_count": 1779,
+    "scope": "Read-only actual UV atlas envelope, not deformed-screen alpha or user art acceptance"
+  },
+  "screenshots": [
+    "/workspace/dist/evidence-original-character-live2d-eye-gutters/open-085/neutral-full.png",
+    "/workspace/dist/evidence-original-character-live2d-eye-gutters/open-085/neutral-face.png",
+    "/workspace/dist/evidence-original-character-live2d-eye-gutters/open-085/neutral-mouth.png"
+  ],
+  "sources_unchanged": true,
+  "screen_video_has_audio_track": false
+}

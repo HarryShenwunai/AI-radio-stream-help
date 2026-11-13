@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-12",
+  "scope": "document consistency only; not import/runtime tests",
+  "checks": [
+    {
+      "name": "research and plan local links",
+      "result": "passed"
+    },
+    {
+      "name": "research source JSON valid",
+      "result": "passed"
+    },
+    {
+      "name": "28 import cases honestly not run",
+      "result": "passed"
+    },
+    {
+      "name": "eight plan panels",
+      "result": "passed"
+    },
+    {
+      "name": "ten requirement IDs",
+      "result": "passed"
+    },
+    {
+      "name": "every candidate CI case linked in plan",
+      "result": "passed"
+    },
+    {
+      "name": "core effort sum",
+      "result": "passed"
+    },
+    {
+      "name": "A with reserve",
+      "result": "passed"
+    },
+    {
+      "name": "PNG effort excludes Live2D without repeated QA",
+      "result": "passed"
+    },
+    {
+      "name": "B excludes image adapter",
+      "result": "passed"
+    },
+    {
+      "name": "no application or UI source modifications",
+      "result": "passed"
+    },
+    {
+      "name": "quote form has no invented prices",
+      "result": "passed"
+    },
+    {
+      "name": "sample count minimum per format with held-out",
+      "result": "passed"
+    },
+    {
+      "name": "licence not asserted as passed",
+      "result": "passed"
+    },
+    {
+      "name": "independent review file valid",
+      "result": "passed"
+    }
+  ],
+  "import_tests_executed": 0,
+  "source_sha256": {
+    "docs/planning/self-service-characters-plan.md": "e1e4bb0ad1f43f5d5bda443cbcba106f0d518cf9e7d2d70ce59d2e02550c927a",
+    "docs/research/character-import-products-2026-11-12.md": "2d3b39d7a731fcb09b8bb47f13fe4b389de8aa4f3694a8e337bb6b759e08ea36",
+    "docs/research/artist-rigger-brief-2026-11-12.md": "415aae63df16c475d271e7c4f03ff999d77f283fb0b25c371cddc59cf25955da",
+    "docs/research/character-import-benchmark-2026-11-12.md": "9436a72b4f528deb246020af20275c5ec947a5780247848b7e89038b95e79303"
+  },
+  "user_confirmation": "Both production/budget allocation and visual proportion/layer-separation specifications required",
+  "limited_amendment": "User confirmation only; independent review records the same final SHA"
+}

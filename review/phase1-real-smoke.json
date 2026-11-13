@@ -1,0 +1,21 @@
+{
+  "observed_at": "2026-11-12T07:23:16.473813+00:00",
+  "kind": "single real local model and Kokoro observation on synthetic input",
+  "platform": "Linux",
+  "version": "0.3.0-dev1",
+  "human_quality_accepted": false,
+  "upstream_or_platform_test": false,
+  "first_text_seconds": 10.79,
+  "reply_seconds": 17.248,
+  "reply": "我懂，你累了就歇着，挺好。",
+  "generation_id": "191a93c0-d5fe-48b6-8101-7b97c01f6ec1",
+  "tts_seconds": 3.124,
+  "audio_seconds": 2.602,
+  "sample_rate": 24000,
+  "audio_bytes": 124938,
+  "completed_generation_late_speech_rejected": true,
+  "cooperative_cancel_seconds": 0.091,
+  "cancelled_reply_not_saved": true,
+  "max_rss_kib_linux": 5525876,
+  "passed": true
+}

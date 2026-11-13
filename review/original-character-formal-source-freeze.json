@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-13T02:14:24.152488+00:00",
+  "status": "FORMAL_R1_SOURCE_EXPORTED_BODY_ONLY_CUP_ART_REJECTED",
+  "original_psd_matches_project_embedded_psd": true,
+  "original_psd_sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+  "assets": {
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.model3.json": {
+      "bytes": 1385,
+      "sha256": "fc8405b8b7750f632f7023f6acaeae8a7b55f9ab820582fec535869810a847e4"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.moc3": {
+      "bytes": 516608,
+      "sha256": "44a23dc46877108c99000b888650bbb2b57730af1e3f1c3a5ab8c6d26da6c87f"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.cmo3": {
+      "bytes": 19675957,
+      "sha256": "794689331a21cc573cccfa79da7bd50b5e8926fabdb78c6e67693a17cbac810e"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/export/character.can3": {
+      "bytes": 253306,
+      "sha256": "e52f59e71786ad599d9cada18e5c06f2834c6a61ae323e9b8567d11c1a844084"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/authoring/character.psd2live": {
+      "bytes": 25941567,
+      "sha256": "1b9f50d26e0e86172f2e231ce72d7d7a10fc483889a0f7a6e019bf0bb4c8c769"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-rig-formal-r1/character.psd": {
+      "bytes": 47964854,
+      "sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342"
+    },
+    "/workspace/AI-radio-stream-help/.build/original-character-art-formal-r1/layers.json": {
+      "bytes": 58505,
+      "sha256": "f8b5aae4de8626c02009df204052bd9418d7b73ceaa5fb7057459953165c1d1e"
+    }
+  },
+  "changes": "New eye atlas extracted at transparent gutters with fresh generated meshes; eye Open1 copies prior .65 and Open0 retained; lip geometry .6; reviewed underfill behind all cloth; fresh continuous cloth; native cup and four hand actions",
+  "not_claimed": [
+    "Final Core/product/art acceptance",
+    "Official Windows Cubism Editor reopen",
+    "Windows4060 performance and physical devices"
+  ],
+  "actual_rejection": {
+    "report": "review/hand-cup-formal-r1-body-affine-residuals.json",
+    "reason": "Actual Body-only 1000-pose sweep with all arm/hand angles zero visibly bends the cup; best affine residual reached 25.444747 source pixels. Contact accuracy alone does not establish rigid-object quality.",
+    "source_unchanged": true,
+    "replacement_direction": "Author the complete source key domain including actual internal Breath=.5, then validate rigid similarity-follow prediction before export."
+  }
+}

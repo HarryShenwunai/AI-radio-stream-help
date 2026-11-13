@@ -1,0 +1,21 @@
+{
+  "scope": "Export-specific r4 neutral placement in900x900 actual GL framebuffer, bottom-left origin; generous mouth ROI reviewed from real r4 Core screenshots, not source artboard and not generic anatomy detection",
+  "stage": [
+    900,
+    900
+  ],
+  "parameters": {
+    "ParamMouthOpenY": [
+      440,
+      550,
+      560,
+      635
+    ],
+    "ParamMouthForm": [
+      440,
+      550,
+      560,
+      635
+    ]
+  }
+}

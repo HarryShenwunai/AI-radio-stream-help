@@ -1,0 +1,20 @@
+{
+  "artifact": "/workspace/dist/character-windows-x64-0.4.0-dev1-candidate.zip",
+  "source_commit": "d01ccc42bbe6795c216afae37dd0e53128ab58d9",
+  "bytes": 4491413065,
+  "sha256": "92d3e858cb93471b1fe4e633e2b5328aa43dc178f325a9bfa65ca62d1405b7e3",
+  "members": 13068,
+  "uncompressed_bytes": 6783710094,
+  "crc_and_all_archived_file_sha256_verified": true,
+  "internal_sha256sums_sha256": "10c9f12843d859cc3b2a2d5899fb0fd5013de7f675e5f3c2d2c2318ed980cb94",
+  "compression": "ZIP64; STORE weights, DEFLATE level1 other files",
+  "zlib_version": "1.3.2",
+  "elapsed_seconds": 73.921,
+  "windows_native_execution_verified": false,
+  "cuda_offload_confirmed": false,
+  "model_copies_per_profile": {
+    "cpu_shared": true,
+    "cuda_private_models": false
+  },
+  "live2d_core_framework_official_samples_included": false
+}

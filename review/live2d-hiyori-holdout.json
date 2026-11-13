@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "scope": "actual owner-installed Core/framework, official licensed local evaluation model, Chromium software WebGL; synthetic test audio",
+  "checks": {
+    "actual_core_model_preview_without_activation": "passed",
+    "explicit_activation_creates_live2d_webgl_stage": "passed",
+    "real_framebuffer_contains_model_pixels_and_alpha": "passed",
+    "premultiplied_transparent_background_is_valid": "passed",
+    "actual_audio_activity_drives_live2d_mouth": "passed",
+    "stop_resets_mouth": "passed",
+    "native_hidden_releases_canvas_and_renderer": "passed",
+    "restore_reloads_model": "passed",
+    "webgl_loss_retry_recovers": "passed",
+    "identity_switch_releases_old_live2d": "passed",
+    "identity_asset_selection_survives_reload": "passed",
+    "javascript_runtime": "passed"
+  },
+  "vendor_code_bundled": false,
+  "real_microphone": false,
+  "public_platform_connections": 0,
+  "not_tested": [
+    "Windows/RTX4060 performance",
+    "arbitrary Cubism exports",
+    "reference artwork acceptance",
+    "real voice/model quality",
+    "SDK or model publication permission"
+  ],
+  "installed_runtime_status": {
+    "available": true,
+    "core_available": true,
+    "bundle_available": true,
+    "renderer_available": true,
+    "core_url": "/live2d-core.js",
+    "runtime_url": "/live2d-runtime.js",
+    "core_version": null,
+    "cleanup_pending": false,
+    "artifacts": {
+      "core": {
+        "available": true,
+        "sha256": "25ae938cb4fe282ce189b357bcc97e603d1e1f7ec78bf04150d401c23cdc792f",
+        "source_type": "official_https",
+        "pin_kind": "observed_sha256",
+        "installed_at": "2026-11-12T15:53:29.155844+00:00"
+      },
+      "bundle": {
+        "available": true,
+        "sha256": "74e1eda8be15f0c6f9f33a5a4e84f64eac7586fdd4b1ecec19322672997eb149",
+        "source_type": "owner_local_bundle",
+        "pin_kind": "owner_expected_sha256",
+        "installed_at": "2026-11-12T16:03:51.119815+00:00"
+      }
+    },
+    "official_published_digest": false,
+    "runtime_execution_verified": false,
+    "publication_permission_verified": false,
+    "reason": null,
+    "license_links": [
+      "https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html",
+      "https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html",
+      "https://www.live2d.com/en/sdk/license/expandable/"
+    ]
+  },
+  "preview_status": "动态预览已准备好 · 尚未启用",
+  "preview_error": "",
+  "core_observation": {
+    "coreVersion": 83951616,
+    "latestMocVersion": 5,
+    "wrapper": {
+      "pixi": "8.23.0",
+      "wrapper": "1.4.0"
+    }
+  },
+  "model_observation": {
+    "id": "c3cacc54-181f-43bf-873a-2f168b63985d",
+    "moc": {
+      "code": 3,
+      "label": "MOC3 header revision 3",
+      "byte_order_flag": 0,
+      "core_verified": false
+    },
+    "stats": {
+      "state": "ready",
+      "frames": 43,
+      "mouth": 0,
+      "hidden": false,
+      "lost": false
+    }
+  },
+  "framebuffer_observation": {
+    "width": 511,
+    "height": 696,
+    "colored": 56402,
+    "transparent": 299085,
+    "transparentRgbNonzero": 0,
+    "premultiplied": true,
+    "corner": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cssBackground": "rgba(0, 0, 0, 0)",
+    "error": 0
+  },
+  "video": "/workspace/.live2d/evaluation/hiyori-holdout/acceptance.webm",
+  "javascript_errors": [],
+  "browser_warnings": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "WebGL: INVALID_OPERATION: loseContext: context already lost"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0003.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    },
+    {
+      "type": "warning",
+      "text": "PixiJS Warning:  [Assets] \"loadParser\" is deprecated, use \"parser\" instead for http://127.0.0.1:46137/api/assets/c3cacc54-181f-43bf-873a-2f168b63985d/r0002.png?character_id=2edd230c-6f88-4aae-9c44-5842fdda9cf7"
+    }
+  ]
+}

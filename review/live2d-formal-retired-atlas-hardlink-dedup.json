@@ -1,0 +1,66 @@
+{
+  "observed_at": "2026-11-13T03:37:58.624241+00:00",
+  "scope": "frozen retired formal export atlases only; author notified to use a fresh r2 export directory",
+  "canonical": ".build/original-character-rig-formal-r1/export/character.4096/texture_00.png",
+  "preserved_paths_and_bytes": true,
+  "verified_sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+  "freed_allocated_bytes": 70791168,
+  "changes": [
+    {
+      "path": ".build/original-character-rig-formal-r1/export-cloth-continuous/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921107,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-cloth-seam-topology/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921070,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-initial/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921030,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-native-glue-helper-probe/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921135,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-native-glue-shared-root/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921169,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-rigid-follow-identity/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921295,
+      "after_inode": 921201
+    },
+    {
+      "path": ".build/original-character-rig-formal-r1/export-rigid-follow-sparse-seed-scale-probe/character.4096/texture_00.png",
+      "bytes": 10109209,
+      "sha256": "3f8f87478fb51cdd1345efbf20c39312c4e2cf1c82a41023689ba754612048ab",
+      "before_inode": 921354,
+      "after_inode": 921201
+    }
+  ],
+  "untouched": [
+    "original generated art",
+    "PSD and editable project archives",
+    "current r2 mutable outputs",
+    "published base ZIP/parts and unpacked base",
+    "user data"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-11-12T21:07:19.707020+00:00",
+  "source_commit": "f3e4b105cfc96e6ef3f412c57de5809de7acf53a",
+  "full_gate_tested_working_tree_base_commit": "c04c1b547b7ee1f56d9b172948121ee8b344d21e",
+  "source_files": 248,
+  "full_gate_report_sha256": "7c0cda5686f346781da0b13e9c1db4e60a57568e08561d078363bb2932a3b32e",
+  "passed": true,
+  "mismatches": [],
+  "meaning": "Every program/visual source byte in the full test report is present in this commit. This does not add Windows, GPU, account or human quality acceptance."
+}

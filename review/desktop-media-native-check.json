@@ -1,0 +1,202 @@
+{
+  "scope": "Real Linux Electron45/Blink, native dialogs/menus, Xvfb; synthetic camera, real desktop stream",
+  "physical_devices_tested": false,
+  "windows_tested": false,
+  "checks": [
+    {
+      "name": "real native camera confirmation grants exactly one synthetic video track",
+      "passed": true
+    },
+    {
+      "name": "synthetic camera delivers video frames to the actual preview",
+      "passed": true
+    },
+    {
+      "name": "camera tracks actually stop",
+      "passed": true
+    },
+    {
+      "name": "native cancel rejects subsequent camera capture",
+      "passed": true
+    },
+    {
+      "name": "source choice opens dedicated preview without starting capture",
+      "passed": true
+    },
+    {
+      "name": "isolated dedicated window returns actual local JPEG preview",
+      "passed": true
+    },
+    {
+      "name": "screen preview capture stays within requested resolution and frame rate bounds",
+      "passed": true
+    },
+    {
+      "name": "main UI cannot use legacy desktop constraints to bypass source selection",
+      "passed": true
+    },
+    {
+      "name": "parent stop destroys capture owner and all its tracks",
+      "passed": true
+    },
+    {
+      "name": "single actual Xvfb display is reported without inventing an external device",
+      "passed": true
+    },
+    {
+      "name": "display output reuses exactly one primary window",
+      "passed": true
+    },
+    {
+      "name": "return to PC restores the prior window size and expanded mode",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "camera": {
+    "state": "active",
+    "kind": "camera",
+    "tracks": [
+      {
+        "kind": "video",
+        "state": "live"
+      }
+    ],
+    "settings": {
+      "aspectRatio": 1.3333333333333333,
+      "deviceId": "a8526ce86ab5ba93792fed07266bf56c17d7d95763ab94abd10e8769578d1018",
+      "exposureMode": "manual",
+      "exposureTime": 50,
+      "focusDistance": 50,
+      "focusMode": "manual",
+      "frameRate": 20,
+      "groupId": "00517c9f1ea8398afd4e6837143dd07797a3ef1bcaa43a3734668fd54597b52d",
+      "height": 480,
+      "resizeMode": "none",
+      "width": 640
+    }
+  },
+  "camera_video": {
+    "current_time": 0.95456,
+    "width": 640,
+    "height": 480,
+    "ready_state": 4
+  },
+  "screen": {
+    "capture_id": "860fef59-73ba-4b7f-ae6c-e30a82c9841a",
+    "state": "active",
+    "mime_type": "image/jpeg",
+    "width": 1280,
+    "height": 900,
+    "captured_at_ms": 1794516285341,
+    "processing": "local",
+    "retained": false,
+    "jpeg_sha256": "ab8f8a14798f5e58b9ab9a01dcbf4772c31464f27aaf182d79b393b27d22581b"
+  },
+  "screen_track_settings": {
+    "width": 1280,
+    "height": 900,
+    "frame_rate": 5
+  },
+  "main_legacy_probe": {
+    "state": "rejected",
+    "error": "NotAllowedError"
+  },
+  "detected_displays": {
+    "displays": [
+      {
+        "id": 60,
+        "label": "显示器",
+        "is_primary": true,
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 900
+        },
+        "scale_factor": 1
+      }
+    ],
+    "external_display_detected": false,
+    "output_display_id": null
+  },
+  "source_sha256": {
+    "desktop/main.cjs": "0f0fcb67903722602d8bdc38bb865bc067e3b28a435bdc9c6a1eb464a8574679",
+    "desktop/preload.cjs": "f924724733ff01ed78941586d2adc1dff116d189492ee5d8af58ba9adc439776",
+    "desktop/window-policy.cjs": "502131f8d9c829a61ae01855781d9d6c86255855a1b511a2c60441dbca9063b6",
+    "desktop/media-policy.cjs": "ef650a3b7ede7075427618344812da42e75ce7b0a6f3d69189b51a2e878555bc",
+    "desktop/screen-capture.cjs": "fda764e88bed63e62c3b73269e1abafd413cd7b40ab87d559c2d610b54516408",
+    "desktop/screen-capture.html": "601f17a77e383b13c2db55e28768dc83267e5edbd71b3bdf698383369c61ab95",
+    "desktop/screen-capture-view.js": "96df033c70fce16439fbe3eca616040a2b4858f8511cb1f13d6a20df0b39fbed",
+    "desktop/screen-capture.css": "585ed0cae454d4a639f4aa598406d1f0bbb50378b85efbe23eaadda93c79145e",
+    "desktop/test/media_native_probe.py": "2589752ad1eb848c3bc23a5c74f0ed1e7d81002d0487bbc053127f5c53c09cd2",
+    "desktop/test/media_native_fixture.cjs": "446bd76180009e8bda4ef67dcdbf74753c1f61681950c6e86f6849e3e8646607"
+  },
+  "sources_unchanged_during_checks": true,
+  "video_metadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp9",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 900
+      }
+    ],
+    "format": {
+      "duration": "8.666000",
+      "size": "199836"
+    }
+  },
+  "artifacts": {
+    "screen-preview.jpg": {
+      "sha256": "ab8f8a14798f5e58b9ab9a01dcbf4772c31464f27aaf182d79b393b27d22581b",
+      "bytes": 38393
+    },
+    "screen-source-picker.png": {
+      "sha256": "0ffca4c4c543dbd9ccc17d238785e56c6ce38cb4bd6215436b8bbdff3aa81978",
+      "bytes": 43703
+    },
+    "display-output.png": {
+      "sha256": "948ee3e268cf75eff641f04300fcb42acd92680ba5b072afb9e5c840304d77e0",
+      "bytes": 32464
+    },
+    "camera-permission.png": {
+      "sha256": "07a277ddd415d41c716b5fca360b8a4bcbc4bc71e6282776dfd26d86a40dbc96",
+      "bytes": 45052
+    },
+    "screen-isolated-active.png": {
+      "sha256": "1d0220a51ca52869ff21d2115036c8815989fb8125319ea2eed34d45649c4dc5",
+      "bytes": 29180
+    },
+    "native-capture-flow.webm": {
+      "sha256": "d1cb4de658040c932ef18a712164b5525969588ecc66a4b43e72689a343e8e50",
+      "bytes": 199836
+    },
+    "video-frame-6s.png": {
+      "sha256": "1603e982c4bb1f619816e112b9bb72a6657b8963b1205d3a98a07233e9012707",
+      "bytes": 167298
+    },
+    "screen-awaiting-user.png": {
+      "sha256": "1f1c11c8e0b5a1dcfd87ed2abd86288097c91765dd3ca783ee9fd7705b518244",
+      "bytes": 17120
+    },
+    "camera-active.png": {
+      "sha256": "c38b78a074d160582cb5de47d98320c4b5ba4ee7dad60524c8a96b715d5246aa",
+      "bytes": 44591
+    }
+  },
+  "limits": [
+    "Linux/Xvfb and synthetic camera only; no physical camera or far-field microphone",
+    "Actual main process with a synthetic page, not full redesigned UI acceptance",
+    "One detected display only; no physical 5-inch, second monitor, holographic optics or RTX4060 validation",
+    "No live provider account or screen-understanding quality measured"
+  ],
+  "manual_evidence_review": {
+    "camera-active.png": "Viewed actual synthetic Pacman video preview, with frame time progressing",
+    "screen-source-picker.png": "Viewed native monitor/window/cancel menu",
+    "display-output.png": "Viewed actual single-window output fixture",
+    "video-frame-6s.png": "Viewed real recursive desktop preview; video has no audio"
+  }
+}

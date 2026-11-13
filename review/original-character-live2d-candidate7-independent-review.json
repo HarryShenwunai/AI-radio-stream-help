@@ -1,0 +1,51 @@
+{
+  "latest_measured_model": "r5/export-candidate7",
+  "status": "not_final_paper_edges_and_foldovers",
+  "body_probe": "review/original-character-live2d-candidate7-body-probe.json",
+  "rest_snapshot": ".build/original-character-rig-r5/candidate7-rest-core-snapshot.json",
+  "actual_core": {
+    "drawables": 42,
+    "parameters": 41,
+    "CupHold_default": 1
+  },
+  "visual_observations": [
+    "Neutral actually renders normally",
+    "ForearmR+6 andForearmL-6 show jagged cloth spikes/paper edges, independently viewed inactualCore screenshots",
+    "No artwork PASS follows fromtechnicalCore/GL probe pass"
+  ],
+  "joint_metrics": "review/original-character-live2d-candidate7-joint-folds.json",
+  "prior_joint_control": "review/original-character-live2d-r5-old-glue-joint-folds.json",
+  "key_comparison": {
+    "ForearmR+6": {
+      "prior_forearm_r_flips": 24,
+      "candidate7_forearm_r_flips": 100,
+      "prior_max_edge_ratio": 4.679207275315368,
+      "candidate7_max_edge_ratio": 30.598954960825605
+    }
+  },
+  "semantic_detached": "review/original-character-live2d-candidate7-semantic-detached.json",
+  "semantic_note": "Candidate7 defaultHold1; actual detached checks explicitly overrideactualCupHold0.Three semantic sourcepoints stillTopwear253 andforbidden0,32limb/finger extremes preserveanchors,27CupROOTcorners isolatecup.Onlydetachedscope,notheldacceptance.",
+  "true_provider_harness": "tests/real_live2d_companion_browser_check.py",
+  "provider_preparation": "review/real-live2d-harness-preparation.json",
+  "detector_actual_selfcheck": "review/real-live2d-causal-instrument-selfcheck.json",
+  "actual_provider_invoked": false,
+  "waiting_for": [
+    "Revisedartifactfixingdynamicclothspikes",
+    "StablecompletehandcupPASSwithnewownerruntime",
+    "FinalruntimeZIP+functionalcontract+actuallandmarks+sourceManifest",
+    "ThenONEtrueQwenKokoro/finalLive2Dstop/context run"
+  ],
+  "combined_joint_review": {
+    "actual_core_metrics": "review/original-character-live2d-candidate7-combined-joint-folds.json",
+    "actual_gl_evidence": "review/original-character-live2d-candidate7-combined-joint-gl.json",
+    "source_stable": true,
+    "poses": "8 same-side shoulder±4 / elbow±6 corners + 4 bilateral opposite samples",
+    "actual_render_review": "opposite-shoulders-min-elbows-min.png inspected: visible jagged white gaps and pointed cloth fragments along both inner arm edges; art rejected",
+    "max_edge_ratio": 64.3791699854734,
+    "bilateral_winding_flips_range": [
+      140,
+      241
+    ],
+    "limitations": "Finite samples, not continuous/all-frame proof; Core winding metrics do not alone establish alpha visibility. Actual GL inspected separately."
+  }
+}

@@ -103,5 +103,6 @@
       "status": "NOT_RUN",
       "actual_result": null
     }
-  ]
+  ],
+  "snapshot_context": "Design-only baseline before implementation approval; full-phase acceptance remains unexecuted. Current partial local execution: phase1-tests.json and phase1-browser.json."
 }

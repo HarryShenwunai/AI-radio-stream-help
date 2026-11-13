@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-11-12T14:00:27.428808+00:00",
+  "scope": "Windows PE backend under Wine10 compatibility; not Windows10/11 hardware",
+  "baseline_report": "windows-compat-check.json",
+  "baseline_passed_checks": 4,
+  "model_report": "windows-compat-model-check.json",
+  "model_passed": false,
+  "blocker": "Wine10 ucrtbase.dll.crealf not implemented; reproduced in isolated NumPy imports",
+  "numpy226_comparison": "windows-numpy226-comparison.json",
+  "comparison_solved": false,
+  "native_hardware_verified": false,
+  "human_quality_accepted": false,
+  "assembled_backend_modified": false,
+  "no_system_install": true,
+  "official_debian_provenance": "apt/provenance.json"
+}

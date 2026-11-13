@@ -1,0 +1,17 @@
+✔ runtime selection is CPU by default and never accepts arbitrary paths (2.958542ms)
+✔ CUDA profiles must match the CPU application source and interpreter (2.185376ms)
+✔ only explicit local backend origins are accepted (1.037234ms)
+✔ navigation never leaves the paired page (0.293753ms)
+✔ bridge payload is typed and cannot invoke arbitrary host methods (0.255155ms)
+✔ compact and expanded bounds stay inside normal and small monitors (0.294084ms)
+✔ Windows assembly rejects ELF, truncated files and x86 PE without executing artifacts (3.606279ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.08601
+
+STDERR:

@@ -1,0 +1,6 @@
+﻿work_package,deliverable,role,precondition,hours_low,hours_high,quote,currency,revision_terms,rights_scope,acceptance,status
+ART-A,角色设计与比例稿,画师,窗口占位与参考风格,,,,,待填写,待约定,轮廓/比例签收,UNQUOTED
+ART-B,原画与拆件,画师或拆件人员,ART-A及绑定师拆分审核,,,,,待填写,待约定,遮挡补画/图层/颜色检查,UNQUOTED
+ART-C,绑定与基础能力,绑定师,ART-B,,,,,待填写,待约定,参数范围/极值/默认姿态,UNQUOTED
+ART-D,表情动作,绑定或动画人员,ART-C,,,,,待填写,待约定,预览/停止/复位/混合规则,UNQUOTED
+ART-E,应用适配与QA,开发/QA,合法运行包与目标版本,,,,,待填写,待约定,自助导入/映射/资源/失败恢复,UNQUOTED

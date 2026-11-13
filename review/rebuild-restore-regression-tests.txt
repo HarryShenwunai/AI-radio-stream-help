@@ -1,0 +1,7 @@
+test_restore_invalidates_old_schedule_binding_for_empty_and_task_backups (test_rebuild_http.RebuildHTTPTests.test_restore_invalidates_old_schedule_binding_for_empty_and_task_backups) ... ok
+test_restore_failure_rolls_back_task_memory_message_and_proposal_invalidation (test_rebuild_http.RebuildHTTPTests.test_restore_failure_rolls_back_task_memory_message_and_proposal_invalidation) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.168s
+
+OK

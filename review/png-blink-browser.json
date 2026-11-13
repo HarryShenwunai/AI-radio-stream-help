@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-12",
+  "status": "passed",
+  "checks": {
+    "optional_idle_blink_is_used": "passed",
+    "short_blink_restores_idle": "passed",
+    "actual_playback_selects_talk_blink": "passed",
+    "hidden_stage_releases_blink_timers": "passed",
+    "javascript_runtime": "passed"
+  },
+  "scope": "real Chromium, decoded synthetic PNG and test tone; no artwork, microphone or model quality claim",
+  "javascript_errors": []
+}
