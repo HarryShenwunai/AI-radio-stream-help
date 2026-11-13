@@ -1,6 +1,6 @@
 TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
-Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 4 cores with 455MB heap and 64MB offheap memory [pid: 90370] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
-Parsing file /workspace/AI-radio-stream-help/review/formal-models/Perception.tla
+Running breadth-first search Model-Checking with fp 0 and seed 20261112 with 1 worker on 9 cores with 455MB heap and 64MB offheap memory [pid: 285] (Linux 6.18.57 amd64, Debian 21.0.13 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /workspace/scratch/3bf0f6d52932/AI-radio-stream-help/review/formal-models/Perception.tla
 Parsing file /tmp/Naturals.tla
 Parsing file /tmp/FiniteSets.tla
 Parsing file /tmp/TLC.tla
@@ -10,9 +10,9 @@ Semantic processing of module Sequences
 Semantic processing of module FiniteSets
 Semantic processing of module TLC
 Semantic processing of module Perception
-Starting... (2026-11-12 21:01:38)
+Starting... (2026-11-14 04:43:01)
 Computing initial states...
-Finished computing initial states: 1 distinct state generated at 2026-11-12 21:01:39.
+Finished computing initial states: 1 distinct state generated at 2026-11-14 04:43:01.
 Model checking completed. No error has been found.
   Estimates of the probability that TLC did not check all reachable states
   because two distinct states had the same fingerprint:
@@ -20,4 +20,4 @@ Model checking completed. No error has been found.
 1514 states generated, 529 distinct states found, 0 states left on queue.
 The depth of the complete state graph search is 11.
 The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 6 and the 95th percentile is 4).
-Finished in 00s at (2026-11-12 21:01:39)
+Finished in 00s at (2026-11-14 04:43:01)

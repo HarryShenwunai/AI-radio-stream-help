@@ -1,0 +1,26 @@
+
+STDERR:
+test_assistance_cannot_acquire_external_execution_transport (test_architecture_rules.ArchitectureMutationTests.test_assistance_cannot_acquire_external_execution_transport) ... ok
+test_binary_response_double_serialization_fails (test_architecture_rules.ArchitectureMutationTests.test_binary_response_double_serialization_fails) ... ok
+test_current_source_baseline_passes (test_architecture_rules.ArchitectureMutationTests.test_current_source_baseline_passes) ... ok
+test_layered_character_parser_is_covered_by_execution_gate (test_architecture_rules.ArchitectureMutationTests.test_layered_character_parser_is_covered_by_execution_gate) ... ok
+test_plugin_cannot_reach_new_host_capture_advice_or_learning (test_architecture_rules.ArchitectureMutationTests.test_plugin_cannot_reach_new_host_capture_advice_or_learning) ... ok
+test_plugin_missing_authentication_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_missing_authentication_fails) ... ok
+test_plugin_owner_operation_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_owner_operation_fails) ... ok
+test_plugin_route_capability_expansion_fails (test_architecture_rules.ArchitectureMutationTests.test_plugin_route_capability_expansion_fails) ... ok
+test_preference_learning_cannot_own_network_or_tools (test_architecture_rules.ArchitectureMutationTests.test_preference_learning_cannot_own_network_or_tools) ... ok
+test_public_ingress_storage_import_fails (test_architecture_rules.ArchitectureMutationTests.test_public_ingress_storage_import_fails) ... ok
+test_public_private_prompt_alias_fails (test_architecture_rules.ArchitectureMutationTests.test_public_private_prompt_alias_fails) ... ok
+test_real_cli_rejects_fixture_with_exit_one (test_architecture_rules.ArchitectureMutationTests.test_real_cli_rejects_fixture_with_exit_one) ... ok
+test_role_package_script_execution_fails (test_architecture_rules.ArchitectureMutationTests.test_role_package_script_execution_fails) ... ok
+test_sdk_bytes_in_default_static_fails (test_architecture_rules.ArchitectureMutationTests.test_sdk_bytes_in_default_static_fails) ... ok
+test_sdk_dependency_in_default_graph_fails (test_architecture_rules.ArchitectureMutationTests.test_sdk_dependency_in_default_graph_fails) ... ok
+test_audit27_missing_connection_fields_is_rejected (test_architecture_rules.MissingConnectionContractTests.test_audit27_missing_connection_fields_is_rejected) ... ok
+test_audit29_proposals_cannot_read_arbitrary_files (test_architecture_rules.ProposalFileContentContractTests.test_audit29_proposals_cannot_read_arbitrary_files) ... ok
+test_audit28_qualified_eval_cannot_bypass_boundary (test_architecture_rules.QualifiedExecutionContractTests.test_audit28_qualified_eval_cannot_bypass_boundary) ... ok
+test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary (test_architecture_rules.VendorAliasContractTests.test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 5.753s
+
+OK

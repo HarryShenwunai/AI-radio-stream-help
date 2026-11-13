@@ -1,0 +1,44 @@
+{
+  "scope": "Real app HTTP, DOM, existing owner-local Core/WebGL; injected model-load failure. Fixture AI, isolated database. Runtime installer not tested. No Windows/hardware claim.",
+  "checks": {
+    "actual_model_import_and_gl_ready": true,
+    "baseline_false_load_stuck_reproduced": true,
+    "fixed_false_load_visible_retry": true,
+    "actual_retry_recovers_model": true,
+    "both_eye_parameters_close": true,
+    "mobile_no_horizontal_overflow": true,
+    "role_switch_releases_webgl_canvas": true
+  },
+  "errors": [],
+  "eye_parameters": [
+    {
+      "id": "ParamEyeLOpen",
+      "index": 5,
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "value": 0
+    },
+    {
+      "id": "ParamEyeROpen",
+      "index": 6,
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "value": 0
+    }
+  ],
+  "passed": true,
+  "files": {
+    "06-mobile-layout.png": "3e4e1c66b3eafb5f5f0bf0c0c405151198d923d13eceef81b8defa794690dc6f",
+    "04-real-model-recovered.png": "81acaa457c20842871f8401de6300e00d9e410f800dc18ca9fbed0307513f58f",
+    "05-both-eyes-closed.png": "978d106077a6dcf3451fb445b582e1bf0f51bdcbeefbbb6a560b8515b9a4eded",
+    "01-actual-model-ready.png": "eda8919f4c4479df9ce8fe9be18d727299a2fb61fb6eff12628e3a5e5b84aa4d",
+    "actual-browser-regression.webm": "b62a52599f064304cd79e1bc8b63a6b25498ea4377f5631b18a5056ca02a0723",
+    "02-before-false-load-stuck.png": "9beb0233407819d4f3b0d9fbc0ae3cc64750384d4bd9506b9ea4ea73f306b6d5",
+    "07-role-switch-released.png": "e05985372d994db2fbe714f316df95e2894b97197ff35d0ee156f8ac9599d3a4",
+    "03-after-visible-retry.png": "f2757643ebee4cdb5177779c014358471607ee427092cd761fd42606746286f7"
+  },
+  "tested_source_commit": "a50f9a1adefe4aec75914e301fcd4f19083bd52c",
+  "model_sha256": "e0ffe7e240862d76de8dd77277b383f9a32433384f2eabe1a9bf94a28e804e76"
+}

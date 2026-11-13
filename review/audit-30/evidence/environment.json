@@ -1,0 +1,33 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "test_python": "3.12.14",
+  "rendering": "headless Chromium, SwiftShader software WebGL",
+  "commands": {
+    "node": {
+      "exit_code": 0,
+      "version": [
+        "v24.22.1"
+      ]
+    },
+    "ffmpeg": {
+      "exit_code": 0,
+      "version": [
+        "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+        "built with gcc 14 (Debian 14.2.0-19)"
+      ]
+    },
+    "java": {
+      "exit_code": 0,
+      "version": [
+        "openjdk version \"21.0.13\" 2026-10-20",
+        "OpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)"
+      ]
+    },
+    "chromium": {
+      "exit_code": 0,
+      "version": [
+        "Google Chrome for Testing 157.0.8103.78"
+      ]
+    }
+  }
+}

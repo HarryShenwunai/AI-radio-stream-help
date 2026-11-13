@@ -21,5 +21,5 @@
   "source_sha256": {
     "scripts/quality_gate.py": "71f33a8f8deff5ee9cd42b2a1059c36e66f157ada48a5ccc088e1bfc0f7ed5f8"
   },
-  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+  "limits": "Local Python regression and mutation fixtures; this does not prove Windows hardware, real platform accounts or visual quality."
 }
