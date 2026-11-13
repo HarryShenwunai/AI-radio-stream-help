@@ -73,7 +73,7 @@ window.CompanionCore=(()=>{
      change();
     }
     try{while(true){const part=await reader.read();buffer+=decoder.decode(part.value||new Uint8Array(),{stream:!part.done});if(buffer.length>1048576)throw new Error('回复数据块过大，已停止读取。');let boundary;while((boundary=buffer.indexOf('\n\n'))>=0){const block=buffer.slice(0,boundary);buffer=buffer.slice(boundary+2);for(const line of block.split('\n'))if(line.startsWith('data:'))await event(JSON.parse(line.slice(5)));}if(part.done)break;}if(!finished&&live())throw new Error('连接中断。已保留消息，可以重试。');}
-    finally{reader.releaseLock();}
+    finally{try{await reader.cancel();}catch{}reader.releaseLock();}
    }catch(error){if(current(stamp)&&error.name!=='AbortError'){failed={requestId,text,retryId,error:error.message};if(!state.messages.some(item=>item.role==='user'&&item.request_id===requestId)&&!drafts.get(stamp.character_id))drafts.set(stamp.character_id,text);emit('error',error);}}
    finally{if(live())chat=null;if(current(stamp)){await refresh(true);change();}}
    return finished;
