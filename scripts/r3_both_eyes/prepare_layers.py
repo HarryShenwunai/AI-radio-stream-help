@@ -4,7 +4,9 @@ import numpy as np,json
 from scipy.interpolate import PchipInterpolator
 P=Path(__file__).resolve().parents[2]/'.build/r3-both-eyes'
 for k in ['both_closed_clean','both_white_clean']:
- (P/(k+'.png')).write_bytes(b''.join(x.read_bytes() for x in sorted(P.glob(k+'-[0-9]*'))))
+ parts=sorted(P.glob(k+'-[0-9]*'))
+ if parts:(P/(k+'.png')).write_bytes(b''.join(x.read_bytes() for x in parts))
+ elif not (P/(k+'.png')).is_file():raise FileNotFoundError('Missing completed eye painting: '+k)
 master=Image.open(P.parent/'r3-motion-revision/source/master.png').convert('RGB')
 clean={k:Image.open(P/(k+'.png')).convert('RGB').resize((490,390),Image.Resampling.LANCZOS) for k in ['both_open_clean','both_closed_clean','both_white_clean']}
 iris=Image.open(P/'full_iris.png').convert('RGBA');iris=iris.crop(iris.getbbox())

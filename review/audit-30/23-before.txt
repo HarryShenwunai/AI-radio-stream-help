@@ -1,0 +1,15 @@
+
+F
+======================================================================
+FAIL: test_audit23_existing_paintings_survive_without_download_chunks (test_r3_source_chunks.EyeSourceIntegrityTests.test_audit23_existing_paintings_survive_without_download_chunks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_r3_source_chunks.py", line 14, in test_audit23_existing_paintings_survive_without_download_chunks
+    for name in ['both_closed_clean','both_white_clean']:self.assertEqual((root/(name+'.png')).read_bytes(),b'original-painting')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'' != b'original-painting'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)
