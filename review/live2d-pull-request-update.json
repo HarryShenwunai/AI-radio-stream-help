@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/1",
+  "draft": true,
+  "state": "open",
+  "head": "feat/phase1-runtime",
+  "base": "main",
+  "body_sha256": "80c8750d1e5201a7313447836a218a8f70e3a018884019ef9afb5baccbd92c7c",
+  "method": "REST PATCH title/body only",
+  "merged": false,
+  "cli_graphql_failure": "gh pr edit requested deprecated projectCards; no product/source change; REST alternative succeeded."
+}

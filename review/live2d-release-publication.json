@@ -1,0 +1,15 @@
+{
+  "status": "PUBLISHED_PRERELEASE_ALL_16_ASSET_SERVER_DIGESTS_VERIFIED",
+  "observed_at": "2026-11-13T05:29:42.675664+00:00",
+  "id": 443847254,
+  "tag": "v0.5.0-dev3-live2d",
+  "draft": false,
+  "prerelease": true,
+  "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d",
+  "source_commit": "f1667eaa9d7dc58fb8a3e2328f7b9783fc698534",
+  "repository_private": false,
+  "assets": 16,
+  "sdk_or_weights_in_this_release": false,
+  "windows_runtime_executed": false,
+  "code_tag_is_independent_of_subsequent_publication_receipt_commit": true
+}

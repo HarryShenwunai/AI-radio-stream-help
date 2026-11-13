@@ -315,3 +315,12 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 实际provider第一次由QA调用，在环境重置后只留三图/WAV/raw视频，无最终stop报告，不能因为已无PID误称未调用；Root不同目录作一次完整恢复，review/real-live2d-rigid-r2-companion.json7门全过：exactZIP23af→Qwen/Kokoro/Analyser/Core、stop.793s、未听尾部排除与UI原文保留。两轮目录各自不覆盖，原interrupted JSON保留；不能声称只调用一次。
 - 当前恢复CPU单次首次文字49.54s、语音RMS69.621s、进程peak约5.37GiB，不声称已达实时/Windows4060目标。Playwright录像无音轨，真实WAV另附。Source重导出CLI6GiB heap/RSS约6.2GiB与正常角色运行不同，不混作运行开销。
 - 实际双ZIP：runtime11,017,918B SHA23afbd6435a8c548d3cdb3bbe0c8ba19d6161b46d520fa82a297446d961b052e；source345,553,022B SHA1625219f73d99defc82d6b2dbb23bdf90c16113d3293fd632a7320b6cbf8f0dc；source-validation49,477,803B SHAae2e9a61d05e5c475541e7673cf820e5f57c3d374b9cbcd5bdfc40df8cadde41。Root source/index、native/runtime/provider证据分开，SDK/权重/真实会话/禁用3D均不进发布包。
+
+
+## 2026-11-13 GitHub最终预发布与匿名下载核验
+
+- 最终发布v0.5.0-dev3-live2d/id443847254已实际公开为prerelease，tag源码f1667eaa9d7dc58fb8a3e2328f7b9783fc698534，16附件共635,455,841bytes，GitHub每个server digest/size与本地SHA逐个相同。review/live2d-release-assets-verified.json和live2d-release-publication.json存核验记录，无secret；7个发布页/更新/运行ZIP/截图/视频/WAV/PDF链接匿名HEAD跟随均HTTP200，彻底区别workspace链接下载不可用。SDK/权重/用户会话/禁用3D未进本批。
+- GitHub草稿创建成功后GET releases/tags仍404，不能因此重复create；应列owner releases精确tag唯一匹配取得ID。发布后tagGET才成功。上传器已强制draft/唯一ID/同名同SHA幂等、额外文件拒绝和全部16远端digest确认后才publish。
+- 旧gh pr edit查询deprecated projectCards而失败，改官方REST PATCH既有PR1 title/body，仍draft/open且不merge；不是产品代码失败。
+- Chrome企业策略file://返回ERR_BLOCKED_BY_ADMINISTRATOR，技能页用临时127.0.0.1 HTTP正常预览生成PDF/截图，源策略未改；完成停服务，JS0/外连0。HTML仍用answer-me-with-html CLI，四panel/STE0，PDF可直接阅读，不把说明页当软件。
+- 模型和媒体已冻结、代码源327SHA仍与780/111最终全门相同。后续publication receipt独立文档提交不更改release code tag或084软件ZIP；Windows/4060、实体设备/账号、用户E5仍留待目标环境。

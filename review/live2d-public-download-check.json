@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-11-13T05:31:34.433074+00:00",
+  "scope": "Anonymous public release page and selected downloadable assets, HEAD with redirects; asset contents separately verified by GitHub SHA256",
+  "all_selected_public_urls_accessible": true,
+  "checks": [
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/character-app-source-update-0.5.0-dev3.zip",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/original-live2d-r2-candidate-runtime.zip",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-mainstage-preview.png",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-mainstage-actions.webm",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-real-voice.wav",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    },
+    {
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/releases/download/v0.5.0-dev3-live2d/live2d-delivery.pdf",
+      "http_status": "200",
+      "exit_code": 0,
+      "anonymous_no_github_cli_auth_used": true
+    }
+  ]
+}
