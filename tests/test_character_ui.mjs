@@ -58,3 +58,5 @@ test('audit17 malformed UTF8 stream is rejected',async()=>{const bytes=Buffer.co
 test('audit18 parse failure cancels the still-open response stream',async()=>{let cancelled=0;const stream=new ReadableStream({start(c){c.enqueue(new TextEncoder().encode('data: {bad}\n\n'));},cancel(){cancelled++;}});const h=harness(url=>url==='/api/chat/stream'?Promise.resolve(new Response(stream)):Promise.resolve(response(state())));await h.core.send('hello');assert.equal(cancelled,1);});
 
 test('audit19 disposed core rejects new network work',async()=>{const h=harness();h.core.dispose();assert.equal(await h.core.send('after dispose'),false);await assert.rejects(h.core.api('settings',{}));assert.equal(h.calls.length,0);});
+
+test('audit20 GET requests receive their cancellation signal',async()=>{const h=harness(),controller=new AbortController();await h.core.api('state',undefined,{signal:controller.signal});assert.equal(h.calls[0].signal,controller.signal);});
