@@ -1,0 +1,20 @@
+{
+  "id": 3,
+  "title": "Reject invalid PCM rates and nonfinite samples before WAV encoding",
+  "branch": "fix/audit-03-pcm-input-validation",
+  "scope": "tests/test_voice_input_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit03",
+    "tests/test_voice_input_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/voice-input.js": "50dc30c37c463532e5ad1fa42ab40d47dab94e8efcb0566b667cf343989a4f66"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}

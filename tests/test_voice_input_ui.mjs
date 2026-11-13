@@ -51,3 +51,5 @@ test('repeated starts do not open more than one microphone',async()=>{
 test('audit01 stale recorder stop preserves the new recording',async()=>{const h=harness();await h.input.start();const old=h.recorders[0].onstop;h.input.cancel();await h.input.start();const count=h.track.stopped;old();await tick();assert.equal(h.track.stopped,count);assert.equal(h.input.phase,'recording');h.input.stop();await tick();assert.equal(h.recorders[1].state,'inactive');});
 
 test('audit02 changed role during permission returns to idle',async()=>{const permission=deferred(),h=harness({permission});const start=h.input.start();await tick();h.setRole('role-B');permission.resolve(h.stream);await start;assert.equal(h.input.phase,'idle');assert.equal(h.track.stopped,1);assert.equal(h.recorders.length,0);});
+
+test('audit03 invalid PCM cannot silently become a corrupt WAV',()=>{const h=harness(),encode=h.context.window.CompanionVoiceInput.pcm16Wav;for(const rate of [0,-1,NaN,Infinity,1.5])assert.throws(()=>encode(new Float32Array([0]),rate));for(const sample of [NaN,Infinity,-Infinity])assert.throws(()=>encode(new Float32Array([sample])));});
