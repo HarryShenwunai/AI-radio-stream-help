@@ -55,3 +55,5 @@ test('bounded exhaustive Audio event sequences never emit two terminal states or
  }
  assert.equal(paths,625);
 });
+
+test('audit04 duplicate system start cannot reset elapsed time',async()=>{const h=harness(),p=h.create({...meta(),duration_seconds:null});p.startSystem();h.advance(2000);p.startSystem();h.advance(4000);await p.complete();assert.equal(h.calls[0].body.position_seconds,4);assert.equal(h.timers.length,1);});
