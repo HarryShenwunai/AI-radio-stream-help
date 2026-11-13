@@ -1,0 +1,20 @@
+{
+  "id": 7,
+  "title": "Bound pending playback progress while receipt transport stalls",
+  "branch": "fix/audit-07-playback-backpressure",
+  "scope": "tests/test_playback_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit07",
+    "tests/test_playback_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/playback-receipts.js": "bbfe38330df637b6859dbfca238b47491f23fee6f8bf81230aea1cbc4edf20ab"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
