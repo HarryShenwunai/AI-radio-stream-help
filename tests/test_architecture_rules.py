@@ -167,3 +167,8 @@ class ProposalFileContentContractTests(ArchitectureMutationTests):
  def test_audit29_proposals_cannot_read_arbitrary_files(self):
   self.sources[architecture.ADVICE[0]]+='\ndef unsafe(path):\n return Path(path).read_text()\n';self.reject('A07')
 
+
+class VendorAliasContractTests(ArchitectureMutationTests):
+ def test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary(self):
+  self.package.setdefault('dependencies',{})['innocent-name']='npm:@live2d/cubism-core@1.0.0';self.reject('A04')
+
