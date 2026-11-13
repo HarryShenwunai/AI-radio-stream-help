@@ -1,0 +1,50 @@
+✖ disposed adapter cannot allocate another renderer or audio context (5.32332ms)
+✖ disposed adapter rejects audio attachment independently of model loading (0.942136ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 132.196066
+
+✖ failing tests:
+
+test at tests/test_live2d_adapter_ui.mjs:105:1
+✖ disposed adapter cannot allocate another renderer or audio context (5.32332ms)
+  AssertionError [ERR_ASSERTION]: dispose must be terminal for GPU allocation
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_live2d_adapter_ui.mjs:111:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/test_live2d_adapter_ui.mjs:115:1
+✖ disposed adapter rejects audio attachment independently of model loading (0.942136ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_live2d_adapter_ui.mjs:118:52)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
