@@ -1,0 +1,25 @@
+{
+  "id": 28,
+  "title": "Reject qualified builtins execution at asset and proposal boundaries",
+  "branch": "fix/audit-28-architecture-qualified-exec",
+  "scope": "tests/test_architecture_rules.py",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_architecture_rules.py",
+    "-k",
+    "audit28"
+  ],
+  "source_sha256": {
+    "scripts/check_architecture.py": "8cead5f96dd0f60cab210bb61adccf94daf6a4c2ef3a95501278b459ad363153"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
