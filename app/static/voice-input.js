@@ -30,6 +30,7 @@ window.CompanionVoiceInput=(()=>{
    }finally{context.close().catch(()=>{});if(decoder===context)decoder=null;}
   }
   async function finish(localTicket,id){
+   if(localTicket!==ticket)return;
    clearTimeout(timer);timer=0;stopTracks();recorder=null;
    if(localTicket!==ticket)return;if(id!==getCharacterId()||isHidden()){cancel();return;}
    publish('processing');const captured=chunks;chunks=[];
