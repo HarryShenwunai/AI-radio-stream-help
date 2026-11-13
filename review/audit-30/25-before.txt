@@ -1,0 +1,15 @@
+
+F
+======================================================================
+FAIL: test_audit25_root_startup_mutations_change_fingerprint (test_quality_gate_contract.RootFingerprintTests.test_audit25_root_startup_mutations_change_fingerprint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_quality_gate_contract.py", line 34, in test_audit25_root_startup_mutations_change_fingerprint
+    self.assertIn('start.cmd',before);self.assertNotEqual(before,after)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'start.cmd' not found in {}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
