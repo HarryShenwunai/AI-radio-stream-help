@@ -1,0 +1,29 @@
+✖ audit08 false model load leaves loading state (4.24814ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.388139
+
+✖ failing tests:
+
+test at tests/test_character_ui.mjs:38:1
+✖ audit08 false model load leaves loading state (4.24814ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'loading' !== 'error'
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_character_ui.mjs:38:206)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'loading',
+    expected: 'error',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
