@@ -30,7 +30,7 @@ window.CompanionPlayback=(()=>{
    const body=payload(status,position,total);notify(status==='stopped'?'stopping':'finishing');return send(body);
   }
   notify('pending');
-  return {attachAudio(value){audio=value;},startSystem(){if(terminal)return;startedAt=performance.now();notify('playing');limitTimer=setTimeout(()=>{if(!terminal){finish('stopped');onLimit();}},180000);},progress,complete:()=>finish('completed'),stop:()=>finish('stopped'),get terminal(){return terminal;}};
+  return {attachAudio(value){audio=value;},startSystem(){if(terminal||startedAt!==null)return;startedAt=performance.now();notify('playing');limitTimer=setTimeout(()=>{if(!terminal){finish('stopped');onLimit();}},180000);},progress,complete:()=>finish('completed'),stop:()=>finish('stopped'),get terminal(){return terminal;}};
  }
  return Object.freeze({fromHeader,create});
 })();
