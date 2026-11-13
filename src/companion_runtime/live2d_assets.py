@@ -180,8 +180,8 @@ def _auxiliary(doc, kind):
     if kind != "pose3.json" or "Version" in doc:
         _version(doc)
     if kind == "cdi3.json":
-        _object(doc, {"Version", "Parameters", "ParameterGroups", "Parts", "ArtMeshes", "CombinedParameters"}, {"ParameterGroups", "Parts"})
-        for key in ("Parameters", "ParameterGroups", "Parts", "ArtMeshes"):
+        _object(doc, {"Version", "Parameters", "ParameterGroups", "Parts", "ArtMeshes", "Drawables", "CombinedParameters"}, {"ParameterGroups", "Parts"})
+        for key in ("Parameters", "ParameterGroups", "Parts", "ArtMeshes", "Drawables"):
             for row in _array(doc.get(key, []), 4096):
                 required = {"Id", "Name", "GroupId"} if key in {"Parameters", "ParameterGroups"} else {"Id", "Name"}
                 row = _object(row, required, required)

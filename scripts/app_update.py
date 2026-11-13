@@ -5,6 +5,7 @@ This is an unsigned package: obtain its SHA from the project's trusted Release.
 """
 from __future__ import annotations
 import argparse
+import ast
 import hashlib
 import json
 import os
@@ -26,10 +27,10 @@ BASE_PROFILE_SHA = {'cpu':'ddb6282ec5ce07d9eadbb68101bff94d7dc89d88ee90d7fc2612f
 BASE_HOST_SHA = '7874d91e87f1c23610da8e80e4dbf655e11d37c27f73b4532879444eee97f6fc'
 PROFILES = {'cpu':'resources/backend','cuda':'resources/backend-profiles/cuda'}
 HOST = 'resources/app/main.cjs'
-HOST_FILES = frozenset({'main.cjs','preload.cjs','window-policy.cjs','media-policy.cjs','screen-capture.cjs','screen-capture.html','screen-capture-view.js','screen-capture.css'})
+HOST_FILES = frozenset({'package.json','main.cjs','preload.cjs','window-policy.cjs','media-policy.cjs','screen-capture.cjs','screen-capture.html','screen-capture-view.js','screen-capture.css','owner-runtime-path.cjs'})
 STATIC_FILES = frozenset({'index.html','style.css','app.js','desktop.css','desktop.js','avatar.svg',
     'connectors-ui.js','live2d-renderer.js','playback-receipts.js','voice-input.js','vrm-renderer.js',
-    'ui-kit.js','companion-core.js','scene-controller.js','speech-controller.js','conversation-view.js',
+    'ui-kit.js','companion-core.js','scene-controller.js','stage-actions.js','speech-controller.js','conversation-view.js',
     'studio.js','connection-flow.js','sound-flow.js','privacy-flow.js','assistance-view.js','layered-2d-renderer.js',
     'scene-morning.png','scene-forest.png','scene-evening.png'})
 RUNTIME_FILES = frozenset({'__init__.py','assets.py','characters.py','conversation.py','device_diagnostics.py',
@@ -46,6 +47,25 @@ MAX_PAYLOAD = 64*1024*1024
 
 def canonical_hash(record: dict) -> str:
     return hashlib.sha256(json.dumps(record,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+def validate_desktop_metadata(package: bytes, server: bytes | None=None) -> dict:
+    """Keep Electron's version aligned without changing its data identity/entry."""
+    try:metadata=json.loads(package)
+    except (ValueError,UnicodeError) as error:raise UpdateError('桌面package.json不是有效JSON。') from error
+    if not isinstance(metadata,dict) or metadata.get('name')!='companion-desktop-runtime' or metadata.get('main')!='main.cjs':
+        raise UpdateError('桌面应用名称与入口必须保持原值，防止改变用户数据路径。')
+    version=metadata.get('version')
+    if not isinstance(version,str) or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?',version):
+        raise UpdateError('桌面应用版本无效。')
+    if server is not None:
+        try:
+            tree=ast.parse(server)
+            values=[node.value.value for node in tree.body if isinstance(node,ast.Assign)
+                    and any(isinstance(target,ast.Name) and target.id=='VERSION' for target in node.targets)
+                    and isinstance(node.value,ast.Constant) and isinstance(node.value.value,str)]
+        except (SyntaxError,ValueError,UnicodeError) as error:raise UpdateError('无法静态读取服务端版本。') from error
+        if values!=[version]:raise UpdateError('桌面与服务端版本必须一致。')
+    return metadata
 
 def allowed_target(target: str) -> bool:
     return target in METADATA or target in {'resources/app/'+name for name in HOST_FILES} or any(
@@ -74,7 +94,9 @@ def load_update(folder: Path) -> dict:
         file=safe(folder,payload);size=file.stat().st_size;total+=size
         if size!=operation['bytes'] or size>20*1024*1024 or file_hash(file)!=operation['new_sha256']:raise UpdateError('更新负载大小或SHA不匹配。')
     if total>MAX_PAYLOAD:raise UpdateError('程序更新超过64MiB；模型或其它大文件不属于此更新。')
-    if not {HOST,*METADATA}<=set(seen):raise UpdateError('更新缺少启动保护或元数据。')
+    if not {HOST,'resources/app/package.json',*METADATA}<=set(seen):raise UpdateError('更新缺少启动保护或元数据。')
+    package=safe(folder,seen['resources/app/package.json']['payload']).read_bytes()
+    validate_desktop_metadata(package)
     for name,base in PROFILES.items():
         old=manifest['profiles'][name]['old'];new=manifest['profiles'][name]['new']
         if canonical_hash(old)!=BASE_PROFILE_SHA[name]:raise UpdateError('基础配置不是已发布的固定版本。')
@@ -104,6 +126,8 @@ def load_update(folder: Path) -> dict:
             raise UpdateError('更新不得伪造本机/显卡验收状态。')
         profile_operation=seen[base+'/runtime-profile-manifest.json']
         if json.loads(safe(folder,profile_operation['payload']).read_bytes())!=new:raise UpdateError('配置负载与清单声明不一致。')
+        server_operation=seen.get(base+'/app/server.py')
+        if server_operation:validate_desktop_metadata(package,safe(folder,server_operation['payload']).read_bytes())
     build_info=json.loads(safe(folder,seen['BUILD-INFO.json']['payload']).read_bytes())
     if build_info.get('source_commit')!=manifest['new_source_commit'] or any(build_info['profiles'][name]['source_id']!=manifest['new_source_id'] for name in PROFILES):
         raise UpdateError('发布元数据与程序来源不一致。')

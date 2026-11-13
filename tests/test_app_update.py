@@ -25,7 +25,9 @@ class AppUpdateTests(unittest.TestCase):
         self.put=put
         host=b"function setFocusable(value) {}\nasync function start(){\n      installIPC(); claimRuntimeSession(); await startBackend(); await createWindow();\n}\n"
         put(self.base/updater.HOST,host)
-        source_files={'app/server.py':b'print("old")\n','app/static/index.html':b'<p>old</p>',
+        package={'name':'companion-desktop-runtime','version':'0.4.0-dev1','main':'main.cjs'}
+        put(self.base/'resources/app/package.json',builder.encoded(package))
+        source_files={'app/server.py':b'VERSION = "0.4.0-dev1"\nprint("old")\n','app/static/index.html':b'<p>old</p>',
                       'src/companion_runtime/__init__.py':b''}
         profiles={}
         for name,folder in updater.PROFILES.items():
@@ -46,10 +48,11 @@ class AppUpdateTests(unittest.TestCase):
         sums=''.join(updater.digest(file)+'  '+file.relative_to(self.base).as_posix()+'\n' for file in sorted(self.base.rglob('*')) if file.is_file())
         put(self.base/'SHA256SUMS.txt',sums.encode())
         for file,data in source_files.items():put(self.source/file,data)
-        put(self.source/'app/server.py',b'print("new")\n');put(self.source/'app/static/index.html',b'<p>new</p>')
+        put(self.source/'app/server.py',b'VERSION = "0.5.0-dev3"\nprint("new")\n');put(self.source/'app/static/index.html',b'<p>new</p>')
         put(self.source/'app/static/ui-kit.js',b'export const a=1;');put(self.source/'src/companion_runtime/perception.py',b'VISION="unconfigured"\n')
         for name in updater.HOST_FILES:put(self.source/'desktop'/name,b'// new fixed host source '+name.encode()+
             (b'\n// ui-update-journal.json\nensureNoPendingUIUpdate();\n' if name=='main.cjs' else b''))
+        package['version']='0.5.0-dev3';put(self.source/'desktop/package.json',builder.encoded(package))
         hashes={file.relative_to(self.source).as_posix():updater.digest(file) for file in self.source.rglob('*') if file.is_file()}
         self.report.write_bytes(builder.encoded({'passed':True,'sources_unchanged_during_checks':True,'source_sha256':hashes}))
         self.original={file.relative_to(self.base).as_posix():file.read_bytes() for file in self.base.rglob('*') if file.is_file()}
@@ -73,6 +76,40 @@ class AppUpdateTests(unittest.TestCase):
         self.assertEqual((self.base/'models/llm.gguf').read_bytes(),b'unchanged large model sentinel')
         self.assertEqual((self.base/'user-data/characters/private.json').read_bytes(),b'private character sentinel')
         self.assertEqual(updater.execute(self.base,self.bundle,rollback=True)['status'],'rolled_back');self.assertOriginal()
+
+    def test_desktop_version_is_applied_and_restored_without_changing_name_or_entry(self):
+        self.assertIn('package.json',updater.HOST_FILES);self.assertIn('desktop/package.json',builder.COMMIT_FILES)
+        operation=next(item for item in self.manifest['files'] if item['target']=='resources/app/package.json')
+        self.assertEqual(operation['new_sha256'],updater.digest(self.source/'desktop/package.json'))
+        updater.execute(self.base,self.bundle)
+        metadata=json.loads((self.base/'resources/app/package.json').read_bytes())
+        self.assertEqual(metadata,{'name':'companion-desktop-runtime','main':'main.cjs','version':'0.5.0-dev3'})
+        for folder in updater.PROFILES.values():
+            updater.validate_desktop_metadata((self.base/'resources/app/package.json').read_bytes(),(self.base/folder/'app/server.py').read_bytes())
+        updater.execute(self.base,self.bundle,rollback=True)
+        self.assertEqual(json.loads((self.base/'resources/app/package.json').read_bytes())['version'],'0.4.0-dev1');self.assertOriginal()
+
+    def test_builder_rejects_desktop_identity_entry_and_server_version_mismatch(self):
+        original=json.loads((self.source/'desktop/package.json').read_bytes())
+        for index,changes in enumerate([{'name':'different-app'},{'main':'other.cjs'},{'version':'0.5.0-dev2'}]):
+            with self.subTest(changes=changes):
+                (self.source/'desktop/package.json').write_bytes(builder.encoded({**original,**changes}))
+                destination=self.root/('invalid-metadata-'+str(index))
+                with self.assertRaises(updater.UpdateError):builder.build_folder(self.base,self.source,destination,'a'*40,'invalid-metadata',self.report)
+                self.assertFalse(destination.exists())
+
+    def test_loader_rejects_rehashed_desktop_metadata_and_missing_package_payload(self):
+        target='resources/app/package.json';operation=next(item for item in self.manifest['files'] if item['target']==target)
+        file=self.bundle/operation['payload'];original=file.read_bytes()
+        for changes in [{'name':'different-app'},{'main':'other.cjs'},{'version':'0.5.0-dev2'}]:
+            with self.subTest(changes=changes):
+                data=builder.encoded({**json.loads(original),**changes});file.write_bytes(data);value=deepcopy(self.manifest)
+                changed=next(item for item in value['files'] if item['target']==target);changed['bytes']=len(data);changed['new_sha256']=hashlib.sha256(data).hexdigest();self.write_manifest(value)
+                with self.assertRaises(updater.UpdateError):updater.execute(self.base,self.bundle)
+                self.assertOriginal()
+        file.write_bytes(original);value=deepcopy(self.manifest);value['files']=[item for item in value['files'] if item['target']!=target];self.write_manifest(value)
+        with self.assertRaises(updater.UpdateError):updater.execute(self.base,self.bundle)
+        self.assertOriginal()
 
     def test_every_write_fault_rolls_back_without_leaving_an_incoherent_runnable_program(self):
         phases=['after-journal',*[f'after-file-{index}' for index in range(len(self.manifest['files']))],'before-commit']
@@ -173,7 +210,7 @@ class AppUpdateTests(unittest.TestCase):
         self.assertIn(b'ensureNoPendingUIUpdate',(self.base/updater.HOST).read_bytes())
 
     def test_builder_rejects_stale_validation_and_unallowlisted_new_source(self):
-        (self.source/'app/server.py').write_bytes(b'untested change')
+        (self.source/'app/server.py').write_bytes(b'VERSION = "0.5.0-dev3"\nprint("untested change")\n')
         with self.assertRaises(ValueError):builder.build_folder(self.base,self.source,self.root/'stale','b'*40,'stale',self.report)
         self.put(self.source/'src/companion_runtime/unreviewed.py',b'new module')
         with self.assertRaises(ValueError):builder.build_folder(self.base,self.source,self.root/'unknown','b'*40,'unknown',self.report)

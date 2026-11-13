@@ -207,3 +207,66 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - Root实际手抄不存在的40hex f3e4b1071d6ac2f735f01cfdbfb5bd9ef3d43120时，旧builder仅regex检查竟产生包；已隔离未上传。不能把40hex格式或质量报告hash匹配等同Git提交存在。
 - scripts/build_app_update.py 发布CLI现先用git rev-parse --verify <id>^{commit}确认真实commit，再用ls-tree及Git blob字节hash核对全部PROGRAM_FILES/host/随包installer与当前源码；调用builder/helper的checkout也须匹配。缺文件、symlink、tree对象、旧commit/脏文件、Gitless和不匹配publisher拒绝，创建输出目录前就失败；暂存完封ZIP前再核一次。纯build_folder的a*40夹具用途未改。发布必须先提交这些工具更改并自动读取真实HEAD，不能复用修复前commit。
 - 新真实临时Git仓库10项+既有事务/installer21项合计31测试；还以本仓库实际错误SHA重放CLI，验证exit2、无ZIP/part/输出目录。报告review/app-update-check.json与app-update-commit-rejection-check.json；native/optional内容未变，无故不重跑硬件夹具。
+
+
+## 2026-11-12 完整原创Live2D推进：不能拿PNG或自报参数冒充完成
+
+- 用户明确要求真实完整Live2D，并新增独立手部、手指与可脱离杯子；r3合并持杯body不能满足，不得当full发布。GitHub v0.5.0-dev2-ui2d已核仍draft=true/13附件，保留PNG中间成果，不发布为完整版。
+- 新可执行路线已实证：GPL PSD2Live v3.6.7 Linux小release + Java21，从原创分层PSD实际导出CMO3/MOC3/physics/motion/expression。官方Core接受原创几何v2且可见眼嘴像素真实变化；v1曾因PSD层序错误出现顶点动但眼嘴0像素，红图/报告保留。不能把工具链fixture绿当人物美术绿。
+- 真runtime旧setLipSyncEnabled?.(true)是不存在的wrapper外层API，会静默不启用lipSync；已改真实startLipSync/stopLipSync并用保留Audio而禁开启的强负控，检查Core嘴参+真实drawable几何。旧stats.mouth>0不足证明MOC口型。
+- Pixi8.23 GC看_gcLastUsed，而Jannchie1.4只写旧touched；真实4K活纹理60s可被回收后白屏1282/deleted object。已用真实GC负控定位，adapter通过正常getGlSource/bindSource刷新cache并保留闲置GC，实际66.276s/卸载/恢复新句柄通过。不能全局关闭GC掩盖。
+- MCP rig_deform.translate delta是目标localBounds宽/高的倍数，不是canvas像素；delta10使唇飞额头/领口。r1坏修订保留；±0.01实际约0.20源像素仅目标mesh变化，其它exact0，微小中点不对称未假称exact。rect/center也是0..1归一化；旧像素selector可使权重全0，不能以键形存在算绑定成功。
+- 美术atlas必须看真实alpha。左手初源5a9425d8灰晕背景实际大面积alpha64，不能归咎viewer；imagegen已修08efe181，alpha0=1,253,945/1,572,864，旧源保留不用。手掌cell越过y512，按实际透明沟槽y560分行，避免截腕/串指。
+- 同画布隔离袖/torso只能统一源坐标映射x1.4,y1.4-50，trim后各自fit造成腕袖差200–300px。矩形肘切片会露横线；已获准沿原褶线polygon texture extraction保留28px重叠，不程序画新像素。肩alpha无缺口不代表布纹/明暗接边艺术过关。
+- 原画分层由imagegen绘/补被遮挡部分，Node sharp仅标准atlas提取/纹理布局/真实网格区域划分，原生成文件不改。r4 head/body/hands各由独立manifest维护，最终只读manifest列层，不glob历史失败文件。新掌前景遮指根改善贴纸接茬，最终自然度仍需实际Core和近照审查。
+- 磁盘仅约1.3GiB空余，已清本任务可重建quality-bootstrap-smoke及powershell-parser.tar.gz压缩包，保留parser解包、已发布base安装包/模型/用户数据/红证据。勿复制4GB基础包；vendor与工具release均私有，不推GitHub。
+
+
+## 2026-11-12 Windows Live2D owner-run自助构建（不分发vendor）
+
+- 默认Windows包已有CP312，两条已验Core install_official/bundle SHA门禁可复用。新增setup_live2d_owner.py +固定live2d-owner-packages.json +setup-live2d-owner.cmd，只在主人明确许可与信任锁定构建后下载；直接运行官方固定SHA的@esbuild/win32-x64原生CLI，无需Node/npm，不执行package生命周期。默认发行/Git不含Core、Framework或构建bundle，许可仍仅主人本机评估。
+- 实际13包闭包+esbuild许可证包+Win原生包共28,859,896下载字节；Linux测试对应28,770,632。@types/earcut的tar顶层是earcut而不是package，已在锁中精确记录archive_prefix，不能通用乱strip。完整解包约101MB；私有短临时目录降低Windows路径长度，不修改机器LongPaths策略。长许可证banner在构建后本机写文件，避免Windows命令行长度限制。
+- 真Electron新增--owner-runtime-path仅返回精确DATA/live2d根路径后退出，0窗口/未启动backend；不猜APPDATA。默认/relative overrides均实际Linux通过review/owner-runtime-path-native-check.json；Windows stdout/原生执行未测。helper先核host/路径模块/应用SHA与原runtime源码SHA，旧host无入口不启动；原运行租约要求先退出程序。
+- SDK先装独立candidate，Core+bundle均通过既有SHA gate才成对切换；保留原runtime与事务，错误/模拟断电恢复，用户后来改动与坏备份拒覆盖。runtime实际revision中还含record.json，fingerprint必须包含，不能只接受script.js（首轮真实测试检出并已修）。用户角色/聊天/密钥/原模型不改。
+- 真HTTP空缓存15包下载→Linux原生esbuild构建→真实官方Core→完整安装/恢复均已通过；当前bundle1,183,739bytes，CoreSHA25ae...仅观测非vendor官方digest。源码/完整报告见docs/implementation/live2d-windows-owner-setup.md；不把结构ready当真Core执行、Windows/4060或美术验收。vendor只留/workspace/.live2d私有，禁止push。
+
+
+## 2026-11-12 原创Live2D双ZIP安全打包器（格式门不等于角色验收）
+
+- 追加独立开发工具scripts/package_live2d_character.py，不改已冻结runtime/update。输入original-live2d-package-spec-v1精确SHA，runtime仅model3真实引用闭包+项目自有NOTICE；source仅显式原PNG/manifest/PSD/CMO3/PSD2Live/recipe/可选验收索引，不glob整个.build。源码/契约见docs/implementation/package-live2d-character.md。
+- PSD2Live内部也可能藏vendor或错源，不能只检查外层扩展名：现限定实际项目结构、精确内部manifest、rig二进制PRIO；内嵌source/original.psd SHA必须等于独立PSD。已知官模hash负控仅防已知样例，origin仍是作者声明，不能宣传自动证明版权/所有官模检测。
+- 真AssetStore.import_live2d只说明格式与归一化；synthetic MOC envelope可通过，所以报告永远candidate，Core/可播放/艺术/full均不由工具判过。可选验收index必须绑定实际MOC SHA与每项证据SHA/size，证据不复制、只索引，不把作者claimed_decision当本工具结论。
+- 输入及写入中SHA漂移、symlink/junction、路径逃逸/URL/Windows保留名与非法字符、nested vendor/伪装weight、输出覆盖和并发抢占均有负控。独占硬链接发布只清本轮链接，不覆盖他人文件；3输出不具断电原子性，必须三件齐全且sidecar SHA匹配才可release；不支持硬链接的文件系统保守失败。
+- review/live2d-character-packager-check.json实际19 unittest+Ruff+CLI help+真实CLI synthetic打包/重复拒覆盖全通过、source SHA前后稳定；测试假PSD/CMO/MOC明确只用于格式门，未对仍在改的r4角色封最终包，未Core/Editor/Windows/美术验收。
+
+
+## 2026-11-13 小更新必须同步Electron版本元数据
+
+- desktop/package.json原未纳HOST_FILES，小更新只改server会让app.getVersion仍旧版；现加入固定host写集/真实Git COMMIT_FILES/验证report SHA及回滚事务，package.name仍companion-desktop-runtime、main仍main.cjs，绝不因版本更新改变用户DATA身份。构建静态AST核package.version==server.VERSION；loader校负载名称/入口并对server改动再次校版本。
+- CPU/CUDA SourceID仍只计backend source_files，server.VERSION既已在其中；host JSON由独立operation SHA与真实发布Git commit绑定，不把不存在的desktop文件路径塞backend profile。
+- 新负控验证名称/入口/版本伪造，即使重算JSON负载SHA仍拒；真实temp apply/rollback恢复旧package，未提交JSON变化被Git guard拒。现app-update-check共50单测全过+Ruff/当前源码静态元数据核对，详review/desktop-version-update-check.json。原生capture源码未改，没有重跑或冒称Windows/4060/app.getVersion真机通过。
+- 首轮旧stalefixture故意写invalid Python，被新增静态版本门更早拦住；已改为保留有效VERSION再改未测语句，仍确测SHA门。附加runner曾误用不存在test_ui_update.py导致0收集，已明确纠正为实际7项tracking-addon installer；不把0收集当通过，不因测试红放宽门禁。
+
+
+## 2026-11-13 显式可选CAN3动画源归档
+
+- packager spec新增可选can3:{path,sha256}，只允许.can3和CAFF头，固定source/character.can3，runtime ZIP不含它；仍不glob邻居/改变Core或candidate判断。实际r5/export-candidate7/character.can3只读观察253306bytes、CAFF、SHAecefeec42f78770019e1931e86b68acaa6c98919fcc1b6a37546bcda50acc18f；未实际封此候选或声称Animator重开。最初按r4找不到，已定位真实r5路径，未把缺文件写成已验。
+- 3项追加正负控（source-only精确保留+SHA/大小、错suffix/头、固定SHA后漂移）后共22测试+Ruff+真实CLI synthetic CAN3/重复拒覆盖通过，review/live2d-character-packager-check.json已更新。版本更新50门freeze不动，正式模型仍待最终源冻结。
+
+
+## 2026-11-13 组合姿态与源场插值不能靠角点代替
+
+- 当前candidate7已实际否决：12个肩肘组合（同侧四角、双侧相反）出现可见衣片尖刺/白锯齿，边长比最多64.379；Core/GL无错只证明可渲染。后续修复保持肩±4/肘±6，必须用相同组合检查，不能只验单轴。证据review/original-character-live2d-candidate7-combined-joint-{folds,gl}.json；首轮harness缺neutral baseline错误另存红，不归因产品。
+- 持杯486作者角点近精确仍在61离key有3.184px滑掌。独立1350真Core掌点诊断区分源场非线性/杯表示误差，Lean加±5的810格预测0.881705px；预测不是新MOC通过。最终使用额外独立seeded离key，保留1px预算，不用参与选网格的61点充泛化验证。
+- 只读视觉复核发现r5中性闭唇过薄、眼睑边硬。原145×42闭唇有体积，优先查实际默认参数/mesh厚度/opacity/UV，不据此重新整脸作画；白底图不能替代同一final rig在morning/forest/evening实际合成光色验收。三个背景主光均右上，与人物边光方向基本一致，不能编成光向相反问题。
+
+
+## 2026-11-13 原图集切片、实际排序与杯子完整父链
+
+- 眼atlas并非均匀5行。旧y614切到iris，实际左upperlash首边41个alpha>=8像素，进而把iris残片和真lash压入42px。新透明gutter为[0,350,685,960,1230,1536]。scripts/live2d_atlas_cells.mjs现拒切到可见alpha的四边，9个Node正负控和实际旧源负控通过；仅4个iris/lash PNG改变，完整正式源必须重建其alpha网格，不能沿旧mesh贴新图当完成。新输出目录禁止覆盖旧冻结源。
+- Node默认文件系统沙箱的child IPC会只显示文件级测试数；负subtest仍确实exit1。正常授权进程与非隔离检查均记录实际9case通过；最终quality使用正常授权进程，不把filecount冒充casecount。
+- 新AA underlay若仅anchor在Torso之前，会得到base45，实际在Upperarm30/40前，造成静止贴片盖肩。keyform drawOrder20 API成功仍未改变MOC base45；重新按已证import anchor在旧backfill20后插入实际base25才真在上臂之后。必须检查官方Core renderOrders，不只看请求/作者组织顺序。
+- visible:false也不是Core opacity0，exportHiddenDrawables时旧底片曾仍opacity1。旧片停画及技术helper都需要清真实opacity轨（包括复制来的CupVisible0/1），以Core逐值0验证。
+- 杯子flatten810在旧61离key过，但独立512仍43个失败/max3.223px；直接挂原BodyZ反事实512全部失败/max41.335px。原因包括零角Rotation子也会把Warp父刚性化，不能当透传。原始min/default/max不是完整作者内部关键格。
+- 可行结构已由独立实际Core/产品证明：一个可见ROOT杯，两恒0opacity技术helper，单向NativeGlue先全跟一侧再按t混另侧；完整手动控制外根必须原生Rotation(scale1)，并复制原3BodyWarp+6Shoulder/Elbow/Wrist真实父链。新未参与选择的1000样本最大接触差.005953765源px，H0 visible杯全vertices exact0。此为技术候选证据，不能覆盖正在重放的最终新PSD/MOC。v2合同明确可见杯与技术helper作用域，保留1px握点/.5px指根及物理角色非杯exact0，helper任意非0opacity即拒，旧v1结构红保留。
+- 第一轮全量8步虽然各自通过（Python754零skip、desktopPy9、Node97、desktopNode27），但两份manual test源在检查期间改变，整体报告正确false，未改成绿或用于发布。最终必须用稳定源码新全量报告。

@@ -36,7 +36,7 @@ VOICE_DIR = Path(os.environ.get('COMPANION_VOICES', str(ROOT / 'voices')))
 QUALITY_MODEL = MODEL_DIR / 'qwen3-4b-instruct-2507-q4_k_m.gguf'
 LIGHT_MODEL = MODEL_DIR / 'qwen2.5-1.5b-instruct-q4_k_m.gguf'
 MODEL = QUALITY_MODEL if QUALITY_MODEL.exists() or not LIGHT_MODEL.exists() else LIGHT_MODEL
-VERSION = '0.5.0-dev2'
+VERSION = '0.5.0-dev3'
 DEFAULT = {
     'name':'陪伴角色', 'user_name':'你', 'personality':'温柔但有自己的主见，偶尔俏皮，喜欢自然简短的聊天。',
     'engine':'local', 'api_base':'https://api.deepseek.com/v1', 'api_model':'deepseek-chat',
@@ -1808,7 +1808,7 @@ class Handler(BaseHTTPRequestHandler):
             reader = live2d_runtime().read_core if path == '/live2d-core.js' else live2d_runtime().read_bundle
             return self.reply(200,reader(),'application/javascript')
         if path not in {'/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
-                        '/ui-kit.js','/companion-core.js','/scene-controller.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
+                        '/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
                         '/layered-2d-renderer.js','/scene-morning.png','/scene-forest.png','/scene-evening.png'}:return self.reply(404,b'Not found','text/plain')
         file=STATIC/path.lstrip('/')
         if not file.is_file():return self.reply(404,b'Not found','text/plain')

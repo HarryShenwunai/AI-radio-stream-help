@@ -16,11 +16,12 @@ import tempfile
 import zipfile
 
 from app_update import (BASE_ARCHIVE_SHA, BASE_COMMIT, BASE_HOST_SHA, BASE_PROFILE_SHA, FORMAT,
-                        HOST, HOST_FILES, PROGRAM_FILES, PROFILES, canonical_hash, load_update)
+                        HOST, HOST_FILES, PROGRAM_FILES, PROFILES, canonical_hash, load_update, validate_desktop_metadata)
 from ui_update import UpdateError, digest, relative, safe
 
 ROOT=Path(__file__).resolve().parents[1]
-PUBLISHER_FILES=frozenset({'scripts/build_app_update.py','scripts/app_update.py','scripts/ui_update.py','scripts/tracking_addon.py'})
+PUBLISHER_FILES=frozenset({'scripts/build_app_update.py','scripts/app_update.py','scripts/ui_update.py','scripts/tracking_addon.py',
+                         'scripts/setup_live2d_owner.py','scripts/live2d-owner-packages.json','scripts/setup-live2d-owner.cmd'})
 COMMIT_FILES=frozenset({*PROGRAM_FILES,*['desktop/'+name for name in HOST_FILES],*PUBLISHER_FILES})
 
 def validate_source_commit(source: Path, commit: str, *, publisher_source: Path | None=None) -> str:
@@ -84,6 +85,7 @@ def bootstrap_host(original: bytes) -> bytes:
 def build_folder(base: Path, source: Path, output: Path, commit: str, identity: str, validation: Path) -> dict:
     import re
     if not re.fullmatch('[a-f0-9]{40}',commit) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,63}',identity):raise ValueError('Invalid commit/update ID')
+    validate_desktop_metadata((source/'desktop/package.json').read_bytes(),(source/'app/server.py').read_bytes())
     checks=json.loads(validation.read_text())
     if checks.get('passed') is not True or checks.get('sources_unchanged_during_checks') is not True:raise ValueError('A current passing, source-stable engineering report is required')
     report_hashes=checks.get('source_sha256',{})
@@ -168,14 +170,15 @@ def build_folder(base: Path, source: Path, output: Path, commit: str, identity: 
     sums.pop('SHA256SUMS.txt',None)
     add('SHA256SUMS.txt',''.join(value+'  '+name+'\n' for name,value in sorted(sums.items())).encode(),'payload/metadata/SHA256SUMS.txt')
     (output/'app-update-manifest.json').write_bytes(encoded(manifest))
-    for name in ['app_update.py','ui_update.py','tracking_addon.py']:shutil.copy2(ROOT/'scripts'/name,output/name)
+    for name in ['app_update.py','ui_update.py','tracking_addon.py','setup_live2d_owner.py','live2d-owner-packages.json','setup-live2d-owner.cmd']:
+        shutil.copy2(ROOT/'scripts'/name,output/name)
     for name,argument in [('apply-ui-update.cmd',''),('rollback-ui-update.cmd',' --rollback')]:
         command='@echo off\r\nsetlocal DisableDelayedExpansion\r\nset "APP_TARGET=%~1"\r\nif not defined APP_TARGET set /p "APP_TARGET=Extracted old application folder: "\r\nif not defined APP_TARGET exit /b 1\r\nset "APP_TARGET=%APP_TARGET:"=%"\r\nfor %%I in ("%APP_TARGET%") do if /i "%%~nxI"=="companion-desktop.exe" set "APP_TARGET=%%~dpI"\r\nif not exist "%APP_TARGET%\\resources\\backend\\python\\python.exe" (echo Select the fully extracted old application folder.& pause& exit /b 1)\r\n"%APP_TARGET%\\resources\\backend\\python\\python.exe" -I -X utf8 "%~dp0app_update.py" --target "%APP_TARGET%" --update-root "%~dp0"'+argument+'\r\nset "APP_RESULT=%ERRORLEVEL%"\r\npause\r\nexit /b %APP_RESULT%\r\n'
         (output/name).write_text(command,encoding='ascii',newline='')
     for name,argument in [('install-tracking-addon.cmd',''),('disable-tracking-addon.cmd',' --remove')]:
         command='@echo off\r\nsetlocal DisableDelayedExpansion\r\nset "APP_TARGET=%~1"\r\nif not defined APP_TARGET set /p "APP_TARGET=Extracted old application folder: "\r\nif not defined APP_TARGET exit /b 1\r\nset "APP_TARGET=%APP_TARGET:"=%"\r\nfor %%I in ("%APP_TARGET%") do if /i "%%~nxI"=="companion-desktop.exe" set "APP_TARGET=%%~dpI"\r\n"%APP_TARGET%\\resources\\backend\\python\\python.exe" -I -X utf8 "%~dp0tracking_addon.py" --target "%APP_TARGET%" --archive "%~dp0tracking-addon-cp312-win-x64-v3.zip"'+argument+'\r\nset "APP_RESULT=%ERRORLEVEL%"\r\npause\r\nexit /b %APP_RESULT%\r\n'
         (output/name).write_text(command,encoding='ascii',newline='')
-    (output/'START-HERE.txt').write_text('\uFEFF程序小更新（v2）· 仅用于已发布0.4.0-dev1基础候选包\n\n先核对可信GitHub Release提供的SHA256，再完整解压。先从托盘退出软件；双击apply-ui-update.cmd，输入旧软件解压目录。无需再次下载模型或4GB基础包。\n更新只替换固定白名单程序源文件、主机壳与来源清单。用户角色、聊天、密钥、SDK、模型、解释器、DLL和驱动不改。角色素材独立手动导入。\n中断后重跑同一可信更新器，或运行rollback-ui-update.cmd恢复。备份在resources/app-update-backups。不要删除事务、运行锁或备份。\n这是可恢复的多文件事务，不是一步全原子；不保证恶意并发篡改安全。Windows实际执行/文件锁/4060性能仍待真机验证；此包未进行代码签名。\n',encoding='utf-8')
+    (output/'START-HERE.txt').write_text('\uFEFF程序小更新（v2）· 仅用于已发布0.4.0-dev1基础候选包\n\n先核对可信GitHub Release提供的SHA256，再完整解压。先从托盘退出软件；双击apply-ui-update.cmd，输入旧软件解压目录。无需再次下载模型或4GB基础包。\n更新只替换固定白名单程序源文件、主机壳与来源清单。用户角色、聊天、密钥、SDK、模型、解释器、DLL和驱动不改。角色素材独立手动导入。\n中断后重跑同一可信更新器，或运行rollback-ui-update.cmd恢复。备份在resources/app-update-backups。不要删除事务、运行锁或备份。\n\n可选真Live2D：先应用程序更新，再双击setup-live2d-owner.cmd。它复用本包Python，主人明确接受Core与Framework条款后，下载约29MB固定依赖并在本机生成运行库；不要求Node/npm，不自动同意许可，不将SDK或生成bundle包含在默认包。完成后重启软件，手动预览确认导入自己的角色。\n这是可恢复的多文件事务，不是一步全原子；不保证恶意并发篡改安全。Windows实际执行/文件锁/4060性能仍待真机验证；此包未进行代码签名。\n',encoding='utf-8')
     load_update(output)
     return manifest
 

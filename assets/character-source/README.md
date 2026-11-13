@@ -12,12 +12,15 @@ Rejected source geometry, its builder and rendered images are isolated under the
 `.build/rejected-3d-reference/` audit directory. They are not product assets, not previews,
 and must not be added to Git, a release or an installation package.
 
-`contract.json` records this rejection. A new 2D layer contract will define actual imported
-RGBA layers, anchors, draw order and bounded motion. A static PNG is not a Live2D model;
-no `.moc3` or Cubism rig is claimed. Existing self-service PNG imports remain supported.
+`contract.json` records this rejection. The subsequent original 2D work now has a 42-layer
+source, genuinely exported editable projects and MOC3 models, verified against the owner’s
+local Cubism Core. These remain development candidates: artwork and the final synchronized
+PSD/project delivery have not been accepted. Static PNG imports remain a separate format.
+See `docs/implementation/avatar-original-live2d-status.md` for the actual evidence boundaries.
 Reference files and renders should retain their actual provenance and usage terms; do not assign
 CC0 or an invented artist identity. Do not copy official Live2D examples into this source.
 
 Current assets and measured limitations: `assets/character-2d/README.md` and
 `docs/implementation/avatar-2d-layers.md`. The optional layer parser is working,
-but the selected character has no accepted independently cut layer set yet.
+and the selected character now has independent painted parts. Their final visual assembly,
+dynamic cloth coverage and complete final revision still require acceptance.

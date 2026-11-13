@@ -1,12 +1,25 @@
 # 完成账与逐门验收
 
-核对日期：2026-11-12。当前工作基线为源码提交 `6fc3dd36d7df28b93903edac934b1d258d7b9b53` 后的实现；本轮新模块已接入并按独立证据逐门复测。此表不能由测试总数推导“全部完成”。机读状态在 [completion-status.json](../../review/completion-status.json)，会随实际证据更新。
+历史模块核对日期：2026-11-12。以下原模块工作基线为源码提交 `6fc3dd36d7df28b93903edac934b1d258d7b9b53` 后的实现；本轮新模块已接入并按独立证据逐门复测。此表不能由测试总数推导“全部完成”。机读状态在 [completion-status.json](../../review/completion-status.json)，会随实际证据更新。
+
+## 2026-11-13 原创Live2D当前状态
+
+**仍为未完成。** 已用自主独立分层、真实PSD/PSD2Live工程实际导出MOC3/CMO3，并通过主人本机授权的真实Core运行；未拿官模换皮、四帧PNG或结构假MOC3替代原创绑定。旧12项官样例/旧VRM/旧PNG真Qwen整链不是当前完整人物的验收。
+
+- 原创42层实际Core手/杯/十指可分别控制，十指非刚性弯曲另有真实旧刚性负控。CupHold、四个手杯动作和完整最终合同必须绑定同一最终MOC再通过，不能从中间分支拼接PASS。
+- candidate7真实肩肘组合出现纸片尖刺与50–241个三角翻转，已否决并保留真实图/视频。新`export-cloth-continuous`在8单轴、12大组合、14离key有限样本中翻转0，最大边长倍率1.223，但大组合真实GL仍有长背景缝与三角孔，**仍未美术接受**。当前只为body分支，无CupHold，不称全rig。
+- 后续`underfill-aa-correct-base-order`实际Core新底层draw25/render2、位于两上臂之前，old0/new1独立通过；root查看真实neutral/最坏组合后**内部接受服装基线**，余右楔视为与外界连通的腋下空气保留。此项不是用户E5、不是最终同源MOC通过，旧红/实际alpha记录不改绿；最终重放后仍复验34姿势与场景。详见`review/original-character-live2d-underfill-correct-base-independent-review.json`。
+- 同一最终角色的眼/唇默认呈现、最终布料连续覆盖、手杯耦合/四动作和人工视觉接受仍须收口。Core顶点可动或GL无错只证明技术子门。 Root后续直接查出眼atlas等分切行把虹膜残片带入睫毛，正在修源提取并重出head-r3；旧真实EyeOpen对照保留，但不能把调低开度当成修复该source错误。此根因由root实测，独立QA仍等新MOC复验。
+- 新真实Qwen→Kokoro→原创Live2D→实际Analyser/Core嘴部→停止→未听尾排除的独立harness已准备、语法及因果检测器实际Core自检完成；**尚未运行该最终角色的真实provider整链**。等待最终ZIP/合同/实际landmarks/新owner-runtime及完整手杯PASS冻结后仅跑一次，现有Linux权重不重下载。
+- 目标Windows10/11/4060、真实B站/微信账号和最终听感/美术接受的原有外部门仍未通过，不用Linux软件GL或本机适配器替代。
+
+当前独立证据见`review/original-character-live2d-continuous-cloth-independent-review.json`、`review/original-character-live2d-candidate7-independent-review.json`及`review/real-live2d-harness-preparation.json`。新旧报告均保留原SHA和执行范围；旧工程门禁不代表变更后源码全量再验。
 
 ## 真实目标与边界
 
 交付给本人使用的二次元桌面陪伴软件：Windows10/11上角落常驻、按需展开；用户自行上传和替换角色，拥有自然连续的聊天与语音、可关闭的记忆和可控主动联系，并接入所需哔哩哔哩弹幕姬及微信。督学是角色可选能力，不取代陪伴。设备已自报RTX4060、32GB内存；CPU、显存、驱动及实际机型仍未由程序检测。
 
-当前新增动态实现方向为VRM，保留PNG。参考图只定义自然比例、发丝、皮肤过渡和柔和光照的体验方向；不能把几何测试模型、格式支持、静态截图或SwiftShader渲染称为参考画质已经达到。
+当前用户已明确转为2D，拒绝的3D候选已隔离，不能再展示或打包。当前原创完整Live2D为主要角色交付目标；PNG及VRM的历史格式支持证据保留其原范围，不等于当前角色美术通过。参考画质需要实际同素材Core呈现、动态可见效果及人工接受，不能用格式支持或几何夹具替代。
 
 AR和MC来自上游研究与可选P6/P7，不因比较过五个仓库就自动成为本次必须完成项。Live2D在旧自助角色计划中写过正式目标，本轮继续保留，不能用完成VRM替代。用户现已明确同意Core与显示框架的本机评估条款；这不等于同意公开发布、代办Expandable许可或向其他用户再分发SDK。
 

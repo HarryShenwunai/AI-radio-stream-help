@@ -1,0 +1,203 @@
+{
+  "format": "companion-live2d-owner-npm-v1",
+  "access_date": "2026-11-12",
+  "purpose": "Owner-local licensed evaluation only; package bytes and generated renderer must not enter the default/public distribution",
+  "npm_lifecycle_scripts_executed": false,
+  "packages": [
+    {
+      "name": "@esbuild/linux-x64",
+      "version": "0.25.12",
+      "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.12.tgz",
+      "bytes": 4395720,
+      "sha256": "f7efc127658a108dcda9d4210b01804ee8f5d6b3acbd6d63f20aa51d3b50bd5f",
+      "npm_integrity": "sha512-uqZMTLr/zR/ed4jIGnwSLkaHmPjOjJvnm6TVVitAa08SLS9Z0VM8wIRx7gWbJB5/J54YuIMInDquWyYvQLZkgw==",
+      "archive_prefix": "package",
+      "role": "builder-linux-test",
+      "dependencies": {}
+    },
+    {
+      "name": "@esbuild/win32-x64",
+      "version": "0.25.12",
+      "url": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.12.tgz",
+      "bytes": 4484984,
+      "sha256": "c77076b48f96323cae6257bd515e5ea96ecf38ab8f7fa34364d4fc4ae5905b74",
+      "npm_integrity": "sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA==",
+      "archive_prefix": "package",
+      "role": "builder-windows",
+      "dependencies": {}
+    },
+    {
+      "name": "@jannchie/pixi-live2d-display",
+      "version": "1.4.0",
+      "url": "https://registry.npmjs.org/@jannchie/pixi-live2d-display/-/pixi-live2d-display-1.4.0.tgz",
+      "bytes": 543972,
+      "sha256": "84afa5940442327f0c5f0758615b686845af5a8ebe66d383cfb4d027a4a9b4ef",
+      "npm_integrity": "sha512-Qgg27x+psxB6nSxDbhtSgv4Caoxjir9iv4nBi+BH5XdD4AkyxNgm+wPP0UJjLXun0NFc55dmGTZfyPtVLTxevw==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "@types/earcut",
+      "version": "3.0.0",
+      "url": "https://registry.npmjs.org/@types/earcut/-/earcut-3.0.0.tgz",
+      "bytes": 2456,
+      "sha256": "858727fd92c05d6f3f5ba8dfd28198da91484d08c663431259d238408dde99c4",
+      "npm_integrity": "sha512-k/9fOUGO39yd2sCjrbAJvGDEQvRwRnQIZlBz43roGwUZo5SHAmyVvSFyaVVZkicRVCaDXPKlbxrUcBuJoSWunQ==",
+      "archive_prefix": "earcut",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "@webgpu/types",
+      "version": "0.1.74",
+      "url": "https://registry.npmjs.org/@webgpu/types/-/types-0.1.74.tgz",
+      "bytes": 28681,
+      "sha256": "338b7fd717168ed7fdab61c124bf426cb90e2ffa30f61539e5c7cc6ea0a28062",
+      "npm_integrity": "sha512-lgiI4hbuLcI9unnm2cL/tvCaQU45dp0xcLWJh5uB/9MBGvIA4F8XIk7nSiBeg+K4xWGYwgZKn80LmERI5CxoTA==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "@xmldom/xmldom",
+      "version": "0.8.15",
+      "url": "https://registry.npmjs.org/@xmldom/xmldom/-/xmldom-0.8.15.tgz",
+      "bytes": 62474,
+      "sha256": "119a4f40e960cd93471458634c115274bac3fe29652f55e2cbd286f84913b495",
+      "npm_integrity": "sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "colord",
+      "version": "2.12.0",
+      "url": "https://registry.npmjs.org/colord/-/colord-2.12.0.tgz",
+      "bytes": 43828,
+      "sha256": "04545c7c58b7a17f82f5c643f0c526c951d1456d5a201797c6edf50107d1120f",
+      "npm_integrity": "sha512-SpiONmQPZDqe50ivOTgkVikYsnp6l1HTFYqPRLNBCJJdA2Qympw2yYUzX99XlSbbKZswjiG6r+xsUpPPOHqY+Q==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "earcut",
+      "version": "3.2.4",
+      "url": "https://registry.npmjs.org/earcut/-/earcut-3.2.4.tgz",
+      "bytes": 34818,
+      "sha256": "2f63624cc056e4f2f8109a84d10fff3daeea37581af14af0f612ff387cc2534a",
+      "npm_integrity": "sha512-FHc6yNpnTORB0tM5kmZ03iD2mDuNakDE2lvf4Hw1XkfxtEHIGVi01B/GqUSwx+NcC1WGjidAfpTXzeALtPtfpg==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "esbuild",
+      "version": "0.25.12",
+      "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz",
+      "bytes": 30947,
+      "sha256": "227584145829e5c4782734b3fb7b91b49c6aa12876d6cf070e6a3d9d4de543f9",
+      "npm_integrity": "sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==",
+      "archive_prefix": "package",
+      "role": "build-license",
+      "dependencies": {}
+    },
+    {
+      "name": "eventemitter3",
+      "version": "5.0.4",
+      "url": "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.4.tgz",
+      "bytes": 12133,
+      "sha256": "21d4a36175672b9e6640c39a68613af73f9a4c47a4a4da39993e8cd085564eb6",
+      "npm_integrity": "sha512-mlsTRyGaPBjPedk6Bvw+aqbsXDtoAyAzm5MO7JgU+yVRyMQ5O8bD4Kcci7BS85f93veegeCPkL8R4GLClnjLFw==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "gifuct-js",
+      "version": "2.1.2",
+      "url": "https://registry.npmjs.org/gifuct-js/-/gifuct-js-2.1.2.tgz",
+      "bytes": 3726202,
+      "sha256": "6c7d1a46e36ce1ede8de4f928683bd6801022fd112342aebb36604d9d064e9f7",
+      "npm_integrity": "sha512-rI2asw77u0mGgwhV3qA+OEgYqaDn5UNqgs+Bx0FGwSpuqfYn+Ir6RQY5ENNQ8SbIiG/m5gVa7CD5RriO4f4Lsg==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {
+        "js-binary-schema-parser": "^2.0.3"
+      }
+    },
+    {
+      "name": "ismobilejs",
+      "version": "1.1.1",
+      "url": "https://registry.npmjs.org/ismobilejs/-/ismobilejs-1.1.1.tgz",
+      "bytes": 14031,
+      "sha256": "b0531d19f467ac715a9f41fa7b2d61b5bf2cdac1cefae6339af3fd2f17f76594",
+      "npm_integrity": "sha512-VaFW53yt8QO61k2WJui0dHf4SlL8lxBofUuUmwBo0ljPk0Drz2TiuDW4jo3wDcv41qy/SxrJ+VAzJ/qYqsmzRw==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "js-binary-schema-parser",
+      "version": "2.0.3",
+      "url": "https://registry.npmjs.org/js-binary-schema-parser/-/js-binary-schema-parser-2.0.3.tgz",
+      "bytes": 3136442,
+      "sha256": "940ceb2581c6f2715a8d23e1db62a9b78dc7690a5a456493186b07721b6465f0",
+      "npm_integrity": "sha512-xezGJmOb4lk/M1ZZLTR/jaBHQ4gG/lqQnJqdIv4721DMggsa1bDVlHXNeHYogaIEHD9vCRv0fcL4hMA+Coarkg==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "parse-svg-path",
+      "version": "0.2.0",
+      "url": "https://registry.npmjs.org/parse-svg-path/-/parse-svg-path-0.2.0.tgz",
+      "bytes": 3204,
+      "sha256": "48443222e5c5e668ca2d1e63a1aa151843a55133d159b029c0a6a377319e7a08",
+      "npm_integrity": "sha512-Tf7FFIrguPKQwzD4pWnYkR2VOv3raoHeKED80Bm+BYHI3KxC8KsgsGC5+fSMzAGDA6UEk4bHvmi+RsjmL3khpg==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    },
+    {
+      "name": "pixi.js",
+      "version": "8.23.0",
+      "url": "https://registry.npmjs.org/pixi.js/-/pixi.js-8.23.0.tgz",
+      "bytes": 16724496,
+      "sha256": "e0f016f60872f81449940b00bd359017c4de1a7071cdc2a6272325d9aa48689a",
+      "npm_integrity": "sha512-RkWSwo+mAR0d7MKnJ20IjKkWGPdFh1C0adBRYYLa+SGdxTfbrr6RnQyZZRwjBaG/bDAIQqgBcTBbiNsN6iKFVQ==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {
+        "@types/earcut": "^3.0.0",
+        "@webgpu/types": "^0.1.69",
+        "@xmldom/xmldom": "^0.8.15",
+        "colord": "^2.11.0",
+        "earcut": "^3.0.2",
+        "eventemitter3": "^5.0.1",
+        "gifuct-js": "^2.1.2",
+        "ismobilejs": "^1.1.1",
+        "parse-svg-path": "^0.2.0",
+        "tiny-lru": "^11.4.7"
+      }
+    },
+    {
+      "name": "tiny-lru",
+      "version": "11.4.7",
+      "url": "https://registry.npmjs.org/tiny-lru/-/tiny-lru-11.4.7.tgz",
+      "bytes": 11228,
+      "sha256": "e1ac7b8b75ff524d93318f365c4d2ead63924ada602454172f382e48e26376fb",
+      "npm_integrity": "sha512-w/Te7uMUVeH0CR8vZIjr+XiN41V+30lkDdK+NRIDCUYKKuL9VcmaUEmaPISuwGhLlrTGh5yu18lENtR9axSxYw==",
+      "archive_prefix": "package",
+      "role": "runtime",
+      "dependencies": {}
+    }
+  ],
+  "core_download": "https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js",
+  "core_digest": "Observed at owner installation; no vendor-published checksum claimed",
+  "license_links": [
+    "https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html",
+    "https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html"
+  ]
+}

@@ -2,15 +2,17 @@
 
 用户可以创建自己的二次元角色、上传有权使用的形象，并配置性格与相处方式。聊天、记忆和约定按身份隔离；同一角色换外观保留关系。学习监督是可选能力，长期记忆可关闭。
 
-开发版本 **0.4.0-dev1**，目标 **Windows 10/11 x64**。当前已实现 PNG、VRM 与 Live2D 运行包的自助导入流程、本地录音转写、语音提供方配置和平台控制面板；各格式与平台的验证程度不同。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
+开发版本 **0.5.0-dev3**，目标 **Windows 10/11 x64**。当前已实现 PNG、VRM 与 Live2D 运行包的自助导入流程、本地录音转写、语音提供方配置和平台控制面板；各格式与平台的验证程度不同。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
 
 [运行与角色导入](app/README.md) · [执行看板](docs/planning/execution-board.md) · [视觉质量目标](docs/design/visual-quality-target.md)
 
-[工程门禁与截图/录像复现](docs/implementation/engineering-gates.md)
+[工程门禁与截图/录像复现](docs/implementation/engineering-gates.md) · [原创 Live2D 制作状态](docs/implementation/avatar-original-live2d-status.md) · [本机运行库安装](docs/implementation/live2d-windows-owner-setup.md)
 
 ## Windows 运行
 
 [下载 Windows 便携候选包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。下载页面中的 `download-and-assemble.cmd` 和 `download-and-assemble.ps1`，放在同一文件夹后双击 CMD，自动下载三卷、校验并合并；完整解压后运行程序。合计下载约 4.18 GiB，候选包尚待 Windows 真机验收。
+
+基础包的 `BUILD-INFO` 保留 0.4.0-dev1 组装记录；小型程序更新独立记录后续源码提交，不要求重新下载模型。新增主舞台动作脚本需要同时更新后端静态路由，不能只复制 HTML。更新步骤见[应用更新说明](docs/implementation/desktop-capture-and-update.md)。
 
 完整便携目录采用随包 CPython 3.12 和预编译依赖，运行时不需要预装 Python、Node.js 或 Visual Studio。完整解压后双击 `companion-desktop.exe` 或 `start.cmd`；CPU 为默认模式，可在退出后通过 `使用CPU.cmd` / `使用CUDA.cmd`切换。是否包含模型、语音和 ASR 资产，以实际交付清单为准。
 
@@ -24,7 +26,7 @@
 | --- | --- |
 | 自助身份与 PNG | 创建、切换、归档、恢复、删除；预览后启用、修订回退；四状态自然眨眼/说话切换，本机 HTTP 与真实 Chrome 已验证 |
 | VRM 0/1 | 自包含运行资产导入、本地 WebGL、眨眼/呼吸/视线、音频 RMS 口型及隐藏释放；本机 Chrome 已验证，非音素级口型/目标美术验收 |
-| Live2D | ZIP 检查、依赖规范化、可选运行时与隔离预览已实现；用户已同意仅本机开发评估，Core5.1/MOC5 下 Haru、Hiyori 两份合法模型各12项真实 Chrome 检查通过；仅本机评估，非 Windows/全导出器/参考画质或发布许可 |
+| Live2D | 自助 ZIP 导入、真实 MOC 渲染、视线/眨眼/呼吸/音频口型、物理、包内表情和动作；主舞台直接操作与形象重载故障恢复已有真实 Chrome 证据。原创半身角色的独立十指、手掌和可脱离杯子正在最终硬杯验收，以[制作状态](docs/implementation/avatar-original-live2d-status.md)为准 |
 | 对话与关系 | 流式回复、相关记忆、记忆关闭、短期上下文和可控约定；真实本地模型已冒烟，人工自然度与长期关系体验未验收 |
 | 语音 | 本地 Kokoro、可选 GPT-SoVITS 或系统声音；PCM16 WAV → 本地 faster-whisper tiny → 输入草稿，已做合成语音真实 HTTP 检查，未作 Windows 真人麦克风验收 |
 | 打断 | 生成取消、旧身份/旧媒体拒绝已有本机证据；播放回执、历史 TTS、过期停止拒绝及未听尾部的保守上下文处理已完成本机验证；7项真实 Chrome 通过，不证明真人已听见 |
@@ -53,7 +55,7 @@ python run.py --no-browser
 
 ## 工具与工程检查
 
-按[工程门禁说明](docs/implementation/engineering-gates.md)准备工具后，运行 `python scripts/quality_gate.py --full`：关键 bug lint、四核心模块 strict mypy、六项架构规则和违规夹具，再跑 Python/Node。最终全量结果见[工程报告](review/quality-gate.json)，完整门禁已通过：Python417项零跳过、桌面Python9项、前端Node76项、桌面Node7项；检查期间源码SHA不变。取证脚本随后单独修正并通过[最终默认门禁](review/quality-gate-post-harness.json)，产品实现未变。
+按[工程门禁说明](docs/implementation/engineering-gates.md)准备工具后，运行 `python scripts/quality_gate.py --full`：关键 bug lint、十个模块 strict mypy、七项架构规则和违规夹具，再跑 Python/Node。报告同时绑定检查前后的源码 SHA；测试逐项通过但源码变化，整体仍失败。历史 [0.4 工程报告](review/quality-gate.json)与 [Live2D 主舞台前快照](review/quality-gate-live2d-final.json)各自保留原范围，当前[主舞台完整门禁](review/quality-gate-live2d-mainstage-final.json)于 2026-11-13 03:33 UTC 通过，Python766项零跳过、桌面Python9项、前端Node111项、桌面Node27项；检查期间源码 SHA 不变。浏览器、模型几何和目标机器各有独立验收。
 
 [TLA+/TLC 有限模型](review/formal-model-check.json)和[实际实现边界探索](review/formal-implementation-check.json)有独立报告；只覆盖明确的有限安全边界，不是整程序形式化正确性、活性、性能或人类听感证明。
 

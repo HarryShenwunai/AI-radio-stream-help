@@ -8,6 +8,7 @@ const { normalizeBackendURL, trustedNavigation, validateCommand, compactBounds, 
 const { backendDirectory, selectRuntimeProfile, saveRuntimeProfile } = require('./runtime-profiles.cjs');
 const { installMediaPermissions } = require('./media-policy.cjs');
 const { createScreenCaptureManager } = require('./screen-capture.cjs');
+const { ownerRuntimePaths } = require('./owner-runtime-path.cjs');
 
 app.setName('虚拟陪伴');
 let window = null, backend = null, tray = null, backendURL = '', quitting = false;
@@ -301,7 +302,17 @@ function cleanup() {
   stopOwnedBackend();
   if(runtimeSession){try{if(JSON.parse(fs.readFileSync(runtimeSession,'utf8')).pid===process.pid)fs.unlinkSync(runtimeSession);}catch{}}
 }
-if (!app.requestSingleInstanceLock()) app.quit();
+if (args.includes('--owner-runtime-path')) {
+  // Read-only owner CLI: bypass backend/window/tray and instance restoration.
+  // getPath is available before app.ready, matching backendEnvironment's path.
+  try {
+    const paths = ownerRuntimePaths({ userData:app.getPath('userData'),
+      backendCwd:app.isPackaged ? process.resourcesPath : path.join(__dirname,'..') });
+    process.stdout.write(JSON.stringify({ ...paths,backend_started:Boolean(backend),window_count:BrowserWindow.getAllWindows().length })+'\n');
+    app.exit(0);
+  } catch { process.stderr.write('Owner runtime path is unavailable.\n');app.exit(2); }
+}
+else if (!app.requestSingleInstanceLock()) app.quit();
 else {
   app.on('second-instance', () => { if (window) restore(); });
   app.on('before-quit', cleanup); app.on('window-all-closed', () => app.quit());

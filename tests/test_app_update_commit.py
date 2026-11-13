@@ -46,6 +46,10 @@ class AppUpdateCommitTests(unittest.TestCase):
     def test_uncommitted_host_change_is_rejected(self):
         (self.source/'desktop/main.cjs').write_bytes(b'fixture: uncommitted host\n')
         with self.assertRaisesRegex(ValueError,'desktop/main.cjs'):builder.validate_source_commit(self.source,self.commit)
+    def test_uncommitted_desktop_version_metadata_is_rejected(self):
+        self.assertIn('desktop/package.json',builder.COMMIT_FILES)
+        (self.source/'desktop/package.json').write_bytes(b'{"version":"uncommitted"}\n')
+        with self.assertRaisesRegex(ValueError,'desktop/package.json'):builder.validate_source_commit(self.source,self.commit)
     def test_required_source_missing_in_git_or_replaced_by_link_is_rejected(self):
         self.git('rm','app/server.py');missing=self.commit_all()
         with self.assertRaisesRegex(ValueError,'absent'):builder.validate_source_commit(self.source,missing)

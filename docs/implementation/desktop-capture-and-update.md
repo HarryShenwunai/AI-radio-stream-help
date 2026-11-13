@@ -50,6 +50,8 @@ v2 固定锚定已发布 d01 基础包：CPU/CUDA 原配置清单、主机壳、
 
 构建只接受 `passed:true`、`sources_unchanged_during_checks:true` 的报告，并逐项匹配 `source_sha256`。须覆盖所有改变的程序及全部主机文件；场景 PNG 也必须在报告中。元数据的 commit、source ID、CPU/CUDA 来源及实际 profile payload 必须一致。程序更新负载上限 64MiB。
 
+`desktop/package.json` 也属于固定主机白名单、发布 Git 来源检查及小更新事务。构建静态核对其 `version` 与 `app/server.py` 的 `VERSION` 相等，更新器再次检查负载；`name` 固定为 `companion-desktop-runtime`、`main` 固定为 `main.cjs`，避免升级改变 Electron 用户数据身份或入口。回滚恢复原 package 元数据。CPU/CUDA 的 SourceID 仍绑定各自 backend 程序文件，其中服务端 VERSION 改动已计入；主机 JSON 单独由负载 SHA、验证报告 SHA 和真实发布提交绑定，不将不存在的 desktop 路径加入 backend profile。
+
 发布 CLI 在创建输出目录前调用本地 Git：确认完整提交对象实际存在，并逐字节核对该提交树与所有固定程序、主机和随包 installer 源码。调用工具本身及其 helper 也必须匹配；脏代码、旧提交、Gitless 目录或只长得像 40 位 SHA 的标签都拒绝。暂存完成后、封 ZIP 前再检查一次。请自动读取实际 `git rev-parse --verify HEAD`，不要手抄提交。纯 `build_folder` 保留测试夹具用途，不能替代发布 CLI 门禁。
 
 ```sh
