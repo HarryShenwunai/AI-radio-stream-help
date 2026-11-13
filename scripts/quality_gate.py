@@ -126,7 +126,7 @@ def main():
         except (OSError, ValueError, KeyError, TypeError):regression = {"error":"Regression report unavailable; inspect subprocess exit code/log"}
     try:head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, timeout=10).stdout.strip()
     except (OSError, subprocess.TimeoutExpired):head = "UNAVAILABLE"
-    report = {"observed_at":dt.datetime.now(dt.timezone.utc).isoformat(), "passed":unchanged and all(step["passed"] for step in results),
+    report = {"observed_at":dt.datetime.now(dt.timezone.utc).isoformat(), "passed":unchanged and all(step["passed"] for step in results) and (not args.full or isinstance(regression, dict) and regression.get("passed") is True and regression.get("tests_run", 0) > 0),
               "full":args.full, "versions":versions, "source_commit":head, "source_sha256":after,
               "sources_unchanged_during_checks":unchanged, "sources_changed_during_checks":changed_sources, "checks":results,
               "python_regression":regression,

@@ -1,0 +1,23 @@
+Running critical-lint
+critical-lint: PASS
+Running strict-core-types
+strict-core-types: PASS
+Running architecture
+architecture: PASS
+Running architecture-negative-fixtures
+architecture-negative-fixtures: PASS
+Running python-regression
+python-regression: PASS
+Running desktop-python-regression
+desktop-python-regression: PASS
+Running frontend-node-regression
+frontend-node-regression: PASS
+Running desktop-node-regression
+desktop-node-regression: PASS
+FAIL: /tmp/tmpl_tadks5/result.json
+
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
