@@ -21,5 +21,5 @@
   "source_sha256": {
     "scripts/check_architecture.py": "2d6dda1ede0ceae3df7dfd37ea7084cf0e20f3dbfd5afb5e821c56b0bc20bfac"
   },
-  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+  "limits": "Local Python regression and mutation fixtures; this does not prove Windows hardware, real platform accounts or visual quality."
 }

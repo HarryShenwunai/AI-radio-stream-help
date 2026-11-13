@@ -1,0 +1,46 @@
+{
+  "files": {
+    "Live2D-regression-evidence.mp4": {
+      "sha256": "a1bac1e46a96270cdfee14e4e3400a403637a05adb9c4e0968bce65c6a941ad7",
+      "bytes": 1024337
+    },
+    "Live2D-before-after-evidence.png": {
+      "sha256": "cae02d51254af353dfa9371aa576affca2a6f52f4613edb485659a571c12155c",
+      "bytes": 455509
+    },
+    "actual-browser-regression.webm": {
+      "sha256": "b62a52599f064304cd79e1bc8b63a6b25498ea4377f5631b18a5056ca02a0723",
+      "bytes": 1339105
+    },
+    "01-actual-model-ready.png": {
+      "sha256": "eda8919f4c4479df9ce8fe9be18d727299a2fb61fb6eff12628e3a5e5b84aa4d",
+      "bytes": 1144573
+    },
+    "02-before-false-load-stuck.png": {
+      "sha256": "9beb0233407819d4f3b0d9fbc0ae3cc64750384d4bd9506b9ea4ea73f306b6d5",
+      "bytes": 1033997
+    },
+    "03-after-visible-retry.png": {
+      "sha256": "f2757643ebee4cdb5177779c014358471607ee427092cd761fd42606746286f7",
+      "bytes": 1037111
+    },
+    "04-real-model-recovered.png": {
+      "sha256": "81acaa457c20842871f8401de6300e00d9e410f800dc18ca9fbed0307513f58f",
+      "bytes": 1144628
+    },
+    "05-both-eyes-closed.png": {
+      "sha256": "978d106077a6dcf3451fb445b582e1bf0f51bdcbeefbbb6a560b8515b9a4eded",
+      "bytes": 1144453
+    },
+    "06-mobile-layout.png": {
+      "sha256": "3e4e1c66b3eafb5f5f0bf0c0c405151198d923d13eceef81b8defa794690dc6f",
+      "bytes": 339176
+    },
+    "07-role-switch-released.png": {
+      "sha256": "e05985372d994db2fbe714f316df95e2894b97197ff35d0ee156f8ac9599d3a4",
+      "bytes": 266377
+    }
+  },
+  "delivery": "Private Library delivery, not embedded into the public repository. Actual browser capture with local model and Core.",
+  "known_visual_issue": "The portrait background remains a visible rectangle; closed-eye shading and partly hair-occluded eye appearance still need visual acceptance."
+}

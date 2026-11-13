@@ -1,0 +1,8 @@
+{
+  "run_url": "https://github.com/HarryShenwunai/AI-radio-stream-help/actions/runs/43504731799",
+  "job_started": false,
+  "remote_test_result": null,
+  "status": "Blocked before runner execution by an account-level platform issue. No remote CI pass is claimed.",
+  "job_steps_available": false,
+  "job_log_download": "not_found"
+}

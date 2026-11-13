@@ -1,0 +1,18 @@
+downloaded same.whl
+downloaded same.whl
+
+STDERR:
+test_missing_cuda_native_dependency_exits_before_http (test_cuda_bootstrap.CUDAStartup.test_missing_cuda_native_dependency_exits_before_http) ... ok
+test_successful_preflight_runs_server_without_model_loading (test_cuda_bootstrap.CUDAStartup.test_successful_preflight_runs_server_without_model_loading) ... ok
+test_gpu_snapshot_policy_and_budget_are_explicit (test_device_diagnostics.HardwareBoundaries.test_gpu_snapshot_policy_and_budget_are_explicit) ... ok
+test_nonfinite_negative_overfull_and_extra_fields_are_rejected (test_device_diagnostics.HardwareBoundaries.test_nonfinite_negative_overfull_and_extra_fields_are_rejected) ... ok
+test_unavailable_and_timeout_are_bounded_without_process_query (test_device_diagnostics.HardwareBoundaries.test_unavailable_and_timeout_are_bounded_without_process_query) ... ok
+test_backend_failure_preserves_scoped_partial_report (test_resource_report.ResourceReport.test_backend_failure_preserves_scoped_partial_report) ... ok
+test_only_plain_loopback_origins_are_accepted (test_resource_report.ResourceReport.test_only_plain_loopback_origins_are_accepted) ... ok
+test_same_official_wheel_filename_cannot_overwrite_another_profile (test_windows_runtime_assembly.RuntimeAssembly.test_same_official_wheel_filename_cannot_overwrite_another_profile) ... ok
+test_supported_interpreter_and_official_compute_variants_are_explicit (test_windows_runtime_assembly.RuntimeAssembly.test_supported_interpreter_and_official_compute_variants_are_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.526s
+
+OK

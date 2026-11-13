@@ -1,0 +1,308 @@
+{
+  "count": 30,
+  "remote_head": "b2468cfac8315e822e171f656c608b2241d64b7d",
+  "fix_tree_sha": "4c0fdbef1aad29bc67f7429a56bfe121db58362b",
+  "remote_tree_matches_local": true,
+  "pull_requests": [
+    {
+      "id": 1,
+      "number": 3,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/3",
+      "branch": "fix/audit-01-recording-stale-stop",
+      "sha": "b27cd7db101e6afba09f6002c46d813f40f47b30",
+      "base": "feat/phase1-runtime",
+      "title": "[01/30] Fix stale recorder callbacks stopping a newer microphone",
+      "local_commit": "32c9bd30265515d86ab363ebbb0e98c602540ff4"
+    },
+    {
+      "id": 2,
+      "number": 4,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/4",
+      "branch": "fix/audit-02-recording-permission-scope",
+      "sha": "8efe07b35744f8ac74e66c04b45c3c5517d8d4ca",
+      "base": "fix/audit-01-recording-stale-stop",
+      "title": "[02/30] Release recording start state after role changes during permission",
+      "local_commit": "10c48359ddbe54702d5968f639a63e9b52c6768b"
+    },
+    {
+      "id": 3,
+      "number": 5,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/5",
+      "branch": "fix/audit-03-pcm-input-validation",
+      "sha": "430ec3c3f0da3660457460c2f3c9d11bc176462d",
+      "base": "fix/audit-02-recording-permission-scope",
+      "title": "[03/30] Reject invalid PCM rates and nonfinite samples before WAV encoding",
+      "local_commit": "5fdfbf43a9cb43235ceb82f4c53294cd8e67eefe"
+    },
+    {
+      "id": 4,
+      "number": 6,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/6",
+      "branch": "fix/audit-04-system-start-idempotent",
+      "sha": "852a94e362e12d722ab89769cffacc2e7ddb2f12",
+      "base": "fix/audit-03-pcm-input-validation",
+      "title": "[04/30] Keep system playback start time and deadline stable on duplicate callbacks",
+      "local_commit": "c1f3f22365870adfd69e00c64b8dc4be2a810502"
+    },
+    {
+      "id": 5,
+      "number": 7,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/7",
+      "branch": "fix/audit-05-playback-identity-snapshot",
+      "sha": "c288c6120ae51c9973d9244b75d94f7db9e14629",
+      "base": "fix/audit-04-system-start-idempotent",
+      "title": "[05/30] Snapshot playback receipt identity at creation",
+      "local_commit": "6b5a59da229a9678580c7c61c29fbe128cfb6dea"
+    },
+    {
+      "id": 6,
+      "number": 8,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/8",
+      "branch": "fix/audit-06-playback-header-budget",
+      "sha": "7d34b40a64d8b0e0efac66004904e95f66c23edc",
+      "base": "fix/audit-05-playback-identity-snapshot",
+      "title": "[06/30] Bound playback headers and reject empty receipt identities",
+      "local_commit": "7525418dc7085aef80779e4963456a556e5bc7a2"
+    },
+    {
+      "id": 7,
+      "number": 9,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/9",
+      "branch": "fix/audit-07-playback-backpressure",
+      "sha": "c7475e66eb62b7497386984f1450f76ad7bc6538",
+      "base": "fix/audit-06-playback-header-budget",
+      "title": "[07/30] Bound pending playback progress while receipt transport stalls",
+      "local_commit": "1041dc3c1911f620455664e21da8163a99eb63b8"
+    },
+    {
+      "id": 8,
+      "number": 10,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/10",
+      "branch": "fix/audit-08-scene-load-failure",
+      "sha": "5604a3b9c29bdf36369ccf2c69636b03b5401fc6",
+      "base": "fix/audit-07-playback-backpressure",
+      "title": "[08/30] Show a recoverable scene error when model load returns false",
+      "local_commit": "1644f038cf562fd492b0f3c818ffa2512814e199"
+    },
+    {
+      "id": 9,
+      "number": 11,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/11",
+      "branch": "fix/audit-09-scene-rejected-load-cleanup",
+      "sha": "9025630974156cf60947cd11b172859fa52004ac",
+      "base": "fix/audit-08-scene-load-failure",
+      "title": "[09/30] Dispose model resources after a rejected scene load",
+      "local_commit": "aa9b14d91f7f218d89e61503a2a0de1bce6ed597"
+    },
+    {
+      "id": 10,
+      "number": 12,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/12",
+      "branch": "fix/audit-10-scene-disposed-audio",
+      "sha": "f47faf2658fbfa1cb7d2c75e4ec32aba0cfbcdb8",
+      "base": "fix/audit-09-scene-rejected-load-cleanup",
+      "title": "[10/30] Prevent disposed scenes from acquiring a new AudioContext",
+      "local_commit": "17f2769ebb6a7ac955ef00aca37537f78de20723"
+    },
+    {
+      "id": 11,
+      "number": 13,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/13",
+      "branch": "fix/audit-11-scene-script-retry",
+      "sha": "9789661f60a707507df8300b84024a9ad6cb63e6",
+      "base": "fix/audit-10-scene-disposed-audio",
+      "title": "[11/30] Reject missing renderer registration so script loads remain retryable",
+      "local_commit": "9482a9dba3fb482f3b49ae28a62858ac445aa5ca"
+    },
+    {
+      "id": 12,
+      "number": 14,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/14",
+      "branch": "fix/audit-12-scene-missing-resource",
+      "sha": "a586de0c35513ca8fe4fbdb0ba15a49e7b55f9ad",
+      "base": "fix/audit-11-scene-script-retry",
+      "title": "[12/30] Reject missing required model resources before issuing a request",
+      "local_commit": "65ea28315bd07108ebbb0d3ffc06e6e221f9076b"
+    },
+    {
+      "id": 13,
+      "number": 15,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/15",
+      "branch": "fix/audit-13-refresh-invalidation",
+      "sha": "9169d7da3f50bcaa01acfd98912b549f48cd6253",
+      "base": "fix/audit-12-scene-missing-resource",
+      "title": "[13/30] Allow state refresh after an in-flight refresh is invalidated",
+      "local_commit": "e7b723166e20e6db317f27926c273c00f931a1a6"
+    },
+    {
+      "id": 14,
+      "number": 16,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/16",
+      "branch": "fix/audit-14-sse-terminal-seal",
+      "sha": "56ff9f618dc6c39e7138516189930ca3ab050f6c",
+      "base": "fix/audit-13-refresh-invalidation",
+      "title": "[14/30] Seal chat stream after the first terminal event",
+      "local_commit": "dbc817a31a720c76f0a675748a87dd00768a7807"
+    },
+    {
+      "id": 15,
+      "number": 17,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/17",
+      "branch": "fix/audit-15-sse-buffer-limit",
+      "sha": "dec3fc03df5a25a049aa45c7bb5917fef29ed856",
+      "base": "fix/audit-14-sse-terminal-seal",
+      "title": "[15/30] Bound unterminated chat stream frames",
+      "local_commit": "3dd3174e05b4c4b516e9eae929a0e3c857e781ad"
+    },
+    {
+      "id": 16,
+      "number": 18,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/18",
+      "branch": "fix/audit-16-sse-delta-contract",
+      "sha": "469ad67fe2943a97388db4e97af13559d6bd49a3",
+      "base": "fix/audit-15-sse-buffer-limit",
+      "title": "[16/30] Reject non-text chat deltas instead of coercing them into messages",
+      "local_commit": "f0dc1504ed3047d57e15b3c9dcf742cb06fb45ab"
+    },
+    {
+      "id": 17,
+      "number": 19,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/19",
+      "branch": "fix/audit-17-sse-strict-utf8",
+      "sha": "9e91654ec4989ebe7f8fe9a7af3fd91341cd66c5",
+      "base": "fix/audit-16-sse-delta-contract",
+      "title": "[17/30] Fail malformed UTF-8 reply streams instead of displaying replacement characters",
+      "local_commit": "15341243363299eec9bce0938e645850dd387506"
+    },
+    {
+      "id": 18,
+      "number": 20,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/20",
+      "branch": "fix/audit-18-sse-reader-cancel",
+      "sha": "4a14b4b10f9c2b04250ae33887760de663bde377",
+      "base": "fix/audit-17-sse-strict-utf8",
+      "title": "[18/30] Cancel stream readers when parsing or consumption exits",
+      "local_commit": "4a5f798e2980cc4f72b272a3b6fbf31c33458329"
+    },
+    {
+      "id": 19,
+      "number": 21,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/21",
+      "branch": "fix/audit-19-core-disposal-boundary",
+      "sha": "ffb7c9cdc4b1f2c42e5d2b3afaf4815a71a40c0d",
+      "base": "fix/audit-18-sse-reader-cancel",
+      "title": "[19/30] Prevent disposed companion controllers from sending new requests",
+      "local_commit": "2ed1f3be1ae0e67ddba34b141cbc07c372585971"
+    },
+    {
+      "id": 20,
+      "number": 22,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/22",
+      "branch": "fix/audit-20-get-request-cancellation",
+      "sha": "55a659a7eb4fadba0b63d208ab3c8843e80ca562",
+      "base": "fix/audit-19-core-disposal-boundary",
+      "title": "[20/30] Propagate abort signals to read-only API requests",
+      "local_commit": "2efd02c21ef38d8772194b3eb0327987b50ee3f5"
+    },
+    {
+      "id": 21,
+      "number": 23,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/23",
+      "branch": "fix/audit-21-system-voice-storage",
+      "sha": "76e35931811d6752067969dddfda6c655656ddfb",
+      "base": "fix/audit-20-get-request-cancellation",
+      "title": "[21/30] Keep system speech usable when optional voice preference storage is blocked",
+      "local_commit": "cc1ca4ed830246299b1ee7062b401842b698a7ae"
+    },
+    {
+      "id": 22,
+      "number": 24,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/24",
+      "branch": "fix/audit-22-system-receipt-scope",
+      "sha": "bfe8e90bb397c9eb61570374c9d58f077184211d",
+      "base": "fix/audit-21-system-voice-storage",
+      "title": "[22/30] Validate system speech receipt character and appearance before speaking",
+      "local_commit": "7fb6cb7dca82bb11562cc0f7e344e6e2ef576ee5"
+    },
+    {
+      "id": 23,
+      "number": 25,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/25",
+      "branch": "fix/audit-23-preserve-eye-source",
+      "sha": "554d37457947d3d7245c5435a34bc80fd14bf39c",
+      "base": "fix/audit-22-system-receipt-scope",
+      "title": "[23/30] Preserve completed eye paintings when transfer chunks are absent",
+      "local_commit": "34deb436f55ee55719ff642c9b43b0aab32702d4"
+    },
+    {
+      "id": 24,
+      "number": 26,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/26",
+      "branch": "fix/audit-24-quality-report-fail-closed",
+      "sha": "bf352d83418d2d40034bd513a9bb1f52a786a640",
+      "base": "fix/audit-23-preserve-eye-source",
+      "title": "[24/30] Fail full quality checks when regression evidence is missing or stale",
+      "local_commit": "0d721f8936a2200122c042c21d0555cda278d0ef"
+    },
+    {
+      "id": 25,
+      "number": 27,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/27",
+      "branch": "fix/audit-25-quality-root-hashes",
+      "sha": "3671a8ef7689ab617c19a9e69957bf38364018b1",
+      "base": "fix/audit-24-quality-report-fail-closed",
+      "title": "[25/30] Include root startup and build scripts in quality source fingerprints",
+      "local_commit": "391e1056d20e47b78bd52cdc1ef4fdf08f160d5d"
+    },
+    {
+      "id": 26,
+      "number": 28,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/28",
+      "branch": "fix/audit-26-quality-timeout-output",
+      "sha": "8229e3748b87a1182bc8e5f3883dbdd0c7dfe5ae",
+      "base": "fix/audit-25-quality-root-hashes",
+      "title": "[26/30] Preserve partial stdout and stderr when automated checks time out",
+      "local_commit": "f80b8614df926ec5e3fc731fff843d0997e19b1a"
+    },
+    {
+      "id": 27,
+      "number": 29,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/29",
+      "branch": "fix/audit-27-architecture-connection-allowlist",
+      "sha": "d2bfa93ccd469fa445d068533b282ef427fa2c32",
+      "base": "fix/audit-26-quality-timeout-output",
+      "title": "[27/30] Require exactly one explicit shared connection field allowlist",
+      "local_commit": "ffb14fa62c40e1bf8ccc2e9c12ab90b8645a3790"
+    },
+    {
+      "id": 28,
+      "number": 30,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/30",
+      "branch": "fix/audit-28-architecture-qualified-exec",
+      "sha": "f1b58f109c918d530bcaaf52ef7160247fd9d83f",
+      "base": "fix/audit-27-architecture-connection-allowlist",
+      "title": "[28/30] Reject qualified builtins execution at asset and proposal boundaries",
+      "local_commit": "50380843b3f16e8d020816309df348fac351a8ea"
+    },
+    {
+      "id": 29,
+      "number": 31,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/31",
+      "branch": "fix/audit-29-architecture-proposal-file-io",
+      "sha": "0abc609201e1bf678258d6c0ee321a39dfc50828",
+      "base": "fix/audit-28-architecture-qualified-exec",
+      "title": "[29/30] Reject direct file content access from proposal-only modules",
+      "local_commit": "6c6799c4d9c94910b78246ee98d9414f6f76f8ab"
+    },
+    {
+      "id": 30,
+      "number": 32,
+      "url": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/32",
+      "branch": "fix/audit-30-architecture-vendor-alias",
+      "sha": "b2468cfac8315e822e171f656c608b2241d64b7d",
+      "base": "fix/audit-29-architecture-proposal-file-io",
+      "title": "[30/30] Reject npm vendor aliases in the default dependency graph",
+      "local_commit": "bf2186eda755e13f304ca18816366b5eb63e0b94"
+    }
+  ]
+}
