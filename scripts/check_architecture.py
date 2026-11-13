@@ -220,8 +220,9 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
             failures.append(Violation("A04", path, 0, "Optional SDK/model bytes must not ship in default static files"))
     package = frontend_packages or {}
     for section in ("dependencies", "devDependencies", "optionalDependencies"):
-        for name in package.get(section, {}):
-            if name in VENDOR_PACKAGES:
+        for name, version in package.get(section, {}).items():
+            aliased = isinstance(version, str) and any(version == "npm:" + vendor or version.startswith("npm:" + vendor + "@") for vendor in VENDOR_PACKAGES)
+            if name in VENDOR_PACKAGES or aliased:
                 failures.append(Violation("A04", "frontend/package.json", 0, "Optional Live2D vendor dependency entered default install graph"))
     for path in (frontend_lock or {}).get("packages", {}):
         if any(path.endswith("node_modules/" + name) for name in VENDOR_PACKAGES):

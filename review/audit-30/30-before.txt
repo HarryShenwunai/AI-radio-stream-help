@@ -1,0 +1,17 @@
+
+F
+======================================================================
+FAIL: test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary (test_architecture_rules.VendorAliasContractTests.test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 173, in test_audit30_npm_alias_cannot_bypass_optional_sdk_boundary
+    self.package.setdefault('dependencies',{})['innocent-name']='npm:@live2d/cubism-core@1.0.0';self.reject('A04')
+                                                                                                ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 35, in reject
+    self.assertIn(rule, {failure.rule for failure in self.violations()})
+AssertionError: 'A04' not found in set()
+
+----------------------------------------------------------------------
+Ran 1 test in 0.180s
+
+FAILED (failures=1)
