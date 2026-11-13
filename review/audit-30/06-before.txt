@@ -1,0 +1,28 @@
+✖ audit06 empty identities and oversized headers fail before decoding (2.55019ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.121899
+
+✖ failing tests:
+
+test at tests/test_playback_ui.mjs:63:1
+✖ audit06 empty identities and oversized headers fail before decoding (2.55019ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_playback_ui.mjs:63:154)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }
+

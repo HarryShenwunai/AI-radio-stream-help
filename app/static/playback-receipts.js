@@ -1,8 +1,8 @@
 'use strict';
 // Playback evidence is a local player's report, not proof that a human heard words.
 window.CompanionPlayback=(()=>{
- function valid(meta){return meta&&typeof meta.playback_id==='string'&&typeof meta.nonce==='string'&&meta.nonce.length>=20&&typeof meta.character_id==='string'&&(meta.appearance_id===null||typeof meta.appearance_id==='string')&&Number.isSafeInteger(meta.message_id)&&meta.message_id>0;}
- function fromHeader(value){if(!value)return null;const meta=JSON.parse(atob(value));if(!valid(meta))throw new Error('播放回执信息无效，请重试。');return meta;}
+ function valid(meta){return meta&&typeof meta.playback_id==='string'&&meta.playback_id.length>0&&meta.playback_id.length<=160&&typeof meta.nonce==='string'&&meta.nonce.length>=20&&typeof meta.character_id==='string'&&meta.character_id.length>0&&meta.character_id.length<=160&&(meta.appearance_id===null||typeof meta.appearance_id==='string')&&Number.isSafeInteger(meta.message_id)&&meta.message_id>0;}
+ function fromHeader(value){if(!value)return null;if(typeof value!=='string'||value.length>65536)throw new Error('播放回执信息无效，请重试。');const meta=JSON.parse(atob(value));if(!valid(meta))throw new Error('播放回执信息无效，请重试。');return meta;}
  function create(meta,{onState=()=>{},onLimit=()=>{}}={}){
   if(!valid(meta))throw new Error('播放回执信息无效，请重试。');
   meta=Object.freeze({...meta});
