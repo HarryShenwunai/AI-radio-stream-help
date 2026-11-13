@@ -20,7 +20,7 @@ with session() as c:
    target=top+(cy-top)*.06
    ops.append({'type':'translate','delta':[0,(target-cy)/height],'selection':{'indices':[i]}})
   for start in range(0,len(ops),16):c.edit('rig_deform',changes=[{'target':m[name],'key':{pid:1},'operations':ops[start:start+16]}])
-  c.edit('keyform_apply',changes=[{'op':'set','target':m[name],'key':{pid:v},'channels':{'opacity':alpha}} for v,alpha in [(0,1),(.98,1),(1,0)]])
+  c.edit('keyform_apply',changes=[{'op':'set','target':m[name],'key':{pid:v},'channels':{'opacity':alpha}} for v,alpha in [(0,1),(.9,1),(.96,.45),(.99,.1),(1,0)]])
   # Close the actual iris aperture together with the lid; feathered lid edges
   # must not leave a strip of the iris visible during the last closing frames.
   aperture=side+'Sclera';at=json.loads((P/(aperture+'-topology.json')).read_text())

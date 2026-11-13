@@ -1808,7 +1808,7 @@ class Handler(BaseHTTPRequestHandler):
             reader = live2d_runtime().read_core if path == '/live2d-core.js' else live2d_runtime().read_bundle
             return self.reply(200,reader(),'application/javascript')
         if path not in {'/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
-                        '/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
+                        '/study-session.js','/study-room.js','/study-room.css','/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
                         '/layered-2d-renderer.js','/scene-morning.png','/scene-forest.png','/scene-evening.png'}:return self.reply(404,b'Not found','text/plain')
         file=STATIC/path.lstrip('/')
         if not file.is_file():return self.reply(404,b'Not found','text/plain')

@@ -1,0 +1,7 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: this exact close-up closed-eye artwork used for an existing Live2D character. Make a surgical refinement ONLY to both closed eyelids and their corners: taper the overly dark corner lines gently into the skin; preserve tiny realistic lashes without a uniform heavy eyeliner stroke; add subtle anatomically curved light/shadow across the eyelid to match the existing upper-right soft backlight. Keep both eyes fully naturally closed. Preserve exact face identity, head angle, eye placement and proportions, framing, hair strands and bangs, eyebrows, nose, mouth, skin texture and overall exposure. Do not beautify, redraw the face, enlarge eyes, add makeup, sharpen the whole image, or change composition. Output one single matching close-up at the same aspect ratio, no labels, no layout, no text.",
+  "input": "existing both_closed_clean.png",
+  "output": "eyelids-candidate.png",
+  "use": "Only registered eyelid RGB deltas at 0.65 strength; full generated face is not used."
+}

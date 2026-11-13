@@ -30,6 +30,7 @@ parser.add_argument(
     default=0,
     help="Hold the actual app idle pose in the recording (0..30 seconds)",
 )
+parser.add_argument("--study-room", action="store_true")
 args = parser.parse_args()
 if not 0 <= args.idle_video_seconds <= 30:
     parser.error("idle-video-seconds must be within 0..30")
@@ -176,6 +177,10 @@ try:
         )
         page.screenshot(path=str(out / "04-real-model-recovered.png"))
         report["checks"]["actual_retry_recovers_model"] = True
+        if args.study_room:
+            from study_room_browser_cases import check_study_room
+
+            check_study_room(page, out, report)
         # Actual shipped scene controls, not CSS or replacement screenshots.
         page.evaluate(
             "CompanionApp.scene.applyControls({idleMotion:false,autoBlink:false,breath:false,parameters:[{id:'ParamEyeLOpen',value:0},{id:'ParamEyeROpen',value:0}]})"
@@ -229,6 +234,10 @@ try:
         )
         page.screenshot(path=str(out / "07-role-switch-released.png"))
         report["checks"]["role_switch_releases_webgl_canvas"] = True
+        if args.study_room:
+            assert page.locator("#study-goal").input_value() == ""
+            assert page.evaluate("CompanionStudy.snapshot().rounds") == 0
+            report["checks"]["study_role_switch_isolates_goals_and_progress"] = True
         assert not report["errors"], report["errors"]
         report["passed"] = True
         video = page.video
