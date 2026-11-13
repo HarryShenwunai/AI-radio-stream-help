@@ -156,7 +156,7 @@ def check_sources(sources: dict[str, str], static_names: Iterable[str] = (), fro
             if not isinstance(node, ast.Call):continue
             refs = call_names(node, bindings)
             if (((isinstance(node.func, ast.Name) or "builtins" in refs) and bool(refs & (EXECUTION_CALLS | {"open"})))
-                    or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen"}):
+                    or refs & {"system", "popen", "exec_module", "import_module", "run_path", "urlopen", "read_text", "read_bytes", "write_text", "write_bytes", "open"}):
                 failures.append(Violation("A07", path, node.lineno, "Assistance may only parse supplied data and use its scoped ledger; executable tools are forbidden"))
     server = trees.get("app/server.py")
     if server is not None:

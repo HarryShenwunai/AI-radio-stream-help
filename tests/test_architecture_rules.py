@@ -162,3 +162,8 @@ class QualifiedExecutionContractTests(ArchitectureMutationTests):
   self.sources[architecture.ASSETS[0]]+='\nimport builtins\ndef unsafe(value):\n return builtins.eval(value)\n';self.reject('A03')
   self.sources[architecture.ADVICE[0]]+='\nimport builtins\ndef unsafe(value):\n return builtins.exec(value)\n';self.reject('A07')
 
+
+class ProposalFileContentContractTests(ArchitectureMutationTests):
+ def test_audit29_proposals_cannot_read_arbitrary_files(self):
+  self.sources[architecture.ADVICE[0]]+='\ndef unsafe(path):\n return Path(path).read_text()\n';self.reject('A07')
+

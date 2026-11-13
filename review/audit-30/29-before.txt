@@ -1,0 +1,17 @@
+
+F
+======================================================================
+FAIL: test_audit29_proposals_cannot_read_arbitrary_files (test_architecture_rules.ProposalFileContentContractTests.test_audit29_proposals_cannot_read_arbitrary_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 168, in test_audit29_proposals_cannot_read_arbitrary_files
+    self.sources[architecture.ADVICE[0]]+='\ndef unsafe(path):\n return Path(path).read_text()\n';self.reject('A07')
+                                                                                                  ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/3bf0f6d52932/AI-radio-stream-help/tests/test_architecture_rules.py", line 35, in reject
+    self.assertIn(rule, {failure.rule for failure in self.violations()})
+AssertionError: 'A07' not found in set()
+
+----------------------------------------------------------------------
+Ran 1 test in 0.184s
+
+FAILED (failures=1)
