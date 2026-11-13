@@ -1,0 +1,20 @@
+{
+  "id": 21,
+  "title": "Keep system speech usable when optional voice preference storage is blocked",
+  "branch": "fix/audit-21-system-voice-storage",
+  "scope": "tests/test_voice_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit21",
+    "tests/test_voice_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/speech-controller.js": "8ffdd0752f3044d8b3a364f70c579b1b1cb3212608e144f9c09dfca1967f32bd"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}

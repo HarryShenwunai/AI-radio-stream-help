@@ -47,7 +47,7 @@ window.CompanionSpeech=(()=>{
     try{proof=await systemStart(ctx,ticket,stamp);if(!live()){proof?.stop();return;}receipt=proof;
      const utterance=new SpeechSynthesisUtterance(proof?String(text):String(text).replace(/https?:\/\/\S+/g,'链接').replace(/[*#_`]/g,''));
      utterance.lang='zh-CN';utterance.rate=settings.voice_rate||1;utterance.pitch=1.04;
-     const preferred=localStorage.getItem('character-voice:'+stamp.character_id);utterance.voice=voices.find(v=>v.voiceURI===preferred)||voices.find(v=>v.lang.startsWith('zh'))||voices[0];
+     let preferred=null;try{preferred=localStorage.getItem('character-voice:'+stamp.character_id);}catch{}utterance.voice=voices.find(v=>v.voiceURI===preferred)||voices.find(v=>v.lang.startsWith('zh'))||voices[0];
      utterance.onstart=()=>{if(!live()){proof?.stop();return;}proof?.startSystem();scene?.setSpeaking(true);status('playing');};
      utterance.onboundary=()=>{if(live())scene?.systemBoundary?.();};utterance.onend=()=>{if(!live())return;proof?.complete();if(receipt===proof)receipt=null;scene?.setSpeaking(false);context=null;status('idle');};
      utterance.onerror=event=>{proof?.stop();if(!live())return;if(receipt===proof)receipt=null;scene?.setSpeaking(false);context=null;status('idle');if(!['canceled','interrupted'].includes(event.error))onError('系统朗读中断，可以重试。');};
