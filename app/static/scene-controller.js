@@ -47,7 +47,7 @@ window.CompanionScene=(()=>{
     let paintedResolve;const painted=new Promise(resolve=>paintedResolve=resolve);
     model=library.create({container,collapsedFps:preview?20:30,expandedFps:preview?30:60,onError:error=>{if(ticket===own){ready=false;container.hidden=true;publish('error',error);paintedResolve(false);}},onStats:stats=>{if(ticket!==own)return;container.dataset.state=stats.state;container.dataset.frames=String(stats.frames);container.dataset.mouth=String(stats.mouth);if(stats.frames>0&&stats.state==='ready')paintedResolve(true);}});
     const instance=model,result=await instance.load(['live2d','layered-2d'].includes(asset.format)?asset:resource(asset,'model'));
-    if(ticket!==own||disposed){instance.dispose();return false;}if(!result){instance.dispose();if(model===instance)model=null;return false;}
+    if(ticket!==own||disposed){instance.dispose();return false;}if(!result){instance.dispose();if(model===instance)model=null;ready=false;container.hidden=true;publish('error','角色加载失败，可以重试。');return false;}
     const timer=setTimeout(()=>paintedResolve(false),15000);const rendered=instance.getStats?.().frames>0||await painted;clearTimeout(timer);
     if(ticket!==own||disposed||!visible)return false;if(!rendered){instance.dispose();model=null;publish('error','角色尚未成功绘制，可以重试。');return false;}
     ready=true;instance.setScale((spec.scale||100)/100);instance.setExpanded(expanded);instance.setSpeaking(speaking);if(speaking&&audio)instance.setAudio(audio);publish('ready');return true;
