@@ -4,11 +4,11 @@ window.CompanionScene=(()=>{
  function script(path){return new Promise((resolve,reject)=>{const tag=document.createElement('script');tag.src=path;tag.onload=resolve;tag.onerror=()=>{tag.remove();reject(new Error('角色显示组件读取失败。'));};document.head.append(tag);});}
  async function engine(format,api){
   if(format==='vrm'){
-   if(!bundles.has('vrm'))bundles.set('vrm',script('/vrm-renderer.js').then(()=>window.CompanionVrm).catch(error=>{bundles.delete('vrm');throw error;}));return bundles.get('vrm');
+   if(!bundles.has('vrm'))bundles.set('vrm',script('/vrm-renderer.js').then(()=>{if(typeof window.CompanionVrm?.create!=='function')throw new Error('角色显示组件未正确初始化。');return window.CompanionVrm;}).catch(error=>{bundles.delete('vrm');throw error;}));return bundles.get('vrm');
   }
   const status=await api('live2d/runtime');
   if(!status.available||status.core_url!=='/live2d-core.js'||status.runtime_url!=='/live2d-runtime.js')throw new Error('需要先安装已获授权的 Live2D 运行时。');
-  if(!bundles.has('live2d'))bundles.set('live2d',(async()=>{if(!window.Live2DCubismCore)await script('/live2d-core.js');if(!window.CompanionLive2DRuntime)await script('/live2d-runtime.js');await script('/live2d-renderer.js');return window.CompanionLive2D;})().catch(error=>{bundles.delete('live2d');throw error;}));return bundles.get('live2d');
+  if(!bundles.has('live2d'))bundles.set('live2d',(async()=>{if(!window.Live2DCubismCore)await script('/live2d-core.js');if(!window.CompanionLive2DRuntime)await script('/live2d-runtime.js');await script('/live2d-renderer.js');if(typeof window.CompanionLive2D?.create!=='function')throw new Error('角色显示组件未正确初始化。');return window.CompanionLive2D;})().catch(error=>{bundles.delete('live2d');throw error;}));return bundles.get('live2d');
  }
  function resource(asset,state='idle'){
   const item=state==='model'?asset?.model:state==='thumbnail'?asset?.thumbnail:asset?.states?.[state];if(!item?.url)return '';
@@ -53,7 +53,7 @@ window.CompanionScene=(()=>{
     ready=true;instance.setScale((spec.scale||100)/100);instance.setExpanded(expanded);instance.setSpeaking(speaking);if(speaking&&audio)instance.setAudio(audio);publish('ready');return true;
    }catch(error){if(ticket===own){ready=false;model?.dispose();model=null;container.hidden=true;publish('error',error.message);if(image)image.hidden=true;}return false;}
   }
-  async function layered(){if(!bundles.has('layered'))bundles.set('layered',script('/layered-2d-renderer.js').then(()=>window.CompanionLayered2D).catch(error=>{bundles.delete('layered');throw error;}));return bundles.get('layered');}
+  async function layered(){if(!bundles.has('layered'))bundles.set('layered',script('/layered-2d-renderer.js').then(()=>{if(typeof window.CompanionLayered2D?.create!=='function')throw new Error('角色显示组件未正确初始化。');return window.CompanionLayered2D;}).catch(error=>{bundles.delete('layered');throw error;}));return bundles.get('layered');}
   return {sync,retry(){if(spec){const value=spec;release();return sync(value);}},setSpeaking(value){speaking=Boolean(value);if(model){model.setSpeaking(speaking);if(!speaking)audio=null;}else{if(!speaking)detachAudio();png();}},
    systemBoundary(){if(model){model.systemBoundary?.();return;}if(!speaking||audio||!visible||preview)return;mouthOpen=true;png();clearTimeout(systemTimer);systemTimer=setTimeout(()=>{mouthOpen=false;png();},125);},
    setAudio(value){if(disposed||!value||!visible||preview)return;if(model){audio=value;model.setAudio(value);return;}if(audio===value)return;detachAudio();audio=value;try{audioContext??=new(window.AudioContext||window.webkitAudioContext)();source=audioContext.createMediaElementSource(value);analyser=audioContext.createAnalyser();analyser.fftSize=512;samples=new Uint8Array(analyser.fftSize);source.connect(analyser);analyser.connect(audioContext.destination);audioContext.resume().catch(()=>{});if(speaking&&!analysisRaf)analysisRaf=requestAnimationFrame(analyse);}catch{detachAudio();}},

@@ -40,3 +40,5 @@ test('audit08 false model load leaves loading state',async()=>{const h=sceneHarn
 test('audit09 rejected model load releases allocated instance',async()=>{let disposed=0;const h=sceneHarness({modelFactory:()=>({load:async()=>{throw Error('decode failure');},dispose(){disposed++;}})});await h.scene.sync(spec(pack('vrm')));assert.equal(disposed,1);assert.equal(h.states.at(-1).state,'error');});
 
 test('audit10 disposed scene cannot restart audio resources',()=>{const h=sceneHarness();h.scene.dispose();h.scene.setAudio({});assert.equal(h.contexts,0);assert.equal(h.raf.size,0);});
+
+test('audit11 missing renderer registration does not poison retries',async()=>{const h=sceneHarness();const good=h.context.window.CompanionVrm;h.context.window.CompanionVrm=undefined;assert.equal(await h.scene.sync(spec(pack('vrm'))),false);h.context.window.CompanionVrm=good;assert.equal(await h.scene.retry(),true);assert.equal(h.scripts.length,2);});
