@@ -1,4 +1,19 @@
-# 原创 Live2D 交付
+# 当前 R3 双眼细节修订
+
+当前候选保留母稿审美与背景，手和杯子固定；包含双眼独立开合、同步眨眼、小幅视线、头部轻微侧倾与胸肩呼吸。取消放杯方案。下面的旧版 Release 只作历史记录，不是本次视觉成品。
+
+| 包 | 用途 |
+| --- | --- |
+| R3-Companion-Import.zip | 现有角色工作室选择 Live2D 后直接导入 ZIP |
+| R3-ViewerEX-CubismViewer.zip | 解压后加载 model/model.model3.json；附中文说明 |
+| R3-Cubism-Editable.zip | Cubism Editor 打开 character.cmo3；另含 PSD2Live 工程 |
+
+三份文件已交付至用户 Library；本仓库未将私有 Library 下载地址或角色二进制重新公开。包内容、字节数与 SHA256 见 [交付校验](../../review/r3-package-check.json)。项目导入器格式检查通过；Core 播放与逐帧证据见[修订记录](../../docs/implementation/live2d-r3-both-eyes.md)。ViewerEX 实际导入、官方 Editor 复开、Windows/4060 实机及用户最终视觉认可仍待验证。
+
+现有程序无需固定内置角色即可导入新包。查看时先使用预设 Idle，避免额外自动眨眼、跟踪控制覆盖动画；背景仍为原图背景，尚非透明抠图桌宠。
+
+## 历史交付
+
 
 [下载本批附件](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d)。本目录只保存通知与说明，Git中不包含Core/Framework、模型权重或用户资料。
 

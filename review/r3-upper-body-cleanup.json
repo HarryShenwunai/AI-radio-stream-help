@@ -1,0 +1,39 @@
+{
+  "duration_seconds": 12.585900000000372,
+  "sample_count": 624,
+  "javascript_errors": [],
+  "motion_loaded": true,
+  "cup_lower_range": [
+    0,
+    0
+  ],
+  "head_parameter_range": [
+    -1.9837000370025635,
+    1.9997999668121338
+  ],
+  "eye_open_range": [
+    0.0010000000474974513,
+    1
+  ],
+  "geometry": {
+    "held_meshes_unchanged": [
+      "ArtMeshLayer6",
+      "ArtMeshLayer7",
+      "ArtMeshLayer8",
+      "ArtMeshLayer9",
+      "ArtMeshLayer10",
+      "ArtMeshLayer11",
+      "ArtMeshLayer12",
+      "ArtMeshLayer13",
+      "ArtMeshLayer14",
+      "ArtMeshLayer15",
+      "ArtMeshLayer16",
+      "ArtMeshLayer17",
+      "ArtMeshLayer18",
+      "ArtMeshLayer19"
+    ],
+    "head_geometry_changes": true
+  },
+  "moc3_sha256": "1b07d5afaafbc3079c4454e1d632984aadb4f951deff7591a5483f05646be9e3",
+  "moc3_unchanged": true
+}

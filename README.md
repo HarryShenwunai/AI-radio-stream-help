@@ -2,7 +2,7 @@
 
 用户可以创建自己的二次元角色、上传有权使用的形象，并配置性格与相处方式。聊天、记忆和约定按身份隔离；同一角色换外观保留关系。学习监督是可选能力，长期记忆可关闭。
 
-开发版本 **0.5.0-dev3**，目标 **Windows 10/11 x64**。本批已完成原创半身 Live2D：独立十指、手掌、硬质杯子、四种手杯动作，以及自助导入、主舞台操作和真实本地语音联动。PNG、VRM、录音转写及平台桥接保留各自的验收范围。**完整项目尚未验收完成**，最新状态见[交付状态](docs/implementation/completion-release.md)与[验收台账](review/completion-status.json)。
+开发基础版本 **0.5.0-dev3**，目标 **Windows 10/11 x64**。当前角色更新为 **R3 双眼细节修订候选**：取消放杯方向，手杯固定，双眼独立开合与同步眨眼、小幅视线、轻微头动和胸肩呼吸。最新角色可通过现有 Live2D 导入流程加载，详情见[双眼修订与验证](docs/implementation/live2d-r3-both-eyes.md)和[三种交付包](assets/character-live2d/README.md)。自助角色导入及其他功能保留原验收范围。**完整项目与 Windows 真机尚未验收完成**；旧版手杯动作的历史测试不能代表当前 R3 视觉验收。
 
 [运行与角色导入](app/README.md) · [执行看板](docs/planning/execution-board.md) · [视觉质量目标](docs/design/visual-quality-target.md)
 
@@ -10,9 +10,9 @@
 
 ## Windows 运行
 
-[本批软件更新、Live2D 模型、完整编辑源与实际录像](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d)。已有基础包时，只需约7MB程序更新和约11MB运行模型；完整源文件约346MB，供编辑使用，不是软件导入包。
+[历史 0.5.0-dev3 软件更新与旧版角色附件](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.5.0-dev3-live2d)。已有基础包时，只需约7MB程序更新和约11MB运行模型；完整源文件约346MB，供编辑使用，不是软件导入包。
 
-先退出软件并应用 `character-app-source-update-0.5.0-dev3.zip` 中的 `apply-ui-update.cmd`；再按[本机运行库安装](docs/implementation/live2d-windows-owner-setup.md)运行 `setup-live2d-owner.cmd`；打开角色工作室，导入 `original-live2d-r2-candidate-runtime.zip`，预览并确认。安装运行库复用原包Python，无需Node/npm，明确接受条款后才下载约29MB固定依赖及官方Core。
+先退出软件并应用 `character-app-source-update-0.5.0-dev3.zip` 中的 `apply-ui-update.cmd`；再按[本机运行库安装](docs/implementation/live2d-windows-owner-setup.md)运行 `setup-live2d-owner.cmd`；打开角色工作室，优先导入最新的 `R3-Companion-Import.zip`，预览并确认；历史 Release 内的 `original-live2d-r2-candidate-runtime.zip` 属于旧版手杯动作角色。安装运行库复用原包Python，无需Node/npm，明确接受条款后才下载约29MB固定依赖及官方Core。
 
 
 [下载 Windows 便携候选包](https://github.com/HarryShenwunai/AI-radio-stream-help/releases/tag/v0.4.0-dev1-candidate)。下载页面中的 `download-and-assemble.cmd` 和 `download-and-assemble.ps1`，放在同一文件夹后双击 CMD，自动下载三卷、校验并合并；完整解压后运行程序。合计下载约 4.18 GiB，候选包尚待 Windows 真机验收。

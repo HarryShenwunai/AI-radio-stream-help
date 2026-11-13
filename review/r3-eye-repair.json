@@ -1,0 +1,472 @@
+{
+  "checks": [
+    {
+      "pose": {
+        "ParamEyeROpen": 0
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.023499995470046997
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.023241043090820312
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.1
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.02114999294281006
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.020916908979415894
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.2
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.01879999041557312
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.01859283447265625
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.3
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.01644998788833618
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.01626873016357422
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.4
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.014099985361099243
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.0139445960521698
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.5
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.011749982833862305
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.011620521545410156
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.6
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.009400010108947754
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.009296417236328125
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.7
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.007049977779388428
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.006972312927246094
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.8
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.004700005054473877
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.0046482086181640625
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.9
+      },
+      "changed": [
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.0023500025272369385
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.0023241043090820312
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 1
+      },
+      "changed": []
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": -1,
+        "ParamEyeBallY": -1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": -1,
+        "ParamEyeBallY": 0
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": -1,
+        "ParamEyeBallY": 1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 0,
+        "ParamEyeBallY": -1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0004837214946746826
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 0,
+        "ParamEyeBallY": 0
+      },
+      "changed": []
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 0,
+        "ParamEyeBallY": 1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0004837214946746826
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 1,
+        "ParamEyeBallY": -1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 1,
+        "ParamEyeBallY": 0
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeBallX": 1,
+        "ParamEyeBallY": 1
+      },
+      "changed": [
+        {
+          "name": "EyeIris",
+          "delta": 0.0009674429893493652
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamBreath": 1
+      },
+      "changed": [
+        {
+          "name": "Torso",
+          "delta": 0.0020727217197418213
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamAngleZ": -2
+      },
+      "changed": [
+        {
+          "name": "Mouth_open",
+          "delta": 0.0005487054586410522
+        },
+        {
+          "name": "Hair_shell",
+          "delta": 0.0016867369413375854
+        },
+        {
+          "name": "EyeFrontDetail",
+          "delta": 0.000840306282043457
+        },
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.0007865577936172485
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.0007971376180648804
+        },
+        {
+          "name": "EyeIris",
+          "delta": 0.0007842481136322021
+        },
+        {
+          "name": "EyeSclera",
+          "delta": 0.000784263014793396
+        },
+        {
+          "name": "Neck_face",
+          "delta": 0.0009886175394058228
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamAngleZ": 2
+      },
+      "changed": [
+        {
+          "name": "Mouth_open",
+          "delta": 0.0005481690168380737
+        },
+        {
+          "name": "Hair_shell",
+          "delta": 0.0016860812902450562
+        },
+        {
+          "name": "EyeFrontDetail",
+          "delta": 0.0008392482995986938
+        },
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.0007855147123336792
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.0007961243391036987
+        },
+        {
+          "name": "EyeIris",
+          "delta": 0.0007832050323486328
+        },
+        {
+          "name": "EyeSclera",
+          "delta": 0.0007832199335098267
+        },
+        {
+          "name": "Neck_face",
+          "delta": 0.0009893923997879028
+        }
+      ]
+    },
+    {
+      "pose": {
+        "ParamEyeROpen": 0.5,
+        "ParamBreath": 1,
+        "ParamAngleZ": 2,
+        "ParamEyeBallX": 1,
+        "ParamEyeBallY": 1
+      },
+      "changed": [
+        {
+          "name": "Mouth_open",
+          "delta": 0.0005481690168380737
+        },
+        {
+          "name": "Hair_shell",
+          "delta": 0.0016860812902450562
+        },
+        {
+          "name": "EyeFrontDetail",
+          "delta": 0.0008392482995986938
+        },
+        {
+          "name": "EyeUpperLash",
+          "delta": 0.01219913363456726
+        },
+        {
+          "name": "EyeLid",
+          "delta": 0.012074261903762817
+        },
+        {
+          "name": "EyeIris",
+          "delta": 0.0017518103122711182
+        },
+        {
+          "name": "EyeSclera",
+          "delta": 0.0007832199335098267
+        },
+        {
+          "name": "Neck_face",
+          "delta": 0.0009893923997879028
+        },
+        {
+          "name": "Torso",
+          "delta": 0.0020727217197418213
+        }
+      ]
+    }
+  ],
+  "irisMaskCount": 1,
+  "core": {
+    "ready": true,
+    "mocConsistencyChecked": true,
+    "coreVersion": 83951616,
+    "meshCount": 26,
+    "parameterCount": 22,
+    "modelWidth": 1137,
+    "modelHeight": 1383
+  },
+  "javascript_errors": [],
+  "fixed_meshes": [
+    "Far_palm",
+    "Far_little",
+    "Far_ring",
+    "Far_middle",
+    "Far_index",
+    "Near_palm",
+    "Near_little",
+    "Near_ring",
+    "Near_middle",
+    "Near_index",
+    "Near_thumb",
+    "Cup",
+    "Sleeve_near",
+    "Sleeve_far"
+  ],
+  "blink_frames": 21,
+  "video": {
+    "frames": 653,
+    "duration": 12.617300000000744,
+    "core": {
+      "ready": true,
+      "mocConsistencyChecked": true,
+      "coreVersion": 83951616,
+      "meshCount": 26,
+      "parameterCount": 22,
+      "modelWidth": 1137,
+      "modelHeight": 1383
+    },
+    "motionFileLoaded": true
+  },
+  "sample_count": 599,
+  "parameter_ranges": {
+    "cup": [
+      0,
+      0
+    ],
+    "eye": [
+      0.0010000000474974513,
+      1
+    ],
+    "head": [
+      -1.9996000528335571,
+      1.9997999668121338
+    ],
+    "breath": [
+      0,
+      0.9999876618385315
+    ],
+    "gaze": [
+      -0.6000000238418579,
+      0.699999988079071
+    ]
+  },
+  "blink_return_pixel_identical": true,
+  "visual_status": "review candidate, not accepted",
+  "residuals": [
+    "Closed eye corner line remains harder than desired; eyelid shading is relatively flat.",
+    "Only the visible eye is rigged; the hair-covered eye remains unchanged.",
+    "Limited gaze: +/-1.1 native image pixels horizontal, +/-0.55 vertical; not suitable for wide gaze or large head turns.",
+    "Cloud software-rendered verification; no Windows device acceptance."
+  ]
+}

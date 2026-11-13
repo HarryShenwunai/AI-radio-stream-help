@@ -87,6 +87,118 @@ class EditablePSDSourceTests(unittest.TestCase):
                 source.export(self.root / "missing.psd", self.root / "out", self.root / "missing-tool", atlas=atlas)
         self.assertFalse((self.root / "out").exists())
 
+    def pin_reference(self):
+        with Image.new("RGBA", (32, 32), (0, 0, 0, 0)) as master:
+            for item in self.doc["layers"]:
+                if item.get("visible", True):
+                    with Image.open(self.root / item["file"]) as layer:
+                        master.alpha_composite(layer, (item.get("x", 0), item.get("y", 0)))
+            master.save(self.root / "master.png")
+        self.doc["neutral_reference"] = {
+            "file": "master.png",
+            "sha256": hashlib.sha256((self.root / "master.png").read_bytes()).hexdigest(),
+            "regions": {"face": [10, 3, 12, 10], "hands_cup": [4, 14, 24, 17]},
+        }
+
+    def test_pinned_neutral_export_preserves_art_without_claiming_quality(self):
+        self.pin_reference()
+        report = source.write_psd(self.write_manifest(), self.root / "reviewed.psd",
+                                  require_reference=True)
+        self.assertEqual(report["neutral_reconstruction"]["status"], "passed_reconstruction_only")
+        self.assertEqual(report["neutral_reconstruction"]["regions"]["face"]["mean_max_channel_error"], 0)
+        self.assertEqual(report["art_quality_acceptance"], "NOT_CLAIMED")
+
+    def test_one_local_face_defect_cannot_hide_in_global_average(self):
+        self.pin_reference()
+        with Image.open(self.root / "face.png") as old:
+            edited = old.copy()
+        edited.putpixel((6, 5), (0, 0, 0, 255))
+        edited.save(self.root / "face.png")
+        edited.close()
+        target = self.root / "bad-face.psd"
+        with self.assertRaisesRegex(ValueError, "master: face$"):
+            source.write_psd(self.write_manifest(), target, require_reference=True)
+        self.assertFalse(target.exists())
+
+    def test_hand_cup_region_rejects_changed_visible_pixels(self):
+        self.pin_reference()
+        with Image.open(self.root / "body.png") as old:
+            edited = old.copy()
+        ImageDraw.Draw(edited).rectangle((10, 20, 12, 22), fill=(255, 255, 255, 255))
+        edited.save(self.root / "body.png")
+        edited.close()
+        target = self.root / "bad-hand.psd"
+        with self.assertRaisesRegex(ValueError, "hands_cup"):
+            source.write_psd(self.write_manifest(), target, require_reference=True)
+        self.assertFalse(target.exists())
+
+    def test_reference_hash_and_size_are_pinned(self):
+        self.pin_reference()
+        self.doc["neutral_reference"]["sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "SHA-256"):
+            source.write_psd(self.write_manifest(), self.root / "bad-hash.psd")
+        with Image.new("RGBA", (64, 32)) as wrong:
+            wrong.save(self.root / "master.png")
+        self.doc["neutral_reference"]["sha256"] = hashlib.sha256((self.root / "master.png").read_bytes()).hexdigest()
+        with self.assertRaisesRegex(ValueError, "same-size"):
+            source.write_psd(self.write_manifest(), self.root / "bad-size.psd")
+
+    def test_reviewed_path_requires_master_and_valid_both_regions(self):
+        with self.assertRaisesRegex(ValueError, "requires"):
+            source.write_psd(self.write_manifest(), self.root / "missing.psd", require_reference=True)
+        self.pin_reference()
+        self.doc["neutral_reference"]["regions"].pop("face")
+        with self.assertRaisesRegex(ValueError, "face and hands_cup"):
+            source.write_psd(self.write_manifest(), self.root / "missing-region.psd")
+        self.pin_reference()
+        self.doc["neutral_reference"]["regions"]["face"] = [30, 3, 12, 10]
+        with self.assertRaisesRegex(ValueError, "outside"):
+            source.write_psd(self.write_manifest(), self.root / "bad-region.psd")
+
+    def test_alpha_change_on_black_art_is_detected_over_white(self):
+        with Image.open(self.root / "face.png") as old:
+            edited = old.copy()
+        ImageDraw.Draw(edited).rectangle((4, 4, 7, 7), fill=(0, 0, 0, 255))
+        edited.save(self.root / "face.png")
+        self.pin_reference()
+        edited.putpixel((6, 5), (0, 0, 0, 0))
+        edited.save(self.root / "face.png")
+        edited.close()
+        with self.assertRaisesRegex(ValueError, "face"):
+            source.write_psd(self.write_manifest(), self.root / "alpha-hole.psd")
+
+    def test_hidden_rgb_does_not_create_false_visual_failure(self):
+        self.pin_reference()
+        with Image.open(self.root / "body.png") as old:
+            edited = old.copy()
+        edited.putpixel((0, 0), (255, 0, 255, 0))
+        edited.save(self.root / "body.png")
+        edited.close()
+        report = source.write_psd(self.write_manifest(), self.root / "invisible-rgb.psd")
+        self.assertEqual(report["neutral_reconstruction"]["status"], "passed_reconstruction_only")
+
+    def test_pack_cli_requires_reference_unless_historical_override_is_explicit(self):
+        import subprocess
+        import sys
+        manifest = self.write_manifest()
+        target = self.root / "cli.psd"
+        command = [sys.executable, str(ROOT / "scripts/avatar_live2d_source.py"),
+                   "pack", "--layers", str(manifest), "--output", str(target)]
+        rejected = subprocess.run(command, capture_output=True, text=True)
+        self.assertNotEqual(rejected.returncode, 0)
+        self.assertIn("requires a pinned neutral_reference", rejected.stderr)
+        self.assertFalse(target.exists())
+        legacy = subprocess.run([*command, "--allow-unreviewed-source"], capture_output=True, text=True)
+        self.assertEqual(legacy.returncode, 0, legacy.stderr)
+        self.assertEqual(json.loads(legacy.stdout)["neutral_reconstruction"]["status"], "NOT_RUN")
+        self.pin_reference()
+        command[-1] = str(self.root / "cli-reviewed.psd")
+        reviewed = subprocess.run(command[:command.index("--layers") + 1] +
+                                  [str(self.write_manifest()), "--output", command[-1]],
+                                  capture_output=True, text=True)
+        self.assertEqual(reviewed.returncode, 0, reviewed.stderr)
+        self.assertEqual(json.loads(reviewed.stdout)["neutral_reconstruction"]["status"], "passed_reconstruction_only")
+
 
 if __name__ == "__main__":
     unittest.main()

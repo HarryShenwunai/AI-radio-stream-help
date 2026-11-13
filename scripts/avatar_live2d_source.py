@@ -27,7 +27,87 @@ def number(value, minimum, maximum):
     return value
 
 
-def write_psd(manifest_path: Path, destination: Path) -> dict:
+def check_neutral_reference(composite: Image.Image, manifest_path: Path, contract: dict) -> dict:
+    """Measure reconstruction fidelity, never aesthetic quality or animation."""
+    from io import BytesIO
+    from PIL import ImageChops
+
+    if not isinstance(contract, dict):
+        raise ValueError("neutral_reference must identify the master and review regions")
+    relative = Path(contract.get("file", ""))
+    root = manifest_path.parent.resolve()
+    reference = root / relative
+    if (not relative.parts or relative.is_absolute() or ".." in relative.parts
+            or "\\" in str(relative) or reference.is_symlink()
+            or not reference.resolve().is_relative_to(root)):
+        raise ValueError("neutral reference must be a local source file")
+    if reference.stat().st_size > 16 * 1024 * 1024:
+        raise ValueError("neutral reference exceeds authoring budget")
+    raw = reference.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if contract.get("sha256") != digest:
+        raise ValueError("neutral reference SHA-256 mismatch")
+    regions = contract.get("regions")
+    if not isinstance(regions, dict) or set(regions) != {"face", "hands_cup"}:
+        raise ValueError("neutral reference needs face and hands_cup review regions")
+    width, height = composite.size
+    boxes = {"full": (0, 0, width, height)}
+    for name, box in regions.items():
+        if not isinstance(box, list) or len(box) != 4:
+            raise ValueError("review region must be [x, y, width, height]")
+        x, y, w, h = box
+        number(x, 0, width - 1)
+        number(y, 0, height - 1)
+        number(w, 1, width)
+        number(h, 1, height)
+        if x + w > width or y + h > height:
+            raise ValueError("review region outside source canvas")
+        boxes[name] = (x, y, x + w, y + h)
+    with Image.open(BytesIO(raw)) as source:
+        if source.format != "PNG" or source.size != composite.size:
+            raise ValueError("neutral reference must be a same-size PNG; no fit or stretch")
+        source.load()
+        expected = source.convert("RGBA")
+    # Both backgrounds reveal lost alpha and light/dark fringes. Invisible RGB
+    # under alpha=0 is intentionally irrelevant. No source pixels are edited.
+    differences = []
+    try:
+        for value in (0, 255):
+            with Image.new("RGBA", composite.size, (value, value, value, 255)) as bg:
+                a = Image.alpha_composite(bg, expected).convert("RGB")
+                b = Image.alpha_composite(bg, composite).convert("RGB")
+                diff = ImageChops.difference(a, b)
+                channels = diff.split()
+                worst = ImageChops.lighter(ImageChops.lighter(channels[0], channels[1]), channels[2])
+                differences.append(worst)
+                for image in (*channels, diff, a, b):
+                    image.close()
+        combined = ImageChops.lighter(*differences)
+        metrics = {}
+        try:
+            for name, box in boxes.items():
+                with combined.crop(box) as region:
+                    histogram = region.histogram()
+                count = (box[2] - box[0]) * (box[3] - box[1])
+                mean = sum(i * n for i, n in enumerate(histogram)) / count
+                fraction = sum(histogram[17:]) / count
+                metrics[name] = {"mean_max_channel_error": mean,
+                                 "fraction_over_16": fraction,
+                                 "passed": mean <= 2 and fraction <= 0.005}
+        finally:
+            combined.close()
+    finally:
+        expected.close()
+        for image in differences:
+            image.close()
+    failed = [name for name, row in metrics.items() if not row["passed"]]
+    if failed:
+        raise ValueError("neutral reconstruction differs from master: " + ", ".join(failed))
+    return {"status": "passed_reconstruction_only", "reference_sha256": digest,
+            "regions": metrics, "art_quality_acceptance": "NOT_CLAIMED"}
+
+
+def write_psd(manifest_path: Path, destination: Path, *, require_reference: bool = False) -> dict:
     """Write PSD v1 RGB/8-bit planar layers, preserving decoded RGBA art pixels.
 
     Layers in the manifest and PSD records are both bottom-to-top.
@@ -37,6 +117,8 @@ def write_psd(manifest_path: Path, destination: Path) -> dict:
     doc = json.loads(manifest_path.read_text())
     if doc.get("format") != "original-live2d-layers-v1":
         raise ValueError("expected original-live2d-layers-v1 source manifest")
+    if require_reference and "neutral_reference" not in doc:
+        raise ValueError("new source requires a pinned neutral_reference master")
     width = number(doc["canvas"]["width"], 1, 4096)
     height = number(doc["canvas"]["height"], 1, 4096)
     if width * height > 8_000_000:
@@ -112,6 +194,8 @@ def write_psd(manifest_path: Path, destination: Path) -> dict:
             inputs.append({"name": name, "file": relative.as_posix(),
                            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                            "visible": visible})
+        reconstruction = (check_neutral_reference(composite, manifest_path, doc["neutral_reference"])
+                          if "neutral_reference" in doc else {"status": "NOT_RUN"})
         # A negative layer count identifies the composite's first alpha as transparency.
         info = struct.pack(">h", -len(records)) + b"".join(records) + b"".join(channels)
         info += b"\0" * (-len(info) % 2)
@@ -131,7 +215,7 @@ def write_psd(manifest_path: Path, destination: Path) -> dict:
         return {"source_psd": str(destination.resolve()), "width": width, "height": height,
                 "layer_count": len(records), "layers": inputs,
                 "psd_sha256": hashlib.sha256(destination.read_bytes()).hexdigest(),
-                "art_quality_acceptance": "NOT_CLAIMED"}
+                "art_quality_acceptance": "NOT_CLAIMED", "neutral_reconstruction": reconstruction}
     finally:
         composite.close()
 
@@ -213,6 +297,8 @@ def main():
     pack = commands.add_parser("pack")
     pack.add_argument("--layers", required=True, type=Path)
     pack.add_argument("--output", required=True, type=Path)
+    pack.add_argument("--allow-unreviewed-source", action="store_true",
+                      help="Historical source/fixture only; does not claim art acceptance")
     compile_model = commands.add_parser("export")
     compile_model.add_argument("--input", required=True, type=Path)
     compile_model.add_argument("--output", required=True, type=Path)
@@ -224,7 +310,7 @@ def main():
         source = fixture(args.output)
         print(json.dumps(write_psd(source, args.output / "TEST_ONLY_original_layers.psd"), indent=2))
     elif args.command == "pack":
-        print(json.dumps(write_psd(args.layers, args.output), indent=2))
+        print(json.dumps(write_psd(args.layers, args.output, require_reference=not args.allow_unreviewed_source), indent=2))
     else:
         print(json.dumps(export(args.input, args.output, args.tool_dir, atlas=args.atlas, spacing=args.mesh_spacing), indent=2))
 
