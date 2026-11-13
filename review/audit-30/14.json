@@ -1,0 +1,20 @@
+{
+  "id": 14,
+  "title": "Seal chat stream after the first terminal event",
+  "branch": "fix/audit-14-sse-terminal-seal",
+  "scope": "tests/test_character_ui.mjs",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "node",
+    "--test",
+    "--test-name-pattern",
+    "audit14",
+    "tests/test_character_ui.mjs"
+  ],
+  "source_sha256": {
+    "app/static/companion-core.js": "f6eea1215c4ea1f980995879cab405015b9f013b1c42ecb55bfcfc6d939ad684"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
