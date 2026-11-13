@@ -55,7 +55,7 @@ python run.py --no-browser
 
 ## 工具与工程检查
 
-按[工程门禁说明](docs/implementation/engineering-gates.md)准备工具后，运行 `python scripts/quality_gate.py --full`：关键 bug lint、十个模块 strict mypy、七项架构规则和违规夹具，再跑 Python/Node。报告同时绑定检查前后的源码 SHA；测试逐项通过但源码变化，整体仍失败。历史 [0.4 工程报告](review/quality-gate.json)与 [Live2D 主舞台前快照](review/quality-gate-live2d-final.json)各自保留原范围，当前[主舞台完整门禁](review/quality-gate-live2d-mainstage-final.json)于 2026-11-13 03:33 UTC 通过，Python766项零跳过、桌面Python9项、前端Node111项、桌面Node27项；检查期间源码 SHA 不变。浏览器、模型几何和目标机器各有独立验收。
+按[工程门禁说明](docs/implementation/engineering-gates.md)准备工具后，运行 `python scripts/quality_gate.py --full`：关键 bug lint、十个模块 strict mypy、七项架构规则和违规夹具，再跑 Python/Node。报告同时绑定检查前后的源码 SHA；测试逐项通过但源码变化，整体仍失败。历史 [0.4 工程报告](review/quality-gate.json)与 [Live2D 主舞台前快照](review/quality-gate-live2d-final.json)各自保留原范围，当前[交付完整门禁](review/quality-gate-live2d-delivery-final.json)于 2026-11-13 04:28 UTC 通过，Python780项零跳过、桌面Python9项、前端Node111项、桌面Node27项；检查期间源码 SHA 不变。浏览器、模型几何和目标机器各有独立验收。
 
 [TLA+/TLC 有限模型](review/formal-model-check.json)和[实际实现边界探索](review/formal-implementation-check.json)有独立报告；只覆盖明确的有限安全边界，不是整程序形式化正确性、活性、性能或人类听感证明。
 

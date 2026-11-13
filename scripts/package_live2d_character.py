@@ -20,7 +20,11 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 MAX_SOURCE_BYTES=512*1024*1024
 MAX_SOURCE_FILE=256*1024*1024
+MAX_PROJECT_FILE=320*1024*1024
 MAX_JSON=8*1024*1024
+MAX_PROJECT_JOURNAL=64*1024*1024
+MAX_PROJECT_EXPANDED=2*1024*1024*1024
+PROJECT_JOURNAL=re.compile(r'document/nodes/journal/([a-f0-9]{64})\.json')
 DENIED_PARTS=frozenset({'vendor','node_modules','.live2d','.live2d-tools','sdk','data','profile-data','user-data',
                        'rejected-3d-reference','haru','hiyori','hiyori_pro','cubismwebsamples','cubismwebframework'})
 DENIED_MOC_SHA256=frozenset({'aa59f7a3dc3b30b23b5f10afd9192ed755e4d01dc9a12442d99b972a418e2543',
@@ -71,11 +75,11 @@ def safe_file(root: Path,name: str,limit=MAX_SOURCE_FILE) -> Path:
     if not file.is_file() or file.stat().st_size>limit:raise PackageError('source_not_regular_or_over_budget: '+name)
     return file
 
-def pinned(root: Path,row: dict,suffixes: tuple[str,...],pins: dict | None=None) -> Path:
+def pinned(root: Path,row: dict,suffixes: tuple[str,...],pins: dict | None=None, *, source_limit: int=MAX_SOURCE_FILE) -> Path:
     if not isinstance(row,dict) or not {'path','sha256'}<=set(row) or not isinstance(row['path'],str) or not re.fullmatch('[a-f0-9]{64}',str(row['sha256'])):
         raise PackageError('invalid_source_pin')
     if not row['path'].lower().endswith(suffixes):raise PackageError('source_type_not_allowlisted')
-    file=safe_file(root,row['path'],MAX_JSON if row['path'].lower().endswith('.json') else MAX_SOURCE_FILE)
+    file=safe_file(root,row['path'],min(source_limit,MAX_JSON) if row['path'].lower().endswith('.json') else source_limit)
     if sha(file)!=row['sha256']:raise PackageError('source_identity_sha_mismatch: '+row['path'])
     if pins is not None:
         if file in pins and pins[file]!=row['sha256']:raise PackageError('conflicting_source_pin')
@@ -113,13 +117,13 @@ def runtime_members(root: Path,model_row: dict,notice_row: dict,runtime_pins: di
 
 def _project_member(name: str) -> bool:
     if name in {'README.txt','workspace.json','manifest.json','thumbnail.png','source/original.psd','auxiliary/tasks.json','history/HEAD.json'}:return True
-    return bool(re.fullmatch(r'assets/[a-f0-9]{64}-[0-9]+x[0-9]+\.png|document/(?:clips|nodes/[a-z]+)/[a-f0-9]{64}\.json|history/nodes/[a-f0-9]{64}\.json|rig/objects/[a-f0-9]{64}\.bin|rig/revisions/revision-[a-f0-9]{64}\.json',name))
+    return bool(re.fullmatch(r'assets/[a-f0-9]{64}-[0-9]+x[0-9]+\.png|document/(?:clips|nodes/[a-z]+)/[a-f0-9]{64}\.json|history/(?:nodes|revisions)/[a-f0-9]{64}\.json|rig/objects/[a-f0-9]{64}\.bin|rig/revisions/revision-[a-f0-9]{64}\.json',name))
 
 def check_project(project: Path,psd_sha256: str) -> dict:
     with zipfile.ZipFile(project) as archive:
         infos=archive.infolist()
         if not 1<=len(infos)<=8192:raise PackageError('project_entry_limit')
-        names=set();total=0
+        names=set();total=0;journals=0;largest_journal=0
         for info in infos:
             relative(info.filename)
             mode=stat.S_IFMT(info.external_attr>>16)
@@ -127,7 +131,10 @@ def check_project(project: Path,psd_sha256: str) -> dict:
                 raise PackageError('project_member_not_allowlisted')
             if info.filename.casefold() in names:raise PackageError('project_case_alias')
             names.add(info.filename.casefold());total+=info.file_size
-            if info.file_size>(MAX_JSON if info.filename.endswith('.json') else MAX_SOURCE_FILE) or total>768*1024*1024:raise PackageError('project_expansion_limit')
+            journal=PROJECT_JOURNAL.fullmatch(info.filename)
+            member_limit=MAX_PROJECT_JOURNAL if journal else (MAX_JSON if info.filename.endswith('.json') else MAX_SOURCE_FILE)
+            if info.file_size>member_limit or total>MAX_PROJECT_EXPANDED:raise PackageError('project_expansion_limit')
+            if journal:journals+=1;largest_journal=max(largest_journal,info.file_size)
         if not {'manifest.json','source/original.psd'}<=set(archive.namelist()):raise PackageError('project_source_identity_missing')
         manifest=_json(archive.read('manifest.json'))
         if manifest.get('format')!='PSD2Live' or not isinstance(manifest.get('files'),dict):raise PackageError('not_a_psd2live_project')
@@ -139,9 +146,13 @@ def check_project(project: Path,psd_sha256: str) -> dict:
                 checksum=hashlib.sha256(first)
                 while chunk:=source.read(1024*1024):checksum.update(chunk)
                 actual=checksum.hexdigest()
+            journal=PROJECT_JOURNAL.fullmatch(name)
+            if journal and actual!=journal.group(1):raise PackageError('project_journal_content_address_mismatch')
             if actual!=wanted:raise PackageError('project_member_sha_mismatch')
             if name=='source/original.psd' and actual!=psd_sha256:raise PackageError('project_embedded_psd_identity_mismatch')
-    return {'project_manifest_members_verified':len(infos)-1,'project_embedded_psd_matches':True}
+    return {'project_manifest_members_verified':len(infos)-1,'project_embedded_psd_matches':True,
+        'project_expanded_bytes':total,'project_journal_members_verified':journals,'project_largest_journal_bytes':largest_journal,
+        'project_budget_scope':'maintainer_offline_source_packaging_only'}
 
 def check_png(file: Path, *, layer=False) -> None:
     from PIL import Image
@@ -158,7 +169,8 @@ def source_members(root: Path,spec: dict,runtime: dict,pins: dict) -> tuple[dict
     manifest=pinned(root,spec['source_manifest'],('.json',),pins);doc=_json(manifest.read_bytes())
     if doc.get('format')!='original-live2d-layers-v1' or not isinstance(doc.get('layers'),list) or not 1<=len(doc['layers'])<=128:
         raise PackageError('original_layer_manifest_required')
-    psd=pinned(root,spec['psd'],('.psd',),pins);cmo=pinned(root,spec['cmo3'],('.cmo3',),pins);project=pinned(root,spec['project'],('.psd2live',),pins);recipe=pinned(root,spec['rig_recipe'],('.json',),pins)
+    psd=pinned(root,spec['psd'],('.psd',),pins);cmo=pinned(root,spec['cmo3'],('.cmo3',),pins)
+    project=pinned(root,spec['project'],('.psd2live',),pins,source_limit=MAX_PROJECT_FILE);recipe=pinned(root,spec['rig_recipe'],('.json',),pins)
     with psd.open('rb') as source:header=source.read(26)
     if len(header)!=26 or header[:6]!=b'8BPS\x00\x01' or struct.unpack_from('>II',header,14)!=(doc['canvas']['height'],doc['canvas']['width']):
         raise PackageError('psd_header_or_canvas_identity_mismatch')

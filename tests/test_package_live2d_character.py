@@ -188,4 +188,119 @@ class CharacterPackageTests(unittest.TestCase):
         with self.assertRaisesRegex(pack.PackageError,'source_identity_sha_mismatch'):self.package()
         self.assert_no_published()
 
+class ProjectJournalBudgetTests(unittest.TestCase):
+    """Streaming compressed fixtures; never allocate a real 2GiB project."""
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
+        self.file=self.root/'source.psd2live';self.psd=b'8BPS synthetic identity bytes, not an editable PSD'
+        self.psd_sha=hashlib.sha256(self.psd).hexdigest()
+    def project(self,size,name=None,compression=zipfile.ZIP_DEFLATED):
+        def chunks():
+            yield b'{}'
+            remaining=size-2;block=b' '*(1024*1024)
+            while remaining:
+                chunk=block[:min(remaining,len(block))];yield chunk;remaining-=len(chunk)
+        checksum=hashlib.sha256()
+        for chunk in chunks():checksum.update(chunk)
+        actual=checksum.hexdigest();name=name or ('document/nodes/journal/'+actual+'.json')
+        manifest={'format':'PSD2Live','files':{'source/original.psd':self.psd_sha,name:actual}}
+        with zipfile.ZipFile(self.file,'w',compression) as archive:
+            archive.writestr('source/original.psd',self.psd)
+            with archive.open(name,'w') as output:
+                for chunk in chunks():output.write(chunk)
+            archive.writestr('manifest.json',json.dumps(manifest))
+        return name
+    def check(self):return pack.check_project(self.file,self.psd_sha)
+    def test_content_addressed_journal_above_8m_and_at_exact_64m_passes(self):
+        for size in [8*1024*1024+1,64*1024*1024]:
+            with self.subTest(size=size):
+                self.project(size);checks=self.check();self.assertEqual(checks['project_journal_members_verified'],1)
+                self.assertEqual(checks['project_largest_journal_bytes'],size);self.assertTrue(checks['project_embedded_psd_matches'])
+    def test_journal_one_byte_over_64m_fails(self):
+        self.project(64*1024*1024+1)
+        with self.assertRaisesRegex(pack.PackageError,'project_expansion_limit'):self.check()
+    def test_nonjournal_json_above_8m_does_not_receive_the_exception(self):
+        for name in ['workspace.json','rig/revisions/revision-'+('a'*64)+'.json','history/revisions/'+('a'*64)+'.json']:
+            with self.subTest(name=name):
+                self.project(8*1024*1024+1,name)
+                with self.assertRaisesRegex(pack.PackageError,'project_expansion_limit'):self.check()
+    def test_similar_prefix_and_malformed_hash_cannot_obtain_journal_budget(self):
+        for name in ['document/nodes/journals/'+('a'*64)+'.json','document/nodes/journal/'+('a'*63)+'.json',
+                     'document/nodes/journal/'+('A'*64)+'.json','document/nodes/journal-extra/'+('a'*64)+'.json']:
+            with self.subTest(name=name):
+                self.project(8*1024*1024+1,name)
+                with self.assertRaises(pack.PackageError):self.check()
+    def test_journal_filename_must_match_actual_content_even_when_manifest_hash_matches(self):
+        self.project(256,'document/nodes/journal/'+('a'*64)+'.json')
+        with self.assertRaisesRegex(pack.PackageError,'journal_content_address_mismatch'):self.check()
+    def test_observed_history_revision_ids_do_not_assume_payload_content_addressing(self):
+        name='history/revisions/'+('a'*64)+'.json';self.project(256,name)
+        checks=self.check();self.assertEqual(checks['project_manifest_members_verified'],2)
+        self.assertEqual(checks['project_journal_members_verified'],0)
+    def test_history_revision_wrong_prefix_and_hash_shape_are_rejected(self):
+        for name in ['history/revision/'+('a'*64)+'.json','history/revisions/'+('a'*63)+'.json',
+                     'history/revisions/'+('A'*64)+'.json','history/revisions-extra/'+('a'*64)+'.json']:
+            with self.subTest(name=name):
+                self.project(256,name)
+                with self.assertRaisesRegex(pack.PackageError,'project_member_not_allowlisted'):self.check()
+    def test_content_address_does_not_replace_the_independent_manifest_hash(self):
+        name=self.project(256)
+        with zipfile.ZipFile(self.file) as archive:members={key:archive.read(key) for key in archive.namelist()}
+        manifest=json.loads(members['manifest.json']);manifest['files'][name]='a'*64;members['manifest.json']=json.dumps(manifest).encode()
+        with zipfile.ZipFile(self.file,'w',zipfile.ZIP_DEFLATED) as archive:
+            for key,value in members.items():archive.writestr(key,value)
+        with self.assertRaisesRegex(pack.PackageError,'project_member_sha_mismatch'):self.check()
+    def test_member_crc_failure_is_still_detected(self):
+        name=self.project(256,compression=zipfile.ZIP_STORED)
+        with zipfile.ZipFile(self.file) as archive:info=archive.getinfo(name)
+        raw=bytearray(self.file.read_bytes());offset=info.header_offset+30+len(name.encode())+len(info.extra);raw[offset]^=1;self.file.write_bytes(raw)
+        with self.assertRaises(zipfile.BadZipFile):self.check()
+    def test_aggregate_over_2g_fails_from_metadata_without_a_giant_file(self):
+        self.project(256);infos=[]
+        for index in range(8):
+            info=zipfile.ZipInfo('rig/objects/'+format(index,'064x')+'.bin');info.file_size=256*1024*1024;infos.append(info)
+        last=zipfile.ZipInfo('source/original.psd');last.file_size=1;infos.append(last)
+        with patch.object(zipfile.ZipFile,'infolist',return_value=infos),self.assertRaisesRegex(pack.PackageError,'project_expansion_limit'):self.check()
+    def test_external_json_and_selected_source_limits_remain_unchanged(self):
+        self.assertEqual(pack.MAX_JSON,8*1024*1024);self.assertEqual(pack.MAX_SOURCE_BYTES,512*1024*1024);self.assertEqual(pack.MAX_SOURCE_FILE,256*1024*1024)
+        self.assertEqual(pack._json(b'{}'+b' '*(8*1024*1024-2)),{})
+        with self.assertRaisesRegex(pack.PackageError,'json_size_limit'):pack._json(b'{}'+b' '*(8*1024*1024-1))
+
+class ProjectOuterFileBudgetTests(unittest.TestCase):
+    """Sparse metadata fixtures: no large disk writes or bulk fixture hashing."""
+    setUp=ProjectJournalBudgetTests.setUp
+    project=ProjectJournalBudgetTests.project
+    def sparse_project(self,size):
+        self.project(256);raw=self.file.read_bytes()
+        with self.file.open('wb') as output:output.seek(size-len(raw));output.write(raw)
+        self.assertEqual(self.file.stat().st_size,size)
+    def pin_project(self):
+        # Hash-drift correctness is covered separately with real bytes. Here the
+        # mock prevents reading sparse hundreds-of-MiB holes just to test limits.
+        with patch.object(pack,'sha',return_value='a'*64):
+            return pack.pinned(self.root,{'path':self.file.name,'sha256':'a'*64},('.psd2live',),{},source_limit=pack.MAX_PROJECT_FILE)
+    def test_project_above_256m_reaches_actual_project_format_check(self):
+        fixture=CharacterPackageTests();fixture.setUp();self.addCleanup(fixture.doCleanups)
+        project=fixture.root/'authoring/character.psd2live';raw=project.read_bytes()
+        with project.open('wb') as output:output.seek(256*1024*1024+1-len(raw));output.write(raw)
+        fixture.spec['project']={'path':'authoring/character.psd2live','sha256':'a'*64};real_sha=pack.sha
+        with patch.object(pack,'sha',side_effect=lambda file:'a'*64 if file==project else real_sha(file)):
+            # Exercise the actual project-field call, not just a manually raised
+            # limit, so forgetting to wire source_members would fail this test.
+            members,checks=pack.source_members(fixture.root,fixture.spec,{},{})
+            self.assertEqual(members['source/character.psd2live'],project);self.assertTrue(checks['project_embedded_psd_matches'])
+            with self.assertRaisesRegex(pack.PackageError,'source_not_regular_or_over_budget'):
+                pack.pinned(fixture.root,fixture.spec['project'],('.psd2live',),{})
+    def test_exact_project_320m_passes_but_one_extra_byte_fails(self):
+        self.sparse_project(320*1024*1024);self.assertEqual(self.pin_project(),self.file)
+        with self.file.open('r+b') as output:output.truncate(320*1024*1024+1)
+        with self.assertRaisesRegex(pack.PackageError,'source_not_regular_or_over_budget'):self.pin_project()
+    def test_other_source_psd_png_still_reject_above_256m(self):
+        for suffix in ['.psd','.png']:
+            with self.subTest(suffix=suffix):
+                file=self.root/('large'+suffix)
+                with file.open('wb') as output:output.truncate(256*1024*1024+1)
+                with patch.object(pack,'sha',return_value='a'*64),self.assertRaisesRegex(pack.PackageError,'source_not_regular_or_over_budget'):
+                    pack.pinned(self.root,{'path':file.name,'sha256':'a'*64},(suffix,),{})
+
 if __name__=='__main__':unittest.main()

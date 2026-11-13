@@ -1,0 +1,41 @@
+{
+  "format": "live2d-packager-project-budget-preflight-v1",
+  "generated_at": "2026-11-13T04:14:18.419977+00:00",
+  "passed": true,
+  "scope": "Observed rolling-C project identity only, not final frozen character/export, whole-source ZIP, Core, editing or artistic acceptance. No completed-cell count inferred.",
+  "project_path": ".build/original-character-rig-formal-r1/authoring/rigid-follow-rolling-C.psd2live",
+  "project_sha256_before": "02d3e704104a7c6ab3d1906ae127b1faac567096b0ec8b740f3bcfbff01193c9",
+  "project_sha256_after": "02d3e704104a7c6ab3d1906ae127b1faac567096b0ec8b740f3bcfbff01193c9",
+  "project_source_stable": true,
+  "project_bytes": 126777737,
+  "project_expanded_bytes": 730842307,
+  "entries": 1181,
+  "largest_journal": {
+    "path": "document/nodes/journal/f3bab95d511657a305dc906c5184fa857f6c67b5ddb13faeeb2a4631735bf257.json",
+    "bytes": 14842068
+  },
+  "embedded_psd_sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+  "checks": {
+    "project_manifest_members_verified": 1180,
+    "project_embedded_psd_matches": true,
+    "project_expanded_bytes": 730842307,
+    "project_journal_members_verified": 103,
+    "project_largest_journal_bytes": 14842068,
+    "project_budget_scope": "maintainer_offline_source_packaging_only"
+  },
+  "error": null,
+  "seconds": 1.843,
+  "peak_rss_kib": 21156,
+  "source_sha256": "c6e63afc925319559deb45794e40a1ad38be00a41a678c69006a2c897d82ee2e",
+  "old_rejection_report": "review/live2d-packager-c15360-old-budget-red.json",
+  "format_rejection_report": "review/live2d-packager-rolling-c-budget-preflight-red.json",
+  "history_revision_observation": "review/live2d-project-history-revision-format-observation.json",
+  "limits": {
+    "journal": 67108864,
+    "other_json": 8388608,
+    "project_expanded": 2147483648,
+    "source_zip_selected": 536870912,
+    "source_single_file": 268435456
+  },
+  "production_runtime_limits_changed": false
+}

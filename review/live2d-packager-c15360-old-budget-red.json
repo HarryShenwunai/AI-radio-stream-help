@@ -1,0 +1,24 @@
+{
+  "format": "live2d-packager-old-project-budget-red-v1",
+  "generated_at": "2026-11-13T04:09:58.753784+00:00",
+  "scope": "Actual rolling-C authoring project observed by recorded SHA and stable before/after bytes; filename c15360 is the initial probe label, not an asserted current completed-cell count. Old 8MiB nested JSON gate rejection, not Core or character acceptance.",
+  "project_path": ".build/original-character-rig-formal-r1/authoring/rigid-follow-rolling-C.psd2live",
+  "project_sha256": "02d3e704104a7c6ab3d1906ae127b1faac567096b0ec8b740f3bcfbff01193c9",
+  "project_bytes": 126777737,
+  "project_expanded_bytes": 730842307,
+  "entries": 1181,
+  "largest_member": {
+    "path": "source/original.psd",
+    "bytes": 47964854
+  },
+  "embedded_psd_sha256": "fe677c1804656b010b107e63141249530479c8de987484342edab12d5afd3342",
+  "old_source_sha256": "e983964b0e57f71b6fd60c8a8a6eb197320410d5e033e98370edd593c166956d",
+  "outcome": {
+    "rejected": true,
+    "error": "project_expansion_limit"
+  },
+  "source_stable": true,
+  "seconds": 0.236,
+  "peak_rss_kib": 13724,
+  "rejection_explanation": "Recorded aggregate 730842307 bytes is below the old 805306368-byte aggregate limit. The old generic project_expansion_limit rejection comes from a nested JSON member exceeding 8388608 bytes."
+}

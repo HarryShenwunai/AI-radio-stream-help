@@ -1,0 +1,23 @@
+{
+  "format": "live2d-offline-packager-source-freeze-v1",
+  "generated_at": "2026-11-13T04:25:19.054999+00:00",
+  "source_sha256": {
+    "scripts/package_live2d_character.py": "8795cb7c28bb76e4e7df1ea0e978efdbde97131a7a2a5764a74ffee395f486ab",
+    "tests/test_package_live2d_character.py": "6f2b662e9d72f67a86c5f0dca732d2e601510fe1f867ff6f48bcb794e30bba7b",
+    "docs/implementation/package-live2d-character.md": "5cc83910de444b045a3523f0634035fae840bd2d5c6e65c34536ef11ca9b3851"
+  },
+  "check_report": "review/live2d-packager-project-field-limit-check.json",
+  "check_report_sha256": "df9622b9e69c169c2243e17e24aa6d0d508f1a45c6ce7c31108cd4bff36f1661",
+  "actual_final_project_report": "review/live2d-final-project-size-and-format-preflight.json",
+  "actual_final_project_source_binding": "8795cb7c28bb76e4e7df1ea0e978efdbde97131a7a2a5764a74ffee395f486ab",
+  "tests": 36,
+  "passed": true,
+  "only_authorized_public_changes": [
+    "scripts/package_live2d_character.py",
+    "tests/test_package_live2d_character.py",
+    "docs/implementation/package-live2d-character.md"
+  ],
+  "production_changed": false,
+  "software_artifact_sha256": "d66259ccbf7c944f5b626c85cfa0a10adb1c1a7a5926787eb522dfcd8a8a3ac6",
+  "final_character_accepted": false
+}
