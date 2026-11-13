@@ -1,0 +1,25 @@
+{
+  "id": 29,
+  "title": "Reject direct file content access from proposal-only modules",
+  "branch": "fix/audit-29-architecture-proposal-file-io",
+  "scope": "tests/test_architecture_rules.py",
+  "reproducer_failed_before": true,
+  "targeted_test_passed_after": true,
+  "file_suite_passed_after": true,
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_architecture_rules.py",
+    "-k",
+    "audit29"
+  ],
+  "source_sha256": {
+    "scripts/check_architecture.py": "ea3305911ecc237f47ffffa72edbc5f8a575d735750ced1d8ce1843d3ecaa38f"
+  },
+  "limits": "Controlled primitives exercise shipped JavaScript; this does not prove Windows hardware or real platform accounts."
+}
