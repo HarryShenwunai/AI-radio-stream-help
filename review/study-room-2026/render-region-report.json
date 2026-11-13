@@ -1,0 +1,434 @@
+{
+  "blink-00.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-01.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 119,
+    "maximum_delta": 12,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-02.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 190,
+    "maximum_delta": 15,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-03.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 281,
+    "maximum_delta": 15,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-04.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 381,
+    "maximum_delta": 17,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-05.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 482,
+    "maximum_delta": 20,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-06.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 587,
+    "maximum_delta": 18,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-07.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 704,
+    "maximum_delta": 19,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-08.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 822,
+    "maximum_delta": 23,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-09.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 951,
+    "maximum_delta": 19,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-10.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 1083,
+    "maximum_delta": 20,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-11.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 951,
+    "maximum_delta": 19,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-12.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 822,
+    "maximum_delta": 23,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-13.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 704,
+    "maximum_delta": 19,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-14.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 587,
+    "maximum_delta": 18,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-15.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 482,
+    "maximum_delta": 20,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-16.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 381,
+    "maximum_delta": 17,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-17.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 281,
+    "maximum_delta": 15,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-18.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 190,
+    "maximum_delta": 15,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-19.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 119,
+    "maximum_delta": 12,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "blink-20.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "breath-max.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "gaze-left.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 3,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "gaze-right.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "head-left.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 0,
+    "maximum_delta": 0,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "head-right.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  },
+  "neutral.png": {
+    "size": [
+      720,
+      876
+    ],
+    "allowed_region": [
+      325,
+      205,
+      535,
+      330
+    ],
+    "changed_pixels": 2,
+    "maximum_delta": 1,
+    "outside_changed_pixels": 0,
+    "outside_maximum_delta": 0
+  }
+}

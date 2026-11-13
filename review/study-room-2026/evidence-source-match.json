@@ -1,0 +1,6 @@
+{
+  "same_source_hashes_for_full_regression_and_actual_browser": true,
+  "quality_commit": "1ee25573496863c1c1b14e2becf6be76dd2db71e",
+  "browser_commit": "1ee25573496863c1c1b14e2becf6be76dd2db71e",
+  "note": "Commits differ only by recording the already tested changes; all measured source hashes match."
+}

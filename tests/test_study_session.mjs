@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url),S=require('../app/static/study-session.js');
+const started=()=>S.reduce(S.reduce(S.fresh(),{type:'goal',value:'理解导数'},0),{type:'start'},0);
+test('session requires a goal and uses elapsed time rather than tick count',()=>{assert.equal(S.reduce(S.fresh(),{type:'start'},0).phase,'idle');let s=started();s=S.reduce(s,{type:'tick'},90000);assert.equal(s.remaining,1410000);assert.equal(s.elapsed,90000);assert.equal(S.reduce(s,{type:'tick'},90000).elapsed,90000);assert.equal(S.reduce(s,{type:'tick'},100).elapsed,90000);});
+test('paused and restored sessions never charge absent time',()=>{let s=S.reduce(started(),{type:'pause'},60000);s=S.reduce(s,{type:'tick'},999999);assert.equal(s.elapsed,60000);s=S.reduce(s,{type:'resume'},1000000);s=S.reduce(s,{type:'tick'},1001000);assert.equal(s.elapsed,61000);const saved=S.restore({...s,last:1});assert.equal(saved.phase,'paused');assert.equal(saved.last,null);assert.equal(saved.remaining,1439000);});
+test('finish, save, and break completion are idempotent with no double credit',()=>{let s=S.reduce(started(),{type:'finish'},120000);assert.equal(s.phase,'review');s=S.reduce(s,{type:'save'},120000);assert.equal(s.total,120000);s=S.reduce(s,{type:'save'},120000);assert.equal(s.rounds,1);s=S.reduce(s,{type:'tick'},9999999);assert.equal(s.phase,'idle');assert.equal(s.total,120000);assert.equal(s.elapsed,0);assert.equal(s.remaining,1500000);});
+test('reload during a break cannot resume old work or credit it again',()=>{let s=S.reduce(S.reduce(started(),{type:'finish'},120000),{type:'save'},120000);s=S.restore(s);assert.equal(s.phase,'idle');assert.equal(s.elapsed,0);assert.equal(s.total,120000);assert.equal(s.rounds,1);});
+test('untrusted storage and events stay bounded and do not inject a prompt',()=>{const s=S.restore({phase:'fake',minutes:Infinity,elapsed:NaN,total:-1,rounds:999999999,goal:'x'.repeat(1000),kind:'__proto__',checked:['yes',true]});assert.equal(s.goal.length,180);assert.equal(s.minutes,25);assert.equal(s.total,0);assert.equal(s.phase,'idle');assert.deepEqual(s.checked,[false,true,false]);assert.equal(S.prompt(S.fresh(),'plan'),'');assert.ok(S.prompt({...s,goal:'复习'},'plan').includes('不要编造'));assert.equal(S.reduce(started(),{type:'check',index:99},0).checked.length,3);});
+test('bounded state exploration preserves timer and accounting invariants',()=>{
+ const events=[{type:'start'},{type:'pause'},{type:'resume'},{type:'finish'},{type:'save'},{type:'skip'},{type:'tick'},{type:'clear'},{type:'duration',value:15},{type:'goal',value:'复习'},{type:'check',index:0}];
+ let states=new Map([[JSON.stringify(S.fresh()),S.fresh()]]),visited=0;
+ for(let depth=0;depth<8;depth++){
+  const next=new Map();for(const state of states.values())for(const event of events)for(const now of [0,60000,4000000]){const s=S.reduce(state,event,now);visited++;assert.ok(Number.isFinite(s.remaining)&&s.remaining>=0&&s.remaining<=s.minutes*60000);assert.ok(s.elapsed>=0&&s.elapsed<=s.minutes*60000);assert.ok(s.total>=0&&s.rounds>=0);assert.equal(s.checked.length,3);if(s.phase==='running')assert.ok(s.goal.trim());if(s.phase==='running'||s.phase==='paused'||s.phase==='review')assert.equal(s.elapsed+s.remaining,s.minutes*60000);next.set(JSON.stringify(s),s);}states=next;
+ }assert.ok(visited>10000);console.log('Study state transitions verified:',visited,'distinct final states:',states.size);
+});

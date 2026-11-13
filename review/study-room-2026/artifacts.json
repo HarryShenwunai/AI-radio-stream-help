@@ -1,0 +1,38 @@
+{
+  "Study-Eyes-Before-After.png": {
+    "bytes": 212195,
+    "sha256": "b58a1343740101d878576dd73b829565496c65f2c4e67a151a0189a24149c3fc"
+  },
+  "Study-Eyes-Detail.mp4": {
+    "bytes": 457577,
+    "sha256": "91fc606caebba8d5a0fac97d6c46e4f571ab0ec2ad49c5339edd49f94d5104ae"
+  },
+  "Study-Room-Desktop.png": {
+    "bytes": 1023473,
+    "sha256": "547b0e01d3eae88e7c2d1fff2b81da2ae3a3c68766deb2ef0038bc7c608bcdbd"
+  },
+  "Study-Room-Mobile.png": {
+    "bytes": 322913,
+    "sha256": "29c8764021f320a02ecfc1fa2044c0b33688cccc4983ecb409ed11ab23a5364b"
+  },
+  "Study-Room-Models-and-Source.zip": {
+    "bytes": 53524900,
+    "sha256": "1915f7adf983367b2dcffe6ffb37f5c111eaa1a43ccd721f501e7ea09cdf305a"
+  },
+  "Study-Room-Night.png": {
+    "bytes": 998297,
+    "sha256": "9ddb534e2881cba2dedac0bf1a5b47bd3889c976c217d513104304630fb99d4f"
+  },
+  "Study-Room-Review.png": {
+    "bytes": 1027209,
+    "sha256": "269bf344016aaaa28202587f9971e84787dd9f51d1ece9f01bac1eb5f21321aa"
+  },
+  "Study-Room-Walkthrough.mp4": {
+    "bytes": 2663968,
+    "sha256": "46a9c4131eb21fcf3c47b3b2c40c1b7da4f9046d8063169f85d9a9eb6d24256c"
+  },
+  "\u4f7f\u7528\u8bf4\u660e.txt": {
+    "bytes": 1482,
+    "sha256": "4406ece8e6ec2cc3778197671638bc6af4d480e54104b6a8b244b7cd7eaf08e5"
+  }
+}

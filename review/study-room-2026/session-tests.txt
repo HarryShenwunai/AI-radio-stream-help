@@ -1,0 +1,15 @@
+Study state transitions verified: 21615 distinct final states: 457
+✔ session requires a goal and uses elapsed time rather than tick count (1.107053ms)
+✔ paused and restored sessions never charge absent time (0.588905ms)
+✔ finish, save, and break completion are idempotent with no double credit (0.254132ms)
+✔ reload during a break cannot resume old work or credit it again (0.229545ms)
+✔ untrusted storage and events stay bounded and do not inject a prompt (0.967564ms)
+✔ bounded state exploration preserves timer and accounting invariants (35.835406ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.666791

@@ -1,0 +1,33 @@
+{
+  "changed": [
+    {
+      "layer": "LLid",
+      "size": [
+        120,
+        90
+      ],
+      "alpha_identical": true,
+      "exterior_rgb_identical": true,
+      "rgb_max_delta": 24
+    },
+    {
+      "layer": "RLid",
+      "size": [
+        110,
+        90
+      ],
+      "alpha_identical": true,
+      "exterior_rgb_identical": true,
+      "rgb_max_delta": 19
+    }
+  ],
+  "unchanged": [
+    "LIris.png",
+    "LSclera.png",
+    "LForeground.png",
+    "RIris.png",
+    "RSclera.png",
+    "RForeground.png"
+  ],
+  "generated_plate_sha256": "b6055b5b0cfd2ae1966b678978551d9ae383f97ab40d43ca435a3100f577ca10"
+}
