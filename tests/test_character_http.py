@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import base64
 from contextlib import closing, contextmanager
+from unittest.mock import patch
 import hashlib
 import http.client
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -459,6 +460,34 @@ class CharacterHTTPTests(unittest.TestCase):
         self.select(self.initial_id)
         task = self.state()['tasks'][0]
         self.assertEqual(task['status'], 'paused')
+
+    def test_official_sol_astra_requests_use_supported_reasoning_parameters(self):
+        for model in ['gpt-6.1-sol','gpt-6-astra']:
+            with self.subTest(model=model):
+                self.post('settings', {'engine':'api','api_base':'https://api.openai.com/v1','api_model':model,'api_key':'fake-official-key','expected_character_id':self.initial_id})
+                def respond(request, **kwargs):
+                    body=json.loads(request.data)
+                    self.assertEqual(request.full_url,'https://api.openai.com/v1/chat/completions')
+                    self.assertNotIn('temperature',body);self.assertNotIn('max_tokens',body)
+                    self.assertEqual(body['reasoning_effort'],'low')
+                    self.assertEqual(body['max_completion_tokens'],2288)
+                    self.assertIs(body['store'],False)
+                    stream=io.BytesIO(b'data: {"choices":[{"delta":{"content":"answer"}}]}\n\ndata: [DONE]\n')
+                    stream.headers={'Content-Type':'text/event-stream'}
+                    return stream
+                with patch.object(self.app.urllib.request,'build_opener') as opener:
+                    opener.return_value.open.side_effect=respond
+                    self.assertEqual(list(self.app.remote_tokens(self.app.settings(),[{'role':'user','content':'fixture'}],None)),['answer'])
+                    self.assertEqual(opener.return_value.open.call_count,1)
+
+    def test_truncated_remote_answer_is_not_accepted_as_complete(self):
+        self.post('settings', {'engine':'api','api_base':'https://api.openai.com/v1','api_model':'gpt-6.1-sol','api_key':'fake-official-key','expected_character_id':self.initial_id})
+        stream=io.BytesIO(b'data: {"choices":[{"delta":{"content":"partial"}}]}\n\ndata: {"choices":[{"delta":{},"finish_reason":"length"}]}\n\ndata: [DONE]\n')
+        stream.headers={'Content-Type':'text/event-stream'}
+        with patch.object(self.app.urllib.request,'build_opener') as opener:
+            opener.return_value.open.return_value=stream
+            with self.assertRaises(self.app.AppError):
+                self.app.generate_once(self.app.settings(),[{'role':'user','content':'fixture'}])
 
     def test_model_connection_is_shared_and_switch_cannot_revive_old_provider(self):
         with recorded_local_provider() as (base_a, _), recorded_local_provider() as (base_b, _):
