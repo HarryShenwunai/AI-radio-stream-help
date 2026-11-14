@@ -30,6 +30,13 @@ class PromptBudgetTests(unittest.TestCase):
         self.app.generate_once({'engine': 'local', 'local_context': context}, copy.deepcopy(messages), max_tokens=max_tokens)
         return self.calls[-1]
 
+    def test_truncated_local_generation_is_not_a_complete_reply(self):
+        self.model.create_chat_completion=lambda **kwargs: iter([
+            {'choices':[{'delta':{'content':'切线方程为 y ='}}]},
+            {'choices':[{'delta':{},'finish_reason':'length'}]}])
+        with self.assertRaisesRegex(self.app.AppError,'不完整'):
+            self.run_local(4096,[{'role':'user','content':'求切线'}],160)
+
     def test_2048_and_4096_use_selected_capacity_and_keep_latest_user(self):
         messages = [{'role': 'system', 'content': 's' * 80},
                     {'role': 'user', 'content': 'old' * 250},
