@@ -15,3 +15,14 @@ test('bounded state exploration preserves timer and accounting invariants',()=>{
   const next=new Map();for(const state of states.values())for(const event of events)for(const now of [0,60000,4000000]){const s=S.reduce(state,event,now);visited++;assert.ok(Number.isFinite(s.remaining)&&s.remaining>=0&&s.remaining<=s.minutes*60000);assert.ok(s.elapsed>=0&&s.elapsed<=s.minutes*60000);assert.ok(s.total>=0&&s.rounds>=0);assert.equal(s.checked.length,3);if(s.phase==='running')assert.ok(s.goal.trim());if(s.phase==='running'||s.phase==='paused'||s.phase==='review')assert.equal(s.elapsed+s.remaining,s.minutes*60000);next.set(JSON.stringify(s),s);}states=next;
  }assert.ok(visited>10000);console.log('Study state transitions verified:',visited,'distinct final states:',states.size);
 });
+test('study drafting preserves materials, repeats safely and never truncates at the input limit',()=>{
+ const source='原文：Δx/Δt。\n疑问：为什么取极限？ 🧪';
+ const instruction=S.prompt({...S.fresh(),goal:'理解导数'},'plan');
+ const result=S.draft(source,instruction);
+ assert.ok(result.text.startsWith(source+'\n\n'));assert.equal(result.status,'added');
+ assert.deepEqual(S.draft(result.text,instruction),{text:result.text,status:'unchanged'});
+ const full='材'.repeat(4000);assert.deepEqual(S.draft(full,instruction),{text:full,status:'full'});
+ assert.equal(S.draft('',instruction).text,instruction);
+ assert.deepEqual(S.draft(source,''),{text:source,status:'unchanged'});
+ assert.equal(S.draft('x','y',4).text,'x\n\ny');assert.equal(S.draft('x','y',3).status,'full');
+});

@@ -28,6 +28,8 @@ def compare(before: Path, after: Path, region: tuple[int, int, int, int]) -> dic
                 "Pixel drift outside allowed eye region: " + str(escaped.getbbox())
             )
         return {
+            "check": "edit_region_containment_only",
+            "visual_acceptance": "not_evaluated",
             "size": a.size,
             "allowed_region": region,
             "changed_pixels": sum(maximum.histogram()[1:]),
