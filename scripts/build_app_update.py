@@ -99,6 +99,17 @@ def build_folder(base: Path, source: Path, output: Path, commit: str, identity: 
         if canonical_hash(profile)!=BASE_PROFILE_SHA[name]:raise ValueError('Unknown base profile')
         for file,wanted in {**profile['source_files'],**profile['critical_files']}.items():
             if digest(base/folder/relative(file))!=wanted:raise ValueError('Base source/native hash mismatch: '+file)
+    # A fixed allowlist must not silently omit newly introduced runtime dependencies.
+    # Compare against both pristine source inventories before creating any artifact.
+    for directory in ('app/static','src/companion_runtime'):
+        for file in sorted((source/directory).rglob('*')):
+            if not file.is_file() or '__pycache__' in file.parts:continue
+            if file.suffix.lower() not in {'.py','.js','.css','.html','.json','.svg','.png','.jpg','.jpeg','.webp','.txt'}:continue
+            name=file.relative_to(source).as_posix()
+            if name in PROGRAM_FILES:continue
+            wanted=digest(file)
+            if any(profile['source_files'].get(name)!=wanted for profile in profiles.values()):
+                raise ValueError('Changed runtime file is absent from update allowlist: '+name)
     output.mkdir(parents=True)
     manifest={'format':FORMAT,'update_id':identity,'base_source_commit':BASE_COMMIT,'base_archive_sha256':BASE_ARCHIVE_SHA,
         'new_source_commit':commit,'base_source_id':profiles['cpu']['source_id'],'profiles':{},'files':[],

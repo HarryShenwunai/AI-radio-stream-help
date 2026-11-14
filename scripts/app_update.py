@@ -32,11 +32,13 @@ STATIC_FILES = frozenset({'index.html','style.css','app.js','desktop.css','deskt
     'connectors-ui.js','live2d-renderer.js','playback-receipts.js','voice-input.js','vrm-renderer.js',
     'ui-kit.js','companion-core.js','scene-controller.js','stage-actions.js','speech-controller.js','conversation-view.js',
     'studio.js','connection-flow.js','sound-flow.js','privacy-flow.js','assistance-view.js','layered-2d-renderer.js',
-    'scene-morning.png','scene-forest.png','scene-evening.png'})
+    'scene-morning.png','scene-forest.png','scene-evening.png',
+    'study-room.css','study-room.js','study-session.js','live-stage.html','live-stage.css','live-stage.js'})
 RUNTIME_FILES = frozenset({'__init__.py','assets.py','characters.py','conversation.py','device_diagnostics.py',
     'http_payload.py','integration_service.py','lifecycle.py','live.py','live2d_assets.py','live2d_runtime.py',
     'playback.py','runtime_settings.py','voice.py','vrm_assets.py','zerolan.py','assistance.py','perception.py','devices.py',
-    'perception_tracking.py','perception_optional.py','layered_2d_assets.py','preference_learning.py'})
+    'perception_tracking.py','perception_optional.py','layered_2d_assets.py','preference_learning.py',
+    'live_output.py','perception_addon_build.py','perception_tracking_requirements.txt','connectors/requirements.txt'})
 PROGRAM_FILES = frozenset({'app/server.py', *['app/static/'+name for name in STATIC_FILES],
                           *['src/companion_runtime/'+name for name in RUNTIME_FILES]})
 METADATA = frozenset({'BUILD-INFO.json','ASSEMBLY-INFO.json','SOURCE-COMMIT.txt','SHA256SUMS.txt',
