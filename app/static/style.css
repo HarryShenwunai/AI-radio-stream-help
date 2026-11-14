@@ -19,3 +19,33 @@ body:not([data-environment=neutral]) .interaction-meta{background:transparent;wi
 
 /* Nonmodal model actions keep the actual character and composer in view. */
 body[data-layer=stage-actions] .experience-root[data-modal=false]{padding:80px 24px 24px;justify-content:flex-end;align-items:flex-start;background:transparent}.stage-actions-panel{width:min(320px,100%);height:auto;max-height:min(65dvh,560px);border-radius:20px}.stage-actions-panel .experience-header{padding:16px 16px 12px;align-items:center}.stage-actions-panel .experience-header h2{font-size:1rem}.stage-actions-panel .experience-body{padding:14px 16px 16px}.stage-action-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}.stage-action-list .button{min-height:40px;overflow-wrap:anywhere;white-space:normal;word-break:break-word}.stage-actions-panel #stage-reset-pose{width:100%;background:transparent}.stage-actions-panel .inline-error{font-size:.8rem;line-height:1.7;margin:10px 0}.header-actions{flex-shrink:0}@media(max-width:700px){body[data-layer=stage-actions] .experience-root[data-modal=false]{padding:72px 12px 12px}.stage-actions-panel{width:min(300px,100%);max-height:60dvh}}
+
+/* Live desk: task content first; configuration stays below the working area. */
+.experience-panel[data-contact-page=bili]{--text:#262b28;--muted:#666e68;--line:#dfe3dc;--panel:#fafbf8;--paper:#fff;--field:#fff;--accent:#38624f;--accent-strong:#284c3b;--accent-soft:#e9efe9;background:var(--panel);color:var(--text);border-radius:18px}
+[data-contact-page=bili] .experience-header{padding:25px 28px 21px;border-bottom:1px solid var(--line)}
+[data-contact-page=bili] .experience-header h2{font-size:1.25rem;font-weight:600;letter-spacing:.02em}
+[data-contact-page=bili] .experience-body{padding:20px 28px 28px}
+[data-contact-page=bili] .back-button{font-size:.75rem;margin:0 0 12px;padding:4px 0;min-height:32px}
+.live-connection{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-size:.8rem;color:var(--muted)}
+.live-connection-state{display:flex;align-items:center;gap:8px}.live-connection-state:before{content:'';width:6px;height:6px;border-radius:50%;background:#91978f}.live-connection-state[data-connected=true]:before{background:#3e7c56}
+[data-contact-page=bili] .button{border-radius:7px;min-height:42px;font-size:.84rem;box-shadow:none;gap:8px}
+[data-contact-page=bili] .live-quiet{border:0;background:transparent;padding:6px 0;min-height:32px;font-size:.78rem}
+.live-toolbar{position:sticky;top:-20px;z-index:2;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--panel);padding:8px 0 16px;border-bottom:1px solid var(--line)}
+[data-contact-page=bili] .live-stop{color:#994331;background:transparent;border-color:#d9c8c0}
+.live-output-link:empty{display:none}.live-output-link{padding:12px 0;font-size:.83rem}.live-output-link a{color:var(--accent-strong);text-underline-offset:4px}
+.live-workspace{min-height:230px}.live-answer,.live-question{padding:28px 0;border-bottom:1px solid var(--line)}
+.live-answer h3,.live-question h3{font-size:1.1rem;line-height:1.65;font-weight:550;letter-spacing:0;margin:0 0 18px;white-space:pre-wrap;overflow-wrap:anywhere}
+.live-answer-heading{margin-bottom:14px}.live-state{font-size:.74rem;color:var(--muted)}.live-answer[data-state=review] .live-state{color:var(--accent-strong)}
+.live-answer-text{font-size:1rem;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 24px;color:var(--text)}
+[data-contact-page=bili] .live-primary{background:var(--accent-strong);border-color:var(--accent-strong);color:white;padding:10px 17px;min-height:44px}
+.live-empty{padding:36px 0 48px}.live-empty h3{font-size:1.1rem;font-weight:500;margin:0 0 12px}.live-empty p{color:var(--muted);font-size:.86rem;line-height:1.7;margin:0}
+.live-settings{border-bottom:1px solid var(--line);padding:0}.live-settings summary{cursor:pointer;min-height:48px;display:list-item;list-style-position:inside;padding:15px 0;font-size:.83rem;color:var(--muted)}.live-settings[open] summary{color:var(--text)}
+.live-settings .purpose-form{padding:8px 0 20px}.live-settings .flow-footer{position:static;padding:12px 0 0;margin:0;background:none;border:0}.live-settings .primary{width:auto;padding:10px 18px}.live-settings textarea{min-height:120px}
+.live-material-excerpt{padding:0 0 16px;margin:0;font-size:.86rem;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere;border-bottom:1px solid var(--line)}
+.live-delivery .flow-hint{margin:0 0 18px;font-size:.8rem;line-height:1.7}
+:root[data-theme=night] [data-contact-page=bili]{--text:#e7ebe5;--muted:#afb6ae;--line:#39423a;--panel:#202721;--paper:#252e27;--field:#252e27;--accent:#a8c9b3;--accent-strong:#a8c9b3;--accent-soft:#34483a}
+:root[data-theme=night] [data-contact-page=bili] .live-primary{background:#afc8b6;color:#1e2d23;border-color:#afc8b6}:root[data-theme=night] [data-contact-page=bili] .live-stop{color:#e4b6a6;border-color:#6d5147}
+@media(max-width:700px){[data-contact-page=bili] .experience-header{padding:20px}[data-contact-page=bili] .experience-body{padding:16px 20px 24px}.live-toolbar{top:-16px}.live-answer h3,.live-question h3{font-size:1.04rem}.live-answer-text{font-size:.94rem}.live-workspace{min-height:200px}}
+[data-contact-page=bili] .button{transition:border-color .15s,transform .15s}
+[data-contact-page=bili] .live-primary:hover:not(:disabled){background:#345e49;border-color:#345e49;color:#fff}
+:root[data-theme=night] [data-contact-page=bili] .live-primary:hover:not(:disabled){background:#c4d9ca;border-color:#c4d9ca;color:#1e2d23}

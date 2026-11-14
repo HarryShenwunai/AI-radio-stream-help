@@ -20,3 +20,10 @@ test('Bili connection is explicit; secret fields clear after attempted connectio
 test('hidden flows do not poll and clear credentials on close',async()=>{const h=harness();await h.open('bili');const secret=h.field('Access Key Secret');secret.value='private';const count=h.calls.length;h.ui.close();await tick();assert.equal(secret.value,'');assert.equal(h.calls.length,count);});
 test('pause uses cancellation endpoint without a fake delivered claim',async()=>{const h=harness();await h.open('wechat');await h.button('暂停自动发送并取消待发').onclick();assert.ok(h.calls.some(c=>c.path==='connectors/wechat/stop'));assert.equal(h.nodes().some(n=>n.textContent==='发送成功'),false);});
 test('native pause cleanup works while browser visibility is unchanged and unknown codes stay internal',async()=>{const h=harness(async()=>({bili:{state:'internal_auth_error'}}));await h.open('bili');const secret=h.field('Access Key Secret');secret.value='private';h.ui.close();assert.equal(secret.value,'');assert.equal(h.nodes().some(n=>n.textContent==='internal_auth_error'),false);});
+
+test('live review pairs answer with its question and keeps playback approval explicit',async()=>{
+ const h=harness(async()=>({bili:{state:'not_connected'},public_events:[{event_id:'e1',room_id:'1',text:'Unique question'}],live_output:{material:{text:'Public material'},jobs:[{id:'j1',event_id:'e1',room_id:'1',question:'Unique question',text:'Answer',state:'review'}]}}));
+ await h.open('bili');assert.equal(h.nodes().filter(n=>n.textContent==='Unique question').length,1);assert.equal(h.button('准备回答'),undefined);
+ h.setDecision(false);await h.button('播放这条回答').onclick();assert.equal(h.calls.filter(c=>c.data).length,0);
+ h.setDecision(true);await h.button('播放这条回答').onclick();assert.equal(h.calls.find(c=>c.path==='connectors/bili/approve').data.confirm_output,true);
+});

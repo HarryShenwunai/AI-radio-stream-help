@@ -53,11 +53,11 @@ def main():
             host.goto(base);host.wait_for_function('()=>window.CompanionApp?.core.get().state')
             host.locator('#open-companion-controls').click();host.get_by_role('button',name='微信与直播连接').click();host.get_by_role('button',name='哔哩哔哩直播预览',exact=True).click()
             host.get_by_label('本场公开教材',exact=True).fill(MATERIAL)
-            host.get_by_label('确认这份教材可公开用于直播回答',exact=True).check()
-            host.get_by_role('button',name='保存教材并作废旧输出').click()
+            host.get_by_label('允许在直播中使用这份教材',exact=True).check()
+            host.get_by_role('button',name='保存教材').click()
             host.wait_for_timeout(150)
-            host.get_by_role('button',name='打开字幕与音频输出页').click()
-            link=host.get_by_role('link',name='打开本机输出页（可作为OBS浏览器源）');link.wait_for();path=link.get_attribute('href')
+            host.get_by_role('button',name='输出窗口').click()
+            link=host.get_by_role('link',name='打开输出窗口 ↗');link.wait_for();path=link.get_attribute('href')
             stage_context=browser.new_context(viewport={'width':1280,'height':720},record_video_dir=str(out/'stage-video'))
             stage_context.tracing.start(screenshots=True,snapshots=True,sources=True)
             stage_context.add_init_script("""(()=>{
@@ -81,13 +81,39 @@ def main():
             report['checks']['stage_has_no_private_cookie']=True
             assert stage.request.get(base+'/api/state').status==401
             ingress.submit({'room_id':'123','event_id':'smoke-1','text':QUESTION})
-            host.get_by_role('button',name='刷新问题与输出状态').click()
-            host.get_by_role('button',name='依据教材生成待审核回答').click()
-            approve=host.get_by_role('button',name='批准这一条字幕与语音');approve.wait_for()
+            host.get_by_role('button',name='刷新').click()
+            host.get_by_role('button',name='准备回答').click()
+            approve=host.get_by_role('button',name='播放这条回答');approve.wait_for()
             assert stage.locator('#caption').inner_text()==''
             approve.scroll_into_view_if_needed()
             host.screenshot(path=str(out/'01-host-review.png'),full_page=True)
             report['checks']['no_output_before_approval']=True
+            assert host.get_by_text(QUESTION,exact=True).count()==1, 'question duplicated across cards'
+            stop=host.get_by_role('button',name='停止播放',exact=True)
+            for width,name in [(390,'mobile'),(1280,'desktop')]:
+                host.set_viewport_size({'width':width,'height':960})
+                approve.scroll_into_view_if_needed()
+                assert host.evaluate('()=>document.documentElement.scrollWidth<=innerWidth')
+                box=stop.bounding_box();assert box and box['y']>=0 and box['y']+box['height']<=960
+                host.screenshot(path=str(out/('04-'+name+'.png')))
+            host.evaluate("()=>document.documentElement.dataset.theme='night'")
+            host.wait_for_timeout(200)
+            host.screenshot(path=str(out/'05-night.png'))
+            contrast=[]
+            for theme in ['night','day']:
+                host.evaluate('(theme)=>document.documentElement.dataset.theme=theme',theme)
+                for hover in [False,True]:
+                    if hover:approve.hover()
+                    else:host.mouse.move(5,5)
+                    host.wait_for_timeout(180)
+                    ratio=approve.evaluate(r"""el=>{const s=getComputedStyle(el),lum=c=>{let a=c.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*a[0]+.7152*a[1]+.0722*a[2]};const a=lum(s.color),b=lum(s.backgroundColor);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05)}""")
+                    assert ratio>=4.5,(theme,hover,ratio)
+                    contrast.append({'theme':theme,'hover':hover,'ratio':ratio})
+            report['primary_button_contrast']=contrast
+            host.locator('[data-contact-page=bili]').screenshot(path=str(out/'06-live-desk.png'))
+            host.evaluate("()=>document.documentElement.dataset.theme='day'")
+            report['checks']['single_question_mobile_stop_visible']=True
+
             host.on('dialog',lambda dialog:dialog.accept())
             approve.click();stage.wait_for_function("()=>document.querySelector('#caption').textContent.length>0")
             assert stage.locator('#caption').inner_text()==ANSWER
@@ -95,7 +121,7 @@ def main():
             report['playback_before_stop']=stage.evaluate('({time:active.audio.currentTime,paused:active.audio.paused,readyState:active.audio.readyState})')
             assert report['playback_before_stop']['time']>0 and not report['playback_before_stop']['paused']
             stage.screenshot(path=str(out/'02-stage-playing.png'))
-            start=time.monotonic();host.get_by_role('button',name='立即停止字幕与音频',exact=True).click()
+            start=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click()
             stage.wait_for_function("()=>document.querySelector('#caption').textContent==='' && active===null")
             report['stop_observed_ms']=round((time.monotonic()-start)*1000,1)
             assert report['stop_observed_ms']<1500
