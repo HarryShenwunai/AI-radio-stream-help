@@ -41,3 +41,12 @@ class TimeoutEvidenceTests(unittest.TestCase):
    log=Path(report['checks'][0]['log']).read_text()
    self.assertIn('partial-stdout-marker',log);self.assertIn('partial-stderr-marker',log)
 
+
+class RuntimeDependencyFingerprintTests(unittest.TestCase):
+ def test_prefixed_requirements_mutation_changes_fingerprint(self):
+  with tempfile.TemporaryDirectory() as d,patch.object(gate,'ROOT',Path(d)):
+   file=Path(d)/'src/companion_runtime/perception_tracking_requirements.txt'
+   file.parent.mkdir(parents=True);file.write_text('package==1')
+   before=gate.source_hashes();file.write_text('package==2');after=gate.source_hashes()
+   self.assertIn(file.relative_to(Path(d)).as_posix(),before)
+   self.assertNotEqual(before,after)

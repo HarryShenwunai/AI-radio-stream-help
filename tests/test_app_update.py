@@ -62,6 +62,28 @@ class AppUpdateTests(unittest.TestCase):
                 patcher=patch.object(module,name,value);patcher.start();self.addCleanup(patcher.stop)
         self.manifest=builder.build_folder(self.base,self.source,self.bundle,'a'*40,'fixture-v2',self.report)
 
+    def test_published_unindexed_dependency_requires_exact_original_hash(self):
+        name='src/companion_runtime/connectors/requirements.txt'
+        data=b'fixed published dependency'
+        for folder in updater.PROFILES.values():self.put(self.base/folder/name,data)
+        self.put(self.source/name,data)
+        checks=json.loads(self.report.read_text());checks['source_sha256'][name]=hashlib.sha256(data).hexdigest()
+        self.report.write_bytes(builder.encoded(checks))
+        with patch.object(updater,'BASE_UNINDEXED_SOURCE_SHA',{name:hashlib.sha256(data).hexdigest()}):
+            bundle=self.root/'indexed-dependency'
+            builder.build_folder(self.base,self.source,bundle,'b'*40,'dependency',self.report)
+            self.assertEqual(updater.execute(self.base,bundle)['status'],'applied')
+            self.assertEqual(updater.execute(self.base,bundle,rollback=True)['status'],'rolled_back')
+            self.put(self.base/next(iter(updater.PROFILES.values()))/name,b'tampered')
+            with self.assertRaises(updater.UpdateError):updater.execute(self.base,bundle)
+
+    def test_unlisted_runtime_change_cannot_silently_ship_stale_code(self):
+        self.put(self.source/'src/companion_runtime/unlisted_feature.py',b'REQUIRED=True\n')
+        destination=self.root/'must-not-build'
+        with self.assertRaisesRegex(ValueError,'allowlist'):
+            builder.build_folder(self.base,self.source,destination,'b'*40,'missing-module',self.report)
+        self.assertFalse(destination.exists())
+
     def snapshot(self):
         return {file.relative_to(self.base).as_posix():file.read_bytes() for file in self.base.rglob('*')
                 if file.is_file() and 'app-update-backups' not in file.parts and not any(part.startswith('.app-stage-') for part in file.parts)}

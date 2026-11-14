@@ -381,3 +381,17 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 最小修复：重绘前捕获教材details展开状态与当前编辑焦点/选区，挂载后仅恢复原本仍在编辑的教材框。不抢回已移到面板关闭按钮的焦点，不新增请求/监听/计时器。
 - 初版焦点反例尝试聚焦模态面板外identity，被原焦点保护拦住；这是实验前置条件错误。改用面板内关闭按钮且先断言焦点。旧版在最终同一脚本仅editing_context_unchanged失败，新版全部通过，草稿和服务器教材均不变、只一次GET。
 - tests/live_material_focus_browser.py可指定旧connectors-ui.js作负对照；证据 .build/windows-depth。此为PC尺寸Linux Chrome开发验证，不是Windows、B站、OBS或独立评审。当前安装包/设备/真实事件未取得。
+
+
+## 2026-11-14 PC交付补齐与完整质量检查
+
+- Windows10/11由用户最后做实机验收；开发不能用待真机代替源码/程序包验证。本轮只PC，旧手机代码不顺带清理。
+- 1024×600真实Chrome复现发送按钮在视口外，根因study-scene固定760px最小高度；改为随窗口，桌面滚动区域承担溢出。同脚本旧CSS失败、新CSS通过。
+- PC直播冒烟原脚本导入Unix-only resource且含390px手机场景，改为1024/1280PC并不伪造跨平台内存测量。字幕清空发生在完成回执之前；原测试竞态失败后服务端已completed，改等实际completed HTTP响应，不加sleep或放宽阈值。
+- 当前GitHub质量作业43649278189/132613908179原始annotation为账号账单锁定、runner0、steps空；不作代码失败解释，不擅自改账单。
+- 本地完整质量入口先因缺mypy失败，隔离安装锁定工具后通过；Brotli1.2.0补齐后不再跳过压缩协议检查。TLC锁定SHA执行既有有限模型及负对照通过，不是全程序证明。
+- 打包根因：固定更新清单漏了study/live-stage/live_output及可选跟踪构建来源。补齐实际新文件，并在生成目录前将所有运行来源与基包source_files比较，遇到不在允许清单的新改动直接拒绝。反例旧版静默成功，新版拒绝；保留原始基包哈希、提交绑定、回退和用户数据保护。
+
+- 实际基包构建暴露quality_gate只哈希requirements前缀，漏掉perception_tracking_requirements.txt；扩展依赖清单指纹，保留旧失败/新通过反例，不绕过构建器来源绑定。
+
+- 真实基包含connectors/requirements.txt但原source_files未索引；用已发布字节SHA限定这一原文件的来源迁移，不允许任意未索引文件。真实分发包测试不可由简化夹具代替。
