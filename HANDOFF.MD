@@ -395,3 +395,7 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 实际基包构建暴露quality_gate只哈希requirements前缀，漏掉perception_tracking_requirements.txt；扩展依赖清单指纹，保留旧失败/新通过反例，不绕过构建器来源绑定。
 
 - 真实基包含connectors/requirements.txt但原source_files未索引；用已发布字节SHA限定这一原文件的来源迁移，不允许任意未索引文件。真实分发包测试不可由简化夹具代替。
+
+## OpenAI Sol/Astra接入兼容
+- 官方2026模型文档确认gpt-6.1-sol/gpt-6-astra支持文本Chat Completions，但不支持none推理与temperature。不能把通用兼容接口参数直接套用。官方接口这两模型使用low与max_completion_tokens，2048推理余量为事先确定的有界预算，并非实测最优阈值。
+- finish_reason=length不能当作完整回答进入待播。保留原协议反例；假密钥协议检查不等于OpenAI真实调用。账户权限、消耗、首字延迟与答案质量仍需受保护凭据后的实际请求。

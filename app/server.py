@@ -1208,7 +1208,13 @@ def remote_tokens(s,messages,cancel,max_tokens=240):
                 raise AppError('模型连接与密钥记录不一致，请在设置中重新保存连接。', 503)
     if not key and urllib.parse.urlsplit(base).hostname not in {'localhost','127.0.0.1','::1'}:
         raise AppError('请先在设置里填写模型 API 密钥。密钥只保存在本机。',503)
-    body=json.dumps({'model':s['api_model'],'messages':messages,'max_tokens':max_tokens,'temperature':.75,'stream':True}).encode()
+    payload={'model':s['api_model'],'messages':messages,'max_tokens':max_tokens,'temperature':.75,'stream':True}
+    if base == 'https://api.openai.com/v1' and s['api_model'] in {'gpt-6.1-sol','gpt-6-astra'}:
+        # These models require reasoning and reject temperature. The bounded
+        # reserve includes hidden reasoning; it is not a visible-answer guarantee.
+        payload.pop('temperature');payload.pop('max_tokens')
+        payload.update(max_completion_tokens=max_tokens+2048,reasoning_effort='low',store=False)
+    body=json.dumps(payload).encode()
     headers={'Content-Type':'application/json','Accept':'text/event-stream'}
     if key:headers['Authorization']='Bearer '+key
     req=urllib.request.Request(base+'/chat/completions',data=body,headers=headers,method='POST')
@@ -1216,6 +1222,8 @@ def remote_tokens(s,messages,cancel,max_tokens=240):
         with urllib.request.build_opener(NoCrossHostRedirect).open(req,timeout=20) as response:
             if 'application/json' in response.headers.get('Content-Type',''):
                 result=json.loads(response.read(2_000_001));check_cancel(cancel)
+                if result['choices'][0].get('finish_reason')=='length':
+                    raise AppError('模型回答达到生成上限，内容不完整；请缩小问题后重试。',502)
                 yield result['choices'][0]['message']['content'];return
             size=0
             for line in response:
@@ -1229,6 +1237,8 @@ def remote_tokens(s,messages,cancel,max_tokens=240):
                 if 'error' in obj:raise AppError('模型服务中断了回复，请重试。',502)
                 choices=obj.get('choices',[])
                 if choices:
+                    if choices[0].get('finish_reason')=='length':
+                        raise AppError('模型回答达到生成上限，内容不完整；请缩小问题后重试。',502)
                     content=choices[0].get('delta',{}).get('content')
                     if content:yield content
     except urllib.error.HTTPError as e:raise AppError(f'模型服务返回 HTTP {e.code}。请检查地址、模型名、密钥和额度。',502)
