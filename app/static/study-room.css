@@ -1,6 +1,6 @@
 /* Study scene: portrait, learning workbench, and conversation occupy separate regions. */
 .study-room{--study-ink:#29332d;--study-muted:#637068;--study-paper:#f8f7f2;--study-line:#dce0d6;--study-accent:#304f40;--study-side:430px;--study-gap:24px}
-.study-room .companion-scene{background:#1e2b25!important;min-height:760px}
+.study-room .companion-scene{background:#1e2b25!important;min-height:0}
 .study-room .companion-scene::before{content:'';position:absolute;inset:80px calc(var(--study-side) + 48px) 24px 24px;border-radius:24px;background:linear-gradient(180deg,#192c2870,transparent 42%,#182920d9),url('/scene-forest.png') center/cover;z-index:-1;pointer-events:none}
 .study-room[data-environment=morning] .companion-scene::before{background-image:linear-gradient(180deg,#192c2850,transparent 42%,#182920d9),url('/scene-morning.png')}
 .study-room[data-environment=evening] .companion-scene::before{background-image:linear-gradient(180deg,#192c2850,transparent 42%,#182920d9),url('/scene-evening.png')}
