@@ -393,3 +393,5 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 打包根因：固定更新清单漏了study/live-stage/live_output及可选跟踪构建来源。补齐实际新文件，并在生成目录前将所有运行来源与基包source_files比较，遇到不在允许清单的新改动直接拒绝。反例旧版静默成功，新版拒绝；保留原始基包哈希、提交绑定、回退和用户数据保护。
 
 - 实际基包构建暴露quality_gate只哈希requirements前缀，漏掉perception_tracking_requirements.txt；扩展依赖清单指纹，保留旧失败/新通过反例，不绕过构建器来源绑定。
+
+- 真实基包含connectors/requirements.txt但原source_files未索引；用已发布字节SHA限定这一原文件的来源迁移，不允许任意未索引文件。真实分发包测试不可由简化夹具代替。

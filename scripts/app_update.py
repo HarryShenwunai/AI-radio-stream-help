@@ -26,6 +26,9 @@ BASE_PROFILE_SHA = {'cpu':'ddb6282ec5ce07d9eadbb68101bff94d7dc89d88ee90d7fc2612f
                     'cuda':'257471b93a849124f506995350eaa9027c16e186902349ed19208559315b44f8'}
 BASE_HOST_SHA = '7874d91e87f1c23610da8e80e4dbf655e11d37c27f73b4532879444eee97f6fc'
 PROFILES = {'cpu':'resources/backend','cuda':'resources/backend-profiles/cuda'}
+# Published archive includes this unchanged dependency file outside its source index.
+BASE_UNINDEXED_SOURCE_SHA = {'src/companion_runtime/connectors/requirements.txt':
+    '43055d58b26edacb78e7680b7028a03fb91d453ee6332eea2078d7e6cbdaa1ad'}
 HOST = 'resources/app/main.cjs'
 HOST_FILES = frozenset({'package.json','main.cjs','preload.cjs','window-policy.cjs','media-policy.cjs','screen-capture.cjs','screen-capture.html','screen-capture-view.js','screen-capture.css','owner-runtime-path.cjs'})
 STATIC_FILES = frozenset({'index.html','style.css','app.js','desktop.css','desktop.js','avatar.svg',
@@ -111,7 +114,7 @@ def load_update(folder: Path) -> dict:
                 raise UpdateError('程序来源成员或SHA无效。')
             relative(source)
             if source not in old['source_files'] and source not in PROGRAM_FILES:raise UpdateError('新增来源不在固定程序白名单中。')
-            before=old['source_files'].get(source)
+            before=old['source_files'].get(source,BASE_UNINDEXED_SOURCE_SHA.get(source))
             if before==wanted:continue
             operation=seen.get(base+'/'+source)
             if source not in PROGRAM_FILES or not operation or operation['old_sha256']!=before or operation['new_sha256']!=wanted:
@@ -120,7 +123,7 @@ def load_update(folder: Path) -> dict:
             if not target.startswith(base+'/'):continue
             source=target[len(base)+1:]
             if source=='runtime-profile-manifest.json':continue
-            if old['source_files'].get(source)!=operation['old_sha256'] or new['source_files'].get(source)!=operation['new_sha256']:
+            if old['source_files'].get(source,BASE_UNINDEXED_SOURCE_SHA.get(source))!=operation['old_sha256'] or new['source_files'].get(source)!=operation['new_sha256']:
                 raise UpdateError('负载与程序来源清单不一致。')
         expected=dict(old['critical_files']);expected['app/server.py']=new['source_files']['app/server.py']
         if new['critical_files']!=expected:raise UpdateError('此更新不得替换原生解释器、DLL或推理运行库。')
