@@ -3,7 +3,7 @@
 import argparse, json, sys, subprocess, threading
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "tests"), str(ROOT / "src")]
@@ -113,6 +113,8 @@ try:
             assert "失败" in r["after_failure_label"], (
                 "Known transport failure is absent from the study status"
             )
+            expect(page.locator("#study-guidance")).to_contain_text("请求失败")
+            expect(page.locator("#study-guidance")).to_be_in_viewport(ratio=1)
             assert not any(
                 x["role"] == "assistant" and x.get("kind") == "chat"
                 for x in f.state()["messages"]

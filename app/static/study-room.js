@@ -7,7 +7,7 @@
  function dispatch(event){if(event.type!=='tick')draftNotice='';state=S.reduce(state,event,performance.now());save();render();}
  function switchRole(){const next=app.core.scope().character_id;if(next===role)return;save();role=next;draftNotice='';try{state=S.restore(JSON.parse(sessionStorage.getItem('study-room:'+role)||'null'));}catch{state=S.fresh();}render();}
  function render(){
-  const phase=state.phase,quiet=phase==='running';document.body.dataset.studyPhase=phase;
+  const phase=state.phase,quiet=phase==='running',snapshot=app.core.get();document.body.dataset.studyPhase=phase;
   $('study-state').textContent=labels[phase];$('study-timer').textContent=`${String(Math.floor(Math.ceil(state.remaining/1000)/60)).padStart(2,'0')}:${String(Math.ceil(state.remaining/1000)%60).padStart(2,'0')}`;
   $('study-progress').value=phase==='break'?300000-state.remaining:state.elapsed;$('study-progress').max=phase==='break'?300000:state.minutes*60000;
   $('study-goal').disabled=phase!=='idle';if(document.activeElement!==$('study-goal'))$('study-goal').value=state.goal;
@@ -16,10 +16,10 @@
   const main=$('study-main');main.textContent=({idle:'开始专注',running:'暂停计时',paused:'继续专注',review:'保存本轮 · 休息 5 分钟',break:'结束休息 · 下一轮'})[phase];main.disabled=!role||phase==='idle'&&!state.goal.trim();
   $('study-finish').hidden=!['running','paused'].includes(phase);
   $('study-summary').textContent=`${state.rounds} 轮完成 · ${Math.floor(state.total/60000)} 分钟已记录`;
-  $('study-guidance').textContent=storageWarning?'当前浏览器无法保存进度，请勿关闭此页。':draftNotice||({idle:'先选一个可以完成的小目标。',running:'我会安静陪你；需要时再叫我。',paused:'进度停在这里，准备好再继续。',review:`实际专注 ${Math.floor(state.elapsed/60000)} 分钟。勾选已完成的步骤，再决定下一轮。`,break:'离开屏幕，伸展一下。下一轮由你开始。'})[phase];
+  $('study-guidance').textContent=storageWarning?'当前浏览器无法保存进度，请勿关闭此页。':snapshot.failed?'本次请求失败。材料已保留，可检查连接或重试。':draftNotice||({idle:'先选一个可以完成的小目标。',running:'我会安静陪你；需要时再叫我。',paused:'进度停在这里，准备好再继续。',review:`实际专注 ${Math.floor(state.elapsed/60000)} 分钟。勾选已完成的步骤，再决定下一轮。`,break:'离开屏幕，伸展一下。下一轮由你开始。'})[phase];
   $('study-quiet').textContent=quiet?'专注中 · 暂停自动朗读':'随时提问 · 由你发起';
   const texts=S.steps(state.kind);for(let i=0;i<3;i++){$('study-step-'+i).checked=state.checked[i];$('study-step-label-'+i).textContent=texts[i];}
-  const snapshot=app.core.get(),st=snapshot.state;const ready=st&&(st.settings.engine==='api'?Boolean(st.settings.api_model):st.model_installed&&st.runtime_installed);
+  const st=snapshot.state;const ready=st&&(st.settings.engine==='api'?Boolean(st.settings.api_model):st.model_installed&&st.runtime_installed);
   $('study-ai-state').textContent=snapshot.failed?'本次请求失败，可检查连接或重试':ready?'模型已配置 · 可准备问题':'配置模型后可准备问题';
   $('study-ai-plan').disabled=!role||!state.goal.trim()||Boolean(snapshot.chat)||Boolean(st?.model_busy);
   $('study-ai-review').disabled=!role||!state.goal.trim()||state.elapsed===0||Boolean(snapshot.chat)||Boolean(st?.model_busy);
