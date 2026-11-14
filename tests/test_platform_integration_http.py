@@ -122,7 +122,7 @@ class PlatformIntegrationHTTPTests(unittest.TestCase):
         f.post('memories',{'text':'PRIVATE_MEMORY_CANARY','expected_character_id':f.initial_id})
         f.post('settings',{'personality':'PRIVATE_PERSONALITY_CANARY','expected_character_id':f.initial_id})
         f.chat('PRIVATE_CHAT_CANARY');before=len(f.state()['messages'])
-        service=f.app.integrations();ingress=LiveIngress(LiveBinding('bilibili-open-live','123'))
+        service=f.app.integrations();service.output.set_material('公开测试教材：只使用本材料回答。', True);ingress=LiveIngress(LiveBinding('bilibili-open-live','123'))
         ingress.submit({'room_id':'123','event_id':'public-1','text':'PUBLIC_DANMAKU_CANARY'})
         service.bili=SimpleNamespace(ingress=ingress,status=lambda:{'state':'local-test-fixture','account_verified':False})
         calls=[]
@@ -136,7 +136,7 @@ class PlatformIntegrationHTTPTests(unittest.TestCase):
         self.assertEqual(len(f.state()['messages']),before)
 
     def prepare_public(self):
-        f=self.fixture;service=f.app.integrations();ingress=LiveIngress(LiveBinding('bilibili-open-live','123'))
+        f=self.fixture;service=f.app.integrations();service.output.set_material('公开测试教材：只使用本材料回答。', True);ingress=LiveIngress(LiveBinding('bilibili-open-live','123'))
         ingress.submit({'room_id':'123','event_id':'public-blocking','text':'PUBLIC_ONLY_BLOCKING_CANARY'})
         service.bili=SimpleNamespace(ingress=ingress,status=lambda:{'state':'local-test-fixture','account_verified':False})
         return service
@@ -183,6 +183,38 @@ class PlatformIntegrationHTTPTests(unittest.TestCase):
         self.assertTrue(worker.is_alive(),'test native provider should still be running; do not claim forced cancellation')
         release.set();worker.join(3);self.assertEqual(result[0][0],409,result)
         self.assertEqual(list(service.public_replies),[])
+
+    def test_scoped_output_requires_review_and_cannot_read_private_state(self):
+        f=self.fixture;service=self.prepare_public()
+        f.app.generate_once=lambda *a,**kw:'公开教材回复'
+        reply=f.post('connectors/bili/reply',{'event_id':'public-blocking'})
+        token=f.post('connectors/bili/output/open',{})['path'].split('#')[1]
+        status,body=self.plugin('live-output',{'action':'poll','client':'browser-one'},token=token)
+        self.assertEqual(status,200);self.assertIsNone(json.loads(body)['item'])
+        f.post('connectors/bili/approve',{'id':reply['id'],'confirm_output':False},expected=400)
+        f.post('connectors/bili/approve',{'id':reply['id'],'confirm_output':True})
+        status,body=self.plugin('live-output',{'action':'poll','client':'browser-one'},token=token)
+        self.assertEqual(status,200);self.assertEqual(json.loads(body)['item']['id'],reply['id'])
+        status,body=self.plugin('live-output',{'action':'audio','client':'browser-one','id':reply['id']},token=token)
+        self.assertEqual(status,200);self.assertTrue(body.startswith(b'RIFF'))
+        self.assertEqual(self.plugin('state',method='GET',token=token)[0],401)
+        f.post('connectors/bili/output/stop',{})
+        self.assertEqual(self.plugin('live-output',{'action':'audio','client':'browser-one','id':reply['id']},token=token)[0],409)
+
+    def test_cancel_while_synthesizing_rejects_late_audio(self):
+        f=self.fixture;service=self.prepare_public();f.app.generate_once=lambda *a,**kw:'公开教材回复'
+        reply=f.post('connectors/bili/reply',{'event_id':'public-blocking'})
+        f.post('connectors/bili/output/open',{})
+        entered,release=threading.Event(),threading.Event();f.pending_releases.append(release)
+        def synthesize(text):
+            entered.set();release.wait(5);return character_http.wav_fixture()
+        f.app.synthesize=synthesize;results=[]
+        worker=threading.Thread(target=lambda:results.append(f.request('POST','/api/connectors/bili/approve',{'id':reply['id'],'confirm_output':True})))
+        f.pending_threads.append(worker);worker.start();self.assertTrue(entered.wait(2))
+        f.post('connectors/bili/output/stop',{});release.set();worker.join(3)
+        self.assertEqual(results[0][0],400)
+        self.assertEqual(service.output.jobs[reply['id']]['state'],'cancelled')
+        self.assertNotIn('audio',service.output.jobs[reply['id']])
 
 
 if __name__=='__main__':unittest.main(verbosity=2)
