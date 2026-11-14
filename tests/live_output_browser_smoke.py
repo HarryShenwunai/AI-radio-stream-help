@@ -10,7 +10,6 @@ import io
 import json
 import math
 import platform
-import resource
 import sys
 from pathlib import Path
 import struct
@@ -90,7 +89,7 @@ def main():
             report['checks']['no_output_before_approval']=True
             assert host.get_by_text(QUESTION,exact=True).count()==1, 'question duplicated across cards'
             stop=host.get_by_role('button',name='停止播放',exact=True)
-            for width,name in [(390,'mobile'),(1280,'desktop')]:
+            for width,name in [(1024,'compact-pc'),(1280,'desktop')]:
                 host.set_viewport_size({'width':width,'height':960})
                 approve.scroll_into_view_if_needed()
                 assert host.evaluate('()=>document.documentElement.scrollWidth<=innerWidth')
@@ -112,7 +111,7 @@ def main():
             report['primary_button_contrast']=contrast
             host.locator('[data-contact-page=bili]').screenshot(path=str(out/'06-live-desk.png'))
             host.evaluate("()=>document.documentElement.dataset.theme='day'")
-            report['checks']['single_question_mobile_stop_visible']=True
+            report['checks']['single_question_pc_stop_visible']=True
 
             host.on('dialog',lambda dialog:dialog.accept())
             approve.click();stage.wait_for_function("()=>document.querySelector('#caption').textContent.length>0")
@@ -141,7 +140,11 @@ def main():
             reply=f.post('connectors/bili/reply',{'event_id':'smoke-2'})
             f.post('connectors/bili/approve',{'id':reply['id'],'confirm_output':True})
             stage.wait_for_function("()=>document.querySelector('#caption').textContent.length>0")
-            stage.wait_for_function("()=>document.querySelector('#caption').textContent==='' && active===null")
+            with stage.expect_response(lambda response: response.url.endswith('/api/live-output') and response.request.method=='POST' and response.request.post_data_json.get('action')=='receipt' and response.request.post_data_json.get('state')=='completed', timeout=15000) as completion:
+                stage.wait_for_function("()=>document.querySelector('#caption').textContent==='' && active===null")
+            acknowledgement=completion.value
+            assert acknowledgement.status==200
+            assert acknowledgement.json()['state']=='completed'
             assert service.output.jobs[reply['id']]['state']=='completed'
             assert not service.output.jobs[reply['id']]['delivered']
             stage.evaluate('()=>window.smokeAudio.stop()');stage.wait_for_function('()=>window.smokeAudio.done')
@@ -149,7 +152,7 @@ def main():
             (out/'browser-completed-output.webm').write_bytes(base64.b64decode(capture))
             report['checks']['full_playback_completes_without_delivery_claim']=True
             report['jobs']=service.output.status()
-            report['environment']={'python':sys.version,'platform':platform.platform(),'chrome':browser.version,'parent_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+            report['environment']={'python':sys.version,'platform':platform.platform(),'chrome':browser.version}
             report['raw_events']=[{'origin':'synthetic','room_id':'123','event_id':ident,'text':QUESTION} for ident in ['smoke-1','smoke-2']]
 
             # Source-wave is attached separately: Playwright video has no audio track.
