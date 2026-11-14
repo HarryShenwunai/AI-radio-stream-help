@@ -25,6 +25,8 @@ class RenderRegionTests(unittest.TestCase):
             changed.save(p / "after.png")
             result = region.compare(p / "before.png", p / "after.png", (2, 2, 5, 5))
             self.assertEqual(result["changed_pixels"], 1)
+            self.assertEqual(result["check"], "edit_region_containment_only")
+            self.assertEqual(result["visual_acceptance"], "not_evaluated")
             changed.putpixel((5, 2), (101, 90, 80, 255))
             changed.save(p / "after.png")
             with self.assertRaisesRegex(ValueError, "outside allowed"):

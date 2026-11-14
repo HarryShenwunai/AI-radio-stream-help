@@ -16,14 +16,45 @@ import subprocess
 from PIL import Image, ImageChops
 
 
+def validate_plates(baseline: Path, edited: Path, config: dict) -> dict:
+    """Check coordinate compatibility, not anatomical or visual correctness."""
+    with Image.open(baseline) as a, Image.open(edited) as b:
+        if a.size != b.size:
+            raise ValueError("Baseline and edited plate dimensions differ")
+        if a.width * 390 != a.height * 490:
+            raise ValueError(
+                "Eye plates must preserve the 490:390 coordinate aspect ratio"
+            )
+        if a.width < 490 or a.height < 390:
+            raise ValueError(
+                "Eye plates are smaller than the authored coordinate system"
+            )
+        size = list(a.size)
+    for side in ("L", "R"):
+        box = config[side]["box"]
+        if len(box) != 4 or any(type(v) is not int for v in box):
+            raise ValueError(f"{side} eye box must contain four integer coordinates")
+        x, y, right, bottom = box
+        if not (340 <= x < right <= 830 and 300 <= y < bottom <= 690):
+            raise ValueError(f"{side} eye box extends outside the eye plate")
+    return {
+        "input_size": size,
+        "coordinate_size": [490, 390],
+        "coordinate_compatibility": "passed",
+        "landmark_registration": "not_verified",
+        "visual_acceptance": "not_evaluated",
+    }
+
+
 def register(source: Path, baseline: Path, edited: Path, output: Path) -> dict:
     source, baseline, edited, output = [
         p.resolve() for p in (source, baseline, edited, output)
     ]
     if source == output or source in output.parents or output in source.parents:
         raise ValueError("Output must be separate from original bound-eye assets")
-    output.mkdir(parents=True, exist_ok=True)
     config = json.loads((source / "eyes.json").read_text())
+    preflight = validate_plates(baseline, edited, config)
+    output.mkdir(parents=True, exist_ok=True)
     for side in ["L", "R"]:
         for part in ["Lid", "Iris", "Sclera", "Foreground"]:
             shutil.copyfile(
@@ -35,6 +66,7 @@ def register(source: Path, baseline: Path, edited: Path, output: Path) -> dict:
         subprocess.run(["magick", *map(str, args)], check=True, timeout=90)
 
     report = {
+        "preflight": preflight,
         "changed": [],
         "unchanged": [],
         "generated_plate_sha256": hashlib.sha256(edited.read_bytes()).hexdigest(),
