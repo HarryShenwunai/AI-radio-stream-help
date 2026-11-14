@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import secrets
 import threading
+import time
 
 from .connectors import BiliOpenLive, OpenLiveCredentials, ConnectorError, WechatBridge
 from .live import LiveBinding, LiveIngress
@@ -144,7 +145,8 @@ class IntegrationService:
                     event = self.bili.ingress.pop()
                     if event is None:break
                     self._public.append(asdict(event))
-            return list(self._public)
+            now = time.monotonic()
+            return [event for event in self._public if event['expires_at'] > now]
 
     def status(self):
         with self.lock:

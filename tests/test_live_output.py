@@ -63,6 +63,29 @@ class LiveOutputTests(unittest.TestCase):
         with self.assertRaises(OutputError):self.output.audio(self.auth, job['id'], 'client-two')
         with self.assertRaises(OutputError):self.output.receipt(self.auth, job['id'], 'client-two', 'playing')
 
+    def test_expired_audio_without_a_consumer_cannot_block_next_approval(self):
+        first=self.ready();self.now=131
+        self.event.update(event_id='fresh',expires_at=161)
+        second=self.reviewed()
+        self.output.prepare(second['id'],True)
+        self.assertEqual(self.output.jobs[first['id']]['state'],'expired')
+        self.assertNotIn('audio',self.output.jobs[first['id']])
+
+    def test_status_reaps_expired_review_and_lost_consumer(self):
+        job=self.ready();self.output.poll(self.auth,'client-one')
+        self.output.receipt(self.auth,job['id'],'client-one','playing')
+        self.now+=3
+        self.assertEqual(self.output.status()['jobs'][0]['state'],'failed')
+        self.event.update(event_id='second',expires_at=110)
+        job=self.reviewed();self.now=111
+        self.assertEqual(self.output.status()['jobs'][-1]['state'],'expired')
+
+    def test_invalid_material_cannot_cancel_existing_output(self):
+        job=self.ready();session=self.output.session
+        with self.assertRaises(OutputError):self.output.set_material('\ud800',True)
+        self.assertEqual(self.output.session,session)
+        self.assertEqual(self.output.jobs[job['id']]['state'],'ready')
+
     def test_known_bad_missing_cancel_mutant_is_rejected_by_invariant(self):
         job = self.reviewed();self.output.prepare(job['id'], True)
         self.output.cancel = lambda:None  # negative control: deliberately broken cancellation

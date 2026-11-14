@@ -41,9 +41,11 @@ class LiveOutput:
     def set_material(self, text, approved):
         if approved is not True or not isinstance(text, str) or not 1 <= len(text.strip()) <= 8000:
             raise OutputError('需要明确允许公开的教材（1–8000字符）。')
+        try:digest = hashlib.sha256(text.strip().encode('utf-8')).hexdigest()
+        except UnicodeError:raise OutputError('教材含无效字符，原教材未修改。')
         with self.lock:
             self.cancel()
-            self.material = {'text': text.strip(), 'sha256': hashlib.sha256(text.strip().encode()).hexdigest()}
+            self.material = {'text': text.strip(), 'sha256': digest}
             return dict(self.material)
 
     def begin(self, event):
@@ -62,7 +64,19 @@ class LiveOutput:
             self.transition(job, 'generating')
             return dict(job)
 
+    def reap(self):
+        """Called under the owner lock, even when no output consumer is polling."""
+        now = self.clock()
+        for job in self.jobs.values():
+            if job['state'] in {'completed', 'cancelled', 'expired', 'failed'}:continue
+            if job['expires_at'] <= now:
+                self.transition(job, 'expired');job.pop('audio', None)
+            elif job['state'] in {'claimed', 'playing'} and now-job['heartbeat'] > 2:
+                job['failure_reason'] = 'consumer_timeout'
+                self.fail(job['id'])
+
     def current(self, ident, state):
+        self.reap()
         job = self.jobs.get(ident)
         if not job or job['session'] != self.session or job['state'] != state:
             raise OutputError('输出已取消、已使用或状态不匹配。')
@@ -156,6 +170,7 @@ class LiveOutput:
 
     def status(self):
         with self.lock:
+            self.reap()
             return {'session': self.session, 'material': self.material,
                     'jobs': [self.public(j) for j in self.jobs.values()], 'audit': list(self.audit),
                     'viewer_received': False, 'output_open': bool(self.token)}
