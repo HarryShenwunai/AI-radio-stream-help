@@ -20,7 +20,7 @@
   $('study-quiet').textContent=quiet?'专注中 · 暂停自动朗读':'随时提问 · 由你发起';
   const texts=S.steps(state.kind);for(let i=0;i<3;i++){$('study-step-'+i).checked=state.checked[i];$('study-step-label-'+i).textContent=texts[i];}
   const snapshot=app.core.get(),st=snapshot.state;const ready=st&&(st.settings.engine==='api'?Boolean(st.settings.api_model):st.model_installed&&st.runtime_installed);
-  $('study-ai-state').textContent=ready?'学习助手已连接':'连接后可拆解与复盘';
+  $('study-ai-state').textContent=snapshot.failed?'本次请求失败，可检查连接或重试':ready?'模型已配置 · 可准备问题':'配置模型后可准备问题';
   $('study-ai-plan').disabled=!role||!state.goal.trim()||Boolean(snapshot.chat)||Boolean(st?.model_busy);
   $('study-ai-review').disabled=!role||!state.goal.trim()||state.elapsed===0||Boolean(snapshot.chat)||Boolean(st?.model_busy);
   $('study-live-state').textContent='本机学习空间';
