@@ -109,6 +109,9 @@ class FormalSourceInterleavingTests(unittest.TestCase):
                      'text':'public fixture','expires_at':time.monotonic()+60}
             service = types.SimpleNamespace(lock=threading.RLock(), public_generation=None,
                 public_persona='public-only fixture', public_replies=deque(), public_events=lambda:[event])
+            from companion_runtime.live_output import LiveOutput
+            service.output = LiveOutput()
+            service.output.set_material('public-only fixture', True)
             app.integrations = lambda:service
             app.INTEGRATIONS[str(app.DATA.resolve())] = service
             app.generate_once = lambda *_args,**_kwargs:'public fixture reply'

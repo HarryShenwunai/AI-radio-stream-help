@@ -16,6 +16,7 @@ import threading
 
 from .connectors import BiliOpenLive, OpenLiveCredentials, ConnectorError, WechatBridge
 from .live import LiveBinding, LiveIngress
+from .live_output import LiveOutput
 
 
 class IntegrationService:
@@ -28,6 +29,7 @@ class IntegrationService:
         self.private_processing = threading.Lock()
         self.last_private_error = None
         self.bili = None
+        self.output = LiveOutput()
         self._thread = self._loop = self._stop = None
         self._public = deque(maxlen=100)
         self.public_replies = deque(maxlen=30)
@@ -105,6 +107,9 @@ class IntegrationService:
         self.stop_bili()
         self._write('bili', {k: payload[k] for k in ('access_key_id', 'access_key_secret', 'app_id', 'anchor_code', 'room_id')})
         with self.lock:
+            material = self.output.material
+            self.output = LiveOutput()
+            self.output.material = material
             self.bili = candidate
             self.public_persona = persona
             self._public.clear();self.public_replies.clear()
@@ -116,10 +121,14 @@ class IntegrationService:
                 finally:loop.close()
             self._thread = threading.Thread(target=worker, daemon=True)
             self._thread.start()
-        return {'connecting': True, 'public_output': 'local_preview_only'}
+        return {'connecting': True, 'public_output': 'manual_local_output'}
 
     def stop_bili(self):
         with self.lock:
+            self.output.cancel()
+            self._public.clear()
+            self.public_replies.clear()
+            self.bili = None
             loop, stop, thread = self._loop, self._stop, self._thread
             self._loop = self._stop = self._thread = None
         if loop is not None and not loop.is_closed():
@@ -145,7 +154,7 @@ class IntegrationService:
                               last_error=self.last_private_error)
             bili = self.bili.status() if self.bili else {'state': 'not_connected'}
             return {'wechat': wechat, 'bili': bili, 'public_events': self.public_events(),
-                    'public_replies': list(self.public_replies), 'public_output': 'local_preview_only'}
+                    'live_output': self.output.status(), 'public_replies': list(self.public_replies), 'public_output': 'manual_local_output'}
 
     def cancel(self, *, generation_id=None):
         with self.lock:

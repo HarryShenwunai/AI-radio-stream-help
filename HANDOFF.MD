@@ -324,3 +324,15 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - 旧gh pr edit查询deprecated projectCards而失败，改官方REST PATCH既有PR1 title/body，仍draft/open且不merge；不是产品代码失败。
 - Chrome企业策略file://返回ERR_BLOCKED_BY_ADMINISTRATOR，技能页用临时127.0.0.1 HTTP正常预览生成PDF/截图，源策略未改；完成停服务，JS0/外连0。HTML仍用answer-me-with-html CLI，四panel/STE0，PDF可直接阅读，不把说明页当软件。
 - 模型和媒体已冻结、代码源327SHA仍与780/111最终全门相同。后续publication receipt独立文档提交不更改release code tag或084软件ZIP；Windows/4060、实体设备/账号、用户E5仍留待目标环境。
+
+
+## 2026-11-15 学习直播人工确认链路（仅本机冒烟）
+
+- 开始新任务先读本文件，先确认真实目标、约束与可证伪的成功标准。默认 Codex 浏览器/Chrome；使用 Vivaldi 前询问。上线/部署验收包含性能开销。UI 优先通过布局表达，避免重复副标签。
+- 下载并阅读 tanweai/pua，固定 e6e6cd237ad17750d179674bff52f8184abea8fd；只应用证据排查流程，未安装全局钩子或遥测。当前环境找不到 answer-me-with-htmi/html 技能或 CLI；历史使用记录不代表现在可用。
+- 旧 bili/reply 只含弹幕，没有教材版本绑定及输出消费者。新增公开教材SHA、人工批准、独立字幕/音频页与状态约束。令牌仅访问公开输出，输出页不获取私聊Cookie；不新增平台发弹幕/自动批准。
+- 确认的浏览器坑：新令牌放在同页URL片段时，导航不重载旧脚本。run-5 第二条实际超时；增加 hashchange 清理并重载，run-6 相同流程通过。停止会撤销令牌，必须重新打开输出页；已领取的内容不自动重播。
+- CSP 下 Playwright wait_for_function 需传函数而非字符串表达式。run-1 是测试脚本错误，不是产品播放失败；不放宽生产CSP。
+- 冒烟采用自编A-Level导数/切线教材、合成B站事件、确定性回答和440Hz PCM测试音。Chrome播放进度与WebAudio实际信号、完整视频及Trace均保留；测试音不冒充真实TTS，WebAudio图不冒充系统扬声器、OBS或观众接收。
+- 输出内存限一个准备/播放音频（至多20MB），每连接至多100条任务、500条状态记录，轮询250ms；沿用30秒问题TTL，未因CPU模型慢而扩大。真实模型可能超时，不能把本机夹具速度当真实性能。新测试停止预算1.5秒来自1250ms断联截止及轮询/计时余量，并非目标Windows实时承诺。
+- 当前未接真实B站、OBS、Windows4060，未评估真实模型依据正确性、真实语音、学习收益或独立验收。下一阶段先接已授权房间和真实模型/音色，再保存主播端/观众端录像与分轨音频；没有这些不能标记MVP完整验收。
