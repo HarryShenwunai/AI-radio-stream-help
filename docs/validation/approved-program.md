@@ -53,3 +53,25 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 t
 ## 剩余边界
 
 源码与确定性本地节目闭环有证据；当前可编辑艺术源链、最新眼部修订、美术/声线独立评审、Windows10/11/4060真机、同版安装包、真实音频设备/OBS、观众接收及学习收益仍须独立验收。浏览器音轨与播放状态不证明扬声器或观众收到。节目布局仅本轮固定right与透明输出；没有把独立预览草稿、其他人物、计时器或更多组件自动公开。
+
+## 真实验收被网络审查中止后的测试入口修订
+
+本次`.build/p9-root/real-completion/`仅有审阅/待播截图、`output-0.wav`和部分视频，没有`result.json`。`interrupted-by-network-review.json`记录该轮不被接受；不能由WAV存在推断实际整段播放完成，也没有继续未知旧会话。
+
+产品`synthesize()`原已在创建Kokoro前调用`onnxruntime.disable_telemetry_events()`；本次没有重复增加相同代码，也不将未知Microsoft请求归因为ONNX。只修改`tests/program_output_browser.py`：
+
+- 添加显式Chrome后台网络抑制flags、精确fixture端口的页面route、阻断WebSocket和service worker，以及Python socket审计guard。未知页面目标与Python目标在请求前拒绝并仅记host/port，不记录认证头或完整URL。
+- 保存Chrome私有NetLog以观察原生连接；该观察不是操作系统抓包。Python audit只覆盖Python socket调用，不冒充已阻断native ONNX/C的网络调用。
+- 初轮flags、IPv6Override、V3禁用、V2禁用的原生HTTP预检均保留failed：唯一公共目标为IPv6 reachability UDP探测，结束`net_error=-109`、未观察到发送字节；不能说已经外传，也不能认定它就是此前Microsoft请求来源。V2禁用确实改为legacy transport，但仍出现该探测，因而没有放宽门槛或白名单公共地址。
+- 新增显式`--loopback-fixture-transport`，默认模式不变。仅精确本轮`127.0.0.1:port`请求由测试入口转发到同一真实HTTP服务再fulfill，保持该请求自身的method/body/auth/cookie及响应CSP/nonce/Set-Cookie，不借owner凭据、不创建通用代理服务、不修改系统或产品网络。所有其他目标仍拒绝。
+- 在冷加载完成、模型输出、TTS文件、实际媒体开始和终态原子保存`progress.json`。它始终标明`acceptance_report:false`且移除`passed`，被中断时仅表示最后检查点，不是成功报告。
+
+最终无模型预检见`.build/p9-root/offline-preflight/final-transport/offline-preflight.json`：32次严格loopback fulfil，64次Python本机解析/connect，阻断页面和Python外部负控；owner cookie、无cookie节目端401、CSP nonce与检查点原子性均通过；NetLog原生连接列表与外部目标列表均为空。没有加载Qwen或Kokoro，这不是新的真实推理/语音验收。
+
+该显式transport可验证真实Chrome渲染、Core、音轨及真实服务/模型结果；本轮`native_browser_http_verified:false`，不能冒充浏览器原生HTTP传输通过。原确定性直连证据另存。原生NetLog、Trace和临时本机凭据只留私有证据域；对外交付仅脱敏摘要。
+
+预检命令：在原参数后追加`--offline-preflight --loopback-fixture-transport`，输出到新目录。root批准的新真实执行应在原`--real-model/--real-tts/--completion`命令后显式追加`--loopback-fixture-transport`；如果仍出现未授权外连，应停止并保留progress，不放行或改门槛。
+
+本次来源指纹核对仅`tests/program_output_browser.py`变化，`app/`和`src/`与原完整质量报告相同；旧报告不冒充新测试入口的完整验证。新入口Ruff与离线预检通过，完整质量门及真实执行仍由root顺序重跑。
+
+方法来源：[Chrome官方工具flags](https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md)、[Chromium DNS与IPv6探测](https://github.com/chromium/chromium/blob/main/net/dns/README.md)、[实际V2连接分支](https://github.com/chromium/chromium/blob/main/net/socket/transport_connect_job.cc)。当前本机driver默认禁用feature列表已完整保留；flag出现本身不作为生效或全进程无网络的证明。

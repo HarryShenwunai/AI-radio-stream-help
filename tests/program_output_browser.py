@@ -7,10 +7,14 @@ license acknowledgement or evidence of a production runtime installation.
 import argparse
 import base64
 import hashlib
+import http.client
 import io
 import json
 import math
 import os
+import socket
+import sys
+import urllib.parse
 from pathlib import Path
 import struct
 import threading
@@ -41,8 +45,226 @@ PROBE = r"""(()=>{
 })()"""
 
 
+
+# Official flag descriptions: GoogleChrome/chrome-launcher/docs/chrome-flags-for-tools.md.
+# Flags reduce background activity; interception and observed NetLog are recorded
+# separately rather than treating a flag's presence as a whole-process proof.
+# Preserve this installed Playwright driver's entire original disabled list.
+# The acceptance environment records this list; do not replace it with one flag.
+PLAYWRIGHT_DISABLED_FEATURES = [
+    'AvoidUnnecessaryBeforeUnloadCheckSync', 'BoundaryEventDispatchTracksNodeRemoval',
+    'DestroyProfileOnBrowserClose', 'DialMediaRouteProvider', 'GlobalMediaControls',
+    'HttpsUpgrades', 'LensOverlay', 'MediaRouter', 'PaintHolding',
+    'ThirdPartyStoragePartitioning', 'BlockOriginHeaderModificationOnRedirect',
+    'Translate', 'AutoDeElevate', 'OptimizationHints', 'msForceBrowserSignIn',
+    'msEdgeUpdateLaunchServicesPreferredVersion',
+]
+CHECKPOINT_LOCK = threading.Lock()
+
+
+def save_checkpoint(out, checkpoint, observations):
+    with CHECKPOINT_LOCK:
+        value = {'kind':'incomplete-checkpoint', 'acceptance_report':False,
+                 'checkpoint':checkpoint, 'monotonic_at':time.monotonic(),
+                 'observations':{key:value for key,value in dict(observations).items() if key!='passed'}}
+        temporary = out/'progress.tmp.json'
+        temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2))
+        os.replace(temporary, out/'progress.json')
+
+
+OFFLINE_CHROME_FLAGS = [
+    '--disable-background-networking', '--disable-component-update',
+    '--disable-domain-reliability', '--disable-sync', '--no-first-run',
+    '--metrics-recording-only', '--no-pings', '--disable-quic',
+    '--enable-features=EnableIPv6ReachabilityOverride',
+    '--disable-features='+','.join([*PLAYWRIGHT_DISABLED_FEATURES, 'HappyEyeballsV3', 'HappyEyeballsV2']),
+    '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1',
+]
+
+
+class OfflineBoundary:
+    def __init__(self, port, loopback_transport=False):
+        self.port = port
+        self.loopback_transport = loopback_transport
+        self.fulfilled_fixture_requests = 0
+        self.bridge_failures = []
+        self.enabled = True
+        self.probing = False
+        self.allowed_page_requests = 0
+        self.allowed_python_connects = 0
+        self.blocked_page_requests = []
+        self.blocked_python_connects = []
+        sys.addaudithook(self._audit)
+
+    def _audit(self, event, args):
+        if not self.enabled or event not in {'socket.connect', 'socket.getaddrinfo'}:
+            return
+        if event == 'socket.connect':
+            sock, address = args
+            if sock.family == socket.AF_UNIX:
+                return  # Playwright/asyncio local IPC; never an IP connection.
+            host, port = address[:2]
+        else:
+            host, port = args[:2]
+        if host == '127.0.0.1' and port == self.port:
+            self.allowed_python_connects += 1
+            return
+        self.blocked_python_connects.append({'event':event, 'host':str(host)[:253],
+                                             'port':port, 'expected_probe':self.probing})
+        raise PermissionError('offline acceptance blocked non-fixture Python socket')
+
+    def _allowed(self, url):
+        parsed = urllib.parse.urlsplit(url)
+        if parsed.scheme == 'blob':
+            parsed = urllib.parse.urlsplit(url[5:])
+        return (parsed.scheme == 'http' and parsed.hostname == '127.0.0.1'
+                and parsed.port == self.port and not parsed.username and not parsed.password)
+
+    def install(self, context):
+        def route(request):
+            if self._allowed(request.request.url):
+                self.allowed_page_requests += 1
+                parsed = urllib.parse.urlsplit(request.request.url)
+                if not self.loopback_transport or parsed.scheme == 'blob':
+                    request.continue_()
+                    return
+                # No generic proxy: destination is the known fixture literal and
+                # port, never a browser-provided hostname. Keep this request's
+                # own auth/cookie/body; do not acquire the owner's credentials.
+                connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=35)
+                try:
+                    target = parsed.path + ('?'+parsed.query if parsed.query else '')
+                    connection.request(request.request.method, target,
+                        body=request.request.post_data_buffer, headers=request.request.all_headers())
+                    response = connection.getresponse()
+                    body = response.read()
+                    headers = {}
+                    for key, value in response.getheaders():
+                        key = key.lower()
+                        headers[key] = headers[key]+'\n'+value if key in headers else value
+                    request.fulfill(status=response.status, headers=headers, body=body)
+                    self.fulfilled_fixture_requests += 1
+                except Exception as error:
+                    self.bridge_failures.append(type(error).__name__)
+                    request.abort('failed')
+                finally:
+                    connection.close()
+                return
+            parsed = urllib.parse.urlsplit(request.request.url)
+            self.blocked_page_requests.append({'scheme':parsed.scheme,
+                'host':parsed.hostname, 'port':parsed.port, 'kind':request.request.resource_type,
+                'expected_probe':self.probing})
+            request.abort('blockedbyclient')
+        context.route('**/*', route)
+        # This application has no WebSocket dependency; block handshake/frames
+        # explicitly because HTTP route interception is not a WebSocket firewall.
+        def websocket(route):
+            parsed = urllib.parse.urlsplit(route.url)
+            self.blocked_page_requests.append({'scheme':parsed.scheme,
+                'host':parsed.hostname, 'port':parsed.port, 'kind':'websocket',
+                'expected_probe':self.probing})
+            route.close(code=1008, reason='offline acceptance')
+        context.route_web_socket('**/*', websocket)
+
+    def summary(self, netlog_path):
+        native = []
+        transport_jobs = set()
+        try:
+            data = json.loads(netlog_path.read_text())
+            types = {value:key for key,value in data.get('constants', {}).get('logEventTypes', {}).items()}
+            for event in data.get('events', []):
+                name = types.get(event.get('type'), '')
+                if name in {'TCP_CONNECT_JOB_CONNECT','TRANSPORT_CONNECT_JOB_CONNECT'}:transport_jobs.add(name)
+                if name not in {'TCP_CONNECT_ATTEMPT', 'UDP_CONNECT'}:
+                    continue
+                params = event.get('params', {})
+                address = params.get('address') or params.get('remote_address')
+                if address:
+                    native.append({'event':name, 'address':address})
+            unexpected = [row for row in native if row['address'] != '127.0.0.1:'+str(self.port)]
+            error = None
+        except (OSError, ValueError) as exc:
+            unexpected = []
+            error = type(exc).__name__
+        return {'fixture_port':self.port, 'loopback_fixture_transport':self.loopback_transport,
+                'native_browser_http_verified':not self.loopback_transport,
+                'fulfilled_fixture_requests':self.fulfilled_fixture_requests,
+                'bridge_failures':self.bridge_failures, 'allowed_page_requests':self.allowed_page_requests,
+                'allowed_python_connects':self.allowed_python_connects,
+                'blocked_browser_requests':self.blocked_page_requests,
+                'blocked_python_requests':self.blocked_python_connects,
+                'native_connect_events':native, 'transport_jobs':sorted(transport_jobs), 'unexpected_native_destinations':unexpected,
+                'netlog_read_error':error,
+                'limits':'Context routes cover page requests; Chromium flags and NetLog observe browser networking. Python audit covers Python socket calls, not native ONNX/C sockets or OS-wide packet traffic. Blob authorization remains the production manifest/hash check; browser routes may not see blob reads.'}
+
+
+def offline_preflight(args):
+    """No weights loaded and no TTS; exercise blocking before any real rerun."""
+    out = args.out
+    f = fixtures.CharacterHTTPTests();f.setUp()
+    boundary = OfflineBoundary(f.server.server_port, args.loopback_fixture_transport)
+    report = {'scope':'Offline harness preflight only; no model, TTS or live acceptance', 'checks':{},
+              'requested_chrome_flags':OFFLINE_CHROME_FLAGS,
+              'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+    netlog = out/'chrome-netlog.private.json'
+    try:
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch(executable_path=args.chrome,
+                args=['--no-sandbox', '--enable-unsafe-swiftshader', '--use-angle=swiftshader',
+                      *OFFLINE_CHROME_FLAGS, '--log-net-log='+str(netlog.resolve()), '--net-log-capture-mode=Default'])
+            context = browser.new_context(service_workers='block');boundary.install(context)
+            page = context.new_page();page.goto(f'http://127.0.0.1:{f.server.server_port}/')
+            page.wait_for_function('()=>window.CompanionApp?.core.get().state')
+            report['checks']['fixture_http_works']=True
+            report['checks']['owner_set_cookie_preserved']=any(cookie['name']=='companion' for cookie in context.cookies())
+            stage_context=browser.new_context(service_workers='block');boundary.install(stage_context)
+            stage=stage_context.new_page();response=stage.goto(f'http://127.0.0.1:{f.server.server_port}/live-stage.html')
+            stage.wait_for_function('()=>typeof ProgramOutput!=="undefined"')
+            status=stage.evaluate('async()=>{const response=await fetch("/api/state",{credentials:"omit"});return response.status}')
+            report['checks']['stage_without_owner_cookie_still_unauthorized']=status==401 and not stage_context.cookies()
+            report['checks']['program_csp_nonce_preserved']="'nonce-" in response.headers['content-security-policy']
+            stage_context.close()
+            boundary.probing = True
+            try:
+                probe = context.new_page()
+                try:probe.goto('http://blocked.invalid/', timeout=3000)
+                except Exception:pass
+                probe.close()
+                report['checks']['page_external_navigation_blocked']=any(row['host']=='blocked.invalid' for row in boundary.blocked_page_requests)
+                try:
+                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                        sock.connect(('192.0.2.1', 443))
+                except PermissionError:
+                    report['checks']['python_external_connect_blocked_before_system_call']=True
+                else:
+                    report['checks']['python_external_connect_blocked_before_system_call']=False
+            finally:
+                boundary.probing = False
+            page.wait_for_timeout(1000)
+            report['chrome'] = browser.version
+            context.close();browser.close()
+        report['network'] = boundary.summary(netlog)
+        if args.loopback_fixture_transport:
+            report['checks']['explicit_fixture_transport_without_native_http']=not report['network']['transport_jobs'] and not report['network']['native_connect_events'] and boundary.fulfilled_fixture_requests>0 and not boundary.bridge_failures
+        else:
+            report['checks']['legacy_transport_path_observed']=report['network']['transport_jobs']==['TRANSPORT_CONNECT_JOB_CONNECT']
+        report['checks']['native_connects_only_fixture']=not report['network']['unexpected_native_destinations'] and not report['network']['netlog_read_error']
+        report['checks']['no_unexpected_python_or_page_connects']=not any(not row['expected_probe'] for row in [*boundary.blocked_page_requests,*boundary.blocked_python_connects])
+        save_checkpoint(out,'offline_preflight_observed',report)
+        saved=json.loads((out/'progress.json').read_text())
+        report['checks']['atomic_checkpoint_is_not_acceptance']=saved['acceptance_report'] is False and 'passed' not in saved['observations'] and not (out/'progress.tmp.json').exists()
+        report['passed'] = all(report['checks'].values())
+    finally:
+        boundary.enabled = False;f.tearDown()
+        (out/'offline-preflight.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
+    print(json.dumps(report, ensure_ascii=False));assert report['passed']
+
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');p.add_argument('--offline-preflight',action='store_true');p.add_argument('--loopback-fixture-transport',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    if a.offline_preflight:
+        if a.real_model or a.real_tts:raise ValueError('offline preflight never loads model or TTS')
+        return offline_preflight(a)
     old=os.environ.get('COMPANION_DEFAULT_LIVE2D');os.environ['COMPANION_DEFAULT_LIVE2D']=str(a.model.resolve());f=fixtures.CharacterHTTPTests();f.setUp()
     if old is None:os.environ.pop('COMPANION_DEFAULT_LIVE2D',None)
     else:os.environ['COMPANION_DEFAULT_LIVE2D']=old
@@ -53,44 +275,50 @@ def main():
         def read_bundle(self):return files['bundle'].read_bytes()
     f.app.live2d_runtime=lambda:Runtime()
     r={'scope':'Linux PC Chrome; existing original R3 candidate; real Core; runtime-reading fixture; not Windows/OBS/platform/viewer/independent acceptance','real_model':bool(a.real_model),'real_tts':bool(a.real_tts),'viewer_received':False,'checks':{},'errors':[],'raw_input':{'origin':'local_rehearsal','text':QUESTION,'source':'user conversation; functional replay, not held-out learning task'},'model_package_sha256':hashlib.sha256(a.model.read_bytes()).hexdigest(),'runtime_sha256':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in files.items()},'phases':[]}
+    def save_progress(checkpoint):save_checkpoint(a.out,checkpoint,r)
+    save_progress('prepared_before_model_load')
+    boundary=OfflineBoundary(f.server.server_port, a.loopback_fixture_transport)
+    netlog=a.out/'chrome-netlog.private.json'
     idle=threading.Event();idle.set();llm=None
     def fixture_model(settings,messages,**kw):
         r.setdefault('model_inputs',[]).append(messages)
+        save_progress('mechanical_model_fixture_output')
         return QUESTION  # Explicit mechanical echo; no answer-quality claim.
     f.app.generate_once=fixture_model
     if a.real_model:
         from llama_cpp import Llama
-        started=time.monotonic();llm=Llama(model_path=str(a.real_model),n_ctx=4096,n_threads=4,n_batch=256,verbose=False);r['model_cold_load_seconds']=time.monotonic()-started
+        started=time.monotonic();llm=Llama(model_path=str(a.real_model),n_ctx=4096,n_threads=4,n_batch=256,verbose=False);r['model_cold_load_seconds']=time.monotonic()-started;save_progress('real_model_cold_load_completed')
         def actual_model(settings,messages,**kw):
             r.setdefault('model_inputs',[]).append(messages);started=time.monotonic();idle.clear()
             try:result=llm.create_chat_completion(messages=messages,max_tokens=kw.get('max_tokens',160),temperature=.65,top_p=.9,repeat_penalty=1.1,seed=42)
             finally:idle.set()
             choice=result['choices'][0];r.setdefault('model_outputs',[]).append({'text':choice['message']['content'],'finish_reason':choice['finish_reason'],'warm_inference_seconds':time.monotonic()-started,'usage':result.get('usage')})
+            save_progress('real_model_output_recorded')
             if choice['finish_reason']!='stop':raise RuntimeError('Incomplete model response rejected')
             return choice['message']['content']
         f.app.generate_once=actual_model
     wav=tone()
     def synthesize(text):
-        started=time.monotonic();audio=f.real_synthesize(text) if a.real_tts else wav;index=len(r.setdefault('tts_outputs',[]));(a.out/f'output-{index}.wav').write_bytes(audio);r['tts_outputs'].append({'text':text,'sha256':hashlib.sha256(audio).hexdigest(),'seconds':time.monotonic()-started});return audio
+        started=time.monotonic();audio=f.real_synthesize(text) if a.real_tts else wav;index=len(r.setdefault('tts_outputs',[]));(a.out/f'output-{index}.wav').write_bytes(audio);r['tts_outputs'].append({'text':text,'sha256':hashlib.sha256(audio).hexdigest(),'seconds':time.monotonic()-started});save_progress('tts_output_recorded');return audio
     if a.real_tts:f.app.VOICE_DIR=a.real_tts.resolve()
     f.app.synthesize=synthesize
     service=f.app.integrations();base=f'http://127.0.0.1:{f.server.server_port}'
     try:
         f.post('connectors/bili/rehearsal',{'action':'start','confirm_local':True})
         with sync_playwright() as pw:
-            b=pw.chromium.launch(executable_path=a.chrome,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader']);hc=b.new_context(viewport={'width':1440,'height':1000},record_video_dir=str(a.out/'host-video'));sc=b.new_context(viewport={'width':1280,'height':720},record_video_dir=str(a.out/'stage-video'));hc.tracing.start(screenshots=True,snapshots=True,sources=True);sc.tracing.start(screenshots=True,snapshots=True,sources=True)
+            b=pw.chromium.launch(executable_path=a.chrome,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader',*OFFLINE_CHROME_FLAGS,'--log-net-log='+str(netlog.resolve()),'--net-log-capture-mode=Default']);hc=b.new_context(viewport={'width':1440,'height':1000},service_workers='block',record_video_dir=str(a.out/'host-video'));sc=b.new_context(viewport={'width':1280,'height':720},service_workers='block',record_video_dir=str(a.out/'stage-video'));boundary.install(hc);boundary.install(sc);r['requested_chrome_flags']=OFFLINE_CHROME_FLAGS;hc.tracing.start(screenshots=True,snapshots=True,sources=True);sc.tracing.start(screenshots=True,snapshots=True,sources=True)
             host=hc.new_page();host.on('pageerror',lambda e:r['errors'].append(str(e)));host.goto(base);host.wait_for_function('()=>window.CompanionApp?.core.get().state')
             host.locator('#open-companion-controls').click();host.get_by_role('button',name='微信与直播连接').click();host.get_by_role('button',name='本地互动演练',exact=True).click()
             def open_stage(faults=None):
                 path=f.post('connectors/bili/output/open',{})['path'];stage=sc.new_page();stage.on('pageerror',lambda e:r['errors'].append(str(e)))
                 stage.add_init_script(PROBE+'\nObject.assign(programFaults,'+json.dumps(faults or {})+');')
-                stage.on('console',lambda message:r.setdefault('browser_console',[]).append({'type':message.type,'text':message.text}));stage.on('response',lambda response:r.setdefault('response_status',[]).append({'path':response.url.split('?')[0],'status':response.status}))
+                stage.on('console',lambda message:r.setdefault('browser_console',[]).append({'type':message.type,'text':message.text}));stage.on('response',lambda response:r.setdefault('response_status',[]).append({'path':urllib.parse.urlsplit(response.url).path,'status':response.status}))
                 stage.goto(base+path)
                 return stage
             stage=open_stage();stage.wait_for_timeout(3000);r['startup_probe']=stage.evaluate('()=>({text:document.body.innerText,stats:ProgramOutput.getStats(),diag:ProgramOutput.getDiagnostics(),snapshot:ProgramOutput.snapshot(),core:Boolean(window.Live2DCubismCore),runtime:Boolean(window.CompanionLive2DRuntime)})');(a.out/'startup-probe.json').write_text(json.dumps(r,ensure_ascii=False,indent=2));print(json.dumps(r['startup_probe'],ensure_ascii=False),flush=True);stage.screenshot(path=str(a.out/'startup-probe.png'));stage.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);stage.get_by_role('button',name='启用本页音频').click();assert not sc.cookies();assert stage.request.get(base+'/api/state').status==401;r['checks']['real_core_without_private_cookie']=True
             host.get_by_label('模拟观众消息',exact=True).fill(QUESTION);host.get_by_role('button',name='加入演练',exact=True).click();started=time.monotonic();host.get_by_role('button',name='准备回答',exact=True).click();approve=host.get_by_role('button',name='播放这条回答',exact=True);approve.wait_for(timeout=35000);r['phases'].append({'phase':'generation_and_review_ready','seconds':time.monotonic()-started});assert stage.locator('#caption').inner_text()=='';assert stage.evaluate('()=>audioProbe.playCalls')==0;r['checks']['review_has_no_output']=True
             host.screenshot(path=str(a.out/'01-host-review.png'),full_page=True);stage.screenshot(path=str(a.out/'02-stage-ready.png'))
-            host.on('dialog',lambda dialog:dialog.accept());started=time.monotonic();approve.click();stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics(),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_mouth']=True;assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
+            host.on('dialog',lambda dialog:dialog.accept());started=time.monotonic();approve.click();stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics(),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_mouth']=True;save_progress('actual_browser_media_started');assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
             for width in [1024,1280]:
                 stage.set_viewport_size({'width':width,'height':720});bounds=stage.evaluate('()=>{const a=document.querySelector("#caption").getBoundingClientRect(),b=document.querySelector("#character-space").getBoundingClientRect();return {caption:{left:a.left,right:a.right,top:a.top,bottom:a.bottom},character:{left:b.left,right:b.right,top:b.top,bottom:b.bottom},overflow:document.documentElement.scrollWidth>innerWidth}}');assert bounds['caption']['right']<=bounds['character']['left'] and not bounds['overflow'];r.setdefault('pc_layout_bounds',[]).append({'width':width,**bounds});stage.screenshot(path=str(a.out/f'03-stage-playing-{width}.png'))
             r['checks']['caption_does_not_cover_character_at_pc_sizes']=True
@@ -103,6 +331,7 @@ def main():
             else:
                 assert stage.evaluate('()=>Boolean(active?.audio&&!active.audio.paused)'),'stop must interrupt active media'
                 started=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click();stage.wait_for_function('()=>!active && document.querySelector("#caption").textContent==="" && (!ProgramOutput.getDiagnostics().available || ProgramOutput.getDiagnostics().lipSyncValue===0)');r['stop_seconds']=time.monotonic()-started;assert r['stop_seconds']<1.5;r['checks']['stop_clears_media_caption_mouth']=True;assert stage.locator('#status').is_visible();stage.screenshot(path=str(a.out/'04-stage-stopped.png'))
+            r['main_timeline']=list(service.output.audit);save_progress('main_media_terminal_observed')
             stage.evaluate('()=>audioProbe.records.forEach(row=>row.recorder.state!=="inactive"&&row.recorder.stop())');stage.wait_for_function('()=>audioProbe.records.every(row=>row.base64)');captures=stage.evaluate('()=>audioProbe.records.map(row=>row.base64)')
             for i,capture in enumerate(captures):(a.out/f'browser-audio-{i}.webm').write_bytes(base64.b64decode(capture))
             r['audio_scope']='Actual browser WebAudio branch, not OS device/OBS/viewer; Playwright videos have no audio track';stage.close()
@@ -142,6 +371,8 @@ def main():
     finally:
         idle.wait(120)
         if llm:llm.close()
+        r['network']=boundary.summary(netlog);r['checks']['offline_boundary_observed']=not r['network']['unexpected_native_destinations'] and not r['network']['netlog_read_error'] and not boundary.blocked_page_requests and not boundary.blocked_python_connects and not boundary.bridge_failures
+        r['passed']=bool(r.get('passed')) and r['checks']['offline_boundary_observed'];boundary.enabled=False
         f.tearDown();(a.out/'result.json').write_text(json.dumps(r,ensure_ascii=False,indent=2))
     print(json.dumps({'passed':r.get('passed'),'checks':r['checks'],'out':str(a.out)},ensure_ascii=False));assert r['passed']
 
