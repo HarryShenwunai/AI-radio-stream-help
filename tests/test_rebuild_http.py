@@ -14,6 +14,8 @@ import sqlite3
 import threading
 import time
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 import uuid
 
 from PIL import Image
@@ -248,6 +250,47 @@ class RebuildHTTPTests(unittest.TestCase):
         error = self.post('assistance/proposals', payload, expected=409)
         self.assertEqual(error['code'], 'observation_unavailable')
         self.assertEqual(len(calls), 1)
+
+    def assert_urlsafe_perception_reference_roundtrip(self, prefix):
+        import companion_runtime.perception as perception
+        self.install_vision()
+        calls = []
+        def generate_once(settings, messages, **kwargs):
+            calls.append(messages)
+            return 'Synthetic authorized observation advice.'
+        self.app.generate_once = generate_once
+        # Replace only this module's token producer; never patch shared secrets/auth.
+        tokens = iter((prefix + 'session', prefix + 'observation'))
+        producer = SimpleNamespace(token_urlsafe=lambda size:next(tokens))
+        with patch.object(perception, 'secrets', producer):
+            sid = self.start_capture()
+            frame = self.post('perception/frame', self.frame_payload(sid, request_id=prefix + 'frame'))
+        self.assertEqual(sid, prefix + 'session')
+        self.assertEqual(frame['observation_id'], prefix + 'observation')
+        payload = {'request_id': uuid.uuid4().hex, 'expected_character_id': self.initial_id,
+                   'kind':'game', 'inputs':{'query':'Check this position', 'game':'Protocol fixture'},
+                   'observation_id':frame['observation_id']}
+        count = len(calls)
+        result = self.post('assistance/proposals', payload)['proposal']
+        self.assertEqual(result['status'], 'proposed')
+        observed = json.loads(calls[-1][1]['content'])['inputs']['observation']
+        self.assertEqual([observed[key] for key in ('session_id', 'observation_id', 'request_id')],
+                         [sid, frame['observation_id'], prefix + 'frame'])
+        self.assertEqual(len(calls), count + 1)
+        forged = {**payload, 'request_id':uuid.uuid4().hex, 'observation_id':prefix + 'forged'}
+        self.assertEqual(self.post('assistance/proposals', forged, expected=409)['code'],
+                         'observation_unavailable')
+        self.post('perception/session/stop', {'session_id':sid})
+        payload['request_id'] = uuid.uuid4().hex
+        self.assertEqual(self.post('assistance/proposals', payload, expected=409)['code'],
+                         'observation_unavailable')
+        self.assertEqual(len(calls), count + 1)
+
+    def test_hyphen_perception_references_resolve_through_http_and_revoke_on_stop(self):
+        self.assert_urlsafe_perception_reference_roundtrip('-')
+
+    def test_underscore_perception_references_resolve_through_http_and_revoke_on_stop(self):
+        self.assert_urlsafe_perception_reference_roundtrip('_')
 
     def test_devices_persist_across_role_changes_and_stale_scope_update_is_rejected(self):
         self.post('devices', {'display': False, 'camera': False, 'microphone': False})

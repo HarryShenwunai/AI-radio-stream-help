@@ -1,6 +1,8 @@
 # 设计交接
 
-更新：2026-11-12。执行新任务先阅读本文件及相应目录已有说明。
+更新：2026-11-15。执行新任务先阅读本文件及相应目录已有说明。
+
+现行入口：[P9计划](docs/project/p9-plan.md)、[当前状态](docs/project/p9-status.json)、[本轮证据](docs/validation/p9-first-loop.md)，实现为草稿PR50，发布仍阻断。下方早期阶段的“未实现/已测”是当时记录，不代表当前版本；以本轮源码指纹和原始报告为准。
 
 ## 当前方向
 
@@ -465,3 +467,40 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 - Wave Link 3当前技术规格仅Windows11，不得成为Win10/11共同必需；Restream Custom RTMP不意味着有聊天API；B站动态文档仅取得索引，不据此认定平台发字权限。
 - TTS批准回答字幕与主播ASR/翻译分开；普通摄像头抠像不等于角色透明合成，不能调R3曝光掩盖原图边缘。
 - 本地Chrome复跑目录/来源/取舍与展示交互，并拒绝4种越界声明；记录位于 .build/live-capability-review/parent-review/report.json，检查范围不包含产品、竞品实用性或Windows真机。A仍待审，B–F未启动；发布阻断和真实B站/OBS测试暂停保留。
+
+
+## 2026-11-15 P9实施恢复
+- 用户同意覆盖结论同步Issue #49并要求开始实施；Issue更新已成功。开始实施不是视觉、Windows或公开播出验收。B/C只做单一本地批准节目与停止闭环，保留原角色/固定持杯及真实B站/OBS暂停。
+- 环境重启后visual-depth-audit检出停在ba43601，原AI-radio-stream-help有未提交文件；均保留。隔离worktree p9-implementation从3af7f87建立后快进fa278f3，仅管理文档增量；不可对旧检出直接开发或按旧摘要声称测试通过。
+- 本轮恢复的R3-Study-Companion.zip仅上半身版本，不使用含放杯的r3-motion-revision/runtime；现有包不证明最终眼部修订来源。旧GGUF/Kokoro/质量报告缺失，测试环境恢复保持原固定SHA，与完整回归顺序执行。
+- 源码发现live-stage的playing回执先于audio.play；scene-controller默认私有资源读取不能直接给输出页。需先绑定批准快照与白名单资源/投影，节目页不得拿私有cookie，角色加载不能阻断2秒心跳。
+- 主播已有app.js可见页5秒core.refresh；控制台消费state.live_output即可，不新增轮询。局部更新避免全render清密码/草稿；BC只能提示失效，不能当作媒体播放凭证。
+
+
+## 2026-11-15 本轮真实本地验收暴露的根因
+- 真实节目与room样稿原先分离；新B/C代码接批准快照/受限POST资源/实际Core、字幕、音频，owner状态复用现有5秒刷新。playing必须晚于WebAudio running与media.play成功；晚scene/音频/完成回包分别用epoch/播放世代保护。完整完成与丢完成回包的不确定状态必须跨空poll保留；状态hidden需有CSS对应，不能被display覆盖。
+- 同一真实R3图确认旧全宽字幕遮杯底；只改字幕左区，与人物区域不相交，不改原包。原包ad977f49...未变；上半身Idle中CupLower全程0、CupVisible全程1，不使用放杯包。这不证明最终眼部来源链或独立审美通过。
+- 新装ORT1.32二进制含1DS/OneCollector；官方同版Privacy说明disable_telemetry_events API可能晚于初始化事件，需初始化前强制ORT_DISABLE_TELEMETRY=1，且不能setdefault保留0。Windows owned backend spawn/server/voice与首次ASR/TTS入口均已最小修复并有旧红/新绿；环境变量不等于Windows真机或全系统零网络证明。
+- 两次真实模型尝试被自动审批阻断未授权Microsoft遥测，无完整result；残留WAV/截图不是播放完成证据。第二轮progress已保留：模型15.160秒、TTS11.349秒、WAV10.922秒，下界37.431秒超过原30秒，冷模型16.964秒在事件前另计。不得换短题覆盖这个失败或调TTL/语速/提示词掩盖。
+- 普通context route不能覆盖Chrome原生网络；严格预检在多条解析路径捕获失败IPv6路由probe（-109、无BYTES_SENT），不能称其为Microsoft源或已外传。显式fixture transport只转发精确本机port，不允许外站/重定向/借owner凭据，且不验证Chrome原生HTTP。原生失败与新transport预检分开。
+- 硬隔离可用unshare新user/net namespace；ip/NETLINK被限制，可只在已证新namespace用AF_INET ioctl启lo。要求与outer netns不同、只有lo、无外网路由、close_fds；空路由或仅表头均为0条路由，不能假设必须有表头。ptrace/strace被拒，不能声称native零调用；只lo与官方启动前禁用提供隔离/策略证据，不绕过权限。
+- 真实TTS新env1分解显示初始化3.512秒，首文本5.057秒、warm4.548秒，均为孤立provider实验而非端到端；warm alone仍不足。已加入实际完整PCM WAV时长预算门，ready/claim/audio三边界不足则拒绝，playing心跳不以整段重复重算。旧共享WAV夹具仅0.01秒，不符合既存min0.1合同，修夹具不放宽生产门。
+- 浏览器必须等待“本地互动演练”async启动与实际输入出现再open token，否则晚start会合法撤权。大资源fixture传输可能撞产品1秒门，先比action/status/字节hash/耗时，只优化测试adapter，不改产品timeout。默认长题不变，已有仓库问候场景另记来源和合成标记，不当真人/未见学习任务。
+
+- 本轮预算修复f6fc41c仅增加完整WAV时长必要下界准入，ready/claim/audio三处严格比较；等长/前后一帧、无效WAV、延后获取与always-fits坏实现均有负对照。playing心跳不能重新扣整段；通过不是网络/设备延迟下不截断的承诺。
+- 大纹理经Python复制再fulfill会把测试传输拖过原1秒产品门。夹具改route.fetch精确本机URL、max_redirects=0/max_retries=0后直接fulfill(APIResponse)，实际字节hash不变；不得改产品timeout。真实302会使浏览器后续请求绕过context.route，测试夹具在交给浏览器前拒绝所有带Location的3xx，保留最初红记录。
+- strict NetLog捕获到唯一native loopback POST发生在page.close的pending poll收尾，不是中途或模型网络。只在产品断言完成后停止测试轮询并drain pending fetch，再关闭，三轮strict均绿。此instrument cleanup不能证明生产硬关闭/pagehide正确，不能把反例删掉或白名单外站。
+- 内部增量审查发现CPU/CUDA.cmd直接调用switch_runtime_profile的native probe，早于main/server，仍可能继承ORT禁用值0；2bc4a68在probe子进程初始化前强制1，CPU/CUDA×0/未设旧红、新绿。mock的Windows流程只证明传入环境，不是Windows PE真机或全系统隐私验收。
+
+- 本轮真实正向问候Qwen12.711s/TTS6.969s/WAV4.651s，实际ended及两端completed；原长输入另轮Qwen37.853s超原30s、未TTS，测试等批准35s超时且cleanup route超时，result必须保持false，不能改称预算拒绝UI通过。实际server expired只支持服务状态，不补填缺失浏览器观察。
+- 同长题完全相同model_inputs/参数/seed的无Chrome/HTTP孤立推理12.170s，输出30token一致；只证明环境/调度差异值得进一步分解，不能仅凭一次对照归因浏览器、缓存或Windows。31s确定性慢provider过期回放与真实长题失败分开，不用安全拒绝冒充实时答题收益。
+
+- 固定31s生成过期浏览器反例不接受failed代替expired，严格失败后假时钟确认：同begin100/expires130/now131，直接fail→failed；先status/reap再fail→expired。根因是异常收尾fail未比较deadline，分类取决于状态读者；最小修复只在非终态fail时按deadline选择expired/failed，不能在fail调用reap造成consumer_timeout递归。过期409与主播终态要一起核，不凭服务错误文案称正确。
+
+- 新发现测试编排竞争解释：同599源码/8a922 harness的14token问候，root并行多次exec源码读取轮推理56.717s→超期无TTS；暂停其他Agent/命令并只等同会话后，正常人物绘制同配置14.049s/TTS7.162s/WAV4.651s完整完成。两轮都保留，单次不能确认具体环境因或声称稳定SLO；真实模型验收期间不要做其他命令/打包/源码导出，不改人物/TTL让过关。
+- 最终过期回放曾出现空观察器：绑旧workspace被异步刷新替换，states=[]让all(...)空集为真。原passed=true报告追加coverage-rejected旁证而非篡改；稳定contacts父节点观测且强制同job generating/expired非空见证后严格通过。此坑应自动断言非空覆盖，不靠交接记忆。
+
+- 实际宿主页截图有“正在准备形象”残留与近裁。不能从截图推断隐形渲染/CPU根因：modal确实setVisible(false)，已有renderer.setHidden会停rAF。真实controller的deferred engine/load三时点实验旧代码2红1正控：engine前隐藏导致同key永久早退；load中隐藏导致底层ready而控制器仍loading。状态结算与可见性需分开，但不能仅删!visible检查而在隐藏时创建活动renderer；真实Core/几何另验。
+
+- 质量全门抓到间歇性HTTP400，不是scene修复所致：perception生成URL-safe session/observation且frame request允许leading -/_，assistance误用首字符alnum的action validator。固定leading `-`/`_`两套独立HTTP fixture旧红；只对TrustedObservation三字段精确匹配producer [A-Za-z0-9_-]{1,100}且不trim，通用标识/权限不变；PR51 a5b7381，96相关回归绿，最终909 Python/161前端Node全门绿。不要靠重试随机数得到绿；共享fixture触发限流应隔离fixture，不改限流。
+- 最终a5b7381独占真实声画：Qwen12.263s/TTS8.846s/WAV4.651s实际ended、两端completed，strict网络绿；产品源384文件与最终quality-observation-contract指纹一致。Windows/目标用户/独立审美与学习效果仍未验收。
