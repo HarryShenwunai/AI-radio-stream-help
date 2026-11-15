@@ -18,7 +18,6 @@
   $('study-summary').textContent=`${state.rounds} 轮完成 · ${Math.floor(state.total/60000)} 分钟已记录`;
   $('study-guidance').textContent=storageWarning?'当前浏览器无法保存进度，请勿关闭此页。':snapshot.failed?'本次请求失败。材料已保留，可检查连接或重试。':draftNotice||({idle:'填写目标后开始计时。',running:'自动朗读已暂停。',paused:'计时已暂停。',review:`实际专注 ${Math.floor(state.elapsed/60000)} 分钟。勾选已完成的步骤，再决定下一轮。`,break:'休息结束后可开始下一轮。'})[phase];
   $('study-quiet').hidden=!quiet;$('study-quiet').textContent=quiet?'计时中':'';
-  const texts=S.steps(state.kind);for(let i=0;i<3;i++){$('study-step-'+i).checked=state.checked[i];$('study-step-label-'+i).textContent=texts[i];}
   const st=snapshot.state;const ready=st&&(st.settings.engine==='api'?Boolean(st.settings.api_model):st.model_installed&&st.runtime_installed);
   $('study-ai-state').textContent=snapshot.failed?'本次请求失败，可检查连接或重试':ready?'':'配置模型后可准备问题';
   $('study-ai-plan').disabled=!role||!state.goal.trim()||Boolean(snapshot.chat)||Boolean(st?.model_busy);
@@ -45,7 +44,6 @@
  $('study-main').onclick=()=>{if(['idle','paused'].includes(state.phase))app.speech.stop();dispatch({type:({idle:'start',running:'pause',paused:'resume',review:'save',break:'skip'})[state.phase]});};
  $('study-finish').onclick=()=>dispatch({type:'finish'});
  $('study-ai-plan').onclick=()=>ask('plan');$('study-ai-review').onclick=()=>ask('review');
- for(let i=0;i<3;i++)$('study-step-'+i).onchange=()=>dispatch({type:'check',index:i});
  $('study-clear').onclick=()=>{dispatch({type:'clear'});$('study-goal').focus();};
  $('study-connect').onclick=()=>app.openConnections();
  $('study-view').onclick=()=>{const on=!document.body.classList.contains('study-immersive');document.body.classList.toggle('study-immersive',on);$('study-view').setAttribute('aria-pressed',String(on));$('study-view').textContent=on?'展开学习台':'收起学习台';};

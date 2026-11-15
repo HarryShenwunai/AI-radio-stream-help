@@ -38,7 +38,7 @@ LIGHT_MODEL = MODEL_DIR / 'qwen2.5-1.5b-instruct-q4_k_m.gguf'
 MODEL = QUALITY_MODEL if QUALITY_MODEL.exists() or not LIGHT_MODEL.exists() else LIGHT_MODEL
 VERSION = '0.5.0-dev3'
 DEFAULT = {
-    'name':'陪伴角色', 'user_name':'你', 'personality':'温柔但有自己的主见，偶尔俏皮，喜欢自然简短的聊天。',
+    'name':'陪伴角色', 'user_name':'你', 'personality':'',
     'engine':'local', 'api_base':'https://api.deepseek.com/v1', 'api_model':'deepseek-chat',
     'quiet_start':23, 'quiet_end':8, 'proactive':False, 'study':False,
     'voice':True, 'voice_rate':1.0, 'local_voice':'zf_xiaobei',
@@ -464,9 +464,6 @@ def init_profile(character_id, inherited=None):
                 name = profile['name']
                 c.execute('INSERT OR REPLACE INTO settings VALUES(?,?)', ('name', json.dumps(name, ensure_ascii=False)))
                 c.execute('INSERT INTO audit(event,detail,created) VALUES(?,?,?)', ('legacy_name_normalized', 'original retained in legacy database', now()))
-            if not c.execute('SELECT 1 FROM messages LIMIT 1').fetchone():
-                greeting = '来啦。想聊什么，都可以慢慢说。'
-                c.execute('INSERT INTO messages(role,text,created,kind) VALUES(?,?,?,?)', ('assistant', greeting, now(), 'welcome'))
         with contextlib.suppress(OSError):
             os.chmod(catalog().db_path(character_id), 0o600)
         with DB_LOCK:
@@ -1562,7 +1559,7 @@ def _scheduler_tick(stamp=None):
                     c.execute("UPDATE tasks SET status='quiet' WHERE id=?",(task['id'],));continue
                 if stamp-task['due']>3600:
                     c.execute("UPDATE tasks SET status='expired' WHERE id=?",(task['id'],));continue
-                content=f'到了约好的时间啦：{task["title"]}。准备好了就开始，晚一点也可以。'
+                content=f'提醒：{task["title"]}'
                 c.execute("INSERT INTO messages(role,text,created,kind,task_id) VALUES('assistant',?,?,'reminder',?)",(content,now(),task['id']))
                 c.execute("UPDATE tasks SET status='done' WHERE id=? AND status='pending'",(task['id'],))
                 c.execute('INSERT INTO audit(event,detail,created) VALUES(?,?,?)',('reminder_shown',f'task={task["id"]};channel=in-app',now()))
@@ -1571,12 +1568,7 @@ def _scheduler_tick(stamp=None):
                 last=c.execute('SELECT created FROM messages ORDER BY id DESC LIMIT 1').fetchone()
                 past=c.execute("SELECT count(*) FROM messages WHERE kind='proactive' AND created>=?",(local_day_start_utc(stamp),)).fetchone()[0]
                 if last and stamp-dt.datetime.fromisoformat(last[0]).timestamp()>7200 and past<2:
-                    greetings={
-                        'daily':['路过留一句问候。希望你这会儿过得还不错。','有空的话，来随便聊聊吧。忙你的也没关系。'],
-                        'listen':['如果今天有些话没地方说，可以在这里慢慢讲。','给你留个安静的位置。想说的时候，我在。'],
-                        'playful':['今日份小小问候，轻轻放在这里。','想找个人分享一点小事的话，这里随时开门。'],
-                    }
-                    content=greetings.get(s.get('conversation_mode'),greetings['daily'])[past%2]
+                    content='对话已空闲超过两小时。'
                     c.execute("INSERT INTO messages(role,text,created,kind) VALUES('assistant',?,?,'proactive')",(content,now()))
 
 def scheduler_loop():
