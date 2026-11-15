@@ -220,6 +220,24 @@ class CharacterStore:
             self.cleanup_pending_deletions()
             return result
 
+    def seed_default_live2d(self, package: Path) -> dict:
+        """One-time owner-bundled default; preserve all existing user choices."""
+        from .assets import AssetStore
+        with self._lock:
+            self._ready()
+            with self._connection() as conn:
+                conn.execute('BEGIN IMMEDIATE')
+                row = self._find(conn, self._active_id(conn))
+                done = conn.execute("SELECT value FROM metadata WHERE key='default_live2d_initialized'").fetchone()
+                if done:return self._row(row)
+                if not row['avatar_revision']:
+                    if package.is_symlink() or not package.is_file() or package.stat().st_size > 64*1024*1024:
+                        raise CharacterError('默认Live2D素材不可用。')
+                    asset = AssetStore(self._directory(row['id'])/'assets').import_live2d(package.read_bytes(), package.name)
+                    conn.execute('UPDATE characters SET avatar_revision=? WHERE id=?', (asset['id'], row['id']))
+                conn.execute('INSERT INTO metadata VALUES(?,?)', ('default_live2d_initialized', '1'))
+                return self._row(self._find(conn, row['id']))
+
     def _ready(self) -> None:
         if not self._bootstrapped:
             self.bootstrap()

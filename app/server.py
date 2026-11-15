@@ -41,7 +41,7 @@ DEFAULT = {
     'name':'陪伴角色', 'user_name':'你', 'personality':'温柔但有自己的主见，偶尔俏皮，喜欢自然简短的聊天。',
     'engine':'local', 'api_base':'https://api.deepseek.com/v1', 'api_model':'deepseek-chat',
     'quiet_start':23, 'quiet_end':8, 'proactive':False, 'study':False,
-    'voice':True, 'voice_rate':1.0,
+    'voice':True, 'voice_rate':1.0, 'local_voice':'zf_xiaobei',
     'memory_mode':'relevant', 'conversation_mode':'daily',
     'character_notes':'',
 }
@@ -374,6 +374,8 @@ def catalog():
         if store is None:
             store = CharacterStore(DATA)
             store.bootstrap()
+            package = Path(os.environ.get('COMPANION_DEFAULT_LIVE2D', str(ROOT / 'default-live2d.zip')))
+            if package.exists():store.seed_default_live2d(package)
             CATALOGS[key] = store
             while len(CATALOGS) > 8:
                 CATALOGS.popitem(last=False)
@@ -756,7 +758,7 @@ def set_settings(payload):
         return _set_settings(payload)
 
 def _set_settings(payload):
-    fields={'name','user_name','personality','engine','api_base','api_model','quiet_start','quiet_end','proactive','study','voice','voice_rate','memory_mode','conversation_mode','character_notes'}
+    fields={'name','user_name','personality','engine','api_base','api_model','quiet_start','quiet_end','proactive','study','voice','voice_rate','local_voice','memory_mode','conversation_mode','character_notes'}
     s=settings()
     previous_connection = {key: s[key] for key in CONNECTION_FIELDS}
     runtime = {key: s[key] for key in runtime_settings.DEFAULTS}
@@ -782,6 +784,7 @@ def _set_settings(payload):
         if k in {'quiet_start','quiet_end'}:
             if not isinstance(v,int) or not 0<=v<=23:raise AppError('安静时段请使用 0–23 点。')
         if k in {'voice','proactive','study'} and not isinstance(v,bool):raise AppError('开关格式不正确。')
+        if k=='local_voice' and (not isinstance(v,str) or v not in {'zf_xiaobei','zf_xiaoyi','zf_xiaoxiao','zf_xiaoni'}):raise AppError('请选择可用的本机音色。')
         if k=='voice_rate':
             if not isinstance(v,(float,int)) or not .6<=v<=1.5:raise AppError('语速范围为 0.6–1.5。')
         s[k]=v
@@ -1669,7 +1672,7 @@ def synthesize(text):
             G2P=zh.ZHG2P()
         output=io.BytesIO()
         phonemes,_=G2P(text)
-        samples,sample_rate=LOCAL_VOICE.create(phonemes,voice='zf_xiaobei',speed=settings()['voice_rate'],is_phonemes=True)
+        samples,sample_rate=LOCAL_VOICE.create(phonemes,voice=s['local_voice'],speed=s['voice_rate'],is_phonemes=True)
         import numpy as np
         pcm=(np.clip(samples,-1,1)*32767).astype('<i2').tobytes()
         with wave.open(output,'wb') as wav:
@@ -1834,6 +1837,9 @@ class Handler(BaseHTTPRequestHandler):
                 return self.reply(200,{**services['tracking'].status(services['owner_id']),'addon':services['tracking_addon']})
             if path=='/api/live2d/runtime':return self.reply(200,live2d_runtime().status())
             if path=='/api/connectors/status':return self.reply(200,integrations().status())
+            if path=='/api/room':
+                profile = profile_for_client(catalog().active(), appearance=True)
+                return self.reply(200,{'character':{key:profile.get(key) for key in ('id','appearance_id','appearance')}})
             if path=='/api/characters':return self.reply(200,characters_state())
             if path=='/api/characters/assets':
                 query=urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
@@ -1860,7 +1866,7 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authenticated():return self.reply(401, {'error': '请先打开应用。'})
             reader = live2d_runtime().read_core if path == '/live2d-core.js' else live2d_runtime().read_bundle
             return self.reply(200,reader(),'application/javascript')
-        if path not in {'/live-stage.html','/live-stage.js','/live-stage.css','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
+        if path not in {'/room.html','/room.js','/room.css','/live-stage.html','/live-stage.js','/live-stage.css','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
                         '/study-session.js','/study-room.js','/study-room.css','/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
                         '/layered-2d-renderer.js','/scene-morning.png','/scene-forest.png','/scene-evening.png'}:return self.reply(404,b'Not found','text/plain')
         file=STATIC/path.lstrip('/')
