@@ -20,6 +20,10 @@ class LiveOutput:
         self.lock = threading.RLock()
         self.session = secrets.token_hex(16)
         self.material = None
+        self.interaction_mode = "interactive"
+        self.topic = ""
+        self.host_talking = False
+        self.context_since = 0.
         self.jobs = {}
         self.seen = set()
         self.token = None
@@ -48,9 +52,30 @@ class LiveOutput:
             self.material = {'text': text.strip(), 'sha256': digest}
             return dict(self.material)
 
-    def begin(self, event):
+    def set_context(self, payload):
         with self.lock:
-            if not self.material:raise OutputError('请先设置允许公开的教材。')
+            mode = payload.get('mode', self.interaction_mode)
+            topic = payload.get('topic', self.topic)
+            talking = payload.get('host_talking', self.host_talking)
+            if not isinstance(mode, str) or mode not in {'interactive', 'strict'} or type(talking) is not bool:
+                raise OutputError('互动模式或讲解状态无效。')
+            if not isinstance(topic, str) or len(topic.strip()) > 1200:
+                raise OutputError('公开背景最多1200字符。')
+            try:topic.encode('utf-8')
+            except UnicodeError:raise OutputError('公开背景含无效字符。')
+            if topic.strip() and topic.strip() != self.topic and payload.get('allow_public') is not True:
+                raise OutputError('请明确允许公开使用这段背景。')
+            if (mode, topic.strip(), talking) != (self.interaction_mode, self.topic, self.host_talking):
+                self.cancel()
+                self.interaction_mode, self.topic, self.host_talking = mode, topic.strip(), talking
+                self.context_since = self.clock()
+            return self.status()
+
+    def begin(self, event, recent=()):
+        with self.lock:
+            if self.host_talking:raise OutputError('主播讲解中，暂不准备或播放回答。')
+            if self.interaction_mode == 'strict' and not self.material:raise OutputError('严格答疑需要允许公开的教材。')
+            if event.get('received_at', self.clock()) < self.context_since:raise OutputError('这条弹幕属于上一个话题，请选择新消息。')
             key = (event['source'], event['room_id'], event['event_id'])
             if key in self.seen:raise OutputError('本场次已处理此问题，请勿重复生成或播放。')
             if event['expires_at'] <= self.clock():raise OutputError('问题已过期。')
@@ -58,8 +83,13 @@ class LiveOutput:
             self.seen.add(key)
             job = {'id': secrets.token_hex(16), 'session': self.session, 'event_id': event['event_id'],
                    'room_id': event['room_id'], 'source': event['source'], 'question': event['text'],
-                   'expires_at': event['expires_at'], 'material_sha256': self.material['sha256'],
-                   'material': self.material['text'], 'state': 'generating', 'delivered': False}
+                   'expires_at': event['expires_at'], 'material_sha256': self.material['sha256'] if self.material else None,
+                   'material': self.material['text'] if self.material else '',
+                   'interaction_mode': self.interaction_mode, 'topic': self.topic,
+                   'recent': [{'event_id': e['event_id'], 'text': e['text'][:500]} for e in recent
+                              if e['source'] == event['source'] and e['room_id'] == event['room_id']
+                              and e['event_id'] != event['event_id'] and e['expires_at'] > self.clock()
+                              and e.get('received_at', 0) >= self.context_since][-5:], 'state': 'generating', 'delivered': False}
             self.jobs[job['id']] = job
             self.transition(job, 'generating')
             return dict(job)
@@ -95,6 +125,7 @@ class LiveOutput:
 
     def prepare(self, ident, confirmed):
         with self.lock:
+            if self.host_talking:raise OutputError('主播讲解中，暂不播放。')
             if confirmed is not True:raise OutputError('需要主播逐条确认字幕与语音输出。')
             if not self.token:raise OutputError('请先打开本机输出页。')
             job = self.current(ident, 'review')
@@ -166,11 +197,12 @@ class LiveOutput:
 
     @staticmethod
     def public(job):
-        return {k:v for k,v in job.items() if k not in {'audio', 'client', 'heartbeat', 'material'}}
+        return {k:v for k,v in job.items() if k not in {'audio', 'client', 'heartbeat', 'material', 'recent', 'topic'}}
 
     def status(self):
         with self.lock:
             self.reap()
             return {'session': self.session, 'material': self.material,
+                    'interaction_mode': self.interaction_mode, 'topic': self.topic, 'host_talking': self.host_talking,
                     'jobs': [self.public(j) for j in self.jobs.values()], 'audit': list(self.audit),
                     'viewer_received': False, 'output_open': bool(self.token)}
