@@ -105,6 +105,7 @@ class CharacterHTTPTests(unittest.TestCase):
             return wav_fixture()
 
         self.app.generate = generate
+        self.real_synthesize = self.app.synthesize
         self.app.synthesize = synthesize
         self.server = ThreadingHTTPServer(('127.0.0.1', 0), self.app.Handler)
         self.server.daemon_threads = True

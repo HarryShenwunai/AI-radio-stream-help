@@ -1004,6 +1004,11 @@ def connector_request(action, payload):
     if action == 'bili/stop':
         cancel_public_generations(service)
         service.stop_bili();return {'ok': True}
+    if action == 'bili/rehearsal':
+        with DISPATCH_LOCK:
+            result = service.rehearse(payload)
+            if payload.get('action') == 'start':cancel_public_generations(service)
+            return result
     if action == 'bili/context':
         with DISPATCH_LOCK:
             previous = service.output.session

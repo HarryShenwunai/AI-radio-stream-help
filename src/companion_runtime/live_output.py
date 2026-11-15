@@ -82,7 +82,7 @@ class LiveOutput:
             if len(self.jobs) >= 100:raise OutputError('本场次已达到100条记录上限，请重新连接直播间。')
             self.seen.add(key)
             job = {'id': secrets.token_hex(16), 'session': self.session, 'event_id': event['event_id'],
-                   'room_id': event['room_id'], 'source': event['source'], 'question': event['text'],
+                   'room_id': event['room_id'], 'source': event['source'], 'origin': event.get('origin', 'platform'), 'question': event['text'],
                    'expires_at': event['expires_at'], 'material_sha256': self.material['sha256'] if self.material else None,
                    'material': self.material['text'] if self.material else '',
                    'interaction_mode': self.interaction_mode, 'topic': self.topic,
