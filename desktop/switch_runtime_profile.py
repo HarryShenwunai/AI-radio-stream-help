@@ -55,7 +55,7 @@ def main() -> None:
     target=choose(resources,args.profile)
     probe="import ctypes;from PIL import Image;import llama_cpp,onnxruntime,kokoro_onnx,espeakng_loader;ctypes.CDLL(espeakng_loader.get_library_path());print('Native imports passed')"
     if args.profile=='cuda':probe+=";llama_cpp.llama_backend_init();assert llama_cpp.llama_supports_gpu_offload(),'No usable GPU offload backend';llama_cpp.llama_backend_free()"
-    env=dict(os.environ);env.pop('CUDA_PATH',None);env.pop('HIP_PATH',None)
+    env=dict(os.environ);env['ORT_DISABLE_TELEMETRY']='1';env.pop('CUDA_PATH',None);env.pop('HIP_PATH',None)
     result=subprocess.run([str(target/'python/python.exe'),'-I','-X','utf8','-c',probe],env=env,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=30)
     if result.returncode:
         if args.profile=='cpu':raise RuntimeError('本机原生依赖未通过。请查看Microsoft官方VC++ x64运行库说明：https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist 。程序不会自动安装全局运行库。')
