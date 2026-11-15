@@ -1,103 +1,66 @@
-# 单一现场场景契约
+# 单一现场场景契约 · 本地实现 v1
 
-状态：**协议草案待审**。接口未冻结、视觉未获用户确认，B/C产品实现尚未开始。本文件是任务A的设计输入，不是产品完成报告。
+状态：技术作用域已获用户实施授权，B/C代码已实施，最终全量回归、真实媒体与故障回放通过（仅本地开发范围）。视觉方向尚未获最终认可，发布阻断。此文件替换旧“只读草案”，不把授权实施当作验收通过。
 
-基线：本地dc231bb308c9e79407aaa554b9011bdad0436c72，tree dd09e659eff0b812ffd14412d38f12171147393f；对应远端PR48的3af7f876ebe10d814e9c17a793c14879cfb4c7f8。仅Windows PC为产品目标；本轮不实施产品、不安排B站/OBS实际环境。
+## 基线与边界
 
-## 一个场景
+运行基线为 PR48 的 3af7f876ebe10d814e9c17a793c14879cfb4c7f8，tree dd09e659eff0b812ffd14412d38f12171147393f；隔离实现分支 impl/p9-approved-program 从管理增量 fa278f308e5d2930d4f2176e31549c12f04ac212 开始。最终源码、检查指纹和复跑结果见 [本轮报告](../validation/p9-first-loop.md)。旧报告仅作基线或失败对照。
 
-本地演练输入一条原始文字 → 准备回答 → 主播核对 → 单次批准 → 同一节目中的人物／字幕／语音 → 停止 → 主播端与节目端显示同一终态。
+产品目标仅Windows10/11 PC（RTX4060、32GB）；本轮实际开发环境是Linux CPU与Chrome，不能计为Windows通过。真实B站/OBS测试暂停，无部署、发布或平台发字。保留已有角色、光照、卫衣与固定持杯；不新增美术，不恢复放杯，不展示被拒3D。
 
-演练事件必须保留local_rehearsal来源，不称真实观众弹幕。现有原始演练记录可复用；本规范不新增问题或回答样例。现场互动默认不强制教材；材料仅在用户明确选择严格答疑时成为必要条件。没有主播音画输入，不宣称听见或看见。
+## 一个任务，三个界面
 
-## 三个界面各做什么
+本地原始文字 → 选择准备 → 生成候选 → 主播审核 → 单次批准 → 同一节目人物/字幕/实际音频 → 完成或停止 → 主播与节目端终态。
 
-| 界面 | 核心职责与主信息 | 低频内容 | 绝不能冒充 |
-|---|---|---|---|
-| 主播工作台 | 当前问题、候选回答及依据边界；批准前核对；可信播放状态；持续可见的停止／接管；异常恢复 | 人物、背景、布置、音色配置后置；问题队列次于当前待决策任务 | 点击意图≠实际发声；生成完≠批准；回执≠观众接收 |
-| 布置器（现room） | 选择现有人物和布置，检查画面，保存可回退配置 | 仅开播前或有意编辑时使用 | 本地样稿≠节目；预览角色≠公开发言身份；手填字幕≠已批准回答 |
-| 节目输出（现live-stage） | 只呈现该次已批准内容、绑定人物和实际音频；无私人管理控件 | 仅必要的本机启用／错误恢复，不扩成第二工作台 | 无观众证据不得标已送达；错误与等待不伪装直播状态 |
+- 主播工作台保留问题、候选、批准、停止和可恢复失败；状态来自权威服务，局部更新不重建凭据、草稿、焦点和选区。
+- room继续是私有布置预览，不自动改变发言身份，也不把手填字幕当批准回答。
+- live-stage仅呈现当前授权快照及批准媒体。v1固定人物右侧、字幕左侧、透明底；不自动同步room的任意localStorage布置。布局功能连通不等于专业审美或用户认可。
 
-待审信息层级：第一层是**当前问题与待作决定**，第二层是**实际节目画面及播放／终止状态**，第三层是**待处理问题与可恢复错误**；低频布置后置。保留一个明确的批准动作、一个始终可找到的停止动作。是否并排、各区尺寸和具体排版尚待同任务设计稿及用户审阅，不通过填满空白、换色或删标签自行宣布改善。
+默认现场互动不强制教材；严格答疑须明确允许公开的材料。不读取私人聊天/记忆，无主播音画输入时不假称听见或看见。演练保留local_rehearsal来源，不称真实观众。
 
-## 当前断点及直接证据
+## 已实现的接口与数据边界
 
-- connectors-ui.js:27–29分别打开输出窗口和本地样稿；server.py:1022返回live-stage路径。
-- live-stage.html:1只有状态、启用音频按钮、字幕，没有人物及room布置；room.js:22固定关闭说话状态，:33字幕来自手填config。
-- room.html:7把默认展开的人物／布置／保存放到问题与字幕输入前；首屏优先级需按现场任务验证。
-- connectors-ui.js:8、23、50以刷新或操作后读取状态；没有由此取得主播端自动反映播完／失败的证据。
-- live-stage.js:39–43先提交playing回执，再等待audio.play()成功。状态机playing只能证明回执被接受，不能单独证明已发声。
+复用现有job id、session、source、room_id、event_id、generation_id和状态机，没有并行任务队列或独立approval_id/playback_id。
 
-这些结论由源码观察支持；“怎样重排更有效”和“合成边缘灰透的根因”仍是待验证判断。
-
-## 现有字段和接口
-
-| 已存在 | 所在位置／语义 | 限制 |
+| 字段/资源 | v1实现 | 边界 |
 |---|---|---|
-| source、room_id、event_id、text、received_at、expires_at | PublicEvent；live.py:66–76 | 输入经过归一化，不带工具权限；服务器时限为单调时钟 |
-| id、session、event_id、room_id、source、origin、question、expires_at、state、delivered | LiveOutput.begin，live_output.py:84–92 | id是互动job标识；delivered初值false不是观众凭证 |
-| material_sha256、interaction_mode、material、topic、recent | 同上 | material/topic/recent属于生成输入；不能整包透传节目端 |
-| text、generation_id、mode | finish，:118–124 | text是候选回答，review阶段只供主播核对；mode目前为local_preview |
-| audio、client、heartbeat | ready/poll，:137–176 | 音频字节只经令牌接口取用；client/heartbeat内部，不作为公开内容 |
-| confirm_output=true | server.py:1026–1029 → prepare | 当前批准动作是布尔确认；没有独立approval_id |
-| Bearer输出令牌、client、action/id/state | server.py:1889–1907；live-stage.js:3–13 | 令牌仅限输出；credentials:omit；没有独立playback_id |
-| character.id、appearance_id、appearance | 私有所有者room接口，server.py:1832–1839 | 当前不在LiveOutput job中；不可整包转作公开接口 |
-| localStorage内的config/draft/布置 | room.js | 不是服务器节目契约，也没有layout_revision |
+| scene_snapshot | 打开输出时冻结当前身份、外观、资源清单及运行库hash；批准时绑定同一快照 | 包含version、character_id、appearance_id、layout_revision=program-v1、layout=right、theme=carbon、asset、runtime_available、runtime_sha256、sha256；不可从独立预览偷换身份 |
+| approval_revision | 明确批准时的状态revision | 不是外部审批凭证 |
+| audio_sha256 | 完整WAV实际字节hash | 不是扬声器/观众收到凭证 |
+| 音频预算 | owner可见audio_duration_seconds、playback_budget_remaining_seconds、failure_reason | 不进入节目内容；失败理由仅映射已知代码 |
+| 输出资源 | /api/live-output的POST action scene/resource/runtime/poll/audio/receipt | Bearer只在头中；credentials:omit；资源名必须在冻结清单并匹配scene hash和实际字节hash，不是通用代理 |
+| 私有资源 | 原/api/assets及运行库接口仍要求私有授权 | 不给节目页私有cookie；正式安装许可与Core读取校验保留 |
 
-公开操作已有：所有者通过connectors/bili/reply准备、approve逐条批准、output/open打开受限输出、output/stop撤权。节目端仅调用/api/live-output的poll、audio、receipt。不能把这些路径中的“bili”字样等同真实B站已连接。
+节目job投影采用显式白名单：id、session、event_id、room_id、source、origin、expires_at、state、delivered、text、generation_id、mode、scene_snapshot摘要、approval_revision、audio_sha256。快照摘要仅sha256/character_id/appearance_id/layout_revision；完整资源快照另由受限scene操作读取。未知新增字段不会自动公开。
 
-### 建议新增，尚未实现
+禁止进入节目投影：question、material、topic、recent、私聊/记忆、完整模型上下文、草稿、凭据、client/heartbeat、任意本机路径。主播审核投影单独定义，不能把整个owner状态转发。delivered/viewer_received不作为观众凭证，当前viewer_received始终false。
 
-建议将**已批准的节目快照**绑定到既有job id与session，不另造与现有状态机平行的任务队列。建议字段为scene_snapshot（character_id、appearance_id、layout_revision及允许的布置内容）、approval_revision、audio_sha256。字段名和版本策略须由B审查后冻结；当前源码没有这些字段。
+## 状态与媒体事实
 
-建议快照只来自明确用于本次节目的选择；room的独立预览身份不得悄悄改变公开发言者。先使用既有当前助手身份与已授权外观做单人闭环；如要允许另一身份公开发言，必须单独定义身份／声线／批准语义。更换身份、外观或场次后，旧job失效，不把旧声音接到新角色。
+状态仍为generating → review → synthesizing → ready → claimed → playing → completed；另有cancelled/expired/failed。未经逐条批准不合成公开音频，不进入节目字幕。进程内既有作业记录范围内，重复事件、重认领和状态不匹配不能重播；不是跨重启或跨平台的绝对恰好一次保证。
 
-建议图形资源由输出令牌限定到该快照的资源清单；不能用私有cookie、文件路径、整个资产目录或通用资源代理绕过授权。运行库许可与本机已安装状态仍单独验证。布局修订只包含允许的几何／色组／组件显隐，不包含私人历史或未批准字幕。A未冻结这些提议为API承诺。
+playing回执必须晚于WebAudio建立且running以及audio.play成功；它仍只是本页启动事实。completed由本页ended后回执；回执丢失须持续显示未确认，不能被空poll改写成成功。源WAV、浏览器WebAudio捕获与未剪辑双端录像分别保留；浏览器录像无音轨，不等于系统声卡、OBS或观众收到。
 
-## 两层数据白名单
+非终态错误收口在当前单调时钟已达期限时归expired，未达期限仍failed；已有终态保持，不由是否先刷新status决定分类。停止撤销令牌/场次并清理媒体、字幕和口型。异步scene、audio及completed分别检查epoch/播放世代；旧成功/失败回包都不能恢复旧任务或覆盖新任务。字符/外观、话题/模式、主播讲解状态改变沿用已有失效链。加载人物不得占住轮询锁并阻断2秒消费者心跳。
 
-1. **主播私有审核视图**可读当前事件、候选回答、明确公开的背景／参考来源及任务失败信息。仍不能混入其他身份的私人聊天和记忆。
-2. **节目视图建议白名单**：既有id/session/event_id/source/room_id/origin/state、已批准text、generation_id、必要的期限信息；加上将来明确批准并绑定的scene_snapshot、approval_revision、audio_sha256。question只有确定要公开呈现并纳入本次批准时才进入节目快照。不要直接复用public(job)的排除式投影作为新增字段的长期安全保证。
+## 时限准入与不能保证的部分
 
-禁止：未批准回答、草稿、私聊／记忆、未允许材料、完整模型上下文、密钥、cookie、输出令牌明文、内部client/heartbeat、任意本机路径。输出令牌是凭据，不是可展示内容；材料哈希只是引用，不代表材料内容已获节目公开许可。外部输入不改变工具权限或直播配置。
+原30秒事件期限不变，包含生成、审核、TTS、准备和播放。服务端使用单调时钟，不能直接与浏览器Date.now相减。
 
-## 状态与实际观察
+完整PCM16 WAV先由既有验证器检查格式、实际帧数、采样率、声道、长度与体积；在ready、ready→claimed及audio交付三个边界要求：剩余秒数×采样率 > 实际帧数。相等也拒绝，丢弃音频并记录insufficient_playback_budget；无效音频为invalid_audio。已播放期间不把整段时长重复扣算。
 
-| 层级 | 现有状态／事件 | 能证明什么 | 下一步待验收 |
-|---|---|---|---|
-| 接收／选择 | 归一化事件；主播选择准备 | 收到有效演练文字、尝试创建job | 选择与实际接收标识一致；不等于已生成 |
-| 生成／审核 | generating → review | 候选文本完成并可审核 | 不出声、不进入节目字幕；有依据或说明不确定 |
-| 批准／准备 | review → synthesizing → ready | 主播明确确认后语音准备完成 | 批准文本／音频／角色快照一致，不重用旧批准 |
-| 认领 | ready → claimed | 单个输出client认领 | 不等于播放；刷新与重试不重播旧任务 |
-| 当前playing回执 | claimed → playing | 服务端收到回执 | 目前发于audio.play前；B须区分播放请求和实际媒体启动，并保留拒绝反例 |
-| 媒体活动 | audio.play成功、媒体事件与音轨 | 本页媒体开始及其采样证据 | 同job字幕、人物口型、实际音轨相互对应；仍非扬声器/观众证明 |
-| 结束／取消 | completed / cancelled / expired / failed | 对应服务状态已转换 | 两端终态可见，音频/字幕/口型同时停止，晚响应不能复活 |
+这是“必然来不及则不启动”的必要条件，不是未知网络、审核和设备延迟下绝不截断的保证；未增加拍脑袋裕量或延长期限。完整长题与已有短问候分别保留，短题成功不能覆盖长题失败。当前CPU模型/语音性能可能导致较长问题被正确拒绝，产品实用性仍需任务验证。
 
-停止以本地立即清理与服务器撤权分别记录，不编造停止上限。现有250ms轮询、100ms守护检查以及超时不是测得的端到端保证。先在约定负载和时钟基准下测量，再固定延迟／中断判据；不得看过结果后放宽。
+## 主播更新与开销
 
-30秒现有事件预算覆盖生成、人工审核和播放。真实模型受控负载曾超时；等待人工确认也消耗剩余时间。不能为过关延长TTL、断线后补播过期内容，或把顺序执行成功等同负载修复。server单调时钟expires_at不能直接减浏览器Date.now；跨端时间线需标明时钟域和对齐方式。
+复用已有可见页5秒core.refresh和core.on(change)，后端state仅加入受限live_output状态。BroadcastChannel只发changed提示，再读权威服务，不传内容/令牌，不当媒体凭证。无新增轮询、后台线程或产品依赖。兜底状态延迟仍可能约5秒，不能宣传即时或已有真人操作收益。
 
-## 竞争解释与最小区分实验
+ONNX Runtime在native初始化前强制ORT_DISABLE_TELEMETRY=1（不能setdefault保留0），保留API关闭作为补充；覆盖owned backend启动和TTS/ASR入口。本轮模型测试在仅loopback的新网络namespace运行。该隔离与启动策略不是Windows全系统零网络证明。
 
-| 判断 | 竞争解释 | 区分操作与推翻条件 |
-|---|---|---|
-| 专业感不足来自任务分离 | 完整主线可能已在别页；当前截图只代表布置任务 | 沿产品入口录制同一事件全程，记录页面、标识和实际节目；若同一已批准回答已驱动人物/字幕/音轨，则推翻“未接通” |
-| 主播状态不可靠 | 服务端状态正确但界面未刷新；媒体回执过早；真实播放失败 | 对照服务audit、媒体playing/ended/error、真实音轨及主播显示；逐一延迟回执或拒绝audio.play，不能只看状态标签 |
-| 过期主要受资源竞争影响 | 生成慢、TTS慢、人工审核耗时、队列等待、期限映射错误 | 固定输入和期限，分别测每阶段与受控负载；记录全部时间线，不改变TTL；若资源空闲仍相同失败则不能归因单一负载 |
-| 深底人物灰透来自素材或渲染 | 底图残色、透明混合、羽化遮罩、背景与原光照 | 同帧白/灰/黑背景与局部ROI；仅诊断时排除一个因素，保留源文件hash；无区分证据不补画、不改曝光 |
+## 验收与回退
 
-## 验收闸门与B/C交接
+旧版audio.play拒绝仍报playing、旧控制台不更新、旧完成回执丢失被覆盖、旧预算缺失、已知坏预算mutant必须被同一判据拒绝。开发样例为确定性音调和已有原始文字，真实模型/TTS另跑；两者均不是未见学习任务或观众证据。
 
-A的接口／视觉冻结前必须具备：同一场景双端状态联系表、现有与建议字段的明确差异、公开数据边界、可推翻实验，以及用户对布局方向的明确审阅记录。当前只有草案，不能宣称已通过。
+固定失败条件：未批准输出、未知私有字段/资源泄漏、重复播放、停止/过期/换身份后复活、实际媒体失败却报完成、状态更新破坏输入、字幕遮挡手杯、源角色包改变。每项修复独立提交可回退；回退到旧版不等于旧安全问题已解决。
 
-B独占app/server.py输出路由、src/companion_runtime/live_output.py、app/static/live-stage.*及其状态/HTTP测试；C独占connectors-ui.js及对应控制台样式/UI测试。C只消费B冻结的契约；需要后端或输出页变更交B，不交叉写。room.*仅作为当前源码基线只读参考；A通过后仅采用获审阅的设计输入，不直接公开。核心契约确定后B/C才可分文件并行，端到端合并由P9验收。
-
-B/C未来DONE包括：未批准不输出；重复批准/重连不额外播；取消、过期、切身份/话题后旧任务不复活；私密金丝雀不进入节目DOM/模型公开输入/音轨；音频拒绝或媒体失败不能显示真实播完；同一job人物/字幕/音轨可核对；主播端终态和失败恢复持续可见。需双端未剪辑录像、实际音轨、原始演练事件、批准文本、任务审计、坏版本反例与复跑命令。
-
-已有测试入口可作为B/C基线，不代表本轮执行：test_live_interaction、test_live_output、test_platform_integration_http、test_local_rehearsal；node的test_connector_settings_ui.mjs；真实模型的tests/local_product_browser.py。完整回归与真实模型验收顺序运行，另安排受控负载试验。
-
-冻结失败条件：任一输出仍走另一套画面、只有回执无音轨、状态靠手动刷新才能判断终态、用户未认可主信息层级、源素材被改变、协议字段仍混淆现状/建议、旧包冒充同版。触发后回到对应根因，不扩更多色板、人物或小组件。
-
-## 本轮证据边界
-
-本轮只读检查源码与已有报告，实际执行文档/JSON一致性校验；没有运行产品、模型、浏览器或平台，不宣称已修复。现有real-local-isolated/result.json明确real_model=true、real_tts=true，来源是合成事件，real_bili=false、viewer_received=false；它支持旧本地主线的部分事实，不支持新节目整合或内容质量已通过。当前视觉仍被用户退回；Windows、实际设备音频、独立设计师/主播评审均待验证。
+测试夹具的严格本机传输与资源hash保留；外站及重定向拒绝。大资源使用Playwright APIResponse传递以避免Python复制导致撞产品1秒门；产品超时不改。测试页收尾排空pending fetch仅为防context.route关闭重放，不可作为生产硬关闭/pagehide验收。原生HTTP、系统声卡、Windows、OBS、观众接收、独立视觉/声线和学习收益分别待验证。
