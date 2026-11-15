@@ -26,6 +26,7 @@ window.CompanionContacts=(()=>{
     if(!output.output_open)outputPath='';showOutputLink();
     toolbar.append(button('输出窗口',{icon:'screen',action:async()=>{try{const result=await core.api('connectors/bili/output/open',{});if(!alive())return;outputPath=result.path;showOutputLink();}catch(cause){if(alive())error(issue,cause.message);}}}),button('停止播放',{icon:'stop',variant:'live-stop',action:async()=>{try{await core.api('connectors/bili/output/stop',{});outputPath='';if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}}));
     toolbar.append(button(output.host_talking?'结束讲解':'主播讲解中',{action:async()=>{try{await core.api('connectors/bili/context',{host_talking:!output.host_talking});outputPath='';if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}}));
+    const roomLink=el('a','','本地场景样稿 ↗');roomLink.href='/room.html';roomLink.target='_blank';roomLink.rel='noopener';toolbar.append(roomLink);
     frame.body.append(toolbar,outputLink);
     if(bili.state==='local_rehearsal'){
      const rehearsalForm=el('form','purpose-form'),message=field('模拟观众消息',{required:true,maxLength:300});
