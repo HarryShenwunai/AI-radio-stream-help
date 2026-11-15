@@ -15,6 +15,7 @@ import io
 import ipaddress
 import json
 import math
+import os
 from pathlib import Path
 import struct
 import threading
@@ -24,6 +25,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import wave
+
+# Apply before any optional native runtime import (including Silero VAD).
+os.environ['ORT_DISABLE_TELEMETRY'] = '1'
 
 
 class VoiceError(Exception):
@@ -209,6 +213,7 @@ class LocalASR:
                 # Silero VAD uses ONNX Runtime too; keep its telemetry policy
                 # aligned with the application's local Kokoro path.
                 try:
+                    os.environ['ORT_DISABLE_TELEMETRY'] = '1'
                     import onnxruntime
                     onnxruntime.disable_telemetry_events()
                 except ImportError:

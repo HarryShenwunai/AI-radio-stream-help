@@ -75,3 +75,43 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 t
 本次来源指纹核对仅`tests/program_output_browser.py`变化，`app/`和`src/`与原完整质量报告相同；旧报告不冒充新测试入口的完整验证。新入口Ruff与离线预检通过，完整质量门及真实执行仍由root顺序重跑。
 
 方法来源：[Chrome官方工具flags](https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md)、[Chromium DNS与IPv6探测](https://github.com/chromium/chromium/blob/main/net/dns/README.md)、[实际V2连接分支](https://github.com/chromium/chromium/blob/main/net/socket/transport_connect_job.cc)。当前本机driver默认禁用feature列表已完整保留；flag出现本身不作为生效或全进程无网络的证明。
+
+## ORT 1DS 初始化前的隐私修复
+
+第二次真实执行`.build/p9-root/real-completion-offline/`仍被未授权Microsoft遥测外连审查中止；只有`progress.json`到`tts_output_recorded`，没有媒体开始、终态或`result.json`。Chrome无模型预检的空native列表不能排除另一个native进程/库，也不能用于声称这次真实闭环通过。
+
+本机实际安装的ONNX Runtime 1.32.0 native二进制包含`OneDsTelemetry`、`ORT_DISABLE_TELEMETRY`及`mobile.events.data.microsoft.com/OneCollector/1.0/`；其同版[官方Privacy.md](https://github.com/microsoft/onnxruntime/blob/v1.32.0/docs/Privacy.md#disabling-telemetry)明确：导入后调用disable API只抑制非必要事件，初始化事件可能更早发生；初始化前设置`ORT_DISABLE_TELEMETRY=1`才禁止1DS uploader、事件和持久ID。CPU provider不排除进程级1DS。该源码/二进制吻合是具体可修的初始化缺口，不是对两次被拦请求的抓包归因；原请求内容仍未知。
+
+最小修改：`desktop/main.cjs`创建owned backend的环境强制设置该值为`1`，覆盖继承的`0`，不改变父环境、CUDA路径规则或attach外部backend。`app/server.py`启动时在项目模块导入前设置，首次Kokoro加载前重申；`companion_runtime.voice`在任何可选native导入前设置，首次ASR/VAD加载前重申。保留两个原有disable API调用作为后续防线，不新增模块、依赖、模型下载、轮询或性能策略。不声称此变量覆盖legacy Windows ETW，不声称能撤回其他程序预先初始化/已发出的事件。
+
+失败反例与复跑：
+
+- `.build/p9-root/ort-privacy/old-ordering-red.txt`：旧版3个Python测试共5个subcase失败，首次fake ORT导入读到`0`或缺失值；旧晚API没有满足“导入前1”的判据。
+- `desktop-old-red.txt`：实际backendEnvironment函数旧源码在继承`0`时失败。Node vm执行该真实函数，未启动Electron；这不是Windows真机验收。
+- `targeted-green.txt`：`PYTHONPATH=src:tests python3 -m unittest -v test_voice test_voice_http test_default_live2d_voice`，44个通过；fresh subprocess分别执行server与voice入口，首次fake ORT/Kokoro/Whisper初始化读取值均为`1`，包括用户预置`0`和未设置。fake库测试没有引入native联网。
+- `desktop-green.txt`：`node --test desktop/test/runtime-profiles.test.cjs`，3个通过；新增用例包含CPU/CUDA、packaged/dev、继承`0`/缺失的组合，其他环境与父进程不变。
+- Ruff：`ruff check --no-cache app/server.py src/companion_runtime/voice.py tests/test_voice.py tests/test_default_live2d_voice.py`通过。
+
+真实初始化复跑：`unshare --user --map-root-user --net -- python3 .build/p9-root/ort-privacy/namespace_init_no_ptrace.py .build/p9-root/ort-privacy`。launcher只在新network namespace通过ioctl启用lo，验证`/proc/net/dev`只有lo、IPv4 route只有表头；宿主网络不变。全新Python子进程继承`ORT_DISABLE_TELEMETRY=0`，导入生产voice入口后实际ORT import读到`1`，保留API调用，再创建已有Kokoro权重的CPU Session，无推理/合成/播放。
+
+`native-init-no-ptrace.json`记录ORT1.32.0、CPUExecutionProvider、权重SHA256 `beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a`；本机本轮import约0.224秒、Session初始化约4.153秒。这只证明硬隔离下真实初始化可完成，不代表生产warm TTS或完整端到端延迟。原`strace`因PTRACE_TRACEME/SETOPTIONS不允许而在初始化前失败，保留`ptrace-unavailable.json`及原stderr；没有绕过或增加capability。native网络调用观测为unavailable，不能声称所有native零attempt或全系统无遥测。安全边界为无外网接口/路由、初始化前env1及API防线；真实整段模型/语音验收仍由root在相同隔离域顺序执行。
+
+时限另记：被中止轮的模型warm输出15.159956秒，TTS外层11.349149秒，WAV262127frames/24000Hz=10.921958秒；即使没有人工确认和播放开销，三项下界37.431064秒已超过原30秒。冷模型load16.964秒发生在事件前，未加进该下界。TTS单一外层计时混合import、Session/Kokoro、G2P、推理和编码，不能全部称为推理。该轮未播出，也不因初始化修复自动声称时限通过；下一步须在硬隔离域分解初始化与warm推理，产品TTL、prompt和成功判据保持不变。
+
+初始化后补做一次经授权的隔离语音分解（不与回归并发）：`unshare --user --map-root-user --net -- python3 .build/p9-root/ort-privacy/namespace_tts_profile.py .build/p9-root/ort-privacy`。使用被中止轮真正的公开model输出、既有同权重与`zf_xiaobei`/1.0音色；不加载Qwen、不运行浏览器、不改生产实现。`.build/p9-root/ort-privacy/tts-profile.json`、`tts-profile.{stdout,stderr}`、`namespace-profile.json`和两份实际WAV保留：
+
+| 阶段 | 本轮实际秒数 |
+| --- | ---: |
+| ORT / Kokoro / misaki import | 0.223 / 0.186 / 0.553 |
+| Kokoro构造（含Session） | 2.549 |
+| 其中实际CPU Session构造 | 2.544 |
+| G2P构造 | 0.000008 |
+| 全部初始化 | 3.512 |
+| 首文本G2P / create含推理 / PCM-WAV编码 | 0.808 / 4.249 / 0.000766 |
+| 首文本调用合计 | 5.057 |
+| 紧接warm同文本G2P / create含推理 / 编码 | 0.0732 / 4.474 / 0.000576 |
+| warm调用合计 | 4.548 |
+
+实际首轮初始化加文本约8.569秒；两个输出均262127frames/24000Hz=10.921958秒。`create`含ORT推理及库内处理，未进一步拆分；Kokoro构造行包含Session行，不能重复相加。stderr直接记录jieba首文本字典缓存加载约0.800秒；不能把其构造8µs误称G2P已全部warm。两个实际音频SHA分别为`95b78f2ee4b47f64ab53740d2ed0cb83c8d3c627bc8102107feba62a3c3fe173`、`e280030dbc5b04fa9886b24546820971cfdbb925e7afcd47252c7b91c8d2efd7`，没有替换为预合成回答。此测试测时，不是声线质量/播放/Windows验收。
+
+若仅作跨轮诊断估算，原实际模型15.159956秒+本轮warm4.547719秒+音轨10.921958秒仍为30.629633秒，尚未计人工确认/媒体准备；这不是同轮端到端基准，但足以说明“只预热即可保证30秒”缺乏支持。下一步应先用同一完整隔离实测记录过期/终态，再决定最小性能修复，不能改TTL或把此段脱机计时冒充完整节目成功。

@@ -1,6 +1,9 @@
 """Default asset seeding, choice preservation and actual selected-voice routing."""
 from concurrent.futures import ThreadPoolExecutor
+import builtins
 import io
+import os
+import types
 from pathlib import Path
 import tempfile
 import unittest
@@ -52,5 +55,27 @@ class VoiceSelectionTests(unittest.TestCase):
    pcm=f.real_synthesize('欢迎回来。')
   self.assertEqual(calls[0]['voice'],'zf_xiaoxiao');self.assertEqual(calls[0]['speed'],1.03)
   with wave.open(io.BytesIO(pcm)) as wav:self.assertEqual(wav.getnframes(),2400);self.assertEqual(wav.getsampwidth(),2)
+ def test_kokoro_opt_out_precedes_native_import_even_when_environment_is_zero(self):
+  import numpy as np
+  f=self.f;folder=Path(f.tmp.name)/'voices';folder.mkdir();(folder/'kokoro-v1.0.onnx').touch();(folder/'voices-v1.0.bin').touch();f.app.VOICE_DIR=folder
+  events=[];original_import=builtins.__import__;lookup=f.app.importlib.util.find_spec
+  class Engine:
+   def __init__(self,*args):events.append(('kokoro',os.environ.get('ORT_DISABLE_TELEMETRY')))
+   def create(self,*args,**kw):return np.zeros(2400),24000
+  def guarded_import(name,*args,**kwargs):
+   if name=='onnxruntime':
+    events.append(('import',os.environ.get('ORT_DISABLE_TELEMETRY')))
+    return types.SimpleNamespace(disable_telemetry_events=lambda:events.append(('disable',os.environ.get('ORT_DISABLE_TELEMETRY'))))
+   if name=='kokoro_onnx':return types.SimpleNamespace(Kokoro=Engine)
+   if name=='misaki':return types.SimpleNamespace(zh=types.SimpleNamespace(ZHG2P=lambda:lambda text:(text,None)))
+   return original_import(name,*args,**kwargs)
+  for value in ('0',None):
+   with self.subTest(initial=value),patch.dict(os.environ,{},clear=False):
+    if value is None:os.environ.pop('ORT_DISABLE_TELEMETRY',None)
+    else:os.environ['ORT_DISABLE_TELEMETRY']=value
+    events.clear();f.app.LOCAL_VOICE=None;f.app.G2P=None
+    with patch.object(f.app.importlib.util,'find_spec',side_effect=lambda name:object() if name=='kokoro_onnx' else lookup(name)),patch('builtins.__import__',side_effect=guarded_import):
+     pcm=f.real_synthesize('欢迎回来。')
+    self.assertEqual(events,[('import','1'),('disable','1'),('kokoro','1')]);self.assertTrue(pcm.startswith(b'RIFF'))
  def test_room_endpoint_excludes_private_history_and_keys(self):
   self.f.post('memories',{'text':'ROOM_PRIVATE_CANARY','expected_character_id':self.f.initial_id});status,_,body=self.f.request('GET','/api/room');self.assertEqual(status,200);self.assertNotIn(b'ROOM_PRIVATE_CANARY',body);self.assertNotIn(b'api_key',body)

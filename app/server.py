@@ -28,6 +28,10 @@ import wave
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+# 1DS may initialize during the first native import, before its disable API.
+# This local application does not opt into telemetry, even with an inherited 0.
+os.environ['ORT_DISABLE_TELEMETRY'] = '1'
+
 ROOT = Path(sys.executable).resolve().parent if getattr(sys,'frozen',False) else Path(__file__).resolve().parent
 STATIC = Path(getattr(sys,'_MEIPASS',str(ROOT))) / 'static'
 DATA = Path(os.environ.get('COMPANION_DATA', str(ROOT / 'data')))
@@ -1704,6 +1708,7 @@ def synthesize(text):
     if not TTS_LOCK.acquire(False):raise AppError('上一段声音正在合成，请稍后重试。',409)
     try:
         if LOCAL_VOICE is None:
+            os.environ['ORT_DISABLE_TELEMETRY'] = '1'
             import onnxruntime
             onnxruntime.disable_telemetry_events()
             from kokoro_onnx import Kokoro

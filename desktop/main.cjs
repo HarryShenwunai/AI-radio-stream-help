@@ -169,7 +169,7 @@ function backendCommand(port) {
   return [process.env.COMPANION_PYTHON || 'python3', [path.join(__dirname, '..', 'run.py'), '--port', String(port), '--no-browser']];
 }
 function backendEnvironment() {
-  const env = { ...process.env, PYTHONUTF8: '1', PYTHONIOENCODING: 'utf-8',
+  const env = { ...process.env, PYTHONUTF8: '1', PYTHONIOENCODING: 'utf-8', ORT_DISABLE_TELEMETRY: '1',
     COMPANION_RUNTIME_PROFILE:runtimeSelection.profile,COMPANION_PROFILE_FALLBACK:runtimeSelection.fallback||'',
     COMPANION_DATA: process.env.COMPANION_DATA || path.join(app.getPath('userData'), 'profile-data') };
   if (app.isPackaged) {

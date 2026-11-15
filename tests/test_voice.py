@@ -1,6 +1,10 @@
 """Local audio/provider fixtures only; real ASR smoke is recorded separately."""
 from pathlib import Path
+import builtins
 import io
+import os
+import subprocess
+import sys
 import json
 import struct
 import tempfile
@@ -91,6 +95,46 @@ class ASRFixtureTests(unittest.TestCase):
         self.assertTrue(self.calls[0][2]['local_files_only']);self.assertEqual(self.calls[1][1]['language'],'zh')
         self.assertFalse(self.calls[1][1]['condition_on_previous_text']);self.assertTrue(self.calls[1][1]['vad_filter'])
         asr.transcribe_wav(wav_bytes());self.assertEqual(sum(x[0]=='load' for x in self.calls),1)
+
+    def test_ort_opt_out_precedes_import_even_when_environment_is_zero(self):
+        events = []
+        original_import = builtins.__import__
+        def guarded_import(name, *args, **kwargs):
+            if name == 'onnxruntime':
+                events.append(('import', os.environ.get('ORT_DISABLE_TELEMETRY')))
+                return types.SimpleNamespace(disable_telemetry_events=lambda: events.append(
+                    ('disable', os.environ.get('ORT_DISABLE_TELEMETRY'))))
+            if name == 'faster_whisper':
+                events.append(('whisper', os.environ.get('ORT_DISABLE_TELEMETRY')))
+                return types.SimpleNamespace(WhisperModel=self.Model)
+            return original_import(name, *args, **kwargs)
+        for value in ('0', None):
+            with self.subTest(initial=value), patch.dict(os.environ, {}, clear=False):
+                if value is None:
+                    os.environ.pop('ORT_DISABLE_TELEMETRY', None)
+                else:
+                    os.environ['ORT_DISABLE_TELEMETRY'] = value
+                events.clear()
+                asr = LocalASR(self.root)
+                with patch.object(asr, 'diagnostics', return_value={'ready': True}), patch(
+                        'builtins.__import__', side_effect=guarded_import):
+                    asr._load()
+                self.assertEqual(events, [('import', '1'), ('disable', '1'), ('whisper', '1')])
+
+    def test_fresh_voice_module_enforces_privacy_without_importing_ort(self):
+        source = str(Path(__file__).resolve().parents[1] / 'src')
+        script = ('import os,sys,runpy;sys.path.insert(0,sys.argv[1]);'
+                  'runpy.run_path(sys.argv[2]);'
+                  'assert os.environ["ORT_DISABLE_TELEMETRY"] == "1";'
+                  'assert "onnxruntime" not in sys.modules;print("privacy-before-native-import")')
+        root = Path(__file__).resolve().parents[1]
+        for entry in (root / 'src/companion_runtime/voice.py', root / 'app/server.py'):
+            with self.subTest(entry=entry.name):
+                result = subprocess.run([sys.executable, '-c', script, source, str(entry)],
+                                        env={**os.environ, 'ORT_DISABLE_TELEMETRY': '0'},
+                                        capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout.strip(), 'privacy-before-native-import')
 
     def test_invalid_audio_rejected_before_loading(self):
         with self.assertRaises(VoiceError):LocalASR(self.root,model_factory=self.Model).transcribe_wav(b'not audio')
