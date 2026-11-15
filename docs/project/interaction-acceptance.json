@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task": "A",
+  "status": "protocol_draft_pending_review",
+  "interface_frozen": false,
+  "visual_accepted": false,
+  "product_implementation_started": false,
+  "baseline": {
+    "local_commit": "dc231bb308c9e79407aaa554b9011bdad0436c72",
+    "remote_commit": "3af7f876ebe10d814e9c17a793c14879cfb4c7f8",
+    "tree": "dd09e659eff0b812ffd14412d38f12171147393f",
+    "pull_request": 48
+  },
+  "scenario": [
+    "本地演练原始文字",
+    "准备回答",
+    "主播审核",
+    "单次批准",
+    "同一节目人物/字幕/语音",
+    "停止",
+    "两端终态"
+  ],
+  "scope": {
+    "platform": "Windows PC product target",
+    "this_run": "document and source mapping only",
+    "real_bili": false,
+    "real_obs": false,
+    "new_artwork": false,
+    "automatic_public_output": false,
+    "requires_material_by_default": false
+  },
+  "existing_fields_and_proposals": {
+    "event": {
+      "status": "observed",
+      "fields": [
+        "source",
+        "room_id",
+        "event_id",
+        "text",
+        "received_at",
+        "expires_at"
+      ],
+      "source": "src/companion_runtime/live.py:66-76"
+    },
+    "job_begin": {
+      "status": "observed",
+      "fields": [
+        "id",
+        "session",
+        "event_id",
+        "room_id",
+        "source",
+        "origin",
+        "question",
+        "expires_at",
+        "material_sha256",
+        "material",
+        "interaction_mode",
+        "topic",
+        "recent",
+        "state",
+        "delivered"
+      ],
+      "source": "src/companion_runtime/live_output.py:84-92"
+    },
+    "job_finished": {
+      "status": "observed",
+      "fields": [
+        "text",
+        "generation_id",
+        "mode"
+      ],
+      "source": "src/companion_runtime/live_output.py:118-124"
+    },
+    "internal_runtime": {
+      "status": "observed",
+      "fields": [
+        "audio",
+        "client",
+        "heartbeat"
+      ],
+      "source": "src/companion_runtime/live_output.py:137-176"
+    },
+    "owner_appearance": {
+      "status": "observed_private_only",
+      "fields": [
+        "id",
+        "name",
+        "appearance_id",
+        "appearance"
+      ],
+      "source": "app/server.py:1832-1839"
+    },
+    "proposed_snapshot": {
+      "status": "proposed_not_implemented",
+      "fields": [
+        "scene_snapshot",
+        "approval_revision",
+        "audio_sha256"
+      ],
+      "scene_snapshot_fields": [
+        "character_id",
+        "appearance_id",
+        "layout_revision",
+        "approved_layout"
+      ],
+      "source": "proposal_in_this_document"
+    },
+    "not_existing_ids": {
+      "status": "absence_observed",
+      "fields": [
+        "approval_id",
+        "playback_id"
+      ],
+      "source": "src/companion_runtime/live_output.py"
+    }
+  },
+  "existing_states": [
+    "generating",
+    "review",
+    "synthesizing",
+    "ready",
+    "claimed",
+    "playing",
+    "completed",
+    "cancelled",
+    "expired",
+    "failed"
+  ],
+  "state_semantics": {
+    "playing": "current server receipt; sent before audio.play succeeds; not proof of audible output",
+    "completed": "server accepted completion receipt; not viewer delivery",
+    "cancelled_expired_failed": "must clear media, caption and speaking state; proposed integrated UI behavior not yet implemented"
+  },
+  "proposed_program_whitelist": [
+    "id",
+    "session",
+    "event_id",
+    "source",
+    "room_id",
+    "origin",
+    "state",
+    "text",
+    "generation_id",
+    "expires_at",
+    "scene_snapshot",
+    "approval_revision",
+    "audio_sha256"
+  ],
+  "whitelist_constraints": [
+    "text only after explicit per-job approval",
+    "question only if deliberately included in approved scene",
+    "do not forward material/topic/recent or owner state wholesale",
+    "expires_at is server monotonic time, not browser Date.now",
+    "never expose output token or private cookie"
+  ],
+  "deny_public": [
+    "private_history",
+    "private_memories",
+    "unapproved_answer",
+    "draft",
+    "unapproved_material",
+    "full_model_context",
+    "api_key",
+    "cookie",
+    "bearer_token",
+    "client",
+    "heartbeat",
+    "arbitrary_local_path"
+  ],
+  "handoff": {
+    "B": {
+      "exclusive": [
+        "app/server.py output routes",
+        "src/companion_runtime/live_output.py",
+        "app/static/live-stage.*",
+        "matching state and HTTP tests"
+      ],
+      "start_condition": "A interface and visual direction reviewed; scope explicitly frozen"
+    },
+    "C": {
+      "exclusive": [
+        "app/static/connectors-ui.js",
+        "matching console styles",
+        "matching UI tests"
+      ],
+      "start_condition": "A reviewed and B contract frozen",
+      "cannot_edit": [
+        "app/server.py",
+        "app/static/live-stage.*",
+        "src/companion_runtime/live_output.py"
+      ]
+    },
+    "room": "current source baseline read-only reference; after A passes, use only reviewed design inputs",
+    "parallel_rule": "B/C only after contract freeze, separate files; backend/output requests go through B"
+  },
+  "acceptance": [
+    {
+      "id": "A01",
+      "area": "responsibility",
+      "pass_condition": "一条演练从收到到停止的主播/布置/节目职责可辨",
+      "required_evidence": "现有两个输出入口与单一目标场景对照",
+      "status": "待审"
+    },
+    {
+      "id": "A02",
+      "area": "interface",
+      "pass_condition": "现有字段、建议新增字段和未知明确分开",
+      "required_evidence": "B确认字段映射与作用域，不另起并行队列",
+      "status": "待B审查"
+    },
+    {
+      "id": "A03",
+      "area": "privacy",
+      "pass_condition": "公开快照白名单成立，私聊/草稿/密钥不透传",
+      "required_evidence": "私密金丝雀、令牌资源范围与未批准反例",
+      "status": "待实现与执行"
+    },
+    {
+      "id": "A04",
+      "area": "binding",
+      "pass_condition": "同一job的批准文本/角色/字幕/实际音轨一致",
+      "required_evidence": "双端完整录像、音轨、快照hash与事件时间线",
+      "status": "待实现与执行"
+    },
+    {
+      "id": "A05",
+      "area": "media_semantics",
+      "pass_condition": "playing回执不能早于实际媒体活动证明",
+      "required_evidence": "audio.play拒绝/解码错误/晚回执故障注入",
+      "status": "待实现与执行"
+    },
+    {
+      "id": "A06",
+      "area": "termination",
+      "pass_condition": "取消/过期/切身份/话题后不能复活或补播",
+      "required_evidence": "旧令牌、晚模型/音频响应与重连反例",
+      "status": "待实现与执行"
+    },
+    {
+      "id": "A07",
+      "area": "operator",
+      "pass_condition": "主信息优先、停止可找、终态和错误恢复持续可见",
+      "required_evidence": "同任务操作记录、键盘与低频布置后置对照",
+      "status": "待用户审阅与执行"
+    },
+    {
+      "id": "A08",
+      "area": "timing",
+      "pass_condition": "30秒期限不被放宽；先基线后固定延迟/中断阈值",
+      "required_evidence": "分阶段与受控负载时间线，标明时钟域",
+      "status": "待基线"
+    },
+    {
+      "id": "A09",
+      "area": "visual_freeze",
+      "pass_condition": "用户明确审阅唯一任务的布局方向",
+      "required_evidence": "审阅记录与状态联系表，不以色板/测试数量代替",
+      "status": "待用户"
+    },
+    {
+      "id": "A10",
+      "area": "external",
+      "pass_condition": "Windows/实际设备音频/独立审美不由AI自检顶替",
+      "required_evidence": "同版候选包后执行外部固定任务",
+      "status": "待外部验收"
+    }
+  ],
+  "future_commands_not_executed": [
+    "PYTHONPATH=src:tests python3 -m unittest -v test_live_interaction test_live_output test_platform_integration_http test_local_rehearsal",
+    "node --test tests/test_connector_settings_ui.mjs",
+    "COMPANION_MODELS=/path/to/models COMPANION_VOICES=/path/to/voices PYTHONPATH=src:tests python3 tests/local_product_browser.py --chrome /path/to/chrome --out evidence/local"
+  ],
+  "verification_this_run": {
+    "json_parse": "passed",
+    "state_source_mapping": "passed",
+    "field_source_mapping": "passed",
+    "product_tests_rerun": false,
+    "platform_services_started": false,
+    "future_command_paths_exist": true,
+    "product_source_unchanged": true,
+    "source_sha256": "eea969adf3e3ebf44fa575b0ec9764d3df99fdb3dee27d41a43965f27205daa7",
+    "limits": "Static documentation/source mapping only; no product runtime, browser, model, platform or independent acceptance"
+  }
+}
