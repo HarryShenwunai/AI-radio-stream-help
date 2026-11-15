@@ -172,3 +172,13 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 t
 复跑沿上文通用isolated_test_launcher前缀与固定Chrome/R3/runtime参数，使用新`--out`并追加`--expect-expiry --loopback-fixture-transport`，不带real-model/real-tts。原真实长题失败和机械预算31秒tone拒绝各自保留，不改变其验收类别。最终全质量门及最终生产字节上的真实短问候完整播放由root另行顺序记录。
 
 残留候选问题：上述主播截图底层私人助手人像明显近裁，且仍显示“正在准备形象”；节目页半身输出不能替它通过。可能需要区分私有scene的scale/expanded与modal可见性、加载/paint早退；当前没有host console采集，stage errors为空不能排除宿主异常。本轮没有改该UI或认定它就是慢推理原因，保留为后续先诊断的问题，不宣称全UI通过。
+
+## 宿主面板加载恢复（只修生命周期）
+
+前节“正在准备形象”残留本轮取得可证伪的控制器根因。C冻结的`tests/test_scene_visibility_ui.mjs`运行真实scene-controller源码、延迟engine/renderer桩：旧版before-model、during-load失败，after-ready正控通过；旧源码SHA `fa0885dd9680abb292bff9a41b708334103997d526b5d298516562afaf8bdc9c`。前者engine在隐藏时返回false却留下同key，show后的sync永久早退；后者模型已load/paint完成，控制器因hidden丢弃ready与scale结算，show只unhide模型，不清loading。模拟隐藏帧增量三项均0，只证明控制器向桩renderer传递隐藏，不冒充真实Core或CPU证明。
+
+最小生产改动限scene-controller：engine当前ticket仍有效且隐藏时仅清key、settlefalse，不在hidden创建活动renderer；load及paint有成功证据后结算ready/原scale与visibility分开，保持renderer.hidden，仅visible恢复speaking/audio。取消、旧ticket、15秒paint等待/可见失败路径保留；没有重复load/create、没有改布局、美术、固定持杯、尺寸、帧率或视觉参数。新同三项3/3通过，source SHA `5761f974e5b8e1f8c5c0e527efc0117e4494574a28d76c65552778e0b3a8f111`，新日志`scene-visibility-new-green.*`；既有private scene/renderer Adapter及该3项合计64/64通过，零skip。
+
+`.build/p9-host/scene_core_modal.py`另走真实宿主入口（非自造UI）：既有R3/Core、runtime-reading fixture、Chrome，在首次private runtime脚本请求前受控延迟，实际点击“相处方式”面板，释放脚本时确认无模型在hidden创建，再实际点击“返回陪伴”。`.build/p9-host/scene-core-modal/result.json`六项通过：Core ready、“正在准备形象”退出；第二次实际开面板期间frames57→57、Core evaluations57→57，关后frames59，同Canvas且模型JSON仅1次；errors、native连接、bridge_failures均空。三张实际UI截图、无声视频、私有Trace、console和环境/源码哈希保留同目录。Core和框架为已有固定字节fixture读取，不是Windows真实安装/许可链验收；未运行语言模型或TTS。
+
+已查看`02-actual-host-ready.png`，此1440×1000 Linux Chrome场景中半身、双手和杯可见；没有将该观察推广为所有裁切/DPI合格、最新眼部审美或用户验收。也没有将loading缺陷或此次隐藏暂停计数当作先前56秒推理的原因；性能竞争解释仍独立。复跑：沿既有only-lo launcher，指定新`--evidence NEW/namespace.json -- python3 .build/p9-host/scene_core_modal.py --out NEW`，设置`PYTHONPATH=src:tests`与已有录像工具路径。该脚本仅.build证据仪器，不是新增产品入口。

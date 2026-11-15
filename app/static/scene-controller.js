@@ -44,14 +44,15 @@ window.CompanionScene=(()=>{
    if(!['vrm','live2d','layered-2d'].includes(asset.format)){container.hidden=true;publish('loading');try{if(!await preload(asset,own))return false;ready=true;png();publish('ready');return true;}catch(error){if(ticket===own){ready=false;for(const entry of cache.values())URL.revokeObjectURL(entry.url);cache.clear();publish('error',error.message);}return false;}}
    container.hidden=false;publish('loading');if(image)image.hidden=true;
    try{
-    const library=asset.format==='layered-2d'?await layered():await engine(asset.format,api,transport);if(disposed||ticket!==own||!visible)return false;
+    const library=asset.format==='layered-2d'?await layered():await engine(asset.format,api,transport);if(disposed||ticket!==own)return false;
+    if(!visible){key='';return false;}
     let paintedResolve;const painted=new Promise(resolve=>paintedResolve=resolve);
     model=library.create({container,transport,collapsedFps:preview?20:30,expandedFps:preview?30:60,onError:error=>{if(ticket===own){ready=false;container.hidden=true;publish('error',error);paintedResolve(false);}},onStats:stats=>{if(ticket!==own)return;container.dataset.state=stats.state;container.dataset.frames=String(stats.frames);container.dataset.mouth=String(stats.mouth);if(stats.frames>0&&stats.state==='ready')paintedResolve(true);}});
     const instance=model,result=await instance.load(['live2d','layered-2d'].includes(asset.format)?asset:resource(asset,'model'));
     if(ticket!==own||disposed){instance.dispose();return false;}if(!result){instance.dispose();if(model===instance)model=null;ready=false;container.hidden=true;publish('error','角色加载失败，可以重试。');return false;}
     const timer=setTimeout(()=>paintedResolve(false),15000);const rendered=instance.getStats?.().frames>0||await painted;clearTimeout(timer);
-    if(ticket!==own||disposed||!visible)return false;if(!rendered){instance.dispose();model=null;publish('error','角色尚未成功绘制，可以重试。');return false;}
-    ready=true;instance.setScale((spec.scale||100)/100);instance.setExpanded(expanded);instance.setSpeaking(speaking);if(speaking&&audio)instance.setAudio(audio);publish('ready');return true;
+    if(ticket!==own||disposed)return false;if(!rendered){if(!visible)return false;instance.dispose();model=null;publish('error','角色尚未成功绘制，可以重试。');return false;}
+    ready=true;instance.setScale((spec.scale||100)/100);instance.setExpanded(expanded);instance.setSpeaking(visible&&speaking);if(visible&&speaking&&audio)instance.setAudio(audio);publish('ready');return true;
    }catch(error){if(ticket===own){ready=false;model?.dispose();model=null;container.hidden=true;publish('error',error.message);if(image)image.hidden=true;}return false;}
   }
   async function layered(){if(!bundles.has('layered'))bundles.set('layered',script('/layered-2d-renderer.js').then(()=>{if(typeof window.CompanionLayered2D?.create!=='function')throw new Error('角色显示组件未正确初始化。');return window.CompanionLayered2D;}).catch(error=>{bundles.delete('layered');throw error;}));return bundles.get('layered');}
