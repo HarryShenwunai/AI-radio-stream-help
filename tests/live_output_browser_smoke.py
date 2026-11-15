@@ -51,6 +51,7 @@ def main():
             host=context.new_page();host.on('pageerror',lambda e:report['errors'].append(str(e)))
             host.goto(base);host.wait_for_function('()=>window.CompanionApp?.core.get().state')
             host.locator('#open-companion-controls').click();host.get_by_role('button',name='微信与直播连接').click();host.get_by_role('button',name='哔哩哔哩直播预览',exact=True).click()
+            host.locator('.live-material > summary').click()
             host.get_by_label('本场公开教材',exact=True).fill(MATERIAL)
             host.get_by_label('允许在直播中使用这份教材',exact=True).check()
             host.get_by_role('button',name='保存教材').click()

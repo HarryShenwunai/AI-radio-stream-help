@@ -109,8 +109,10 @@ class IntegrationService:
         self._write('bili', {k: payload[k] for k in ('access_key_id', 'access_key_secret', 'app_id', 'anchor_code', 'room_id')})
         with self.lock:
             material = self.output.material
+            mode = self.output.interaction_mode
             self.output = LiveOutput()
             self.output.material = material
+            self.output.interaction_mode = mode
             self.bili = candidate
             self.public_persona = persona
             self._public.clear();self.public_replies.clear()
@@ -127,6 +129,9 @@ class IntegrationService:
     def stop_bili(self):
         with self.lock:
             self.output.cancel()
+            self.output.topic = ''
+            self.output.host_talking = False
+            self.output.context_since = self.output.clock()
             self._public.clear()
             self.public_replies.clear()
             self.bili = None
@@ -146,7 +151,7 @@ class IntegrationService:
                     if event is None:break
                     self._public.append(asdict(event))
             now = time.monotonic()
-            return [event for event in self._public if event['expires_at'] > now]
+            return [event for event in self._public if event['expires_at'] > now and event['received_at'] >= self.output.context_since]
 
     def status(self):
         with self.lock:
