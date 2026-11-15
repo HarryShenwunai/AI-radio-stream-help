@@ -184,7 +184,9 @@ class LiveOutput:
         with self.lock:
             job = self.jobs.get(ident)
             if job and job['state'] not in {'completed', 'cancelled', 'expired', 'failed'}:
-                self.transition(job, 'failed');job.pop('audio', None)
+                expired = self.clock() >= job['expires_at']
+                if expired:job.pop('failure_reason', None)
+                self.transition(job, 'expired' if expired else 'failed');job.pop('audio', None)
 
     def open(self, scene=None, resources=None, runtime=None):
         with self.lock:

@@ -284,7 +284,8 @@ def offline_preflight(args):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');p.add_argument('--offline-preflight',action='store_true');p.add_argument('--loopback-fixture-transport',action='store_true');p.add_argument('--input',type=Path);p.add_argument('--expect-budget-rejection',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');p.add_argument('--offline-preflight',action='store_true');p.add_argument('--loopback-fixture-transport',action='store_true');p.add_argument('--input',type=Path);p.add_argument('--expect-budget-rejection',action='store_true');p.add_argument('--expect-expiry',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    if a.expect_expiry and (a.real_model or a.real_tts or a.input or a.expect_budget_rejection or a.completion or a.faults or a.offline_preflight):raise ValueError('expiry is a separate fixed-input mechanical delayed-provider run')
     if a.offline_preflight:
         if a.real_model or a.real_tts:raise ValueError('offline preflight never loads model or TTS')
         return offline_preflight(a)
@@ -306,7 +307,9 @@ def main():
         def read_core(self):return files['core'].read_bytes()
         def read_bundle(self):return files['bundle'].read_bytes()
     f.app.live2d_runtime=lambda:Runtime()
-    r={'scope':'Linux PC Chrome; existing original R3 candidate; real Core; runtime-reading fixture; not Windows/OBS/platform/viewer/independent acceptance','real_model':bool(a.real_model),'real_tts':bool(a.real_tts),'viewer_received':False,'harness_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'checks':{},'errors':[],'raw_input':input_evidence,'acceptance_kind':'negative_budget_rejection' if a.expect_budget_rejection else 'positive_program','model_package_sha256':hashlib.sha256(a.model.read_bytes()).hexdigest(),'runtime_sha256':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in files.items()},'phases':[]}
+    r={'scope':'Linux PC Chrome; existing original R3 candidate; real Core; runtime-reading fixture; not Windows/OBS/platform/viewer/independent acceptance','real_model':bool(a.real_model),'real_tts':bool(a.real_tts),'viewer_received':False,'harness_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'checks':{},'errors':[],'raw_input':input_evidence,'acceptance_kind':'negative_generation_expiry' if a.expect_expiry else 'negative_budget_rejection' if a.expect_budget_rejection else 'positive_program','model_package_sha256':hashlib.sha256(a.model.read_bytes()).hexdigest(),'runtime_sha256':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in files.items()},'phases':[]}
+    r['tts_call_count']=0
+    if a.expect_expiry:r['expiry_protocol']={'provider_delay_seconds':31,'event_ttl_seconds':30,'ui_observation_deadline_seconds':37,'adapter_timeout_seconds':35,'followup_polls':2,'followup_timeout_seconds':2,'scope':'synthetic delayed provider; no real inference, no audio-duration admission claim'}
     r['fixture_initial_character']=f.app.catalog().active()
     def save_progress(checkpoint):save_checkpoint(a.out,checkpoint,r)
     save_progress('prepared_before_model_load')
@@ -315,8 +318,16 @@ def main():
     idle=threading.Event();idle.set();llm=None
     def fixture_model(settings,messages,**kw):
         r.setdefault('model_inputs',[]).append(messages)
-        save_progress('mechanical_model_fixture_output')
-        return question  # Explicit mechanical echo; no answer-quality claim.
+        if a.expect_expiry:
+            idle.clear();started=time.monotonic();r['expiry_provider']={'started_monotonic':started}
+            save_progress('mechanical_delayed_provider_started')
+            try:time.sleep(31)  # Real clock, deliberately later than the unchanged 30s event.
+            finally:
+                r['expiry_provider'].update(returned_monotonic=time.monotonic(),seconds=time.monotonic()-started)
+                idle.set();save_progress('mechanical_late_provider_returned')
+            r['expiry_provider']['output_text_sha256']=hashlib.sha256(question.encode()).hexdigest()
+        else:save_progress('mechanical_model_fixture_output')
+        return question  # Explicit mechanical echo; never a quality/real-model claim.
     f.app.generate_once=fixture_model
     if a.real_model:
         from llama_cpp import Llama
@@ -330,9 +341,11 @@ def main():
             if choice['finish_reason']!='stop':raise RuntimeError('Incomplete model response rejected')
             return choice['message']['content']
         f.app.generate_once=actual_model
-    wav=tone(31 if a.expect_budget_rejection else 3)
-    if not a.real_tts:r['fixture_audio_seconds']=31 if a.expect_budget_rejection else 3
+    wav=b'' if a.expect_expiry else tone(31 if a.expect_budget_rejection else 3)
+    if not a.real_tts and not a.expect_expiry:r['fixture_audio_seconds']=31 if a.expect_budget_rejection else 3
     def synthesize(text):
+        r['tts_call_count']+=1
+        if a.expect_expiry:raise AssertionError('expired generation must never call TTS')
         started=time.monotonic();audio=f.real_synthesize(text) if a.real_tts else wav;index=len(r.setdefault('tts_outputs',[]));(a.out/f'output-{index}.wav').write_bytes(audio);r['tts_outputs'].append({'text':text,'sha256':hashlib.sha256(audio).hexdigest(),'seconds':time.monotonic()-started});save_progress('tts_output_recorded');return audio
     if a.real_tts:f.app.VOICE_DIR=a.real_tts.resolve()
     f.app.synthesize=synthesize
@@ -343,8 +356,17 @@ def main():
             b=pw.chromium.launch(executable_path=a.chrome,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader',*OFFLINE_CHROME_FLAGS,'--log-net-log='+str(netlog.resolve()),'--net-log-capture-mode=Default']);hc=b.new_context(viewport={'width':1440,'height':1000},service_workers='block',record_video_dir=str(a.out/'host-video'));sc=b.new_context(viewport={'width':1280,'height':720},service_workers='block',record_video_dir=str(a.out/'stage-video'));boundary.install(hc);boundary.install(sc);r['requested_chrome_flags']=OFFLINE_CHROME_FLAGS;hc.tracing.start(screenshots=True,snapshots=True,sources=True);sc.tracing.start(screenshots=True,snapshots=True,sources=True)
             host=hc.new_page();host.on('pageerror',lambda e:r['errors'].append(str(e)));host.goto(base);host.wait_for_function('()=>window.CompanionApp?.core.get().state');assert any(c['name']=='companion' for c in hc.cookies());r['checks']['owner_set_cookie_preserved']=True
             host.locator('#open-companion-controls').click();host.get_by_role('button',name='微信与直播连接').click();host.get_by_role('button',name='本地互动演练',exact=True).click();host.get_by_label('模拟观众消息',exact=True).wait_for()
+            def observe_program_request(request):
+                if urllib.parse.urlsplit(request.url).path=='/api/live-output' and request.method=='POST':
+                    r.setdefault('program_request_actions',[]).append(request.post_data_json.get('action'))
+            def observe_reply_response(response):
+                if a.expect_expiry and urllib.parse.urlsplit(response.url).path=='/api/connectors/bili/reply':
+                    try:body=response.json()
+                    except Exception as error:body={'unreadable':type(error).__name__}
+                    r.setdefault('expiry_http_responses',[]).append({'status':response.status,'body':body})
+            host.on('response',observe_reply_response)
             def open_stage(faults=None):
-                path=f.post('connectors/bili/output/open',{})['path'];stage=sc.new_page();stage.on('pageerror',lambda e:r['errors'].append(str(e)))
+                path=f.post('connectors/bili/output/open',{})['path'];stage=sc.new_page();stage.on('request',observe_program_request);stage.on('pageerror',lambda e:r['errors'].append(str(e)))
                 stage.add_init_script(PROBE+'\nObject.assign(programFaults,'+json.dumps(faults or {})+');')
                 stage.on('console',lambda message:r.setdefault('browser_console',[]).append({'type':message.type,'text':message.text}));stage.on('response',lambda response:r.setdefault('response_status',[]).append({'path':urllib.parse.urlsplit(response.url).path,'status':response.status}))
                 opened=stage.goto(base+path);assert "'nonce-" in opened.headers['content-security-policy'];r['checks']['program_csp_nonce_preserved']=True
@@ -360,42 +382,68 @@ def main():
             r['fixture_scene_before_open']=f.app.program_scene_snapshot()[0];save_progress('host_rehearsal_ready_before_scene')
             assert (r['fixture_scene_before_open'].get('asset') or {}).get('format')=='live2d',r['fixture_scene_before_open']
             stage=open_stage();stage.wait_for_timeout(3000);r['startup_probe']=stage.evaluate('()=>({text:document.body.innerText,stats:ProgramOutput.getStats(),diag:ProgramOutput.getDiagnostics(),snapshot:ProgramOutput.snapshot(),core:Boolean(window.Live2DCubismCore),runtime:Boolean(window.CompanionLive2DRuntime),requests:window.programRequests,load_errors:window.programLoadErrors})');(a.out/'startup-probe.json').write_text(json.dumps(r,ensure_ascii=False,indent=2));print(json.dumps(r['startup_probe'],ensure_ascii=False),flush=True);stage.screenshot(path=str(a.out/'startup-probe.png'));stage.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true||document.querySelector("#status").textContent.includes("输出已停止")',timeout=60000);assert stage.evaluate('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true'),r['startup_probe'];r['resource_probe']=stage.evaluate('()=>programRequests');stage.get_by_role('button',name='启用本页音频').click();assert not sc.cookies();assert stage.request.get(base+'/api/state').status==401;r['checks']['real_core_without_private_cookie']=True
-            host.get_by_label('模拟观众消息',exact=True).fill(question);host.get_by_role('button',name='加入演练',exact=True).click();started=time.monotonic();host.get_by_role('button',name='准备回答',exact=True).click();approve=host.get_by_role('button',name='播放这条回答',exact=True);approve.wait_for(timeout=35000);r['phases'].append({'phase':'generation_and_review_ready','seconds':time.monotonic()-started});assert stage.locator('#caption').inner_text()=='';assert stage.evaluate('()=>audioProbe.playCalls')==0;r['checks']['review_has_no_output']=True
-            host.screenshot(path=str(a.out/'01-host-review.png'),full_page=True);stage.screenshot(path=str(a.out/'02-stage-ready.png'))
-            host.on('dialog',lambda dialog:dialog.accept());started=time.monotonic();approve.click()
-            if a.expect_budget_rejection:
-                deadline=time.monotonic()+35
-                while time.monotonic()<deadline and not any(j['state']=='failed' for j in service.output.jobs.values()):stage.wait_for_timeout(50)
-                last=list(service.output.jobs.values())[-1]
-                assert last['state']=='failed' and last.get('failure_reason')=='insufficient_playback_budget',service.output.owner_status()
-                host.wait_for_function('(id)=>CompanionApp.core.get().state.live_output?.jobs.some(j=>j.id===id&&j.state==="failed"&&j.failure_reason==="insufficient_playback_budget")',arg=last['id'],timeout=10000)
-                stage.wait_for_timeout(700)
+            host.get_by_label('模拟观众消息',exact=True).fill(question);submitted=time.monotonic();host.get_by_role('button',name='加入演练',exact=True).click()
+            if a.expect_expiry:
+                host.evaluate('''()=>{window.expiryDOM={states:[],approvalAppeared:false};const panel=document.querySelector('[data-contact-page="bili"]');const inspect=node=>{if(node?.nodeType!==1)return;const buttons=node.matches('button')?[node]:Array.from(node.querySelectorAll('button'));if(buttons.some(b=>b.textContent.includes('播放这条回答')))expiryDOM.approvalAppeared=true;};const capture=()=>{const workspace=panel.querySelector('.live-workspace');if(!workspace)return;for(const node of workspace.querySelectorAll('.live-answer')){const row={id:node.dataset.jobId,state:node.dataset.state};const previous=expiryDOM.states.at(-1);if(!previous||previous.id!==row.id||previous.state!==row.state)expiryDOM.states.push(row);}inspect(panel);};window.expiryObserver=new MutationObserver(records=>{for(const record of records)for(const node of record.addedNodes)inspect(node);capture();});expiryObserver.observe(panel,{childList:true,subtree:true,attributes:true});capture();}''')
+            started=time.monotonic();host.get_by_role('button',name='准备回答',exact=True).click()
+            if a.expect_expiry:
+                card=host.locator('.live-answer').filter(has=host.get_by_role('heading',name=question,exact=True));card.wait_for(timeout=7000)
+                assert card.get_attribute('data-state')=='generating';job_id=card.get_attribute('data-job-id');assert job_id
+                assert card.get_by_role('button',name='播放这条回答',exact=True).count()==0
+                host.screenshot(path=str(a.out/'01-host-generating.png'),full_page=True)
+                expired=host.locator('.live-answer[data-state="expired"]').filter(has=host.get_by_role('heading',name=question,exact=True))
+                expired.wait_for(timeout=max(1,int((submitted+37-time.monotonic())*1000)))
+                observed_at=time.monotonic();assert observed_at-submitted<=37
+                assert expired.get_attribute('data-job-id')==job_id;assert expired.get_by_text('已过期',exact=True).is_visible()
+                host.get_by_text('生成期间弹幕已过期，结果已丢弃。',exact=True).wait_for(timeout=max(1,int((submitted+37-time.monotonic())*1000)))
+                responses=r.get('expiry_http_responses',[]);assert len(responses)==1 and responses[0]['status']==409 and responses[0]['body'].get('error')=='生成期间弹幕已过期，结果已丢弃。',responses
+                polls=stage.evaluate('()=>programRequests.filter(row=>row.action==="poll").length')
+                stage.wait_for_function('(before)=>programRequests.filter(row=>row.action==="poll").length>=before+2',arg=polls,timeout=2000)
+                dom=host.evaluate('()=>expiryDOM');assert not dom['approvalAppeared'];assert dom['states'] and dom['states'][0]=={'id':job_id,'state':'generating'} and dom['states'][-1]=={'id':job_id,'state':'expired'},dom;assert all(row['state'] in {'generating','expired'} and row['id']==job_id for row in dom['states']),dom
+                assert card.get_attribute('data-state')=='expired' and card.get_by_role('button',name='播放这条回答',exact=True).count()==0
                 observed=stage.evaluate('()=>({playCalls:audioProbe.playCalls,peak:audioProbe.peak,caption:document.querySelector("#caption").textContent,lip:ProgramOutput.getDiagnostics().lipSyncValue,active:ProgramOutput.snapshot().active_id})')
                 assert observed['playCalls']==0 and observed['peak']==0 and observed['caption']=='' and observed['lip']==0 and observed['active'] is None,observed
-                assert host.get_by_text('剩余时限不足，未播放',exact=True).is_visible()
-                states=[row['state'] for row in service.output.audit if row['id']==last['id']]
-                assert not {'claimed','playing','completed'}.intersection(states)
-                r['budget_rejection']={'observation':observed,'states':states,'job':service.output.public(last),'positive_program_completed':False}
-                r['checks']['known_impossible_track_not_started']=True;r['checks']['host_sees_specific_budget_reason']=True
-                save_progress('negative_budget_rejection_observed');stage.screenshot(path=str(a.out/'03-stage-budget-rejected.png'));host.screenshot(path=str(a.out/'04-host-budget-rejected.png'),full_page=True)
+                assert r['tts_call_count']==0 and 'audio' not in r.get('program_request_actions',[]) and not r.get('tts_outputs')
+                r['expiry_rejection']={'job_id_from_dom':job_id,'visible_expiry_seconds_from_submit':observed_at-submitted,'dom':dom,'http':responses,'program':observed,'tts_call_count':0,'audio_request_count':0,'positive_program_completed':False,'actual_wav_budget_validated':False}
+                r['checks'].update(same_job_visible_expiry_and_actual_409=True,late_generation_has_no_approval_or_output=True)
+                host.screenshot(path=str(a.out/'02-host-expired.png'),full_page=True);stage.screenshot(path=str(a.out/'03-stage-expired-no-output.png'));save_progress('negative_generation_expiry_observed')
             else:
-                stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics(),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_mouth']=True;save_progress('actual_browser_media_started');assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
-                for width in [1024,1280]:
-                    stage.set_viewport_size({'width':width,'height':720});bounds=stage.evaluate('()=>{const a=document.querySelector("#caption").getBoundingClientRect(),b=document.querySelector("#character-space").getBoundingClientRect();return {caption:{left:a.left,right:a.right,top:a.top,bottom:a.bottom},character:{left:b.left,right:b.right,top:b.top,bottom:b.bottom},overflow:document.documentElement.scrollWidth>innerWidth}}');assert bounds['caption']['right']<=bounds['character']['left'] and not bounds['overflow'];r.setdefault('pc_layout_bounds',[]).append({'width':width,**bounds});stage.screenshot(path=str(a.out/f'03-stage-playing-{width}.png'))
-                r['checks']['caption_does_not_cover_character_at_pc_sizes']=True
-                if a.completion:
-                    stage.wait_for_function('()=>!active && document.querySelector("#status").textContent.includes("本页播放结束")',timeout=30000)
-                    last=next(job for job in service.output.jobs.values() if job['id']==r['playing']['snapshot']['active_id']);assert last['state']=='completed'
-                    assert stage.locator('#caption').inner_text()=='';assert stage.evaluate('()=>ProgramOutput.getDiagnostics().lipSyncValue')==0
-                    host.wait_for_function('(id)=>CompanionApp.core.get().state.live_output?.jobs.some(j=>j.id===id&&j.state==="completed")',arg=last['id'],timeout=10000)
-                    r['checks']['full_actual_media_ended_and_both_ends_completed']=True;stage.screenshot(path=str(a.out/'04-stage-completed.png'));host.screenshot(path=str(a.out/'05-host-completed.png'),full_page=True)
+                approve=host.get_by_role('button',name='播放这条回答',exact=True);approve.wait_for(timeout=35000);r['phases'].append({'phase':'generation_and_review_ready','seconds':time.monotonic()-started});assert stage.locator('#caption').inner_text()=='';assert stage.evaluate('()=>audioProbe.playCalls')==0;r['checks']['review_has_no_output']=True
+                host.screenshot(path=str(a.out/'01-host-review.png'),full_page=True);stage.screenshot(path=str(a.out/'02-stage-ready.png'))
+                host.on('dialog',lambda dialog:dialog.accept());started=time.monotonic();approve.click()
+                if a.expect_budget_rejection:
+                    deadline=time.monotonic()+35
+                    while time.monotonic()<deadline and not any(j['state']=='failed' for j in service.output.jobs.values()):stage.wait_for_timeout(50)
+                    last=list(service.output.jobs.values())[-1]
+                    assert last['state']=='failed' and last.get('failure_reason')=='insufficient_playback_budget',service.output.owner_status()
+                    host.wait_for_function('(id)=>CompanionApp.core.get().state.live_output?.jobs.some(j=>j.id===id&&j.state==="failed"&&j.failure_reason==="insufficient_playback_budget")',arg=last['id'],timeout=10000)
+                    stage.wait_for_timeout(700)
+                    observed=stage.evaluate('()=>({playCalls:audioProbe.playCalls,peak:audioProbe.peak,caption:document.querySelector("#caption").textContent,lip:ProgramOutput.getDiagnostics().lipSyncValue,active:ProgramOutput.snapshot().active_id})')
+                    assert observed['playCalls']==0 and observed['peak']==0 and observed['caption']=='' and observed['lip']==0 and observed['active'] is None,observed
+                    assert host.get_by_text('剩余时限不足，未播放',exact=True).is_visible()
+                    states=[row['state'] for row in service.output.audit if row['id']==last['id']]
+                    assert not {'claimed','playing','completed'}.intersection(states)
+                    r['budget_rejection']={'observation':observed,'states':states,'job':service.output.public(last),'positive_program_completed':False}
+                    r['checks']['known_impossible_track_not_started']=True;r['checks']['host_sees_specific_budget_reason']=True
+                    save_progress('negative_budget_rejection_observed');stage.screenshot(path=str(a.out/'03-stage-budget-rejected.png'));host.screenshot(path=str(a.out/'04-host-budget-rejected.png'),full_page=True)
                 else:
-                    assert stage.evaluate('()=>Boolean(active?.audio&&!active.audio.paused)'),'stop must interrupt active media'
-                    started=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click();stage.wait_for_function('()=>!active && document.querySelector("#caption").textContent==="" && (!ProgramOutput.getDiagnostics().available || ProgramOutput.getDiagnostics().lipSyncValue===0)');r['stop_seconds']=time.monotonic()-started;assert r['stop_seconds']<1.5;r['checks']['stop_clears_media_caption_mouth']=True;assert stage.locator('#status').is_visible();stage.screenshot(path=str(a.out/'04-stage-stopped.png'))
+                    stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics(),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_mouth']=True;save_progress('actual_browser_media_started');assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
+                    for width in [1024,1280]:
+                        stage.set_viewport_size({'width':width,'height':720});bounds=stage.evaluate('()=>{const a=document.querySelector("#caption").getBoundingClientRect(),b=document.querySelector("#character-space").getBoundingClientRect();return {caption:{left:a.left,right:a.right,top:a.top,bottom:a.bottom},character:{left:b.left,right:b.right,top:b.top,bottom:b.bottom},overflow:document.documentElement.scrollWidth>innerWidth}}');assert bounds['caption']['right']<=bounds['character']['left'] and not bounds['overflow'];r.setdefault('pc_layout_bounds',[]).append({'width':width,**bounds});stage.screenshot(path=str(a.out/f'03-stage-playing-{width}.png'))
+                    r['checks']['caption_does_not_cover_character_at_pc_sizes']=True
+                    if a.completion:
+                        stage.wait_for_function('()=>!active && document.querySelector("#status").textContent.includes("本页播放结束")',timeout=30000)
+                        last=next(job for job in service.output.jobs.values() if job['id']==r['playing']['snapshot']['active_id']);assert last['state']=='completed'
+                        assert stage.locator('#caption').inner_text()=='';assert stage.evaluate('()=>ProgramOutput.getDiagnostics().lipSyncValue')==0
+                        host.wait_for_function('(id)=>CompanionApp.core.get().state.live_output?.jobs.some(j=>j.id===id&&j.state==="completed")',arg=last['id'],timeout=10000)
+                        r['checks']['full_actual_media_ended_and_both_ends_completed']=True;stage.screenshot(path=str(a.out/'04-stage-completed.png'));host.screenshot(path=str(a.out/'05-host-completed.png'),full_page=True)
+                    else:
+                        assert stage.evaluate('()=>Boolean(active?.audio&&!active.audio.paused)'),'stop must interrupt active media'
+                        started=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click();stage.wait_for_function('()=>!active && document.querySelector("#caption").textContent==="" && (!ProgramOutput.getDiagnostics().available || ProgramOutput.getDiagnostics().lipSyncValue===0)');r['stop_seconds']=time.monotonic()-started;assert r['stop_seconds']<1.5;r['checks']['stop_clears_media_caption_mouth']=True;assert stage.locator('#status').is_visible();stage.screenshot(path=str(a.out/'04-stage-stopped.png'))
             r['main_timeline']=list(service.output.audit);save_progress('main_media_terminal_observed')
             stage.evaluate('()=>audioProbe.records.forEach(row=>row.recorder.state!=="inactive"&&row.recorder.stop())');stage.wait_for_function('()=>audioProbe.records.every(row=>row.base64)');captures=stage.evaluate('()=>audioProbe.records.map(row=>row.base64)')
             for i,capture in enumerate(captures):(a.out/f'browser-audio-{i}.webm').write_bytes(base64.b64decode(capture))
-            r['audio_scope']=('Negative run: no media play or WebAudio output expected; videos have no audio track' if a.expect_budget_rejection else 'Actual browser WebAudio branch, not OS device/OBS/viewer; Playwright videos have no audio track');close_stage(stage)
+            r['audio_scope']=('Negative run: no media play or WebAudio output expected; videos have no audio track' if a.expect_budget_rejection or a.expect_expiry else 'Actual browser WebAudio branch, not OS device/OBS/viewer; Playwright videos have no audio track');close_stage(stage)
             # Subsequent cases isolate lifecycle faults from the model/voice providers.
             if a.faults:
                 f.post('connectors/bili/output/stop',{})

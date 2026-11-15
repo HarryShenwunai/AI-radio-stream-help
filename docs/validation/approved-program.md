@@ -154,3 +154,21 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 t
 最终受影响unit/HTTP 27项通过（`final-affected-green.txt`），其中明确断言共享fixture=2400frames/24kHz/0.1秒/4844bytes；完整76项先前同产品字节通过，root最终完整质量门与真实模型正负路径须在提交后顺序重跑。B修改范围仅`live_output.py`、节目浏览器入口、共享合法WAV夹具、两份输出unit/HTTP测试及本验证记录；没有改C、原图、角色姿态、提示词、30秒时限或生产请求超时。
 
 复跑前缀：`PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 .build/p9-root/playback-budget/isolated_test_launcher.py --evidence NEW_OUT/namespace.json -- python3 tests/program_output_browser.py`，随后带原`--chrome/--model/--runtime-dir/--out NEW_OUT --loopback-fixture-transport`。确定性正向追加`--input .build/p9-root/playback-budget/existing-greeting.txt --completion --faults`；确定性负向使用默认原长题并追加`--expect-budget-rejection`；安全预检追加`--offline-preflight`。每轮新目录，保持旧失败原件。只有root明确go后，真实模式才换为恢复venv Python并追加原固定`--real-model/--real-tts`，正向用已有问候`--input/--completion`且去掉faults，原长题负向独立使用`--expect-budget-rejection`。成功拒绝不算正向成品播放完成。
+
+## 生成期间到期的独立闭环与终态竞态
+
+`.build/p9-root/real-long-negative-final/result.json`仍为FAIL：原长输入实际推理37.853秒，超过原30秒，未进入TTS；等候批准按钮的35秒超时不能解释为预算门通过。原输入、提示词、业务TTL、adapter35秒均未放宽，也没有用已有短问候的成功覆盖该失败。真实模型实时长回复收益仍未解决。
+
+新增独立`--expect-expiry`只允许固定原长题的机械provider延迟31秒，不允许真实模型/TTS、替换input、completion/faults或budget-rejection混用。它在准备回答后先确认同问题generating DOM，再在从提交起30+7秒内确认同job expired DOM、“已过期”与实际HTTP409“生成期间弹幕已过期，结果已丢弃。”；后续两个既有250ms节目poll仍无复活。TTS入口计数和实际stage请求事件分别要求0，实际play/peak/caption/lip/active分别要求0/0/空/0/null。该负向场景没有生成WAV，`positive_program_completed:false`、`actual_wav_budget_validated:false`，不冒充实际长回答、学习收益或音轨预算的真实模型验收。
+
+第一轮`generation-expiry/only-lo/result.json`严格FAIL：31.003秒provider正常返回，HTTP409与零TTS成立，但主播DOM没有出现expired；服务端audit为generating→failed。`classification-old-red.json`对现有源码的假时钟单因素实验确认：同样begin100/expires130/now131，直接fail得到failed，只多一次status/reap再fail却得到expired。原37秒轮恰有reader先reap，掩盖了这个顺序依赖。
+
+最小生产修复仅在`LiveOutput.fail`：对非终态读取当前monotonic；当前时间>=deadline时清除陈旧failure_reason并expired收口、清音频，未到期维持failed，所有已有终态保留。没有从fail调用reap，避免consumer_timeout→fail→reap递归。`old-unit-red.txt`保留23项中的3个实际失败；`new-unit-green.txt`31项通过，覆盖读者有无、到期前/刚好到期/到期后、音频清理、stale consumer reason、四种终态保持以及真正consumer超时。没有新增状态、UI、轮询、线程或模型/时限策略。
+
+中间`fail-deadline-fixed/result.json`虽曾输出passed=true，交付检查发现DOM timeline为空：observer绑到被refresh替换的旧workspace，all(empty)形成空覆盖。该报告原件保留，旁附`coverage-rejected.json`和`coverage-old-red.json`明确accepted=false，不算最终通过。唯一仪器修正是观察稳定contacts panel、每次callback重新查询当前workspace，并强制非空timeline首尾为**同一job**的generating/expired、全程无review或批准按钮；固定31/37/35及原零输出判据完全未改。
+
+最终`generation-expiry/observer-verified/result.json`7项通过，harness SHA256 `8a92291b10d9280d1e71abea28544a2bd3a7d69bf752539ee3fd93c13533174d`：provider31.006秒，提交后32.955秒同job“已过期”可见，非空DOM timeline精确generating→expired，批准按钮未出现，实际409及零TTS/零audio请求/零播放/空字幕/口型0均成立；NetLog native连接列表与bridge_failures均空。保留`01-host-generating.png`、`02-host-expired.png`、`03-stage-expired-no-output.png`、双端Trace及完整无声屏录；ffprobe确认host46.56秒、stage38.80秒，仅VP8视频轨。它们是only-lo中的真实Chrome/HTTP/既有R3/Core回放，不是Windows/OBS/平台/真人学习验收。
+
+复跑沿上文通用isolated_test_launcher前缀与固定Chrome/R3/runtime参数，使用新`--out`并追加`--expect-expiry --loopback-fixture-transport`，不带real-model/real-tts。原真实长题失败和机械预算31秒tone拒绝各自保留，不改变其验收类别。最终全质量门及最终生产字节上的真实短问候完整播放由root另行顺序记录。
+
+残留候选问题：上述主播截图底层私人助手人像明显近裁，且仍显示“正在准备形象”；节目页半身输出不能替它通过。可能需要区分私有scene的scale/expanded与modal可见性、加载/paint早退；当前没有host console采集，stage errors为空不能排除宿主异常。本轮没有改该UI或认定它就是慢推理原因，保留为后续先诊断的问题，不宣称全UI通过。

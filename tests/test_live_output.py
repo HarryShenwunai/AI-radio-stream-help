@@ -175,6 +175,46 @@ class LiveOutputTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             with self.assertRaises(OutputError):self.output.ready(job['id'], pcm_wav())
 
+    def test_late_generation_fail_is_expired_independent_of_status_reader(self):
+        for reap_first in (False, True):
+            with self.subTest(reap_first=reap_first):
+                self.setUp();job=self.output.begin(self.event);self.now=131
+                if reap_first:self.output.status()
+                self.output.fail(job['id'])
+                self.assertEqual(self.output.jobs[job['id']]['state'],'expired')
+                self.assertEqual([row['state'] for row in self.output.audit if row['id']==job['id']],['generating','expired'])
+
+    def test_fail_deadline_boundary_clears_audio_and_stale_failure_reason(self):
+        for now, state in ((129.999,'failed'),(130.,'expired'),(131.,'expired')):
+            with self.subTest(now=now):
+                self.setUp();job=self.ready();self.output.poll(self.auth,'client-one')
+                self.output.jobs[job['id']]['failure_reason']='consumer_timeout';self.now=now
+                self.output.fail(job['id']);stored=self.output.jobs[job['id']]
+                self.assertEqual(stored['state'],state);self.assertNotIn('audio',stored)
+                if state=='expired':self.assertNotIn('failure_reason',stored)
+                else:self.assertEqual(stored['failure_reason'],'consumer_timeout')
+
+    def test_fail_preserves_every_existing_terminal_after_deadline(self):
+        for terminal in ('completed','cancelled','expired','failed'):
+            with self.subTest(terminal=terminal):
+                self.setUp();job=self.ready()
+                if terminal=='completed':
+                    self.output.poll(self.auth,'client-one')
+                    self.output.receipt(self.auth,job['id'],'client-one','playing')
+                    self.output.receipt(self.auth,job['id'],'client-one','completed')
+                elif terminal=='cancelled':self.output.cancel()
+                elif terminal=='expired':self.now=130.;self.output.status()
+                else:self.output.fail(job['id'])
+                before=len(self.output.audit);self.now=131.;self.output.fail(job['id'])
+                self.assertEqual(self.output.jobs[job['id']]['state'],terminal)
+                self.assertNotIn('audio',self.output.jobs[job['id']]);self.assertEqual(len(self.output.audit),before)
+
+    def test_consumer_timeout_before_deadline_remains_failed_without_recursion(self):
+        job=self.ready();self.output.poll(self.auth,'client-one');self.now=103.
+        stored=self.output.status()['jobs'][0]
+        self.assertEqual(stored['state'],'failed');self.assertEqual(stored['failure_reason'],'consumer_timeout')
+        self.assertNotIn('audio',self.output.jobs[job['id']])
+
     def test_known_bad_missing_cancel_mutant_is_rejected_by_invariant(self):
         job = self.reviewed();self.output.prepare(job['id'], True)
         self.output.cancel = lambda:None  # negative control: deliberately broken cancellation
