@@ -115,3 +115,42 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 t
 实际首轮初始化加文本约8.569秒；两个输出均262127frames/24000Hz=10.921958秒。`create`含ORT推理及库内处理，未进一步拆分；Kokoro构造行包含Session行，不能重复相加。stderr直接记录jieba首文本字典缓存加载约0.800秒；不能把其构造8µs误称G2P已全部warm。两个实际音频SHA分别为`95b78f2ee4b47f64ab53740d2ed0cb83c8d3c627bc8102107feba62a3c3fe173`、`e280030dbc5b04fa9886b24546820971cfdbb925e7afcd47252c7b91c8d2efd7`，没有替换为预合成回答。此测试测时，不是声线质量/播放/Windows验收。
 
 若仅作跨轮诊断估算，原实际模型15.159956秒+本轮warm4.547719秒+音轨10.921958秒仍为30.629633秒，尚未计人工确认/媒体准备；这不是同轮端到端基准，但足以说明“只预热即可保证30秒”缺乏支持。下一步应先用同一完整隔离实测记录过期/终态，再决定最小性能修复，不能改TTL或把此段脱机计时冒充完整节目成功。
+
+## 实际音轨的剩余预算门（不扩大30秒）
+
+上节原长回复仍是失败反例，未改原始输入、生成提示或事件TTL。最小修复只拒绝服务端已知数学上不可能完整播完的起播：`LiveOutput.ready`严格解析实际完整PCM16 WAV，复用`voice.validate_wav`的RIFF/chunk/帧对齐检查，保持原输出20MB上限，并显式采用现有ExternalTTS的0.1–180秒、受支持采样率（含96k）、mono/stereo合同。无效格式/过大文件进入`failed/invalid_audio`，不存音频；没有“解析不了就跳过时长”的分支。
+
+使用真实frames/sample_rate，与server monotonic的`expires_at-now`比较，规则为严格大于（代码用`remaining*rate>frames`）；相等也拒绝。检查位于ready、ready→claimed、claimed→音频字节交付三个边界；每次都在现有输出锁内读取当前时间，不信客户端时长、不根据文字估计、不增加任意margin。预算不足进入`failed/insufficient_playback_budget`、清除音频，owner投影保留`audio_duration_seconds`及该检查时的`playback_budget_remaining_seconds`，供主播辨识。既有C状态标签显示“剩余时限不足，未播放”；B未修改控制台源文件。
+
+`current/reap`仍优先维护stop/session/expiry，晚到TTS不得把cancelled/expired改成预算失败。普通claimed心跳和playing心跳不重算整个音轨预算，避免已播放一部分后误杀；音频请求在尚未发出字节前重新检查。HTTP拒绝不会返回WAV或产生playing回执。网络/解码/设备在最后检查之后的未知开销仍可能导致中途过期；该门是必要的下界检查，不是“任何网络都不会截句”的保证。
+
+固定证据目录`.build/p9-root/playback-budget/`：
+
+- `old-red.txt`：新增同条件真实WAV/假时钟判据在旧版失败（11 failure/1 error）；`unit-green.txt`19项通过。
+- `always-fits-mutant-red.txt`：将唯一预算比较故意改成恒true，在独立进程运行**相同**ready/claim/audio三项测试，3项全部失败。测试没有改成新的宽松门槛。
+- `suites-green.txt`：交互、输出、平台HTTP、本地演练和节目HTTP合计76项通过。覆盖等于音轨时长、相差一个frame、三边界等待、坏格式/截断/双data/浮点WAV/超20MB、stop/expiry优先以及playing剩余时间小于完整音轨时仍可正常完成。
+- 旧共享`tests/test_character_http.wav_fixture`仅0.01秒，不符合早已存在的0.1秒合同。仅把240frame改为2400frame，保持24k/PCM16；0.01秒独立保留为invalid_audio反例。没有为旧夹具放宽生产规则，也没有把夹具自身错误算作产品回归。
+
+最大输入成本见`max-audio-cost.json`：同机Linux Python3.12、20,000,000字节合法stereo48k WAV（104.166秒；仅固定时钟性能夹具，不是生产TTL修改），顺序各7次，旧提交真实ready中位16.05ms，新ready中位22.10ms/最大27.20ms；纯校验中位1.80ms，额外Python分配峰约20.00MB。保留原始样本和旧/新源码指纹；这是本机观测，不是Windows性能门槛或全设备证明。该解析只在ready执行一次，后续预算门O(1)，未新增依赖、后台任务或轮询。
+
+浏览器入口新增显式`--input /path/input.txt`，记录UTF8原文、原字节SHA、绝对来源文件路径及SHA内容版本、实际投递文本SHA；不传时最初长题逐字不变。`--expect-budget-rejection`是独立**负向**验收模式，不能与`--completion/--faults`组合；记录`acceptance_kind:negative_budget_rejection`和`positive_program_completed:false`。确定性负向明确使用31秒机械tone，使其必然不适合原30秒事件；不冒充真实模型/TTS。正向仍要求实际browser media ended→server/host completed，而不是把“成功拒绝”当播放成功。
+
+已有问候输入取自`tests/local_product_browser.py`原QUESTION字面量“刚进直播间，晚上好！”，通过AST提取到`existing-greeting.txt`，原脚本路径/SHA及提取方法另存`existing-greeting-source.json`。它只用于明确合成本地开发验证，不是替换原长回复失败的题目、真实观众或未见学习任务。
+
+仪器先后失败独立保留：`browser-negative`在rehearsal异步start尚未完成时打开token，被后到start按规则取消；现在点击后先等待实际模拟消息输入出现。`browser-negative-stable`未加载Core、画面显示“未设置人物”，当时不能据此认定资产确实缺失或算预算验收；新增初始catalog与节目scene清单观测、提前断言和实际请求字节SHA，不再仅等待60秒或把空角色当成功。`seed-only-lo.json`证明相同硬隔离环境可正确导入真实R3；这些setup失败没有被隐藏或归为预算门通过。
+
+通用硬隔离launcher只在`.build/p9-root/playback-budget/isolated_test_launcher.py`，不进入产品：outer以`subprocess.run(unshare --user --map-root-user --net,close_fds=True)`启动；不持有原netns FD，不继承额外FD或socket stdio。inner验证netns与outer不同、接口只有lo、没有任何外网路由，才以ioctl启lo；`ORT_DISABLE_TELEMETRY=1`后关闭剩余FD并exec指定本地命令。首次smoke因`/proc/net/route`为空而非仅表头触发仪器断言，记录在`launcher-initial-route-precondition.txt`；经root批准仅修正“零route行”的等价表示：空或仅合法Iface表头，任何实际route行仍拒绝。未改宿主、全局代理、网络权限或原生调用观测限制。
+
+测试transport的后续单因素证据纠正了上述表象：初始catalog、服务端scene、浏览器scene SHA一致，MOC字节SHA准确；`browser-load-error`实际捕获`ProgramScene.sync`的`TimeoutError: signal timed out`，而非缺少R3文件。测试桥接原先把大体读入Python再经`fulfill(body=bytes)`传回driver。在仅lo边界和产品原1秒超时均不变的条件下，改为官方`route.fetch`（仅原精确fixture URL、该request自己的method/body/auth/cookie、max_redirects=0/max_retries=0）再`fulfill(response=...)`，避免大体经Python/base64复制。`browser-driver-negative`实读texture5,689,664字节、SHA `b5292100e43884f1341502c20d41e34b81977bc71ce5c6e6f9c45147662b3707`与原清单完全一致，浏览器fetch约494ms（测试fetch97ms/fulfill392ms），真实Core恢复且负向预算门通过；这支持仪器copy开销解释，不把所有超时推广为同因。原Python桥接失败保留，未改产品超时或素材。
+
+已批准的本地302反例进一步检出route边界漏洞：`preflight-final`中driver正确返回真实302，但浏览器redirect链没有再次进入route，strict NetLog门正确拒绝该轮。新namespace仍仅lo、无外网路由；未把另一loopback代理端口加入白名单，也未宣称外站通信成功。根据[Playwright route合同](https://playwright.dev/python/docs/api/class-page#page-route)首URL拦截限制，测试适配器现在在fulfill前拒绝**所有**带Location的3xx（包括本地Location），不支持redirect链、不造通用代理。保留真实302/status、`redirect_response`的已拒目标host和预期负控标识，不把Location中的query/auth写入记录。原Handler在finally恢复，产品server无新路由；没有运行真正跟随外站的mutant。
+
+旧正向`browser-positive-driver-final`的主媒体和前八项故障已通过，但晚completed反例卡在ready；其原native版`time.sleep`等待在同步route桥接时不泵Playwright请求事件。现在仅把仪器等待改成`page.wait_for_timeout`，保持原10秒判据。旧失败收尾的NetLog依赖链表明`POST /api/live-output`→fixture127的原生TCP→IPv6 reachability探测`-109`，不归因为Microsoft请求；失败原件和脱敏`blocked-native-chain.json`保留。此处不增加flags、不放宽native外部attempt门，由最终同字节复跑检验修复。
+
+最终同仪器SHA `0338d15a556662325fced03ad502fdc08291c69e1338e1c96646ff06f3760ffb` 的三个新目录均通过：`positive-drained-final/result.json`（20检查、errors空，完整真实浏览器tone播放及旧故障）、`negative-drained-final/result.json`（8检查，原长输入+明确31秒tone被拒，0play/空字幕/lip0）、`preflight-drained-final/offline-preflight.json`（11检查，含真实302在response边界拒绝、cookie/401/CSP）。三轮NetLog原生连接列表均空、bridge_failures空；仍仅是Chrome观测，不升级为OS-wide native调用证明。它们均使用新通用launcher的不同netns/lo-only证据，真实模型与TTS均未在这三轮运行。
+
+正向收尾drain发生在所有产品断言和媒体证据保存后：停止测试页enabled、递增epoch，泵事件到busy=false且测试计数pending fetch=0才close。`close-native-time-alignment.json`记录旧失败的唯一native POST位于第一个stage.close区间；新轮清除了该fallback，支持夹具关闭时pending route解除拦截的解释。该cleanup只修测试适配器，不是生产pagehide、浏览器硬关闭或真实设备失联通过；原独立stop/expiry/心跳失联判据保留。
+
+最终受影响unit/HTTP 27项通过（`final-affected-green.txt`），其中明确断言共享fixture=2400frames/24kHz/0.1秒/4844bytes；完整76项先前同产品字节通过，root最终完整质量门与真实模型正负路径须在提交后顺序重跑。B修改范围仅`live_output.py`、节目浏览器入口、共享合法WAV夹具、两份输出unit/HTTP测试及本验证记录；没有改C、原图、角色姿态、提示词、30秒时限或生产请求超时。
+
+复跑前缀：`PLAYWRIGHT_BROWSERS_PATH="$PWD/.build/p9-host/pw" PYTHONPATH=src:tests python3 .build/p9-root/playback-budget/isolated_test_launcher.py --evidence NEW_OUT/namespace.json -- python3 tests/program_output_browser.py`，随后带原`--chrome/--model/--runtime-dir/--out NEW_OUT --loopback-fixture-transport`。确定性正向追加`--input .build/p9-root/playback-budget/existing-greeting.txt --completion --faults`；确定性负向使用默认原长题并追加`--expect-budget-rejection`；安全预检追加`--offline-preflight`。每轮新目录，保持旧失败原件。只有root明确go后，真实模式才换为恢复venv Python并追加原固定`--real-model/--real-tts`，正向用已有问候`--input/--completion`且去掉faults，原长题负向独立使用`--expect-budget-rejection`。成功拒绝不算正向成品播放完成。

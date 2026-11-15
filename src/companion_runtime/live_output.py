@@ -10,6 +10,8 @@ import secrets
 import threading
 import time
 
+from .voice import AudioLimits, VoiceError, validate_wav
+
 
 class OutputError(ValueError):
     pass
@@ -149,11 +151,34 @@ class LiveOutput:
     def ready(self, ident, audio):
         with self.lock:
             job = self.current(ident, 'synthesizing')
-            if not isinstance(audio, bytes) or not audio or len(audio) > 20_000_000:raise OutputError('音频无效。')
+            try:
+                info = validate_wav(audio, AudioLimits(max_bytes=20_000_000, max_seconds=180,
+                    sample_rates=(8000, 16000, 22050, 24000, 32000, 44100, 48000, 96000), channels=(1, 2)))
+            except VoiceError:
+                job['failure_reason'] = 'invalid_audio'
+                self.fail(ident)
+                raise OutputError('节目音频不是完整、受支持的 PCM16 WAV。') from None
+            job['audio_frames'], job['audio_sample_rate'] = info.frames, info.sample_rate
+            job['audio_duration_seconds'] = info.duration_seconds
+            self.require_playback_budget(job)
             job['audio'] = audio
             job['audio_sha256'] = hashlib.sha256(audio).hexdigest()
             self.transition(job, 'ready')
             return self.public(job)
+
+    @staticmethod
+    def _playback_fits(job, remaining):
+        # Strictly before expiry, with no invented latency allowance. This is a
+        # lower-bound admission check, not a guarantee about transport/devices.
+        return remaining * job['audio_sample_rate'] > job['audio_frames']
+
+    def require_playback_budget(self, job):
+        remaining = job['expires_at'] - self.clock()
+        job['playback_budget_remaining_seconds'] = remaining
+        if not self._playback_fits(job, remaining):
+            job['failure_reason'] = 'insufficient_playback_budget'
+            self.fail(job['id'])
+            raise OutputError('剩余时限不足以播完这段音频，未开始播放。')
 
     def fail(self, ident):
         with self.lock:
@@ -204,6 +229,8 @@ class LiveOutput:
                             self.fail(job['id']);continue
                         if job['client'] != client:return {'item': None, 'scene_snapshot': copy.deepcopy(self.scene_snapshot)}
                     else:
+                        try:self.require_playback_budget(job)
+                        except OutputError:continue
                         job['client'] = client
                         self.transition(job, 'claimed')
                     job['heartbeat'] = self.clock()
@@ -215,6 +242,7 @@ class LiveOutput:
             self.authenticate(authorization)
             job = self.current(ident, 'claimed')
             if job['client'] != client:raise OutputError('非当前输出客户端。')
+            self.require_playback_budget(job)
             return job['audio']
 
     def receipt(self, authorization, ident, client, state):
@@ -235,7 +263,8 @@ class LiveOutput:
         fields = ('id', 'session', 'event_id', 'room_id', 'source', 'origin', 'question',
                   'expires_at', 'state', 'delivered', 'text', 'generation_id', 'mode',
                   'material_sha256', 'interaction_mode', 'failure_reason',
-                  'scene_snapshot', 'approval_revision', 'audio_sha256')
+                  'scene_snapshot', 'approval_revision', 'audio_sha256',
+                  'audio_duration_seconds', 'playback_budget_remaining_seconds')
         value = {key: copy.deepcopy(job[key]) for key in fields if key in job and key != 'scene_snapshot'}
         if 'scene_snapshot' in job:
             value['scene_snapshot'] = ({key: job['scene_snapshot'][key] for key in

@@ -6,6 +6,7 @@ import time
 import unittest
 
 import test_character_http as fixture
+from test_live_output import pcm_wav
 
 
 class ProgramOutputHTTPTests(unittest.TestCase):
@@ -31,13 +32,53 @@ class ProgramOutputHTTPTests(unittest.TestCase):
         finally:
             conn.close()
 
-    def ready(self):
-        job = self.service.output.begin({'source':'local', 'room_id':'local', 'event_id':'one',
+    def ready(self, event_id='one'):
+        job = self.service.output.begin({'source':'local', 'room_id':'local', 'event_id':event_id,
                                          'text':'UNAPPROVED_QUESTION_CANARY', 'expires_at':time.monotonic()+30})
         self.service.output.jobs[job['id']]['private_extension'] = 'PRIVATE_EXTENSION_CANARY'
         self.service.output.finish(job['id'], '已批准文本', 'generation-1')
         self.f.post('connectors/bili/approve', {'id':job['id'], 'confirm_output':True})
         return job
+
+    def test_insufficient_budget_blocks_ready_and_exposes_owner_reason(self):
+        self.f.app.synthesize = lambda text: pcm_wav(31*8000)
+        job = self.service.output.begin({'source':'local', 'room_id':'local', 'event_id':'budget',
+                                        'text':'synthetic event', 'expires_at':time.monotonic()+30})
+        self.service.output.finish(job['id'], '机械文本夹具', 'fixture-budget')
+        self.f.post('connectors/bili/approve', {'id':job['id'], 'confirm_output':True}, expected=400)
+        status = self.f.state()['live_output']['jobs'][0]
+        self.assertEqual(status['state'], 'failed')
+        self.assertEqual(status['failure_reason'], 'insufficient_playback_budget')
+        self.assertEqual(status['audio_duration_seconds'], 31)
+        self.assertLess(status['playback_budget_remaining_seconds'], 30)
+        self.assertIsNone(json.loads(self.output('poll')[1])['item'])
+        code, body = self.output('audio', id=job['id'])
+        self.assertEqual(code, 409);self.assertFalse(body.startswith(b'RIFF'))
+        self.assertNotIn('playing', [row['state'] for row in self.service.output.audit])
+
+    def test_claim_and_audio_http_recheck_actual_duration(self):
+        for boundary in ('claim', 'audio'):
+            with self.subTest(boundary=boundary):
+                job = self.ready('budget-'+boundary);output = self.service.output
+                stored=output.jobs[job['id']]
+                self.assertEqual((stored['audio_frames'],stored['audio_sample_rate']), (2400,24000))
+                self.assertEqual(stored['audio_duration_seconds'], .1)
+                self.assertEqual(len(stored['audio']), 4844)
+                deadline = stored['expires_at']
+                if boundary == 'audio':
+                    output.clock = lambda: deadline - 1
+                    self.assertEqual(self.output('poll')[0], 200)
+                output.clock = lambda: deadline - .05
+                if boundary == 'claim':self.assertIsNone(json.loads(self.output('poll')[1])['item'])
+                else:
+                    code, body = self.output('audio', id=job['id'])
+                    self.assertEqual(code, 409);self.assertFalse(body.startswith(b'RIFF'))
+                self.assertEqual(output.jobs[job['id']]['failure_reason'], 'insufficient_playback_budget')
+                self.assertNotIn('audio', output.jobs[job['id']])
+                output.clock = time.monotonic
+                # A fresh event/session is required; a failed item is never replayed.
+                output.cancel()
+                self.token = self.f.post('connectors/bili/output/open', {})['path'].split('#')[1]
 
     def test_scene_and_every_output_response_use_explicit_public_fields(self):
         job = self.ready()
