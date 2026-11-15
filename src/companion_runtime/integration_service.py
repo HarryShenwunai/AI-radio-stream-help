@@ -30,6 +30,7 @@ class IntegrationService:
         self.private_processing = threading.Lock()
         self.last_private_error = None
         self.bili = None
+        self._rehearsal = None
         self.output = LiveOutput()
         self._thread = self._loop = self._stop = None
         self._public = deque(maxlen=100)
@@ -128,6 +129,7 @@ class IntegrationService:
 
     def stop_bili(self):
         with self.lock:
+            self._rehearsal = None
             self.output.cancel()
             self.output.topic = ''
             self.output.host_talking = False
@@ -143,13 +145,33 @@ class IntegrationService:
         if thread and thread is not threading.current_thread():thread.join(timeout=5)
         if thread and thread.is_alive():raise ConnectorError('connector_still_stopping')
 
+    def rehearse(self, payload):
+        """Owner-only synthetic ingress; no account, network or delivery claim."""
+        with self.lock:
+            if payload.get('action') == 'start':
+                if payload.get('confirm_local') is not True:
+                    raise ConnectorError('explicit_rehearsal_confirmation_required')
+                if self.bili is not None:
+                    raise ConnectorError('disconnect_live_before_rehearsal')
+                self.output.cancel()
+                self.output = LiveOutput()
+                self._public.clear();self.public_replies.clear()
+                self._rehearsal = LiveIngress(LiveBinding('bilibili-open-live', '0'), ttl_seconds=30, dedupe_seconds=60)
+                return {'started': True, 'origin': 'local_rehearsal'}
+            if payload.get('action') != 'message' or self._rehearsal is None or self.bili is not None:
+                raise ConnectorError('rehearsal_not_active')
+            accepted = self._rehearsal.submit({'room_id': '0', 'event_id': secrets.token_hex(16), 'text': payload.get('text')})
+            if accepted != 'accepted':raise ConnectorError('演练消息无效或队列已满，请检查文字后重试。')
+            return {'accepted': True, 'origin': 'local_rehearsal'}
+
     def public_events(self):
         with self.lock:
-            if self.bili:
+            ingress = self.bili.ingress if self.bili else self._rehearsal
+            if ingress:
                 for _ in range(100):
-                    event = self.bili.ingress.pop()
+                    event = ingress.pop()
                     if event is None:break
-                    self._public.append(asdict(event))
+                    self._public.append({**asdict(event), 'origin': 'local_rehearsal' if self._rehearsal else 'platform'})
             now = time.monotonic()
             return [event for event in self._public if event['expires_at'] > now and event['received_at'] >= self.output.context_since]
 
@@ -159,7 +181,7 @@ class IntegrationService:
             if self.wechat:
                 wechat.update(configured=True, automatic_reply_enabled=self.wechat_auto_approve,
                               last_error=self.last_private_error)
-            bili = self.bili.status() if self.bili else {'state': 'not_connected'}
+            bili = self.bili.status() if self.bili else {'state': 'local_rehearsal' if self._rehearsal else 'not_connected'}
             return {'wechat': wechat, 'bili': bili, 'public_events': self.public_events(),
                     'live_output': self.output.status(), 'public_replies': list(self.public_replies), 'public_output': 'manual_local_output'}
 
