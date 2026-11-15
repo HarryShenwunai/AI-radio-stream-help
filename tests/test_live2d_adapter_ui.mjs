@@ -117,3 +117,9 @@ test('disposed adapter rejects audio attachment independently of model loading',
  window.AudioContext=class{constructor(){allocated++;}};t.after(()=>{window.AudioContext=previous;});
  h.adapter.dispose();h.adapter.setAudio({});assert.equal(allocated,0);
 });
+
+test('program blob transport only resolves after the original identity and asset check',()=>{
+ const resolved=[];const map=url=>{resolved.push(url);return 'blob:http://127.0.0.1:4444/'+resolved.length;};
+ const value=rewriteModel(model(),asset(),map);assert.match(value.FileReferences.Moc,/^blob:/);assert.equal(resolved.length,6);
+ for(const replacement of ['/api/assets/other/r0001.moc3?character_id=role-A','/api/assets/asset-fixture/r0001.moc3?character_id=role-B','blob:http://127.0.0.1:4444/unknown']){const item=asset();item.resources['r0001.moc3'].url=replacement;let called=false;assert.throws(()=>rewriteModel(model(),item,()=>{called=true;}));assert.equal(called,false);}
+});

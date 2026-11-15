@@ -988,6 +988,51 @@ def process_wechat_pending(service):
     threading.Thread(target=worker, daemon=True).start()
 
 
+def program_scene_snapshot():
+    profile = catalog().active()
+    asset_id = profile.get('avatar_revision')
+    asset = asset_store(profile['id']).get(asset_id) if asset_id else None
+    value = None
+    resources = {}
+    if asset:
+        allowed = ('id', 'schema_version', 'format', 'states', 'model', 'resources',
+                   'animation_regions', 'moc3_version')
+        value = asset_for_client(profile['id'], {key:asset[key] for key in allowed if key in asset})
+        for item in list(value.get('states', {}).values()) + list(value.get('resources', {}).values()) + [value.get('model', {})]:
+            if item.get('resource'):
+                name = item['resource']
+                resources[name] = {key:item[key] for key in ('resource', 'mime', 'bytes', 'sha256') if key in item}
+    runtime_status = live2d_runtime().status()
+    runtime = {kind:{'sha256':item['sha256']} for kind,item in runtime_status['artifacts'].items() if item['available']}
+    scene = {'version':1, 'character_id':profile['id'], 'appearance_id':asset_id,
+             'layout_revision':'program-v1', 'layout':'right', 'theme':'carbon', 'asset':value,
+             'runtime_available':runtime_status['available'],
+             'runtime_sha256':{key:item['sha256'] for key,item in runtime.items()}}
+    scene['sha256'] = hashlib.sha256(json.dumps(scene, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    return scene, resources, runtime
+
+
+def program_resource(output, authorization, data, *, runtime=False):
+    with CHARACTER_MUTATION_LOCK:
+        descriptor = output.resource(authorization, data.get('revision'), data.get('name'), runtime=runtime)
+        scene = output.scene(authorization)
+        require_active_profile(scene['character_id'])
+        if catalog().active().get('avatar_revision') != scene['appearance_id']:
+            raise OutputError('节目人物已改变。')
+        if runtime:
+            reader = live2d_runtime().read_core if data['name'] == 'core' else live2d_runtime().read_bundle
+            body, mime = reader(), 'application/javascript'
+        else:
+            body = asset_store(scene['character_id']).resolve(scene['appearance_id'], descriptor['resource']).read_bytes()
+            mime = descriptor.get('mime', 'application/octet-stream')
+        if hashlib.sha256(body).hexdigest() != descriptor['sha256']:
+            output.cancel()
+            raise OutputError('节目资源已改变，输出已停止。')
+        # Recheck session after I/O before returning any bytes.
+        output.authenticate(authorization)
+        return body, mime
+
+
 def connector_request(action, payload):
     service = integrations()
     if action == 'wechat/configure':return service.configure_wechat(payload, profile_id())
@@ -1019,7 +1064,10 @@ def connector_request(action, payload):
         result = service.output.set_material(payload.get('text'), payload.get('allow_public'))
         cancel_public_generations(service)
         return result
-    if action == 'bili/output/open':return {'path': '/live-stage.html#'+service.output.open()}
+    if action == 'bili/output/open':
+        with CHARACTER_MUTATION_LOCK:
+            scene, resources, runtime = program_scene_snapshot()
+            return {'path': '/live-stage.html#'+service.output.open(scene, resources, runtime)}
     if action == 'bili/output/stop':
         cancel_public_generations(service)
         return {'ok': True}
@@ -1742,6 +1790,9 @@ def _state():
                    'local_voice_available':s['voice_backend']=='external' or (s['voice_backend']=='kokoro' and (VOICE_DIR/'kokoro-v1.0.onnx').exists() and (VOICE_DIR/'voices-v1.0.bin').exists() and bool(importlib.util.find_spec('kokoro_onnx'))),
                    'model_busy':MODEL_LOCK.locked(),'active_request_id':active_id,'timezone':str(dt.datetime.now().astimezone().tzinfo),
                    'wechat_available':False})
+    with INTEGRATION_LOCK:
+        service = INTEGRATIONS.get(str(DATA.resolve()))
+        result['live_output'] = service.output.owner_status() if service else None
     result['compute'] = dict(COMPUTE_STATUS)
     result['assistance'] = assistance_store().snapshot()
     result['devices'] = host_services()['devices'].snapshot()
@@ -1764,7 +1815,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('X-Content-Type-Options','nosniff')
         self.send_header('X-Frame-Options','DENY')
         self.send_header('Referrer-Policy','no-referrer')
-        self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'")
+        if not extra_headers or 'Content-Security-Policy' not in extra_headers:
+            self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'")
         for name,value in (extra_headers or {}).items():self.send_header(name,value)
         if cookie:self.send_header('Set-Cookie',f'companion={AUTH}; HttpOnly; SameSite=Strict; Path=/')
         self.end_headers();self.wfile.write(body)
@@ -1863,9 +1915,14 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authenticated():return self.reply(401, {'error': '请先打开应用。'})
             reader = live2d_runtime().read_core if path == '/live2d-core.js' else live2d_runtime().read_bundle
             return self.reply(200,reader(),'application/javascript')
-        if path not in {'/room.html','/room.js','/room-design.js','/room.css','/live-stage.html','/live-stage.js','/live-stage.css','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
+        if path not in {'/room.html','/room.js','/room-design.js','/room.css','/live-stage.html','/live-stage.js','/live-stage.css','/program-scene.js','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
                         '/study-session.js','/study-room.js','/study-room.css','/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
                         '/layered-2d-renderer.js','/scene-morning.png','/scene-forest.png','/scene-evening.png'}:return self.reply(404,b'Not found','text/plain')
+        if path == '/live-stage.html':
+            nonce = secrets.token_urlsafe(24)
+            body = (STATIC/'live-stage.html').read_text().replace('__RUNTIME_NONCE__', nonce).encode()
+            policy = "default-src 'self'; script-src 'self' 'nonce-"+nonce+"'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' blob:; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'"
+            return self.reply(200, body, 'text/html; charset=utf-8', extra_headers={'Content-Security-Policy':policy})
         file=STATIC/path.lstrip('/')
         if not file.is_file():return self.reply(404,b'Not found','text/plain')
         self.reply(200,file.read_bytes(),mimetypes.guess_type(str(file))[0] or 'application/octet-stream',cookie=path=='/index.html')
@@ -1898,7 +1955,11 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(data, dict):raise ValueError()
                 output = integrations().output
                 auth = self.headers.get('Authorization')
-                if data.get('action') == 'poll':result = output.poll(auth, data.get('client'))
+                if data.get('action') == 'scene':result = {'scene_snapshot':output.scene(auth)}
+                elif data.get('action') in {'resource', 'runtime'}:
+                    body, mime = program_resource(output, auth, data, runtime=data['action'] == 'runtime')
+                    return self.reply(200, body, mime)
+                elif data.get('action') == 'poll':result = output.poll(auth, data.get('client'))
                 elif data.get('action') == 'audio':
                     return self.reply(200, output.audio(auth, data.get('id'), data.get('client')), 'audio/wav')
                 elif data.get('action') == 'receipt':result = output.receipt(auth, data.get('id'), data.get('client'), data.get('state'))

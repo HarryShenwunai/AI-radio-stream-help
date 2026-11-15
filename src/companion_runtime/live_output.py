@@ -5,6 +5,7 @@ Deadlines use a monotonic clock; tokens never grant access to private context.
 """
 from collections import deque
 import hashlib
+import copy
 import secrets
 import threading
 import time
@@ -28,8 +29,13 @@ class LiveOutput:
         self.seen = set()
         self.token = None
         self.audit = deque(maxlen=500)
+        self.revision = 0
+        self.scene_snapshot = None
+        self.scene_resources = {}
+        self.scene_runtime = {}
 
     def transition(self, job, state):
+        self.revision += 1
         job['state'] = state
         self.audit.append({'id': job['id'], 'state': state, 'at': self.clock()})
 
@@ -41,6 +47,10 @@ class LiveOutput:
                 job.pop('audio', None)
             self.session = secrets.token_hex(16)
             self.token = None
+            self.scene_snapshot = None
+            self.scene_resources = {}
+            self.scene_runtime = {}
+            self.revision += 1
 
     def set_material(self, text, approved):
         if approved is not True or not isinstance(text, str) or not 1 <= len(text.strip()) <= 8000:
@@ -131,6 +141,8 @@ class LiveOutput:
             job = self.current(ident, 'review')
             if any(j['state'] in {'synthesizing', 'ready', 'claimed', 'playing'} for j in self.jobs.values()):
                 raise OutputError('上一条输出未结束，请等待或停止。')
+            job['scene_snapshot'] = copy.deepcopy(self.scene_snapshot)
+            job['approval_revision'] = self.revision + 1
             self.transition(job, 'synthesizing')
             return job['text']
 
@@ -139,6 +151,7 @@ class LiveOutput:
             job = self.current(ident, 'synthesizing')
             if not isinstance(audio, bytes) or not audio or len(audio) > 20_000_000:raise OutputError('音频无效。')
             job['audio'] = audio
+            job['audio_sha256'] = hashlib.sha256(audio).hexdigest()
             self.transition(job, 'ready')
             return self.public(job)
 
@@ -148,10 +161,31 @@ class LiveOutput:
             if job and job['state'] not in {'completed', 'cancelled', 'expired', 'failed'}:
                 self.transition(job, 'failed');job.pop('audio', None)
 
-    def open(self):
+    def open(self, scene=None, resources=None, runtime=None):
         with self.lock:
-            if not self.token:self.token = secrets.token_urlsafe(32)
+            if not self.token:
+                self.scene_snapshot = copy.deepcopy(scene)
+                self.scene_resources = copy.deepcopy(resources or {})
+                self.scene_runtime = copy.deepcopy(runtime or {})
+                self.token = secrets.token_urlsafe(32)
+                self.revision += 1
             return self.token
+
+    def scene(self, authorization):
+        with self.lock:
+            self.authenticate(authorization)
+            return copy.deepcopy(self.scene_snapshot)
+
+    def resource(self, authorization, revision, name, *, runtime=False):
+        """Return only a frozen descriptor; server checks bytes against its hash."""
+        with self.lock:
+            self.authenticate(authorization)
+            if not self.scene_snapshot or self.scene_snapshot['sha256'] != revision:
+                raise OutputError('节目人物已改变，请重新打开输出。')
+            listing = self.scene_runtime if runtime else self.scene_resources
+            if not isinstance(name, str) or name not in listing:
+                raise OutputError('未批准的节目资源。')
+            return copy.deepcopy(listing[name])
 
     def authenticate(self, authorization):
         if not self.token or not secrets.compare_digest(authorization or '', 'Bearer '+self.token):
@@ -168,13 +202,13 @@ class LiveOutput:
                     if job['state'] in {'claimed', 'playing'}:
                         if self.clock() - job['heartbeat'] > 2:
                             self.fail(job['id']);continue
-                        if job['client'] != client:return {'item': None}
+                        if job['client'] != client:return {'item': None, 'scene_snapshot': copy.deepcopy(self.scene_snapshot)}
                     else:
                         job['client'] = client
                         self.transition(job, 'claimed')
                     job['heartbeat'] = self.clock()
-                    return {'item': self.public(job)}
-            return {'item': None}
+                    return {'item': self.program(job), 'scene_snapshot': copy.deepcopy(self.scene_snapshot)}
+            return {'item': None, 'scene_snapshot': copy.deepcopy(self.scene_snapshot)}
 
     def audio(self, authorization, ident, client):
         with self.lock:
@@ -193,16 +227,43 @@ class LiveOutput:
             self.current(ident, job['state'])
             self.transition(job, state)
             if state in {'completed', 'failed'}:job.pop('audio', None)
-            return self.public(job)
+            return self.program(job)
 
     @staticmethod
     def public(job):
-        return {k:v for k,v in job.items() if k not in {'audio', 'client', 'heartbeat', 'material', 'recent', 'topic'}}
+        # Owner review projection. New internal fields never become public by default.
+        fields = ('id', 'session', 'event_id', 'room_id', 'source', 'origin', 'question',
+                  'expires_at', 'state', 'delivered', 'text', 'generation_id', 'mode',
+                  'material_sha256', 'interaction_mode', 'failure_reason',
+                  'scene_snapshot', 'approval_revision', 'audio_sha256')
+        value = {key: copy.deepcopy(job[key]) for key in fields if key in job and key != 'scene_snapshot'}
+        if 'scene_snapshot' in job:
+            value['scene_snapshot'] = ({key: job['scene_snapshot'][key] for key in
+                                       ('sha256', 'character_id', 'appearance_id', 'layout_revision')}
+                                       if job['scene_snapshot'] else None)
+        return value
+
+    @staticmethod
+    def program(job):
+        fields = ('id', 'session', 'event_id', 'room_id', 'source', 'origin', 'expires_at',
+                  'state', 'delivered', 'text', 'generation_id', 'mode', 'scene_snapshot',
+                  'approval_revision', 'audio_sha256')
+        value = {key: copy.deepcopy(job[key]) for key in fields if key in job and key != 'scene_snapshot'}
+        if 'scene_snapshot' in job:
+            value['scene_snapshot'] = ({key: job['scene_snapshot'][key] for key in
+                                       ('sha256', 'character_id', 'appearance_id', 'layout_revision')}
+                                       if job['scene_snapshot'] else None)
+        return value
+
+    def owner_status(self):
+        status = self.status()
+        return {key: status[key] for key in ('session', 'jobs', 'audit', 'viewer_received',
+                                             'output_open', 'host_talking', 'interaction_mode', 'revision')}
 
     def status(self):
         with self.lock:
             self.reap()
-            return {'session': self.session, 'material': self.material,
+            return {'session': self.session, 'revision': self.revision, 'material': self.material,
                     'interaction_mode': self.interaction_mode, 'topic': self.topic, 'host_talking': self.host_talking,
                     'jobs': [self.public(j) for j in self.jobs.values()], 'audit': list(self.audit),
                     'viewer_received': False, 'output_open': bool(self.token)}
