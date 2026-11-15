@@ -10,7 +10,7 @@
 | 未开始媒体就报playing | 旧版注入audio.play拒绝，audit仍有playing→failed | WebAudio运行且audio.play实际成功后才发playing；媒体图失败明确返回false | play拒绝、resume拒绝、source失败均不报playing |
 | 缺少批准人物/资源边界 | 旧job没有scene，private资源只能用cookie读取 | open冻结当前角色清单；批准绑定scene hash、approval_revision、audio_sha256；POST令牌接口只读固定清单并复核hash | question/未知私有金丝雀不进poll/receipt/scene，越界资源、错revision、篡改资源、切外观、撤权拒绝 |
 | 加载/媒体晚响应能覆盖后来状态 | 针对pause与playing回包、completed与下一job/停止、暖scene和audio晚包分别故障注入 | epoch、播放世代、媒体启动与回执接受分别处理；加载不阻塞既有心跳 | 全部固定晚响应反例通过；不延长TTL或心跳预算 |
-| 完成文字被空poll覆盖 | 第一轮completion的服务audit已经completed，但节目完成UI检查超时 | 完成终态保持到新job/明确重启，显式显示；空poll不改完成文字 | 同一冻结源码整段播放，节目与主播均completed，口型与字幕复位 |
+| 完成文字被空poll覆盖 | 第一轮completion的服务audit已经completed，但节目完成UI检查超时；旧9784cfe在丢回包时又把未确认改成等待 | 完成或回执未确认状态保持到新job/明确重启，显式显示；空poll不覆盖 | 同一冻结源码整段播放，节目与主播均completed；另丢弃completed响应后节目保持未确认，不冒充收妥 |
 | 字幕遮住杯/手 | browser-probe-fixed/03-stage-playing.png全宽条覆盖杯/手 | 只改既有right布局字幕宽度，角色/素材不移动、不裁切 | 1024/1280宽、720高：caption与character-space边界不交，无横向溢出；播放隐藏状态提示、撤权显示 |
 
 节目资源transport默认不改变私有页面：原URL仍按当前角色和asset校验，再映射为已校验blob；不放token到URL、不用cookie、不加任意文件代理。只有节目页CSP允许固定安装运行库的nonce脚本，以及已校验blob的connect读取；其他页面仍保持原CSP。没有安装记录/许可的生产运行库路径仍拒绝。
@@ -31,7 +31,7 @@
 - `.build/program-output/browser-probe-fixed/`：原全宽字幕遮杯图，保留作布局反例。
 - `.build/program-output/browser-completion/`：服务已completed而节目终态检查失败的红记录。
 - `.build/program-output/browser-final/`：1024/1280不遮挡与必要取消故障；该轮片段停止实测0.242秒，浏览器音频峰值0.15625，口型值0.4074；不是目标机中断保证。
-- `.build/program-output/browser-closed-loop/`：最终同冻结字节整段播放和生命周期故障检查，完整双端视频、Trace、独立浏览器音轨、原始事件与audit；视频本身没有音轨。
+- `.build/program-output/browser-final-ack/`：最终同冻结字节整段播放和生命周期故障检查，另覆盖completed回包丢失后保持未确认；完整双端视频、Trace、独立浏览器音轨、原始事件与audit。视频本身没有音轨。旧丢包支路Node反例保留在`.build/program-output/old-completion-ack-red.json`，范围为真实旧源码加fake DOM/fetch/media，不冒充Chrome或外部人工验收。
 - `.build/program-output/read-overhead.json`：0/1/100任务、audit500的局部读取开销；100任务owner投影中位约0.83ms、JSON约89.7KB。数据仅本机观察，没有虚构Windows预算；没有新增后台轮询或线程。
 
 Trace包含真实角色/SDK响应及已失效本机临时令牌，不公开提交；模型、SDK、用户数据、音频和录像均不进入源码提交。

@@ -35,7 +35,7 @@ async function startPlayback(item,own,ready){
   const bytes=await blob.arrayBuffer(),sha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
   if(!valid())return;if(item.audio_sha256!==sha)throw Error('节目音频校验失败。');
   const url=URL.createObjectURL(blob),audio=new Audio(url);Object.assign(entry,{url,audio});
-  const complete=async()=>{if(!valid())return;clear();try{await receipt(item,'completed');if(own!==epoch||!enabled||playSerial!==entry.serial)return;lastTerminal='本页播放结束 · 观众接收未验证';status.hidden=false;status.textContent=lastTerminal;}catch{if(own!==epoch||!enabled||playSerial!==entry.serial)return;status.hidden=false;status.textContent='播放回执未确认';}};
+  const complete=async()=>{if(!valid())return;clear();try{await receipt(item,'completed');if(own!==epoch||!enabled||playSerial!==entry.serial)return;lastTerminal='本页播放结束 · 观众接收未验证';status.hidden=false;status.textContent=lastTerminal;}catch{if(own!==epoch||!enabled||playSerial!==entry.serial)return;lastTerminal='播放回执未确认';status.hidden=false;status.textContent=lastTerminal;}};
   audio.addEventListener('ended',()=>{entry.ended=true;if(entry.started)complete();});
   audio.addEventListener('error',()=>{if(valid())playbackFailure(item,'音频无法解码，已停止播放。');});
   audio.addEventListener('pause',()=>{if(valid()&&entry.mediaStarted&&!audio.ended)playbackFailure(item,'音频已中断，请从主播端重新选题。');});
