@@ -44,5 +44,5 @@
  window.addEventListener('companion:desktop-pause',pause);window.addEventListener('pagehide',()=>{stopped=true;pause();});document.addEventListener('visibilitychange',()=>{if(hidden())pause();else{scene.setVisible(!modal());core.refresh(true);}});
  window.CompanionApp={core,scene,speech,ui,pause,openConnections:()=>contacts.open(),setOutputMode(active){if(active){cancelInput();privacy.stop();ui.close('hidden');}},setExpanded(value){scene.setExpanded(value);if(!value){cancelInput();privacy.stop();ui.close('hidden');}scene.setVisible(!hidden()&&!modal());},stop(){cancelInput();speech.stop();core.stopChat().catch(()=>{});},get inputPhase(){return inputPhase();}};
  window.stopVoice=()=>speech.stop();window.toast=message=>ui.notify(message);
- core.refresh(true);core.api('devices').then(value=>{devices=value;renderMedia();}).catch(()=>{});setInterval(()=>{if(!hidden()&&!stopped)core.refresh();},5000);renderMedia();
+ core.refresh(true).then(()=>{if(location.hash==='#characters'&&core.get().state){studio.open('identities');history.replaceState(null,'',location.pathname+location.search);}});core.api('devices').then(value=>{devices=value;renderMedia();}).catch(()=>{});setInterval(()=>{if(!hidden()&&!stopped)core.refresh();},5000);renderMedia();
 })();
