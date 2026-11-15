@@ -44,7 +44,7 @@ def wav_fixture():
         wav.setnchannels(1)
         wav.setsampwidth(2)
         wav.setframerate(24000)
-        wav.writeframes(b'\0\0' * 240)
+        wav.writeframes(b'\0\0' * 2400)
     return out.getvalue()
 
 

@@ -1,6 +1,17 @@
 """Deterministic state-boundary tests; synthetic events, not platform delivery."""
+import io
+import struct
 import unittest
+import wave
 from companion_runtime.live_output import LiveOutput, OutputError
+
+
+def pcm_wav(frames=16000, rate=8000, channels=1):
+    out = io.BytesIO()
+    with wave.open(out, 'wb') as wav:
+        wav.setnchannels(channels);wav.setsampwidth(2);wav.setframerate(rate)
+        wav.writeframes(b'\0' * (frames * channels * 2))
+    return out.getvalue()
 
 
 class LiveOutputTests(unittest.TestCase):
@@ -18,7 +29,7 @@ class LiveOutputTests(unittest.TestCase):
     def ready(self):
         job = self.reviewed()
         self.output.prepare(job['id'], True)
-        self.output.ready(job['id'], b'fixture-wave')
+        self.output.ready(job['id'], pcm_wav())
         return job
 
     def test_no_output_without_manual_confirmation(self):
@@ -86,10 +97,128 @@ class LiveOutputTests(unittest.TestCase):
         self.assertEqual(self.output.session,session)
         self.assertEqual(self.output.jobs[job['id']]['state'],'ready')
 
+    def test_ready_rejects_audio_that_cannot_finish_before_deadline(self):
+        job = self.reviewed();self.output.prepare(job['id'], True);self.now = 129
+        with self.assertRaises(OutputError):self.output.ready(job['id'], pcm_wav())
+        failed = self.output.status()['jobs'][0]
+        self.assertEqual(failed['state'], 'failed')
+        self.assertEqual(failed['failure_reason'], 'insufficient_playback_budget')
+        self.assertEqual(failed['audio_duration_seconds'], 2)
+        self.assertEqual(failed['playback_budget_remaining_seconds'], 1)
+        self.assertNotIn('audio', self.output.jobs[job['id']])
+
+    def test_budget_equality_rejected_but_one_frame_more_is_enough(self):
+        for remaining, allowed in [(2, False), (2 - 1/8000, False), (2 + 1/8000, True)]:
+            with self.subTest(remaining=remaining):
+                self.setUp();job = self.reviewed();self.output.prepare(job['id'], True)
+                self.now = 130 - remaining
+                if allowed:
+                    self.output.ready(job['id'], pcm_wav())
+                    self.assertEqual(self.output.jobs[job['id']]['state'], 'ready')
+                else:
+                    with self.assertRaises(OutputError):self.output.ready(job['id'], pcm_wav())
+
+    def test_claim_rechecks_budget_after_ready_wait(self):
+        job = self.ready();self.now = 128
+        self.assertIsNone(self.output.poll(self.auth, 'client-one')['item'])
+        self.assertEqual(self.output.jobs[job['id']]['state'], 'failed')
+        self.assertEqual(self.output.jobs[job['id']]['failure_reason'], 'insufficient_playback_budget')
+        self.assertNotIn('audio', self.output.jobs[job['id']])
+
+    def test_audio_delivery_rechecks_budget_after_claim_wait(self):
+        job = self.ready();self.now = 127;self.output.poll(self.auth, 'client-one');self.now = 128
+        with self.assertRaises(OutputError):self.output.audio(self.auth, job['id'], 'client-one')
+        self.assertEqual(self.output.jobs[job['id']]['state'], 'failed')
+        self.assertEqual(self.output.jobs[job['id']]['failure_reason'], 'insufficient_playback_budget')
+        self.assertNotIn('audio', self.output.jobs[job['id']])
+
+    def test_playing_heartbeat_does_not_reapply_full_track_budget(self):
+        job = self.ready();self.now = 127;self.output.poll(self.auth, 'client-one')
+        self.assertEqual(self.output.audio(self.auth, job['id'], 'client-one'), pcm_wav())
+        self.output.receipt(self.auth, job['id'], 'client-one', 'playing');self.now = 128.5
+        self.assertEqual(self.output.poll(self.auth, 'client-one')['item']['state'], 'playing')
+        self.now = 129.5
+        self.assertEqual(self.output.receipt(self.auth, job['id'], 'client-one', 'completed')['state'], 'completed')
+
+    def test_invalid_wav_never_bypasses_duration_validation(self):
+        valid = pcm_wav()
+        float_wav = bytearray(valid);struct.pack_into('<H', float_wav, 20, 3)
+        duplicate = valid + b'data' + struct.pack('<I', 2) + b'\0\0'
+        duplicate = duplicate[:4] + struct.pack('<I', len(duplicate)-8) + duplicate[8:]
+        for audio in (b'fixture-wave', pcm_wav(80, 8000), valid[:-1], valid+b'extra', bytes(float_wav), duplicate,
+                      b'x' * 20_000_001):
+            with self.subTest(length=len(audio)):
+                self.setUp();job = self.reviewed();self.output.prepare(job['id'], True)
+                with self.assertRaises(OutputError):self.output.ready(job['id'], audio)
+                self.assertEqual(self.output.jobs[job['id']]['state'], 'failed')
+                self.assertEqual(self.output.jobs[job['id']]['failure_reason'], 'invalid_audio')
+                self.assertNotIn('audio', self.output.jobs[job['id']])
+
+    def test_external_tts_supported_stereo_96khz_is_parsed(self):
+        job = self.reviewed();self.output.prepare(job['id'], True)
+        self.output.ready(job['id'], pcm_wav(96000, 96000, 2))
+        self.assertEqual(self.output.status()['jobs'][0]['audio_duration_seconds'], 1)
+
+    def test_cancel_and_expiry_win_over_late_budget_rejection(self):
+        for terminal in ('cancelled', 'expired'):
+            with self.subTest(terminal=terminal):
+                self.setUp();job = self.reviewed();self.output.prepare(job['id'], True)
+                if terminal == 'cancelled':self.output.cancel()
+                else:self.now = 131
+                with self.assertRaises(OutputError):self.output.ready(job['id'], pcm_wav())
+                self.assertEqual(self.output.jobs[job['id']]['state'], terminal)
+                self.assertNotIn('failure_reason', self.output.jobs[job['id']])
+
+    def test_known_bad_always_fits_mutant_is_rejected_by_same_budget_invariant(self):
+        job = self.reviewed();self.output.prepare(job['id'], True);self.now = 129
+        self.output._playback_fits = lambda job, remaining: True
+        with self.assertRaises(AssertionError):
+            with self.assertRaises(OutputError):self.output.ready(job['id'], pcm_wav())
+
+    def test_late_generation_fail_is_expired_independent_of_status_reader(self):
+        for reap_first in (False, True):
+            with self.subTest(reap_first=reap_first):
+                self.setUp();job=self.output.begin(self.event);self.now=131
+                if reap_first:self.output.status()
+                self.output.fail(job['id'])
+                self.assertEqual(self.output.jobs[job['id']]['state'],'expired')
+                self.assertEqual([row['state'] for row in self.output.audit if row['id']==job['id']],['generating','expired'])
+
+    def test_fail_deadline_boundary_clears_audio_and_stale_failure_reason(self):
+        for now, state in ((129.999,'failed'),(130.,'expired'),(131.,'expired')):
+            with self.subTest(now=now):
+                self.setUp();job=self.ready();self.output.poll(self.auth,'client-one')
+                self.output.jobs[job['id']]['failure_reason']='consumer_timeout';self.now=now
+                self.output.fail(job['id']);stored=self.output.jobs[job['id']]
+                self.assertEqual(stored['state'],state);self.assertNotIn('audio',stored)
+                if state=='expired':self.assertNotIn('failure_reason',stored)
+                else:self.assertEqual(stored['failure_reason'],'consumer_timeout')
+
+    def test_fail_preserves_every_existing_terminal_after_deadline(self):
+        for terminal in ('completed','cancelled','expired','failed'):
+            with self.subTest(terminal=terminal):
+                self.setUp();job=self.ready()
+                if terminal=='completed':
+                    self.output.poll(self.auth,'client-one')
+                    self.output.receipt(self.auth,job['id'],'client-one','playing')
+                    self.output.receipt(self.auth,job['id'],'client-one','completed')
+                elif terminal=='cancelled':self.output.cancel()
+                elif terminal=='expired':self.now=130.;self.output.status()
+                else:self.output.fail(job['id'])
+                before=len(self.output.audit);self.now=131.;self.output.fail(job['id'])
+                self.assertEqual(self.output.jobs[job['id']]['state'],terminal)
+                self.assertNotIn('audio',self.output.jobs[job['id']]);self.assertEqual(len(self.output.audit),before)
+
+    def test_consumer_timeout_before_deadline_remains_failed_without_recursion(self):
+        job=self.ready();self.output.poll(self.auth,'client-one');self.now=103.
+        stored=self.output.status()['jobs'][0]
+        self.assertEqual(stored['state'],'failed');self.assertEqual(stored['failure_reason'],'consumer_timeout')
+        self.assertNotIn('audio',self.output.jobs[job['id']])
+
     def test_known_bad_missing_cancel_mutant_is_rejected_by_invariant(self):
         job = self.reviewed();self.output.prepare(job['id'], True)
         self.output.cancel = lambda:None  # negative control: deliberately broken cancellation
-        self.output.cancel();self.output.ready(job['id'], b'late')
+        self.output.cancel();self.output.ready(job['id'], pcm_wav())
         with self.assertRaises(AssertionError):
             self.assertEqual(self.output.jobs[job['id']]['state'], 'cancelled')
 
