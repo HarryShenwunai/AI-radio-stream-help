@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 import datetime as dt
 import itertools
 import json
@@ -15,7 +16,7 @@ import unittest
 from unittest.mock import patch
 from uuid import uuid4
 
-from companion_runtime.assistance import AssistanceError, AssistanceStore, ProviderReply, analyze_csv, migrate_connection
+from companion_runtime.assistance import AssistanceError, AssistanceStore, ProviderReply, TrustedObservation, analyze_csv, migrate_connection
 
 
 class AssistanceTests(unittest.TestCase):
@@ -148,6 +149,49 @@ class AssistanceTests(unittest.TestCase):
         self.assertEqual('confirmed', store.decide(result['action_id'], 'confirm')['status'])
         self.assertEqual([], self.rows('SELECT id FROM tasks'))
         self.assertEqual('unavailable', store.create('other', 'brainstorm', {'query':'想点子'})['status'])
+
+    def trusted_observation(self, **changes):
+        value = TrustedObservation('observation-1', self.role, 'session-1', 'frame-1',
+                                   'a' * 64, 1800000000000, 'Synthetic observation only.',
+                                   'screen', 'local')
+        return replace(value, **changes)
+
+    def test_perception_reference_identifiers_accept_exact_producer_contract(self):
+        fields = ('observation_id', 'session_id', 'request_id')
+        for field in fields:
+            for index, value in enumerate(('-leading', '_leading', '-', '_', 'a' * 100)):
+                with self.subTest(field=field, value=value):
+                    captured = []
+                    def provider(request, cancel):
+                        captured.append(request)
+                        return ProviderReply('Synthetic advice only.', 'controlled-test-provider')
+                    store = AssistanceStore(self.path, self.role, provider=provider,
+                                            provider_kinds={'game'}, clock=lambda:self.clock)
+                    observation = self.trusted_observation(**{field:value})
+                    result = store.create(f'valid-{field}-{index}', 'game',
+                                          {'query':'Inspect this position', 'game':'Protocol fixture'},
+                                          observation=observation)
+                    self.assertEqual(result['status'], 'proposed')
+                    self.assertEqual(captured[0].inputs['observation'][field], value)
+                    self.assertEqual(result['source_evidence'][1][field], value)
+
+    def test_perception_reference_grammar_and_trust_do_not_relax_action_identifiers(self):
+        for field in ('observation_id', 'session_id', 'request_id'):
+            for value in ('dot.name', 'colon:name', 'path/name', '+plus', ' leading',
+                          'trailing ', 'a' * 101, '', None):
+                with self.subTest(field=field, value=value):
+                    self.error('invalid_identifier', lambda:self.store.create(
+                        'invalid-reference', 'game', {'query':'Check', 'game':'Protocol fixture'},
+                        observation=self.trusted_observation(**{field:value})))
+        for value in ('-action', '_action'):
+            self.error('invalid_identifier', lambda:self.store.create(value, 'brainstorm', {'query':'Check'}))
+            self.error('invalid_identifier', lambda:self.store.get(value))
+        self.error('untrusted_observation', lambda:self.store.create(
+            'untrusted', 'game', {'query':'Check', 'game':'Protocol fixture'}, observation={}))
+        self.error('observation_role_mismatch', lambda:self.store.create(
+            'wrong-role', 'game', {'query':'Check', 'game':'Protocol fixture'},
+            observation=self.trusted_observation(role_scope=str(uuid4()))))
+        self.assertEqual([], self.store.list())
 
     def test_provider_exception_is_sanitized_and_retry_does_not_rerun(self):
         calls = []

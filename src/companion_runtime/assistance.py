@@ -104,6 +104,15 @@ def _identifier(value: object) -> str:
     return result
 
 
+def _observation_identifier(value: object) -> str:
+    # Match PerceptionManager's opaque-reference contract, not action IDs.
+    # Do not normalize a reference: it must still identify the exact record
+    # that the host resolved under owner/role/appearance/epoch permissions.
+    if not isinstance(value, str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', value):
+        raise AssistanceError('invalid_identifier')
+    return value
+
+
 def _role(value: object) -> str:
     result = _text(value, 36)
     try:normalized = str(UUID(result))
@@ -335,8 +344,8 @@ class AssistanceStore:
                 or not 0 <= value.captured_at_ms <= 100000000000000):
             raise AssistanceError('invalid_observation')
         description = _text(value.description, 6000, multiline=True)
-        metadata: JsonObject = {'source':'vision_model_observation', 'observation_id':_identifier(value.observation_id),
-                                'session_id':_identifier(value.session_id), 'request_id':_identifier(value.request_id),
+        metadata: JsonObject = {'source':'vision_model_observation', 'observation_id':_observation_identifier(value.observation_id),
+                                'session_id':_observation_identifier(value.session_id), 'request_id':_observation_identifier(value.request_id),
                                 'role_scope':self.role_scope, 'capture_kind':value.kind, 'processing':value.processing,
                                 'captured_at_ms':value.captured_at_ms, 'source_sha256':value.source_sha256,
                                 'description_sha256':hashlib.sha256(description.encode('utf-8')).hexdigest(),
