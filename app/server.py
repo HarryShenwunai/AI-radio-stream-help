@@ -1830,8 +1830,13 @@ class Handler(BaseHTTPRequestHandler):
             if path=='/api/live2d/runtime':return self.reply(200,live2d_runtime().status())
             if path=='/api/connectors/status':return self.reply(200,integrations().status())
             if path=='/api/room':
-                profile = profile_for_client(catalog().active(), appearance=True)
-                return self.reply(200,{'character':{key:profile.get(key) for key in ('id','appearance_id','appearance')}})
+                with CHARACTER_MUTATION_LOCK:
+                    public_keys = ('id', 'name', 'appearance_id', 'appearance')
+                    profiles = [profile_for_client(p, appearance=True) for p in catalog().list() if not p['archived']]
+                    active = catalog().active()['id']
+                    characters = [{key:p.get(key) for key in public_keys} for p in profiles]
+                    profile = next(p for p in characters if p['id'] == active)
+                return self.reply(200,{'character':profile, 'characters':characters})
             if path=='/api/characters':return self.reply(200,characters_state())
             if path=='/api/characters/assets':
                 query=urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
@@ -1858,7 +1863,7 @@ class Handler(BaseHTTPRequestHandler):
             if not self.authenticated():return self.reply(401, {'error': '请先打开应用。'})
             reader = live2d_runtime().read_core if path == '/live2d-core.js' else live2d_runtime().read_bundle
             return self.reply(200,reader(),'application/javascript')
-        if path not in {'/room.html','/room.js','/room.css','/live-stage.html','/live-stage.js','/live-stage.css','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
+        if path not in {'/room.html','/room.js','/room-design.js','/room.css','/live-stage.html','/live-stage.js','/live-stage.css','/index.html','/app.js','/style.css','/avatar.svg','/characters.js','/desktop.js','/desktop.css','/vrm-renderer.js','/voice-input.js','/live2d-renderer.js','/connectors-ui.js','/playback-receipts.js',
                         '/study-session.js','/study-room.js','/study-room.css','/ui-kit.js','/companion-core.js','/scene-controller.js','/stage-actions.js','/speech-controller.js','/conversation-view.js','/studio.js','/connection-flow.js','/sound-flow.js','/privacy-flow.js','/assistance-view.js',
                         '/layered-2d-renderer.js','/scene-morning.png','/scene-forest.png','/scene-evening.png'}:return self.reply(404,b'Not found','text/plain')
         file=STATIC/path.lstrip('/')
