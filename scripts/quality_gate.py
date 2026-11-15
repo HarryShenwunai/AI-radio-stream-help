@@ -78,6 +78,7 @@ def main():
         ("critical-lint", [sys.executable, "-m", "ruff", "check", "app", "src", "scripts", "tests", "plugins", "desktop"]),
         ("strict-core-types", [sys.executable, "-m", "mypy", "--python-executable", args.test_python]),
         ("architecture", [sys.executable, "scripts/check_architecture.py"]),
+        ("ui-copy-and-preview-boundaries", [sys.executable, "scripts/check_ui_copy.py"]),
         ("architecture-negative-fixtures", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", "test_architecture_rules.py", "-v"]),
     ]
     if args.full:

@@ -9,7 +9,7 @@ window.CompanionPrivacy=(()=>{
    cleanup=stop;
    function render(){stop();frame.body.replaceChildren();if(page!=='choose')frame.body.append(button('返回权限选择',{icon:'chevron',variant:'back-button',action:()=>{page='choose';render();}}));
     if(page==='choose'){
-     frame.body.append(el('p','flow-lead','让陪伴有边界，也让每一次分享有明确用途。'));const grid=el('div','choice-grid');
+     const grid=el('div','choice-grid');
      for(const [key,title,icon]of[['memory','对话中的记忆','spark'],['vision','一起看看屏幕或相机','vision'],['tracking','本机面部方向跟随','person'],['data','资料与备份','download']])grid.append(button(title,{icon,variant:'choice-card',action:()=>{page=key;render();}}));frame.body.append(grid,hint('视觉只在你选源、预览并确认分享后处理。关闭此层会停止来源，应用不保存画面。'));return;
     }
     if(page==='tracking'){openTracking();return;}

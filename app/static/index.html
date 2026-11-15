@@ -10,13 +10,12 @@
   <div class="study-desk-heading"><h2>本次学习</h2></div>
   <section class="study-focus-card" aria-label="专注计时">
    <div class="study-card-top"><span id="study-state" role="status">准备开始</span></div>
-   <label for="study-goal" class="study-label">本轮目标</label><input id="study-goal" maxlength="180" placeholder="例如：理解导数定义，完成 3 道例题" autocomplete="off">
+   <label for="study-goal" class="study-label">本轮目标</label><input id="study-goal" maxlength="180" autocomplete="off">
    <div class="study-time-row"><output id="study-timer" aria-label="剩余时间" aria-live="off">25:00</output><div class="study-durations" role="group" aria-label="专注时长"><button type="button" data-study-duration="15" aria-pressed="false">15 分</button><button type="button" data-study-duration="25" aria-pressed="true">25 分</button><button type="button" data-study-duration="50" aria-pressed="false">50 分</button></div></div>
    <progress id="study-progress" value="0" max="1500000" aria-label="本轮进度"></progress><p id="study-guidance">填写目标后开始计时。</p>
    <div class="study-session-actions"><button id="study-main" type="button">开始专注</button><button id="study-finish" type="button" hidden>提前结束</button></div>
   </section>
-  <section class="study-plan-card" aria-label="学习路径"><div class="study-plan-heading"><h3>参考步骤</h3><label class="sr-only" for="study-kind">学习方式</label><select id="study-kind"><option value="read">阅读理解</option><option value="practice">练习巩固</option><option value="write">写作输出</option></select></div>
-   <label class="study-step"><input id="study-step-0" type="checkbox"><span id="study-step-label-0"></span></label><label class="study-step"><input id="study-step-1" type="checkbox"><span id="study-step-label-1"></span></label><label class="study-step"><input id="study-step-2" type="checkbox"><span id="study-step-label-2"></span></label>
+  <section class="study-plan-card" aria-label="学习路径"><div class="study-plan-heading"><h3>学习记录</h3><label class="sr-only" for="study-kind">学习方式</label><select id="study-kind"><option value="read">阅读理解</option><option value="practice">练习巩固</option><option value="write">写作输出</option></select></div>
    <div class="study-ai-actions"><button id="study-ai-plan" type="button">拟定计划问题</button><button id="study-ai-review" type="button">拟定复盘问题</button></div><p id="study-ai-state"></p>
   </section>
   <div class="study-session-footer"><span id="study-summary">0 轮完成 · 0 分钟已记录</span><button id="study-clear" type="button">清空本页记录</button></div>

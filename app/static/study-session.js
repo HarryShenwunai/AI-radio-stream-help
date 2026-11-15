@@ -42,8 +42,8 @@
   if(e.type==='clear')return fresh();
   return s;
  }
- function steps(kind){return ({read:['圈出本节的核心问题','用自己的话解释关键概念','不看资料，复述并标记疑点'],practice:['独立完成一组题目','对照思路，定位错误原因','重做错题，记录一个规律'],write:['写下论点与三个支撑点','完成一版连续草稿','检查逻辑、证据与表达']})[kind]||steps('read');}
- function prompt(s,mode){const goal=s.goal.trim();if(!goal)return '';return mode==='review'?`请协助我复盘学习目标「${goal}」。本轮实际计时 ${Math.floor(s.elapsed/60000)} 分钟，完成步骤 ${s.checked.filter(Boolean).length}/3。先问我学会了什么、哪里仍困惑，再给出下一轮建议；不要假设我已掌握。`:`我的本轮学习目标是「${goal}」，可用 ${s.minutes} 分钟。请给出三个具体可执行步骤和一个检验理解的问题。缺少教材或题目时请明确询问，不要编造材料内容。`;}
+
+ function prompt(s,mode){const goal=s.goal.trim();if(!goal)return '';return mode==='review'?`请协助我复盘学习目标「${goal}」。本轮实际计时 ${Math.floor(s.elapsed/60000)} 分钟。先问我学会了什么、哪里仍困惑，再给出下一轮建议；不要假设我已掌握。`:`我的本轮学习目标是「${goal}」，可用 ${s.minutes} 分钟。请给出三个具体可执行步骤和一个检验理解的问题。缺少教材或题目时请明确询问，不要编造材料内容。`;}
  // Preserve user material byte-for-byte; never truncate it to make room for a helper.
  function draft(existing,instruction,limit=4000){
   if(!instruction)return {text:existing,status:'unchanged'};
@@ -51,5 +51,5 @@
   const text=existing+(existing?'\n\n':'')+instruction;
   return text.length<=limit?{text,status:'added'}:{text:existing,status:'full'};
  }
- const api=Object.freeze({fresh,restore,reduce,steps,prompt,draft});if(typeof module==='object'&&module.exports)module.exports=api;else root.StudySession=api;
+ const api=Object.freeze({fresh,restore,reduce,prompt,draft});if(typeof module==='object'&&module.exports)module.exports=api;else root.StudySession=api;
 })(typeof window==='object'?window:globalThis);
