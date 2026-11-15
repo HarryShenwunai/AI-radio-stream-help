@@ -22,6 +22,7 @@ window.CompanionContacts=(()=>{
     }
     const bili=status?.bili||{},output=status?.live_output||{},jobs=output.jobs||[];
     const states={generating:'正在准备',review:'待确认',synthesizing:'合成语音中',ready:'等待播放',claimed:'等待播放',playing:'本机播放中',completed:'已播完',cancelled:'已停止',expired:'已过期',failed:'播放失败'};
+    const notPlayed={insufficient_playback_budget:'剩余时限不足，未播放',invalid_audio:'音频无效，未播放'};
     const connection=el('div','live-connection'),label=el('span','live-connection-state',({connected:'B站已连接',starting:'正在连接',authenticating:'正在验证',reconnecting:'正在重连',stopped:'未连接',not_connected:'未连接','local-test-fixture':'测试环境',local_rehearsal:'本地演练 · 非真实弹幕'})[bili.state||'not_connected']||'连接异常');
     label.dataset.connected=String(bili.state==='connected');connection.append(label,button('刷新',{variant:'live-quiet',action:async()=>{try{await refresh();}catch(cause){if(alive())error(issue,cause.message);}}}));frame.body.append(connection,issue);
     const toolbar=el('div','live-toolbar'),outputLink=el('div','live-output-link');
@@ -54,7 +55,7 @@ window.CompanionContacts=(()=>{
 
     for(const reply of [...jobs].reverse().slice(0,10)){
      const article=el('article','live-answer');article.dataset.state=reply.state;article.dataset.jobId=reply.id;
-     const line=el('div','live-answer-heading');line.append(el('span','live-state',states[reply.state]||'待核实'));article.append(line,el('h3','live-question-title',reply.question||'观众提问'));
+     const line=el('div','live-answer-heading'),stateLabel=reply.state==='failed'&&Object.prototype.hasOwnProperty.call(notPlayed,reply.failure_reason)?notPlayed[reply.failure_reason]:states[reply.state]||'待核实';line.append(el('span','live-state',stateLabel));article.append(line,el('h3','live-question-title',reply.question||'观众提问'));
      if(reply.text)article.append(el('p','live-answer-text',reply.text));
      if(reply.state==='review'&&!output.host_talking)article.append(workButton('播放这条回答',{icon:'volume',variant:'live-primary',action:async()=>{if(!confirm('将播放这条回答的字幕和语音。若输出窗口被OBS采集，内容将进入直播。确认播放？'))return;try{await core.api('connectors/bili/approve',{id:reply.id,confirm_output:true});if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}},'job:'+reply.id));
      workspace.append(article);

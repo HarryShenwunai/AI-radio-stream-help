@@ -94,3 +94,18 @@ test('unchanged core snapshot does not remove keyboard focus; changed action use
  const replacement=h.button('播放这条回答');assert.ok(replacement);assert.equal(h.focused,replacement);
  h.emit('change',{state:{live_output:{...base,revision:3,jobs:[{...base.jobs[0],state:'playing'}]}}});assert.equal(h.button('播放这条回答'),undefined);assert.ok(h.button('停止播放'));assert.equal(h.focused,h.button('停止播放'));
 });
+
+
+test('pre-playback failures use only approved reason labels without exposing internal codes',async()=>{
+ for(const [state,reason,label] of [
+  ['failed','insufficient_playback_budget','剩余时限不足，未播放'],
+  ['failed','invalid_audio','音频无效，未播放'],
+  ['failed','private-provider-error','播放失败'],
+  ['failed','__proto__','播放失败'],
+  ['failed','constructor','播放失败'],
+  ['playing','insufficient_playback_budget','本机播放中']
+ ]){
+  const h=harness(async()=>({live_output:{jobs:[{id:'reason',state,failure_reason:reason,question:'question'}]}}));await h.open('bili');
+  const rendered=h.nodes().filter(n=>n.className==='live-state');assert.equal(rendered.length,1);assert.equal(rendered[0].textContent,label);assert.equal(h.nodes().some(n=>n.textContent===reason),false);
+ }
+});
