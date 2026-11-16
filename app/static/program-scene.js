@@ -4,7 +4,12 @@
 window.ProgramScene=(()=>{
  function create({call,container,image,onState}){
   let current=null,serial=0,disposed=false,resources=new Map(),urls=new Map(),loading=null;
-  const nonce=document.querySelector('script[data-program-loader]').nonce;
+  const nonce=document.querySelector('script[data-program-loader]').nonce,surface=document.querySelector('#program');
+  function present(snapshot){
+   const layout=Object.hasOwn(snapshot,'layout')?snapshot.layout:'right',theme=Object.hasOwn(snapshot,'theme')?snapshot.theme:'carbon';
+   if(!['right','left','small'].includes(layout)||!['carbon','midnight','daylight'].includes(theme)||Object.hasOwn(snapshot,'showCaption'))throw Error('节目布置不受支持。');
+   surface.dataset.layout=layout;surface.dataset.theme=theme;
+  }
   const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
   async function checked(action,name,descriptor,own){
    const blob=await call(action,{revision:current.sha256,name},true),bytes=await blob.arrayBuffer();
@@ -20,10 +25,10 @@ window.ProgramScene=(()=>{
   };
   const api=async path=>{if(path!=='live2d/runtime')throw Error('未允许的节目接口。');return {available:current?.runtime_available===true,core_url:'/live2d-core.js',runtime_url:'/live2d-runtime.js'};};
   const scene=CompanionScene.create({container,image,api,transport,onState});scene.setExpanded(false);
-  function clear(){serial++;loading=null;scene.clear();for(const url of urls.values())URL.revokeObjectURL(url);urls.clear();resources.clear();current=null;}
+  function clear(){serial++;loading=null;scene.clear();for(const url of urls.values())URL.revokeObjectURL(url);urls.clear();resources.clear();current=null;delete surface.dataset.layout;delete surface.dataset.theme;}
   async function sync(snapshot){
    if(disposed)return false;if(current?.sha256===snapshot?.sha256)return loading||scene.ready;
-   clear();if(!snapshot)return false;current=structuredClone(snapshot);const own=serial,asset=current.asset;
+   clear();if(!snapshot)return false;present(snapshot);current=structuredClone(snapshot);const own=serial,asset=current.asset;
    if(asset&&!['live2d','png','png-states'].includes(asset.format||'png'))throw Error('此节目暂不支持该形象格式。');
    for(const item of [...Object.values(asset?.states||{}),...Object.values(asset?.resources||{}),asset?.model].filter(Boolean))resources.set(new URL(item.url,location.href).href,item);
    loading=(async()=>{

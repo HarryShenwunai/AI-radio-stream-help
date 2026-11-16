@@ -5,6 +5,15 @@ window.CompanionContacts=(()=>{
   async function open(){const stamp=core.scope(),frame=ui.panel('平台连接',{id:'contacts'});let page='choose',status=null,token='',closed=false,materialDraft=null,materialInput=null,materialConsent=null,contextDraft=null,contextInput=null,contextMode=null,contextConsent=null,refreshVersion=0,outputPath='';const running=new Set();let paintOutput=null,unsubscribe=null,invalidate=null,channel=null;const retiredSessions=new Set();
    const alive=()=>!closed&&core.current(stamp)&&ui.active==='contacts';const issue=el('p','inline-error');issue.hidden=true;
    function captureMaterial(){if(contextInput)contextDraft={text:contextInput.value,strict:contextMode.checked,consent:contextConsent.checked};if(materialInput)materialDraft={text:materialInput.value,consent:materialConsent.checked};}
+   function appliedPresentation(){
+    const raw=localStorage.getItem('room-settings:'+stamp.character_id);if(!raw)return {};
+    let saved;try{saved=JSON.parse(raw);}catch{throw Error('无法读取已应用布置，请重新应用场景。');}
+    const value=saved?.config;if(value?.applied!==true)return {};
+    if(value.version!==1||value.characterId!==stamp.character_id)throw Error('请在场景样稿选择当前人物并重新应用。');
+    if(!['right','left','small'].includes(value.layout)||!['carbon','midnight','daylight'].includes(value.theme))throw Error('已应用布置无效，请重新应用场景。');
+    if(value.showCaption===false)throw Error('节目需要完整字幕，请启用字幕后重新应用。');
+    return {presentation:{layout:value.layout,theme:value.theme}};
+   }
    async function refresh(){captureMaterial();const version=++refreshVersion,next=await core.api('connectors/status');if(alive()&&version===refreshVersion){const previous=status?.live_output;status={...next,live_output:previous};latestOutput(next.live_output);render(false);}}
    function stopUpdates(){unsubscribe?.();invalidate?.();unsubscribe=invalidate=null;channel?.close();channel=null;paintOutput=null;}
    function latestOutput(next){const previous=status?.live_output;if(!next||typeof next!=='object'||retiredSessions.has(next.session))return false;if(previous?.session&&next.session&&previous.session!==next.session)retiredSessions.add(previous.session);if(previous?.session===next.session&&Number.isSafeInteger(previous?.revision)&&Number.isSafeInteger(next.revision)&&next.revision<=previous.revision)return false;status={...status,live_output:{...previous,...next}};return true;}
@@ -28,7 +37,7 @@ window.CompanionContacts=(()=>{
     const toolbar=el('div','live-toolbar'),outputLink=el('div','live-output-link');
     function showOutputLink(){outputLink.replaceChildren();if(!outputPath)return;const link=el('a','','打开输出窗口 ↗');link.href=outputPath;link.target='_blank';link.rel='noopener';outputLink.replaceChildren(link);}
     if(!output.output_open)outputPath='';showOutputLink();
-    const stopOutput=button('停止播放',{icon:'stop',variant:'live-stop',action:async()=>{try{await core.api('connectors/bili/output/stop',{});outputPath='';if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}});toolbar.append(button('输出窗口',{icon:'screen',action:async()=>{try{const result=await core.api('connectors/bili/output/open',{});if(!alive())return;outputPath=result.path;showOutputLink();}catch(cause){if(alive())error(issue,cause.message);}}}),stopOutput);
+    const stopOutput=button('停止播放',{icon:'stop',variant:'live-stop',action:async()=>{try{await core.api('connectors/bili/output/stop',{});outputPath='';if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}});toolbar.append(button('输出窗口',{icon:'screen',action:async()=>{try{const result=await core.api('connectors/bili/output/open',appliedPresentation());if(!alive())return;outputPath=result.path;showOutputLink();}catch(cause){if(alive())error(issue,cause.message);}}}),stopOutput);
     const talking=button(output.host_talking?'结束讲解':'主播讲解中',{action:async()=>{try{await core.api('connectors/bili/context',{host_talking:!status?.live_output?.host_talking});outputPath='';if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}});toolbar.append(talking);
     const roomLink=el('a','','本地场景样稿 ↗');roomLink.href='/room.html';roomLink.target='_blank';roomLink.rel='noopener';toolbar.append(roomLink);
     frame.body.append(toolbar,outputLink);

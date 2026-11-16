@@ -80,6 +80,28 @@ class ProgramOutputHTTPTests(unittest.TestCase):
                 output.cancel()
                 self.token = self.f.post('connectors/bili/output/open', {})['path'].split('#')[1]
 
+    def test_explicit_output_presentation_is_validated_frozen_and_hashed(self):
+        original=json.loads(self.output('scene')[1])['scene_snapshot']
+        self.f.post('connectors/bili/output/stop', {})
+        opened=self.f.post('connectors/bili/output/open', {'presentation':{'layout':'left','theme':'midnight'}})
+        self.token=opened['path'].split('#')[1]
+        scene=json.loads(self.output('scene')[1])['scene_snapshot']
+        self.assertEqual((scene['layout'],scene['theme']),('left','midnight'))
+        self.assertEqual(scene['character_id'],original['character_id'])
+        self.assertEqual(scene['appearance_id'],original['appearance_id'])
+        self.assertNotEqual(scene['sha256'],original['sha256'])
+        self.assertEqual(self.f.post('connectors/bili/output/open', {})['path'],opened['path'])
+        self.f.post('connectors/bili/output/open', {'presentation':{'layout':'small','theme':'daylight'}},expected=409)
+        self.assertEqual(json.loads(self.output('scene')[1])['scene_snapshot']['sha256'],scene['sha256'])
+        self.assertEqual(self.f.post('connectors/bili/output/open', {'presentation':{'layout':'left','theme':'midnight'}})['path'],opened['path'])
+
+    def test_invalid_presentation_cannot_revoke_or_replace_open_output(self):
+        before=json.loads(self.output('scene')[1])['scene_snapshot']
+        for value in (None,False,[],{'layout':'mirror'},{'layout':False},{'layout':[]},{'theme':False},{'theme':'url(private)'},{'character_id':self.f.initial_id},{'showCaption':False}):
+            with self.subTest(value=value):
+                self.f.post('connectors/bili/output/open',{'presentation':value},expected=400)
+                self.assertEqual(json.loads(self.output('scene')[1])['scene_snapshot']['sha256'],before['sha256'])
+
     def test_scene_and_every_output_response_use_explicit_public_fields(self):
         job = self.ready()
         for action, payload in [('scene', {}), ('poll', {}), ('receipt', {'id':job['id'], 'state':'playing'}), ('receipt', {'id':job['id'], 'state':'completed'})]:
