@@ -83,4 +83,35 @@ class ComputeRuntimeTests(unittest.TestCase):
         self.assertEqual(len(self.calls), 1)
 
 
+    def test_same_path_weight_replacement_rebuilds_cached_instance(self):
+        first=self.app.load_model();identity=self.app.LOCAL_LLM_IDENTITY
+        self.app.MODEL.write_bytes(b'different model bytes at the same path')
+        second=self.app.load_model()
+        self.assertIsNot(second,first);self.assertTrue(first.closed)
+        self.assertNotEqual(self.app.LOCAL_LLM_IDENTITY,identity)
+        self.assertIs(self.app.load_model(),second);self.assertEqual(len(self.calls),2)
+
+    def test_mid_constructor_replacement_closes_candidate_without_publishing_and_retry_recovers(self):
+        original=self.module.Llama
+        def changing_load(**args):
+            candidate=original(**args);self.app.MODEL.write_bytes(b'changed during model constructor');return candidate
+        self.module.Llama=changing_load
+        with self.assertRaises(self.app.AppError) as caught:self.app.load_model()
+        self.assertEqual(caught.exception.status,409);self.assertIsNone(self.app.LOCAL_LLM)
+        self.assertIsNone(self.app.LOCAL_LLM_IDENTITY);self.assertIsNone(self.app.LOCAL_LLM_CONFIG)
+        self.assertTrue(self.models[0].closed)
+        self.module.Llama=original;second=self.app.load_model()
+        self.assertIs(self.app.LOCAL_LLM,second);self.assertEqual(self.app.LOCAL_LLM_IDENTITY,self.app._local_model_identity())
+
+    def test_failed_gpu_fallback_rechecks_identity_before_publication(self):
+        original=self.module.Llama;self.fail_gpu=True
+        self.app.set_settings({'local_compute':'cuda'})
+        def changing_cpu(**args):
+            candidate=original(**args);self.app.MODEL.write_bytes(b'changed during CPU fallback constructor');return candidate
+        self.module.Llama=changing_cpu
+        with self.assertRaises(self.app.AppError):self.app.load_model()
+        self.assertEqual([row['n_gpu_layers'] for row in self.calls],[20,0])
+        self.assertTrue(self.models[0].closed);self.assertIsNone(self.app.LOCAL_LLM_IDENTITY)
+
+
 if __name__ == '__main__':unittest.main()
