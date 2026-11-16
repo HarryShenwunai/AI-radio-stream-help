@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#394240;color:#fff;font:14px system-ui}#stage{width:720px;height:876px}canvas{display:block}#label{height:30px;padding:6px 10px;box-sizing:border-box}</style>
+<div id="stage"></div><div id="label">完整Adapter · 原R3 · 自然Idle续播</div>
+<script src="/owned/core.js"></script><script src="/owned/runtime.js"></script><script src="/adapter.js"></script>
+<script>
+(async()=>{
+ window.adapterErrors=[];window.adapterEvents=[];window.adapterSamples=[];window.rendererVersion=CompanionLive2D.version;
+ const fault=new URL(location.href).searchParams.get('fault')==='1',original=CompanionLive2DRuntime.Live2DModel.from;
+ CompanionLive2DRuntime.Live2DModel.from=async(...args)=>{const model=await original.apply(CompanionLive2DRuntime.Live2DModel,args);window.probeSdkModel=model;if(fault){const manager=model.internalModel.motionManager,load=manager.loadMotion.bind(manager),seen=new WeakSet();manager.loadMotion=async(...args)=>{const motion=await load(...args);if(motion&&!seen.has(motion)){seen.add(motion);motion._motionData.curves.push({type:1,id:'invalid-tail-fixture'});}return motion;};}return model;};
+ window.adapter=CompanionLive2D.create({container:document.getElementById('stage'),onError:error=>adapterErrors.push(String(error)),onStats:row=>adapterEvents.push({at:performance.now(),...row})});
+ adapter.setExpanded(false); // Match ProgramScene's existing 30fps viewer policy.
+ const asset=await fetch('/fixture.json').then(r=>r.json());window.adapterLoaded=await adapter.load(asset);window.probeReady=true;
+ if(fault)return;
+ const started=performance.now();let last=-1;window.probeStop=false;
+ function sample(){if(probeStop)return;const stats=adapter.getStats();if(stats.frames!==last){last=stats.frames;const d=adapter.getDiagnostics();adapterSamples.push({at:performance.now()-started,frames:stats.frames,state:stats.state,ownership:d.ownership,parameters:Object.fromEntries(d.parameters.filter(p=>['ParamEyeLOpen','ParamEyeROpen','ParamBreath','ParamAngleZ','ParamBodyAngleX','ParamMouthOpenY','ParamCupVisible','ParamCupLower'].includes(p.id)).map(p=>[p.id,p.value]))});}requestAnimationFrame(sample);}requestAnimationFrame(sample);
+})().catch(error=>{window.probeFailure=String(error);});
+</script>
