@@ -174,3 +174,100 @@ test('restart cannot overtake an in-flight stop and no late stop response refres
  await h.button('重新准备').onclick();assert.equal(h.calls.filter(c=>c.path.endsWith('/rehearsal')).length,0);
  snapshot={bili:{state:'not_connected'},preparation:{state:'cancelled',revision:2}};stop.resolve({});await stopping;assert.equal(h.button('本地演练').disabled,false);
 });
+
+function failedActionSnapshot(kind,session='failure-session',revision=1,state=null){
+ const job={id:'failed-action',event_id:'incoming',room_id:'local',question:'Actual question',text:'Actual reply',state:state||(kind==='approve'?'review':'generating')};
+ return {bili:{state:'local_rehearsal'},preparation:{state:'ready',revision:1},public_events:[{event_id:'incoming',room_id:'local',text:'Actual question'}],live_output:{session,revision,output_open:true,jobs:kind==='reply'&&revision===1?[]:[job]}};
+}
+function stateLabel(h){return h.nodes().find(n=>n.className==='live-state')?.textContent;}
+function actionFailureHarness(kind,{readFailure=false}={}){
+ const action=deferred();let snapshot=failedActionSnapshot(kind),reads=0;
+ const h=harness(async path=>{
+  if(path==='connectors/bili/'+kind)return action.promise;
+  if(path==='connectors/status'){reads++;if(readFailure&&reads>1)throw Error('secondary refresh failed');return snapshot;}
+  return {};
+ });
+ return {h,action,setSnapshot:v=>{snapshot=v;},get reads(){return reads;}};
+}
+for(const kind of ['approve','reply'])test(`completed ${kind} failure rereads authority once and preserves draft inputs and focus`,async()=>{
+ const f=actionFailureHarness(kind),h=f.h;await h.open('bili');
+ const message=h.field('模拟观众消息'),material=h.field('本场公开教材'),context=h.field('本场公开背景');
+ message.value='UNSENT_MESSAGE';material.value='UNSENT_MATERIAL';context.value='UNSENT_CONTEXT';message.focus();
+ const operation=h.button(kind==='approve'?'播放这条回答':'准备回答').onclick();
+ const progress=failedActionSnapshot(kind,'failure-session',2,kind==='approve'?'synthesizing':'generating');h.emit('change',{state:{live_output:progress.live_output}});
+ const failed=failedActionSnapshot(kind,'failure-session',3,'failed');if(kind==='approve')failed.live_output.jobs[0].failure_reason='insufficient_playback_budget';f.setSnapshot(failed);
+ f.action.reject(Error('Original action failure'));await operation;
+ assert.equal(stateLabel(h),kind==='approve'?'剩余时限不足，未播放':'播放失败');assert.equal(f.reads,2);
+ assert.equal(h.nodes().find(n=>n.className==='inline-error').textContent,'Original action failure');
+ assert.equal(h.field('模拟观众消息'),message);assert.equal(message.value,'UNSENT_MESSAGE');assert.equal(h.focused,message);
+ assert.equal(h.field('本场公开教材'),material);assert.equal(material.value,'UNSENT_MATERIAL');assert.equal(h.field('本场公开背景'),context);assert.equal(context.value,'UNSENT_CONTEXT');
+ assert.equal(h.calls.filter(c=>c.path==='connectors/bili/'+kind).length,1);assert.equal(h.calls.filter(c=>c.data).length,1);
+});
+
+test('existing manual status refresh projects a failed budget state without changing labels',async()=>{
+ const f=actionFailureHarness('approve'),h=f.h;await h.open('bili');const operation=h.button('播放这条回答').onclick();
+ h.emit('change',{state:{live_output:failedActionSnapshot('approve','failure-session',2,'synthesizing').live_output}});
+ const failed=failedActionSnapshot('approve','failure-session',3,'failed');failed.live_output.jobs[0].failure_reason='insufficient_playback_budget';f.setSnapshot(failed);
+ f.action.reject(Error('Budget failure'));await operation;await h.button('刷新').onclick();assert.equal(stateLabel(h),'剩余时限不足，未播放');
+});
+
+test('failed status reread keeps the original action error and never retries a write',async()=>{
+ const f=actionFailureHarness('approve',{readFailure:true}),h=f.h;await h.open('bili');const operation=h.button('播放这条回答').onclick();
+ f.action.reject(Error('Original budget failure'));await operation;
+ assert.equal(f.reads,2);assert.equal(h.nodes().find(n=>n.className==='inline-error').textContent,'Original budget failure');
+ assert.equal(h.calls.filter(c=>c.data).length,1);assert.equal(stateLabel(h),'待确认');
+});
+
+test('old action failure after session changes does not request or paint another session',async()=>{
+ const f=actionFailureHarness('approve'),h=f.h;await h.open('bili');const operation=h.button('播放这条回答').onclick();
+ h.emit('change',{state:{live_output:failedActionSnapshot('approve','next-session',1,'playing').live_output}});
+ f.action.reject(Error('Old failure'));await operation;
+ assert.equal(f.reads,1);assert.equal(stateLabel(h),'本机播放中');assert.equal(h.nodes().find(n=>n.className==='inline-error').textContent,'');
+});
+
+test('a late failed-action status response cannot overwrite a new session',async()=>{
+ const action=deferred(),read=deferred();let reads=0;const h=harness(path=>path==='connectors/bili/approve'?action.promise:path==='connectors/status'?(++reads===1?Promise.resolve(failedActionSnapshot('approve')):read.promise):Promise.resolve({}));
+ await h.open('bili');const operation=h.button('播放这条回答').onclick();action.reject(Error('Original failure'));await tick();assert.equal(reads,2);
+ h.emit('change',{state:{live_output:failedActionSnapshot('approve','new-session',1,'playing').live_output}});
+ read.resolve(failedActionSnapshot('approve','failure-session',3,'failed'));await operation;
+ assert.equal(stateLabel(h),'本机播放中');assert.equal(h.calls.filter(c=>c.data).length,1);
+});
+
+test('role change before action rejection does not start a recovery read',async()=>{
+ const f=actionFailureHarness('reply'),h=f.h;await h.open('bili');const operation=h.button('准备回答').onclick();
+ h.changeRole('role-b');f.action.reject(Error('Old role failure'));await operation;assert.equal(f.reads,1);assert.equal(h.calls.filter(c=>c.data).length,1);
+});
+
+test('failure reconciliation ignores a lower revision after a newer owner update',async()=>{
+ const action=deferred(),read=deferred();let reads=0;const h=harness(path=>path==='connectors/bili/approve'?action.promise:path==='connectors/status'?(++reads===1?Promise.resolve(failedActionSnapshot('approve')):read.promise):Promise.resolve({}));
+ await h.open('bili');const operation=h.button('播放这条回答').onclick();action.reject(Error('Known failure'));await tick();assert.equal(reads,2);
+ h.emit('change',{state:{live_output:failedActionSnapshot('approve','failure-session',8,'cancelled').live_output}});
+ read.resolve(failedActionSnapshot('approve','failure-session',3,'failed'));await operation;
+ assert.equal(stateLabel(h),'已停止');assert.equal(h.calls.filter(c=>c.data).length,1);
+});
+
+test('newer explicit refresh wins over an older failed-action recovery read',async()=>{
+ const action=deferred(),oldRead=deferred();let reads=0;const h=harness(path=>path==='connectors/bili/approve'?action.promise:path==='connectors/status'?(++reads===1?Promise.resolve(failedActionSnapshot('approve')):reads===2?oldRead.promise:Promise.resolve(failedActionSnapshot('approve','failure-session',9,'completed'))):Promise.resolve({}));
+ await h.open('bili');const operation=h.button('播放这条回答').onclick();action.reject(Error('Known failure'));await tick();assert.equal(reads,2);
+ await h.button('刷新').onclick();oldRead.resolve(failedActionSnapshot('approve','failure-session',3,'failed'));await operation;
+ assert.equal(stateLabel(h),'已播完');assert.equal(h.calls.filter(c=>c.data).length,1);
+});
+
+test('stop attempt revokes recovery before stop response returns',async()=>{
+ const action=deferred(),stop=deferred();let reads=0;const h=harness(path=>path==='connectors/bili/approve'?action.promise:path==='connectors/bili/stop'?stop.promise:path==='connectors/status'?(++reads,Promise.resolve(failedActionSnapshot('approve'))):Promise.resolve({}));
+ await h.open('bili');const operation=h.button('播放这条回答').onclick(),stopping=h.button('结束演练').onclick();
+ action.reject(Error('Old completed failure'));await operation;assert.equal(reads,1);assert.equal(h.nodes().find(n=>n.className==='inline-error').textContent,'');
+ stop.resolve({});await stopping;assert.equal(h.calls.filter(c=>c.path==='connectors/bili/approve').length,1);
+});
+
+test('an in-flight recovery cannot paint after a stop attempt begins',async()=>{
+ const action=deferred(),read=deferred(),stop=deferred();let reads=0;const h=harness(path=>path==='connectors/bili/approve'?action.promise:path==='connectors/bili/stop'?stop.promise:path==='connectors/status'?(++reads===1?Promise.resolve(failedActionSnapshot('approve')):reads===2?read.promise:Promise.resolve(failedActionSnapshot('approve','stopped-session',1,'cancelled'))):Promise.resolve({}));
+ await h.open('bili');const operation=h.button('播放这条回答').onclick();action.reject(Error('Known failure'));await tick();assert.equal(reads,2);
+ const stopping=h.button('结束演练').onclick();read.resolve(failedActionSnapshot('approve','failure-session',3,'failed'));await operation;
+ assert.equal(stateLabel(h),'待确认');stop.resolve({});await stopping;assert.equal(stateLabel(h),'已停止');assert.equal(h.calls.filter(c=>c.path==='connectors/bili/approve').length,1);
+});
+
+test('successful action followed by a failed existing refresh is not retried by failure reconciliation',async()=>{
+ let reads=0;const h=harness(async path=>{if(path==='connectors/bili/approve')return {};if(path==='connectors/status'){if(++reads>1)throw Error('Status read failed');return failedActionSnapshot('approve');}return {};});
+ await h.open('bili');await h.button('播放这条回答').onclick();assert.equal(reads,2);assert.equal(h.nodes().find(n=>n.className==='inline-error').textContent,'Status read failed');assert.equal(h.calls.filter(c=>c.data).length,1);
+});

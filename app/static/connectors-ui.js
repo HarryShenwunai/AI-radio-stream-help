@@ -15,6 +15,10 @@ window.CompanionContacts=(()=>{
     return {presentation:{layout:value.layout,theme:value.theme}};
    }
    async function refresh(){captureMaterial();const version=++refreshVersion,next=await core.api('connectors/status');if(alive()&&version===refreshVersion){const previous=status?.live_output;status={...next,live_output:previous};latestOutput(next.live_output);render(false);}}
+   function outputActionScope(){return {session:status?.live_output?.session,attempt:preparationAttempt};}
+   function currentOutputAction(scope){return alive()&&scope.attempt===preparationAttempt&&scope.session===status?.live_output?.session;}
+   async function reconcileOutputFailure(cause,scope){if(!currentOutputAction(scope))return;error(issue,cause.message);const version=++refreshVersion;try{const next=await core.api('connectors/status');if(!currentOutputAction(scope)||version!==refreshVersion||next.live_output?.session!==scope.session)return;if(latestOutput(next.live_output))paintOutput?.();}catch{}}
+   async function submitOutput(path,data){const scope=outputActionScope();try{await core.api(path,data);}catch(cause){await reconcileOutputFailure(cause,scope);return;}if(alive())try{await refresh();}catch(cause){if(alive())error(issue,cause.message);}}
    function stopUpdates(){unsubscribe?.();invalidate?.();unsubscribe=invalidate=null;channel?.close();channel=null;paintPreparation=paintOutput=null;}
    function latestPreparation(next){const previous=status?.preparation;if(!next||typeof next!=='object'||!Number.isSafeInteger(next.revision))return false;if(Number.isSafeInteger(previous?.revision)&&next.revision<=previous.revision)return false;status={...status,preparation:next};return true;}
    function runtimeReady(){return !starting&&!locallyStopped&&status?.preparation?.state==='ready';}
@@ -74,10 +78,10 @@ window.CompanionContacts=(()=>{
      const article=el('article','live-answer');article.dataset.state=reply.state;article.dataset.jobId=reply.id;
      const line=el('div','live-answer-heading'),stateLabel=reply.state==='failed'&&Object.prototype.hasOwnProperty.call(notPlayed,reply.failure_reason)?notPlayed[reply.failure_reason]:states[reply.state]||'待核实';line.append(el('span','live-state',stateLabel));article.append(line,el('h3','live-question-title',reply.question||'观众提问'));
      if(reply.text)article.append(el('p','live-answer-text',reply.text));
-     if(reply.state==='review'&&!output.host_talking&&(!['local_rehearsal','local_preparing'].includes(status?.bili?.state)||runtimeReady()))article.append(workButton('播放这条回答',{icon:'volume',variant:'live-primary',action:async()=>{if(!confirm('将播放这条回答的字幕和语音。若输出窗口被OBS采集，内容将进入直播。确认播放？'))return;try{await core.api('connectors/bili/approve',{id:reply.id,confirm_output:true});if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}},'job:'+reply.id));
+     if(reply.state==='review'&&!output.host_talking&&(!['local_rehearsal','local_preparing'].includes(status?.bili?.state)||runtimeReady()))article.append(workButton('播放这条回答',{icon:'volume',variant:'live-primary',action:async()=>{if(!confirm('将播放这条回答的字幕和语音。若输出窗口被OBS采集，内容将进入直播。确认播放？'))return;await submitOutput('connectors/bili/approve',{id:reply.id,confirm_output:true});}},'job:'+reply.id));
      workspace.append(article);
     }
-    for(const item of pending){const question=el('article','live-question');question.append(el('h3','',item.text));if(!output.host_talking&&(!['local_rehearsal','local_preparing'].includes(status?.bili?.state)||runtimeReady()))question.append(workButton('准备回答',{variant:'live-primary',action:async()=>{try{await core.api('connectors/bili/reply',{event_id:item.event_id});if(alive())await refresh();}catch(cause){if(alive())error(issue,cause.message);}}},'event:'+item.event_id));workspace.append(question);}
+    for(const item of pending){const question=el('article','live-question');question.append(el('h3','',item.text));if(!output.host_talking&&(!['local_rehearsal','local_preparing'].includes(status?.bili?.state)||runtimeReady()))question.append(workButton('准备回答',{variant:'live-primary',action:async()=>{await submitOutput('connectors/bili/reply',{event_id:item.event_id});}},'event:'+item.event_id));workspace.append(question);}
     if(!pending.length&&!jobs.length){const empty=el('div','live-empty');empty.append(el('h3','','还没有问题'),el('p','','连接直播间后，选择一条弹幕回应。无需先添加教材。'));workspace.append(empty);}
      if(focusedKey){const replacement=[...workspace.querySelectorAll('button')].find(node=>node.dataset.workKey===focusedKey);(replacement||stopOutput).focus({preventScroll:true});}
     };paintOutput();
