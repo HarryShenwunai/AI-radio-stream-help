@@ -25,6 +25,7 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 from companion_runtime.playback import PlaybackError, PlaybackTracker, context_for, merge_receipts
+from companion_runtime.public_preparation import PublicPreparation
 
 ACTION_ALPHABET = ('playing', 'completed', 'stopped', 'new', 'switch', 'old_end',
                    'bad_nonce', 'bad_scope', 'bad_owner', 'bad_appearance', 'wrong_message')
@@ -107,7 +108,11 @@ class FormalSourceInterleavingTests(unittest.TestCase):
             app.DISPATCH_LOCK = dispatch = _DispatchProbe()
             event = {'source':'bilibili-open-live','room_id':'1','event_id':'formal-event',
                      'text':'public fixture','expires_at':time.monotonic()+60}
+            # Exercise connected-event ingress, not the separately gated local
+            # rehearsal. Keep real preparation cancellation for the private turn;
+            # this fixture does not initialize or claim a ready provider.
             service = types.SimpleNamespace(lock=threading.RLock(), public_generation=None,
+                _rehearsal_requested=False, preparation=PublicPreparation(),
                 public_persona='public-only fixture', public_replies=deque(), public_events=lambda:[event])
             from companion_runtime.live_output import LiveOutput
             service.output = LiveOutput()
@@ -126,7 +131,7 @@ class FormalSourceInterleavingTests(unittest.TestCase):
             pub = threading.Thread(target=public,name='formal-public')
             priv = threading.Thread(target=private,name='formal-private')
             try:
-                pub.start();self.assertTrue(model.checkpoint.wait(4),'Public path missed targeted actual mutex operation')
+                pub.start();self.assertTrue(model.checkpoint.wait(4),f'Public path missed targeted actual mutex operation: {outcomes}')
                 priv.start();self.assertTrue(dispatch.private_attempt.wait(4))
                 if mutate:
                     self.assertTrue(dispatch.private_entered.wait(4),'Negative control failed to expose private entry')
