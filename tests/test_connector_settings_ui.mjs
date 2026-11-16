@@ -7,9 +7,9 @@ function harness(route=async()=>({wechat:{configured:false},bili:{state:'not_con
  const ui={panel(){const node=el('section'),body=el('div');node.append(body);const frame={node,body};frames.push(frame);return frame;},open(node,options){cleanup?.();active=options.id;cleanup=options.onClose;},close(){active=null;cleanup?.();cleanup=null;},notify(){},get active(){return active;}};
  const core={on(type,fn){if(!listeners.has(type))listeners.set(type,new Set());listeners.get(type).add(fn);return()=>listeners.get(type).delete(fn);},refresh:async()=>{calls.push({path:'state'});},scope:()=>({character_id:role,epoch:0}),current:stamp=>stamp.character_id===role,api:async(path,data)=>{calls.push({path,data:data?{...data,expected_character_id:role}:undefined});return route(path,data);}};
  class Channel{constructor(name){this.name=name;this.closed=false;channels.push(this);}close(){this.closed=true;this.onmessage=null;}}
- const context={window:{},BroadcastChannel:Channel,document:{activeElement:null},CompanionUI:kit,confirm:text=>{confirms.push(text);return decision;}};vm.createContext(context);vm.runInContext(fs.readFileSync(process.env.CONNECTOR_UI_SOURCE||new URL('../app/static/connectors-ui.js',import.meta.url),'utf8'),context);const contacts=context.window.CompanionContacts.create({core,ui});
+ const storage=new Map();const context={window:{},localStorage:{getItem:key=>storage.get(key)||null},BroadcastChannel:Channel,document:{activeElement:null},CompanionUI:kit,confirm:text=>{confirms.push(text);return decision;}};vm.createContext(context);vm.runInContext(fs.readFileSync(process.env.CONNECTOR_UI_SOURCE||new URL('../app/static/connectors-ui.js',import.meta.url),'utf8'),context);const contacts=context.window.CompanionContacts.create({core,ui});
  const nodes=()=>frames.length?walk(frames.at(-1).node):[],button=text=>nodes().find(n=>n.tagName==='button'&&n.textContent===text),field=text=>nodes().find(n=>n.tagName==='label'&&n.textContent===text)?.children[0];
- return {contacts,ui,calls,confirms,nodes,button,field,channels,get focused(){return context.document.activeElement;},emit:(type,value)=>{for(const fn of [...(listeners.get(type)||[])])fn(value);},listenerCount:type=>listeners.get(type)?.size||0,setDecision:v=>decision=v,changeRole:v=>{role=v;ui.close();},async open(page){await contacts.open();if(page)button(page==='wechat'?'微信私聊桥接':'哔哩哔哩直播预览').onclick();}};
+ return {contacts,ui,calls,confirms,storage,nodes,button,field,channels,get focused(){return context.document.activeElement;},emit:(type,value)=>{for(const fn of [...(listeners.get(type)||[])])fn(value);},listenerCount:type=>listeners.get(type)?.size||0,setDecision:v=>decision=v,changeRole:v=>{role=v;ui.close();},async open(page){await contacts.open();if(page)button(page==='wechat'?'微信私聊桥接':'哔哩哔哩直播预览').onclick();}};
 }
 test('mount is inert; opening a purpose flow only reads status',async()=>{const h=harness();assert.equal(h.calls.length,0);await h.open();assert.deepEqual(h.calls.map(c=>c.path),['connectors/status']);});
 test('one-time pairing token appears only after configure and clears on close',async()=>{const h=harness(async path=>path.endsWith('/configure')?{pairing_token:'only-once'}:{wechat:{configured:false}});await h.open('wechat');h.field('AstrBot私聊来源').value='origin';await h.button('绑定当前角色').onclick();const token=h.field('本次配对令牌');assert.equal(token.value,'only-once');assert.equal(token.type,'password');h.ui.close();assert.equal(token.value,'');});
@@ -108,4 +108,27 @@ test('pre-playback failures use only approved reason labels without exposing int
   const h=harness(async()=>({live_output:{jobs:[{id:'reason',state,failure_reason:reason,question:'question'}]}}));await h.open('bili');
   const rendered=h.nodes().filter(n=>n.className==='live-state');assert.equal(rendered.length,1);assert.equal(rendered[0].textContent,label);assert.equal(h.nodes().some(n=>n.textContent===reason),false);
  }
+});
+
+test('output uses only explicitly applied same-identity room layout and theme',async()=>{
+ const h=harness(async path=>path.endsWith('/open')?{path:'/live-stage.html#fixture'}:{});
+ h.storage.set('room-settings:role-a',JSON.stringify({config:{version:1,applied:true,characterId:'role-a',layout:'left',theme:'midnight',topic:'PRIVATE_CONFIG_CANARY'},draft:{applied:true,layout:'small',theme:'daylight',caption:'PRIVATE_DRAFT_CANARY'}}));
+ await h.open('bili');await h.button('输出窗口').onclick();
+ const call=h.calls.find(c=>c.path.endsWith('/output/open'));assert.equal(JSON.stringify(call.data),JSON.stringify({presentation:{layout:'left',theme:'midnight'},expected_character_id:'role-a'}));
+ assert.ok(!JSON.stringify(call).includes('CANARY'));
+});
+test('unapplied drafts do not affect an explicitly opened output',async()=>{
+ const h=harness(async path=>path.endsWith('/open')?{path:'/live-stage.html#fixture'}:{});
+ h.storage.set('room-settings:role-a',JSON.stringify({config:{version:1,applied:false,characterId:'role-a',layout:'left',theme:'midnight'},draft:{applied:true,layout:'small',theme:'daylight'}}));
+ await h.open('bili');await h.button('输出窗口').onclick();
+ assert.equal(JSON.stringify(h.calls.find(c=>c.path.endsWith('/output/open')).data),JSON.stringify({expected_character_id:'role-a'}));
+});
+test('another preview identity is never silently published as the current output',async()=>{
+ const h=harness();h.storage.set('room-settings:role-a',JSON.stringify({config:{version:1,applied:true,characterId:'role-b',layout:'left',theme:'midnight'}}));
+ await h.open('bili');await h.button('输出窗口').onclick();assert.equal(h.calls.filter(c=>c.path.endsWith('/output/open')).length,0);
+});
+
+test('an applied hidden-caption design is rejected instead of silently hiding output',async()=>{
+ const h=harness();h.storage.set('room-settings:role-a',JSON.stringify({config:{version:1,applied:true,characterId:'role-a',layout:'left',theme:'midnight',showCaption:false}}));
+ await h.open('bili');await h.button('输出窗口').onclick();assert.equal(h.calls.filter(c=>c.path.endsWith('/output/open')).length,0);
 });

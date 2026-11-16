@@ -992,7 +992,19 @@ def process_wechat_pending(service):
     threading.Thread(target=worker, daemon=True).start()
 
 
-def program_scene_snapshot():
+def program_presentation(value):
+    if not isinstance(value, dict) or set(value)-{'layout', 'theme'}:
+        raise AppError('节目布置只支持人物位置与配色。')
+    layout, theme = value.get('layout', 'right'), value.get('theme', 'carbon')
+    if not isinstance(layout, str) or layout not in {'right', 'left', 'small'}:
+        raise AppError('节目人物位置无效。')
+    if not isinstance(theme, str) or theme not in {'carbon', 'midnight', 'daylight'}:
+        raise AppError('节目配色无效。')
+    return {'layout': layout, 'theme': theme}
+
+
+def program_scene_snapshot(presentation=None):
+    design = program_presentation({} if presentation is None else presentation)
     profile = catalog().active()
     asset_id = profile.get('avatar_revision')
     asset = asset_store(profile['id']).get(asset_id) if asset_id else None
@@ -1009,7 +1021,7 @@ def program_scene_snapshot():
     runtime_status = live2d_runtime().status()
     runtime = {kind:{'sha256':item['sha256']} for kind,item in runtime_status['artifacts'].items() if item['available']}
     scene = {'version':1, 'character_id':profile['id'], 'appearance_id':asset_id,
-             'layout_revision':'program-v1', 'layout':'right', 'theme':'carbon', 'asset':value,
+             'layout_revision':'program-v2', **design, 'asset':value,
              'runtime_available':runtime_status['available'],
              'runtime_sha256':{key:item['sha256'] for key,item in runtime.items()}}
     scene['sha256'] = hashlib.sha256(json.dumps(scene, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
@@ -1069,9 +1081,15 @@ def connector_request(action, payload):
         cancel_public_generations(service)
         return result
     if action == 'bili/output/open':
+        design = program_presentation(payload['presentation']) if 'presentation' in payload else None
         with CHARACTER_MUTATION_LOCK:
-            scene, resources, runtime = program_scene_snapshot()
-            return {'path': '/live-stage.html#'+service.output.open(scene, resources, runtime)}
+            require_active_profile(payload.get('expected_character_id'))
+            scene, resources, runtime = program_scene_snapshot(design)
+            with service.output.lock:
+                previous = service.output.scene_snapshot
+                if design is not None and service.output.token and previous and any(previous.get(key) != value for key,value in design.items()):
+                    raise AppError('请先停止播放，再打开新的节目布置。', 409)
+                return {'path': '/live-stage.html#'+service.output.open(scene, resources, runtime)}
     if action == 'bili/output/stop':
         cancel_public_generations(service)
         return {'ok': True}

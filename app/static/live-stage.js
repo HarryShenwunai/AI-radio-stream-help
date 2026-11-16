@@ -10,13 +10,14 @@ async function call(action,data={},binary=false){
  const response=await fetch('/api/live-output',{method:'POST',credentials:'omit',headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({action,client,...data}),signal:AbortSignal.timeout(1000)});
  if(!response.ok)throw new Error('输出失效或已停止');return binary?response.blob():response.json();
 }
-const program=ProgramScene.create({call,container:document.querySelector('#character-canvas'),image:document.querySelector('#character-image'),onState:s=>{const node=document.querySelector('#character-status');node.hidden=s.ready&&!s.placeholder;node.textContent=s.error||(s.placeholder?'未设置节目人物':'正在准备人物');}});
+const program=ProgramScene.create({call,container:document.querySelector('#character-canvas'),image:document.querySelector('#character-image'),onState:s=>{const node=document.querySelector('#character-status');node.hidden=s.ready&&!s.placeholder;node.textContent=s.error||(s.placeholder?'未设置节目人物':'正在准备人物');if(s.error&&active)playbackFailure({id:active.id},'节目人物已失效，已停止播放。');}});
 function clear(){const previous=active;active=null;program.setSpeaking(false);if(previous?.audio){previous.audio.pause();previous.audio.removeAttribute('src');URL.revokeObjectURL(previous.url);}caption.textContent='';}
 function revoke(message){epoch++;enabled=false;clear();program.clear();sceneHash='';scenePromise=null;enable.hidden=false;status.hidden=false;status.textContent=message;changed();}
 async function receipt(item,state){const result=await call('receipt',{id:item.id,state});changed();return result;}
 function fitsCaption(text){
  caption.style.visibility='hidden';caption.textContent=text;let fits=false;
- for(let size=32;size>=20;size-=2){caption.style.fontSize=size+'px';const box=caption.getBoundingClientRect();if(box.top>=24&&box.bottom<=innerHeight-24&&box.right<=innerWidth-24&&caption.scrollWidth<=caption.clientWidth){fits=true;break;}}
+ const scale=Math.max(1,innerHeight/720),margin=24*scale,person=document.querySelector('#character-space').getBoundingClientRect();
+ for(let size=32;size>=20;size-=2){caption.style.fontSize=(size*scale)+'px';const box=caption.getBoundingClientRect(),apart=box.right<=person.left||box.left>=person.right||box.bottom<=person.top||box.top>=person.bottom;if(box.top>=margin&&box.bottom<=innerHeight-margin&&box.left>=margin&&box.right<=innerWidth-margin&&caption.scrollWidth<=caption.clientWidth&&caption.scrollHeight<=caption.clientHeight&&apart){fits=true;break;}}
  caption.textContent='';caption.style.visibility='';return fits;
 }
 async function playbackFailure(item,message){revoke(message);await receipt(item,'failed').catch(()=>{});}
@@ -25,7 +26,7 @@ function syncScene(snapshot){
  sceneHash=snapshot?.sha256||'';scenePromise=program.sync(snapshot);return scenePromise;
 }
 async function startPlayback(item,own,ready){
- lastTerminal='';status.hidden=true;const entry={id:item.id,audio:null,url:null,started:false,ended:false,serial:++playSerial};active=entry;
+ lastTerminal='';status.hidden=true;const entry={id:item.id,text:item.text,audio:null,url:null,started:false,ended:false,serial:++playSerial};active=entry;
  const valid=()=>active===entry&&own===epoch&&enabled;
  try{
   if(!fitsCaption(item.text))throw Error('回答无法完整显示，请扩大输出窗口后重新选题。');
@@ -42,8 +43,10 @@ async function startPlayback(item,own,ready){
   // Attach analysis before starting audio so no unobserved initial segment is
   // played; speaking remains false until the actual media play succeeds.
   const audioReady=await program.setAudio(audio);if(!valid())return;if(audioReady===false)throw Error('音频输出未就绪，请检查本页音频权限。');
+  if(!fitsCaption(item.text))throw Error('回答无法完整显示，请扩大输出窗口后重新选题。');
   await audio.play();if(!valid()){audio.pause();return;}
   if(audio.paused)throw Error('音频未播放，请检查浏览器音频权限。');
+  if(!fitsCaption(item.text))throw Error('回答无法完整显示，请扩大输出窗口后重新选题。');
   entry.mediaStarted=true;caption.textContent=item.text;program.setSpeaking(true);status.textContent='本页正在输出 · 观众接收未验证';
   await receipt(item,'playing');if(!valid()){audio.pause();return;}entry.started=true;if(entry.ended)await complete();
  }catch(error){if(valid())await playbackFailure(item,error.message==='输出失效或已停止'?'输出已停止或连接失效；请从主播端重新打开':error.message||'音频未播放，请检查浏览器音频权限。');}
@@ -65,6 +68,8 @@ async function poll(){
 enable.addEventListener('click',()=>{epoch++;enabled=true;lastTerminal='';enable.hidden=true;status.hidden=true;lastContact=performance.now();poll();});
 setInterval(poll,250);
 setInterval(()=>{if(active&&performance.now()-lastContact>1250)playbackFailure({id:active.id},'输出连接超时，已停止播放。');},100);
+let resizeFrame=0;
+window.addEventListener('resize',()=>{if(resizeFrame)return;resizeFrame=requestAnimationFrame(()=>{resizeFrame=0;const entry=active;if(!entry||!enabled)return;if(fitsCaption(entry.text)){if(entry.mediaStarted)caption.textContent=entry.text;}else playbackFailure({id:entry.id},'当前窗口无法完整显示回答，已停止播放。');});});
 window.addEventListener('pagehide',()=>{epoch++;enabled=false;clear();program.dispose();notices?.close();});
 window.addEventListener('hashchange',()=>{if(location.hash){revoke('输出已改变');location.reload();}});
 // Warm only approved current character resources, never a candidate reply.
