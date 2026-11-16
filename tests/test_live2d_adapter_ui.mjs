@@ -75,7 +75,7 @@ function controlledAdapter(){
  const makeModel=()=>{
   const values=new Float32Array([0]),raw={parameters:{ids:['ParamMouthOpenY'],minimumValues:new Float32Array([0]),maximumValues:new Float32Array([1]),defaultValues:new Float32Array([0])},drawables:{count:0}};
   const expressionManager={reserveExpressionIndex:-1,defaultExpression:{},currentExpression:{},stopAllExpressions(){},resetExpression(){}};
-  const item={stops:0,motions:0,textures:[{source:{}}],cachedGlTextures:[],anchor:{set(){}},scale:{set(){}},position:{set(){}},destroy(){this.destroyed=true;},update(){},startLipSync(){},stopLipSync(){},setLipSyncValue(){},isLipSyncEnabled(){return false;},getLipSyncValue(){return 0;},setEyeBlinkEnabled(){},setBreathEnabled(){},setBreathIntensity(){},async expression(){return expression;},async motion(){item.motions++;return true;}};
+  const item={stops:0,getGlobalTransform(out={a:1,b:0,c:0,d:1,tx:0,ty:0}){return out;},motions:0,textures:[{source:{}}],cachedGlTextures:[],anchor:{set(){}},scale:{set(){}},position:{set(){}},destroy(){this.destroyed=true;},update(){},startLipSync(){},stopLipSync(){},setLipSyncValue(){},isLipSyncEnabled(){return false;},getLipSyncValue(){return 0;},setEyeBlinkEnabled(){},setBreathEnabled(){},setBreathIntensity(){},async expression(){return expression;},async motion(){item.motions++;return true;}};
   item.internalModel={width:100,height:100,physics:{},on(){},off(){},focusController:{focus(){}},breathBaseParameters:[],setBreathParameters(){},coreModel:{getModel:()=>raw,setParameterValueByIndex(i,value){values[i]=value;},getParameterValueByIndex:i=>values[i],saveParameters(){}},motionManager:{expressionManager,queueManager:{_motions:[]},state:{start:()=>true,shouldRequestIdleMotion:()=>true},stopAllMotions(){item.stops++;}}};
   return item;
  };
@@ -122,4 +122,15 @@ test('program blob transport only resolves after the original identity and asset
  const resolved=[];const map=url=>{resolved.push(url);return 'blob:http://127.0.0.1:4444/'+resolved.length;};
  const value=rewriteModel(model(),asset(),map);assert.match(value.FileReferences.Moc,/^blob:/);assert.equal(resolved.length,6);
  for(const replacement of ['/api/assets/other/r0001.moc3?character_id=role-A','/api/assets/asset-fixture/r0001.moc3?character_id=role-B','blob:http://127.0.0.1:4444/unknown']){const item=asset();item.resources['r0001.moc3'].url=replacement;let called=false;assert.throws(()=>rewriteModel(model(),item,()=>{called=true;}));assert.equal(called,false);}
+});
+
+test('owned current-world descriptor is removed on model replacement and disposal',async t=>{
+ const h=controlledAdapter();t.after(h.cleanup);await h.adapter.load(h.makeAsset('A'));
+ assert.equal(Object.hasOwn(h.a,'worldTransform'),true);
+ await h.adapter.load(h.makeAsset('B'));assert.equal(Object.hasOwn(h.a,'worldTransform'),false);assert.equal(Object.hasOwn(h.b,'worldTransform'),true);
+ h.adapter.dispose();assert.equal(Object.hasOwn(h.b,'worldTransform'),false);
+});
+test('a load error after installing the current-world binding restores the original descriptor',async t=>{
+ const h=controlledAdapter();t.after(h.cleanup);h.a.internalModel.motionManager.queueManager=null;
+ assert.equal(await h.adapter.load(h.makeAsset('A')),false);assert.equal(h.adapter.getStats().state,'error');assert.equal(Object.hasOwn(h.a,'worldTransform'),false);
 });
