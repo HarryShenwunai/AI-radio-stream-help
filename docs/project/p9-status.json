@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-15",
-  "timezone": "Europe/London",
+  "as_of": "2026-11-16",
+  "timezone": "Etc/UTC",
   "repository": "https://github.com/HarryShenwunai/AI-radio-stream-help",
   "tracking_issue": "https://github.com/HarryShenwunai/AI-radio-stream-help/issues/49",
   "implementation_pr": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/50",
@@ -12,8 +12,8 @@
     "remote_commit": "3af7f876ebe10d814e9c17a793c14879cfb4c7f8",
     "tree": "dd09e659eff0b812ffd14412d38f12171147393f"
   },
-  "management_scope": "用户已授权的单一本地闭环与宿主恢复完成开发验证；独立引用ID缺陷单独修复。真实长题和并发负载失败保留，视觉/真机/学习/发布未验收。",
-  "next_action": "先交付当前可复现的源码与完整正反例；下一步成对测量长题负载与实际审核时间，核验D原素材/声线，再准备E同版Windows候选，最后F真机/独立任务。",
+  "management_scope": "观众呈现修订已进入整合验证：已应用布置真正进入节目、准备及人物错误收口、作者动作通道单一驱动；原始素材与真实Core根因已核。新正面为静态候选，旧侧脸未由CSS伪造；默认资产、真机与独立审美仍不放行。",
+  "next_action": "完成整合全门与独占真实本机对话/可见口型回归，按原始正反例交付；随后以新正面母稿建立正确分层和原生关键形，保留旧长题时效与声音/Windows/独立评审待验证，不继续扩大组件。",
   "single_scenario": [
     "本地原始文字",
     "准备回答",
@@ -154,7 +154,7 @@
       "id": "B",
       "priority": "P0",
       "title": "同一节目声画与安全契约",
-      "status": "本地独占声画/过期拒绝通过；长题和并发负载稳定性未通过",
+      "status": "本地声画基础上已修实际布置与准备/渲染错误收口；整合回归进行中，长题稳定性仍未通过",
       "implementation_status": "local_loop_verified_with_limits",
       "owner": "P8 节目声画与安全契约",
       "depends": [
@@ -261,14 +261,14 @@
       "id": "D",
       "priority": "P1",
       "title": "人物合成与声线审查",
-      "status": "待原始可编辑来源核验与独立声线/视觉审查",
-      "implementation_status": "not_started",
-      "owner": "待分配 · 角色/音频审查负责人",
+      "status": "原图/重建工程与Core根因已核；正面静态候选和小口型候选已制作，默认人物与独立声线/视觉仍待验",
+      "implementation_status": "source_and_core_diagnosed_candidates_not_accepted",
+      "owner": "P8模型诊断/运行驱动/节目构图；P9复核与证据交付",
       "depends": [
         "A"
       ],
       "why": "深底边缘、蒸汽融合和声线契合尚未得到根因或独立审美支持，不能继续靠换背景或AI自评宣布专业。",
-      "editable_source_status": "本轮未核实原始可编辑工程齐全",
+      "editable_source_status": "标准原图已取得；R3重建PSD/psd2live已哈希核对并无改导出复现，补画前来源与官方Windows编辑器重开仍缺",
       "what": [
         "核对标准原图、分层/蒙版、可编辑Cubism工程与导出模型的来源和缺口；不能凭R3包名认定原始工程齐全。",
         "固定同一帧，完成白/灰/黑底边缘ROI与原图、alpha、遮罩的对照。",
@@ -276,21 +276,21 @@
         "竞争解释区分：底图残色、透明混合、羽化遮罩、背景与原光照不协调。"
       ],
       "where": [
-        "review/art-direction 下的专属诊断制品；现有原始素材只读。",
-        "若证实渲染根因，由P9另行移交对应渲染文件域；不与B争写。"
+        "独立模型/运行/布局worktree；原始ZIP与源图保留。",
+        "当前源码与验证归档见docs/validation/audience-presence.md。"
       ],
-      "budget": "只诊断现有R3与已有声音，不新增人物、美术、模型或音色下载；盲评人员未到位保持待验证。",
+      "budget": "按证据处理少数观众可见根因，允许必要美术候选与原生绑定；保留原材料，不把有严格门失败的候选设为默认，独立人员未到位保持待验证。",
       "done": [
-        "实验支持具体根因与最小修复建议；脸、手杯和原始素材哈希不变。",
-        "匿名材料可供未参与制作人员复核；人工结果与AI候选判断分别记录。",
-        "候选冻结记录明确使用哪个现有模型与音色，不把未认可写成通过。",
-        "透明合成、模型参数、原图工程来源链和声线分别诊断；高级跟踪/滤镜/表情后置，不新增美术。"
+        "原图与运行工程来源链、直接Core参数/网格/opacity/ROI的正负控可复跑；原包不覆盖。",
+        "当前可修改区域与保护区域分别验收；候选严格门失败不能临时放宽。",
+        "自然续播、显式控制/取消与自动驱动权属分开，不能以参数动证明转头或可见开合。",
+        "透明合成与静态正面候选另审；独立声线/视觉、官方Windows编辑器与目标机结果未取得不标通过。"
       ],
       "commands": [],
       "dont": [
-        "不通过人物曝光或滤镜掩盖合成问题。",
-        "不新美术、不补画、不恢复放杯，不展示被拒绝3D。",
-        "AI审查不能代替专业盲评或用户选择。"
+        "不通过曝光、滤镜或隐藏问题图层掩盖合成/结构缺陷。",
+        "不恢复放杯、不展示被拒绝3D；不把侧脸CSS扭转冒充正面。",
+        "AI开发检查不代替未参与制作人员盲评或用户认可。"
       ],
       "evidence": [
         {
@@ -398,7 +398,7 @@
     }
   ],
   "governance": {
-    "parallel_rule": "A冻结后，B输出集成与C控制台按文件域并行；D先只读诊断。后端与live-stage仅B可写；渲染修复由P9另行移交。",
+    "parallel_rule": "P9协调；节目/布局、模型诊断、运行驱动分别隔离文件域与worktree。Core窗口顺序执行；真实provider回归必须独占，其他Agent停止命令和打包。",
     "handoff_rule": "每次交接带来源、提交、输入、产物哈希、复跑命令、旧版/坏版本反例和未验证项。",
     "stop_rules": [
       "实验不能区分原因时不扩大补画或功能范围。",
@@ -407,10 +407,10 @@
     ],
     "scope": [
       "Windows PC only",
-      "固定持杯、保留原角色与光照",
-      "暂停新美术、新人物和小组件扩张",
-      "当前不测试B站或OBS真实环境",
-      "不虚构感知、在线状态、观众接收或学习效果"
+      "保留角色辨识度、光照与固定持杯；不恢复放杯或使用拒绝的3D图",
+      "允许为正面与自然度重做必要素材，新的整幅候选不等于已分层绑定",
+      "当前不测试B站或OBS真实环境，不合并/部署/发布",
+      "不虚构感知、在线状态、观众接收、学习效果或独立验收"
     ],
     "capability_decisions": "每项先记录收益、来源/限制、项目证据、唯一取舍与A–F验收；外部复用不代表已接通。"
   },
@@ -467,5 +467,28 @@
     "latest_program_commit": "f51dddbe90728f3b49e62acb80e41ffcc6943393",
     "supplementary_draft_pr": 51
   },
-  "supplementary_pr": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/51"
+  "supplementary_pr": "https://github.com/HarryShenwunai/AI-radio-stream-help/pull/51",
+  "audience_revision": {
+    "authorization": "用户要求从实际直播观察解决观众前端、僵硬和非正面；最新要求只选当前与后续更合适方案，不受旧阶段安排限制。",
+    "integration_source_commit": "c00f2a9b599ae4c0f6ff361be10c885770bb54d2",
+    "renderer_version": "0.2.3",
+    "renderer_source_sha256": "77938428ccfc3835d718ff11faf17d578cca291eff9c0fff15ed849381fd4baa",
+    "renderer_bundle_sha256": "d293090e0809d61b6d452a499df5e3cbe4f6bd73b91ef468b52ae350f5a3cf4e",
+    "stage_sha256": "352eaadfd4485443a4798dfec98948adc3bf0e9b65282c430050c346c93249db",
+    "default_character_replaced": false,
+    "front_candidate": "user_direction_approved_source_and_rig_in_progress_not_default",
+    "mouth_r1": "visible_response_and_protected_regions_verified_but_strict_all_geometry_zero_failed_1ulp",
+    "mouth_r2": "rejected_native_part_axis_not_effective_in_core",
+    "code_quality": "passed_final_c00f2a9_401_source_fingerprints_9_entries",
+    "real_provider_program": "failed_expired_26_574s_inference_plus_9_546s_tts_under_original_30s",
+    "windows": "pending",
+    "independent_visual": "pending",
+    "viewer_received": "pending",
+    "report": "docs/validation/audience-presence.md",
+    "recorded_real_media_replay": "passed_recorded_only_real_model_false_real_tts_false_not_realtime",
+    "integration_tree": "7fa134841787f04e2b4274c62bdd941e3e1e5b42",
+    "front_approval_quote": "人物方向合适",
+    "presentation_draft_pr": 52,
+    "mouth_evidence_draft_pr": 53
+  }
 }

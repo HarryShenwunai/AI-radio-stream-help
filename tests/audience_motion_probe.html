@@ -1,0 +1,48 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#394240;color:#fff;font:14px system-ui}canvas{display:block}#label{height:30px;padding:6px 10px;box-sizing:border-box}</style>
+<body><div id="label">原R3 · 实际Core单因素诊断</div>
+<script src="/owned/core.js"></script><script src="/owned/runtime.js"></script>
+<script type="module">
+import {createMotionOwnership} from "/adapter.mjs";
+(async()=>{
+ const {PIXI,Live2DModel}=CompanionLive2DRuntime;
+ const app=new PIXI.Application();await app.init({width:720,height:876,backgroundAlpha:1,backgroundColor:0x394240,antialias:true,preference:'webgl',autoStart:false,sharedTicker:false,preserveDrawingBuffer:true});app.ticker.stop();document.body.insertBefore(app.canvas,document.getElementById('label'));
+ PIXI.Assets.setPreferences({preferWorkers:false,preferCreateImageBitmap:false});
+ let model,im,raw,forced=null,applied={},ids=[],names={},defaults={},seed=17,ownership=null,authored={},ownershipError=null;
+ const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
+ Math.random=random;
+ async function fresh(){
+  if(model){ownership?.restore();ownership=null;app.stage.removeChild(model);model.destroy({children:true});}
+  seed=17;forced=null;applied={};ownershipError=null;
+  model=await Live2DModel.from('/runtime/model.model3.json',{autoUpdate:false,autoFocus:false,autoHitTest:false,motionPreload:'NONE',checkMocConsistency:true});im=model.internalModel;raw=im.coreModel.getModel();
+  ids=Array.from(raw.drawables.ids);const cdi=await fetch('/runtime/original.cdi3.json').then(r=>r.json());names=Object.fromEntries(cdi.Drawables.map(r=>[r.Id,r.Name]));
+  defaults=Object.fromEntries(Array.from(raw.parameters.ids,(id,i)=>[id,Number(raw.parameters.defaultValues[i])]));
+  app.stage.addChild(model);model.anchor.set(.5,.5);model.scale.set(Math.min(720/im.width,876/im.height));model.position.set(360,438);
+  model.setEyeBlinkEnabled(false);model.setBreathEnabled(false);model.stopLipSync();im.motionManager.stopAllMotions();im.motionManager.state.shouldRequestIdleMotion=()=>false;im.focusController.focus(0,0,true);
+  im.on('afterMotionUpdate',()=>{authored=Object.fromEntries(Array.from(raw.parameters.ids,id=>[id,Number(im.coreModel.getParameterValueById(id))]));});
+  im.on('beforeModelUpdate',()=>{if(forced)for(const[k,v]of Object.entries(forced))im.coreModel.setParameterValueById(k,v);applied=Object.fromEntries(Array.from(raw.parameters.ids,id=>[id,Number(im.coreModel.getParameterValueById(id))]));});
+  window.diagnosticPose({});
+ }
+ function draw(){app.renderer.render(app.stage);if(ownershipError)throw ownershipError;}
+ function checkedOwner(fn){try{fn();}catch(error){ownershipError=error;throw error;}}
+ window.diagnosticPose=(values={})=>{forced={...defaults,...values};model.setEyeBlinkEnabled(false);model.setBreathEnabled(false);model.stopLipSync();im.motionManager.stopAllMotions();im.focusController.focus(0,0,true);model.update(1000/30);draw();return window.diagnosticSnapshot();};
+ window.diagnosticMouthOpacity=value=>{window.diagnosticPose({});const index=ids.findIndex(id=>names[id]==='Mouth_open');if(index<0)throw Error('Mouth drawable missing');raw.drawables.opacities[index]=value;draw();return window.diagnosticSnapshot();};
+ window.diagnosticSnapshot=()=>({parameters:{...applied},drawables:ids.map((id,i)=>({id,name:names[id]||id,opacity:Number(im.coreModel.getDrawableOpacity(i)),vertices:Array.from(im.coreModel.getDrawableVertexPositions(i))})),canvas:{width:raw.canvasinfo.CanvasWidth,height:raw.canvasinfo.CanvasHeight,pixelsPerUnit:raw.canvasinfo.PixelsPerUnit}});
+ window.diagnosticLabel=text=>document.getElementById('label').textContent=text;
+ window.diagnosticDriver=async mode=>{
+  await fresh();forced=null;model.setEyeBlinkEnabled(true);model.setBreathEnabled(true);model.setBreathIntensity(.32);
+  if(mode==='repaired'){ownership=createMotionOwnership(im);im.on('beforeMotionUpdate',()=>checkedOwner(()=>ownership.before()));im.on('afterMotionUpdate',()=>checkedOwner(()=>ownership.after()));}
+  const started=await model.motion('Idle',0,3);if(!started)throw Error('Existing Idle did not start');
+  const samples=[],wallStart=performance.now();window.driverSamples=samples;for(let n=0;n<=720;n++){
+   if(n===360){im.motionManager.stopAllMotions();const restarted=await model.motion('Idle',0,3);if(!restarted)throw Error('Second authored cycle did not start');}
+   const begin=performance.now();model.update(1000/30);draw();const snap=window.diagnosticSnapshot();
+   samples.push({frame:n,time:n/30,wallTime:(performance.now()-wallStart)/1000,parameters:snap.parameters,authored:{...authored},protected:snap.drawables.filter(row=>/^(Cup|Near_|Far_|Sleeve_)/.test(row.name)),ownership:ownership?.snapshot()||null,queue:im.motionManager.queueManager._motions.map(row=>({available:row.isAvailable(),finished:row.isFinished(),curveCount:row._motion?._motionData?.curveCount,curveLength:row._motion?._motionData?.curves?.length})),costMs:performance.now()-begin});
+   window.diagnosticLabel((mode==='repaired'?'修复驱动争用':'原双重驱动')+' · 原R3 · '+(n/30).toFixed(2)+'s');
+   if([71,360,720].includes(n))window.diagnosticCapture={frame:n};
+   await new Promise(r=>setTimeout(r,Math.max(0,wallStart+(n+1)*1000/30-performance.now())));
+  }return samples;
+ };
+
+ await fresh();window.diagnosticMeta={coreVersion:Live2DCubismCore.Version.csmGetVersion(),mocConsistencyChecked:true,parameters:Array.from(raw.parameters.ids,(id,i)=>({id,min:Number(raw.parameters.minimumValues[i]),max:Number(raw.parameters.maximumValues[i]),default:Number(raw.parameters.defaultValues[i])})),canvas:window.diagnosticSnapshot().canvas};window.diagnosticReady=true;
+})().catch(error=>{window.diagnosticError=String(error);});
+</script>

@@ -76,7 +76,7 @@ function controlledAdapter(){
   const values=new Float32Array([0]),raw={parameters:{ids:['ParamMouthOpenY'],minimumValues:new Float32Array([0]),maximumValues:new Float32Array([1]),defaultValues:new Float32Array([0])},drawables:{count:0}};
   const expressionManager={reserveExpressionIndex:-1,defaultExpression:{},currentExpression:{},stopAllExpressions(){},resetExpression(){}};
   const item={stops:0,motions:0,textures:[{source:{}}],cachedGlTextures:[],anchor:{set(){}},scale:{set(){}},position:{set(){}},destroy(){this.destroyed=true;},update(){},startLipSync(){},stopLipSync(){},setLipSyncValue(){},isLipSyncEnabled(){return false;},getLipSyncValue(){return 0;},setEyeBlinkEnabled(){},setBreathEnabled(){},setBreathIntensity(){},async expression(){return expression;},async motion(){item.motions++;return true;}};
-  item.internalModel={width:100,height:100,physics:{},on(){},off(){},focusController:{focus(){}},coreModel:{getModel:()=>raw,setParameterValueByIndex(i,value){values[i]=value;},getParameterValueByIndex:i=>values[i],saveParameters(){}},motionManager:{expressionManager,state:{shouldRequestIdleMotion:()=>true},stopAllMotions(){item.stops++;}}};
+  item.internalModel={width:100,height:100,physics:{},on(){},off(){},focusController:{focus(){}},breathBaseParameters:[],setBreathParameters(){},coreModel:{getModel:()=>raw,setParameterValueByIndex(i,value){values[i]=value;},getParameterValueByIndex:i=>values[i],saveParameters(){}},motionManager:{expressionManager,queueManager:{_motions:[]},state:{start:()=>true,shouldRequestIdleMotion:()=>true},stopAllMotions(){item.stops++;}}};
   return item;
  };
  const a=makeModel(),b=makeModel(),queue=[a,b];

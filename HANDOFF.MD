@@ -504,3 +504,20 @@ Git历史不放模型、安装包、私聊、数据库、密钥、Cookie或原�
 
 - 质量全门抓到间歇性HTTP400，不是scene修复所致：perception生成URL-safe session/observation且frame request允许leading -/_，assistance误用首字符alnum的action validator。固定leading `-`/`_`两套独立HTTP fixture旧红；只对TrustedObservation三字段精确匹配producer [A-Za-z0-9_-]{1,100}且不trim，通用标识/权限不变；PR51 a5b7381，96相关回归绿，最终909 Python/161前端Node全门绿。不要靠重试随机数得到绿；共享fixture触发限流应隔离fixture，不改限流。
 - 最终a5b7381独占真实声画：Qwen12.263s/TTS8.846s/WAV4.651s实际ended、两端completed，strict网络绿；产品源384文件与最终quality-observation-contract指纹一致。Windows/目标用户/独立审美与学习效果仍未验收。
+
+
+## 2026-11-15 观众呈现根因复核（进行中）
+- 用户最新授权按当前及后续实际效果选方案，必要时重做美术；旧“不新增美术”阶段安排不能阻挡正面候选。原始Library IMG_1381.jpeg本轮已取得并亲看，SHA13b5b361...；reference-guidance.png不是标准原图，不可拿整理设定表代替，也不可再次交付已拒图。
+- 原R3 ad977...实际Core强制MouthOpenY=0/.5/1，最终数值确已写入，但Mouth_open opacity0、嘴ROI/所有网格变化0；X±15/Y±10也没有实际几何响应，Z及两眼gaze可响应。旧“同job声画与mouth”检查只证明口型数值，不能当可见开合证据。
+- 诊断占位hidden canvas会被canvas{display:block}显示，导致ROI偏移。须实测画布bounds、同pose零差及真实眼ROI正控后才接受嘴部不动结论；首轮无效仪器记录保留。
+- Mouth_open虽是含肤色近闭口补片，但确有暗缝，不能据此断言必须全部重画。仅临时opacity对照可区分覆盖能力与绑定缺失；控制包hash不能命名成原包，baseline/control/candidate分别记录。小幅混合不等于下颌或音素绑定。
+- 作者Idle与自动blink/breath争用已用真实Core确认；Node假SDK绿不能证明同版私有API兼容。真实SDK曲线先分配N再push同对象，可能出现严格2N别名；需精确校验而非假设length=N或任意尾项都接受。SDK draw回调会吞异常仅console.error；必须把回调错误在load/tick外层转为失败，验收要求非空owned见证与console错误记录，防止旧final缓存/空集假绿。
+- shouldRequestIdleMotion=false的夹具名义跑24秒，不等于作者12秒Idle已自然续播两次；人工重启的受控两段与完整adapter自然续播另验。SDK缓存Idle预约到实际queue插入有微任务间隙，需核实过渡所有权，不能无限保留旧通道。
+- room.config.applied与draft.applied不能混用。只有同身份已应用config的明确白名单字段可在“输出窗口”动作冻结；未应用draft、坏JSON、其他角色、showCaption:false均不能默默上屏。透明source不是完整直播间合成，几何绿也不是审美合格。
+- 准备期resize与scene.error须覆盖所有active阶段：只在audio.play前很早测fit，或只对mediaStarted处理error，会在延迟audio回包后继续播。使用真实stage源码的Node反例能验证状态，仍不能替代Chrome/Core实际布局和音频。
+
+## 2026-11-16 正面工程与录制媒体边界
+- 用户明确认可f150正面母稿方向，不能继续写方向未认可，也不能据此标rig/Windows/独立审美通过。生成补画有放大和局部漂移，先冻结crop/小mask/锚点判据，仅允许一次全局缩放；原RGB前发与手杯保护，不能整眼贴片交叉淡入。
+- PSD2Live meshOnly仍生成默认参数，参数名不是关键形证据；隐藏非中性图层需实际导出验证。settings_update实际字段headStrength与诊断headTurnStrength不同；settings inspect还存在drawOrderStep输出schema拒绝，记录上游问题，不盲改上游。
+- 最新独占真实provider仍26.574s+9.546s超30s，保持expired；同原输入/prompt/WAV的recorded_real_media_replay另标real_model=false/real_tts=false。完整PCM时长、源失败状态与SHA必须核对，回放延迟不能当推理性能。
+- Playwright视频ffmpeg缓存需指定PLAYWRIGHT_BROWSERS_PATH；未开页面的失败不得算模型反例。受控两段作者轨与自然Idle续播证据分开；SDK缓存Idle预约晚取消必须拒绝，不无限保留旧所有权。
