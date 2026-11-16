@@ -132,3 +132,45 @@ test('an applied hidden-caption design is rejected instead of silently hiding ou
  const h=harness();h.storage.set('room-settings:role-a',JSON.stringify({config:{version:1,applied:true,characterId:'role-a',layout:'left',theme:'midnight',showCaption:false}}));
  await h.open('bili');await h.button('输出窗口').onclick();assert.equal(h.calls.filter(c=>c.path.endsWith('/output/open')).length,0);
 });
+
+test('preparation opens the existing rehearsal page immediately and stop remains usable before ready',async()=>{
+ const waiting=deferred();let snapshot={bili:{state:'not_connected'},preparation:{state:'not_ready',revision:0}};
+ const h=harness(async(path,data)=>{if(path.endsWith('/rehearsal')){snapshot={bili:{state:'local_preparing'},preparation:{state:'preparing',revision:1}};return waiting.promise;}if(path.endsWith('/stop')){snapshot={bili:{state:'not_connected'},preparation:{state:'cancelled',revision:2}};return {};}return snapshot;});
+ await h.open();const starting=h.button('本地互动演练').onclick();assert.ok(h.button('结束演练'));assert.equal(h.field('模拟观众消息').disabled,true);
+ await h.button('加入演练').onclick();assert.equal(h.calls.filter(c=>c.data?.action==='message').length,0);
+ await h.button('结束演练').onclick();assert.ok(h.calls.some(c=>c.path==='connectors/bili/stop'));
+ const reads=h.calls.filter(c=>c.path==='connectors/status').length;waiting.resolve({started:true});await starting;
+ assert.equal(h.calls.filter(c=>c.path==='connectors/status').length,reads);assert.ok(h.button('本地演练'));assert.equal(h.field('模拟观众消息'),undefined);
+});
+test('old start result and finally cannot enable or replace a newer attempt after stop',async()=>{
+ const old=deferred(),fresh=deferred();let starts=0,snapshot={bili:{state:'not_connected'},preparation:{state:'not_ready',revision:0}};
+ const h=harness(async(path,data)=>{if(path.endsWith('/rehearsal')){starts++;snapshot={bili:{state:'local_preparing'},preparation:{state:'preparing',revision:starts*3}};return starts===1?old.promise:fresh.promise;}if(path.endsWith('/stop')){snapshot={bili:{state:'not_connected'},preparation:{state:'cancelled',revision:2}};return {};}return snapshot;});
+ await h.open();const first=h.button('本地互动演练').onclick();await h.button('结束演练').onclick();const second=h.button('本地演练').onclick();
+ old.resolve({started:true});await first;assert.equal(h.field('模拟观众消息').disabled,true);assert.equal(h.button('重新准备').disabled,true);assert.ok(h.nodes().some(n=>n.textContent==='正在准备演练'));
+ snapshot={bili:{state:'local_rehearsal'},preparation:{state:'ready',revision:7,capabilities:{kind:'local_default',prefix_qualification:'prepared'}}};fresh.resolve({started:true});await second;
+ assert.equal(h.field('模拟观众消息').disabled,false);assert.equal(h.button('加入演练').disabled,false);assert.equal(starts,2);
+});
+test('existing owner refresh updates readiness in place, preserving unsent message and ignoring old revision',async()=>{
+ const base={bili:{state:'local_preparing'},preparation:{state:'preparing',revision:1},live_output:{session:'preparing',revision:1,jobs:[]}};
+ const h=harness(async()=>base);await h.open('bili');const input=h.field('模拟观众消息');input.value='UNSENT_MUST_REMAIN';assert.equal(input.disabled,true);
+ h.emit('change',{state:{public_preparation:{state:'ready',revision:2,capabilities:{kind:'configured_api',prefix_qualification:'not_applicable'}}}});
+ assert.equal(h.field('模拟观众消息'),input);assert.equal(input.value,'UNSENT_MUST_REMAIN');assert.equal(input.disabled,false);assert.ok(h.nodes().some(n=>n.textContent==='本地演练 · API 服务未验证'));
+ h.emit('change',{state:{public_preparation:base.preparation}});assert.equal(input.disabled,false);
+ h.emit('change',{state:{public_preparation:{state:'cancelled',revision:3,reason:'configuration_changed'}}});assert.equal(input.disabled,true);assert.equal(input.value,'UNSENT_MUST_REMAIN');assert.equal(h.button('重新准备').hidden,false);
+ assert.equal(h.calls.filter(c=>c.data).length,0);assert.equal(h.calls.length,1);
+});
+test('context retry preserves unsent message and uses prepare without resetting public material',async()=>{
+ let snapshot={bili:{state:'local_rehearsal'},preparation:{state:'ready',revision:1},live_output:{session:'s',revision:1,jobs:[],material:{text:'APPROVED_MATERIAL'}}};
+ const h=harness(async(path,data)=>{if(path.endsWith('/context')){snapshot={...snapshot,preparation:{state:'cancelled',revision:2}};return {};}if(path.endsWith('/rehearsal')){assert.equal(data.action,'prepare');snapshot={...snapshot,preparation:{state:'ready',revision:4}};return {};}return snapshot;});
+ await h.open('bili');h.field('模拟观众消息').value='UNSENT_DRAFT';h.field('本场公开背景').value='Applied context';h.field('允许将背景用于公开回复').checked=true;
+ await h.button('应用现场设置').onclick();assert.equal(h.field('模拟观众消息').value,'UNSENT_DRAFT');assert.equal(h.field('模拟观众消息').disabled,true);
+ await h.button('重新准备').onclick();assert.equal(h.field('模拟观众消息').value,'UNSENT_DRAFT');assert.equal(h.field('本场公开教材').value,'APPROVED_MATERIAL');assert.equal(h.field('模拟观众消息').disabled,false);
+});
+
+test('restart cannot overtake an in-flight stop and no late stop response refreshes another attempt',async()=>{
+ const stop=deferred();let snapshot={bili:{state:'local_rehearsal'},preparation:{state:'ready',revision:1}};
+ const h=harness(async(path,data)=>{if(path.endsWith('/stop'))return stop.promise;if(path.endsWith('/rehearsal'))throw Error('must not restart before stop settles');return snapshot;});
+ await h.open('bili');const stopping=h.button('结束演练').onclick();assert.equal(h.button('重新准备').disabled,true);
+ await h.button('重新准备').onclick();assert.equal(h.calls.filter(c=>c.path.endsWith('/rehearsal')).length,0);
+ snapshot={bili:{state:'not_connected'},preparation:{state:'cancelled',revision:2}};stop.resolve({});await stopping;assert.equal(h.button('本地演练').disabled,false);
+});

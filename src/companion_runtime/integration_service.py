@@ -18,6 +18,7 @@ import time
 from .connectors import BiliOpenLive, OpenLiveCredentials, ConnectorError, WechatBridge
 from .live import LiveBinding, LiveIngress
 from .live_output import LiveOutput
+from .public_preparation import PublicPreparation, PreparationNotReady, PreparationReason
 
 
 class IntegrationService:
@@ -31,6 +32,8 @@ class IntegrationService:
         self.last_private_error = None
         self.bili = None
         self._rehearsal = None
+        self._rehearsal_requested = False
+        self.preparation = PublicPreparation[object]()
         self.output = LiveOutput()
         self._thread = self._loop = self._stop = None
         self._public = deque(maxlen=100)
@@ -130,6 +133,8 @@ class IntegrationService:
     def stop_bili(self):
         with self.lock:
             self._rehearsal = None
+            self._rehearsal_requested = False
+            self.preparation.cancel(PreparationReason.STOPPED)
             self.output.cancel()
             self.output.topic = ''
             self.output.host_talking = False
@@ -145,24 +150,44 @@ class IntegrationService:
         if thread and thread is not threading.current_thread():thread.join(timeout=5)
         if thread and thread.is_alive():raise ConnectorError('connector_still_stopping')
 
+    def begin_rehearsal_preparation(self, payload, *, preserve=False):
+        """No ingress exists until the owner-requested preparation finishes."""
+        with self.lock:
+            if self.preparation.status()['state']=='preparing':raise PreparationNotReady('preparation_already_running')
+            if payload.get('confirm_local') is not True:
+                raise ConnectorError('explicit_rehearsal_confirmation_required')
+            if self.bili is not None:raise ConnectorError('disconnect_live_before_rehearsal')
+            if preserve and not self._rehearsal_requested:raise ConnectorError('rehearsal_not_active')
+            self.preparation.cancel(PreparationReason.CONFIGURATION_CHANGED)
+            self.output.cancel()
+            if not preserve:
+                previous=self.output;self.output=LiveOutput()
+                self.output.material=previous.material
+                self.output.topic=previous.topic
+                self.output.interaction_mode=previous.interaction_mode
+                self.output.host_talking=previous.host_talking
+            self._public.clear();self.public_replies.clear()
+            self._rehearsal=None;self._rehearsal_requested=True
+            return self.output.session
+
+    def activate_rehearsal(self, ticket):
+        with self.lock:
+            if (not self._rehearsal_requested or self.bili is not None or
+                    not self.preparation.current(ticket) or self.preparation.status()['state']!='ready'):
+                raise PreparationNotReady('public_preparation_cancelled')
+            self._rehearsal=LiveIngress(LiveBinding('bilibili-open-live','0'),ttl_seconds=30,dedupe_seconds=60)
+            return {'started':True,'origin':'local_rehearsal','preparation':self.preparation.status()}
+
     def rehearse(self, payload):
         """Owner-only synthetic ingress; no account, network or delivery claim."""
         with self.lock:
-            if payload.get('action') == 'start':
-                if payload.get('confirm_local') is not True:
-                    raise ConnectorError('explicit_rehearsal_confirmation_required')
-                if self.bili is not None:
-                    raise ConnectorError('disconnect_live_before_rehearsal')
-                self.output.cancel()
-                self.output = LiveOutput()
-                self._public.clear();self.public_replies.clear()
-                self._rehearsal = LiveIngress(LiveBinding('bilibili-open-live', '0'), ttl_seconds=30, dedupe_seconds=60)
-                return {'started': True, 'origin': 'local_rehearsal'}
-            if payload.get('action') != 'message' or self._rehearsal is None or self.bili is not None:
+            if payload.get('action')!='message' or not self._rehearsal_requested or self.bili is not None:
                 raise ConnectorError('rehearsal_not_active')
-            accepted = self._rehearsal.submit({'room_id': '0', 'event_id': secrets.token_hex(16), 'text': payload.get('text')})
-            if accepted != 'accepted':raise ConnectorError('演练消息无效或队列已满，请检查文字后重试。')
-            return {'accepted': True, 'origin': 'local_rehearsal'}
+            if self._rehearsal is None or self.preparation.status()['state']!='ready':
+                raise PreparationNotReady('public_runtime_not_ready')
+            accepted=self._rehearsal.submit({'room_id':'0','event_id':secrets.token_hex(16),'text':payload.get('text')})
+            if accepted!='accepted':raise ConnectorError('演练消息无效或队列已满，请检查文字后重试。')
+            return {'accepted':True,'origin':'local_rehearsal'}
 
     def public_events(self):
         with self.lock:
@@ -181,9 +206,9 @@ class IntegrationService:
             if self.wechat:
                 wechat.update(configured=True, automatic_reply_enabled=self.wechat_auto_approve,
                               last_error=self.last_private_error)
-            bili = self.bili.status() if self.bili else {'state': 'local_rehearsal' if self._rehearsal else 'not_connected'}
+            bili = self.bili.status() if self.bili else {'state': 'local_rehearsal' if self._rehearsal else 'local_preparing' if self._rehearsal_requested else 'not_connected'}
             return {'wechat': wechat, 'bili': bili, 'public_events': self.public_events(),
-                    'live_output': self.output.status(), 'public_replies': list(self.public_replies), 'public_output': 'manual_local_output'}
+                    'live_output': self.output.status(), 'preparation': self.preparation.status(), 'public_replies': list(self.public_replies), 'public_output': 'manual_local_output'}
 
     def cancel(self, *, generation_id=None):
         with self.lock:

@@ -11,6 +11,8 @@ python_version = "3.11"
 strict = true
 files = [
   "src/companion_runtime/lifecycle.py",
+  "src/companion_runtime/public_preparation.py",
+  "src/companion_runtime/public_prefix.py",
   "src/companion_runtime/live.py",
   "src/companion_runtime/zerolan.py",
   "src/companion_runtime/http_payload.py",
