@@ -11,6 +11,7 @@ import io
 import json
 import math
 import os
+import posixpath
 import socket
 import sys
 import urllib.parse
@@ -19,11 +20,140 @@ import struct
 import threading
 import time
 import wave
+import zipfile
 
 from playwright.sync_api import sync_playwright
 import test_character_http as fixtures
 
 QUESTION = '确认 主线应该是在直播现场随机应变的助手 继续修改 给出完整成品'
+
+
+def validate_mouth_gate_options(args):
+    if not args.require_visible_mouth:return
+    if not args.completion:raise ValueError('--require-visible-mouth requires --completion; manual stop releases the scene and is a separate disposal observation')
+    if args.expect_expiry or args.expect_budget_rejection or args.offline_preflight:
+        raise ValueError('visible-mouth acceptance is a separate positive-program gate')
+
+
+def validate_recorded_replay_options(args):
+    if bool(args.replay_result) != bool(args.replay_wav):raise ValueError('recorded replay requires --replay-result and --replay-wav together')
+    if not args.replay_result:return
+    if args.real_model or args.real_tts or args.expect_expiry or args.expect_budget_rejection or args.offline_preflight:
+        raise ValueError('recorded replay cannot combine real providers or negative/preflight modes')
+    if not args.input or not args.completion or not args.require_visible_mouth:
+        raise ValueError('recorded replay requires original --input, --completion and --require-visible-mouth')
+
+
+def recorded_wav_seconds(data):
+    if len(data)<12 or data[:4]!=b'RIFF' or data[8:12]!=b'WAVE' or struct.unpack_from('<I',data,4)[0]+8!=len(data):
+        raise ValueError('recorded WAV must be a complete RIFF/WAVE file')
+    offset=12;data_chunks=0
+    while offset<len(data):
+        if offset+8>len(data):raise ValueError('recorded WAV has an incomplete chunk header')
+        size=struct.unpack_from('<I',data,offset+4)[0];data_chunks+=data[offset:offset+4]==b'data';offset+=8+size+(size&1)
+        if offset>len(data):raise ValueError('recorded WAV has an incomplete chunk or padding')
+    if data_chunks!=1:raise ValueError('recorded WAV requires one complete audio data chunk')
+    try:
+        with wave.open(io.BytesIO(data),'rb') as audio:
+            frames=audio.getnframes();rate=audio.getframerate();expected=frames*audio.getnchannels()*audio.getsampwidth()
+            if frames<=0 or rate<=0 or audio.getcomptype()!='NONE' or len(audio.readframes(frames))!=expected or audio.readframes(1):
+                raise ValueError('recorded WAV has incomplete or unsupported PCM frames')
+            return frames/rate
+    except (wave.Error,EOFError) as error:raise ValueError('recorded WAV is invalid') from error
+
+
+def load_recorded_replay(result_path,wav_path,current_input):
+    raw=result_path.read_bytes();source=json.loads(raw);audio=wav_path.read_bytes()
+    if source.get('passed') is not False or source.get('real_model') is not True or source.get('real_tts') is not True or source.get('acceptance_kind')!='positive_program':
+        raise ValueError('recorded replay requires a failed single real-model/real-TTS positive-program source')
+    outputs=source.get('model_outputs',[]);tts=source.get('tts_outputs',[]);prompts=source.get('model_inputs',[])
+    if len(outputs)!=1 or len(tts)!=1 or len(prompts)!=1 or not isinstance(prompts[0],list) or not prompts[0]:
+        raise ValueError('recorded replay requires exactly one model output, TTS output and complete prompt')
+    reply=outputs[0].get('text')
+    if not isinstance(reply,str) or not reply.strip() or reply!=tts[0].get('text') or outputs[0].get('finish_reason')!='stop':
+        raise ValueError('recorded model/TTS text pair must match and be complete')
+    digest=hashlib.sha256(audio).hexdigest()
+    if digest!=tts[0].get('sha256'):raise ValueError('recorded WAV SHA does not match the original TTS output')
+    original_input=source.get('raw_input',{})
+    for field in ['text','source_text','source_sha256','delivered_text_sha256']:
+        if not current_input.get(field) or current_input[field]!=original_input.get(field):raise ValueError('recorded question/input does not match current original --input')
+    if hashlib.sha256(current_input['source_text'].encode('utf-8')).hexdigest()!=current_input['source_sha256'] or hashlib.sha256(current_input['text'].encode('utf-8')).hexdigest()!=current_input['delivered_text_sha256']:
+        raise ValueError('recorded/current input provenance hash is invalid')
+    for value in [outputs[0].get('warm_inference_seconds'),tts[0].get('seconds')]:
+        if not isinstance(value,(int,float)) or isinstance(value,bool) or not math.isfinite(value) or value<0:raise ValueError('recorded provider timing is missing/invalid')
+    seconds=recorded_wav_seconds(audio)
+    provenance={'source_result':str(result_path.resolve()),'source_result_sha256':hashlib.sha256(raw).hexdigest(),'source_wav':str(wav_path.resolve()),'source_wav_sha256':digest,
+                'source_original_passed':source['passed'],'original_failure':source.get('failure'),'original_model_output':outputs[0],'original_tts_output':tts[0],
+                'original_input':original_input,'original_prompt':prompts[0],'original_prompt_sha256':hashlib.sha256(json.dumps(prompts[0],ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
+                'wav_duration_seconds':seconds,'scope':'Recorded real-provider output replay; original real-time failure remains failed; no current model/TTS inference'}
+    return {'reply':reply,'wav':audio,'messages':prompts[0],'provenance':provenance}
+
+
+def validate_recorded_prompt(replay,messages):
+    if messages!=replay['messages']:raise ValueError('current full prompt does not match the recorded original prompt')
+
+
+def mouth_drawable_from_package(package):
+    """Resolve the explicitly required R3 mouth by source metadata, never a fixed ID."""
+    with zipfile.ZipFile(package) as archive:
+        models = [name for name in archive.namelist() if name.endswith('.model3.json')]
+        if len(models) != 1:raise ValueError('Visible-mouth gate requires one model3 manifest')
+        model = json.loads(archive.read(models[0]))
+        display = model.get('FileReferences', {}).get('DisplayInfo')
+        if not isinstance(display, str) or not display:raise ValueError('Visible-mouth gate requires DisplayInfo metadata')
+        entry = posixpath.normpath(posixpath.join(posixpath.dirname(models[0]), display))
+        if entry.startswith(('/', '../')):raise ValueError('DisplayInfo must stay inside the model package')
+        data = archive.read(entry);info = json.loads(data)
+        rows = info.get('Drawables', [])
+        matches = [row for row in rows if isinstance(row, dict) and row.get('Name') == 'Mouth_open']
+        if len(matches) != 1 or not isinstance(matches[0].get('Id'), str) or not matches[0]['Id']:
+            raise ValueError('Visible-mouth gate requires one unambiguous Mouth_open drawable')
+        mesh_id = matches[0]['Id']
+        if sum(isinstance(row, dict) and row.get('Id') == mesh_id for row in rows) != 1:
+            raise ValueError('Mouth drawable ID is ambiguous')
+        return {'name': 'Mouth_open', 'id': mesh_id, 'display_info': entry, 'display_info_sha256': hashlib.sha256(data).hexdigest()}
+
+
+def mouth_drawable_observation(diagnostics, mesh_id, *, speaking):
+    """Actual Core-opacity prerequisite only; not geometry or independent visual acceptance."""
+    rows = diagnostics.get('drawables', [])
+    if not isinstance(rows, list):rows=[]
+    matches = [row for row in rows if isinstance(row, dict) and row.get('id') == mesh_id]
+    opacity = matches[0].get('opacity') if len(matches) == 1 else None
+    lip = diagnostics.get('lipSyncValue')
+    finite = lambda value: isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+    passed = diagnostics.get('available') is True and finite(opacity) and finite(lip) and ((opacity > 0 and lip > 0) if speaking else (opacity == 0 and lip == 0))
+    return {'phase': 'speaking' if speaking else 'terminal', 'mesh_id': mesh_id, 'opacity': opacity, 'lip_sync_parameter': lip, 'passed': bool(passed),
+            'scope': 'Actual Core drawable opacity prerequisite; screenshot/video still required for pixel/naturalness review'}
+
+
+MOUTH_DRAWABLE_PHASE_JS = """({id,speaking})=>{
+ const diagnostics=ProgramOutput.getDiagnostics({drawables:true});
+ const rows=diagnostics.drawables?.filter(row=>row.id===id)||[];
+ const mouth=rows.length===1?rows[0]:null;
+ const finite=value=>typeof value==='number'&&Number.isFinite(value);
+ const match=diagnostics.available===true&&mouth&&finite(mouth.opacity)&&finite(diagnostics.lipSyncValue)&&
+   (speaking?(mouth.opacity>0&&diagnostics.lipSyncValue>0&&active?.audio&&!active.audio.paused&&active.audio.currentTime>0):(!active&&mouth.opacity===0&&diagnostics.lipSyncValue===0));
+ if(match)window.mouthDrawableObservation={diagnostics,snapshot:ProgramOutput.snapshot(),currentTime:active?.audio?.currentTime??null};
+ return Boolean(match)||Boolean(speaking&&!active);
+}"""
+
+
+def record_mouth_drawable(stage, out, report, mapping, *, speaking):
+    phase = 'speaking' if speaking else 'terminal'
+    stage.evaluate('()=>{window.mouthDrawableObservation=null}')
+    try:
+        stage.wait_for_function(MOUTH_DRAWABLE_PHASE_JS, arg={'id': mapping['id'], 'speaking': speaking})
+    finally:
+        observed = stage.evaluate('()=>window.mouthDrawableObservation||({diagnostics:ProgramOutput.getDiagnostics({drawables:true}),snapshot:ProgramOutput.snapshot(),currentTime:active?.audio?.currentTime??null})')
+        result = mouth_drawable_observation(observed['diagnostics'], mapping['id'], speaking=speaking)
+        report.setdefault('mouth_drawable_observations', {})[phase] = {**result, **observed}
+        (out/f'mouth-drawable-{phase}.json').write_text(json.dumps(report['mouth_drawable_observations'][phase], ensure_ascii=False, indent=2))
+        stage.screenshot(path=str(out/f'mouth-drawable-{phase}.png'))
+        save_checkpoint(out, 'mouth_drawable_'+phase+'_observed', report)
+    assert result['passed'], report['mouth_drawable_observations'][phase]
+    if speaking:assert observed['snapshot']['active_id'] == report['playing']['snapshot']['active_id'], 'Mouth observation must belong to the same playing job'
+    report['checks']['same_job_core_mouth_drawable_opacity_positive' if speaking else 'terminal_core_mouth_drawable_opacity_zero'] = True
 
 
 def tone(seconds=3):
@@ -284,7 +414,10 @@ def offline_preflight(args):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');p.add_argument('--offline-preflight',action='store_true');p.add_argument('--loopback-fixture-transport',action='store_true');p.add_argument('--input',type=Path);p.add_argument('--expect-budget-rejection',action='store_true');p.add_argument('--expect-expiry',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--chrome',required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--runtime-dir',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--real-model',type=Path);p.add_argument('--real-tts',type=Path);p.add_argument('--replay-result',type=Path,help='Replay one failed real-provider result; never a live inference success');p.add_argument('--replay-wav',type=Path,help='Exact original WAV paired with --replay-result');p.add_argument('--faults',action='store_true');p.add_argument('--completion',action='store_true');p.add_argument('--offline-preflight',action='store_true');p.add_argument('--loopback-fixture-transport',action='store_true');p.add_argument('--input',type=Path);p.add_argument('--expect-budget-rejection',action='store_true');p.add_argument('--expect-expiry',action='store_true');p.add_argument('--require-visible-mouth',action='store_true',help='Require the packaged R3 Mouth_open Core drawable opacity during speech and zero after output; does not certify geometry/naturalness');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
+    validate_recorded_replay_options(a)
+    validate_mouth_gate_options(a)
+    mouth_mapping=mouth_drawable_from_package(a.model) if a.require_visible_mouth else None
     if a.expect_expiry and (a.real_model or a.real_tts or a.input or a.expect_budget_rejection or a.completion or a.faults or a.offline_preflight):raise ValueError('expiry is a separate fixed-input mechanical delayed-provider run')
     if a.offline_preflight:
         if a.real_model or a.real_tts:raise ValueError('offline preflight never loads model or TTS')
@@ -298,6 +431,7 @@ def main():
         digest=hashlib.sha256(raw).hexdigest()
         input_evidence.update(text=question,source_text=source_text,source='explicit local input file; synthetic development replay, not a real viewer or learning outcome',source_file=str(a.input.resolve()),source_sha256=digest,source_version='sha256:'+digest)
     input_evidence['delivered_text_sha256']=hashlib.sha256(question.encode('utf-8')).hexdigest()
+    replay=load_recorded_replay(a.replay_result,a.replay_wav,input_evidence) if a.replay_result else None
     old=os.environ.get('COMPANION_DEFAULT_LIVE2D');os.environ['COMPANION_DEFAULT_LIVE2D']=str(a.model.resolve());f=fixtures.CharacterHTTPTests();f.setUp()
     if old is None:os.environ.pop('COMPANION_DEFAULT_LIVE2D',None)
     else:os.environ['COMPANION_DEFAULT_LIVE2D']=old
@@ -307,7 +441,11 @@ def main():
         def read_core(self):return files['core'].read_bytes()
         def read_bundle(self):return files['bundle'].read_bytes()
     f.app.live2d_runtime=lambda:Runtime()
-    r={'scope':'Linux PC Chrome; existing original R3 candidate; real Core; runtime-reading fixture; not Windows/OBS/platform/viewer/independent acceptance','real_model':bool(a.real_model),'real_tts':bool(a.real_tts),'viewer_received':False,'harness_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'checks':{},'errors':[],'raw_input':input_evidence,'acceptance_kind':'negative_generation_expiry' if a.expect_expiry else 'negative_budget_rejection' if a.expect_budget_rejection else 'positive_program','model_package_sha256':hashlib.sha256(a.model.read_bytes()).hexdigest(),'runtime_sha256':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in files.items()},'phases':[]}
+    r={'scope':'Linux PC Chrome; existing original R3 candidate; real Core; runtime-reading fixture; not Windows/OBS/platform/viewer/independent acceptance','real_model':bool(a.real_model),'real_tts':bool(a.real_tts),'viewer_received':False,'harness_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'checks':{},'errors':[],'raw_input':input_evidence,'acceptance_kind':'recorded_real_media_replay' if replay else 'negative_generation_expiry' if a.expect_expiry else 'negative_budget_rejection' if a.expect_budget_rejection else 'positive_program','model_package_sha256':hashlib.sha256(a.model.read_bytes()).hexdigest(),'runtime_sha256':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in files.items()},'phases':[]}
+    if replay:
+        r['recorded_replay']=replay['provenance'];r['source_original_passed']=replay['provenance']['source_original_passed']
+        r['scope']+='; RECORDED real-media replay only, no current provider inference and no real-time provider acceptance'
+    r['mouth_drawable_gate']={'required':a.require_visible_mouth,'mapping':mouth_mapping,'scope':'positive playback/terminal Core drawable-opacity gate; not geometry/naturalness acceptance' if a.require_visible_mouth else 'NOT_CHECKED: lipsync parameter observations do not establish a visible mouth'}
     r['tts_call_count']=0
     if a.expect_expiry:r['expiry_protocol']={'provider_delay_seconds':31,'event_ttl_seconds':30,'ui_observation_deadline_seconds':37,'adapter_timeout_seconds':35,'followup_polls':2,'followup_timeout_seconds':2,'scope':'synthetic delayed provider; no real inference, no audio-duration admission claim'}
     r['fixture_initial_character']=f.app.catalog().active()
@@ -318,6 +456,10 @@ def main():
     idle=threading.Event();idle.set();llm=None
     def fixture_model(settings,messages,**kw):
         r.setdefault('model_inputs',[]).append(messages)
+        if replay:
+            validate_recorded_prompt(replay,messages);r['checks']['replay_current_full_prompt_matches_source']=True
+            r.setdefault('model_outputs',[]).append({'text':replay['reply'],'finish_reason':'stop','source':'recorded_real_media_replay','source_result_sha256':replay['provenance']['source_result_sha256']})
+            save_progress('recorded_real_model_output_replayed');return replay['reply']
         if a.expect_expiry:
             idle.clear();started=time.monotonic();r['expiry_provider']={'started_monotonic':started}
             save_progress('mechanical_delayed_provider_started')
@@ -341,11 +483,12 @@ def main():
             if choice['finish_reason']!='stop':raise RuntimeError('Incomplete model response rejected')
             return choice['message']['content']
         f.app.generate_once=actual_model
-    wav=b'' if a.expect_expiry else tone(31 if a.expect_budget_rejection else 3)
-    if not a.real_tts and not a.expect_expiry:r['fixture_audio_seconds']=31 if a.expect_budget_rejection else 3
+    wav=replay['wav'] if replay else b'' if a.expect_expiry else tone(31 if a.expect_budget_rejection else 3)
+    if not a.real_tts and not a.expect_expiry:r['fixture_audio_seconds']=replay['provenance']['wav_duration_seconds'] if replay else 31 if a.expect_budget_rejection else 3
     def synthesize(text):
         r['tts_call_count']+=1
         if a.expect_expiry:raise AssertionError('expired generation must never call TTS')
+        if replay and text!=replay['reply']:raise ValueError('replayed TTS text differs from recorded model/TTS pair')
         started=time.monotonic();audio=f.real_synthesize(text) if a.real_tts else wav;index=len(r.setdefault('tts_outputs',[]));(a.out/f'output-{index}.wav').write_bytes(audio);r['tts_outputs'].append({'text':text,'sha256':hashlib.sha256(audio).hexdigest(),'seconds':time.monotonic()-started});save_progress('tts_output_recorded');return audio
     if a.real_tts:f.app.VOICE_DIR=a.real_tts.resolve()
     f.app.synthesize=synthesize
@@ -427,7 +570,8 @@ def main():
                     r['checks']['known_impossible_track_not_started']=True;r['checks']['host_sees_specific_budget_reason']=True
                     save_progress('negative_budget_rejection_observed');stage.screenshot(path=str(a.out/'03-stage-budget-rejected.png'));host.screenshot(path=str(a.out/'04-host-budget-rejected.png'),full_page=True)
                 else:
-                    stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics(),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_mouth']=True;save_progress('actual_browser_media_started');assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
+                    stage.wait_for_function('()=>document.querySelector("#caption").textContent.length>0',timeout=30000);r['phases'].append({'phase':'approval_tts_to_media_started','seconds':time.monotonic()-started});stage.wait_for_function('()=>audioProbe.peak>.05 && ProgramOutput.getDiagnostics().lipSyncValue>.01');r['playing']=stage.evaluate('()=>({diagnostics:ProgramOutput.getDiagnostics({drawables:true}),stats:ProgramOutput.getStats(),snapshot:ProgramOutput.snapshot(),caption:document.querySelector("#caption").textContent,peak:audioProbe.peak,currentTime:active.audio.currentTime})');assert r['playing']['currentTime']>0;r['checks']['same_job_real_core_caption_audio_and_lipsync_parameter']=True;save_progress('actual_browser_media_started');assert stage.locator('#status').is_hidden();assert stage.locator('#status').evaluate('(n)=>getComputedStyle(n).display')=='none';r['checks']['playing_hides_owner_status']=True;stage.screenshot(path=str(a.out/'03-stage-playing.png'))
+                    if a.require_visible_mouth:record_mouth_drawable(stage,a.out,r,mouth_mapping,speaking=True)
                     for width in [1024,1280]:
                         stage.set_viewport_size({'width':width,'height':720});bounds=stage.evaluate('()=>{const a=document.querySelector("#caption").getBoundingClientRect(),b=document.querySelector("#character-space").getBoundingClientRect();return {caption:{left:a.left,right:a.right,top:a.top,bottom:a.bottom},character:{left:b.left,right:b.right,top:b.top,bottom:b.bottom},overflow:document.documentElement.scrollWidth>innerWidth}}');assert bounds['caption']['right']<=bounds['character']['left'] and not bounds['overflow'];r.setdefault('pc_layout_bounds',[]).append({'width':width,**bounds});stage.screenshot(path=str(a.out/f'03-stage-playing-{width}.png'))
                     r['checks']['caption_does_not_cover_character_at_pc_sizes']=True
@@ -439,7 +583,8 @@ def main():
                         r['checks']['full_actual_media_ended_and_both_ends_completed']=True;stage.screenshot(path=str(a.out/'04-stage-completed.png'));host.screenshot(path=str(a.out/'05-host-completed.png'),full_page=True)
                     else:
                         assert stage.evaluate('()=>Boolean(active?.audio&&!active.audio.paused)'),'stop must interrupt active media'
-                        started=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click();stage.wait_for_function('()=>!active && document.querySelector("#caption").textContent==="" && (!ProgramOutput.getDiagnostics().available || ProgramOutput.getDiagnostics().lipSyncValue===0)');r['stop_seconds']=time.monotonic()-started;assert r['stop_seconds']<1.5;r['checks']['stop_clears_media_caption_mouth']=True;assert stage.locator('#status').is_visible();stage.screenshot(path=str(a.out/'04-stage-stopped.png'))
+                        started=time.monotonic();host.get_by_role('button',name='停止播放',exact=True).click();stage.wait_for_function('()=>!active && document.querySelector("#caption").textContent==="" && (!ProgramOutput.getDiagnostics().available || ProgramOutput.getDiagnostics().lipSyncValue===0)');r['stop_seconds']=time.monotonic()-started;assert r['stop_seconds']<1.5;r['checks']['stop_clears_media_caption_lipsync_parameter']=True;r['manual_stop_scene']=stage.evaluate('()=>({model_available:ProgramOutput.getDiagnostics().available===true,character_canvas_count:document.querySelectorAll("#character-canvas canvas").length,scope:"scene disposal observation; not a zero-opacity mouth claim"})');assert stage.locator('#status').is_visible();stage.screenshot(path=str(a.out/'04-stage-stopped.png'))
+            if a.require_visible_mouth and not a.expect_expiry and not a.expect_budget_rejection:record_mouth_drawable(stage,a.out,r,mouth_mapping,speaking=False)
             r['main_timeline']=list(service.output.audit);save_progress('main_media_terminal_observed')
             stage.evaluate('()=>audioProbe.records.forEach(row=>row.recorder.state!=="inactive"&&row.recorder.stop())');stage.wait_for_function('()=>audioProbe.records.every(row=>row.base64)');captures=stage.evaluate('()=>audioProbe.records.map(row=>row.base64)')
             for i,capture in enumerate(captures):(a.out/f'browser-audio-{i}.webm').write_bytes(base64.b64decode(capture))
@@ -457,7 +602,7 @@ def main():
                     if name!='pause-in-receipt':assert 'playing' not in states,(name,states)
                     r['checks'][name]=True;r.setdefault('fault_audits',{})[name]=states;page.screenshot(path=str(a.out/(name+'.png')));f.post('connectors/bili/output/stop',{});close_stage(page)
                 page=open_stage();page.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);page.evaluate('()=>programFaults.audioDelay=1200');page.locator('#enable').click();job=ready_event('late-audio-after-stop');page.wait_for_function('()=>active!==null');f.post('connectors/bili/output/stop',{});page.wait_for_function('()=>!active && !ProgramOutput.snapshot().enabled');page.wait_for_timeout(1400);assert page.evaluate('()=>audioProbe.playCalls')==0;assert page.locator('#caption').inner_text()=='';r['checks']['late_audio_after_stop_cannot_play']=True;close_stage(page)
-                page=open_stage();page.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);page.locator('#enable').click();job=ready_event('expires-in-playback');page.wait_for_function('()=>active?.started');service.output.jobs[job['id']]['expires_at']=time.monotonic()+1;page.wait_for_function('()=>!active && document.querySelector("#caption").textContent===""');assert service.output.jobs[job['id']]['state']=='expired';assert page.evaluate('()=>ProgramOutput.getDiagnostics().lipSyncValue')==0;r['checks']['expiry_stops_audio_caption_mouth']=True;f.post('connectors/bili/output/stop',{});close_stage(page)
+                page=open_stage();page.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);page.locator('#enable').click();job=ready_event('expires-in-playback');page.wait_for_function('()=>active?.started');service.output.jobs[job['id']]['expires_at']=time.monotonic()+1;page.wait_for_function('()=>!active && document.querySelector("#caption").textContent===""');assert service.output.jobs[job['id']]['state']=='expired';assert page.evaluate('()=>ProgramOutput.getDiagnostics().lipSyncValue')==0;r['checks']['expiry_stops_audio_caption_lipsync_parameter']=True;f.post('connectors/bili/output/stop',{});close_stage(page)
                 page=open_stage();page.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);page.evaluate('()=>programFaults.dropCompleted=true');page.locator('#enable').click();job=ready_event('completed-response-lost');page.wait_for_function('()=>document.querySelector("#status").textContent==="播放回执未确认"');page.wait_for_timeout(700);assert service.output.jobs[job['id']]['state']=='completed';assert page.locator('#status').inner_text()=='播放回执未确认';assert page.locator('#status').is_visible();assert page.locator('#caption').inner_text()=='';r['checks']['lost_completion_response_stays_unconfirmed']=True;page.screenshot(path=str(a.out/'completed-unconfirmed.png'));f.post('connectors/bili/output/stop',{});close_stage(page)
                 page=open_stage({'sceneDelay':1400});page.locator('#enable').click();f.post('connectors/bili/output/stop',{});page.wait_for_function('()=>document.querySelector("#status").textContent.includes("连接失效")');page.wait_for_timeout(1600);assert page.evaluate('()=>ProgramOutput.snapshot().scene_sha256') is None;assert not page.evaluate('()=>ProgramOutput.getDiagnostics().available');r['checks']['late_warm_scene_cannot_restore_character']=True;close_stage(page)
                 page=open_stage();page.wait_for_function('()=>ProgramOutput.getDiagnostics().mocConsistencyChecked===true',timeout=60000);page.evaluate('()=>programFaults.completedDelay=1500');page.locator('#enable').click();first=ready_event('late-completed-before-next')
