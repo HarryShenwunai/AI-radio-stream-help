@@ -27,6 +27,7 @@ import urllib.request
 import wave
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from typing import NamedTuple
 
 # 1DS may initialize during the first native import, before its disable API.
 # This local application does not opt into telemetry, even with an inherited 0.
@@ -54,12 +55,14 @@ DB_LOCK = threading.RLock()
 DISPATCH_LOCK = threading.RLock()
 LOCAL_LLM = None
 LOCAL_LLM_CONFIG = None
+LOCAL_LLM_IDENTITY = None
 COMPUTE_STATUS = {'requested_backend': 'cpu', 'effective_backend': 'not_loaded', 'gpu_offload_supported': None, 'fallback_reason': None, 'renderer_reserve_mib': 2048}
 MODEL_STATUS = 'not_loaded'
 MODEL_ERROR = ''
 TTS_LOCK = threading.Lock()
 LOCAL_VOICE = None
 G2P = None
+LOCAL_VOICE_IDENTITY = None
 AUTH = secrets.token_urlsafe(32)
 STOP = threading.Event()
 ACTIVE_LOCK = threading.RLock()
@@ -1150,17 +1153,26 @@ def connector_request(action, payload):
     raise AppError('接入操作不存在。', 404)
 
 
+def _local_model_identity():
+    if not MODEL.is_file():raise AppError('尚未安装本地模型。运行「安装本地模型」，或在设置里连接模型 API。',503)
+    stat=MODEL.stat()
+    return (str(MODEL.resolve()),stat.st_dev,stat.st_ino,stat.st_size,stat.st_mtime_ns)
+
+
 def load_model():
-    global LOCAL_LLM,LOCAL_LLM_CONFIG,MODEL_STATUS,MODEL_ERROR
+    # Production callers hold MODEL_LOCK through construction/use. Identity is
+    # stat-based cache invalidation, not protection against same-stat tampering.
+    global LOCAL_LLM,LOCAL_LLM_CONFIG,LOCAL_LLM_IDENTITY,MODEL_STATUS,MODEL_ERROR
     s = runtime_settings.read(DATA)
     signature = tuple(s[k] for k in ('local_compute', 'local_gpu_layers', 'local_context'))
-    if LOCAL_LLM is not None and (LOCAL_LLM_CONFIG is None or LOCAL_LLM_CONFIG == signature):
+    identity=_local_model_identity()
+    if LOCAL_LLM is not None and LOCAL_LLM_CONFIG==signature and LOCAL_LLM_IDENTITY==identity:
         return LOCAL_LLM
     if LOCAL_LLM is not None:
         close = getattr(LOCAL_LLM, 'close', None)
         if close:close()
         LOCAL_LLM = None
-    if not MODEL.exists():raise AppError('尚未安装本地模型。运行「安装本地模型」，或在设置里连接模型 API。',503)
+        LOCAL_LLM_CONFIG=LOCAL_LLM_IDENTITY=None
     try:
         import llama_cpp
         Llama = llama_cpp.Llama
@@ -1187,23 +1199,29 @@ def load_model():
                           requested_gpu_layers=layers, context=s['local_context'])
     args = dict(model_path=str(MODEL), n_ctx=s['local_context'], n_threads=min(4, os.cpu_count() or 2),
                 n_batch=256, n_gpu_layers=layers, verbose=False)
+    candidate=None
     try:
         try:
-            LOCAL_LLM=Llama(**args)
+            candidate=Llama(**args)
         except Exception:
             if not layers:raise
             args['n_gpu_layers'] = 0
-            LOCAL_LLM = Llama(**args)
+            candidate = Llama(**args)
             reason = '显卡模型加载失败，已退回CPU；请检查本机驱动和显存。'
             layers = 0
-        LOCAL_LLM_CONFIG = signature
+        if _local_model_identity()!=identity:raise AppError('模型加载期间文件已改变，请重新准备。',409)
+        LOCAL_LLM,LOCAL_LLM_CONFIG,LOCAL_LLM_IDENTITY=candidate,signature,identity
         COMPUTE_STATUS.update(effective_backend='cuda_requested' if layers else 'cpu', fallback_reason=reason,
                               actual_gpu_allocation_verified=False)
         MODEL_STATUS='ready';MODEL_ERROR=''
         return LOCAL_LLM
-    except Exception:
+    except Exception as error:
+        if candidate is not None:
+            close=getattr(candidate,'close',None)
+            if close:close()
         COMPUTE_STATUS.update(effective_backend='error')
         MODEL_STATUS='error';MODEL_ERROR='模型加载失败，请检查文件、内存和推理组件版本。'
+        if isinstance(error,AppError):raise
         raise AppError(MODEL_ERROR,503)
 
 def select_memories(s,query):
@@ -1710,6 +1728,60 @@ def stop_transcription(payload):
     return {'ok': True, 'invalidated': event is not None}
 
 
+def _local_voice_files():
+    path=VOICE_DIR/'kokoro-v1.0.onnx'
+    voices=VOICE_DIR/'voices-v1.0.bin'
+    if not path.exists() or not voices.exists() or not importlib.util.find_spec('kokoro_onnx'):
+        raise AppError('未安装本地音色，请使用系统中文语音，或安装你有权使用的本地音色。',503)
+    return path, voices
+
+
+def _local_voice_identity(path, voices):
+    result=[]
+    for item in (path,voices):
+        stat=item.stat();result.append((str(item.resolve()),stat.st_dev,stat.st_ino,stat.st_size,stat.st_mtime_ns))
+    return tuple(result)
+
+
+def _initialize_local_voice_locked(path, voices):
+    """Caller holds TTS_LOCK; construct only, publish after both file rechecks."""
+    global LOCAL_VOICE,G2P,LOCAL_VOICE_IDENTITY
+    identity=_local_voice_identity(path,voices)
+    if LOCAL_VOICE is not None and G2P is not None and LOCAL_VOICE_IDENTITY==identity:return True
+    os.environ['ORT_DISABLE_TELEMETRY'] = '1'
+    import onnxruntime
+    onnxruntime.disable_telemetry_events()
+    from kokoro_onnx import Kokoro
+    from misaki import zh
+    voice=Kokoro(str(path),str(voices))
+    g2p=zh.ZHG2P()
+    if _local_voice_identity(path,voices)!=identity:raise AppError('初始化期间音色文件已改变，请重新准备。',409)
+    LOCAL_VOICE,G2P,LOCAL_VOICE_IDENTITY=voice,g2p,identity
+    return False
+
+
+class LocalVoiceResources(NamedTuple):
+    voice: object
+    g2p: object
+    identity: tuple
+    reused: bool
+
+
+def initialize_local_voice(*, with_resources=False):
+    """Explicit Python-only preparation; no route, startup hook or audio output."""
+    if settings()['voice_backend']!='kokoro':raise AppError('只能初始化已选择的本地音色。',409)
+    path, voices = _local_voice_files()
+    if not TTS_LOCK.acquire(False):raise AppError('上一段声音正在合成，请稍后重试。',409)
+    try:
+        reused=_initialize_local_voice_locked(path, voices)
+        if LOCAL_VOICE is None or G2P is None:raise AppError('本地音色初始化未完成。',503)
+        snapshot=LocalVoiceResources(LOCAL_VOICE,G2P,LOCAL_VOICE_IDENTITY,reused)
+        return snapshot if with_resources else {'initialized':True, 'reused':reused}
+    except AppError:raise
+    except Exception:raise AppError('本地音色初始化失败，请检查本机音色。',503)
+    finally:TTS_LOCK.release()
+
+
 def synthesize(text):
     global LOCAL_VOICE,G2P
     if not isinstance(text,str) or not 1<=len(text)<=700:raise AppError('朗读文字需在 700 字以内。')
@@ -1719,20 +1791,10 @@ def synthesize(text):
         config = ExternalTTSConfig(endpoint=s['tts_endpoint'], ref_audio_path=s['tts_reference_audio'],
                     prompt_text=s['tts_prompt_text'], prompt_lang=s['tts_prompt_lang'], text_lang=s['tts_text_lang'])
         return ExternalTTS(config).synthesize(text)
-    path=VOICE_DIR/'kokoro-v1.0.onnx'
-    voices=VOICE_DIR/'voices-v1.0.bin'
-    if not path.exists() or not voices.exists() or not importlib.util.find_spec('kokoro_onnx'):
-        raise AppError('未安装本地音色，请使用系统中文语音，或安装你有权使用的本地音色。',503)
+    path, voices = _local_voice_files()
     if not TTS_LOCK.acquire(False):raise AppError('上一段声音正在合成，请稍后重试。',409)
     try:
-        if LOCAL_VOICE is None:
-            os.environ['ORT_DISABLE_TELEMETRY'] = '1'
-            import onnxruntime
-            onnxruntime.disable_telemetry_events()
-            from kokoro_onnx import Kokoro
-            from misaki import zh
-            LOCAL_VOICE=Kokoro(str(path),str(voices))
-            G2P=zh.ZHG2P()
+        _initialize_local_voice_locked(path, voices)
         output=io.BytesIO()
         phonemes,_=G2P(text)
         samples,sample_rate=LOCAL_VOICE.create(phonemes,voice=s['local_voice'],speed=s['voice_rate'],is_phonemes=True)
